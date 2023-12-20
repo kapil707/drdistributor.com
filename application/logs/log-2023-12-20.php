@@ -2979,3 +2979,74 @@ ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Uploads/manage_slider2
 ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Faviconico/index
 ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Faviconico/index
 ERROR - 2023-12-20 18:19:26 --> Unable to connect to the database
+ERROR - 2023-12-20 18:25:04 --> Unable to connect to the database
+ERROR - 2023-12-20 18:27:27 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:10 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:11 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:11 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:12 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:12 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:12 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:12 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:13 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:13 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:13 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:13 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:14 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:14 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:14 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:14 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:15 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:16 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:17 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:18 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:19 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:20 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:20 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:20 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:20 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:20 --> Query error: Table 'drdistributor.com.tbl_website' doesn't exist - Invalid query: select * from tbl_website where page_type='under_construction'
+ERROR - 2023-12-20 18:29:21 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077161)
+ERROR - 2023-12-20 18:29:21 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077161)
+ERROR - 2023-12-20 18:29:21 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077161)
+ERROR - 2023-12-20 18:29:21 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077161)
+ERROR - 2023-12-20 18:29:22 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077162)
+ERROR - 2023-12-20 18:29:22 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077162)
+ERROR - 2023-12-20 18:29:22 --> Query error: Table 'drdistributor.com.tbl_user_activity_log' doesn't exist - Invalid query: INSERT INTO `tbl_user_activity_log` (`user_type`, `user_altercode`, `salesman_id`, `page_name`, `browser_type`, `browser`, `date`, `time`, `datetime`) VALUES (NULL, NULL, NULL, 'index', 'Web', '', '2023-12-20', '18:29', 1703077162)
+ERROR - 2023-12-20 18:31:18 --> Query error: Table 'drdistributor.com.tbl_medicine_menu' doesn't exist - Invalid query: SELECT *
+FROM `tbl_medicine_menu`
+WHERE `status` = 1
+ORDER BY `short_order` ASC
+ERROR - 2023-12-20 18:32:27 --> Query error: Table 'drdistributor.com.tbl_medicine_menu' doesn't exist - Invalid query: SELECT *
+FROM `tbl_medicine_menu`
+WHERE `status` = 1
+ORDER BY `short_order` ASC

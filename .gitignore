@@ -1,6 +1,5 @@
 .well-known/
-application/config/config.php
-application/config/database.php
+application/config/
 application/logs/
 stg.drdistributor.com/
 upload_invoice/

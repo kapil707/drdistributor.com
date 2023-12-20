@@ -2978,3 +2978,4 @@ ERROR - 2023-12-20 13:19:12 --> 404 Page Not Found: Faviconico/index
 ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Uploads/manage_slider2
 ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Faviconico/index
 ERROR - 2023-12-20 13:19:48 --> 404 Page Not Found: Faviconico/index
+ERROR - 2023-12-20 18:19:26 --> Unable to connect to the database

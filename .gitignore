@@ -1,4 +1,5 @@
 .well-known/
+application/logs/
 stg.drdistributor.com/
 upload_invoice/
 vendor/

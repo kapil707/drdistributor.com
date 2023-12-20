@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Medicine_category extends CI_Controller {	
-	public function index($item_page_type="",$item_code="",$item_division=""){
+	public function featured_brand($item_code="",$item_division=""){
 		////error_reporting(0);
 		//$this->login_check();
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
@@ -13,7 +13,7 @@ class Medicine_category extends CI_Controller {
 		if(empty($_COOKIE['user_session'])){
 			//redirect(base_url()."home");			
 		}
-		$data["item_page_type"] = $item_page_type;
+		$data["item_page_type"] = "featured_brand";//$item_page_type;
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= $item_division;
 

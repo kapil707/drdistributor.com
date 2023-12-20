@@ -84,7 +84,7 @@ $route['myinv/(:any)/(:any)/(:any)'] = 'api3/myinv/$1/$2/$3';
 
 
 $route['medicine_category/(:any)']          = 'medicine_category/index/$1';
-$route['medicine_category/(:any)/(:any)']   = 'medicine_category/index/$1/$2';
+$route['medicine_category/featured_brand/(:any)']   = 'medicine_category/index/$1/$2';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

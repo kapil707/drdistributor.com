@@ -252,7 +252,7 @@ $site_v = 51;
 		<div class="col-xs-12 col-sm-12 col-12 itemcategory_div_<?php echo $row->category_id ?>"> 
 			<div class="featured_home_title wow fadeInDown animated" data-wow-duration="0.4s" data-wow-delay="0.5s">
 				<div class="heading_home">
-					<a href="<?= base_url(); ?>category/medicine_item_wise/<?php echo $row->category_id ?>" title="<?php echo $result["title"] ?>">	
+					<a href="<?= base_url(); ?>category/medicine_item_wise/<?php echo $row->category_id ?>" title="">	
 					<span class="itemcategory_title_<?php echo $row->id ?>">
 						Loading....
 					</span>

@@ -52,7 +52,7 @@ if(!empty($user_altercode)){
 $site_v = 51;
 ?>
 <div class="main_loading_css" style="position: fixed;top: 0;height: 100%;left: 0px;width: 100%;z-index: 9999999999999;margin-top: -152px;">
-<img src="<?= base_url() ?>img_v<?= $site_v ?>/slider_loading.gif" class="top_flash_loading_<?php echo $row->category_id ?>" style="margin-top:150px;width:100%;height:100%">
+<img src="<?= base_url() ?>img_v<?= $site_v ?>/slider_loading.gif" class="top_flash_loading" style="margin-top:150px;width:100%;height:100%">
 </div>
 <div class="container-fluid maincontainercss">
 	<div class="row">
@@ -601,7 +601,7 @@ function home_page_load()
 							}
 						});
 						$("#jssor_"+row.result_category_id).show();
-						$(".top_flash_loading_"+row.result_category_id).hide();
+						$(".top_flash_loading").hide();
 						if(row.result_category_id=="1"){
 							jssor_1_slider_init();
 						}

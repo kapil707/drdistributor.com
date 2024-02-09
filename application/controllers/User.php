@@ -56,7 +56,7 @@ class User extends CI_Controller {
 	
 	public function login() {
 		$data["main_page_title"] = "Login";
-	    $this->load->view('main_page/login', $data);
+	    //$this->load->view('main_page/login', $data);
 	}
 	
 	public function logout(){

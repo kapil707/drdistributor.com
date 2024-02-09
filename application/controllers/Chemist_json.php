@@ -75,7 +75,7 @@ if ($items != '') {
 			$user_altercode = $someArray[$user_altercode];
 			$user_password	= $someArray[$user_password];	
 			setcookie("chemist_id", "", time() + (86400 * 30), "/");
-			$chemist_id  = ""; $_COOKIE["chemist_id"];
+			$chemist_id  = "";
 			$salesman_id = "";
 			if($user_type=="sales")
 			{

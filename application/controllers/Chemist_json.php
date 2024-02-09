@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Chemist_json extends CI_Controller {	

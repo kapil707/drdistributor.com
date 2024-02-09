@@ -51,7 +51,7 @@ if(!empty($user_altercode)){
 }
 ?>
 <div class="main_loading_css" style="position: fixed;top: 0;height: 100%;left: 0px;width: 100%;z-index: 9999999999999;margin-top: -152px;">
-<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/slider_loading.gif" class="top_flash_loading_<?php echo $row->category_id ?>" style="margin-top:150px;width:100%;height:100%">
+<img src="<?= base_url() ?>img_v<?= $site_v ?>/slider_loading.gif" class="top_flash_loading_<?php echo $row->category_id ?>" style="margin-top:150px;width:100%;height:100%">
 </div>
 <div class="container-fluid maincontainercss">
 	<div class="row">
@@ -94,7 +94,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.1s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/search_medicine')?>" style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn1.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn1.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">New order</div>
 					</div>
 				</a>
@@ -103,7 +103,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.3s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/my_cart')?>"  style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn2.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn2.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Draft <span class="mycartwalidiv1"></span></div>
 					</div>
 				</a>
@@ -112,7 +112,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.4s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/my_order')?>" style="color:black" title="My orders">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn3.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn3.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My order</div>
 					</div>
 				</a>
@@ -120,7 +120,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.5s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/my_invoice')?>" style="color:black" title="My invoices">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn4.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn4.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My invoice</div>
 					</div>
 				</a>
@@ -129,7 +129,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.6s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/track_order')?>" style="color:black" title="Track order">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn5.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn5.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Track order</div>
 					</div>
 				</a>
@@ -138,7 +138,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated d-none d-sm-block" data-wow-duration="0.8s" data-wow-delay="0.2s">
 				<a href="<?= base_url('import_order')?>" title="Upload order">
 					<div class="text-center">
-						<img src="<?= base_url()?>img_v<?= constant('site_v') ?>/homebtn6.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url()?>img_v<?= $site_v ?>/homebtn6.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Upload order</div>
 					</div>
 				</a>
@@ -147,7 +147,7 @@ if(!empty($user_altercode)){
 			<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.9s" data-wow-delay="0.2s">
 				<a href="<?= base_url('home/my_notification')?>" title="Notifications">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn7.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/homebtn7.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Notification</div>
 					</div>
 				</a>
@@ -190,7 +190,7 @@ if(!empty($user_altercode)){
 			</div>
 			<div class="row">
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off">
-					<img src="<?php echo base_url(); ?>img_v<?= constant('site_v') ?>/heart.png" width="100%" class="wow fadeInLeft animated" data-wow-duration="0.4s" data-wow-delay="0.5s">
+					<img src="<?php echo base_url(); ?>img_v<?= $site_v ?>/heart.png" width="100%" class="wow fadeInLeft animated" data-wow-duration="0.4s" data-wow-delay="0.5s">
 				</div>
 				<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12">
 					<section class="featured_home" id="featured_home" style="margin-top:50px;">
@@ -332,7 +332,7 @@ if(!empty($user_altercode)){
 					</div>
 				</div>
 				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-12 col-12 wow fadeInRight animated" data-wow-duration="0.4s" data-wow-delay="0.5s">
-					<img src="<?php echo base_url(); ?>img_v<?= constant('site_v') ?>/heart.png" width="100%">
+					<img src="<?php echo base_url(); ?>img_v<?= $site_v ?>/heart.png" width="100%">
 				</div>
 			</div>
 			<?php } else { */?>	
@@ -489,8 +489,8 @@ var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
 function home_page_load()
 {
-	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
-	$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v<?= $site_v ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+	$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v<?= $site_v ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 	id ='';
 	$.ajax({
 		type       : "POST",
@@ -506,7 +506,7 @@ function home_page_load()
 					{
 						if(my_notification_no_record_found=="0")
 						{
-							$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></div>');
+							$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v<?= $site_v ?>/no_record_found.png" width="100%"></center></div>');
 						}
 						else
 						{
@@ -535,7 +535,7 @@ function home_page_load()
 					{
 						if(my_invoice_no_record_found=="0")
 						{
-							$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></div>');
+							$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v<?= $site_v ?>/no_record_found.png" width="100%"></center></div>');
 						}
 						else
 						{
@@ -660,11 +660,11 @@ function home_page_load()
 
 									item_other_image_div = '';
 									if(item_featured=="1" && item_quantity!="0"){
-										item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+										item_other_image_div = '<img src="<?= base_url() ?>img_v<?= $site_v ?>/featured_img.png" class="medicine_cart_item_featured_img">';
 									}
 
 									if(item_quantity==0) {
-										item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+										item_other_image_div = '<img src="<?= base_url() ?>img_v<?= $site_v ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 									}
 
 									margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin*</div>';

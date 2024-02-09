@@ -634,8 +634,7 @@ if ($items != '') {
 		$user_password	= $_COOKIE["user_password"];
 		$chemist_id 	= "";
 		$salesman_id = "";
-		if($user_type=="sales")
-		{
+		if($user_type=="sales") {
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;

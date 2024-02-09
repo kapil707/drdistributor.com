@@ -20,9 +20,11 @@ class Main extends CI_Controller {
 	
 	public function index(){
 		$this->login_check();
-		////error_reporting(0);
+		
+		$site_v = 51;
+		
 		$data["main_page_title"] = "Home";
-		$data["session_user_image"] = base_url()."img_v".constant('site_v')."/logo2.png";
+		$data["session_user_image"] = base_url()."img_v".$site_v."/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";

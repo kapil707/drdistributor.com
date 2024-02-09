@@ -72,12 +72,8 @@ $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 
-// setting route for admin
 $route['home']='Home/index';
 
 
-
-
-$route['myinv/(:any)/(:any)/(:any)'] = 'api3/myinv/$1/$2/$3';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

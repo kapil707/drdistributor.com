@@ -165,10 +165,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -190,10 +191,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -220,10 +222,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -244,10 +247,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -278,9 +282,10 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales"){
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -302,9 +307,10 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales"){
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -334,10 +340,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -398,10 +405,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -422,10 +430,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -443,10 +452,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -466,10 +476,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -515,10 +526,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -536,10 +548,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -590,10 +603,11 @@ if ($items != '') {
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];
 			$user_password	= $_COOKIE["user_password"];
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= "";
 			$salesman_id = "";
 			if($user_type=="sales")
 			{
+				$chemist_id 	= $_COOKIE["chemist_id"];
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;
 			}
@@ -618,10 +632,11 @@ if ($items != '') {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}

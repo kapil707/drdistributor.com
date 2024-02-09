@@ -31,24 +31,6 @@ $isMob = is_numeric(strpos($ua, "mobile"));
 $default_img = base_url()."/uploads/default_img.jpg";
 $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 
-
-$user_type 		= $_COOKIE["user_type"];
-$user_altercode = $_COOKIE["user_altercode"];
-$user_password	= $_COOKIE["user_password"];
-
-$chemist_id 	= $_COOKIE["chemist_id"];
-
-$salesman_id = "";
-if($user_type=="sales")
-{
-	$salesman_id 	= $user_altercode;
-	$user_altercode = $chemist_id;
-}
-
-$session_yes_no = "no";
-if(!empty($user_altercode)){
-	$session_yes_no = "yes";
-}
 $site_v = 51;
 /*?>
 <div class="main_loading_css" style="position: fixed;top: 0;height: 100%;left: 0px;width: 100%;z-index: 9999999999999;margin-top: -152px;">

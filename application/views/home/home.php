@@ -49,6 +49,7 @@ $session_yes_no = "no";
 if(!empty($user_altercode)){
 	$session_yes_no = "yes";
 }
+$site_v = 51;
 ?>
 <div class="main_loading_css" style="position: fixed;top: 0;height: 100%;left: 0px;width: 100%;z-index: 9999999999999;margin-top: -152px;">
 <img src="<?= base_url() ?>img_v<?= $site_v ?>/slider_loading.gif" class="top_flash_loading_<?php echo $row->category_id ?>" style="margin-top:150px;width:100%;height:100%">

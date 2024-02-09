@@ -764,7 +764,6 @@ if ($items != '') {
 		$session_yes_no = "no";
 		if(!empty($user_altercode)){
 			$session_yes_no = "yes";
-		}else{
 			if($user_type=="sales") {
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;

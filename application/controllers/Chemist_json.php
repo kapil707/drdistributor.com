@@ -780,7 +780,7 @@ if ($items != '') {
 		$my_notification = '{"my_notification":'.$my_notification.'}';
 		/****************************************************** */
 		$my_invoice = "[]";
-		if($user_type!="" && $user_altercode!="" && $get_record!="")
+		if(!empty($user_type) && !empty($user_altercode) && !empty($get_record))
 		{
 			$result = $this->InvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$my_invoice  = $result["items"];

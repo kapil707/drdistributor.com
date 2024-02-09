@@ -55,9 +55,9 @@ class Home extends CI_Controller {
 		{
 			redirect(constant('main_site')."logout");
 		}*/
-		if(empty($_COOKIE["user_altercode"])){
+		/*if(empty($_COOKIE["user_altercode"])){
 			redirect(base_url()."login");			
-		}
+		}*/
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction=="1")
 		{

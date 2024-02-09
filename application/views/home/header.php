@@ -20,7 +20,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="canonical" href="https://www.drdistributor.com/" />
 
-
 	<meta name="theme-color" content="#27ae60">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">

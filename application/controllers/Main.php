@@ -29,9 +29,13 @@ class Main extends CI_Controller {
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
 		if(!empty($_COOKIE["user_altercode"])){
-			redirect(constant('main_site')."home");
+			redirect(base_url()."home");
 		} else {
 			setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
+			setcookie("user_type", "", time() + (86400 * 30), "/");
+			setcookie("user_altercode", "", time() + (86400 * 30), "/");
+			setcookie("user_password", "", time() + (86400 * 30), "/");
+			setcookie("chemist_id", "", time() + (86400 * 30), "/");
 		}
 		
 		/********************************************************** */

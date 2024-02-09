@@ -28,7 +28,7 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
-		if($_COOKIE["user_altercode"]!=""){
+		if(!empty($_COOKIE["user_altercode"])){
 			redirect(constant('main_site')."home");
 		} else {
 			setcookie("user_cart_total", "0", time() + (86400 * 30), "/");

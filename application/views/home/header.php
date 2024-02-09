@@ -464,7 +464,7 @@ $website_menu 	= json_decode($website_menu, true);
 							</a>
 						</li>
 						
-						<?php if($_COOKIE['user_session']!=""){ ?>
+						<?php if(!empty($_COOKIE['user_session'])){ ?>
 						<li class="d-none d-sm-block">
 							<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 								<i class="fa fa-sign-out main_icon1" aria-hidden="true"></i>

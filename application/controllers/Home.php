@@ -582,10 +582,12 @@ class Home extends CI_Controller {
 
 		$user_session 	= $_COOKIE['user_session'];
 		$user_type 		= $_COOKIE['user_type'];
-		$chemist_id 	= $_COOKIE['chemist_id'];
+		$chemist_id 	= "";
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE['chemist_id'];
+			$data["chemist_id"] = $chemist_id;
 			if(!empty($chemist_id))
 			{
 				$user_temp_rec = $user_session."_".$user_type."_".$chemist_id;

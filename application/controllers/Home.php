@@ -28,8 +28,6 @@
 $ua = strtolower($_SERVER["HTTP_USER_AGENT"]);
 $isMob = is_numeric(strpos($ua, "mobile"));
 
-$this->load->helper('url');
-
 $default_img = base_url()."/uploads/default_img.jpg";
 $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 

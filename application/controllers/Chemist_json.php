@@ -755,6 +755,7 @@ if ($items != '') {
 	public function home_page_web()
 	{
 		$get_record	 	= "0";//$_REQUEST["get_record"];
+		$user_type 		= $user_altercode = $user_password	= $chemist_id = "";
 		if(!empty($_COOKIE["user_type"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];

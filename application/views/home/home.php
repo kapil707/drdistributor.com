@@ -137,7 +137,9 @@ $site_v = 51;
 			</div>
 		</div>
 
-		<?php if($_COOKIE['user_type']=="chemist") { ?>
+		<?php 
+		if(!empty($_COOKIE['user_type'])){
+		if($_COOKIE['user_type']=="chemist") { ?>
 		<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s">
 			<div class="home_page_new_box_inv_title">
 				<a href="<?= base_url('home/my_invoice')?>" title="My invoice">
@@ -157,7 +159,7 @@ $site_v = 51;
 				<div class="home_page_my_notification"></div>
 			</div>
 		</div>
-	<?php } ?>
+	<?php } }?>
 
 	<?php } ?>
 	

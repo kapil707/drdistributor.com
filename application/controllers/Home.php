@@ -572,6 +572,7 @@ class Home extends CI_Controller {
 		if(!empty($_COOKIE["user_type"]))
 		{
 			$user_type = $_COOKIE['user_type'];
+			$chemist_id = "";
 			if($user_type=="sales")
 			{
 				$chemist_id = $_COOKIE['chemist_id'];

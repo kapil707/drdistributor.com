@@ -1112,7 +1112,7 @@ EOD;
 		}
 		if(($total_rec>$total_rec_local || $total_rec=="all") && $checkbox_company=="1") {
 			$db2 = $this->load->database('default2', TRUE);
-			$db2->select("m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");
+			$db2->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");
 			$where = "(";
 			if($checkbox_medicine=="1"){
 				$where.= "title like '%".$keyword_title."%' or item_name like '%".$keyword_name."%' or title2 like '".$keyword_name."%' or ";

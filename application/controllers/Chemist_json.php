@@ -786,7 +786,7 @@ if ($items != '') {
 			$my_invoice  = $result["items"];
 		}
 		$my_invoice = '{"my_invoice":'.$my_invoice.'}';
-		$items = "";
+		$items = $row_title = $result_row = "";
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;

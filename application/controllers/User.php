@@ -55,8 +55,12 @@ class User extends CI_Controller {
 	}
 	
 	public function login() {
+		$this->session->sess_destroy();
+		if($this->session->userdata('user_session')!=""){
+			redirect('home');
+		}
 		$data["main_page_title"] = "Login";
-	    //$this->load->view('main_page/login', $data);
+	    $this->load->view('main_page/login', $data);
 	}
 	
 	public function logout(){

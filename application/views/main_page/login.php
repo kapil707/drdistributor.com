@@ -403,15 +403,7 @@ function submitbtn()
 						$(".submit_div").html("<p class='text-success'>"+item.user_alert+"</p>");
 						if(item.user_type=="chemist" || item.user_type=="sales")
 						{
-							window.location.href = "<?= constant('main_site');?>home";
-						}
-						/*if(item.user_type=="sales")
-						{
-							window.location.href = "<?= constant('img_url_site');?>home/insert_login/"+user_name1+"/"+password1;
-						}*/
-						if(item.user_type=="corporate")
-						{
-							window.location.href = "<?= constant('img_url_site');?>corporate/insert_login/"+user_name1+"/"+password1;
+							window.location.href = "<?= base_url();?>home";
 						}
 					}else{
 						swal(item.user_alert);

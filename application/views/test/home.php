@@ -58,7 +58,7 @@ if(!empty($user_altercode)){
 	<div class="row">
 		<div class="col-sm-12 text-center">
 			<div class="myloading">
-				<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px">
+				<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px">
 				<br>
 				Loading....
 			</div>
@@ -125,7 +125,7 @@ function home_page_divisioncategory(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v<?= constant('site_v') ?>/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }
@@ -161,8 +161,8 @@ var query_work = 0;
 function home_page_load(myid)
 {
 	$('.myloading').show();
-	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
-	$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+	$(".home_page_my_invoice").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 
 	query_work = 1;
 	//alert(id);

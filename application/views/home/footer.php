@@ -21,14 +21,14 @@ wow.init();
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
-				<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/drphone.png" class="img-fluid" style="margin-top: 5px;" alt>
+				<img src="<?= base_url() ?>img_v51/drphone.png" class="img-fluid" style="margin-top: 5px;" alt>
 			</div>
 			<div class="col-sm-10 text-center download_app_div">
 				Download the App for Free
 				<div style="width:250px;margin:auto;margin-top:50px;">
 					<div class="google_play">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en_IN" target="_blank">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/playstrore.png" alt="Google Play" style="width:35px;"> Google Play
+						<img src="<?= base_url() ?>img_v51/playstrore.png" alt="Google Play" style="width:35px;"> Google Play
 						</a>
 					</div>
 				</div>
@@ -42,7 +42,7 @@ wow.init();
 			<div class="col-sm-4">
 				<div class="text-center footer_copy">
 					<div class="text-center" style="margin-top:15px;">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logo4.png" class="img-fluid" style="margin-top: 5px;" alt width="100px;">
+						<img src="<?= base_url() ?>img_v51/logo4.png" class="img-fluid" style="margin-top: 5px;" alt width="100px;">
 					</div>
 					<div class="text-center" style="margin-top:15px;">
 						<strong><?= $this->Scheme_Model->get_website_data("title2") ;?></strong>
@@ -57,10 +57,10 @@ wow.init();
 				<ul class="follow-footer-ul">
 					<li class="footer_li_title"></li><ul>
 					<li class="footer_li_title text-capitalize">Follow Us</li>
-					<li class=""><img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/insta.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/fb.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/youtube.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/twitter.svg"></li>
+					<li class=""><img src="<?= base_url() ?>img_v51/insta.svg"></li>
+					<li class=""><img src="<?= base_url() ?>img_v51/fb.svg"></li>
+					<li class=""><img src="<?= base_url() ?>img_v51/youtube.svg"></li>
+					<li class=""><img src="<?= base_url() ?>img_v51/twitter.svg"></li>
 				<ul>
 				<ul class="bottom-footer-ul">
 					<li><i class="fa fa-envelope" aria-hidden="true"></i><?= $this->Scheme_Model->get_website_data("android_email") ;?></li>

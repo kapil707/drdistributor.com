@@ -21,8 +21,8 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 text-right" style="margin-bottom:5px;display:none;">
-					<img src="<?= base_url() ?>/img_v<?= constant('site_v') ?>/sortline.png" width="25px;" onclick="show_sorting_div();" class="showbtn" alt>
-					<img src="<?= base_url() ?>/img_v<?= constant('site_v') ?>/sortline.png" width="25px;" onclick="hide_sorting_div();" class="showbtn1" style="display:none;" alt>
+					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="show_sorting_div();" class="showbtn" alt>
+					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="hide_sorting_div();" class="showbtn1" style="display:none;" alt>
 				</div>
 				<div class="col-sm-12 sorting_div text-right" style="margin-bottom:5px;display:none;">
 					<span class="sort_atoz" onclick="sort_atoz();">Name A to Z |</span>
@@ -71,7 +71,7 @@ function call_page(get_record)
 	{
 		query_work = 1;
 		$(".load_more").hide();
-		$(".load_page_loading").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+		$(".load_page_loading").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 		$.ajax({
 			type       : "POST",
 			data       :  { item_page_type:'<?= $item_page_type; ?>',item_code:'<?= $item_code; ?>',item_division:'<?= $item_division; ?>',get_record:get_record} ,
@@ -79,7 +79,7 @@ function call_page(get_record)
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");
-				$(".load_page").html('<div><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></div>');
+				$(".load_page").html('<div><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></div>');
 			},
 			success    : function(data){
 				if(data.get_result=="")
@@ -87,7 +87,7 @@ function call_page(get_record)
 					if(no_record_found=="0")
 					{
 						$(".load_page_loading").html("");
-						$(".load_page").html('<div><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></div>');
+						$(".load_page").html('<div><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></div>');
 					}
 					else
 					{
@@ -135,12 +135,12 @@ function call_page(get_record)
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							item_quantity_div = '<span class="medicine_cart_item_out_of_stock">Out of stock</span>';
 							if(item_quantity=="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							} 
 							else 
 							{

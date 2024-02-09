@@ -145,7 +145,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/search_medicine')?>" style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn1.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn1.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">New order</div>
 					</div>
 				</a>
@@ -154,7 +154,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_cart')?>"  style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn2.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn2.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Draft <span class="mycartwalidiv1"></span></div>
 					</div>
 				</a>
@@ -163,7 +163,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_order')?>" style="color:black" title="My orders">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn3.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn3.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My order</div>
 					</div>
 				</a>
@@ -172,7 +172,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_invoice')?>" style="color:black" title="My invoices">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn4.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn4.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My invoice</div>
 					</div>
 				</a>
@@ -181,7 +181,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/track_order')?>" style="color:black" title="Track order">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn5.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn5.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Track order</div>
 					</div>
 				</a>
@@ -190,7 +190,7 @@
 			<div class="home_menu_main_div mobile_off">
 				<a href="<?= base_url('import_order')?>" title="Upload order">
 					<div class="text-center">
-						<img src="<?= base_url()?>img_v<?= constant('site_v') ?>/homebtn6.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url()?>img_v51/homebtn6.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Upload order</div>
 					</div>
 				</a>
@@ -199,7 +199,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_notification')?>" title="Notifications">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn7.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn7.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Notification</div>
 					</div>
 				</a>
@@ -843,8 +843,8 @@ var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
 function home_page_load()
 {
-	$(".home_page_my_notification").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
-	$(".home_page_my_invoice").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".home_page_my_notification").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".home_page_my_invoice").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	id ='';
 	$.ajax({
 		type       : "POST",
@@ -915,7 +915,7 @@ function home_page_load()
 					{
 						if(my_notification_no_record_found=="0")
 						{
-							$(".home_page_my_notification").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+							$(".home_page_my_notification").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 						}
 						else
 						{
@@ -946,7 +946,7 @@ function home_page_load()
 					{
 						if(my_invoice_no_record_found=="0")
 						{
-							$(".home_page_my_invoice").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+							$(".home_page_my_invoice").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 						}
 						else
 						{
@@ -1023,11 +1023,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';
@@ -1073,11 +1073,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';
@@ -1122,11 +1122,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';
@@ -1171,11 +1171,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';
@@ -1220,11 +1220,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';
@@ -1269,11 +1269,11 @@ function home_page_load()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							if(item_quantity==0) {
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							}
 
 							margin_div = '<div class="medicine_cart_item_margin">'+item_margin+'% Margin</div>';

@@ -101,13 +101,13 @@ function goBack() {
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
 			<div class="website_box_part search_page_main_div favourite_medicines_search_pg_div">
-				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
+				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
 			</div>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
 			<div class="website_box_part search_page_main_div medicine_cart_list_div">
-				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
+				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
 			</div>
 		</div>
 	</div>
@@ -336,7 +336,7 @@ function medicine_search_api()
 			
 			$(".background_blur").show();
 			$(".search_medicine_result").show();
-			$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></h1><h1>Loading....</h1></div></div>');
+			$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></h1><h1>Loading....</h1></div></div>');
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 			type       : "POST",
@@ -345,13 +345,13 @@ function medicine_search_api()
 			url        : "<?php echo base_url(); ?>Web_api/medicine_search_api",
 			cache	   : true,
 			error: function(){
-				$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+				$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 				$(".header_result_found").html("No record found");
 			},
 			success    : function(data){
 				if(data.items=="")
 				{
-					$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></h1></div></div>');
+					$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></h1></div></div>');
 					$(".header_result_found").html("No record found");
 				}
 				else
@@ -394,12 +394,12 @@ function medicine_search_api()
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 
 							item_quantity_div = '<span class="medicine_cart_item_out_of_stock">Out of stock</span>';
 							if(item_quantity=="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							} 
 							else 
 							{
@@ -443,7 +443,7 @@ function medicine_search_api()
 function medicine_cart_list()
 {
 	$(".header_result_found").html("Loading....");
-	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	id = "";
 	$.ajax({
 		url: "<?php echo base_url(); ?>Chemist_json/my_cart_api_test",
@@ -451,12 +451,12 @@ function medicine_cart_list()
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".medicine_cart_list_div").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+			$(".medicine_cart_list_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success: function(data){
 			if(data.items=="")
 			{
-				$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/cartempty.png" width="80%"></center></h1>');
+				$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/cartempty.png" width="80%"></center></h1>');
 				$(".delete_all_btn").hide();
 			}
 			else
@@ -497,7 +497,7 @@ function medicine_cart_list()
 
 					item_other_image_div = '';
 					if(item_featured=="1"){
-						item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+						item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 					}
 					
 					image_div = item_other_image_div+'<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" onclick="medicine_details_funcation('+item_code+')" '+error_img+'>';
@@ -642,7 +642,7 @@ function favourite_medicines_search_pg()
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".favourite_medicines_search_pg_div").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+			$(".favourite_medicines_search_pg_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success: function(data){
 			if(data.items=="")

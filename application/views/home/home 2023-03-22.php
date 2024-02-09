@@ -110,7 +110,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/search_medicine')?>" style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn1.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn1.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">New order</div>
 					</div>
 				</a>
@@ -119,7 +119,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_cart')?>"  style="color:black">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn2.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn2.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Draft <span class="mycartwalidiv1"></span></div>
 					</div>
 				</a>
@@ -128,7 +128,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_order')?>" style="color:black" title="My orders">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn3.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn3.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My order</div>
 					</div>
 				</a>
@@ -137,7 +137,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_invoice')?>" style="color:black" title="My invoices">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn4.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn4.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">My invoice</div>
 					</div>
 				</a>
@@ -146,7 +146,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/track_order')?>" style="color:black" title="Track order">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn5.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn5.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Track order</div>
 					</div>
 				</a>
@@ -155,7 +155,7 @@
 			<div class="home_menu_main_div mobile_off">
 				<a href="<?= base_url('import_order')?>" title="Upload order">
 					<div class="text-center">
-						<img src="<?= base_url()?>img_v<?= constant('site_v') ?>/homebtn6.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url()?>img_v51/homebtn6.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Upload order</div>
 					</div>
 				</a>
@@ -164,7 +164,7 @@
 			<div class="home_menu_main_div">
 				<a href="<?= base_url('home/my_notification')?>" title="Notifications">
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homebtn7.png" class="img-fluid img-responsive" alt>
+						<img src="<?= base_url() ?>img_v51/homebtn7.png" class="img-fluid img-responsive" alt>
 						<div class="home_menu_main_btn">Notification</div>
 					</div>
 				</a>
@@ -820,14 +820,14 @@ function my_invoice_api(get_record)
 			url        : "<?php echo base_url(); ?>Chemist_json/my_invoice_api",
 			cache	   : false,
 			error: function(){
-				$(".load_page_inv").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+				$(".load_page_inv").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
 				if(data.items=="")
 				{
 					if(no_record_found=="0")
 					{
-						$(".load_page_inv").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+						$(".load_page_inv").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 					}
 					else
 					{
@@ -881,14 +881,14 @@ function my_notification_api(get_record)
 			url        : "<?php echo base_url(); ?>Chemist_json/my_notification_api",
 			cache	   : false,
 			error: function(){
-				$(".load_page_noti").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+				$(".load_page_noti").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
 				if(data.items=="")
 				{
 					if(no_record_found=="0")
 					{
-						$(".load_page_noti").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+						$(".load_page_noti").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 					}
 					else
 					{

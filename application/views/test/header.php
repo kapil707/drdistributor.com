@@ -265,9 +265,9 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	</style>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/website/css/style<?= constant('site_v') ?>.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/website/css/style51.css" rel="stylesheet" type="text/css"/>
 
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" <link href="favicon.ico"/>
+	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" <link href="favicon.ico"/>
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -408,7 +408,7 @@ $website_menu 	= json_decode($website_menu, true);
 							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
 						</a>
 						<a href="javascript:new_style_menu_show()" class="menubtn1" style="color:white;" title="Drd Menu">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
+							<img src="<?= base_url() ?>img_v51/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
 						</a>
 					</div>
 					<div class="" style="float:left; margin-left:5px;width: inherit;">
@@ -544,18 +544,18 @@ $website_menu 	= json_decode($website_menu, true);
 				</div>
 
 				<div class="col-sm-3 col-3 current_order_cart_page account_page_header" style="margin-top:10px;display:none;">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" style="display:none" alt="<?= $title;?>">
+	<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
 	<div class="left_menu_bar">
 		<div class="left_menu_bar_part1">
 			<div class="row">
 				<div class="col-sm-2 col-4">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 				<div class="col-sm-8 col-6">
 					<div class="left_menu_bar_accoun_chemist_name">
@@ -618,35 +618,35 @@ $website_menu 	= json_decode($website_menu, true);
 
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
 							Pending Order
 						</a>
 					</li>
 
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
 							All Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
 							Pickedby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
 							Deliverby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
 							Delivery Report
 						</a>
 					</li>
@@ -1187,7 +1187,7 @@ function medicine_add_to_cart_api()
 
 								item_other_image_div = '';
 								if(item_featured=="1"){
-									item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img" alt="featured">';
+									item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img" alt="featured">';
 								}
 								
 								image_div = item_other_image_div+'<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" onclick="medicine_details_funcation('+item_code+')" '+error_img+' alt="'+item_name+'">';
@@ -1267,7 +1267,7 @@ function medicine_add_to_cart_api()
 			<div class="medicine_details_item_date_time" style="">Loading....</div>
 			<div class="medicine_details_api_loading text-center" style="display:none">
 				<div>
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px" alt="loading">
+					<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="loading">
 				</div>
 				<div>Loading....</div>
 			</div>
@@ -1280,9 +1280,9 @@ function medicine_add_to_cart_api()
 						</a>
 					</div>
 					
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 

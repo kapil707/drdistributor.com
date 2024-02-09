@@ -243,8 +243,8 @@ if (isset($_COOKIE["theme_type"])) {
 	<script src="<?= base_url(); ?>assets/website/js/bigSlide.js"></script> 
 
 
-	<link href="<?= base_url(); ?>assets/website/css/style<?= constant('site_v') ?>.css" rel="stylesheet" type="text/css"/>
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" type="image/logo" sizes="16x16">
+	<link href="<?= base_url(); ?>assets/website/css/style51.css" rel="stylesheet" type="text/css"/>
+	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
@@ -256,7 +256,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="col-md-6">						
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logo.png" width="60px" alt>
+						<img src="<?= base_url() ?>img_v51/logo.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
@@ -275,14 +275,14 @@ if (isset($_COOKIE["theme_type"])) {
 				<h4 class="text-center">Chemist code</h4>
 				<div class="form-row">
 					<div class="form-group col">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/my_account1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
+						<img src="<?= base_url() ?>img_v51/my_account1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Chemist code(e.g. A125)" required="" name="user_name1" id="user_name1" title="Chemist code(e.g. A125)">
 					</div>
 				</div>
 				<h4 class="text-center">Mobile number</h4>
 				<div class="form-row" style="margin-top:15px;">
 					<div class="form-group col">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
+						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">
 					</div>
 				</div>

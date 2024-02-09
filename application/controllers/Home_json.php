@@ -61,17 +61,17 @@ class Home_json extends CI_Controller {
 						<p class="text-center">
 						<img src="<?= $row["image"]; ?>" class="part_div_img_02" style="margin-bottom: 20px;" title="<?= ($row["item_name"]); ?> (<?= $row["packing"]; ?> Packing)" alt>
 						<?php if($row["featured"]==1 && $row["batchqty"]!=0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featuredicon.png" class="home_page_featurediconcss" alt>
+						<img src="<?= base_url() ?>img_v51/featuredicon.png" class="home_page_featurediconcss" alt>
 						<?php } ?>
 						<?php if($row["batchqty"]==0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/outofstockicon.png" class="home_page_outofstockiconcss" alt>
+						<img src="<?= base_url() ?>img_v51/outofstockicon.png" class="home_page_outofstockiconcss" alt>
 						<?php } ?>
 						</center>
 						<div class="home_page_title"><?= ($row["item_name"]); ?> 
 						<span class="home_page_packing">(<?= $row["packing"]; ?> Packing)</span>
 						</div>
 						<div class="home_page_margin_icon">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/ribbonicon1.png" style="" alt>
+							<img src="<?= base_url() ?>img_v51/ribbonicon1.png" style="" alt>
 						</div>
 						<div class="home_page_margin"><?= ($row["margin"]); ?> % Margin
 						</div>
@@ -115,16 +115,16 @@ class Home_json extends CI_Controller {
 						<p class="text-center">
 						<img src="<?= $row["image"]; ?>" class="part_div_img_02" style="margin-bottom: 20px;" title="<?= ($row["item_name"]); ?> (<?= $row["packing"]; ?> Packing)" alt>
 						<?php if($row["featured"]==1 && $row["batchqty"]!=0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featuredicon.png" class="home_page_featurediconcss" alt>
+						<img src="<?= base_url() ?>img_v51/featuredicon.png" class="home_page_featurediconcss" alt>
 						<?php } ?>
 						<?php if($row["batchqty"]==0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/outofstockicon.png" class="home_page_outofstockiconcss" alt>
+						<img src="<?= base_url() ?>img_v51/outofstockicon.png" class="home_page_outofstockiconcss" alt>
 						<?php } ?>
 						</center>
 						<div class="home_page_title"><?= ($row["item_name"]); ?> <span class="home_page_packing">(<?= $row["packing"]; ?> Packing)</span>
 						</div>
 						<div class="home_page_margin_icon">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/ribbonicon1.png" style="" alt>
+							<img src="<?= base_url() ?>img_v51/ribbonicon1.png" style="" alt>
 						</div>
 						<div class="home_page_margin"><?= ($row["margin"]); ?> % Margin
 						</div>
@@ -168,16 +168,16 @@ class Home_json extends CI_Controller {
 						<p class="text-center">
 						<img src="<?= $row["image"]; ?>" class="part_div_img_02" style="margin-bottom: 20px;" title="<?= ($row["item_name"]); ?> (<?= $row["packing"]; ?> Packing)" alt>
 						<?php if($row["featured"]==1 && $row["batchqty"]!=0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featuredicon.png" class="home_page_featurediconcss" alt>
+						<img src="<?= base_url() ?>img_v51/featuredicon.png" class="home_page_featurediconcss" alt>
 						<?php } ?>
 						<?php if($row["batchqty"]==0) {?>
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/outofstockicon.png" class="home_page_outofstockiconcss" alt>
+						<img src="<?= base_url() ?>img_v51/outofstockicon.png" class="home_page_outofstockiconcss" alt>
 						<?php } ?>
 						</center>
 						<div class="home_page_title"><?= ($row["item_name"]); ?> <span class="home_page_packing">(<?= $row["packing"]; ?> Packing)</span>
 						</div>
 						<div class="home_page_margin_icon">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/ribbonicon1.png" style="" alt>
+							<img src="<?= base_url() ?>img_v51/ribbonicon1.png" style="" alt>
 						</div>
 						<div class="home_page_margin"><?= ($row["margin"]); ?> % Margin
 						</div>
@@ -221,16 +221,16 @@ class Home_json extends CI_Controller {
 							<p class="text-center">
 							<img src="<?= $row["image"]; ?>" class="part_div_img_02" style="margin-bottom: 20px;" title="<?= ($row["item_name"]); ?> (<?= $row["packing"]; ?> Packing)" alt>
 							<?php if($row["featured"]==1 && $row["batchqty"]!=0) {?>
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featuredicon.png" class="home_page_featurediconcss" alt>
+							<img src="<?= base_url() ?>img_v51/featuredicon.png" class="home_page_featurediconcss" alt>
 							<?php } ?>
 							<?php if($row["batchqty"]==0) {?>
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/outofstockicon.png" class="home_page_outofstockiconcss" alt>
+							<img src="<?= base_url() ?>img_v51/outofstockicon.png" class="home_page_outofstockiconcss" alt>
 							<?php } ?>
 							</center>
 							<div class="home_page_title"><?= ($row["item_name"]); ?> <span class="home_page_packing">(<?= $row["packing"]; ?> Packing)</span>
 							</div>
 							<div class="home_page_margin_icon">
-								<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/ribbonicon1.png" style="" alt>
+								<img src="<?= base_url() ?>img_v51/ribbonicon1.png" style="" alt>
 							</div>
 							<div class="home_page_margin"><?= ($row["margin"]); ?> % Margin
 							</div>

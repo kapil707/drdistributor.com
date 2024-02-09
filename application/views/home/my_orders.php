@@ -50,19 +50,19 @@ function call_page(lastid1)
 	user_type 		= "<?php echo $_SESSION['user_type']; ?>";
 	user_altercode 	= "<?php echo $_SESSION['user_altercode']; ?>";
 	$(".load_more").hide();
-	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
 		data       :  { lastid1:lastid1,user_type:user_type,user_altercode:user_altercode} ,
 		url        : "<?php echo base_url(); ?>Chemist_json/my_orders_api",
 		cache	   : false,
 		error: function(){
-			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+				$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 			}
 			else
 			{

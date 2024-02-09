@@ -106,14 +106,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	</style>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/website/css/style<?= constant('site_v') ?>.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/website/css/style51.css" rel="stylesheet" type="text/css"/>
 	<script>
 		/*function goBack() {
 			window.history.back();
 		}*/
 	</script>
 
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" type="image/logo" sizes="16x16">
+	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16">
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
@@ -176,12 +176,12 @@ $website_menu 	= file_get_contents('./json_api/website_menu_json_new.json');
 $website_menu 	= '['.$website_menu.']';
 $website_menu 	= json_decode($website_menu, true);
 ?>
-	<img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" style="display:none" alt="Dr. Distributor" title="Dr. Distributor">
+	<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="Dr. Distributor" title="Dr. Distributor">
 	<div class="left_menu_bar">
 		<div class="left_menu_bar_part1">
 			<div class="row">
 				<div class="col-sm-3 col-3">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 				<div class="col-sm-7 col-7">
 					<div class="left_menu_bar_accoun_chemist_name">
@@ -199,7 +199,7 @@ $website_menu 	= json_decode($website_menu, true);
 					</div>
 				</div>
 				<div class="col-sm-2 col-2 text-left">
-					<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/cancelbtn.png" width="40" onclick="new_style_menu_hide()" title="Cancel menu" alt="Cancel menu">
+					<img src="<?= base_url() ?>img_v51/cancelbtn.png" width="40" onclick="new_style_menu_hide()" title="Cancel menu" alt="Cancel menu">
 				</div>
 			</div>
 		</div>
@@ -209,25 +209,25 @@ $website_menu 	= json_decode($website_menu, true);
 				<ul>
 					<li>
 						<a href="<?= base_url('home/account')?>" title="Account">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/my_account.png" width="20" alt="Account" title="Account">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/my_account.png" width="20" alt="Account" title="Account">
 							Account
 						</a>
 					</li>
 					<li>
 						<a href="<?= base_url('home/change_account')?>" title="Update account">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/edit_icon_w.png" width="20" alt="Update account" title="Update account">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/edit_icon_w.png" width="20" alt="Update account" title="Update account">
 							Update account
 						</a>
 					</li>
 					<li>
 						<a href="<?= base_url('home/change_image')?>" title="Update image">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/photo1_w.png" width="20" alt="Update image" title="Update image">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/photo1_w.png" width="20" alt="Update image" title="Update image">
 							Update image
 						</a>
 					</li>
 					<li>
 						<a href="<?= base_url('home/change_password')?>" title="Update password">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/lock.png" width="20" alt="Update password" title="Update password">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/lock.png" width="20" alt="Update password" title="Update password">
 							Update password
 						</a>
 					</li>
@@ -247,35 +247,35 @@ $website_menu 	= json_decode($website_menu, true);
 
 					<li>
 						<a href="http://49.205.182.192:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="All Invoice" title="Pending Order">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="Pending Order">
 							Pending Order
 						</a>
 					</li>
 
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
 							All Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
 							Pickedby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
 							Deliverby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
 							Delivery Report
 						</a>
 					</li>
@@ -283,45 +283,45 @@ $website_menu 	= json_decode($website_menu, true);
 					<div class="text-left" style="margin-left:10px;margin-top:10px; border-top: 1px solid #f3f3f3;">Others</div>
 					<li>
 						<a href="tel:+919899133989" title="Contact us">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/phone.png" width="20" alt="Contacts" title="Contact us">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/phone.png" width="20" alt="Contacts" title="Contact us">
 							Contact us
 						</a>
 					</li>
 					<li title="Email">
 						<a href="mailto:vipul@drdindia.com" title="Email">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/email.png" width="20" alt="Email" title="Email">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/email.png" width="20" alt="Email" title="Email">
 							Email
 						</a>
 					</li>
 					<li title="Privacy policy">
 						<a href="<?= base_url('user/privacy_policy')?>" title="Privacy policy">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/privacy_policy.png" width="20"  alt="Privacy policy" title="Privacy policy">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20"  alt="Privacy policy" title="Privacy policy">
 							Privacy policy
 						</a>
 					</li>
 					<li title="Share App">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/share.png" width="20" alt="Share App" title="Share App">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/share.png" width="20" alt="Share App" title="Share App">
 							Share App
 						</a>
 					</li>
 					<li title="Download App">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/playstrore.png" width="20" alt="Download App" title="Download App">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/playstrore.png" width="20" alt="Download App" title="Download App">
 							Download App
 						</a>
 					</li>
 					<?php if(!empty($_COOKIE['user_session'])){ ?>
 					<li title="Logout">
 						<a href="<?= base_url('logout')?>" title="Logout">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logout.png" width="20"  alt="Logout" title="Logout">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/logout.png" width="20"  alt="Logout" title="Logout">
 							Logout
 						</a>
 					</li>
 					<?php } else { ?>
 					<li title="Login">
 						<a href="<?= base_url('login')?>" title="Login">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= constant('site_v') ?>/my_account.png" width="20"  alt="Login" title="Login">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/my_account.png" width="20"  alt="Login" title="Login">
 							Login
 						</a>
 					</li>
@@ -338,10 +338,10 @@ $website_menu 	= json_decode($website_menu, true);
 				<div class="col-sm-3 col-12">
 					<span style="float:left; margin-right:10px;">
 						<a href="javascript:goBack()" class="menubtn2" title="Go Back">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/back_button.png" width="30px;" style="margin-top: 5px;" alt="Go Back" title="Go back">
+							<img src="<?= base_url() ?>img_v51/back_button.png" width="30px;" style="margin-top: 5px;" alt="Go Back" title="Go back">
 						</a>
 						<a href="javascript:new_style_menu_show()" class="menubtn1" style="color:white;" title="Drd Menu">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logo2.png" width="40px;" alt="Dr. Distributor" title="Dr. Distributor">
+							<img src="<?= base_url() ?>img_v51/logo2.png" width="40px;" alt="Dr. Distributor" title="Dr. Distributor">
 						</a>
 					</span>
 
@@ -356,14 +356,14 @@ $website_menu 	= json_decode($website_menu, true);
 
 					<span class="mobile_show">
 						<a href="<?= base_url(); ?>home/my_cart" class="top_menu_small_btn top_menu_cart_div" title="Cart" style="float:right">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/cart.png" width="28px;" alt="Cart" title="Cart">
+							<img src="<?= base_url() ?>img_v51/cart.png" width="28px;" alt="Cart" title="Cart">
 							<span class="header_cart_span" style="">
 								<?= $_COOKIE["user_cart_total"]; ?>
 							</span>
 						</a>
 
 						<a href="#" onclick="delete_all_medicine()" class="top_menu_small_btn delete_btn_icon" title="Delete All" style="float:right">
-							<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/delete_icon_w.png" width="28px;" alt="Delete All" title="Delete All">
+							<img src="<?= base_url() ?>img_v51/delete_icon_w.png" width="28px;" alt="Delete All" title="Delete All">
 						</a>
 					</span>
 				</div>
@@ -372,41 +372,41 @@ $website_menu 	= json_decode($website_menu, true);
 				<div class="col-sm-6">
 
 					<a href="<?= base_url(); ?>home/search_medicine" title="Search medicine / company" class="home_page_search_div">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homepgsearch.png" width="25px;" class="search_icon1" alt="Search medicine / company" title="Search medicine / company">Search medicine / company 
+						<img src="<?= base_url() ?>img_v51/homepgsearch.png" width="25px;" class="search_icon1" alt="Search medicine / company" title="Search medicine / company">Search medicine / company 
 					</a>
 					
 					<div class="home_page_search_div_box">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homepgsearch.png" width="25px;" class="search_icon" alt="Search medicine / company" title="Search medicine / company">
+						<img src="<?= base_url() ?>img_v51/homepgsearch.png" width="25px;" class="search_icon" alt="Search medicine / company" title="Search medicine / company">
 						<input type="text" class="select_medicine search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1">
 						<input type="text" class="select_chemist search_textbox input_type_text" placeholder="Search chemist"  tabindex="1" />
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/cancelbtn1.png" width="25px;" class="clear_search_icon" onclick="clear_search_icon()" alt="Clear" title="Clear">
+						<img src="<?= base_url() ?>img_v51/cancelbtn1.png" width="25px;" class="clear_search_icon" onclick="clear_search_icon()" alt="Clear" title="Clear">
 					</div>
 					<div class="search_medicine_result"></div>
 				</div>
 
 				<div class="col-sm-3 mobile_off text-right" style="margin-top:5px;">	
 					<a href="<?= base_url() ?>home" class="top_menu_small_btn main_home_top_btn" title="Home">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/homelcon.png" width="28px;" alt="Home" title="Home">
+						<img src="<?= base_url() ?>img_v51/homelcon.png" width="28px;" alt="Home" title="Home">
 					</a>
 
 					<a href="<?= base_url(); ?>home/my_cart" class="top_menu_small_btn top_menu_cart_div" title="Cart">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/cart.png" width="28px;" alt="Cart" title="Cart">
+						<img src="<?= base_url() ?>img_v51/cart.png" width="28px;" alt="Cart" title="Cart">
 						<span class="header_cart_span" style="">
 							<?= $_COOKIE["user_cart_total"]; ?>
 						</span>
 					</a>
 
 					<a href="<?= base_url() ?>home/my_notification" class="top_menu_small_btn mobile_off" title="Notification">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/notification_w.png" width="28px" class="cssnotification" alt="Notification" title="Notification">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/notification_w1.png" width="28px" style="display:none;" class="cssnotification1" alt="Notification" title="Notification">
+						<img src="<?= base_url() ?>img_v51/notification_w.png" width="28px" class="cssnotification" alt="Notification" title="Notification">
+						<img src="<?= base_url() ?>img_v51/notification_w1.png" width="28px" style="display:none;" class="cssnotification1" alt="Notification" title="Notification">
 					</a>
 
 					<a href="<?= base_url() ?>home/account" class="top_menu_small_btn mobile_off">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/my_account.png" width="28px;" alt="Account" title="Account">
+						<img src="<?= base_url() ?>img_v51/my_account.png" width="28px;" alt="Account" title="Account">
 					</a>
 					<?php if($_COOKIE['user_session']!=""){ ?>
 					<a href="<?= base_url('logout')?>" class="top_menu_small_btn mobile_off" title="Logout">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logout.png" width="28px;" alt="Logout" title="Logout">
+						<img src="<?= base_url() ?>img_v51/logout.png" width="28px;" alt="Logout" title="Logout">
 					</a>
 					<?php } ?>
 				</div>
@@ -445,7 +445,7 @@ $website_menu 	= json_decode($website_menu, true);
 				</div>
 
 				<div class="col-sm-3 col-3 current_order_cart_page account_page_header" style="margin-top:10px;display:none;">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 			</div>
 		</div>
@@ -842,7 +842,7 @@ function medicine_add_to_cart_api()
 			<div class="medicine_details_item_date_time" style="">Loading....</div>
 			<div class="medicine_details_api_loading text-center" style="display:none">
 				<h1>
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px" alt="">
+					<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="">
 				</h1>
 				<h1>Loading....</h1>
 			</div>
@@ -851,9 +851,9 @@ function medicine_add_to_cart_api()
 
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;" alt="" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;" alt="" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;" alt="" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;" alt="" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 

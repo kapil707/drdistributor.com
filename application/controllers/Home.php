@@ -1,9 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('memory_limit','-1');
-ini_set('post_max_size','500M');
-ini_set('upload_max_filesize','500M');
-ini_set('max_execution_time',36000);
 class Home extends CI_Controller {
 	public function salesman_chemist_add($chemist_id="",$next_page="")
 	{
@@ -154,10 +150,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -194,10 +191,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -228,10 +226,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -262,10 +261,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -304,10 +304,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -352,10 +353,11 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -392,7 +394,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -438,7 +440,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -536,7 +538,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -598,7 +600,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 
 		$salesman_id = "";
 		if($user_type=="sales")
@@ -672,7 +674,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -753,7 +755,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -819,7 +821,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -855,7 +857,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -896,7 +898,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -930,7 +932,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -970,7 +972,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -1006,7 +1008,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -1043,7 +1045,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
@@ -1079,7 +1081,7 @@ class Home extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{

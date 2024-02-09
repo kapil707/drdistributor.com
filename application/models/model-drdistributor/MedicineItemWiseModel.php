@@ -50,7 +50,7 @@ class MedicineItemWiseModel extends CI_Model
 				$item_featured 		= 	$row->featured;
 				$misc_settings =	$row->misc_settings;
 				$item_stock = "";
-				if($misc_settings=="#NRX" && $quantity>=10){
+				if($misc_settings=="#NRX" && $item_quantity>=10){
 					$item_stock = "Available";
 				}
 				

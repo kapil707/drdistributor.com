@@ -1,4 +1,5 @@
 <?php
+$site_v = 51;
 $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];
@@ -242,8 +243,8 @@ if (isset($_COOKIE["theme_type"])) {
 	<script src="<?= base_url(); ?>assets/website/js/bootstrap.min.js"></script>
 	<script src="<?= base_url(); ?>assets/website/js/bigSlide.js"></script> 
 
-	<link href="<?= base_url(); ?>assets/website/css/style<?= constant('site_v') ?>.css" rel="stylesheet" type="text/css"/>
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= constant('site_v') ?>/logo.png" type="image/logo" sizes="16x16">
+	<link href="<?= base_url(); ?>assets/website/css/style<?= $site_v ?>.css" rel="stylesheet" type="text/css"/>
+	<link rel="icon" href="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png" type="image/logo" sizes="16x16">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
@@ -255,7 +256,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="col-md-6">						
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/logo.png" width="60px" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/logo.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>

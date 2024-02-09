@@ -95,14 +95,13 @@ function goBack() {
 				</span>
 				<span class="cart_disabled_cart_div" style="display:none">
 					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton_disable" tabindex="-3" title="Can't place order">Can't place order</button>
-				</span>51
+				</span>
 				<span class="cart_add_to_cart_div" style="display:none">
 					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton" onclick="place_order_model()" tabindex="-3" title="Place order">Place order</button>
 				</span>
-			</div>51
+			</div>
 		</div>
 	</div>
-51
 </div>
 <button type="button" class="place_order_model" data-toggle="modal" data-target="#myModal_place_order" style="display:none"></button>
 <!-- The Modal -->
@@ -121,7 +120,7 @@ function goBack() {
 				<div class="form-check" style="display:none;">
 					<label class="form-check-label">
 					<input type="radio" class="form-check-input" name="optradio" id="slice_type0" onclick="slice_type_change('0')" checked>Complete one order
-					</label>51
+					</label>
 				</div>
 				<?php /*
 				<div class="form-check">

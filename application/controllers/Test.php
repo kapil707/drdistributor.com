@@ -165,12 +165,6 @@ class Test extends CI_Controller {
 			setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
 		}
 		
-		/********************************************************** */
-		$page_name = "index";
-		$browser_type = "Web";
-		$browser = "";
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** 
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
 		$data["tbl_home"] = $tbl_home;
 		//print_r($tbl_home);*/

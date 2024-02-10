@@ -79,8 +79,7 @@ class Chemist_json_test extends CI_Controller {
 			if($row->type=="menu"){
 				$menu = $this->HomeMenuModel->get_menu_api();
 		        $result_row = $menu;
-				$row_title  = 'menu';
-				
+				$row_title  = 'menu';				
 			}
 			
 			if($row->type=="divisioncategory"){

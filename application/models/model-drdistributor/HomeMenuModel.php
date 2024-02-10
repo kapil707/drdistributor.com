@@ -16,7 +16,7 @@ class HomeMenuModel extends CI_Model
 		$query = $this->db->get("tbl_menu")->result();
 		foreach ($query as $row)
 		{
-			$url = base_url().'img_v'.constant('site_v')."/";
+			$url = base_url().'img_v51/';
 			
 			$menu_id		=	$row->id;
 			$menu_name		=	ucwords(strtolower($row->menu_name));

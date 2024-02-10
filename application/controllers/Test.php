@@ -134,12 +134,12 @@ class Test extends CI_Controller {
 			$where= array('code'=>$row->code);
 			$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
 
-			$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+			$user_profile = base_url()."img_v51/logo.png";
 			if(!empty($row1->image)){
 				$user_profile = base_url()."user_profile/".$row1->image;
 				if(empty($row1->image))
 				{
-					$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+					$user_profile = base_url()."img_v51/logo.png";
 				}
 			}
 			$data["chemist_image"]   = $user_profile;
@@ -155,7 +155,7 @@ class Test extends CI_Controller {
 		$this->login_check();
 		////error_reporting(0);
 		$data["main_page_title"] = "Home";
-		$data["session_user_image"] = base_url()."img_v".constant('site_v')."/logo2.png";
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";

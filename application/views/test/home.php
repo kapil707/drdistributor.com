@@ -31,24 +31,6 @@ $isMob = is_numeric(strpos($ua, "mobile"));
 $default_img = base_url()."/uploads/default_img.jpg";
 $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 
-
-$user_type 		= $_COOKIE["user_type"];
-$user_altercode = $_COOKIE["user_altercode"];
-$user_password	= $_COOKIE["user_password"];
-
-$chemist_id 	= $_COOKIE["chemist_id"];
-
-$salesman_id = "";
-if($user_type=="sales")
-{
-	$salesman_id 	= $user_altercode;
-	$user_altercode = $chemist_id;
-}
-
-$session_yes_no = "no";
-if(!empty($user_altercode)){
-	$session_yes_no = "yes";
-}
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">

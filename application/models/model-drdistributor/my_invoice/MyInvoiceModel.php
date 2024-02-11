@@ -106,7 +106,7 @@ class MyInvoiceModel extends CI_Model
 			$item_title 		= $row->gstvno;
 			$item_total 		= number_format($row->amt,2);
 			$item_date_time 	= date("d-M-y",strtotime($row->vdt));
-			$out_for_delivery 	= $row->out_for_delivery;
+			$out_for_delivery 	= "";//$row->out_for_delivery;
 			$delete_status		= $row->delete_status;
 
 			$item_message   = $item_total;

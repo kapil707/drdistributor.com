@@ -1031,7 +1031,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header', $data);		
-		$this->load->view('home/my_notification', $data);
+		$this->load->view('home/my_notification/my_notification', $data);
 	}
 	public function my_notification_details($item_id=""){
 		////error_reporting(0);
@@ -1068,7 +1068,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header', $data);		
-		$this->load->view('home/my_notification_details', $data);
+		$this->load->view('home/my_notification/my_notification_details', $data);
 	}
 
 	public function track_order(){

@@ -449,21 +449,21 @@ function medicine_cart_list()
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-					item_code			= item.code;
-					item_image			= item.image;
-					item_name 			= item.name;
-					item_packing 		= item.packing;
-					item_expiry 		= item.expiry;
-					item_company 		= item.company;
-					item_quantity 		= item.quantity;
-					item_stock 			= item.stock;
-					item_ptr 			= item.ptr;
-					item_mrp 			= item.mrp;
-					item_price 			= item.price;
-					item_scheme 		= item.scheme;
-					item_margin 		= item.margin;
-					item_featured 		= item.featured;
-					item_description1 	= item.description1;
+					item_code			= item.item_code;
+					item_image			= item.item_image;
+					item_name 			= item.item_name;
+					item_packing 		= item.item_packing;
+					item_expiry 		= item.item_expiry;
+					item_company 		= item.item_company;
+					item_quantity 		= item.item_quantity;
+					item_stock 			= item.item_stock;
+					item_ptr 			= item.item_ptr;
+					item_mrp 			= item.item_mrp;
+					item_price 			= item.item_price;
+					item_scheme 		= item.item_scheme;
+					item_margin 		= item.item_margin;
+					item_featured 		= item.item_featured;
+					item_description1 	= item.item_description1;
 					similar_items 		= item.similar_items;
 					//new add for last order qty
 					item_order_quantity = item.order_quantity;

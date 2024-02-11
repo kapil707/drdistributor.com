@@ -86,7 +86,7 @@ class User extends CI_Controller {
 		setcookie("user_password", "", time() + (86400 * 30), "/");
 		setcookie("chemist_id", "", time() + (86400 * 30), "/");
 		setcookie("user_session", "", time() + (86400 * 30), "/");
-		redirect(constant('main_site'));
+		redirect(base_url());
 	}
 	public function logout2(){
 		$this->session->sess_destroy();	

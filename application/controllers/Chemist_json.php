@@ -468,11 +468,10 @@ if ($items != '') {
 			//$result = $this->Chemist_Model->my_invoice_json_50($user_type,$user_altercode,$salesman_id,$get_record);
 			$result = $this->MyInvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$items  	= $result["items"];
-			$title  	= $result["title"];
 			$get_record = $result["get_record"];
 		}
 ?>
-{"get_result":[{"items":<?= $items;?>},{"title":"<?= $title;?>"},{"get_record":"<?= $get_record;?>"}]}<?php
+{"get_result":[{"items":<?= $items;?>},{"get_record":"<?= $get_record;?>"}]}<?php
 	}
 	public function my_invoice_details_api(){
 		$item_id	 	= $_REQUEST["item_id"];

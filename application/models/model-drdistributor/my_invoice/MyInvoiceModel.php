@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class InvoiceModel extends CI_Model  
+class MyInvoiceModel extends CI_Model  
 {
 	function select_fun($tbl,$where)
 	{

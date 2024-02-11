@@ -12,7 +12,7 @@ class Chemist_json extends CI_Controller {
 		$this->load->model("MenuModel");
 		$this->load->model("MedicineDivisionModel");
 		$this->load->model("MedicineItemModel");
-		$this->load->model("model-drdistributor/InvoiceModel");
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 		
@@ -466,7 +466,7 @@ if ($items != '') {
 		if($user_type!="" && $user_altercode!="" && $get_record!="")
 		{
 			//$result = $this->Chemist_Model->my_invoice_json_50($user_type,$user_altercode,$salesman_id,$get_record);
-			$result = $this->InvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$result = $this->MyInvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$items  	= $result["items"];
 			$title  	= $result["title"];
 			$get_record = $result["get_record"];
@@ -493,7 +493,7 @@ if ($items != '') {
 		if($user_type!="" && $user_altercode!="" && $item_id!="")
 		{
 			//$val = $this->Chemist_Model->my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
-			$val = $this->InvoiceModel->my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$val = $this->MyInvoiceModel->my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items			= $val[0];
 			$edit_items 	= $val[1];
 			$delete_items 	= $val[2];
@@ -513,7 +513,7 @@ if ($items != '') {
 		$download_url 	= "";
 		if($user_type!="" && $user_altercode!="" && $item_id!="")
 		{
-			$val = $this->InvoiceModel->my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$val = $this->MyInvoiceModel->my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items			= $val[0];
 			$edit_items 	= $val[1];
 			$delete_items 	= $val[2];
@@ -803,7 +803,7 @@ if ($items != '') {
 		$my_invoice = "[]";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($get_record))
 		{
-			$result = $this->InvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$result = $this->MyInvoiceModel->my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$my_invoice  = $result["items"];
 		}
 		$my_invoice = '{"my_invoice":'.$my_invoice.'}';

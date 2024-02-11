@@ -119,7 +119,6 @@ class MyInvoiceModel extends CI_Model
 				'item_title' => $item_title,
 				'item_message' => $item_message,
 				'item_date_time' => $item_date_time,
-				'item_name' => $item_name,
 				'item_image' => $item_image,
 				'out_for_delivery' => $out_for_delivery,
 				'delete_status' => $delete_status,

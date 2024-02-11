@@ -66,7 +66,7 @@ function call_page(get_record)
 	{
 		query_work = 1;	
 		$(".load_more").hide();
-		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 		$.ajax({
 			type       : "POST",
 			data       :  { get_record:get_record} ,
@@ -74,7 +74,7 @@ function call_page(get_record)
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");
-				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
 				if(data.items=="")
@@ -82,7 +82,7 @@ function call_page(get_record)
 					if(no_record_found=="0")
 					{
 						$(".load_page_loading").html("");
-						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 					}
 					else
 					{

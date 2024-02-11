@@ -127,10 +127,10 @@ class MyCartModel extends CI_Model
 			$item_quantity		= $row->quantity;
 			$item_order_quantity= $row->quantity;
 			$item_image			= $row->image;
-			$item_name			= htmlentities(ucwords(strtolower($row->item_name)));
-			$item_packing		= htmlentities($row->packing);
-			$item_expiry		= htmlentities($row->expiry);
-			$item_company		= htmlentities(ucwords(strtolower($row->company_full_name)));
+			$item_name			= (ucwords(strtolower($row->item_name)));
+			$item_packing		= ($row->packing);
+			$item_expiry		= ($row->expiry);
+			$item_company		= (ucwords(strtolower($row->company_full_name)));
 			$item_scheme		= $row->scheme;
 			
 			$item_margin 		= round($row->margin);
@@ -138,12 +138,12 @@ class MyCartModel extends CI_Model
 			$item_price			= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_quantity,2));
 			$item_date_time		= $row->datetime;
-			$item_modalnumber	= htmlentities($row->modalnumber);
+			$item_modalnumber	= ($row->modalnumber);
 			
 			$items_total++;
 			$items_price 		= $items_price + $item_quantity_price;
 			
-			$stock = "";
+			$item_stock = "";
 			$item_quantity = "";
 			
 			$dt = array(
@@ -166,10 +166,6 @@ class MyCartModel extends CI_Model
 				'item_order_quantity'=>$item_order_quantity,
 			);
 			$jsonArray[] = $dt;
-			
-/*$items.= <<<EOD
-{"id":"{$item_id}","code":"{$item_code}","quantity":"{$item_quantity}","stock":"{$stock}","order_quantity":"{$item_order_quantity}","image":"{$item_image}","name":"{$item_name}","packing":"{$item_packing}","expiry":"{$item_expiry}","company":"{$item_company}","scheme":"{$item_scheme}","margin":"{$item_margin}","featured":"{$item_featured}","price":"{$item_price}","quantity_price":"{$item_quantity_price}","datetime":"{$item_datetime}","modalnumber":"{$item_modalnumber}"},
-EOD;*/
 		}
 		
     	//iss query say button visble or disble hota ha plceorder ka
@@ -187,9 +183,9 @@ EOD;*/
 			);
 		$jsonArray1[] = $dt;
 		
-		$val[0] = $jsonArray;
-		$val[1] = $jsonArray1;
-		$val[2] = $items_total;
-		return $val;
+		$return[0] = $jsonArray;
+		$return[1] = $jsonArray1;
+		$return[2] = $items_total;
+		return $return;
 	}
 }

@@ -267,6 +267,7 @@ if ($items != '') {
 ?>
 {"items":[<?= $items;?>]}<?php
 	}
+	/*
 	public function salesman_my_cart_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode	= $_COOKIE["user_altercode"];
@@ -277,7 +278,8 @@ if ($items != '') {
 		}
 ?>
 {"items":[<?= $items;?>]}<?php
-	}
+	}*/
+	/*
 	public function my_cart_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -301,9 +303,9 @@ if ($items != '') {
 		}
 ?>
 {"items":[<?= $items;?>],"other_items":[<?= $other_items;?>]}<?php
-	}
+	}*/
 	
-	public function my_cart_api_test(){
+	public function my_cart_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
@@ -336,6 +338,7 @@ if ($items != '') {
         //header('Content-Type: application/json');
         echo json_encode($response);
 	}
+	/*
 	public function my_cart_api2(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -360,7 +363,7 @@ if ($items != '') {
 		}
 ?>
 {"items":[<?= $items;?>],"other_items":[<?= $other_items;?>]}<?php
-	}
+	}*/
 	public function check_login_function(){
 		//error_reporting(0);
 		$user_type 			= $_COOKIE["user_type"];

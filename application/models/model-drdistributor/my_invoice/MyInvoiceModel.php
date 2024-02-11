@@ -74,13 +74,13 @@ class MyInvoiceModel extends CI_Model
 
 		/************************************** */
 		$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
-		$user_image = constant('main_site')."user_profile/$row1->image";
+		$user_image = base_url()."user_profile/$row1->image";
 		if(empty($row1->image))
 		{
-			$user_image = constant('main_site')."img_v".constant('site_v')."/logo.png";
+			$user_image = base_url()."img_v51/logo.png";
 		}
 		$item_image 	= $user_image;
-		$item_image 	= htmlentities($item_image);
+		$item_image 	= ($item_image);
 		/************************************** */
 
 		if($user_type=="sales")
@@ -112,7 +112,7 @@ class MyInvoiceModel extends CI_Model
 			$item_message   = $item_total;
 
 			$gstvno = $row->gstvno;
-			$download_url = constant('main_site')."invoice_download/".$user_altercode."/".$gstvno;
+			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -162,7 +162,7 @@ class MyInvoiceModel extends CI_Model
 			$vdt		= $row->vdt;
 			$vno		= $row->vno;
 
-			$download_url = constant('main_site')."invoice_download/".$user_altercode."/".$gstvno;
+			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
 			
 			$name = substr($row->name,0,19);
 			$file_name = "_D.R.DISTRIBUTORS PVT_".$name.".xls";
@@ -193,7 +193,7 @@ class MyInvoiceModel extends CI_Model
 				$item_image		= constant('img_url_site').$row2->image1;
 				if(empty($row2->image1))
 				{
-					$item_image = constant('main_site')."uploads/default_img.jpg";
+					$item_image = base_url()."uploads/default_img.jpg";
 				}
 				
 				$dt = array(
@@ -242,7 +242,7 @@ class MyInvoiceModel extends CI_Model
 				$item_image		= constant('img_url_site').$row2->image1;
 				if(empty($row2->image1))
 				{
-					$item_image = constant('main_site')."uploads/default_img.jpg";
+					$item_image = base_url()."uploads/default_img.jpg";
 				}
 				
 				$item_description1 = $row1->remarks;

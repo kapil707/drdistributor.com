@@ -43,7 +43,7 @@ class My_invoice extends CI_Controller {
 		$this->load->view('home/my_invoice/my_invoice',$data);
 	}
 
-	public function my_notification_api(){
+	public function my_invoice_api(){
 		$get_record	 	= $_REQUEST["get_record"];
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];

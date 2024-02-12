@@ -17,7 +17,7 @@
 <script>
 $(".headertitle").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
 <div class="container maincontainercss">
@@ -69,8 +69,8 @@ function call_page(get_record)
 		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 		$.ajax({
 			type       : "POST",
-			data       :  { get_record:get_record} ,
-			url        : "<?php echo base_url(); ?>Chemist_json/my_notification_api",
+			data       :  {get_record:get_record} ,
+			url        : "<?php echo base_url(); ?>my_notification/my_notification_api",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");

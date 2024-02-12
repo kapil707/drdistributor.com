@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class My_notification extends CI_Controller {
 	
+	public function __construct(){
+		parent::__construct();
+		// Load model
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
+	}
+
 	public function index(){
 		////error_reporting(0);
 		//$this->login_check();
@@ -37,6 +43,40 @@ class My_notification extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/my_notification/my_notification', $data);
 	}
+
+	public function my_notification_api(){
+		$get_record	 	= $_REQUEST["get_record"];
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $get_record = "";
+		if(!empty($user_type) && !empty($user_altercode) && !empty($get_record)) {
+
+			$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$items  	= $result["items"];
+			$get_record  = $result["get_record"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'get_record' => $get_record
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	public function my_notification_details($item_id=""){
 		////error_reporting(0);
 		// $this->login_check();
@@ -73,6 +113,28 @@ class My_notification extends CI_Controller {
 
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/my_notification/my_notification_details', $data);
+	}
+
+	
+	public function my_notification_details_api(){
+		$item_id		= $_REQUEST['item_id'];
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		if($user_type!="" && $user_altercode!="" && $item_id!="")
+		{			
+			$items = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+		}		
+?>
+{"items":<?= $items;?>}<?php
 	}
 }
 ?>

@@ -79,7 +79,6 @@ function call_page()
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					alert("asdff")
 					item_id 			= item.item_id;
 					item_code 			= item.item_code;
 					item_quantity 		= item.item_quantity;

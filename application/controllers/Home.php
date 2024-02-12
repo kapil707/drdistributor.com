@@ -133,7 +133,7 @@ class Home extends CI_Controller {
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
 		$data["tbl_home"] = $tbl_home;
 		
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/home', $data);
 		$this->load->view('home/footer', $data);
 	}
@@ -168,7 +168,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "Account";
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/account/account', $data);
 	}
 
@@ -208,7 +208,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/account/change_account', $data);
 	}
 
@@ -243,7 +243,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/account/change_image', $data);
 	}
 	
@@ -278,7 +278,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/account/change_password', $data);
 	}
 	
@@ -321,7 +321,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/medicine_category', $data);
 	}
 	
@@ -370,7 +370,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/medicine_category', $data);
 	}
 	
@@ -415,7 +415,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/medicine_use', $data);
 	}
 	
@@ -456,7 +456,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/featured_brand', $data);
 	}
 
@@ -554,7 +554,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/search_view_all', $data);
 	}
 	
@@ -650,7 +650,7 @@ class Home extends CI_Controller {
 		
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/search_medicine/search_medicine', $data);
 	}
 	
@@ -693,7 +693,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/select_chemist', $data);
 	}
 	public function hot_deals(){
@@ -705,7 +705,7 @@ class Home extends CI_Controller {
 		$data["chemist_id"] = $_COOKIE['user_altercode'];
 		
 		$data["main_page_title"] = "hot_deals";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/hot_deals', $data);
 	}
 	
@@ -774,7 +774,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_cart', $data);		
 	}
 
@@ -845,7 +845,7 @@ class Home extends CI_Controller {
 		
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$data["chemist_id"] = $chemist_id;
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_cart/my_cart', $data);		
 	}
 	
@@ -880,7 +880,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "My order";
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_order/my_order', $data);
 	}
 	
@@ -920,7 +920,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_order/my_order_details', $data);
 	}
 	
@@ -955,7 +955,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "My invoice";
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_invoice/my_invoice',$data);
 	}
 
@@ -994,7 +994,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 		
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_invoice/my_invoice_details',$data);
 	}
 	
@@ -1030,7 +1030,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/my_notification/my_notification', $data);
 	}
 	public function my_notification_details($item_id=""){
@@ -1067,7 +1067,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/my_notification/my_notification_details', $data);
 	}
 
@@ -1103,7 +1103,7 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/track_order', $data);
 	}
 	
@@ -1123,7 +1123,7 @@ class Home extends CI_Controller {
 			redirect(base_url().'home');
 		}
 		$data["main_page_title"] = "Pending Order";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 
 		$date = date("H");
 		if($date>=9 && $date<=19)
@@ -1150,7 +1150,7 @@ class Home extends CI_Controller {
 			redirect(base_url().'home');
 		}
 		$data["main_page_title"] = "Invoice";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 
 		$date = date("H");
 		if($date>=9 && $date<=19)
@@ -1177,7 +1177,7 @@ class Home extends CI_Controller {
 			redirect(base_url().'home');
 		}
 		$data["main_page_title"] = "Pickedby";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 
 		$date = date("H");
 		if($date>=9 && $date<=19)
@@ -1204,7 +1204,7 @@ class Home extends CI_Controller {
 			redirect(base_url().'home');
 		}
 		$data["main_page_title"] = "Deliverby";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 
 		$date = date("H");
 		if($date>=9 && $date<=19)
@@ -1231,7 +1231,7 @@ class Home extends CI_Controller {
 			redirect(base_url().'home');
 		}
 		$data["main_page_title"] = "Delivery Report";	
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		
 		$date = date("H");
 		if($date>=9 && $date<=19)

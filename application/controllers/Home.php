@@ -209,7 +209,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header', $data);		
-		$this->load->view('home/change_account', $data);
+		$this->load->view('home/account/change_account', $data);
 	}
 
 	public function change_image(){
@@ -244,7 +244,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header', $data);		
-		$this->load->view('home/change_image', $data);
+		$this->load->view('home/account/change_image', $data);
 	}
 	
 	public function change_password(){
@@ -279,7 +279,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header', $data);
-		$this->load->view('home/change_password', $data);
+		$this->load->view('home/account/change_password', $data);
 	}
 	
 	public function medicine_category($item_page_type="",$item_code="",$item_division=""){

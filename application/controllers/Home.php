@@ -169,7 +169,7 @@ class Home extends CI_Controller {
 		
 		$data["main_page_title"] = "Account";
 		$this->load->view('home/header', $data);		
-		$this->load->view('home/account', $data);
+		$this->load->view('home/account/account', $data);
 	}
 
 	public function change_account(){

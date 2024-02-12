@@ -129,12 +129,20 @@ class My_notification extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		if($user_type!="" && $user_altercode!="" && $item_id!="")
-		{			
+		$items = "";
+		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$items = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);
-		}		
-?>
-{"items":<?= $items;?>}<?php
+		}	
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 }
 ?>

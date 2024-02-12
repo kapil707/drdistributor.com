@@ -47,7 +47,7 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		data       :  {item_id:item_id} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/my_notification_details_api",
+		url        : "<?php echo base_url(); ?>my_notification/my_notification_details_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');

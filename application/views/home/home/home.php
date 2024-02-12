@@ -151,7 +151,7 @@ function home_page_load(myid)
 	$.ajax({
 		type       : "POST",
 		data       :  {myid:myid} ,
-		url        : "<?php echo base_url(); ?>Chemist_json_test/home_page_web",
+		url        : "<?php echo base_url(); ?>Chemist_json/home_page_api",
 		cache	   : true,
 		success : function(data){
 			//alert(data)

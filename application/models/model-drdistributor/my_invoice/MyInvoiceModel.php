@@ -68,7 +68,7 @@ class MyInvoiceModel extends CI_Model
 	
 	/********************************************************/
 
-	public function my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="")
+	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="")
 	{
 		$jsonArray = array();
 

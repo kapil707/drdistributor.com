@@ -78,7 +78,7 @@ function call_page(get_record)
 				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
-				alert(data)
+				alert(data.items)
 				if(data.items=="")
 				{
 					if(no_record_found=="0")

@@ -76,6 +76,7 @@ function call_page()
 			{
 				$(".load_page_loading").html("");
 			}
+			alert(data.items)
 			$.each(data.items, function(i,item){	
 				if (item)
 				{

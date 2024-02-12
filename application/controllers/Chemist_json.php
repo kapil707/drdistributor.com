@@ -769,7 +769,7 @@ if ($items != '') {
 ?>
 {"items":[<?= $items;?>]}<?php
 	}
-	public function home_page_web()
+	public function home_page_api()
 	{
 		$get_record	 	= "0";//$_REQUEST["get_record"];
 		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";

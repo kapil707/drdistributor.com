@@ -128,9 +128,9 @@ class MyInvoiceModel extends CI_Model
 			// Add the data to the JSON array
 			$jsonArray[] = $dt;
 		}
-		$jsonString = json_encode($jsonArray);
+		//$jsonString = json_encode($jsonArray);
 		
-		$return_value["items"] = $jsonString;
+		$return_value["items"] = $jsonArray;
 		$return_value["get_record"] = $get_record;
 		
 		return $return_value;

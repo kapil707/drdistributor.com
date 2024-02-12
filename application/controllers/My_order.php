@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class My_order extends CI_Controller {
 	
 	public function index(){
-		echo "sdafF";
 		////error_reporting(0);
 		//$this->login_check();
 		//$this->salesman_chemist_ck();

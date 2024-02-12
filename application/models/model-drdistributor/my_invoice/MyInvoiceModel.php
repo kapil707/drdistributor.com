@@ -282,6 +282,7 @@ class MyInvoiceModel extends CI_Model
 		$return_value["items_edit"] 	= $jsonArray1;
 		$return_value["items_delete"] 	= $jsonArray2;
 		$return_value["download_url"] 	= $download_url;
+		$return_value["header_title"] 	= $header_title;
 		return $return_value;
 	}
 	

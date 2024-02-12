@@ -64,7 +64,7 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		data       : {item_id:item_id,user_altercode:user_altercode},
-		url        : "<?php echo base_url(); ?>Chemist_json/my_invoice_details_api2",
+		url        : "<?php echo base_url(); ?>invoice/my_invoice_details_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');

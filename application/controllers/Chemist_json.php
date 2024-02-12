@@ -12,6 +12,9 @@ class Chemist_json extends CI_Controller {
 		$this->load->model("MenuModel");
 		$this->load->model("MedicineDivisionModel");
 		$this->load->model("MedicineItemModel");
+
+		$this->load->model("model-drdistributor/HomeMenuModel");
+		
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");

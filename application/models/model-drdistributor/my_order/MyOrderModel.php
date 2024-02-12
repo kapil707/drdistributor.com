@@ -8,10 +8,10 @@ class MyOrderModel extends CI_Model
 	
 	public function get_chemist_photo($user_altercode){
 		$row = $this->db->query("SELECT tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
-		$user_image = constant('main_site')."user_profile/$row->image";
+		$user_image = base_url()."user_profile/$row->image";
 		if(empty($row->image))
 		{
-			$user_image = constant('main_site')."img_v".constant('site_v')."/logo.png";
+			$user_image = base_url()."img_v51/logo.png";
 		}
 		return $user_image;
 	}

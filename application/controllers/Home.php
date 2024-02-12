@@ -135,7 +135,7 @@ class Home extends CI_Controller {
 		
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/home/home', $data);
-		$this->load->view('home/footer', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 
 	public function account(){

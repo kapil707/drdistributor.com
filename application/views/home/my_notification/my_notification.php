@@ -98,7 +98,7 @@ function call_page(get_record)
 				}
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);
-				$.each(data.items, function(i,work){
+				$.each(data.items, function(i,item){
 					if (item){								
 						item_id 			= item.item_id;
 						item_title 			= item.item_title;

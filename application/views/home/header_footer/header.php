@@ -426,19 +426,19 @@ $website_menu 	= json_decode($website_menu, true);
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url() ?>home" title="Home">
+							<a href="<?= base_url() ?>" title="Home">
 								<i class="fa fa-home main_icon1" aria-hidden="true"></i>
 								<span class="d-none d-lg-block">Home</span>
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url() ?>home/search_medicine" title="Search medicine / company">
+							<a href="<?= base_url() ?>search_medicine" title="Search medicine / company">
 								<i class="fa fa-search main_icon1" aria-hidden="true"></i>
 								<span class="d-none d-lg-block">Search</span>
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url(); ?>home/my_cart" class="top_menu_cart_div" title="Cart">
+							<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 								<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
 								<span class="d-none d-lg-block">Cart</span>&nbsp;
 								(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
@@ -451,13 +451,13 @@ $website_menu 	= json_decode($website_menu, true);
 							</a>
 						</li>
 						<li class="d-none d-xl-block">
-							<a href="<?= base_url() ?>home/my_invoice" class="mobile_off" title="Notification">
+							<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
 								<i class="fa fa-flag main_icon1" aria-hidden="true"></i>
 								Invoice
 							</a>
 						</li>
 						<li class="d-none d-sm-block">
-							<a href="<?= base_url() ?>home/my_notification" class="mobile_off" title="Notification">
+							<a href="<?= base_url() ?>my_notification" class="mobile_off" title="Notification">
 								<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
 								<span class="d-none d-lg-block">Notification</span>
 							</a>

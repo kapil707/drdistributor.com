@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class My_invoice extends CI_Controller {
 	
+	public function __construct(){
+		parent::__construct();
+		// Load model
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+	}
+
 	public function index(){
 		////error_reporting(0);
 		//$this->login_check();
@@ -36,6 +42,40 @@ class My_invoice extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_invoice/my_invoice',$data);
 	}
+
+	public function my_notification_api(){
+		$get_record	 	= $_REQUEST["get_record"];
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $get_record = "";
+		if(!empty($user_type) && !empty($user_altercode)) {
+
+			$result = $this->MyInvoiceModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$items  	= $result["items"];
+			$get_record  = $result["get_record"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'get_record' => $get_record
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	public function my_invoice_details($item_id=""){
 		////error_reporting(0);
 		// $this->login_check();

@@ -846,7 +846,7 @@ class Home extends CI_Controller {
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$data["chemist_id"] = $chemist_id;
 		$this->load->view('home/header', $data);
-		$this->load->view('home/my_cart', $data);		
+		$this->load->view('home/my_cart/my_cart', $data);		
 	}
 	
 	public function my_order(){

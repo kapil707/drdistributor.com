@@ -21,7 +21,7 @@ class Invoice extends CI_Controller {
 		$data["user_altercode"] = $chemist_id;
 		
 		$data["main_page_title"] = $invoice_id;	
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('main_page/invoice', $data);		
 	}
 	

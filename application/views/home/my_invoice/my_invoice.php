@@ -69,6 +69,7 @@ function call_page(get_record)
 		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 		$.ajax({
 			type       : "POST",
+			dataType   : "json",
 			data       :  { get_record:get_record} ,
 			url        : "<?php echo base_url(); ?>my_invoice/my_invoice_api",
 			cache	   : false,
@@ -94,43 +95,39 @@ function call_page(get_record)
 				{
 					$(".load_page_loading").html("");
 				}
-				$.each(data.get_result, function(i,work){
-					/*title 		= work.title;
-					$(".headertitle").html(title);*/
-					get_record 	= work.get_record;
-					$(".get_record").val(get_record);
-					$.each(work.items, function(i,item){
-						if (item){
-							if(item.order_id=="")
-							{
-							}
-							item_id	 		= item.item_id;
-							item_title 		= item.item_title;
-							item_total 		= item.item_message;
-							item_date_time 	= item.item_date_time;
-							out_for_delivery= item.out_for_delivery;
-							delete_status	= item.delete_status;
-							download_url	= item.download_url;
-							item_image 		= item.item_image;
-							
-							if(out_for_delivery!="")
-							{
-								out_for_delivery = ' | Out For Delivery Date Time : ' + out_for_delivery;
-							}
-							delete_status_div = "";
-							if(delete_status==1)
-							{
-								delete_status_div = '<div class="medicine_cart_item_datetime">Some items have been deleted / modified in this order</div>';
-							}
-							
-							$(".load_page").append('<div class="main_theme_li_bg"><div class="medicine_my_page_div1"><a href="<?php echo base_url() ?>home/my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="<?php echo base_url() ?>home/my_invoice_details/'+item_id+'"><span class="medicine_cart_item_name">'+item_title+'</span></a><span style="float: right;color: red;"><a href="'+download_url+'" style="color: red;">Download Invoice</a></span></div><a href="<?php echo base_url() ?>home/my_invoice_details/'+item_id+'"><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>');
-							
-							query_work = 0;
-							no_record_found = 1;
-							$(".load_more").show();
-							$(".load_page").show();
+				get_record 	= data.get_record;
+				$(".get_record").val(get_record);
+				$.each(data.items, function(i,item){
+					if (item){
+						if(item.order_id=="")
+						{
 						}
-					});	
+						item_id	 		= item.item_id;
+						item_title 		= item.item_title;
+						item_total 		= item.item_message;
+						item_date_time 	= item.item_date_time;
+						out_for_delivery= item.out_for_delivery;
+						delete_status	= item.delete_status;
+						download_url	= item.download_url;
+						item_image 		= item.item_image;
+						
+						if(out_for_delivery!="")
+						{
+							out_for_delivery = ' | Out For Delivery Date Time : ' + out_for_delivery;
+						}
+						delete_status_div = "";
+						if(delete_status==1)
+						{
+							delete_status_div = '<div class="medicine_cart_item_datetime">Some items have been deleted / modified in this order</div>';
+						}
+						
+						$(".load_page").append('<div class="main_theme_li_bg"><div class="medicine_my_page_div1"><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="<?php echo base_url() ?>home/my_invoice_details/'+item_id+'"><span class="medicine_cart_item_name">'+item_title+'</span></a><span style="float: right;color: red;"><a href="'+download_url+'" style="color: red;">Download Invoice</a></span></div><a href="<?php echo base_url() ?>home/my_invoice_details/'+item_id+'"><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>');
+						
+						query_work = 0;
+						no_record_found = 1;
+						$(".load_more").show();
+						$(".load_page").show();
+					}
 				});	
 			},
 			timeout: 10000

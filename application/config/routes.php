@@ -73,6 +73,11 @@ $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2'
 
 
 $route['home']='Home/index';
+$route['my_cart']='home/my_cart';
+$route['my_order']='home/my_order';
+$route['my_invoice']='home/my_invoice';
+$route['track_order']='home/track_order';
+$route['my_notification']='home/my_notification';
 
 
 $route['404_override'] = '';

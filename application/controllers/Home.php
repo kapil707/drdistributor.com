@@ -103,7 +103,7 @@ class Home extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id = "";$_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 		
@@ -481,7 +481,7 @@ class Home extends CI_Controller {
 			$chemist_id = $_COOKIE['chemist_id'];
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 
@@ -520,12 +520,12 @@ class Home extends CI_Controller {
 			$where= array('code'=>$row->code);
 			$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
 
-			$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+			$user_profile = base_url()."img_v51/logo.png";
 			if(!empty($row1->image)){
 				$user_profile = base_url()."user_profile/".$row1->image;
 				if(empty($row1->image))
 				{
-					$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+					$user_profile = base_url()."img_v51/logo.png";
 				}
 			}
 			$data["chemist_image"]   = $user_profile;
@@ -576,7 +576,7 @@ class Home extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id = $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 
@@ -637,12 +637,12 @@ class Home extends CI_Controller {
 			$where= array('code'=>$row->code);
 			$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
 
-			$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+			$user_profile = base_url()."img_v51/logo.png";
 			if(!empty($row1->image)){
 				$user_profile = base_url()."user_profile/".$row1->image;
 				if(empty($row1->image))
 				{
-					$user_profile = base_url()."img_v".constant('site_v')."/logo.png";
+					$user_profile = base_url()."img_v51/logo.png";
 				}
 			}
 			$data["chemist_image"]   = $user_profile;
@@ -651,7 +651,7 @@ class Home extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('home/header', $data);
-		$this->load->view('home/search_medicine', $data);
+		$this->load->view('home/search_medicine/search_medicine', $data);
 	}
 	
 	public function select_chemist(){
@@ -727,7 +727,7 @@ class Home extends CI_Controller {
 			$chemist_id = $_COOKIE['chemist_id'];
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 
@@ -797,7 +797,7 @@ class Home extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id = $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 

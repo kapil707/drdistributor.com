@@ -46,6 +46,7 @@ function call_page()
 	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
+		dataType   : "json",
 		data       :  {item_id:item_id} ,
 		url        : "<?php echo base_url(); ?>my_notification/my_notification_details_api",
 		cache	   : false,

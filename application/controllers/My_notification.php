@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class My_notification extends CI_Controller {
 	
 	public function index(){
+		echo "asdfsf";
 		////error_reporting(0);
 		//$this->login_check();
 		//$this->salesman_chemist_ck();

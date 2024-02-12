@@ -10,7 +10,7 @@ class Invoice extends CI_Controller {
 	
 	public function index($chemist_id='',$invoice_id=''){
 		
-		$data["session_user_image"] = base_url()."img_v".constant('site_v')."/logo2.png";
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		
@@ -34,7 +34,7 @@ class Invoice extends CI_Controller {
 		{
 			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
 		}else{
-			$data["session_user_image"] = base_url()."img_v".constant('site_v')."/logo2.png";
+			$data["session_user_image"] = base_url()."img_v51/logo2.png";
 			$data["session_user_fname"]     = "Guest";
 			$data["session_user_altercode"] = "xxxxxx";
 			

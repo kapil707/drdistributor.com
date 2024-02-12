@@ -421,11 +421,10 @@ if ($items != '') {
 			//$result = $this->Chemist_Model->my_order_json_50($user_type,$user_altercode,$salesman_id,$get_record);
 			$result = $this->MyOrderModel->get_my_order_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$items  	= $result["items"];
-			$title  	= $result["title"];
 			$get_record = $result["get_record"];
 		}
 ?>
-{"get_result":[{"items":<?= $items;?>},{"title":"<?= $title;?>"},{"get_record":"<?= $get_record;?>"}]}<?php
+{"get_result":[{"items":<?= $items;?>},{"get_record":"<?= $get_record;?>"}]}<?php
 	}
 	// done or check 21-02-16
 	public function my_order_details_api(){

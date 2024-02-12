@@ -182,10 +182,10 @@ class MyInvoiceModel extends CI_Model
 				$item_date_time 	= date("d-M-y",strtotime($date_time));
 				$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 					
-				$item_name 		= htmlentities(ucwords(strtolower($row2->item_name)));
-				$item_packing 	= htmlentities($row2->packing);
-				$item_expiry 	= htmlentities($row2->expiry);
-				$item_company 	= htmlentities(ucwords(strtolower($row2->company_full_name)));
+				$item_name 		= (ucwords(strtolower($row2->item_name)));
+				$item_packing 	= ($row2->packing);
+				$item_expiry 	= ($row2->expiry);
+				$item_company 	= (ucwords(strtolower($row2->company_full_name)));
 				$item_scheme 	= $row2->salescm1."+".$row2->salescm2;
 				$item_featured 	= $row2->featured;
 
@@ -209,7 +209,6 @@ class MyInvoiceModel extends CI_Model
 					'item_quantity_price' => $item_quantity_price,
 					'item_date_time' => $item_date_time,
 					'item_modalnumber' => $item_modalnumber,
-					'item_description1' => $item_description1,
 				);
 
 				// Add the data to the JSON array

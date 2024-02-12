@@ -956,7 +956,7 @@ class Home extends CI_Controller {
 		
 		$data["main_page_title"] = "My invoice";
 		$this->load->view('home/header', $data);
-		$this->load->view('home/my_invoice',$data);
+		$this->load->view('home/my_invoice/my_invoice',$data);
 	}
 
 	public function my_invoice_details($item_id="")
@@ -995,7 +995,7 @@ class Home extends CI_Controller {
 		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
-		$this->load->view('home/my_invoice_details',$data);
+		$this->load->view('home/my_invoice/my_invoice_details',$data);
 	}
 	
 	public function my_notification(){

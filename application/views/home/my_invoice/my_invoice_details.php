@@ -1,4 +1,4 @@
-<style>515151
+<style>
 .menubtn1,.search_medicine_main
 {
 	display:none;

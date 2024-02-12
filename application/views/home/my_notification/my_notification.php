@@ -94,7 +94,7 @@ function call_page(get_record)
 				{
 					$(".load_page_loading").html("");
 				}
-				$.each(data.get_result, function(i,work){
+				$.each(data.items, function(i,work){
 					/*title 		= work.title;
 					$(".headertitle").html(title);*/
 					get_record 	= work.get_record;

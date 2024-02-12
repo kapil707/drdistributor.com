@@ -17,7 +17,7 @@
 <script>
 $(".headertitle").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home/my_invoice";
+	window.location.href = "<?= base_url();?>my_invoice";
 }
 </script>
 <div class="container maincontainercss">

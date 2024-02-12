@@ -77,7 +77,9 @@ $route['my_cart']='home/my_cart';
 $route['my_order']='home/my_order';
 $route['my_invoice']='home/my_invoice';
 $route['track_order']='home/track_order';
-$route['my_notification']='home/my_notification';
+
+$route['my_notification']='my_notification/index';
+$route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';
 
 
 $route['404_override'] = '';

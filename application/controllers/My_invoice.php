@@ -113,5 +113,41 @@ class My_invoice extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/my_invoice/my_invoice_details',$data);
 	}
+
+	public function my_invoice_details_api(){
+		$item_id		= $_REQUEST['item_id'];
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $items_edit = $items_delete = $download_url = "";
+		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$items  	= $result["items"];
+			$items_edit  	= $result["items_edit"];
+			$items_delete  	= $result["items_delete"];
+			$download_url  	= $result["download_url"];
+		}	
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+			'items_edit' => $items_edit,
+			'items_delete' => $items_delete,
+			'download_url' => $download_url,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
 }
 ?>

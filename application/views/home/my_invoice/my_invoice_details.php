@@ -60,8 +60,9 @@ function call_page()
 	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
+		dataType   : "json",
 		data       : {item_id:item_id} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/my_invoice_details_api",
+		url        : "<?php echo base_url(); ?>my_invoice/my_invoice_details_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
@@ -106,7 +107,7 @@ function call_page()
 					$(".load_page").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="medicine_cart_item_name" title="'+item_name+'">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_expiry">Expiry : '+item_expiry+'</div><div class="medicine_cart_item_company">By '+item_company+'</div><div class="text-left medicine_cart_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>');
 				}
 			});	
-			$.each(data.edit_items, function(i,item){	
+			$.each(data.items_edit, function(i,item){	
 				if (item)
 				{
 					item_id 			= item.item_id;
@@ -141,7 +142,7 @@ function call_page()
 				}
 			});	
 			
-			$.each(data.delete_items, function(i,item){	
+			$.each(data.items_delete, function(i,item){	
 				if (item)
 				{
 					item_id 			= item.item_id;
@@ -180,13 +181,7 @@ function call_page()
 				{
 					$(".download_excel_url").html("<a href="+item.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
 				}
-			});	
-			$.each(data.header_title, function(i,item){	
-				if (item)
-				{
-					$(".headertitle").html(item.header_title);
-				}
-			});	
+			});
 			$(".load_page").show();
 		},
 		//timeout: 10000

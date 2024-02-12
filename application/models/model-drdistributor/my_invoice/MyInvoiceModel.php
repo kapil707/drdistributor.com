@@ -136,7 +136,7 @@ class MyInvoiceModel extends CI_Model
 		return $return_value;
 	}
 
-	public function my_invoice_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="")
+	public function get_my_invoice_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="")
 	{
 		$jsonArray = array();
 		$jsonArray1 = array();
@@ -273,24 +273,16 @@ class MyInvoiceModel extends CI_Model
 			}
 		}
 
-$header_title= <<<EOD
-{"header_title":"{$header_title}"}
-EOD;
+		// $jsonString  = json_encode($jsonArray);
+		// $jsonString1 = json_encode($jsonArray1);
+		// $jsonString2 = json_encode($jsonArray2);
+		
 
-$download_url= <<<EOD
-{"download_url":"{$download_url}"}
-EOD;
-		
-		$jsonString  = json_encode($jsonArray);
-		$jsonString1 = json_encode($jsonArray1);
-		$jsonString2 = json_encode($jsonArray2);
-		
-		$val[0] = $jsonString; //item 
-		$val[1] = $jsonString1;//item edit
-		$val[2] = $jsonString2;//item delete
-		$val[3] = "[$download_url]";
-		$val[4] = "[$header_title]";
-		return $val;
+		$return_value["items"] 			= $jsonArray;
+		$return_value["items_edit"] 	= $jsonArray1;
+		$return_value["items_delete"] 	= $jsonArray2;
+		$return_value["download_url"] 	= $download_url;
+		return $return_value;
 	}
 	
 	public function invoice_excel_file($gstvno,$download_type)

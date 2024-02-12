@@ -59,7 +59,7 @@ class My_invoice extends CI_Controller {
 		$items = $get_record = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
-			$result = $this->MyInvoiceModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$items  	= $result["items"];
 			$get_record  = $result["get_record"];
 		}

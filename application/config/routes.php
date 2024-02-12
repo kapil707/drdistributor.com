@@ -78,6 +78,9 @@ $route['my_order']='home/my_order';
 $route['my_invoice']='home/my_invoice';
 $route['track_order']='home/track_order';
 
+$route['my_invoice']='my_invoice/index';
+$route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';
+
 $route['my_notification']='my_notification/index';
 $route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';
 

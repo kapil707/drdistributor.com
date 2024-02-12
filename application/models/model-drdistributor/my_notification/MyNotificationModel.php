@@ -123,8 +123,9 @@ class MyNotificationModel extends CI_Model
 			);
 			$jsonArray[] = $dt;
 		}
-		$jsonString  = json_encode($jsonArray);
+		//$jsonString  = json_encode($jsonArray);
 		
-		return $jsonString;			
+		$return["items"] 		= $jsonArray;
+		return $return;
 	}
 }

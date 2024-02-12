@@ -76,10 +76,10 @@ function call_page()
 			{
 				$(".load_page_loading").html("");
 			}
-			alert(data.items)
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
+					alert("asdff")
 					item_id 			= item.item_id;
 					item_code 			= item.item_code;
 					item_quantity 		= item.item_quantity;

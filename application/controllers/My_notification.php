@@ -58,7 +58,7 @@ class My_notification extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$items = $get_record = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($get_record)) {
+		if(!empty($user_type) && !empty($user_altercode)) {
 
 			$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,$get_record);
 			$items  	= $result["items"];

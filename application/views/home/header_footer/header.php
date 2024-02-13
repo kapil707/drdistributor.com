@@ -1119,7 +1119,7 @@ function medicine_add_to_cart_api()
 				$.ajax({
 					type       : "POST",
 					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
-					url        : "<?php echo base_url(); ?>Chemist_json/medicine_add_to_cart_api",
+					url        : "<?php echo base_url(); ?>my_cart/medicine_add_to_cart_api",
 					cache	   : true,
 					error: function(){
 						swal("error add to cart")

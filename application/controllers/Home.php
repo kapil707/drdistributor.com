@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 		// Load model
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
-		$this->load->model("model-drdistributor/ChemistLoginModel");
+		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
         $this->ChemistLoginModel->login_check();
 
 		$this->load->model("model-drdistributor/slider/SliderModel");

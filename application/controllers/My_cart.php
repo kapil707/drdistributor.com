@@ -54,21 +54,21 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $other_items = "";
+		$items = $items_other = "";
 		if(!empty($user_altercode))
 		{
-			$val = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
-			$items = $val[0];
-			$other_items = $val[1];
-			$user_cart_total = $val[2];
-			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$items = $result["items"];
+			$items_other = $result["items_other"];
+			$items_total = $result["items_total"];
+			setcookie("user_cart_total", $items_total, time() + (86400 * 30), "/");
 		}
 		
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items,
-            'other_items' => $other_items
+            'items_other' => $items_other
         );
 
         // Send JSON response
@@ -99,20 +99,23 @@ class My_cart extends CI_Controller {
 			$excel_number = "";		
 			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
 			/*****************************************************/
-			$val = $this->Order_Model->my_cart_json_50($user_type,$user_altercode,$user_password,$salesman_id,"all");
-			$items1 = $val[0];
-			$items2 = $val[1];
-			$user_cart_total = $val[2];
-			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$items = $result["items"];
+			$items_other = $result["items_other"];
+			$items_total = $result["items_total"];
+			setcookie("user_cart_total", $items_total, time() + (86400 * 30), "/");
 		}
-$items= <<<EOD
-{"status":"{$status}","user_cart_total":"{$user_cart_total}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>],"items1":[<?= $items1;?>],"items2":[<?= $items2;?>]}<?php
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'items_other' => $items_other
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 	public function delete_all_medicine_api(){
 		$user_type 		= $_COOKIE["user_type"];

@@ -1130,7 +1130,7 @@ function medicine_add_to_cart_api()
 							{
 								if(item.status=="1")
 								{	
-									user_cart_total = item.user_cart_total;
+									user_cart_total = item.items_total;
 									$(".header_cart_span").html(user_cart_total)
 									
 									<?php if($this->uri->segment(2)=="my_cart") { ?>

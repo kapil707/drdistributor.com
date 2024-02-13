@@ -183,9 +183,9 @@ class MyCartModel extends CI_Model
 			);
 		$jsonArray1[] = $dt;
 		
-		$return[0] = $jsonArray;
-		$return[1] = $jsonArray1;
-		$return[2] = $items_total;
+		$return["items"] 		= $jsonArray;
+		$return["items_other"] 	= $jsonArray1;
+		$return["items_total"] 	= $items_total;
 		return $return;
 	}
 
@@ -268,7 +268,7 @@ class MyCartModel extends CI_Model
 		$response = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 		return $response;
 	}
-	
+
 	public function delete_all_medicine_api($user_type="",$user_altercode="",$salesman_id="")
 	{
 		$response = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");

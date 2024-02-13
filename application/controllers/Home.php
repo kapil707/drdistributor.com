@@ -127,25 +127,25 @@ class Home extends CI_Controller {
 			if($row->type=="slider"){
 			    $top_flash = $this->SliderModel->slider($row->category_id);
 		        $result_row = $top_flash;
-				$row_title  = 'slider';
+				$result_title  = 'slider';
 			}
 			
 			if($row->type=="menu"){
 				$menu = $this->HomeMenuModel->get_menu_api();
 		        $result_row = $menu;
-				$row_title  = 'menu';				
+				$result_title  = 'menu';				
 			}
 			
 			if($row->type=="divisioncategory"){
 			    $result = $this->MedicineDivisionModel->medicine_division($category_id);
 				
-				$row_title  = $result["title"];
+				$result_title  = $result["title"];
 		        $result_row = $result["items"];
 			}
 			
 			if($row->type=="itemcategory"){
 				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
-				$row_title  = $result["title"];
+				$result_title  = $result["title"];
 				$result_row = $result["items"];
 			}
 

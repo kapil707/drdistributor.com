@@ -6,10 +6,14 @@ class ChemistLoginModel extends CI_Model
 		parent::__construct();
 	}
     
-    public function login_check()
+    public function login_check($back_url='')
 	{
         if(empty($_COOKIE["user_altercode"])){
-			redirect(base_url()."login");			
+			if(!empty($back_url)){
+				redirect(base_url()."login?back_url=".$back_url);
+			}else{
+				redirect(base_url()."login");
+			}
 		}
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction=="1")

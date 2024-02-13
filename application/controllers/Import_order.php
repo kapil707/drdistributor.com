@@ -97,9 +97,9 @@ class Import_order extends CI_Controller {
 				$user_altercode = $chemist_id;
 			}
 		}
-		$this->load->view('home/header',$data);
+		$this->load->view('home/header_footer/header',$data);
 		$this->load->view('import_order/medicine_suggest', $data);
-		$this->load->view('home/footer', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 	
 	public function medicine_search($order_id='')

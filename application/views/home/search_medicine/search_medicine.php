@@ -610,6 +610,7 @@ function delete_all_medicine()
 					swal("Medicines not deleted");
 				},
 				success: function(data){
+					alert(data)
 					$.each(data.items, function(i,item){	
 						if (item)
 						{

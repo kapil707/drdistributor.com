@@ -14,7 +14,7 @@ class MedicineDetailsModel extends CI_Model
 	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)
 	{
 		$jsonArray = array();
-		$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
+		//$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
 		$items = "";
 		$item_date_time = date('d-M h:i A');
 		

@@ -188,4 +188,90 @@ class MyCartModel extends CI_Model
 		$return[2] = $items_total;
 		return $return;
 	}
+
+	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
+	{
+		$where = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
+		$this->db->delete("drd_temp_rec", $where);
+		$time = time();
+		$date = date("Y-m-d",$time);
+		$datetime = date("d-M-y H:i",$time);
+		if($user_type=="sales")
+		{
+			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
+		}
+		else
+		{
+			$temp_rec = $user_type."_".$user_altercode;
+		}
+		if($excel_number==0 || $excel_number=="0" || $excel_number==""){
+			$row2 = $this->db->query("select excel_number from drd_temp_rec where chemist_id='$user_altercode' and selesman_id='$salesman_id' and user_type='$user_type' and status=0 order by id desc")->row();
+			if(!empty($row2->excel_number)){
+				$excel_number = $row2->excel_number + 1;
+			}
+			if($excel_number==0){
+				$excel_number = 1;
+			}
+		}
+		$where1 = array('i_code'=>$item_code);
+		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
+		if(!empty($row1->item_name))
+		{
+			$image1 = constant('img_url_site')."uploads/default_img.jpg";
+			if(!empty($row1->image1))
+			{
+				$image1 = constant('img_url_site').$row1->image1;
+			}
+			$dt = array(
+				'i_code'=>$item_code,
+				'item_code'=>$row1->item_code,
+				'quantity'=>$item_order_quantity,				
+				'item_name'=>$row1->item_name,
+				'packing'=>$row1->packing,
+				'expiry'=>$row1->expiry,
+				'margin'=>$row1->margin,
+				'featured'=>$row1->featured,
+				'company_full_name'=>$row1->company_full_name,
+				'sale_rate'=>$row1->final_price,
+				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'image'=>$image1,
+				'chemist_id'=>$user_altercode,
+				'selesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'date'=>$date,
+				'time'=>$time,
+				'datetime'=>$datetime,
+				'temp_rec'=>$temp_rec,
+				'order_type'=>$order_type,
+				'mobilenumber'=>$mobilenumber,
+				'modalnumber'=>$modalnumber,
+				'device_id'=>$device_id,
+				'excel_number'=>$excel_number,
+				'status'=>0,
+				'json_id'=>0,
+				'excel_temp_id'=>0,
+				'filename'=>"",
+				'your_item_name'=>"",
+				'join_temp'=>"",
+				'order_id'=>"",
+				);
+			$this->Scheme_Model->insert_fun("drd_temp_rec",$dt);
+			$status = "1";
+		}else{
+			$status = "0";
+		}
+		return $status;
+	}
+
+	public function delete_medicine_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
+	{
+		$response = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
+		return $response;
+	}
+	
+	public function delete_all_medicine_api($user_type="",$user_altercode="",$salesman_id="")
+	{
+		$response = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");
+		return $response;
+	}
 }

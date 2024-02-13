@@ -42,7 +42,6 @@ $(".headertitle1").show();
 </script>
 <?php } ?>
 <script>
-51
 $(".headertitle").html("Upload order");
 function goBack() {
 	window.location.href = "<?= base_url();?>import_order";
@@ -50,7 +49,7 @@ function goBack() {
 </script>
 <div class="container maincontainercss">
 	<div class="row">
-		<div class="col-sm-12 col-12">51
+		<div class="col-sm-12 col-12">
 			<table class="table table-striped table-bordered" aria-describedby>
 				<thead>
 					<tr>
@@ -78,16 +77,14 @@ function goBack() {
 					<tr class="remove_css_<?= $i ?>">
 						<td>
 							<?= $j ?>
-51
 							<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
 							<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 							<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
-51
 						</td>
 						<td class="import_order_td_<?= $i ?>">
 							<div class="row">
 								<div class="col-sm-1">
-									<img src="<?=base_url(); ?>img_v<?= constant('site_v') ?>/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_<?= $i ?> medicine_cart_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
+									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_<?= $i ?> medicine_cart_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
 								</div>
 								<div class="col-sm-11">
 									<div class="row">
@@ -104,7 +101,7 @@ function goBack() {
 											<span style="float:left;" class="cart_delete_btn_<?= $i ?>">
 											
 											<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="cart_delete_btn">
-											<img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a>
+											<img src="<?= base_url(); ?>img_v51/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a>
 											</span>
 										</div>
 										<div class="col-sm-4 text-right">
@@ -158,13 +155,13 @@ function goBack() {
 									<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 									<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
 										<a href="javascript:change_medicine('<?= $i ?>')" class="cart_delete_btn" title="Change medicine">
-										<img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/edit_icon.png" width="18px;" alt="Change Medicine">
+										<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
 											Change medicine
 										</a>
 									</span>
 									<span class="selected_suggest_<?= $i ?>" style="display:none">
 									|
-										<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="cart_delete_btn"><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/delete_icon.png" width="18px;" alt="Delete suggested medicine">Delete suggested medicine</a>
+										<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="cart_delete_btn"><img src="<?= base_url(); ?>img_v51/delete_icon.png" width="18px;" alt="Delete suggested medicine">Delete suggested medicine</a>
 									</span>
 								</div>
 							</div>
@@ -215,14 +212,12 @@ function insert_main_row_data(row_id)
 		error: function(){
 			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
 		},
-		success    : function(data){51
+		success    : function(data){
 			$(".insert_main_row_data_"+row_id).html(data);
 		}
 	});
-51
 }
 function change_order_quantity(row_id)
-51
 {
 	quantity  = $(".item_qty_"+row_id).val();
 	$.ajax({
@@ -247,7 +242,7 @@ function change_order_quantity(row_id)
 51
 						swal("Quantity not updated");
 					}
-				} 51
+				}
 			});
 		},
 		timeout: 10000
@@ -314,7 +309,6 @@ function delete_suggested_medicine(row_id)
 					swal("Suggested medicine not deleted");
 				},
 				success: function(data){
-51515151
 					$.each(data.items, function(i,item){	
 						if (item)
 						{
@@ -340,15 +334,13 @@ function delete_suggested_medicine(row_id)
 	});
 }
 /*************************************/
-function change_medicine(row_id)51
+function change_medicine(row_id)
 {
 	$(".select_chemist").hide();
 	$(".select_medicine").focus();
-51
 	$(".select_medicine").val('');
 	$(".background_blur").show();
 	$("._row_id").val(row_id);
-51
 	item_name = $(".your_item_name_"+row_id).val();
 	setTimeout($('.select_medicine').val(item_name),500);
 	setTimeout(search_medicine(),1000);
@@ -368,7 +360,7 @@ $(document).ready(function(){
 		{
 			var keyword = $(".search_textbox").val();
 			if(keyword!="")
-			{5151
+			{
 				if(keyword.length<3)
 				{
 					$('.search_textbox').focus();
@@ -432,20 +424,20 @@ function search_medicine()
 		{
 			$(".background_blur").show();
 			$(".search_medicine_result").show();
-			$(".search_medicine_result").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></h1><h1>Loading....</h1></div></div>');
+			$(".search_medicine_result").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></h1><h1>Loading....</h1></div></div>');
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 				type       : "POST",
 				data       :  { keyword : keyword} ,
 				url        : "<?php echo base_url(); ?>Chemist_json/medicine_search_api",
 				error: function(){
-					$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+					$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 				},
 				cache	   : false,
 				success    : function(data){
 					if(data.items=="")
 					{
-						$(".search_medicine_result").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></h1></div></div>');
+						$(".search_medicine_result").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h1><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></h1></div></div>');
 						$(".header_result_found").html("No record found");
 					}
 					else
@@ -486,11 +478,11 @@ function search_medicine()
 							}
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/featured_img.png" class="medicine_cart_item_featured_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 							}
 							item_quantity_div = '<span class="medicine_cart_item_out_of_stock">Out of stock</span>';
 							if(item_quantity=="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v<?= constant('site_v') ?>/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 							} 
 							else 
 							{
@@ -616,7 +608,7 @@ function add_new_row_import_order_page(item_code,item_order_quantity)
 	item_image = $(".medicine_details_all_data_"+item_code).attr("item_image")
 	item_name = $(".medicine_details_all_data_"+item_code).attr("item_name")
 	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
-	$(".tbody_row").append('<tr class="remove_css_'+js_i+'"><td>'+js_j+'<input type="hidden" value="'+item_name+'" class="your_item_name_'+js_i+'"><input type="hidden" value="'+item_mrp+'" class="your_item_mrp_'+js_i+'"><input type="hidden" value="'+item_order_quantity+'" class="your_item_qty_'+js_i+'"></td><td class="import_order_td_'+js_i+'"><div class="row"><div class="col-sm-1"><img src="<?=base_url(); ?>img_v<?= constant('site_v') ?>/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_'+js_i+'" alt=""></div><div class="col-sm-11"><div class="row"><div class="col-sm-8"><span style="float:left;"><?= $myname;?> : <span class="import_order_title_1"> '+item_name+'</span> </span> <span style="float:left; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:left;"><a href="javascript:void(0)" onclick="delete_row_medicine('+js_i+')" title="Delete medicine" class="cart_delete_btn"> <img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a> </span> </div> <div class="col-sm-4 text-right"> <span style="float:right;"> <div class="import_order_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div> </span> <span style="float:right; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:right;"> <input type="number" name="item_qty[]" value="'+item_order_quantity+'" class="form-control item_qty_'+js_i+'" style="width: 50px;height: 30px;font-size: 12px;padding: 3px;" onchange="change_order_quantity('+js_i+')" min="1" max="1000" /> </span> <span style="float:right;margin-right:5px;" class="cart_order_qty1"> Quantity : </span> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> </div> <div class="row select_product_'+js_i+'" style="display:none"> <div class="col-sm-8"> DRD :  <span class="import_order_title selected_item_name_'+js_i+'"></span> <span class="import_order_packing"> (<span class="selected_packing_'+js_i+'"></span> Packing) </span> - <span class="import_order_expiry expiry_css_'+js_i+'"> Expiry : <span class="selected_expiry_'+js_i+'"></span></span> </div> <div class="col-sm-4 text-right"> <span class="import_order_stock"> Stock : <span class="selected_batchqty_'+js_i+'"></span></span> | <span class="import_order_mrp"> MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_'+js_i+'">0.00</span>/- </span> </div>	<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-7"> <span class="import_order_company"> By : <span class="selected_company_full_name_'+js_i+'"></span></span> |  <span class="import_order_batch_no"> Batch No : <span class="selected_batch_no_'+js_i+'"></span></span> <span class="select_product_'+js_i+' selected_scheme_span_'+js_i+'"> |  <span class="import_order_scheme selected_scheme_'+js_i+'"></span> </span> </div> <div class="col-sm-5 text-right"> <span class="import_order_ptr"> PTR : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_sale_rate_'+js_i+'">0.00</span>/-</span> | <span class="import_order_landing_price"> ~ Landing price : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_final_price_'+js_i+'">0.00</span>/-</span> </div> </div> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-12"> <span class="selected_msg_'+js_i+'"> Loading.... </span> <span class="selected_SearchAnotherMedicine_'+js_i+'" style="display:none">  | <a href="'+js1+'" class="cart_delete_btn" title="Change medicine"> <img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/edit_icon.png" width="18px;" alt="Change medicine"> Change medicine </a> </span> <span class="selected_suggest_'+js_i+'" style="display:none"> | <a href="'+js2+'" title="Delete Suggest Medicine" class="cart_delete_btn"><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/delete_icon.png" width="18px;" alt="Delete Suggest Medicine">Delete Suggest Medicine</a> </span> </div> </div> <span class="insert_main_row_data_'+js_i+'"></span> </td> </tr>');
+	$(".tbody_row").append('<tr class="remove_css_'+js_i+'"><td>'+js_j+'<input type="hidden" value="'+item_name+'" class="your_item_name_'+js_i+'"><input type="hidden" value="'+item_mrp+'" class="your_item_mrp_'+js_i+'"><input type="hidden" value="'+item_order_quantity+'" class="your_item_qty_'+js_i+'"></td><td class="import_order_td_'+js_i+'"><div class="row"><div class="col-sm-1"><img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_'+js_i+'" alt=""></div><div class="col-sm-11"><div class="row"><div class="col-sm-8"><span style="float:left;"><?= $myname;?> : <span class="import_order_title_1"> '+item_name+'</span> </span> <span style="float:left; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:left;"><a href="javascript:void(0)" onclick="delete_row_medicine('+js_i+')" title="Delete medicine" class="cart_delete_btn"> <img src="<?= base_url(); ?>img_v51/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a> </span> </div> <div class="col-sm-4 text-right"> <span style="float:right;"> <div class="import_order_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div> </span> <span style="float:right; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:right;"> <input type="number" name="item_qty[]" value="'+item_order_quantity+'" class="form-control item_qty_'+js_i+'" style="width: 50px;height: 30px;font-size: 12px;padding: 3px;" onchange="change_order_quantity('+js_i+')" min="1" max="1000" /> </span> <span style="float:right;margin-right:5px;" class="cart_order_qty1"> Quantity : </span> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> </div> <div class="row select_product_'+js_i+'" style="display:none"> <div class="col-sm-8"> DRD :  <span class="import_order_title selected_item_name_'+js_i+'"></span> <span class="import_order_packing"> (<span class="selected_packing_'+js_i+'"></span> Packing) </span> - <span class="import_order_expiry expiry_css_'+js_i+'"> Expiry : <span class="selected_expiry_'+js_i+'"></span></span> </div> <div class="col-sm-4 text-right"> <span class="import_order_stock"> Stock : <span class="selected_batchqty_'+js_i+'"></span></span> | <span class="import_order_mrp"> MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_'+js_i+'">0.00</span>/- </span> </div>	<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-7"> <span class="import_order_company"> By : <span class="selected_company_full_name_'+js_i+'"></span></span> |  <span class="import_order_batch_no"> Batch No : <span class="selected_batch_no_'+js_i+'"></span></span> <span class="select_product_'+js_i+' selected_scheme_span_'+js_i+'"> |  <span class="import_order_scheme selected_scheme_'+js_i+'"></span> </span> </div> <div class="col-sm-5 text-right"> <span class="import_order_ptr"> PTR : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_sale_rate_'+js_i+'">0.00</span>/-</span> | <span class="import_order_landing_price"> ~ Landing price : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_final_price_'+js_i+'">0.00</span>/-</span> </div> </div> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-12"> <span class="selected_msg_'+js_i+'"> Loading.... </span> <span class="selected_SearchAnotherMedicine_'+js_i+'" style="display:none">  | <a href="'+js1+'" class="cart_delete_btn" title="Change medicine"> <img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change medicine"> Change medicine </a> </span> <span class="selected_suggest_'+js_i+'" style="display:none"> | <a href="'+js2+'" title="Delete Suggest Medicine" class="cart_delete_btn"><img src="<?= base_url(); ?>img_v51/delete_icon.png" width="18px;" alt="Delete Suggest Medicine">Delete Suggest Medicine</a> </span> </div> </div> <span class="insert_main_row_data_'+js_i+'"></span> </td> </tr>');
 	setTimeout("insert_main_row_data('"+js_i+"')",1000);
 }
 function delete_medicine(item_code)
@@ -666,20 +658,20 @@ function delete_medicine(item_code)
 function medicine_cart_list()
 {
 	id = "";
-	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		url: "<?php echo base_url(); ?>Chemist_json/my_cart_api",
 		type:"POST",
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".medicine_cart_list_div").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+			$(".medicine_cart_list_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success: function(data){
 			$(".medicine_cart_list_div").html("");
 			/* if(data.items=="")
 			{
-				$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/cartempty.png" width="50%"></center></h1>');
+				$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>img_v51/cartempty.png" width="50%"></center></h1>');
 				$(".delete_all_btn").hide();
 				$(".Current_Order").hide();
 			} */
@@ -720,7 +712,7 @@ function medicine_cart_list()
 					{
 						item_scheme_div =  ' | <span class="medicine_cart_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
 					}
-					rate_div = '<div class="cart_ki_main_div3 medicine_cart_item_datetime">'+item_modalnumber+' | '+item_datetime+'</div><div class="cart_ki_main_div3"><span class="medicine_cart_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span><span style="float:right;"><a href="javascript:delete_medicine('+item_code+')" tabindex="-10" title="Delete '+item_name+'"><img src="<?= base_url() ?>/img_v<?= constant('site_v') ?>/delete_icon.png" width="18px;" style="margin-top: 5px;margin-bottom: 2px;margin-right:5px;"></a>&nbsp;<a href="javascript:medicine_details_funcation('+item_code+')" tabindex="-10" title="Edit '+item_name+'" class="edit_item_focues'+item_code+'"><img src="<?= base_url() ?>/img_v<?= constant('site_v') ?>/edit_icon.png" width="18px;" style="margin-top: 5px;margin-bottom: 2px;"></a>&nbsp;&nbsp;</div>';
+					rate_div = '<div class="cart_ki_main_div3 medicine_cart_item_datetime">'+item_modalnumber+' | '+item_datetime+'</div><div class="cart_ki_main_div3"><span class="medicine_cart_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span><span style="float:right;"><a href="javascript:delete_medicine('+item_code+')" tabindex="-10" title="Delete '+item_name+'"><img src="<?= base_url() ?>/img_v51/delete_icon.png" width="18px;" style="margin-top: 5px;margin-bottom: 2px;margin-right:5px;"></a>&nbsp;<a href="javascript:medicine_details_funcation('+item_code+')" tabindex="-10" title="Edit '+item_name+'" class="edit_item_focues'+item_code+'"><img src="<?= base_url() ?>/img_v51/edit_icon.png" width="18px;" style="margin-top: 5px;margin-bottom: 2px;"></a>&nbsp;&nbsp;</div>';
 					
 					$(".medicine_cart_list_div").append('<div class="main_theme_li_bg"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="medicine_cart_item_name" title="'+item_name+'">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_expiry">Expiry : '+item_expiry+'</div><div class="medicine_cart_item_company">By '+item_company+'</div><div class="text-left medicine_cart_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>'+div_all_data);
 				}

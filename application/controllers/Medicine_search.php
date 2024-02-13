@@ -11,6 +11,7 @@ class Medicine_search extends CI_Controller {
         $this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 
 		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
+		
 	}
     
     public function index(){

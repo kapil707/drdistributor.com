@@ -76,7 +76,7 @@ $route['home']='Home/index';
 $route['search_medicine']='search_medicine/index';
 
 
-$route['my_cart']='home/my_cart';
+$route['my_cart']='my_cart/index';
 
 
 $route['track_order']='home/track_order';

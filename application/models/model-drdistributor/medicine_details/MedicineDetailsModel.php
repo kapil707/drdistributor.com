@@ -52,27 +52,28 @@ class MedicineDetailsModel extends CI_Model
 			}
 			$item_description1 = (trim($row->title2));
 			$item_description2 = (trim($row->description));
-			$item_description1  =   $this->new_clean($item_description1);
-			$item_description2  =   $this->new_clean($item_description2);
-			$item_image  = constant('img_url_site')."uploads/default_img.jpg";
-			$item_image2 = constant('img_url_site')."uploads/default_img.jpg";
-			$item_image3 = constant('img_url_site')."uploads/default_img.jpg";
-			$item_image4 = constant('img_url_site')."uploads/default_img.jpg";
+			
+			$img_url_site = constant('img_url_site');
+
+			$item_image  = $img_url_site."uploads/default_img.jpg";
+			$item_image2 = $img_url_site."uploads/default_img.jpg";
+			$item_image3 = $img_url_site."uploads/default_img.jpg";
+			$item_image4 = $img_url_site."uploads/default_img.jpg";
 			if(!empty($row->image1))
 			{
-				$item_image = constant('img_url_site').$row->image1;
+				$item_image = $img_url_site.$row->image1;
 			}
 			if(!empty($row->image2))
 			{
-				$item_image2 = constant('img_url_site').$row->image2;
+				$item_image2 = $img_url_site.$row->image2;
 			}
 			if(!empty($row->image3))
 			{
-				$item_image3 = constant('img_url_site').$row->image3;
+				$item_image3 = $img_url_site.$row->image3;
 			}
 			if(!empty($row->image4))
 			{
-				$item_image4 = constant('img_url_site').$row->image4;
+				$item_image4 = $img_url_site.$row->image4;
 			}
 			/*******************************************************
 			$itemjoinid			=	$row->itemjoinid;

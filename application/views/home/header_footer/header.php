@@ -844,9 +844,9 @@ function medicine_details_api(item_code)
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
 
 	$.ajax({
-		url: "<?php echo base_url(); ?>Chemist_json/medicine_details_api",
+		url: "<?php echo base_url(); ?>medicine_other/medicine_details_api",
 		type:"POST",
-		/*dataType: 'html',*/
+		dataType: 'json',
 		data: {item_code:item_code},
 		error: function(){
 			

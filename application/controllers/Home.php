@@ -125,14 +125,14 @@ class Home extends CI_Controller {
 			
 			$result_row = "[]";
 			if($row->type=="slider"){
-			    $top_flash = $this->SliderModel->slider($row->category_id);
-		        $result_row = $top_flash;
+			    $result = $this->SliderModel->slider($row->category_id);
+		        $result_row = $result["items"];
 				$result_title  = 'slider';
 			}
 			
 			if($row->type=="menu"){
-				$menu = $this->HomeMenuModel->get_menu_api();
-		        $result_row = $menu;
+				$result = $this->HomeMenuModel->get_menu_api();
+		        $result_row = $result["items"];
 				$result_title  = 'menu';				
 			}
 			

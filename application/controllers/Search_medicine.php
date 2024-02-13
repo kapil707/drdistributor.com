@@ -7,7 +7,7 @@ class Search_medicine extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/ChemistLoginModel");
 
-        $this->ChemistLoginModel->loging_check();
+        $this->ChemistLoginModel->login_check();
 	}
     
     public function index(){

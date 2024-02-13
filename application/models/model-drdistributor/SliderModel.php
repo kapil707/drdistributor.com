@@ -56,7 +56,6 @@ class SliderModel extends CI_Model
 			);
 			$jsonArray[] = $dt;
 		}
-		
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;

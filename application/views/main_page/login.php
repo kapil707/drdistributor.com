@@ -403,13 +403,18 @@ function submitbtn()
 						$(".submit_div").html("<p class='text-success'>"+item.user_alert+"</p>");
 						if(item.user_type=="chemist" || item.user_type=="sales")
 						{
-							window.location.href = "<?= base_url();?>home";
+							<?php if(isset($_GET["back_url"])) {
+							?>
+							window.location.href = "<?= base_url();?><?php echo $_GET["back_url"]; ?>";
+							<?php
+							} else { ?>
+								window.location.href = "<?= base_url();?>home";
+							<?php } ?>
 						}
 					}else{
 						swal(item.user_alert);
 						$(".submit_div").html("<p class='text-danger'>"+item.user_alert+"</p>");
 
-						
 						$(".submit_div").html("&nbsp;");
 						$("#submitbtn").show();
 						$("#submitbtn_disable").hide();

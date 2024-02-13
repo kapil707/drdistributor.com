@@ -5,12 +5,17 @@ ini_set('upload_max_filesize','100M');
 ini_set('max_execution_time',36000);
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Import_order extends CI_Controller {
-	
 	public function __construct(){
 		parent::__construct();
-		// Load model
-		$this->load->model("model-drdistributor/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check();
+		//error_reporting(0);
+		if($_COOKIE['user_session']==""){
+			redirect(base_url()."user/login");			
+		}
+		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
+		if($under_construction=="1")
+		{
+			redirect(base_url()."under_construction");
+		}
 	}
 	
 	public function index()

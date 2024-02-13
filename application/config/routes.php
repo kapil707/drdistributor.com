@@ -73,7 +73,11 @@ $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2'
 
 
 $route['home']='Home/index';
-$route['search_medicine']='search_medicine/index';
+
+$route['search_medicine']='medicine_search/index';
+$route['medicine_search']='medicine_search/index';
+$route['home/search_medicine']='medicine_search/index';
+$route['home/medicine_search']='medicine_search/index';
 
 
 $route['my_cart']='my_cart/index';

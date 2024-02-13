@@ -195,7 +195,8 @@ function medicine_cart_list()
 	id = "";
 	$.ajax({
 		url: "<?php echo base_url(); ?>my_cart/my_cart_api",
-		type:"POST",
+		type	   :"POST",
+		dataType   : "json",
 		cache: true,
 		data: {id:id},
 		error: function(){

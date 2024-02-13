@@ -99,25 +99,25 @@ class My_cart extends CI_Controller {
 			$excel_number = "";		
 			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
 			/*****************************************************/
-			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
-			$items = $result["items"];
-			$items_other = $result["items_other"];
-			$items_total = $result["items_total"];
-			setcookie("user_cart_total", $items_total, time() + (86400 * 30), "/");
+
+			if($status==1){
+				$items = 1;	
+			}else{
+				$items = 0;	
+			}
 		}
 		
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items,
-            'items_other' => $items_other,
-			'items_total' => $items_total
         );
 
         // Send JSON response
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
+	
 	public function delete_all_medicine_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];

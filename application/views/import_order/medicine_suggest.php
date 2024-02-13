@@ -73,10 +73,10 @@ function delete_suggest_by_id(_id)
 		$.ajax({
 			url: "<?php echo base_url(); ?>import_order/delete_suggest_by_id",
 			type:"POST",
-			dataType: 'html',
+			dataType: 'json',
 			data: {id:_id},
 			success: function(data){
-				//import_order_dropdownbox(cssid,item_name,item_mrp,item_qty)
+				
 			}
 		});
 	}

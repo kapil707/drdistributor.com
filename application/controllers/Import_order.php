@@ -898,5 +898,26 @@ if ($items != '') {
 ?>
 {"items":[<?= $items;?>]}<?php
 	}
+
+	public function delete_suggest_by_id()
+	{
+		$items = "";
+		$user_type 		= $_COOKIE['user_type'];
+		$user_altercode	= $_COOKIE["user_altercode"];
+		$id 			= ($_REQUEST["id"]);
+		
+		$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data delete successfully',
+            'items' => $items,
+            'other_items' => $other_items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
 }
 ?>

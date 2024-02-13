@@ -638,7 +638,8 @@ function favourite_medicines_search_pg()
 	id = "";
 	$.ajax({
 		url: "<?php echo base_url(); ?>search_medicine/get_medicine_favourite_api",
-		type:"POST",
+		type	:"POST",
+		dataType: "json",
 		cache: true,
 		data: {id:id},
 		error: function(){

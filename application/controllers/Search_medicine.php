@@ -5,7 +5,9 @@ class Search_medicine extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
+		$this->load->model("model-drdistributor/ChemistLoginModel");
+
+        $this->ChemistLoginModel->loging_check();
 	}
     
     public function index(){

@@ -17,7 +17,7 @@
 <script>
 $(".headertitle").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home/my_order";
+	window.location.href = "<?= base_url();?>my_order";
 }
 </script>
 <div class="container maincontainercss">
@@ -50,7 +50,7 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		data       : {item_id:item_id} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/my_order_details_api",
+		url        : "<?php echo base_url(); ?>my_order/my_order_details_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');

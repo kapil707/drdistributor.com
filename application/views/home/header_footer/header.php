@@ -440,7 +440,7 @@ $website_menu 	= json_decode($website_menu, true);
 						<li>
 							<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 								<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Cart</span>&nbsp;
+								<span class="d-none d-lg-block">My Cart</span>&nbsp;
 								(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
 							</a>
 						</li>

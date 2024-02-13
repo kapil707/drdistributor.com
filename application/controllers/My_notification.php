@@ -9,9 +9,6 @@ class My_notification extends CI_Controller {
 	}
 
 	public function index(){
-		////error_reporting(0);
-		//$this->login_check();
-		//$this->salesman_chemist_ck();
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

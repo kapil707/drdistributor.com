@@ -70,7 +70,7 @@ function call_page(get_record)
 		$.ajax({
 			type       : "POST",
 			data       :  { get_record:get_record} ,
-			url        : "<?php echo base_url(); ?>Chemist_json/my_order_api",
+			url        : "<?php echo base_url(); ?>my_order/my_order_api",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");

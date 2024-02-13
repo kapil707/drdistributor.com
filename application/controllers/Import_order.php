@@ -97,6 +97,11 @@ class Import_order extends CI_Controller {
 				$user_altercode = $chemist_id;
 			}
 		}
+		
+		$where = array('user_altercode'=>$user_altercode);
+		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
+		$data["result"] = $result;
+
 		$this->load->view('home/header_footer/header',$data);
 		$this->load->view('import_order/medicine_suggest', $data);
 		$this->load->view('home/header_footer/footer', $data);

@@ -634,7 +634,7 @@ function delete_all_medicine()
 }
 function get_medicine_favourite()
 {
-	$('.get_medicine_favourite_div').html('');
+	//$('.get_medicine_favourite_div').html('');
 	id = "";
 	$.ajax({
 		url: "<?php echo base_url(); ?>search_medicine/get_medicine_favourite_api",

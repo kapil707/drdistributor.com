@@ -602,9 +602,9 @@ function delete_all_medicine()
 		{
 			id = "";
 			$.ajax({                          
-				url: "<?php echo base_url(); ?>Chemist_json/delete_all_medicine_api",
+				url: "<?php echo base_url(); ?>my_cart/medicine_delete_all_api",
 				type:"POST",
-				/*dataType: 'html',*/
+				dataType: 'json',
 				data: {id:id},
 				error: function(){
 					swal("Medicines not deleted");

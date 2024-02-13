@@ -117,8 +117,8 @@ class My_cart extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
-	
-	public function delete_all_medicine_api(){
+
+	public function medicine_delete_all_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
@@ -130,18 +130,26 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		if($user_type!="" && $user_altercode!=""){
+		if(!empty($user_type) && !empty($user_altercode)){
 			$status = $this->MyCartModel->delete_all_medicine_api($user_type,$user_altercode,$salesman_id);
 		}
-$items= <<<EOD
-{"status":"{$status}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+		if($status==1){
+			$items = 1;	
+		}else{
+			$items = 0;	
+		}
+		
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
+
 	public function delete_medicine_api(){
 		$item_code 		= $_POST['item_code'];
 		$user_type 		= $_COOKIE["user_type"];

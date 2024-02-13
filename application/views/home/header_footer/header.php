@@ -1128,7 +1128,7 @@ function medicine_add_to_cart_api()
 						$.each(data.items, function(i,item){	
 							if (item)
 							{
-								if(item.status=="1")
+								if(item.success=="1")
 								{	
 									user_cart_total = item.items_total;
 									$(".header_cart_span").html(user_cart_total)

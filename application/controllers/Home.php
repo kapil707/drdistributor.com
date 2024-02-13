@@ -6,8 +6,6 @@ class Home extends CI_Controller {
 		// Load model
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
-		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check();
 
 		$this->load->model("model-drdistributor/slider/SliderModel");
 		$this->load->model("MenuModel");
@@ -18,6 +16,9 @@ class Home extends CI_Controller {
 	}
 	
 	public function index(){	
+		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+        $this->ChemistLoginModel->login_check();
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];

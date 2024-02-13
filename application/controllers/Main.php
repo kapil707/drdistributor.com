@@ -1,13 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('memory_limit','-1');
-ini_set('post_max_size','500M');
-ini_set('upload_max_filesize','500M');
-ini_set('max_execution_time',36000);
 class Main extends CI_Controller {
 	public function login_check()
 	{
-		//error_reporting(0);
 		if($this->session->userdata('user_session')!=""){
 			redirect(base_url()."home");			
 		}
@@ -21,10 +16,8 @@ class Main extends CI_Controller {
 	public function index(){
 		$this->login_check();
 		
-		$site_v = 51;
-		
 		$data["main_page_title"] = "Home";
-		$data["session_user_image"] = base_url()."img_v".$site_v."/logo2.png";
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
@@ -40,9 +33,7 @@ class Main extends CI_Controller {
 		
 		/********************************************************** */
 
-		/********************************************************** */
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
-		$data["tbl_home"] = $tbl_home;
+		/**********************************************************/
 		
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/home/home', $data);

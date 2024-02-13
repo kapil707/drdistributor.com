@@ -275,7 +275,7 @@ class MyCartModel extends CI_Model
 
 		$jsonArray = array();
 		$dt = array(
-			'stauts' => $status,
+			'status' => $status,
 		);
 		$jsonArray[] = $dt;
 		
@@ -295,7 +295,7 @@ class MyCartModel extends CI_Model
 
 		$jsonArray = array();
 		$dt = array(
-			'stauts' => $status,
+			'status' => $status,
 		);
 		$jsonArray[] = $dt;
 		

@@ -57,6 +57,7 @@ class Import_order extends CI_Controller {
 		
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('import_order/index', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 	
 	public function select_chemist(){
@@ -112,7 +113,7 @@ class Import_order extends CI_Controller {
 		
 		$user_altercode	= $_COOKIE['user_altercode'];
 		$user_type		= $_COOKIE['user_type'];
-		$chemist_id		= $_COOKIE['chemist_id'];
+		$chemist_id		= "";
 		$data["chemist_id"] = $chemist_id;
 		if(!empty($user_type))
 		{
@@ -123,6 +124,8 @@ class Import_order extends CI_Controller {
 			$salesman_id = "";
 			if($user_type=="sales")
 			{
+				$chemist_id		= $_COOKIE['chemist_id'];
+				$data["chemist_id"] = $chemist_id;
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;
 			}
@@ -137,9 +140,9 @@ class Import_order extends CI_Controller {
 			redirect(base_url()."import_order");
 		}
 		$data["import_order_page"] = "yes";
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
-		$this->load->view('home/footer', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 	
 	public function medicine_deleted_items($order_id='')

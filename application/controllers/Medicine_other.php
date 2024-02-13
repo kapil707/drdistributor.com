@@ -7,8 +7,11 @@ class Medicine_other extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
         $this->ChemistLoginModel->login_check();
-		
-	}public function medicine_details_api()
+	
+		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
+	}
+	
+	public function medicine_details_api()
 	{
 		$item_code		= $_REQUEST["item_code"];
 		$user_type 		= $_COOKIE["user_type"];
@@ -24,7 +27,8 @@ class Medicine_other extends CI_Controller {
 		}
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_code)){
 			
-			$items = $this->Chemist_Model->medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code);
+			$result = $this->MedicineDetailsModel->medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code);
+			$items = $result["items"];
 		}
         
         $response = array(

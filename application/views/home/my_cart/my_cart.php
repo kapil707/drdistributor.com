@@ -50,7 +50,7 @@ $(".headertitle1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("Draft");
+$(".headertitle").html("My Cart");
 function goBack() {
 	window.location.href = "<?= base_url();?>search_medicine";
 }
@@ -58,7 +58,8 @@ function goBack() {
 <div class="container-fluid maincontainercss">
 	<div class="row">
 		<div class="col-sm-6 col-6 current_order_search_page1 mobile_off">
-			<h6 class="search_pg_title_color Current_Order">Current order 
+			<h6 class="search_pg_title_color Current_Order">
+				My Cart
 				<span class="div_cart_total_items1"></span></h6>
 		</div>
 		<div class="col-sm-6 col-6 text-right current_order_search_page1 mobile_off" style="margin-bottom:5px;">

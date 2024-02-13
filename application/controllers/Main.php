@@ -44,9 +44,9 @@ class Main extends CI_Controller {
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
 		$data["tbl_home"] = $tbl_home;
 		
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/home', $data);
-		$this->load->view('home/footer', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 }
 ?>

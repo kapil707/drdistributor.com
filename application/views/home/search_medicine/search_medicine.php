@@ -638,7 +638,7 @@ function get_medicine_favourite()
 	//$('.get_medicine_favourite_div').html('');
 	id = "";
 	$.ajax({
-		url: "<?php echo base_url(); ?>search_medicine/get_medicine_favourite_api",
+		url: "<?php echo base_url(); ?>medicine_search/get_medicine_favourite_api",
 		type	:"POST",
 		dataType: "json",
 		cache: true,

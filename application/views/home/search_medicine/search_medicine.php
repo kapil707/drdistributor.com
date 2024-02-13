@@ -557,9 +557,9 @@ function delete_medicine(item_code)
 		if (result) 
 		{
 			$.ajax({                          
-				url: "<?php echo base_url(); ?>Chemist_json/delete_medicine_api",
+				url: "<?php echo base_url(); ?>my_cart/medicine_delete_api",
 				type:"POST",
-				/*dataType: 'html',*/
+				dataType: 'json',
 				data:{item_code: item_code},
 				error: function(){
 					swal("Medicine not deleted");
@@ -568,6 +568,7 @@ function delete_medicine(item_code)
 					$.each(data.items, function(i,item){	
 						if (item)
 						{
+							alert(item.status)
 							if(item.status=="1")
 							{
 								cart_page_load();

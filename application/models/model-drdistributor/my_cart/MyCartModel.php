@@ -263,10 +263,24 @@ class MyCartModel extends CI_Model
 		return $status;
 	}
 
-	public function delete_medicine_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
+	public function medicine_delete_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
-		$response = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
-		return $response;
+		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
+		
+		if(empty($result)){
+			$status = "0";
+		}else{
+			$status = "1";
+		}
+
+		$jsonArray = array();
+		$dt = array(
+			'stauts' => $status,
+		);
+		$jsonArray[] = $dt;
+		
+		$return["items"] = $jsonArray;
+		return $return;
 	}
 
 	public function medicine_delete_all_api($user_type="",$user_altercode="",$salesman_id="")

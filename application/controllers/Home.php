@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 
 		$this->load->model("model-drdistributor/SliderModel");
 		$this->load->model("MenuModel");
-		$this->load->model("MedicineDivisionModel");
+		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("MedicineItemModel");
 
 		$this->load->model("model-drdistributor/HomeMenuModel");

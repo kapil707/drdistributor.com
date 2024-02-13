@@ -386,7 +386,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       : {user_name1:user_name1,password1:password1,submit:submit},
-		url        : "<?= base_url();?>chemist_json/login",
+		url        : "<?= base_url();?>user/login_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

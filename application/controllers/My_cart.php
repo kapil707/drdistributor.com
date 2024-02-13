@@ -131,9 +131,9 @@ class My_cart extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		if(!empty($user_type) && !empty($user_altercode)){
-			$status = $this->MyCartModel->medicine_delete_all_api($user_type,$user_altercode,$salesman_id);
+			$result = $this->MyCartModel->medicine_delete_all_api($user_type,$user_altercode,$salesman_id);
+			$items = $result["items"];
 		}
-		$items = array("status"=>$status);	
 		
 		$response = array(
 			'success' => "1",

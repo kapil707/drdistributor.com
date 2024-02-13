@@ -6,8 +6,9 @@ class Search_medicine extends CI_Controller {
 		parent::__construct();
 		// Load model
 		$this->load->model("model-drdistributor/ChemistLoginModel");
-
         $this->ChemistLoginModel->login_check();
+
+        $this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 	}
     
     public function index(){
@@ -105,4 +106,32 @@ class Search_medicine extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/search_medicine/search_medicine', $data);
 	}
+
+
+
+    public function get_medicine_favourite_api(){
+		$items = "";
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales") {
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		if(!empty($user_altercode)){
+	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($user_altercode);
+		}
+        $response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
 }

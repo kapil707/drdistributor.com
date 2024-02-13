@@ -695,10 +695,6 @@ $website_menu 	= json_decode($website_menu, true);
 			</div>
 		</div>				
 	</div>
-			
-			
-	
-
 <script>
 function theme_set()
 {
@@ -822,7 +818,7 @@ function get_single_medicine_info(item_code)
 	var session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = "<?=base_url(); ?>home";
+		window.location.href = "<?=base_url(); ?>";
 	} else 
 	{
 		$('.myModal_medicine_details').click();

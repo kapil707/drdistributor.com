@@ -1,6 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		// Load model
+		//$this->load->model("LoginModel");
+		//$this->load->model("MedicineSearchModel");
+		$this->load->model("SliderModel");
+		$this->load->model("MenuModel");
+		$this->load->model("MedicineDivisionModel");
+		$this->load->model("MedicineItemModel");
+
+		$this->load->model("model-drdistributor/HomeMenuModel");
+		
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		$this->load->model("model-drdistributor/my_order/MyOrderModel");
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
+		
+		$this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
+		
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+	}
 	public function salesman_chemist_add($chemist_id="",$next_page="")
 	{
 		if(!empty($_COOKIE["user_type"]))

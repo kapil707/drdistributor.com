@@ -110,7 +110,8 @@ class My_cart extends CI_Controller {
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items,
-            'items_other' => $items_other
+            'items_other' => $items_other,
+			'items_total' => $items_total
         );
 
         // Send JSON response

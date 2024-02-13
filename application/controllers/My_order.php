@@ -7,6 +7,8 @@ class My_order extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/ChemistLoginModel");
         $this->ChemistLoginModel->login_check();
+
+		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 	}
 
 	public function index(){

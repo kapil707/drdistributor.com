@@ -77,17 +77,14 @@ class My_order extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function my_notification_details($item_id=""){
-		////error_reporting(0);
-		// $this->login_check();
-		// $this->salesman_chemist_ck();
+	public function my_order_details($item_id=""){
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
 		$data["chemist_id"] = $_COOKIE['user_altercode'];
 		
-		$data["main_page_title"] = "My notification details";
+		$data["main_page_title"] = "My order details";
 		
 		$data["item_id"] = $item_id;
 
@@ -104,7 +101,7 @@ class My_order extends CI_Controller {
 		}
 
 		/********************************************************** */
-		$page_name = "my_notification_details";
+		$page_name = "my_order_details";
 		$browser_type = "Web";
 		$browser = "";
 
@@ -112,11 +109,11 @@ class My_order extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/my_notification/my_notification_details', $data);
+		$this->load->view('home/my_order/my_order_details', $data);
 	}
 
 	
-	public function my_notification_details_api(){
+	public function my_order_details_api(){
 		$item_id		= $_REQUEST['item_id'];
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -131,7 +128,7 @@ class My_order extends CI_Controller {
 		}
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items  	= $result["items"];
 		}	
 		

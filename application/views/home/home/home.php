@@ -152,7 +152,7 @@ function home_page_load(myid)
 		type       : "POST",
 		dataType   : "json",
 		data       :  {myid:myid} ,
-		url        : "<?php echo base_url(); ?>home_page/home_page_api",
+		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
 			//alert(data)

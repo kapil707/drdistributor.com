@@ -295,7 +295,7 @@ function cart_empty_btn()
 }
 function view_cart_btn()
 {
-	window.location.href= "<?= base_url() ?>home/my_cart";
+	window.location.href= "<?= base_url() ?>my_cart";
 }
 
 function medicine_search_api()
@@ -637,7 +637,7 @@ function favourite_medicines_search_pg()
 	$('.favourite_medicines_search_pg_div').html('');
 	id = "";
 	$.ajax({
-		url: "<?php echo base_url(); ?>chemist_json/get_medicine_favourite_api",
+		url: "<?php echo base_url(); ?>search_medicine/get_medicine_favourite_api",
 		type:"POST",
 		cache: true,
 		data: {id:id},

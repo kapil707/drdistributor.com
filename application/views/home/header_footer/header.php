@@ -892,8 +892,6 @@ function medicine_details_api(item_code)
 					item_image4	= item.item_image4;
 					$(".modal_item_image_change4").attr("src",item_image4)
 
-					alert(item.item_order_quantity)
-
 					$(".medicine_details_item_description2").show()
 					item_description2	= item.item_description2;
 					$(".medicine_details_item_description2").html(item_description2)
@@ -922,8 +920,7 @@ function medicine_details_api(item_code)
 					item_featured	= item.item_featured;
 					item_description1= item.item_description1;
 					
-					
-					insert_top_search(item_code,item_name,item_packing) // firebase code
+					// firebase code
 					medicine_details_api_data(item_code)	
 					
 					item_image	= item.item_image;

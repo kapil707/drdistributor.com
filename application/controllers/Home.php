@@ -162,7 +162,7 @@ class Home extends CI_Controller {
 		}
 		
 		/****************************************************** */
-		$response = '{"get_result":['.$response.']}'; 
+		//$response = '{"get_result":['.$response.']}'; 
 	
 		// Send JSON response
 		header('Content-Type: application/json');

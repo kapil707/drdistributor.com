@@ -1,5 +1,5 @@
 <style>
-.menubtn1,.home_page_search_div
+.menubtn1,.search_medicine_main
 {
 	display:none;
 }
@@ -40,9 +40,9 @@ function goBack() {
 					</div>
 					
 					<div class="col-sm-3 col-12 text-right">
-						<a href="<?= base_url('import_order/medicine_suggest')?>" title="Suggest medicine edit" style="font-size: 15px; color:gray">
+						<a href="<?= base_url() ?>import_order/medicine_suggest" title="Update suggest medicine" style="font-size: 15px; color:gray">
 							<i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
-							Edit suggest medicines
+							Update suggest medicine
 						</a>
 					</div>
 				</div>

@@ -1128,29 +1128,26 @@ function medicine_add_to_cart_api()
 						$.each(data.items, function(i,item){	
 							if (item)
 							{
-								if(item.success=="1")
-								{	
-									user_cart_total = item.items_total;
-									$(".header_cart_span").html(user_cart_total)
-									
-									<?php if($this->uri->segment(2)=="my_cart") { ?>
-									my_cart_page_load();
-									<?php } ?>
-									/*******************yha serach page par use ho raha ha*/
-									$(".medicine_cart_list_div").html("");
-									
-									//medicine_cart_list();
-									/******************************************************/
+								user_cart_total = item.items_total;
+								$(".header_cart_span").html(user_cart_total)
+								
+								<?php if($this->uri->segment(2)=="my_cart") { ?>
+								my_cart_page_load();
+								<?php } ?>
+								/*******************yha serach page par use ho raha ha*/
+								$(".medicine_cart_list_div").html("");
+								
+								//medicine_cart_list();
+								/******************************************************/
 
-									$('.medicine_details_item_add_to_cart_btn_loading').hide()
+								$('.medicine_details_item_add_to_cart_btn_loading').hide()
 
-									$('.search_textbox').val("");
-									$(".search_medicine_result").html("");
-								}
+								$('.search_textbox').val("");
+								$(".search_medicine_result").html("");
 							}
 						});
 						<?php if($this->uri->segment(2)=="search_medicine") { ?>
-						$.each(data.items1, function(i,item){
+						$.each(data.items, function(i,item){
 							if (item)
 							{
 								item_code			= item.code;
@@ -1200,7 +1197,7 @@ function medicine_add_to_cart_api()
 							}
 						});
 						
-						$.each(data.items2, function(i,item){
+						$.each(data.items_other, function(i,item){
 							if (item)
 							{
 								items_price = item.items_price;

@@ -52,7 +52,7 @@ $(".headertitle1").show();
 <script>
 $(".headertitle").html("Draft");
 function goBack() {
-	window.location.href = "<?= base_url();?>home/search_medicine";
+	window.location.href = "<?= base_url();?>search_medicine";
 }
 </script>
 <div class="container-fluid maincontainercss">
@@ -193,7 +193,7 @@ function medicine_cart_list()
 	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	id = "";
 	$.ajax({
-		url: "<?php echo base_url(); ?>Chemist_json/my_cart_api",
+		url: "<?php echo base_url(); ?>my_cart/my_cart_api",
 		type:"POST",
 		cache: true,
 		data: {id:id},

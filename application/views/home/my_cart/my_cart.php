@@ -352,9 +352,9 @@ function delete_medicine(item_code)
 		if (result) 
 		{
 		$.ajax({                          
-			url: "<?php echo base_url(); ?>Chemist_json/delete_medicine_api",
+			url: "<?php echo base_url(); ?>my_cart/medicine_delete_api",
 			type:"POST",
-			/*dataType: 'html',*/
+			dataType: 'json',
 			data: {item_code: item_code},
 			error: function(){
 				swal("Medicine not deleted");
@@ -397,9 +397,9 @@ function delete_all_medicine()
 		{
 			id = "";
 			$.ajax({                          
-				url: "<?php echo base_url(); ?>Chemist_json/delete_all_medicine_api",
+				url: "<?php echo base_url(); ?>my_cart/medicine_delete_all_api",
 				type:"POST",
-				/*dataType: 'html',*/
+				dataType: 'json',
 				data: {id:id},
 				error: function(){
 					swal("Medicines not deleted");
@@ -430,6 +430,6 @@ function delete_all_medicine()
 }
 function gohome()
 {
-	window.location.href= "<?= base_url() ?>home";
+	window.location.href= "<?= base_url() ?>";
 }
 </script>

@@ -78,6 +78,7 @@ function call_page(get_record)
 				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
+				alert(data)
 				if(data.items=="")
 				{
 					if(no_record_found=="0")
@@ -99,9 +100,6 @@ function call_page(get_record)
 				$(".get_record").val(get_record);
 				$.each(data.items, function(i,item){
 					if (item){
-						if(item.order_id=="")
-						{
-						}
 						item_id	 		= item.item_id;
 						item_title 		= item.item_title;
 						item_total 		= item.item_message;

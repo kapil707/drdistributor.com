@@ -105,7 +105,7 @@ function call_page(get_record)
 						item_date_time 	= item.item_date_time;
 						item_image 		= item.item_image;
 						
-						$(".load_page").append('<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>home/my_order_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>');
+						$(".load_page").append('<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_order_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>');
 						
 						query_work = 0;
 						no_record_found = 1;

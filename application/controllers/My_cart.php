@@ -7,6 +7,8 @@ class My_cart extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/ChemistLoginModel");
         $this->ChemistLoginModel->login_check();
+
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 	}
 
 	public function index(){
@@ -53,7 +55,7 @@ class My_cart extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$items = $other_items = "";
-		if(!emtpy($user_altercode))
+		if(!empty($user_altercode))
 		{
 			$val = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
 			$items = $val[0];

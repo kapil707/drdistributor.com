@@ -18,7 +18,7 @@ class My_order extends CI_Controller {
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
 		$data["chemist_id"] = $_COOKIE['user_altercode'];
 		
-		$data["main_page_title"] = "My notification";
+		$data["main_page_title"] = "My Order";
 
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];

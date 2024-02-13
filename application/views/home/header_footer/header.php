@@ -890,7 +890,9 @@ function medicine_details_api(item_code)
 					item_image3	= item.item_image3;
 					$(".modal_item_image_change3").attr("src",item_image3)
 					item_image4	= item.item_image4;
-					$(".modal_item_image_change4").attr("src",item_image4)					
+					$(".modal_item_image_change4").attr("src",item_image4)
+
+					alert(item_image4)
 
 					$(".medicine_details_item_description2").show()
 					item_description2	= item.item_description2;

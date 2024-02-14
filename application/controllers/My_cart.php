@@ -177,5 +177,40 @@ class My_cart extends CI_Controller {
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
+
+	public function place_order()
+	{
+		$items = "";
+		$remarks 		= $_REQUEST["remarks"];
+
+		$user_type 		= $_COOKIE['user_type'];
+		$user_altercode = $_COOKIE['user_altercode'];
+		$user_password	= $_COOKIE['user_password'];
+		
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE['chemist_id'];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}	
+		$val = $this->MyCartModel->place_order("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
+		$status = $val[0];
+		$place_order_message = ($val[1]);
+		if($status=="1"){
+			$user_cart_total = 0;
+			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
+		}
+		
+$items .= <<<EOD
+{"status":"{$status}","place_order_message":"{$place_order_message}"},
+EOD;
+if ($items != '') {
+	$items = substr($items, 0, -1);
+}
+?>
+{"items":[<?= $items;?>]}<?php
+	}
 }
 ?>

@@ -140,6 +140,7 @@ function medicine_details_api(item_code)
 
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
 
+    alert(base_url)
 	$.ajax({
 		url: base_url+"medicine_details/medicine_details_api",
 		type:"POST",

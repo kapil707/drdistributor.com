@@ -541,10 +541,12 @@ function medicine_cart_list()
 							$(".cart_empty_cart_div").hide();
 							$(".cart_disabled_cart_div").hide();
 							$(".place_order_message").html('');
+							$(".place_order_div").show();
 						}
 						else{
 							$(".cart_empty_cart_div").hide();
 							$(".cart_disabled_cart_div").show();
+							$(".place_order_div").hide();
 						}
 					}
 				}

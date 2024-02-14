@@ -328,6 +328,7 @@ function place_order_complete()
 			//window.location.href = "<?= base_url();?>my_cart";
 		},
 		success    : function(data){
+			alert(data.success)
 			$.each(data.items, function(i,item){
 				if (item)
 				{
@@ -364,7 +365,6 @@ function delete_medicine(item_code)
 				swal("Medicine not deleted");
 			},
 			success: function(data){
-				alert(data.success)
 				$.each(data.items, function(i,item){	
 					if (item)
 					{

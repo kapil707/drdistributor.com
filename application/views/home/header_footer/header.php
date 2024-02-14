@@ -1101,7 +1101,7 @@ function medicine_add_to_cart_api()
 								place_order_button = item.place_order_button;
 								place_order_message = item.place_order_message;
 								$(".div_cart_total_price").html('<i class="fa fa-inr"></i> '+items_price+'/-');
-								$(".div_cart_total_items").html(items_total+" items");
+								$(".div_cart_total_items").html("My Cart ("+items_total+")");
 								$(".div_cart_total_items1").html("("+items_total+")");
 								$(".header_cart_span").html(items_total);
 								$(".place_order_message").html(place_order_message);
@@ -1114,16 +1114,15 @@ function medicine_add_to_cart_api()
 								}
 								if(items_total!=0)
 								{
+									$(".cart_add_to_cart_div").show();
 									if(place_order_button==1)
 									{
 										$(".cart_empty_cart_div").hide();
-										$(".cart_add_to_cart_div").show();
 										$(".cart_disabled_cart_div").hide();
 										$(".place_order_message").html('');
 									}
 									else{
 										$(".cart_empty_cart_div").hide();
-										$(".cart_add_to_cart_div").hide();
 										$(".cart_disabled_cart_div").show();
 									}
 								}

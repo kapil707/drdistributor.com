@@ -533,11 +533,20 @@ function medicine_cart_list()
 						$(".cart_add_to_cart_div").hide();
 						$(".cart_disabled_cart_div").hide();
 					}
-					else
+					if(items_total!=0)
 					{
-						$(".cart_empty_cart_div").hide();
-						$(".cart_add_to_cart_div").show();
-						$(".cart_disabled_cart_div").show();
+						if(place_order_button==1)
+						{
+							$(".cart_empty_cart_div").hide();
+							$(".cart_add_to_cart_div").show();
+							$(".cart_disabled_cart_div").hide();
+							$(".place_order_message").html('');
+						}
+						else{
+							$(".cart_empty_cart_div").hide();
+							$(".cart_add_to_cart_div").hide();
+							$(".cart_disabled_cart_div").show();
+						}
 					}
 				}
 			});

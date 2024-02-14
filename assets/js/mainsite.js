@@ -1,10 +1,11 @@
+var bas_url = "<?=base_url(); ?>";
 function theme_set()
 {
 	theme_set_css = $(".theme_set_css").val()
 	$.ajax({
 		type       : "POST",
-		data       :  { theme_set_css:theme_set_css} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/theme_set",
+		data       :  {theme_set_css:theme_set_css} ,
+		url        : bas_url+"Chemist_json/theme_set",
 		cache	   : true,
 		success : function(data){
 			if(data!="")
@@ -40,7 +41,7 @@ function check_login_function()
 	$.ajax({
 		type       : "POST",
 		data       :  { id:id} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/check_login_function",
+		url        : bas_url+"Chemist_json/check_login_function",
 		cache	   : true,
 		success : function(data){
 			if(data!="")
@@ -119,7 +120,7 @@ function get_single_medicine_info(item_code)
 {
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = '<?php echo base_url(); ?>';
+		window.location.href = bas_url
 	} else 
 	{
 		$('.myModal_medicine_details').click();
@@ -141,7 +142,7 @@ function medicine_details_api(item_code)
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
 
 	$.ajax({
-		url: "<?php echo base_url(); ?>medicine_details/medicine_details_api",
+		url: bas_url+"medicine_details/medicine_details_api",
 		type:"POST",
 		dataType: 'json',
 		data: {item_code:item_code},
@@ -242,7 +243,7 @@ function medicine_details_funcation(item_code)
 {	
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = '<?php echo base_url(); ?>';
+		window.location.href = bas_url;
 	} else 
 	{
 		$(".medicine_details_item_order_quantity_textbox").val("");
@@ -415,7 +416,7 @@ function medicine_add_to_cart_api()
 				$.ajax({
 					type       : "POST",
 					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
-					url        : "<?php echo base_url(); ?>my_cart/medicine_add_to_cart_api",
+					url        : bas_url+"my_cart/medicine_add_to_cart_api",
 					cache	   : true,
 					error: function(){
 						swal("error add to cart")

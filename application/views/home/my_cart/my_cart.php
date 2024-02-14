@@ -321,7 +321,7 @@ function place_order_complete()
 	$.ajax({
 		type       : "POST",
 		data       :  {slice_type:slice_type,slice_item:slice_item,remarks:remarks},
-		url        : "<?php echo base_url(); ?>Chemist_order/save_order_to_server",
+		url        : "<?php echo base_url(); ?>my_cart/place_order",
 		cache	   : true,
 		error: function(){
 			window.location.href = "<?= base_url();?>home/my_cart";

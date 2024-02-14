@@ -359,15 +359,8 @@ class MyCartModel extends CI_Model
 				$item_name 	=  $row->item_name;
 				$sale_rate 	=  $row->sale_rate;
 				$item_code 	=  $row->item_code; // its real id
-				$item_image	=  $row->image;
+				$item_image	=  $row->image;				
 				
-				if(empty($item_code)){
-					// yha delete kaarna ha code 22-04-12
-					$where = array('i_code'=>$i_code);
-					$tbl_medicine = $this->Scheme_Model->select_row("tbl_medicine",$where);
-					$item_code = $tbl_medicine->item_code;
-					/*************************************/
-				}
 				$total = $total + ($sale_rate * $quantity);
 				
 				$temp_rec_new = $order_id."_".$temp_rec;

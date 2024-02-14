@@ -325,7 +325,7 @@ function place_order_complete()
 		url        : "<?php echo base_url(); ?>my_cart/place_order",
 		cache	   : true,
 		error: function(){
-			//window.location.href = "<?= base_url();?>my_cart";
+			window.location.href = "<?= base_url();?>my_cart";
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){

@@ -913,7 +913,7 @@ function logout_function(){
 var bas_url = "<?=base_url(); ?>";
 var session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
 </script>
-<script src="<?= base_url(); ?>assets/js/main-site.js"></script>
+<script src="<?= base_url(); ?>assets/js/mainsite.js"></script>
 
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>

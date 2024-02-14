@@ -328,7 +328,7 @@ function place_order_complete()
 			//window.location.href = "<?= base_url();?>my_cart";
 		},
 		success    : function(data){
-			alert(data.success)
+			alert(data.items)
 			$.each(data.items, function(i,item){
 				if (item)
 				{

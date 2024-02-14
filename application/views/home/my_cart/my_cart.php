@@ -59,8 +59,8 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-6 col-6 current_order_search_page1 mobile_off">
 			<h6 class="search_pg_title_color Current_Order">
-				My Cart
-				<span class="div_cart_total_items1"></span></h6>
+				My Cart <span class="div_cart_total_items1"></span>
+			</h6>
 		</div>
 		<div class="col-sm-6 col-6 text-right current_order_search_page1 mobile_off" style="margin-bottom:5px;">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicine"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all <span class="mobile_off">medicines</span></a>
@@ -87,7 +87,7 @@ function goBack() {
 				</strong>
 			</div>
 			<div class="col-5 text-center">				
-				<div class="div_cart_total_items">0 items</div>
+				<div class="div_cart_total_items">Cart is empty</div>
 				<div class="div_cart_total_price"><i class="fa fa-inr"></i>0.00</div>
 			</div>
 			<div class="col-7 text-center">

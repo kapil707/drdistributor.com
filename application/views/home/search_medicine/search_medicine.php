@@ -116,7 +116,7 @@ function goBack() {
 	<div class="container">
 		<div class="row">
 			<div class="col-5 text-center">				
-				<div class="div_cart_total_items">0 items</div>
+				<div class="div_cart_total_items">Cart is empty</div>
 				<div class="div_cart_total_price"><i class="fa fa-inr"></i>0.00</div>
 			</div>
 			<div class="col-7 text-center">

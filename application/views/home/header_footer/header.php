@@ -6,6 +6,7 @@ if (isset($_COOKIE["theme_type"])) {
 }
 if (!isset($_COOKIE["user_cart_total"])) {
 	setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
+	$_COOKIE["user_cart_total"] = 0;
 }
 ?>
 <!DOCTYPE html>

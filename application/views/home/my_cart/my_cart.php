@@ -320,7 +320,7 @@ function place_order_complete()
 	$(".place_order_or_empty_cart_btn_div").hide();
 	$.ajax({
 		type       : "POST",
-		data       :  {slice_type:slice_type,slice_item:slice_item,remarks:remarks},
+		data       :  {remarks:remarks},
 		url        : "<?php echo base_url(); ?>my_cart/place_order",
 		cache	   : true,
 		error: function(){

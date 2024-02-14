@@ -202,15 +202,18 @@ class My_cart extends CI_Controller {
 			$user_cart_total = 0;
 			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
 		}
-		
-$items .= <<<EOD
-{"status":"{$status}","place_order_message":"{$place_order_message}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+
+		$items = array('status'=>$status,'place_order_message'=>$place_order_message);
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 }
 ?>

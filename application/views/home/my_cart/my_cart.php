@@ -97,7 +97,7 @@ function goBack() {
 				<span class="cart_disabled_cart_div" style="display:none">
 					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton_disable" tabindex="-3" title="Can't place order">Can't place order</button>
 				</span>
-				<span class="cart_add_to_cart_div" style="display:none">
+				<span class="place_order_div" style="display:none">
 					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton" onclick="place_order_model()" tabindex="-3" title="Place order">Place order</button>
 				</span>
 			</div>
@@ -282,10 +282,12 @@ function medicine_cart_list()
 							$(".cart_empty_cart_div").hide();
 							$(".cart_disabled_cart_div").hide();
 							$(".place_order_message").html('');
+							$(".place_order_div").show();
 						}
 						else{
 							$(".cart_empty_cart_div").hide();
 							$(".cart_disabled_cart_div").show();
+							$(".place_order_div").hide();
 						}
 					}
 				}

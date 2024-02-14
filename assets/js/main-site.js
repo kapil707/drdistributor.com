@@ -4,7 +4,7 @@ function theme_set()
 	$.ajax({
 		type       : "POST",
 		data       :  { theme_set_css:theme_set_css} ,
-		url        : base_url+"Chemist_json/theme_set",
+		url        : "<?php echo base_url(); ?>Chemist_json/theme_set",
 		cache	   : true,
 		success : function(data){
 			if(data!="")
@@ -40,7 +40,7 @@ function check_login_function()
 	$.ajax({
 		type       : "POST",
 		data       :  { id:id} ,
-		url        : base_url+"Chemist_json/check_login_function",
+		url        : "<?php echo base_url(); ?>Chemist_json/check_login_function",
 		cache	   : true,
 		success : function(data){
 			if(data!="")
@@ -119,7 +119,7 @@ function get_single_medicine_info(item_code)
 {
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = base_url;
+		window.location.href = '<?php echo base_url(); ?>';
 	} else 
 	{
 		$('.myModal_medicine_details').click();
@@ -242,7 +242,7 @@ function medicine_details_funcation(item_code)
 {	
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = base_url;
+		window.location.href = '<?php echo base_url(); ?>';
 	} else 
 	{
 		$(".medicine_details_item_order_quantity_textbox").val("");
@@ -415,7 +415,7 @@ function medicine_add_to_cart_api()
 				$.ajax({
 					type       : "POST",
 					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
-					url        : base_url+"my_cart/medicine_add_to_cart_api",
+					url        : "<?php echo base_url(); ?>my_cart/medicine_add_to_cart_api",
 					cache	   : true,
 					error: function(){
 						swal("error add to cart")
@@ -423,7 +423,7 @@ function medicine_add_to_cart_api()
 					success    : function(data){
 						if(data.items=="")
 						{
-							$(".medicine_cart_list_div").html('<h1><center><img src="'+base_url+'/img_v51/cartempty.png" width="80%"></center></h1>');
+							$(".medicine_cart_list_div").html('<h1><center><img src="<?php echo base_url(); ?>/img_v51/cartempty.png" width="80%"></center></h1>');
 							$(".delete_all_btn").hide();
 						}
 						else

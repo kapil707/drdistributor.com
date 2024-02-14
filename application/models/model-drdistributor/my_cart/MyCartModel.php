@@ -336,12 +336,7 @@ class MyCartModel extends CI_Model
 		}
 		else
 		{
-			$order_id 	= $this->tbl_order_id();
-			if($slice_type=="0")
-			{
-				$slice_type = "";
-			}
-			
+			$order_id 	= $this->tbl_order_id();			
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);
@@ -588,7 +583,7 @@ class MyCartModel extends CI_Model
 
 	public function whatsapp_email_how_to_use_dt($query){
 		
-		$tbl_w = $tbl_html = "";
+		$tbl = $tbl_w = $tbl_html = "";
 		$i = $t = 0;
 		foreach($query as $row)
 		{

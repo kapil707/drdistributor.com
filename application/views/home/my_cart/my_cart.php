@@ -328,11 +328,11 @@ function place_order_complete()
 			//window.location.href = "<?= base_url();?>my_cart";
 		},
 		success    : function(data){
-			alert(data.items)
 			$.each(data.items, function(i,item){
 				if (item)
 				{
 					status 	= item.status;
+					alert(status)
 					place_order_message = (item.place_order_message);
 					if(status=="0" || status=="1")
 					{

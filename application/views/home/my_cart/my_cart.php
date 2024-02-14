@@ -332,7 +332,6 @@ function place_order_complete()
 				if (item)
 				{
 					status 	= item.status;
-					alert(status)
 					place_order_message = (item.place_order_message);
 					if(status=="0" || status=="1")
 					{

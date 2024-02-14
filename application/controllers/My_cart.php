@@ -203,7 +203,13 @@ class My_cart extends CI_Controller {
 			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
 		}
 
-		$items = array('status'=>$status,'place_order_message'=>$place_order_message);
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+			'place_order_message'=>$place_order_message
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
 
 		$response = array(
 			'success' => "1",

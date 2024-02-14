@@ -6,7 +6,7 @@ class Medicine_search extends CI_Controller {
 		parent::__construct();
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check();
+        $this->ChemistLoginModel->login_check("medicine_search");
 
         $this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 

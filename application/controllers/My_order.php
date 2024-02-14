@@ -6,7 +6,7 @@ class My_order extends CI_Controller {
 		parent::__construct();
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check();
+        $this->ChemistLoginModel->login_check("my_order");
 
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 	}

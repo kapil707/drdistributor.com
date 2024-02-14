@@ -197,7 +197,7 @@ class My_cart extends CI_Controller {
 		}	
 		$val = $this->MyCartModel->place_order("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
 		$status = $val[0];
-		$place_order_message = ($val[1]);
+		$place_order_message = $val[1];
 		if($status=="1"){
 			$user_cart_total = 0;
 			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
@@ -207,7 +207,7 @@ class My_cart extends CI_Controller {
 
 		$response = array(
 			'success' => "1",
-			'message' => 'Data delete successfully',
+			'message' => 'Data load successfully',
 			'items' => $items,
 		);
 

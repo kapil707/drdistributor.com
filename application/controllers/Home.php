@@ -178,7 +178,7 @@ class Home extends CI_Controller {
 
 		$response = array(
 			'success' => "1",
-			'message' => 'Data load successfully',
+			'message' => 'Data save successfully',
 			'items' => $items,
 		);
 

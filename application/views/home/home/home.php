@@ -348,7 +348,7 @@ $(document).ready(function() {
 	}, 1500);	
 	
     $(window).scroll(function(){
-		if(($(window).scrollTop() == $(document).height() - ($(window).height() + 300)) && query_work==0){
+		if(($(window).scrollTop() == $(document).height() - ($(window).height() - 300)) && query_work==0){
 			home_page_load(local_myid);
 			console.log(local_myid)
 		}

@@ -51,6 +51,59 @@ class Category extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/category/medicine_category', $data);
 	}
+
+	public function medicine_category_api(){
+		$item_page_type	= $_POST["item_page_type"];
+		$item_code		= $_POST['item_code'];
+		$item_division	= $_POST['item_division'];
+		$get_record		= $_POST['get_record'];
+		if($item_page_type!="")
+		{
+			if($item_page_type=="medicine_category")
+			{
+				$result = $this->Chemist_Model->medicine_category_json_50($item_code,$get_record);
+				$items  = $result["items"];
+				$title  = $result["title"];
+				$get_record  = $result["get_record"];
+			}
+			if($item_page_type=="featured_brand")
+			{
+				$result = $this->Chemist_Model->featured_brand_2_json_50($item_code,$item_division,$get_record);
+				$items  = $result["items"];
+				$title  = $result["title"];
+				$get_record  = $result["get_record"];
+			}
+			if($item_page_type=="medicine_similar")
+			{
+				$items = $this->Chemist_Model->medicine_similar_api($item_code,$get_record);
+			}
+			/******************************************/
+			$user_type 		= $_COOKIE["user_type"];
+			$user_altercode = $_COOKIE["user_altercode"];
+			$user_password	= $_COOKIE["user_password"];
+			$chemist_id 	= "";
+			$salesman_id = "";
+			if($user_type=="sales")
+			{
+				$chemist_id 	= $_COOKIE["chemist_id"];
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			$session_yes_no = "no";
+			if(!empty($user_altercode)){
+				$session_yes_no = "yes";
+			}
+			if($item_page_type=="medicine_item_wise")
+			{
+				$category_id = $item_code;
+				$result = $this->Chemist_Model->medicine_item_wise_json_50($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+				$items  = $result["items"];
+				$title  = $result["title"];
+			}
+		}
+?>
+{"get_result":[{"items":[<?= $items;?>]},{"title":"<?= $title;?>"},{"get_record":"<?= $get_record;?>"}]}<?php
+	}
 	
 	public function featured_brand($item_code="",$item_division=""){
 		$item_page_type="featured_brand";

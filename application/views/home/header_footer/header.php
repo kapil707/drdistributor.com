@@ -1,5 +1,4 @@
 <?php 
-$site_v = 51;
 $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];
@@ -266,9 +265,9 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	</style>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/website/css/style<?= $site_v ?>.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/website/css/style51.css" rel="stylesheet" type="text/css"/>
 
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
+	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -318,7 +317,7 @@ $website_menu 	= json_decode($website_menu, true);
 							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
 						</a>
 						<a href="javascript:new_style_menu_show()" class="menubtn1" style="color:white;" title="Drd Menu">
-							<img src="<?= base_url() ?>img_v<?= $site_v ?>/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
+							<img src="<?= base_url() ?>img_v51/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
 						</a>
 					</div>
 					<div class="" style="float:left; margin-left:5px;width: inherit;">
@@ -454,18 +453,18 @@ $website_menu 	= json_decode($website_menu, true);
 				</div>
 
 				<div class="col-sm-3 col-3 current_order_cart_page account_page_header" style="margin-top:10px;display:none;">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<img src="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png" style="display:none" alt="<?= $title;?>">
+	<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
 	<div class="left_menu_bar">
 		<div class="left_menu_bar_part1">
 			<div class="row">
 				<div class="col-sm-2 col-4">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png">
+					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 				</div>
 				<div class="col-sm-8 col-6">
 					<div class="left_menu_bar_accoun_chemist_name">
@@ -492,29 +491,29 @@ $website_menu 	= json_decode($website_menu, true);
 			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
 				<ul>
 					<li>
-						<a href="<?= base_url('home/account')?>" title="Account">
+						<a href="<?= base_url() ?>user/account" title="Account">
 							<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url('home/change_account')?>" title="Update account">
+						<a href="<?= base_url() ?>user/change_account" title="Update account">
 							<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
 							Update account
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url('home/change_image')?>" title="Update image">
+						<a href="<?= base_url() ?>user/change_image" title="Update image">
 							<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url('home/change_password')?>" title="Update password">
+						<a href="<?= base_url() ?>user/change_password" title="Update password">
 						<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
 						Update password
 						</a>
 					</li>
 					<li class="mobile_off">
-						<a href="<?= base_url('import_order/medicine_suggest')?>" title="Update suggest medicine">
+						<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
 							<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
 						</a>
 					</li>
@@ -528,35 +527,35 @@ $website_menu 	= json_decode($website_menu, true);
 
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= $site_v ?>/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
 							Pending Order
 						</a>
 					</li>
 
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= $site_v ?>/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
 							All Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= $site_v ?>/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
 							Pickedby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= $site_v ?>/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
 							Deliverby Invoice
 						</a>
 					</li>
 					
 					<li>
 						<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v<?= $site_v ?>/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
 							Delivery Report
 						</a>
 					</li>
@@ -1165,7 +1164,7 @@ function medicine_add_to_cart_api()
 			<div class="medicine_details_item_date_time" style="">Loading....</div>
 			<div class="medicine_details_api_loading text-center" style="display:none">
 				<div>
-					<img src="<?= base_url(); ?>/img_v<?= $site_v ?>/loading.gif" width="100px" alt="loading">
+					<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="loading">
 				</div>
 				<div>Loading....</div>
 			</div>
@@ -1178,9 +1177,9 @@ function medicine_add_to_cart_api()
 						</a>
 					</div>
 					
-					<img src="<?= base_url(); ?>/img_v<?= $site_v ?>/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 
-					<img src="<?= base_url(); ?>/img_v<?= $site_v ?>/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 

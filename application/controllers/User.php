@@ -93,94 +93,6 @@ class User extends CI_Controller {
 		$this->session->unset_userdata('__ci_last_regenerate');
 		redirect(base_url()."user/login");
 	}
-	
-	public function invoice($chemist_id='',$invoice_id=''){
-		
-		$data["session_user_image"] = base_url()."img_v".constant('site_v')."/logo2.png";
-		$data["session_user_fname"]     = "Guest";
-		$data["session_user_altercode"] = "xxxxxx";
-		
-		$db3 = $this->load->database('default3', TRUE);
-		$where = array('gstvno'=>$invoice_id,'altercode'=>$chemist_id);
-		$db3->where($where);
-		$query = $db3->get("tbl_invoice");
-		$row   = $query->row();
-		$data["item_id"] 		= $row->id;
-		$data["user_altercode"] = $chemist_id;
-		
-		$data["main_page_title"] = $invoice_id;	
-		$this->load->view('home/header', $data);		
-		$this->load->view('main_page/my_invoice_details', $data);		
-	}
-	public function download_invoice($chemist_id='',$invoice_id='')
-	{
-		$db3 = $this->load->database('default3', TRUE);
-		$where = array('gstvno'=>$invoice_id,'altercode'=>$chemist_id);
-		$db3->where($where);
-		$query = $db3->get("tbl_invoice");
-		$row   = $query->row();
-		if($row->id!="")
-		{
-			$gstvno 	= $row->gstvno;
-			$folder_dt 	= $row->date;
-			$excelFile 	= "./upload_invoice/".$gstvno.".xls";
-			if (file_exists($excelFile)) {
-			?>
-			<script>
-				window.location.href = "<?= base_url(); ?>upload_invoice/<?= $invoice_id ?>.xls";
-				setTimeout(function() {window.history.back();}, 500);
-			</script>
-			<?php }else{ ?>
-				<script>
-					window.location.href = "<?= base_url(); ?>upload_invoice/<?php echo $folder_dt?>/<?= $invoice_id ?>.xls";
-					setTimeout(function() {window.history.back();}, 500);
-				</script>
-				<?php
-			}
-		}
-		else{
-			?>
-			<script>
-				window.history.back();
-			</script>
-			<?php
-		}	
-	}
-	public function download_invoice1($chemist_id='',$invoice_id='')
-	{
-		$db3 = $this->load->database('default3', TRUE);
-		$where = array('gstvno'=>$invoice_id,'altercode'=>$chemist_id);
-		$db3->where($where);
-		$query =$db3->get("tbl_invoice");
-		$row   = $query->row();
-		if($row->id!="")
-		{
-			$gstvno 	= $row->gstvno;
-			$folder_dt 	= $row->date;
-			
-			$excelFile 	= "./upload_invoice/".$gstvno.".xls";
-			if (file_exists($excelFile)) {
-			?>
-			<script>
-				window.location.href = "<?= base_url(); ?>upload_invoice/<?= $invoice_id ?>.xls";
-				setTimeout(function() {window.close();}, 500);
-			</script>
-			<?php }else{ ?>
-				<script>
-					window.location.href = "<?= base_url(); ?>upload_invoice/<?php echo $folder_dt?>/<?= $invoice_id ?>.xls";
-					setTimeout(function() {window.close();}, 500);
-				</script>
-				<?php
-			}
-		}
-		else{
-			?>
-			<script>
-				window.history.back();
-			</script>
-			<?php
-		}	
-	}
 	public function download_order($order_id,$chemist_id)
 	{
 		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
@@ -201,7 +113,6 @@ class User extends CI_Controller {
 			echo "error";
 		}
 	}
-
 	public function login_api(){
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];
@@ -247,5 +158,148 @@ class User extends CI_Controller {
 ?>
 {"items":[<?= $items;?>]}<?php
 		}
+	}
+
+	public function account(){
+
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "account";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+		
+		$data["main_page_title"] = "Account";
+		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('home/account', $data);
+	}
+
+	public function change_account(){
+		////error_reporting(0);
+		$this->login_check();
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
+		
+		$data["main_page_title"] = "Update account";
+		$user_type = $_COOKIE['user_type'];
+		if($user_type=="sales")
+		{
+			redirect(base_url());
+		}
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "change_account";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$this->load->view('home/header_footer/header', $data);	
+		$this->load->view('home/change_account', $data);
+	}
+
+	public function change_image(){
+		////error_reporting(0);
+		$this->login_check();
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"]	 			= $_COOKIE['user_altercode'];
+		
+		$data["main_page_title"] = "Update image";
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "change_image";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('home/change_image', $data);
+	}
+	
+	public function change_password(){
+		////error_reporting(0);
+		$this->login_check();
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
+		
+		$data["main_page_title"] = "Update password";
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "change_password";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('home/change_password', $data);
 	}
 }

@@ -131,9 +131,10 @@ window.jssor_2_slider_init = function() {
 				<br>
 				Loading....
 			</div>
+			<br>
+			<div class="load_more btn btn-success" onclick="load_more()">Load More</div>
 		</div>
 	</div>
-	<div class="load_more" onclick="load_more()">Load More</div>
 </div>
 
 

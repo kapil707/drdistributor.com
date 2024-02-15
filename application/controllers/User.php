@@ -190,7 +190,7 @@ class User extends CI_Controller {
 		
 		$data["main_page_title"] = "Account";
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/account', $data);
+		$this->load->view('home/user/account', $data);
 	}
 
 	public function change_account(){
@@ -229,7 +229,7 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);	
-		$this->load->view('user/change_account', $data);
+		$this->load->view('home/user/change_account', $data);
 	}
 
 	public function change_image(){
@@ -263,7 +263,7 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/change_image', $data);
+		$this->load->view('home/user/change_image', $data);
 	}
 	
 	public function change_password(){
@@ -297,6 +297,6 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/change_password', $data);
+		$this->load->view('home/user/change_password', $data);
 	}
 }

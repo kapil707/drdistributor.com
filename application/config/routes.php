@@ -92,7 +92,7 @@ $route['my_notification_details/(:any)']='my_notification/my_notification_detail
 
 
 $route['category/(:any)'] = 'Category/index/$1';
-$route['category/medicine_category_api'] = 'Category/medicine_category_api';
+$route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 

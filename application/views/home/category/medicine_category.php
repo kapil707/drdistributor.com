@@ -75,7 +75,7 @@ function call_page(get_record)
 		$.ajax({
 			type       : "POST",
 			data       :  { item_page_type:'<?= $item_page_type; ?>',item_code:'<?= $item_code; ?>',item_division:'<?= $item_division; ?>',get_record:get_record} ,
-			url        : "<?php echo base_url(); ?>category/medicine_category_api",
+			url        : "<?php echo base_url(); ?>category/api/medicine_category_api",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");

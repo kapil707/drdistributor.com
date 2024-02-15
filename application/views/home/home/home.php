@@ -222,6 +222,36 @@ function home_page_divisioncategory_load(category_id){
     });
 }
 
+function home_page_itemcategory(category_id,result_row,title){
+	var mydata = '';
+	$.each(result_row, function(i,item){
+		if (item){			
+			item_code			= item.item_code;
+			item_image			= item.item_image;
+			item_name 			= item.item_name;
+			item_packing 		= item.item_packing;
+			item_expiry 		= item.item_expiry;
+			item_company 		= item.item_company;
+			item_quantity 		= item.item_quantity;
+			item_stock 			= item.item_stock;
+			item_ptr 			= item.item_ptr;
+			item_mrp 			= item.item_mrp;
+			item_price 			= item.item_price;
+			item_scheme 		= item.item_scheme;
+			item_margin 		= item.item_margin;
+			item_featured 		= item.item_featured;
+			item_description1 	= item.item_description1;
+			similar_items 		= item.similar_items;
+
+			mydata+= '<div class="item"><div class="home_main_div"><div class="image"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img src="'+item_image+'" alt="" '+error_img+' class="medicine_cart_item_image"></a></div><div class="content"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')"><div class="medicine_cart_item_name">'+item_name+'<span class="medicine_cart_item_packing"> ('+item_packing+' Packing)</span></div>'+margin_div+'<div class="medicine_cart_item_company">By '+item_company+'</div><div class="medicine_cart_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="medicine_cart_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="medicine_cart_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div></div></div>';
+		}
+	});
+	
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	
+	return myval;
+}
+
 /*************************************** */
 var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
@@ -279,10 +309,10 @@ function home_page_load(myid)
 					}
 					
 					if(row.result=="itemcategory") {
-						dt_result = home_page_divisioncategory(category_id,result_row,title);
+						dt_result = home_page_itemcategory(category_id,result_row,title);
 						$(".home_page_all_data").append(dt_result);
 						//alert(category_id)
-						home_page_divisioncategory_load(category_id);
+						home_page_itemcategory_load(category_id);
 					}
 
 				});

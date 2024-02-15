@@ -67,10 +67,6 @@ $route['all_invoice'] = 'User/local_server_all_invoice';
 $route['pickedby'] = 'User/local_server_pickedby';
 $route['deliverby'] = 'User/local_server_deliverby';
 
-$route['category/(:any)'] = 'Category/index/$1';
-$route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';
-$route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
-
 
 $route['home']='Home/index';
 
@@ -94,6 +90,11 @@ $route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';
 $route['my_notification']='my_notification/index';
 $route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';
 
+
+$route['category/(:any)'] = 'Category/index/$1';
+$route['category/medicine_category_api'] = 'Category/medicine_category_api';
+$route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';
+$route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

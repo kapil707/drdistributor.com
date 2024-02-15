@@ -260,13 +260,13 @@ function medicine_cart_list()
 				{
 					items_price = item.items_price;
 					items_total = item.items_total;
-					place_order_button = item.place_order_button;
-					place_order_message = item.place_order_message;
+					status = item.status;
+					status_message = item.status_message;
 					$(".div_cart_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
 					$(".div_cart_total_items").html("My Cart ("+items_total+")");
 					$(".div_cart_total_items1").html("("+items_total+")");
 					$(".header_cart_span").html(items_total);
-					$(".place_order_message").html(place_order_message);
+					$(".place_order_message").html(status_message);
 					$(".header_result_found").html("Current order ("+items_total+")");
 					if(items_total==0)
 					{
@@ -277,7 +277,7 @@ function medicine_cart_list()
 					if(items_total!=0)
 					{
 						$(".cart_add_to_cart_div").show();
-						if(place_order_button==1)
+						if(status==1)
 						{
 							$(".cart_empty_cart_div").hide();
 							$(".cart_disabled_cart_div").hide();
@@ -332,10 +332,10 @@ function place_order_complete()
 				if (item)
 				{
 					status 	= item.status;
-					place_order_message = (item.place_order_message);
+					status_message = (item.status_message);
 					if(status=="0" || status=="1")
 					{
-						$(".loading_pg").html("<h1 class='text-center'>"+place_order_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn mainbutton' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
+						$(".loading_pg").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn mainbutton' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
 				    }
 					count_temp_rec();
 				}

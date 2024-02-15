@@ -10,16 +10,16 @@ class MyCartModel extends CI_Model
 	{
 		if($user_type=="sales")
 		{
-			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;
+			$return = $user_type."_".$salesman_id."_".$user_altercode;
 		}
 		else
 		{
-			$temp_rec = $user_type."_".$user_altercode;
+			$return = $user_type."_".$user_altercode;
 		}
-		return $temp_rec;
+		return $return;
 	}
 	
-	public function get_total_price_of_order($selesman_id='',$chemist_id='',$user_type='',$user_password='',$device_type="website")
+	public function get_total_price_of_order($user_type='',$chemist_id='',$user_password='',$selesman_id='',$device_type="website")
 	{
 		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
 		if($user_type=="sales")
@@ -48,40 +48,37 @@ class MyCartModel extends CI_Model
 			$user_order_limit = $row->android_limit;
 		}
 			
-		$order_limit[0] = 1; // ek honay par he place hoga order
-		$order_limit[1] = "";
+		$return["status"] = 1; // ek honay par he place hoga order
+		$return["status_message"] = "";
 		if($user_type=="chemist")
 		{
-			$order_limit[1] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
+			$return["status_message"] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
 			$order_price      = round($order_price);
 			$user_order_limit = round($user_order_limit);
 			if($order_price<=$user_order_limit)
 			{
-				$order_limit[0] = 0;
+				$return["status"] = 0;
 			}
 			/**jab user block yha inactive ho to */
 			if($row->block=="1" || $row->status=="0")
 			{
-				$order_limit[0] = 0;
-				$order_limit[1] = "<font color='red'>Can't Place Order due to technical issues.</font>";
+				$return["status"] = 0;
+				$return["status_message"] = "<font color='red'>Can't Place Order due to technical issues.</font>";
 			}		
 			/**jab user ka password match na kray to */
 			if($row->password!=$user_password)
 			{
-				$order_limit[0] = 0;
-				$order_limit[1] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
+				$return["status"] = 0;
+				$return["status_message"] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
 			}
-		}
-		
-		return $order_limit;
+		}		
+		return $return;
 	}
 	
 	public function my_cart_api($user_type="",$user_altercode="",$user_password="",$selesman_id="",$order_type="",$device_type="website")
 	{
 	    $jsonArray = $jsonArray1 = array();
 	    
-		$items = "";
-		$other_items = "";
 		$items_total = $items_price = 0;
 		if($user_type=="sales")
 		{
@@ -168,19 +165,22 @@ class MyCartModel extends CI_Model
 			$jsonArray[] = $dt;
 		}
 		
+		/*********************************************************** */
     	//iss query say button visble or disble hota ha plceorder ka
-    	$place_order_btn = $this->get_total_price_of_order($selesman_id,$user_altercode,$user_type,$user_password,$device_type);
-    	$place_order_button  = $place_order_btn[0];
-    	$place_order_message = "<center>".$place_order_btn[1]."</center>";
+    	$get_total_price_of_order = $this->get_total_price_of_order($user_type,$user_altercode,$user_password,$selesman_id,$device_type);
+
+    	$status  = $get_total_price_of_order["status"];
+    	$status_message = "<center>".$get_total_price_of_order["status_message"]."</center>";
     	$items_price = sprintf('%0.2f',round($items_price,2));
-    	
+    	/*********************************************************** */
+
     	$dt = array(
-			    'user_altercode' => $user_altercode,
-				'items_total' => $items_total,
-				'items_price' => $items_price,
-				'place_order_button' => $place_order_button,
-				'place_order_message' => $place_order_message,
-			);
+			'user_altercode' => $user_altercode,
+			'items_total' => $items_total,
+			'items_price' => $items_price,
+			'status' => $status,
+			'status_message' => $status_message,
+		);
 		$jsonArray1[] = $dt;
 		
 		$return["items"] 		= $jsonArray;
@@ -255,7 +255,7 @@ class MyCartModel extends CI_Model
 				'join_temp'=>"",
 				'order_id'=>"",
 				);
-			$this->Scheme_Model->insert_fun("drd_temp_rec",$dt);
+			$this->insert_fun("drd_temp_rec",$dt);
 			$status = "1";
 		}else{
 			$status = "0";
@@ -313,30 +313,32 @@ class MyCartModel extends CI_Model
 
 	public function place_order($order_type='',$remarks='',$selesman_id='',$chemist_id='',$user_type='',$user_password='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
-		$status[0] = "0";
-		$status[1] = "<font color='red'>Sorry your order has been failed please try again.</font>";
+		$return["status"] = "0";
+		$return["status_message"] = "<font color='red'>Sorry your order has been failed please try again.</font>";
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction=="1")
 		{
-			return $status;
+			return $return;
 		}
 		
-		$date = date('Y-m-d');
-		$time = date("H:i",time());
-		
-		$place_order_btn[0] = 1;
+		$get_total_price_of_order["status"] = 1;
 		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
 		if($user_type=="chemist")
 		{
-			$place_order_btn = $this->get_total_price_of_order($user_type,$chemist_id,$user_password,$selesman_id);
+			$get_total_price_of_order = $this->get_total_price_of_order($user_type,$chemist_id,$user_password,$selesman_id);
 		}
-		if($place_order_btn[0]=="0")
+		if($get_total_price_of_order["status"]=="0")
 		{
-			return $status;
+			return $return;
 		}
 		else
 		{
-			$order_id 	= $this->tbl_order_id();			
+			/*------------------------------------------------*/
+			$date = date('Y-m-d');
+			$time = date("H:i",time());
+			$order_id 	= $this->tbl_order_id();
+			/*------------------------------------------------*/
+
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);
@@ -348,7 +350,6 @@ class MyCartModel extends CI_Model
 			$query = $this->db->get("drd_temp_rec")->result();
 			
 			$total = 0;
-			$remarks  = ($remarks);
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;
 			$i_code = $item_qty ="";
 			foreach($query as $row)
@@ -367,47 +368,47 @@ class MyCartModel extends CI_Model
 				
 				if($item_name!=""){
 					$dt = array(
-					'order_id'=>$order_id,
-					'chemist_id'=>$chemist_id,
-					'selesman_id'=>$selesman_id,
-					'user_type'=>$user_type,
-					'order_type'=>$order_type,
-					'remarks'=>$remarks,
-					'i_code'=>$i_code,
-					'item_code'=>$item_code,
-					'item_name'=>$item_name,
-					'quantity'=>$quantity,
-					'sale_rate'=>$sale_rate,
-					'date'=>$date,
-					'time'=>$time,
-					'join_temp'=>$join_temp,
-					'temp_rec'=>$temp_rec_new,
-					'status'=>'1',
-					'gstvno'=>'',
-					'odt'=>'',
-					'ordno_new'=>'',
-					'latitude'=>$latitude,
-					'longitude'=>$longitude,
-					'mobilenumber'=>$mobilenumber,
-					'modalnumber'=>$modalnumber,
-					'device_id'=>$device_id,
-					'image'=>$item_image,
+						'order_id'=>$order_id,
+						'chemist_id'=>$chemist_id,
+						'selesman_id'=>$selesman_id,
+						'user_type'=>$user_type,
+						'order_type'=>$order_type,
+						'remarks'=>$remarks,
+						'i_code'=>$i_code,
+						'item_code'=>$item_code,
+						'item_name'=>$item_name,
+						'quantity'=>$quantity,
+						'sale_rate'=>$sale_rate,
+						'date'=>$date,
+						'time'=>$time,
+						'join_temp'=>$join_temp,
+						'temp_rec'=>$temp_rec_new,
+						'status'=>'1',
+						'gstvno'=>'',
+						'odt'=>'',
+						'ordno_new'=>'',
+						'latitude'=>$latitude,
+						'longitude'=>$longitude,
+						'mobilenumber'=>$mobilenumber,
+						'modalnumber'=>$modalnumber,
+						'device_id'=>$device_id,
+						'image'=>$item_image,
 					);
-					$query = $this->Scheme_Model->insert_fun("tbl_order",$dt);	
+					$query = $this->insert_fun("tbl_order",$dt);	
 				}
 			}
-			if($query)
+			if(!empty($query))
 			{
-				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
+				//$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
 				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 				
 				$place_order_message = $this->Scheme_Model->get_website_data("place_order_message");
-				$status[1] = "<font color='#28a745'>Your Order No. : ".$order_id."</font>".$place_order_message;
-				$status[0] = "1";
-				return $status;
+				$return["status_message"] = "<font color='#28a745'>Your Order No. : ".$order_id."</font>".$place_order_message;
+				$return["status"] = "1";
+				return $return;
 			}
 			else{
-				return $status; // jab mobile say order kar diya or website par be place order karay to
+				return $return; // jab mobile say order kar diya or website par be place order karay to
 			}
 		}
 	}
@@ -568,7 +569,7 @@ class MyCartModel extends CI_Model
 			'date'=>$date,
 			'time'=>$time,
 			);
-			$this->Scheme_Model->insert_fun("tbl_email_send",$dt);				
+			$this->insert_fun("tbl_email_send",$dt);				
 		}
 		
 		return "1";
@@ -614,5 +615,17 @@ class MyCartModel extends CI_Model
 		$x[2] = $tbl_html;
 		
 		return $x;
+	}
+
+	function insert_fun($tbl,$dt)
+	{
+		if($this->db->insert($tbl,$dt))
+		{
+			return $this->db->insert_id();
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

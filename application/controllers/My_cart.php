@@ -195,9 +195,9 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}	
-		$val = $this->MyCartModel->place_order("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
-		$status = $val[0];
-		$place_order_message = $val[1];
+		$result = $this->MyCartModel->place_order("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
+		$status = $result["status"];
+		$status_message = $result["status_message"];
 		if($status=="1"){
 			$user_cart_total = 0;
 			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
@@ -206,7 +206,7 @@ class My_cart extends CI_Controller {
 		$jsonArray = array();
 		$dt = array(
 			'status'=>$status,
-			'place_order_message'=>$place_order_message
+			'status_message'=>$status_message,
 		);
 		$jsonArray[] = $dt;
 		$items = $jsonArray;

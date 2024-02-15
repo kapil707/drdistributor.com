@@ -245,9 +245,9 @@ function home_page_itemcategory(category_id,result_row,title){
 function home_page_owl_load(category_id){
 	//alert(category_id)
     $(".owl-carousel"+category_id).owlCarousel({
-        items: 8, // Number of items to display
+        items: 10, // Number of items to display
         loop: true, // Enable loop
-        margin: 15, // Margin between items
+        margin: 20, // Margin between items
         autoplay: true, // Enable autoplay
         autoplayTimeout: 5000, // Autoplay interval in milliseconds
         responsiveClass:true,
@@ -260,6 +260,9 @@ function home_page_owl_load(category_id){
             },
             1024:{
                 items:8,
+            }
+			,1280:{
+                items:10,
             }
         }
     });

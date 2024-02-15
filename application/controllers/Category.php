@@ -7,6 +7,8 @@ class Category extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
         $this->ChemistLoginModel->login_check();
+
+		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");		
 	}
 
 	public function index($item_company=""){
@@ -53,6 +55,24 @@ class Category extends CI_Controller {
 	}
 
 	public function medicine_category_api(){
+
+		/******************************************/
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$session_yes_no = "no";
+		if(!empty($user_altercode)){
+			$session_yes_no = "yes";
+		}
+
 		$item_page_type	= $_POST["item_page_type"];
 		$item_code		= $_POST['item_code'];
 		$item_division	= $_POST['item_division'];
@@ -61,7 +81,7 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->Chemist_Model->medicine_category_json_50($item_code,$get_record);
+				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$item_code,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

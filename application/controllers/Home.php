@@ -161,5 +161,29 @@ class Home extends CI_Controller {
 		header('Content-Type: application/json');
 		echo '{"get_result":['.json_encode($response).']}'; 
 	}
+
+	public function theme_set()
+	{
+		$items = "";
+		$theme_set_css 	= $_POST["theme_set_css"];
+		$theme_type 	= $theme_set_css;
+		setcookie("theme_type", $theme_type, time() + (86400 * 30), "/");
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>1,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($response); 
+	}
 }
 ?>

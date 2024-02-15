@@ -616,7 +616,7 @@ function theme_set()
 	$.ajax({
 		type       : "POST",
 		data       :  { theme_set_css:theme_set_css} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/theme_set",
+		url        : "<?php echo base_url(); ?>Chemist_json/theme_set_api",
 		cache	   : true,
 		success : function(data){
 			if(data!="")
@@ -638,12 +638,12 @@ function callandroidfun(funtype,id,compname,image,division) {
 	}
 	if(funtype=="2")
 	{
-		window.location.href = '<?= base_url(); ?>home/medicine_category/featured_brand/'+id+'/'+division;
+		window.location.href = '<?= base_url(); ?>category/featured_brand/'+id+'/'+division;
 	}
 }
 function gosearchpage()
 {
-	window.location.href = "<?= base_url();?>home/search_medicine";
+	window.location.href = "<?= base_url();?>search_medicine";
 }
 function check_login_function()
 {

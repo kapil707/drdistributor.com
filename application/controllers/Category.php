@@ -36,6 +36,10 @@ class Category extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+
 		/********************************************************** */
 		$page_name = "medicine_category";
 		$browser_type = "Web";

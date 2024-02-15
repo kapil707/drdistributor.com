@@ -91,6 +91,16 @@ $route['my_notification']='my_notification/index';
 $route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';
 
 
+$route['account']='user/account';
+$route['change_account']='user/change_account';
+$route['change_image']='user/change_image';
+$route['change_password']='user/change_password';
+
+$route['home/account']='user/account';
+$route['home/change_account']='user/change_account';
+$route['home/change_image']='user/change_image';
+$route['home/change_password']='user/change_password';
+
 $route['category/(:any)'] = 'Category/index/$1';
 $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';

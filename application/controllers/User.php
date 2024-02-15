@@ -194,8 +194,7 @@ class User extends CI_Controller {
 	}
 
 	public function change_account(){
-		////error_reporting(0);
-		$this->login_check();
+
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
@@ -234,8 +233,7 @@ class User extends CI_Controller {
 	}
 
 	public function change_image(){
-		////error_reporting(0);
-		$this->login_check();
+
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
@@ -269,8 +267,7 @@ class User extends CI_Controller {
 	}
 	
 	public function change_password(){
-		////error_reporting(0);
-		$this->login_check();
+
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];

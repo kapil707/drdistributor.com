@@ -53,6 +53,7 @@ class Category extends CI_Controller {
 	}
 
 	public function medicine_category_api(){
+		header('Content-Type: application/json');
 		$item_page_type	= $_POST["item_page_type"];
 		$item_code		= $_POST['item_code'];
 		$item_division	= $_POST['item_division'];

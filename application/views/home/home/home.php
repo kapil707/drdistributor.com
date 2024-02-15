@@ -253,10 +253,10 @@ function home_page_owl_load(category_id){
         responsiveClass:true,
         responsive:{
             0:{
-                items:1,
+                items:3,
             },
             768:{
-                items:2,
+                items:5,
             },
             1024:{
                 items:8,

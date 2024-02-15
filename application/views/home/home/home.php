@@ -289,7 +289,7 @@ function home_page_load(myid)
 		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
-			//alert(data)
+			$('.myloading').hide();
 			if(data!="")
 			{
 				local_myid = parseInt(myid) + 1;

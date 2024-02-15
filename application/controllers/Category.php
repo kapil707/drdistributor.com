@@ -1,19 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Category extends CI_Controller {
+
+	public function __construct(){
+		parent::__construct();
+		// Load model
+		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+        $this->ChemistLoginModel->login_check();
+	}
+
 	public function index($item_company=""){
-		////error_reporting(0);
-		//$this->login_check();
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
 		
 		$data["main_page_title"] = "Dr";
-		if(empty($_COOKIE['user_session'])){
-			//redirect(base_url()."home");			
-		}
-		
 		$item_company = str_replace("-"," ",strtolower($item_company));
 		
 		$row = $this->db->query("select code from tbl_medicine_menu where menu='$item_company'")->row();
@@ -29,10 +27,11 @@ class Category extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= $_COOKIE["chemist_id"];
+		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
@@ -45,7 +44,7 @@ class Category extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header', $data);		
+		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/category/medicine_category', $data);
 	}
 	

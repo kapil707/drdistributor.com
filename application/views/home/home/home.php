@@ -342,14 +342,13 @@ $(document).ready(function() {
 	home_page_load(1);
 	setTimeout(function() {
 		home_page_load(2);
-	}, 500);
+	}, 750);
 	setTimeout(function() {
 		home_page_load(3);
-	}, 1000);
-	
+	}, 1500);	
 	
     $(window).scroll(function(){
-		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){
+		if(($(window).scrollTop() == $(document).height() - ($(window).height() + 300)) && query_work==0){
 			home_page_load(local_myid);
 			console.log(local_myid)
 		}
@@ -365,5 +364,4 @@ function download_invoice(url){
 	window.close();
 }
 </script>
-
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>

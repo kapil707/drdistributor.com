@@ -199,29 +199,6 @@ function home_page_divisioncategory(category_id,result_row,title){
 	return myval;
 }
 
-function home_page_divisioncategory_load(category_id){
-	//alert(category_id)
-    $(".owl-carousel"+category_id).owlCarousel({
-        items: 8, // Number of items to display
-        loop: true, // Enable loop
-        margin: 20, // Margin between items
-        autoplay: true, // Enable autoplay
-        autoplayTimeout: 3000, // Autoplay interval in milliseconds
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-            },
-            768:{
-                items:2,
-            },
-            1024:{
-                items:8,
-            }
-        }
-    });
-}
-
 function home_page_itemcategory(category_id,result_row,title){
 	var mydata = '';
 	$.each(result_row, function(i,item){
@@ -250,6 +227,29 @@ function home_page_itemcategory(category_id,result_row,title){
 	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
+}
+
+function home_page_owl_load(category_id){
+	//alert(category_id)
+    $(".owl-carousel"+category_id).owlCarousel({
+        items: 8, // Number of items to display
+        loop: true, // Enable loop
+        margin: 20, // Margin between items
+        autoplay: true, // Enable autoplay
+        autoplayTimeout: 3000, // Autoplay interval in milliseconds
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+            },
+            768:{
+                items:2,
+            },
+            1024:{
+                items:8,
+            }
+        }
+    });
 }
 
 /*************************************** */
@@ -305,14 +305,14 @@ function home_page_load(myid)
 						dt_result = home_page_divisioncategory(category_id,result_row,title);
 						$(".home_page_all_data").append(dt_result);
 						//alert(category_id)
-						home_page_divisioncategory_load(category_id);
+						home_page_owl_load(category_id);
 					}
 					
 					if(row.result=="itemcategory") {
 						dt_result = home_page_itemcategory(category_id,result_row,title);
 						$(".home_page_all_data").append(dt_result);
 						//alert(category_id)
-						home_page_itemcategory_load(category_id);
+						home_page_owl_load(category_id);
 					}
 
 				});

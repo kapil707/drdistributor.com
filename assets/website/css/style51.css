@@ -1277,9 +1277,13 @@ section{
 		height: 25vh;
 		margin-left: 5%;
 	}
-	.headertitle,.headertitle1{
+	.headertitle{
 		font-size: 20px !important;
 		margin-top: 5px !important;
+	}
+	.headertitle1{
+		font-size: 12px !important;
+		margin-top: 2px !important;
 	}
 	.medicine_cart_item_name
 	{

@@ -616,7 +616,7 @@ function theme_set()
 	$.ajax({
 		type       : "POST",
 		data       :  { theme_set_css:theme_set_css} ,
-		url        : "<?php echo base_url(); ?>home/theme_set_api",
+		url        : "<?php echo base_url(); ?>Home/theme_set_api",
 		cache	   : true,
 		success : function(data){
 			if(data!="")

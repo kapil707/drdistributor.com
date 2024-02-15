@@ -491,23 +491,23 @@ $website_menu 	= json_decode($website_menu, true);
 			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
 				<ul>
 					<li>
-						<a href="<?= base_url() ?>user/account" title="Account">
+						<a href="<?= base_url() ?>account" title="Account">
 							<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url() ?>user/change_account" title="Update account">
+						<a href="<?= base_url() ?>change_account" title="Update account">
 							<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
 							Update account
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url() ?>user/change_image" title="Update image">
+						<a href="<?= base_url() ?>change_image" title="Update image">
 							<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url() ?>user/change_password" title="Update password">
+						<a href="<?= base_url() ?>change_password" title="Update password">
 						<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
 						Update password
 						</a>

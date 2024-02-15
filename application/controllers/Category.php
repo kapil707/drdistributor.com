@@ -53,7 +53,6 @@ class Category extends CI_Controller {
 	}
 
 	public function medicine_category_api(){
-		header('Content-Type: application/json');
 		$item_page_type	= $_POST["item_page_type"];
 		$item_code		= $_POST['item_code'];
 		$item_division	= $_POST['item_division'];
@@ -102,8 +101,18 @@ class Category extends CI_Controller {
 				$title  = $result["title"];
 			}
 		}
-?>
-{"get_result":[{"items":[<?= $items;?>]},{"title":"<?= $title;?>"},{"get_record":"<?= $get_record;?>"}]}<?php
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'title' => $title,
+			'get_record' => $get_record,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 	
 	public function featured_brand($item_code="",$item_division=""){

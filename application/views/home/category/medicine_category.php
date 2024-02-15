@@ -82,7 +82,7 @@ function call_page(get_record)
 				$(".load_page").html('<div><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></div>');
 			},
 			success    : function(data){
-				if(data.get_result=="")
+				if(data.items=="")
 				{
 					if(no_record_found=="0")
 					{
@@ -99,74 +99,71 @@ function call_page(get_record)
 				{
 					$(".load_page_loading").html("");
 				}
-				$.each(data.get_result, function(i,work){
-					title 		= work.title;
-					alert(title)
-					if(title!=""){
-						$(".headertitle").html(title);
-					}
-					get_record 	= work.get_record;
-					$(".get_record").val(get_record);
-					$.each(work.items, function(i,item){
-						if (item){
-							item_code			= item.item_code;
-							item_image			= item.item_image;
-							item_name 			= item.item_name;
-							item_packing 		= item.item_packing;
-							item_expiry 		= item.item_expiry;
-							item_company 		= item.item_company;
-							item_quantity 		= item.item_quantity;
-							item_stock 			= item.item_stock;
-							item_ptr 			= item.item_ptr;
-							item_mrp 			= item.item_mrp;
-							item_price 			= item.item_price;
-							item_scheme 		= item.item_scheme;
-							item_margin 		= item.item_margin;
-							item_featured 		= item.item_featured;
-							item_description1 	= item.item_description1;
-							similar_items 		= item.similar_items;
+				title 		= data.title;
+				if(title!=""){
+					$(".headertitle").html(title);
+				}
+				get_record 	= data.get_record;
+				$(".get_record").val(get_record);
+				$.each(data.items, function(i,item){
+					if (item){
+						item_code			= item.item_code;
+						item_image			= item.item_image;
+						item_name 			= item.item_name;
+						item_packing 		= item.item_packing;
+						item_expiry 		= item.item_expiry;
+						item_company 		= item.item_company;
+						item_quantity 		= item.item_quantity;
+						item_stock 			= item.item_stock;
+						item_ptr 			= item.item_ptr;
+						item_mrp 			= item.item_mrp;
+						item_price 			= item.item_price;
+						item_scheme 		= item.item_scheme;
+						item_margin 		= item.item_margin;
+						item_featured 		= item.item_featured;
+						item_description1 	= item.item_description1;
+						similar_items 		= item.similar_items;
 
-							div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></div>"
+						div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></div>"
 
-							item_scheme_div = "";
-							if(item_scheme!="0+0")
-							{
-								item_scheme_div =  ' | <span class="medicine_cart_item_scheme">Scheme : '+item_scheme+'</span>';
-							}
-
-							item_other_image_div = '';
-							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
-							}
-
-							item_quantity_div = '<span class="medicine_cart_item_out_of_stock">Out of stock</span>';
-							if(item_quantity=="0"){
-								item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
-							} 
-							else 
-							{
-								item_quantity_div = '<span class="medicine_cart_item_stock">Stock : '+item_quantity+'</span>' + item_scheme_div;
-								if(item_stock!="")
-								{
-									item_quantity_div = '<span class="medicine_cart_item_stock">'+item_stock+'</span>' + item_scheme_div;
-								}
-							}
-
-							error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
-
-							item_image_div = item_other_image_div+'<img src="'+item_image+'" class="medicine_cart_item_image medicine_category_img" '+error_img+'>';
-							
-							rete_div =  '<div class="medicine_cart_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </div><div class="medicine_cart_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </div><div class="medicine_cart_item_price"> *Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </div>';
-							
-							$(".load_page").append('<div class="col-sm-3 col-6 p-0 m-0 text-center"><div class="featured_brand_div" onClick="medicine_details_funcation('+item_code+')" style="cursor: pointer;" title="'+item_name+'">'+item_image_div+'<div class="medicine_cart_item_name">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_company">By '+item_company+'</div>'+rete_div+'</div></div>'+div_all_data);
-
-							//$(".headertitle").html(item.item_header_title);
-
-							query_work = 0;
-							no_record_found = 1;
-							$(".load_more").show();
+						item_scheme_div = "";
+						if(item_scheme!="0+0")
+						{
+							item_scheme_div =  ' | <span class="medicine_cart_item_scheme">Scheme : '+item_scheme+'</span>';
 						}
-					});
+
+						item_other_image_div = '';
+						if(item_featured=="1" && item_quantity!="0"){
+							item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
+						}
+
+						item_quantity_div = '<span class="medicine_cart_item_out_of_stock">Out of stock</span>';
+						if(item_quantity=="0"){
+							item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+						} 
+						else 
+						{
+							item_quantity_div = '<span class="medicine_cart_item_stock">Stock : '+item_quantity+'</span>' + item_scheme_div;
+							if(item_stock!="")
+							{
+								item_quantity_div = '<span class="medicine_cart_item_stock">'+item_stock+'</span>' + item_scheme_div;
+							}
+						}
+
+						error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
+
+						item_image_div = item_other_image_div+'<img src="'+item_image+'" class="medicine_cart_item_image medicine_category_img" '+error_img+'>';
+						
+						rete_div =  '<div class="medicine_cart_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </div><div class="medicine_cart_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </div><div class="medicine_cart_item_price"> *Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </div>';
+						
+						$(".load_page").append('<div class="col-sm-3 col-6 p-0 m-0 text-center"><div class="featured_brand_div" onClick="medicine_details_funcation('+item_code+')" style="cursor: pointer;" title="'+item_name+'">'+item_image_div+'<div class="medicine_cart_item_name">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_company">By '+item_company+'</div>'+rete_div+'</div></div>'+div_all_data);
+
+						//$(".headertitle").html(item.item_header_title);
+
+						query_work = 0;
+						no_record_found = 1;
+						$(".load_more").show();
+					}
 				});
 			},
 			timeout: 10000

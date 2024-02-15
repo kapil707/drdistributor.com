@@ -162,7 +162,7 @@ class Home extends CI_Controller {
 		echo '{"get_result":['.json_encode($response).']}'; 
 	}
 
-	public function theme_set()
+	public function theme_set_api()
 	{
 		$items = "";
 		$theme_set_css 	= $_POST["theme_set_css"];

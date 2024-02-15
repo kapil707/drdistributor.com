@@ -87,9 +87,9 @@ class MedicineAvailableNowModel extends CI_Model
 				$jsonArray[] = $dt;
 			}
 		}
-		$jsonString  = json_encode($jsonArray);
+		//$jsonString  = json_encode($jsonArray);
 		
-		$return["items"] = $jsonString;
+		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
 		return $return;
 	}

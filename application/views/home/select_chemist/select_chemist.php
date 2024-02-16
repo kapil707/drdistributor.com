@@ -184,7 +184,7 @@ function search_chemist()
 }
 function select_chemist(chemist_id)
 {	
-	window.location.href = "<?= base_url();?>home/salesman_chemist_add/"+chemist_id+"/<?= $next_page ?>"
+	window.location.href = "<?= base_url();?>select_chemist/chemist_session_add/"+chemist_id
 }
 function page_up_down_arrow(new_i)
 {

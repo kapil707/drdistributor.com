@@ -113,5 +113,5 @@ $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2'
 $route['select_chemist'] = 'Select_chemist/index';
 $route['home/select_chemist'] = 'Select_chemist/index';
 
-$route['404_override'] = '';
+$route['404_override'] = 'error/error_404';
 $route['translate_uri_dashes'] = FALSE;

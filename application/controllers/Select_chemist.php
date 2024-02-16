@@ -79,4 +79,17 @@ class Select_chemist extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
+
+	public function chemist_session_add($chemist_id="")
+	{
+		if(!empty($_COOKIE["user_type"]))
+		{
+			$user_type = $_COOKIE["user_type"];
+			if($user_type=="sales")
+			{
+				setcookie("chemist_id", $chemist_id, time() + (86400 * 30), "/");
+				redirect(base_url()."home");
+			}
+		}	
+	}
 }

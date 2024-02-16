@@ -162,7 +162,7 @@ function search_chemist()
 								
 								//new_i = parseInt(new_i) + 1;
 								
-								a_ = 'onclick=select_chemist("'+chemist_altercode+'")';
+								a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
 								csshover1 = 'hover_'+new_i;
 								chemist_message = "";
 								if(item.user_cart!="0")
@@ -182,7 +182,7 @@ function search_chemist()
 			$(".search_medicine_result").html("");
 		}
 }
-function select_chemist(chemist_id)
+function chemist_session_add(chemist_id)
 {	
 	window.location.href = "<?= base_url();?>select_chemist/chemist_session_add/"+chemist_id
 }

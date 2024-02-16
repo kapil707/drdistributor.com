@@ -92,4 +92,15 @@ class Select_chemist extends CI_Controller {
 			}
 		}	
 	}
+	public function salesman_my_cart_api(){
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode	= $_COOKIE["user_altercode"];
+		$items = "";
+		if($user_type!="" && $user_altercode!="")
+		{
+			$items = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
+		}
+?>
+{"items":[<?= $items;?>]}<?php
+	}
 }

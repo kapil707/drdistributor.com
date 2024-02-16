@@ -1110,6 +1110,7 @@ function medicine_add_to_cart_api()
 									$(".cart_empty_cart_div").show();
 									$(".cart_add_to_cart_div").hide();
 									$(".cart_disabled_cart_div").hide();
+									$(".place_order_div").hide();
 								}
 								if(items_total!=0)
 								{

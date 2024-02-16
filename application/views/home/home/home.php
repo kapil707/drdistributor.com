@@ -260,10 +260,10 @@ function home_page_owl_load(category_id){
                 items:5,
             },
             1024:{
-                items:8,
+                items:7,
             }
 			,1280:{
-                items:10,
+                items:8,
             }
         }
     });

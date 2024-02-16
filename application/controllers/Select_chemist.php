@@ -5,6 +5,8 @@ class Select_chemist extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
+
+		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
 	}
     
     public function index(){
@@ -53,5 +55,28 @@ class Select_chemist extends CI_Controller {
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/select_chemist/select_chemist', $data);
+	}
+
+	public function select_chemist_api()
+	{
+		//error_reporting(0);
+		$items = "";
+		$user_type 		= $_COOKIE['user_type'];
+		$user_altercode	= $_COOKIE['user_altercode'];
+		$keyword 		= $_REQUEST["keyword"];
+		if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
+		{
+			$result = $this->SelectChemistModel->select_chemist_api($user_type,$user_altercode,$keyword);
+			$items = $result["items"];
+		}
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 }

@@ -26,12 +26,12 @@ define("img_url_site","https://www.drdweb.co.in/");
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-*/
+/*
 define('APP_URL', ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . "://{$_SERVER['SERVER_NAME']}".str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']));
 $config['base_url'] = APP_URL;
-/*
-define('APP_URL','https://www.drdistributors.co.in/drd-live/');
-$config['base_url'] = "https://www.drdistributors.co.in/drd-live/";*/
+*/
+define('APP_URL','https://www.drdistributor.com');
+$config['base_url'] = "https://www.drdistributor.com";
 /*
 |--------------------------------------------------------------------------
 | Index File

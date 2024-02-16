@@ -307,7 +307,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="text-center" style="margin-top:30px;">
 					Don't have an account? 
-					<a href="<?= base_url() ?>user/register" class="main_theme_a">
+					<a href="<?= base_url() ?>register" class="main_theme_a">
 					Create account</a>
 				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">

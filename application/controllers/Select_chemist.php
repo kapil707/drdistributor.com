@@ -98,9 +98,18 @@ class Select_chemist extends CI_Controller {
 		$items = "";
 		if($user_type!="" && $user_altercode!="")
 		{
-			$items = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
+			$result = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
+			$items = $result["items"];
 		}
-?>
-{"items":[<?= $items;?>]}<?php
+		
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 }

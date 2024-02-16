@@ -41,8 +41,6 @@ class Main extends CI_Controller {
 	}
 
 	public function termsofservice() {
-		
-		$data = "";
 
 		$data["main_page_title"] = "Home";
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";

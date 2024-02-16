@@ -53,10 +53,12 @@ $route['default_controller'] = 'main';
 $route['login'] = 'Chemist_login/login';
 $route['register'] = 'Chemist_login/logout';
 $route['logout'] = 'Chemist_login/logout';
+$route['termsofservice'] = 'main/termsofservice';
 
 $route['user/login'] = 'Chemist_login/login';
 $route['user/register'] = 'Chemist_login/register';
 $route['user/logout'] = 'Chemist_login/logout';
+$route['user/termsofservice'] = 'main/termsofservice';
 
 
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';

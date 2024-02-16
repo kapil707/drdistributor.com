@@ -39,5 +39,44 @@ class Main extends CI_Controller {
 		$this->load->view('home/home/home', $data);
 		$this->load->view('home/header_footer/footer', $data);
 	}
+
+	public function termsofservice() {
+		//error_reporting(0);
+		$data = "";
+		
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_fname"]     = "Guest";
+		$data["session_user_altercode"] = "xxxxxx";
+		$data["chemist_id"] = "";
+		
+		if(!empty($this->session->userdata('user_altercode')))
+		{
+			$data["session_user_image"] 	= $this->session->userdata('user_image');
+			$data["session_user_fname"]     = $this->session->userdata('user_fname');
+			$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+			$data["chemist_id"] = $this->session->userdata('user_altercode');
+		}
+		
+		$this->load->view('home/header_footer/header', $data);
+	    $this->load->view('main_page/termsofservice', $data);
+	}
+	public function privacy_policy() {
+		//error_reporting(0);
+		
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_fname"]     = "Guest";
+		$data["session_user_altercode"] = "xxxxxx";
+		$data["chemist_id"] = "";
+		
+		if(!empty($this->session->userdata('user_altercode')))
+		{
+			$data["session_user_image"] 	= $this->session->userdata('user_image');
+			$data["session_user_fname"]     = $this->session->userdata('user_fname');
+			$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+			$data["chemist_id"] = $this->session->userdata('user_altercode');
+		}
+		
+		$this->load->view('home/header_footer/header', $data);
+	    $this->load->view('main_page/privacy_policy', $data);
+	}
 }
-?>

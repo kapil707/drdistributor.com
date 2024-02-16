@@ -52,8 +52,8 @@ class Chemist_login extends CI_Controller {
 		$password1	= $_POST["password1"];
 		$submit 	= "98c08565401579448aad7c64033dcb4081906dcb";
 		header('Content-Type: application/json');
-		$items = $this->ChemistLoginModel->chemist_login_api($user_name1,$password1);
-		$someArray = json_decode($items, true);
+		$result = $this->ChemistLoginModel->chemist_login_api($user_name1,$password1);
+		$someArray = $result["items"];
 		$user_return 	= "user_return";
 		$user_session 	= "user_session";
 		$user_fname 	= "user_fname";

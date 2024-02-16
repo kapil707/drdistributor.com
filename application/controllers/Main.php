@@ -50,6 +50,7 @@ class Main extends CI_Controller {
 
 		$this->load->view('home/header_footer/header', $data);
 	    $this->load->view('main_page/termsofservice', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 	public function privacy_policy() {
 		//error_reporting(0);

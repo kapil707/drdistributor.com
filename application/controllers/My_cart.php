@@ -222,4 +222,3 @@ class My_cart extends CI_Controller {
 		echo json_encode($response);
 	}
 }
-?>

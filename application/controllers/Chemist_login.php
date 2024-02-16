@@ -6,7 +6,52 @@ class Chemist_login extends CI_Controller {
 		parent::__construct();
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
 	}
-
+	public function register() {
+		//error_reporting(0);
+		$data["main_page_title"] = "Create account";
+	    $this->load->view('main_page/register', $data);
+	}
+	
+	public function login() {
+		$this->session->sess_destroy();
+		if($this->session->userdata('user_session')!=""){
+			redirect('home');
+		}
+		$data["main_page_title"] = "Login";
+	    $this->load->view('main_page/login', $data);
+	}
+	
+	public function logout(){
+		$this->session->sess_destroy();	
+		//$this->session->unset_userdata('__ci_last_regenerate');
+		/*$CI =& get_instance();
+		$path = $CI->config->item('cache_path');
+		$cache_path = ($path == '') ? APPPATH.'cache/' : $path;
+		$handle = opendir($cache_path);
+		while (($file = readdir($handle))!== FALSE) 
+		{
+			//Leave the directory protection alone
+			if ($file != '.htaccess' && $file != 'index.html')
+			{
+				echo $cache_path.'/'.$file;
+			   //@unlink($cache_path.'/'.$file);
+			}
+		}
+		closedir($handle);*/
+		setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
+		setcookie("user_type", "", time() + (86400 * 30), "/");
+		setcookie("user_altercode", "", time() + (86400 * 30), "/");
+		setcookie("user_password", "", time() + (86400 * 30), "/");
+		setcookie("chemist_id", "", time() + (86400 * 30), "/");
+		setcookie("user_session", "", time() + (86400 * 30), "/");
+		redirect(base_url());
+	}
+	public function logout2(){
+		$this->session->sess_destroy();	
+		$this->session->unset_userdata('__ci_last_regenerate');
+		redirect(base_url()."user/login");
+	}
+	
 	public function chemist_login_api(){
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];

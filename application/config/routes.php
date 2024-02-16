@@ -49,8 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'main';
-$route['login'] = 'user/login';
-$route['logout'] = 'user/logout';
+
+$route['login'] = 'Chemist_login/login';
+$route['logout'] = 'Chemist_login/logout';
+
+$route['user/login'] = 'Chemist_login/login';
+$route['user/logout'] = 'Chemist_login/logout';
 
 
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';

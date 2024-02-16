@@ -399,7 +399,7 @@ class MyCartModel extends CI_Model
 			}
 			if(!empty($query))
 			{
-				//$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
+				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
 				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 				
 				$place_order_message = $this->Scheme_Model->get_website_data("place_order_message");

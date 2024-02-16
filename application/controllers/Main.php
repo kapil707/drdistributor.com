@@ -43,12 +43,13 @@ class Main extends CI_Controller {
 	public function termsofservice() {
 		
 		$data = "";
-		
+
+		$data["main_page_title"] = "Home";
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
-				
+		
 		$this->load->view('home/header_footer/header', $data);
 	    $this->load->view('main_page/termsofservice', $data);
 	}

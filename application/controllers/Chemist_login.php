@@ -9,7 +9,7 @@ class Chemist_login extends CI_Controller {
 	public function register() {
 		//error_reporting(0);
 		$data["main_page_title"] = "Create account";
-	    $this->load->view('main_page/register', $data);
+	    $this->load->view('login/register', $data);
 	}
 	
 	public function login() {
@@ -18,7 +18,7 @@ class Chemist_login extends CI_Controller {
 			redirect('home');
 		}
 		$data["main_page_title"] = "Login";
-	    $this->load->view('main_page/login', $data);
+	    $this->load->view('login/login', $data);
 	}
 	
 	public function logout(){
@@ -46,12 +46,7 @@ class Chemist_login extends CI_Controller {
 		setcookie("user_session", "", time() + (86400 * 30), "/");
 		redirect(base_url());
 	}
-	public function logout2(){
-		$this->session->sess_destroy();	
-		$this->session->unset_userdata('__ci_last_regenerate');
-		redirect(base_url()."user/login");
-	}
-	
+
 	public function chemist_login_api(){
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];

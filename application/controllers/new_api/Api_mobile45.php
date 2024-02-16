@@ -6,6 +6,10 @@ ini_set('post_max_size','500M');
 ini_set('upload_max_filesize','500M');
 ini_set('max_execution_time',36000);
 class Api_mobile45 extends CI_Controller {	
+	public function __construct(){
+		parent::__construct();
+		error_reporting(0);
+	}
 	public function create_new($page_type)
 	{
 		error_reporting(0);

@@ -49,7 +49,7 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
-		
+
 		$this->load->view('home/header_footer/header', $data);
 	    $this->load->view('main_page/termsofservice', $data);
 	}

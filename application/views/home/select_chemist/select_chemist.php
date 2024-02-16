@@ -242,9 +242,11 @@ function call_page_by_last_id()
 	lastid1=$(".lastid1").val();
 	call_page(lastid1)
 }
+var no_record_found = 0;
 function call_page(lastid1)
 {
-	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".load_more").hide();
+	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -252,25 +254,39 @@ function call_page(lastid1)
 		url        : "<?php echo base_url(); ?>select_chemist/salesman_my_cart_api",
 		cache	   : false,
 		error: function(){
+			$(".load_page_loading").html("");
 			$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+				if(no_record_found=="0")
+				{
+					$(".load_page_loading").html("");
+					$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+				}
+				else
+				{
+					$(".load_page_loading").html("");
+					$(".load_page").html("");
+				}
 			}
 			else
 			{
-				$(".load_page").html("");
+				$(".load_page_loading").html("");
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
 					chemist_altercode = item.chemist_altercode
 					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
 					$(".load_page").append('<div class="main_theme_li_bg" '+a_+'><div class="medicine_chemist_div1"><img src="'+item.chemist_image+'" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg"></div><div class="medicine_chemist_div2"><div class="medicine_cart_item_name">'+item.chemist_name+'</div><div class="medicine_cart_item_packing"> Code : '+item.chemist_altercode+'</div><div class="medicine_cart_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');				
+					no_record_found = 1;
+					$(".load_more").show();
+					$(".load_page").show();
 				}
-			});	
-		}
-	});
+			});
+		},
+		timeout: 10000
+	});	
 }
 </script>

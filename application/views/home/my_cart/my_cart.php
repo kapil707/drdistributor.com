@@ -24,24 +24,7 @@
 		margin-left:0px;
 	}
 }
-.headertitle
-{
-	margin-top: 2px;
-    font-size: 25px;
-	font-weight: 700;
-}
 </style>
-<?php if(!empty($chemist_id)){ ?>
-<style>
-.headertitle
-{
-	margin-top: -5px;
-}
-</style>
-<script>
-$(".headertitle1").show();
-</script>
-<?php } ?>
 <script>
 $(".headertitle").html("My Cart");
 function goBack() {

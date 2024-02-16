@@ -105,5 +105,9 @@ $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
+
+$route['select_chemist'] = 'Select_chemist/index';
+$route['home/select_chemist'] = 'Select_chemist/index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

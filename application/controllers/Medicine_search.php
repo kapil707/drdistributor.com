@@ -99,6 +99,6 @@ class Medicine_search extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/search_medicine/search_medicine', $data);
+		$this->load->view('home/medicine_search/medicine_search', $data);
 	}
 }

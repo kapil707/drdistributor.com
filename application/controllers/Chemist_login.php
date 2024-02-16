@@ -50,46 +50,20 @@ class Chemist_login extends CI_Controller {
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];
 		$password1	= $_POST["password1"];
-		$submit 	= "98c08565401579448aad7c64033dcb4081906dcb";
-		header('Content-Type: application/json');
-		$result = $this->ChemistLoginModel->chemist_login_api($user_name1,$password1);
-		$someArray = $result["items"];
-		$user_return 	= "user_return";
-		$user_session 	= "user_session";
-		$user_fname 	= "user_fname";
-		$user_code 		= "user_code";
-		$user_altercode = "user_altercode";
-		$user_type 		= "user_type";
-		$user_password 	= "user_password";
-		$user_division 	= "user_division";
-		$user_compcode 	= "user_compcode";
-		$user_image 	= "user_image";
-		$user_nrx 		= "user_nrx";
-		if($someArray[$user_return]=="1")
-		{
-			$ret = $this->Chemist_Model->insert_value_on_session($someArray[$user_session],$someArray[$user_fname],$someArray[$user_code],$someArray[$user_altercode],$someArray[$user_type],$someArray[$user_password],$someArray[$user_division],$someArray[$user_compcode],$someArray[$user_image],$someArray[$user_nrx]);
-			$user_type 		= $someArray[$user_type];
-			$user_altercode = $someArray[$user_altercode];
-			$user_password	= $someArray[$user_password];	
-			setcookie("chemist_id", "", time() + (86400 * 30), "/");
-			$chemist_id  = "";
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id     = "";
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			$user_cart_total = $this->Chemist_Model->count_temp_rec($user_type,$user_altercode,$salesman_id);
-			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
+
+		if(!empty($user_name1) && !empty($password1)){
+			$result = $this->ChemistLoginModel->chemist_login_api($user_name1,$password1,"website");
+			$items = $result["items"];
 		}
-		else{
-			$ret=1;
-		}
-		if($ret==1)
-		{
-?>
-{"items":[<?= $items;?>]}<?php
-		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 }

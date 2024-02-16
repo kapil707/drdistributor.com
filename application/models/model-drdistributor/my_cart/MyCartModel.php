@@ -415,7 +415,6 @@ class MyCartModel extends CI_Model
 	
 	public function save_order_to_server_again($temp_rec,$order_id,$order_type)
 	{
-		//error_reporting(0);
 		$where = array('temp_rec'=>$temp_rec,'order_id'=>$order_id);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order")->result();
@@ -518,6 +517,7 @@ class MyCartModel extends CI_Model
 		$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
 		$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
 		/*************************************************************/
+		
 		/******************group message******************************/
 		$group1_message 	= "New Order Recieved from ".$txt_msg1."Please check in Easy Sol";
 		$whatsapp_group1 = $this->Scheme_Model->get_website_data("whatsapp_group1");

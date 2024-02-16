@@ -28,6 +28,7 @@ class My_order extends CI_Controller {
 		$salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}

@@ -35,10 +35,22 @@
 <div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-12 col-12">
-			<span class="draft_order_list_sales_div">
-			</span>
+			<div class="row">
+				<div class="col-sm-12 col-12">
+					<div class="website_box_part load_page" style="display:none">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<span class="load_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
+				</div>
+				<div class="col-sm-12" style="margin-top:10px;">
+					<button onclick="load_more()" class="load_more"></button>
+				</div>
+			</div>
 		</div>
-	</div>
+	</div>     
 </div>
 <script>
 $(".headertitle").html("Search chemist");
@@ -232,29 +244,30 @@ function call_page_by_last_id()
 }
 function call_page(lastid1)
 {
-	$(".draft_order_list_sales_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
+		dataType   : "json",
 		data       :  { lastid1:lastid1} ,
 		url        : "<?php echo base_url(); ?>select_chemist/salesman_my_cart_api",
 		cache	   : false,
 		error: function(){
-			$(".draft_order_list_sales_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
+			$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".draft_order_list_sales_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+				$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 			}
 			else
 			{
-				$(".draft_order_list_sales_div").html("");
+				$(".load_page").html("");
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
 					chemist_altercode = item.chemist_altercode
 					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
-					$(".draft_order_list_sales_div").append('<div class="main_theme_li_bg" '+a_+'><div class="medicine_chemist_div1"><img src="'+item.chemist_image+'" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg"></div><div class="medicine_chemist_div2"><div class="medicine_cart_item_name">'+item.chemist_name+'</div><div class="medicine_cart_item_packing"> Code : '+item.chemist_altercode+'</div><div class="medicine_cart_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');				
+					$(".load_page").append('<div class="main_theme_li_bg" '+a_+'><div class="medicine_chemist_div1"><img src="'+item.chemist_image+'" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg"></div><div class="medicine_chemist_div2"><div class="medicine_cart_item_name">'+item.chemist_name+'</div><div class="medicine_cart_item_packing"> Code : '+item.chemist_altercode+'</div><div class="medicine_cart_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');				
 				}
 			});	
 		}

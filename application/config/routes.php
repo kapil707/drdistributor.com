@@ -51,9 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'main';
 
 $route['login'] = 'Chemist_login/login';
+$route['register'] = 'Chemist_login/logout';
 $route['logout'] = 'Chemist_login/logout';
 
 $route['user/login'] = 'Chemist_login/login';
+$route['user/register'] = 'Chemist_login/register';
 $route['user/logout'] = 'Chemist_login/logout';
 
 

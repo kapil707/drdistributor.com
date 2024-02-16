@@ -13,7 +13,7 @@ class Select_chemist extends CI_Controller {
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
 		
-		$data["main_page_title"] = "Search Chemist";
+		$data["main_page_title"] = "Select Chemist";
 
 		if(!empty($_COOKIE["user_type"]))
 		{

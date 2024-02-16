@@ -26,7 +26,7 @@ class ChemistLoginModel extends CI_Model
 			$user_type = $_COOKIE["user_type"];
 			if($user_type=="sales" && empty($_COOKIE["chemist_id"]))
 			{
-				redirect(constant('main_site')."home/select_chemist");
+				redirect(base_url()."home/select_chemist");
 			}
 		}	
 	}
@@ -94,10 +94,10 @@ class ChemistLoginModel extends CI_Model
 					{
 						$user_session 	= 	$query->id;
 						$user_fname		= 	ucwords(strtolower($query->customer_name));
-						$user_image 	= 	constant('main_site')."user_profile/".$query->image;
+						$user_image 	= 	base_url()."user_profile/".$query->image;
 						if(empty($query->image))
 						{
-							$user_image = constant('main_site')."img_v".constant('site_v')."/logo.png";
+							$user_image = base_url()."img_v51/logo.png";
 						}
 						$user_code	 	= 	$query->customer_code;
 						$user_altercode	= 	$query->customer_code;
@@ -129,7 +129,7 @@ class ChemistLoginModel extends CI_Model
 								$user_alert 	= 	"Logged in successfully";
 								$user_division	= 	$query->division;
 								$user_compcode	= 	$query->compcode;
-								$user_image = constant('img_url_site')."img_v".constant('site_v')."/logo.png";
+								$user_image = constant('img_url_site')."img_v51/logo.png";
 							}
 							else
 							{

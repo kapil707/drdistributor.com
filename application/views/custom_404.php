@@ -38,6 +38,7 @@
 <body>
     <div class="container">
         <h1>404 - Page Not Found</h1>
+        <image src="<?= base_url() ?>img_v51/logo4.png" width="200px;">
         <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
         <p>Please <a href="/">click here</a> to go back to the home page.</p>
     </div>

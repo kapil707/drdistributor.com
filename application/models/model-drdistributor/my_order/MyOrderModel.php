@@ -131,7 +131,7 @@ class MyOrderModel extends CI_Model
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);
-		//error_reporting(0);
+		error_reporting(0);
 		ob_clean();		
 		date_default_timezone_set('Asia/Calcutta');
 		$objPHPExcel->setActiveSheetIndex(0)

@@ -65,7 +65,9 @@ class MedicineSearchModel extends CI_Model
 			$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
 
 			$query1 = $db_medicine1->get("tbl_medicine as m")->result();
-			
+			foreach($query1 as $row){
+				$sameid[] = $row->id;
+			}
 			
 			/**************item_name search part2*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {

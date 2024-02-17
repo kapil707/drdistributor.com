@@ -277,7 +277,7 @@ class Import_order extends CI_Controller {
 		
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('import_order/medicine_deleted_items', $data);
-		$this->load->view('home/footer', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 	
 	public function import_orders_delete_items($query)

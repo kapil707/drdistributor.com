@@ -220,6 +220,7 @@ class Import_order extends CI_Controller {
 			redirect(base_url()."home/my_cart");
 		}
 		
+		$dt = $dt1 = $dt2 = "";
 		$i = 0;
 		foreach($result as $row)
 		{

@@ -282,10 +282,12 @@ class Import_order extends CI_Controller {
 	
 	public function import_orders_delete_items($query)
 	{
+		error_reporting(0);
+		
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);
-		//error_reporting(0);
+		
 		ob_clean();		
 		date_default_timezone_set('Asia/Calcutta');
 		$objPHPExcel->setActiveSheetIndex(0)

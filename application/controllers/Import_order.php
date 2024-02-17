@@ -275,7 +275,7 @@ class Import_order extends CI_Controller {
 			$this->Scheme_Model->insert_fun("tbl_email_send",$dt);				
 		}
 		
-		$this->load->view('home/header', $data);
+		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('import_order/medicine_deleted_items', $data);
 		$this->load->view('home/footer', $data);
 	}

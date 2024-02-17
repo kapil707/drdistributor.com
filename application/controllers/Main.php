@@ -88,7 +88,7 @@ class Main extends CI_Controller {
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= ucwords(strtolower($users->name));		
 			$chemist_excle 	= "$acm_name ($acm_altercode)";
-			$this->MyOrderModel->export_excel_order($query,$chemist_excle,"direct_download");
+			$this->MyOrderModel->order_excel_file($query,$chemist_excle,"direct_download");
 		}
 		else{
 			echo "error";

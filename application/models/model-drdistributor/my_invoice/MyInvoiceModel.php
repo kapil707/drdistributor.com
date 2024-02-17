@@ -287,7 +287,9 @@ class MyInvoiceModel extends CI_Model
 	}
 	
 	public function invoice_excel_file($gstvno,$download_type)
-	{		
+	{	
+		error_reporting(0);
+		
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);

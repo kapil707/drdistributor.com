@@ -665,7 +665,7 @@ function medicine_cart_list()
 	id = "";
 	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
-		url: "<?php echo base_url(); ?>Chemist_json/my_cart_api",
+		url: "<?php echo base_url(); ?>my_cart/my_cart_api",
 		type:"POST",
 		cache: true,
 		data: {id:id},
@@ -683,30 +683,30 @@ function medicine_cart_list()
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-					item_code			= item.code;
-					item_image			= item.image;
-					item_name 			= item.name;
-					item_packing 		= item.packing;
-					item_expiry 		= item.expiry;
-					item_company 		= item.company;
-					item_quantity 		= item.quantity;
-					item_stock 			= item.stock;
-					item_ptr 			= item.ptr;
-					item_mrp 			= item.mrp;
-					item_price 			= item.price;
-					item_scheme 		= item.scheme;
-					item_margin 		= item.margin;
-					item_featured 		= item.featured;
-					item_description1 	= item.description1;
+					item_code			= item.item_code;
+					item_image			= item.item_image;
+					item_name 			= item.item_name;
+					item_packing 		= item.item_packing;
+					item_expiry 		= item.item_expiry;
+					item_company 		= item.item_company;
+					item_quantity 		= item.item_quantity;
+					item_stock 			= item.item_stock;
+					item_ptr 			= item.item_ptr;
+					item_mrp 			= item.item_mrp;
+					item_price 			= item.item_price;
+					item_scheme 		= item.item_scheme;
+					item_margin 		= item.item_margin;
+					item_featured 		= item.item_featured;
+					item_description1 	= item.item_description;
 					similar_items 		= item.similar_items;
 					//new add for last order qty
-					item_order_quantity = item.order_quantity;
+					item_order_quantity = item.item_order_quantity;
 					
 					div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"' item_order_quantity='"+item_order_quantity+"'></div>"
-					item_id 			= item.id;
-					item_quantity_price = item.quantity_price;
-					item_datetime 		= item.datetime;
-					item_modalnumber 	= item.modalnumber;
+					item_id 			= item.item_id;
+					item_quantity_price = item.item_quantity_price;
+					item_datetime 		= item.item_date_time;
+					item_modalnumber 	= item.item_modalnumber;
 					
 					error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
 					

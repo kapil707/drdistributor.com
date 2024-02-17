@@ -429,7 +429,7 @@ function search_medicine()
 			$.ajax({
 				type       : "POST",
 				data       :  { keyword : keyword} ,
-				url        : "<?php echo base_url(); ?>Chemist_json/medicine_search_api",
+				url        : "<?php echo base_url(); ?>medicine_search/medicine_search_api",
 				error: function(){
 					$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 				},

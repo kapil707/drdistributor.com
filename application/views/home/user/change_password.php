@@ -250,10 +250,10 @@ function submitbtn()
 		success    : function(data){			
 			$.each(data.items, function(i,item){	
 				if (item){
-					swal(item.status);
-					if(item.status1=="1")
+					swal(item.status_message);
+					if(item.status=="1")
 					{
-						$(".submit_div").html("<p class='text-success'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
 						$(".check_old_password_div").html("");
 						$(".check_new_password_div").html("");
 						$(".check_renew_password_div").html("");
@@ -262,7 +262,7 @@ function submitbtn()
 						$("#renew_password").val("");						
 					}
 					else{
-						$(".submit_div").html("<p class='text-danger'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
 					}
 				}
 			});	

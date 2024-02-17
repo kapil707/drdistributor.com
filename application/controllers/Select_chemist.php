@@ -6,6 +6,19 @@ class Select_chemist extends CI_Controller {
 		parent::__construct();
 		// Load model
 
+		if(empty($_COOKIE["user_altercode"])){
+			if(!empty($back_url)){
+				redirect(base_url()."login?back_url=".$back_url);
+			}else{
+				redirect(base_url()."login");
+			}
+		}
+		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
+		if($under_construction=="1")
+		{
+			redirect(base_url()."under_construction");
+		}
+		
 		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
 	}
     

@@ -412,7 +412,8 @@ $(document).ready(function(){
 function search_medicine()
 {
 	total_rec = 25;
-	checkbox_medicine_val = checkbox_company_val = checkbox_out_of_stock_val = 0;
+	checkbox_medicine_val = 1;
+	checkbox_company_val = 1;
 	checkbox_out_of_stock_val = 1; 
 
 	new_i = 0;

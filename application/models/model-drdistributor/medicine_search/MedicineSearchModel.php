@@ -102,6 +102,9 @@ class MedicineSearchModel extends CI_Model
 				$db_medicine2->order_by('m.batchqty desc','m.item_name asc');
 
 				$query2 = $db_medicine2->get("tbl_medicine as m")->result();
+				foreach($query2 as $row){
+					$sameid[] = $row->id;
+				}
 			}
 			
 			
@@ -138,6 +141,9 @@ class MedicineSearchModel extends CI_Model
 				$db_medicine3->order_by('m.batchqty desc','m.item_name asc');
 
 				$query3 = $db_medicine3->get("tbl_medicine as m")->result();
+				foreach($query3 as $row){
+					$sameid[] = $row->id;
+				}
 			}
 			
 			
@@ -174,6 +180,9 @@ class MedicineSearchModel extends CI_Model
 				$db_medicine4->order_by('m.batchqty desc','m.item_name asc');
 
 				$query4 = $db_medicine4->get("tbl_medicine as m")->result();
+				foreach($query4 as $row){
+					$sameid[] = $row->id;
+				}
 			}
 			
 			/**************title search part4*******************/
@@ -209,6 +218,9 @@ class MedicineSearchModel extends CI_Model
 				$db_medicine5->order_by('m.batchqty desc','m.item_name asc');
 
 				$query5 = $db_medicine5->get("tbl_medicine as m")->result();
+				foreach($query5 as $row){
+					$sameid[] = $row->id;
+				}
 			}
 			/**************************************************/
 		}
@@ -245,6 +257,9 @@ class MedicineSearchModel extends CI_Model
 			$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
 			$query6 = $db_medicine6->get("tbl_medicine as m")->result();
+			foreach($query6 as $row){
+				$sameid[] = $row->id;
+			}
 		}
 		
 		/***********************************************************/
@@ -270,7 +285,7 @@ class MedicineSearchModel extends CI_Model
 		
 		/***************jab kuch be nahi milta ha to yha chalti ha*********************/
 		
-		if($checkbox_medicine=="1" || $count_record==0) {
+		if($checkbox_medicine=="1" && $count_record==0) {
 			foreach($keyword_array as $keyword_row){
 				if(!empty($keyword_row)) {
 					$where = $sameid_where = "";

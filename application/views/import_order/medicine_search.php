@@ -467,7 +467,7 @@ function search_medicine()
 							item_scheme 		= item.item_scheme;
 							item_margin 		= item.item_margin;
 							item_featured 		= item.item_featured;
-							item_description1 	= item.item_description1;
+							item_description1 	= item.item_description;
 							similar_items 		= item.similar_items;
 							new_i				= item.count;
 							

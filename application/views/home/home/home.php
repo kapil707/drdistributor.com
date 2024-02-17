@@ -149,7 +149,12 @@ function home_page_menu(result_row){
 			menu_image 	= item.menu_image;
 			menu_url 	= '<?= base_url(); ?>'+item.menu_url;
 			
-			mydata+='<div class="home_menu_main_div wow fadeInDown animated" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_menu_main_btn">'+menu_name+'</div></div></a></div>';
+			mobile_off_cls = "";
+			if(menu_id==6){
+				mobile_off_cls = "mobile_off";
+			}
+
+			mydata+='<div class="home_menu_main_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_menu_main_btn">'+menu_name+'</div></div></a></div>';
 		}
 	});
 	

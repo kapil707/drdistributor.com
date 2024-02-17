@@ -852,7 +852,10 @@ function medicine_details_api(item_code)
 // start new code for fast open modal
 function medicine_details_funcation(item_code)
 {	
-	var session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
+	var session_user_altercode = "";
+	<?php if(isset($_COOKIE["user_altercode"])){ ?>
+		session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
+	<?php } ?>
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
 		window.location.href = "<?=base_url(); ?>home";

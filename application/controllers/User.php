@@ -8,26 +8,6 @@ class User extends CI_Controller {
 	public function index(){
 		//error_reporting(0);
 		redirect(base_url());
-	}	
-	public function download_order($order_id,$chemist_id)
-	{
-		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
-		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
-		$row   = $query->row();
-		$query = $query->result();
-		if($row->id!="")
-		{
-			$where 			= array('altercode'=>$row->chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
-			$acm_altercode 	= $users->altercode;
-			$acm_name		= ucwords(strtolower($users->name));		
-			$chemist_excle 	= "$acm_name ($acm_altercode)";
-			$this->Order_Model->excel_save_order_to_server($query,$chemist_excle,"direct_download");
-		}
-		else{
-			echo "error";
-		}
 	}
 	public function login_api(){
 		//error_reporting(0);

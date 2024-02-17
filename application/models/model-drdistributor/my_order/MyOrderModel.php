@@ -125,4 +125,62 @@ class MyOrderModel extends CI_Model
 		$return["items"] = $jsonArray;
 		return $return;		
 	}
+
+	public function export_excel_order($query,$chemist_excle,$download_type)
+	{
+		$this->load->library('excel');
+		$objPHPExcel = new PHPExcel();
+		$objPHPExcel->setActiveSheetIndex(0);
+		//error_reporting(0);
+		//ob_clean();		
+		date_default_timezone_set('Asia/Calcutta');
+		$objPHPExcel->setActiveSheetIndex(0)
+		->setCellValue('A1','Code')
+		->setCellValue('B1','Name')
+		->setCellValue('C1','Quantity')
+		->setCellValue('D1','PTR')
+		->setCellValue('E1','Total')
+		->setCellValue('F1','Chemist');		
+		$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(10);
+		$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(25);
+		$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
+		$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(10);
+		$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(10);
+		$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);	
+		
+		$objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray(array('font' => array('size' => 10,'bold' => false,'color' => array('rgb' => '000000'),'name'  => 'Arial')));
+		$i = 0;
+		$rowCount = 2;
+		foreach($query as $row)
+		{
+			$i++;
+			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$row->item_code);
+			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$row->item_name);
+			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$row->quantity);
+			$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,$row->sale_rate);
+			$objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,$row->sale_rate * $row->quantity);
+			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,$chemist_excle);
+			
+			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':F'.$rowCount)->applyFromArray(array('font' => array('size' => 8,'bold' => false,'color' => array('rgb' => '000000'),'name'  => 'Arial')));
+			
+			$file_name = $row->order_id;
+			
+			$rowCount++;
+		}
+		if($download_type=="direct_download")
+		{
+			$file_name = $file_name.".xls";
+			
+			//$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+			$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel5');
+			/*$objWriter->save('uploads_sales/kapilkifile.xls');*/
+			
+			header('Content-type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment; filename='.$file_name);
+			header('Cache-Control: max-age=0');
+			ob_start();
+			$objWriter->save('php://output');
+			$data = ob_get_contents();
+		}
+	}
 }

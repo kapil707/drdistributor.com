@@ -239,7 +239,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       :  {old_password:old_password,new_password:new_password,user_type:user_type,user_altercode:user_altercode} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/change_password_api",
+		url        : "<?php echo base_url(); ?>user/change_password_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

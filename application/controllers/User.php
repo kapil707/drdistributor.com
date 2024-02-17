@@ -195,4 +195,19 @@ class User extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/user/change_password', $data);
 	}
+
+	public function change_password_api()
+	{
+		//error_reporting(0);
+		$user_type		= $_POST['user_type'];
+		$user_altercode = $_POST['user_altercode'];
+		$old_password   = $_POST['old_password'];
+		$new_password   = $_POST['new_password'];
+		if($user_type!="" && $user_altercode!="" && $old_password!="" && $new_password!="")
+		{
+			$items = $this->Chemist_Model->change_password($user_type,$user_altercode,$old_password,$new_password);
+		}
+?>
+{"items":[<?= $items;?>]}<?php
+	}
 }

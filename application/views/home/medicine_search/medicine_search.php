@@ -342,7 +342,7 @@ function medicine_search_api()
 			type       : "POST",
 			dataType   : "json",
 			data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
-			url        : "<?php echo base_url(); ?>medicine_details/medicine_search_api",
+			url        : "<?php echo base_url(); ?>medicine_search/medicine_search_api",
 			cache	   : true,
 			error: function(){
 				$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');

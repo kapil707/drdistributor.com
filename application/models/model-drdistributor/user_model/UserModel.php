@@ -31,7 +31,7 @@ class UserModel extends CI_Model
 		}	
 	}
 
-	public function change_password($user_type,$user_altercode,$user_password,$new_password)
+	public function change_password_api($user_type,$user_altercode,$user_password,$new_password)
 	{
 		$jsonArray = array();
 

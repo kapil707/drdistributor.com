@@ -31,7 +31,7 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -86,7 +86,7 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -126,7 +126,7 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -170,7 +170,7 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v".constant('site_v')."/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")

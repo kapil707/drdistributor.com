@@ -7,20 +7,12 @@ ini_set('upload_max_filesize','500M');
 ini_set('max_execution_time',36000);
 class Api45 extends CI_Controller {	
 	
-	public function get_login_api($page_type)
+	public function get_login_api()
 	{
-		if($page_type=="get")
-		{
-			$submit			= $_GET['submit'];
-			$user_name = $_GET['user_name'];
-			$user_password 	= $_GET['user_password'];
-		}
-		if($page_type=="post")
-		{
-			$submit			= $_POST['submit'];
-			$user_name 		= $_POST['user_name'];
-			$user_password 	= $_POST['user_password'];
-		}
+		$submit			= $_POST['submit'];
+		$user_name 		= $_POST['user_name'];
+		$user_password 	= $_POST['user_password'];
+		
 		$submit1 = md5("my_sweet_login");
 		$submit1 = sha1($submit1);
 		$submit1 = md5($submit1);

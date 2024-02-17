@@ -10,7 +10,7 @@ class Import_order extends CI_Controller {
 		parent::__construct();
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check();
+        $this->ChemistLoginModel->login_check("import_order");
 	}
 	
 	public function index()
@@ -31,7 +31,8 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$chemist_id		= $_COOKIE['chemist_id'];
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -60,17 +61,6 @@ class Import_order extends CI_Controller {
 		$this->load->view('home/header_footer/footer', $data);
 	}
 	
-	public function select_chemist(){
-		$chemist_id		= $_COOKIE['chemist_id'];
-		if(empty($chemist_id))
-		{
-			redirect(base_url()."home/select_chemist");
-		}
-		else{
-			redirect(base_url()."import_order");
-		}
-	}
-	
 	public function medicine_suggest(){
 		////error_reporting(0);
 		
@@ -86,7 +76,8 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$chemist_id		= $_COOKIE['chemist_id'];
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -126,7 +117,8 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$chemist_id		= $_COOKIE['chemist_id'];
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -170,7 +162,8 @@ class Import_order extends CI_Controller {
 		{
 			if($user_type=="sales")
 			{
-				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$chemist_id		= $_COOKIE['chemist_id'];
+				$data["session_user_fname"]  = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon_w.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -217,7 +210,7 @@ class Import_order extends CI_Controller {
 		$data["result"]	= $result;
 		if(empty($result))
 		{
-			redirect(base_url()."home/my_cart");
+			redirect(base_url()."my_cart");
 		}
 		
 		$dt = $dt1 = $dt2 = "";
@@ -283,7 +276,7 @@ class Import_order extends CI_Controller {
 	public function import_orders_delete_items($query)
 	{
 		error_reporting(0);
-		
+
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);

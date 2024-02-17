@@ -174,7 +174,7 @@ class MyOrderModel extends CI_Model
 			//$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 			$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel5');
 			/*$objWriter->save('uploads_sales/kapilkifile.xls');*/
-			
+			ob_clean();
 			header('Content-type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment; filename='.$file_name);
 			header('Cache-Control: max-age=0');

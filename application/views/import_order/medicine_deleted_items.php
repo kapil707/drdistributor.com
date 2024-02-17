@@ -79,7 +79,7 @@ function goBack() {
 					</a>
 				</div>
 				<div class="col-sm-4 col-4 text-right">
-					<a href="<?= base_url(); ?>home/my_cart">
+					<a href="<?= base_url(); ?>my_cart">
 						<button type="submit" class="btn btn-primary mainbutton next_btn" name="submit" value="submit" style="width:20%">Next</button>
 					</a>
 				</div>

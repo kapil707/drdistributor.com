@@ -76,6 +76,14 @@ function call_page()
 			{
 				$(".load_page_loading").html("");
 			}
+			if (data.download_url)
+			{
+				$(".download_excel_url").html("<a href="+data.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
+			}
+			if (data.header_title)
+			{
+				$(".headertitle").html(data.header_title);
+			}
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
@@ -177,18 +185,6 @@ function call_page()
 					$(".load_page_delete").show();
 				}
 			});
-			$.each(data.download_url, function(i,item){	
-				if (item)
-				{
-					$(".download_excel_url").html("<a href="+item.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
-				}
-			});
-			$.each(data.header_title, function(i,item){	
-				if (item)
-				{
-					$(".headertitle").html(item.header_title);
-				}
-			});	
 			$(".load_page").show();
 		},
 		//timeout: 10000

@@ -44,31 +44,6 @@ class Medicine_details extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function medicine_search_api()
-	{
-		$items = "[]";
-		$keyword   			= $_REQUEST['keyword'];
-		$total_rec   		= $_REQUEST['total_rec'];
-		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
-		$checkbox_company	= $_REQUEST['checkbox_company_val'];
-		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
-		$user_nrx  			= $_COOKIE["user_nrx"];
-		if(!empty($keyword))
-		{
-			$items = $this->MedicineDetailsModel->medicine_search_api($keyword,$user_nrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
-		}
-        
-        $response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
     public function get_medicine_favourite_api(){
 		$items = "";
 		$user_type 		= $_COOKIE["user_type"];

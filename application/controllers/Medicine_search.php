@@ -7,6 +7,8 @@ class Medicine_search extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
         $this->ChemistLoginModel->login_check("medicine_search");
+
+		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
 	}
     
     public function index(){
@@ -100,5 +102,30 @@ class Medicine_search extends CI_Controller {
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('home/header_footer/header', $data);
 		$this->load->view('home/medicine_search/medicine_search', $data);
+	}
+
+	public function medicine_search_api()
+	{
+		$items = "[]";
+		$keyword   			= $_REQUEST['keyword'];
+		$total_rec   		= $_REQUEST['total_rec'];
+		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
+		$checkbox_company	= $_REQUEST['checkbox_company_val'];
+		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
+		$user_nrx  			= $_COOKIE["user_nrx"];
+		if(!empty($keyword))
+		{
+			$items = $this->MedicineSearchModel->medicine_search_api($keyword,$user_nrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
+		}
+        
+        $response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 }

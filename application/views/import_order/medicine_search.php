@@ -411,6 +411,10 @@ $(document).ready(function(){
 });
 function search_medicine()
 {
+	total_rec = 25;
+	checkbox_medicine_val = checkbox_company_val = checkbox_out_of_stock_val = 0;
+	checkbox_out_of_stock_val = 1; 
+
 	new_i = 0;
 	$(".clear_search_icon").show();
 	var keyword = $(".search_textbox").val();
@@ -428,7 +432,7 @@ function search_medicine()
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 				type       : "POST",
-				data       :  { keyword : keyword} ,
+				data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
 				url        : "<?php echo base_url(); ?>medicine_search/medicine_search_api",
 				error: function(){
 					$(".search_medicine_result").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');

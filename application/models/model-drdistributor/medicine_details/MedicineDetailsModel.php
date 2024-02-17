@@ -207,7 +207,7 @@ class MedicineDetailsModel extends CI_Model
 		
 		$jsonArray = array();
 		$query1 = $query2 = $query3 = $query4 = $query5 = $query6 = array(); 
-		$sameid = array();
+		$sameid = $sameid1 = $sameid2 = $sameid3 = $sameid4 = $sameid5 = $sameid6 = "";
 		$count_record = 0;
 		$item_count = 0;
 		
@@ -242,8 +242,8 @@ class MedicineDetailsModel extends CI_Model
 			
 			if(!empty($sameid))
 			{
-				$mylist = implode(',', $sameid); 
-				$sameid_where = " and m.id not in(".$mylist.")";
+				//$mylist = implode(',', $sameid); 
+				$sameid_where = " and m.id not in(".$sameid.")";
 				$db_medicine1->where($where.$sameid_where);
 			}else{
 				$db_medicine1->where($where);
@@ -255,7 +255,13 @@ class MedicineDetailsModel extends CI_Model
 			$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
 
 			$query1 = $db_medicine1->get("tbl_medicine as m")->result();
-			
+			foreach($query1 as $row){
+				$id		=	$row->id;
+				$sameid1.= $id.",";
+			}
+			if(!empty($sameid1)){
+				$sameid.= substr($sameid1,0,-1);
+			}
 			
 			/**************item_name search part2*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {
@@ -277,8 +283,8 @@ class MedicineDetailsModel extends CI_Model
 				
 				if(!empty($sameid))
 				{
-					$mylist = implode(',', $sameid); 
-					$sameid_where = " and m.id not in(".$mylist.")";
+					//$mylist = implode(',', $sameid); 
+					$sameid_where = " and m.id not in(".$sameid.")";
 					$db_medicine2->where($where.$sameid_where);
 				}else{
 					$db_medicine2->where($where);
@@ -290,6 +296,13 @@ class MedicineDetailsModel extends CI_Model
 				$db_medicine2->order_by('m.batchqty desc','m.item_name asc');
 
 				$query2 = $db_medicine2->get("tbl_medicine as m")->result();
+				foreach($query2 as $row){
+					$id		=	$row->id;
+					$sameid2.= $id.",";
+				}
+				if(!empty($sameid2)){
+					$sameid.= substr($sameid2,0,-1);
+				}
 			}
 			
 			
@@ -313,8 +326,8 @@ class MedicineDetailsModel extends CI_Model
 				
 				if(!empty($sameid))
 				{
-					$mylist = implode(',', $sameid); 
-					$sameid_where = " and m.id not in(".$mylist.")";
+					//$mylist = implode(',', $sameid); 
+					$sameid_where = " and m.id not in(".$sameid.")";
 					$db_medicine3->where($where.$sameid_where);
 				}else{
 					$db_medicine3->where($where);
@@ -326,6 +339,13 @@ class MedicineDetailsModel extends CI_Model
 				$db_medicine3->order_by('m.batchqty desc','m.item_name asc');
 
 				$query3 = $db_medicine3->get("tbl_medicine as m")->result();
+				foreach($query3 as $row){
+					$id		=	$row->id;
+					$sameid3.= $id.",";
+				}
+				if(!empty($sameid3)){
+					$sameid.= substr($sameid3,0,-1);
+				}
 			}
 			
 			
@@ -349,8 +369,8 @@ class MedicineDetailsModel extends CI_Model
 				
 				if(!empty($sameid))
 				{
-					$mylist = implode(',', $sameid); 
-					$sameid_where = " and m.id not in(".$mylist.")";
+					//$mylist = implode(',', $sameid); 
+					$sameid_where = " and m.id not in(".$sameid.")";
 					$db_medicine4->where($where.$sameid_where);
 				}else{
 					$db_medicine4->where($where);
@@ -362,6 +382,13 @@ class MedicineDetailsModel extends CI_Model
 				$db_medicine4->order_by('m.batchqty desc','m.item_name asc');
 
 				$query4 = $db_medicine4->get("tbl_medicine as m")->result();
+				foreach($query4 as $row){
+					$id		=	$row->id;
+					$sameid4.= $id.",";
+				}
+				if(!empty($sameid4)){
+					$sameid.= substr($sameid4,0,-1);
+				}
 			}
 			
 			/**************title search part4*******************/
@@ -384,8 +411,8 @@ class MedicineDetailsModel extends CI_Model
 				
 				if(!empty($sameid))
 				{
-					$mylist = implode(',', $sameid); 
-					$sameid_where = " and m.id not in(".$mylist.")";
+					//$mylist = implode(',', $sameid); 
+					$sameid_where = " and m.id not in(".$sameid.")";
 					$db_medicine5->where($where.$sameid_where);
 				}else{
 					$db_medicine5->where($where);
@@ -397,6 +424,13 @@ class MedicineDetailsModel extends CI_Model
 				$db_medicine5->order_by('m.batchqty desc','m.item_name asc');
 
 				$query5 = $db_medicine5->get("tbl_medicine as m")->result();
+				foreach($query5 as $row){
+					$id		=	$row->id;
+					$sameid5.= $id.",";
+				}
+				if(!empty($sameid5)){
+					$sameid.= substr($sameid5,0,-1);
+				}
 			}
 			/**************************************************/
 		}
@@ -420,8 +454,8 @@ class MedicineDetailsModel extends CI_Model
 
 			if(!empty($sameid))
 			{
-				$mylist = implode(',', $sameid); 
-				$sameid_where = " and m.id not in(".$mylist.")";
+				//$mylist = implode(',', $sameid); 
+				$sameid_where = " and m.id not in(".$sameid.")";
 				$db_medicine6->where($where.$sameid_where);
 			}else{
 				$db_medicine6->where($where);
@@ -433,6 +467,13 @@ class MedicineDetailsModel extends CI_Model
 			$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
 			$query6 = $db_medicine6->get("tbl_medicine as m")->result();
+			foreach($query6 as $row){
+				$id		=	$row->id;
+				$sameid6.= $id.",";
+			}
+			if(!empty($sameid6)){
+				$sameid.= substr($sameid6,0,-1);
+			}
 		}
 		
 		/***********************************************************/
@@ -478,8 +519,8 @@ class MedicineDetailsModel extends CI_Model
 					
 					if(!empty($sameid))
 					{
-						$mylist = implode(',', $sameid); 
-						$sameid_where = " and m.id not in(".$mylist.")";
+						//$mylist = implode(',', $sameid); 
+						$sameid_where = " and m.id not in(".$sameid.")";
 						$db_medicine6->where($where.$sameid_where);
 					}else{
 						$db_medicine6->where($where);

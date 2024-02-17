@@ -9,17 +9,12 @@ class Api45 extends CI_Controller {
 	
 	public function get_login_api()
 	{
-		$submit			= $_POST['submit'];
+		$api_key		= $_POST['api_key'];
 		$user_name 		= $_POST['user_name'];
 		$user_password 	= $_POST['user_password'];
-		
-		$submit1 = md5("my_sweet_login");
-		$submit1 = sha1($submit1);
-		$submit1 = md5($submit1);
-		$submit1 = sha1($submit1);
-		$submit1 = md5($submit1);
-		$submit1 = sha1($submit1);
-		if($submit==$submit1)
+		$firebase_token	= $_POST['firebase_token'];
+
+		if($api_key)
 		{
 			$items = $this->Chemist_Model->login($user_name,$user_password);
 ?>

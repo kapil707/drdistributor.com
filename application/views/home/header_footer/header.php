@@ -728,7 +728,10 @@ $(document).ready(function(){
 
 function get_single_medicine_info(item_code)
 {
-	var session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
+	var session_user_altercode = "";
+	<?php if(isset($_COOKIE["user_altercode"])){ ?>
+		session_user_altercode = "<?= $_COOKIE["user_altercode"] ?>";
+	<?php } ?>
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
 		window.location.href = "<?=base_url(); ?>";

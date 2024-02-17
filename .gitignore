@@ -1,4 +1,5 @@
 application/config/config.php
+chemist/uploads_sales/item_list.csv
 temp_files/
 uploads/
 uploads_sales/

@@ -458,7 +458,7 @@ class MedicineDetailsModel extends CI_Model
 		
 		/***************jab kuch be nahi milta ha to yha chalti ha*********************/
 		
-		if($checkbox_medicine=="1" || $count_record==0) {
+		if($checkbox_medicine=="1" && $count_record==0) {
 			foreach($keyword_array as $keyword_row){
 				if(!empty($keyword_row)) {
 					$where = $sameid_where = "";

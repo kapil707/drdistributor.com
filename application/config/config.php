@@ -29,7 +29,6 @@ define("img_url_site","https://www.drdweb.co.in/");
 /*
 define('APP_URL', ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . "://{$_SERVER['SERVER_NAME']}".str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']));
 $config['base_url'] = APP_URL;
-
 */
 define('APP_URL','https://www.drdistributor.com');
 $config['base_url'] = "https://www.drdistributor.com";

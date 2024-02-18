@@ -371,6 +371,7 @@ class Import_order extends CI_Controller {
 	
 	public function upload_import_file(){
 		
+		error_reporting(0);
 		header('Content-Type: application/json');
 		$items = "";
 		$headername	= strtoupper($_GET['headername']);

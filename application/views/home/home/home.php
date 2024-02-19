@@ -122,6 +122,49 @@ window.jssor_2_slider_init = function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<style>
+.owl-carousel {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.owl-carousel .item {
+	font-size: 30px;
+	text-align: center;
+	padding: 40px 20px;
+	line-height: 2;
+	font-weight: 700;
+	background-color: #eee;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+	background-color: #ccc;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translatey(-50%);
+}
+
+.owl-nav button span {
+	font-size: 30px;
+	height: 100%;
+	display: block;
+	width: 100%;
+}
+.owl-carousel .owl-nav button.owl-prev {
+	left: 0;
+}
+.owl-carousel .owl-nav button.owl-next {
+	right: 0;
+}
+.owl-carousel .owl-nav {
+	margin: 0;
+}
+</style>
 <div class="container-fluid maincontainercss">
 	<div class="row home_page_all_data"></div>
 	<div class="row">
@@ -200,7 +243,7 @@ function home_page_divisioncategory(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div><div class="btn-wrap"><button class="prev-btn">Previous</button><button class="next-btn">Next</button></div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }

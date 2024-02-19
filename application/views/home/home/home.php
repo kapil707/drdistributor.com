@@ -200,7 +200,7 @@ function home_page_divisioncategory(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="<?php echo base_url(); ?>img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div><div class="btn-wrap"><button class="prev-btn">Previous</button><button class="next-btn">Next</button></div></div></div></div>';
 	
 	return myval;
 }

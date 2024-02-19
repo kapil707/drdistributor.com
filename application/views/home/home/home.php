@@ -257,6 +257,7 @@ function home_page_owl_load(category_id){
         autoplay: true, // Enable autoplay
         autoplayTimeout: 5000, // Autoplay interval in milliseconds
         responsiveClass:true,
+		nav: true,
         responsive:{
             0:{
                 items:3,

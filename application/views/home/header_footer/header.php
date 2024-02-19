@@ -22,11 +22,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 	<meta name="theme-color" content="#27ae60">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/font-awesome.min.css"> 
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">

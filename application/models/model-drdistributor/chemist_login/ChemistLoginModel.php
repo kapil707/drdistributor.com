@@ -38,8 +38,8 @@ class ChemistLoginModel extends CI_Model
 		$user_session = $user_fname = $user_code = $user_altercode = $user_type = $user_image = "";
 		
 		$defaultpassword= $this->Scheme_Model->get_website_data("defaultpassword");
-		$user_return 	= 	"0";
-		$user_alert 	= 	"Logic error.";
+		$status 		= 	"0";
+		$status_message	= 	"Logic error.";
 		$user_nrx 		= 	"no";
 		if(!empty($user_name1) && !empty($password1))
 		{
@@ -64,7 +64,7 @@ class ChemistLoginModel extends CI_Model
 						{
 							$user_image = base_url()."img_v51/logo.png";
 						}
-						$user_type 		= 	"chemist";
+						$status 		= 	"chemist";
 						$user_return 	= 	"1";
 						$user_alert 	= 	"Logged in successfully";
 						if($type=="mobile")
@@ -72,17 +72,17 @@ class ChemistLoginModel extends CI_Model
 							$otp_type 			= "1";
 							$otp_sms  		  	= rand(9999,99999);
 							$otp_massage_txt  	= $this->otp($query->altercode,$otp_sms);
-							$user_alert 	= 	"OTP sent successfully";
+							$status_message 	= 	"OTP sent successfully";
 						}
 					}
 					else
 					{
-						$user_alert = "Can't Login due to technical issues.";
+						$status_message = "Can't Login due to technical issues.";
 					}
 				}
 				else
 				{
-					$user_alert = "Invalid password";
+					$status_message = "Invalid password";
 				}
 			}
 			else
@@ -102,19 +102,19 @@ class ChemistLoginModel extends CI_Model
 						$user_code	 	= 	$query->customer_code;
 						$user_altercode	= 	$query->customer_code;
 						$user_type 		= 	"sales";
-						$user_return 	= 	"1";
-						$user_alert 	= 	"Logged in successfully";
+						$status 		= 	"1";
+						$status_message 	= 	"Logged in successfully";
 						$user_nrx 		= "yes";
 					}
 					else
 					{
-						$user_alert = "Invalid password";
+						$status_message = "Invalid password";
 					}
 				}
 			}
 		}
 
-		if($user_return==1 && $type=="website"){
+		if($status==1 && $type=="website"){
 			$this->insert_website_session($user_session,$user_fname,$user_code,$user_altercode,$user_type,$user_password,$user_image,$user_nrx);
 		}
 
@@ -127,8 +127,8 @@ class ChemistLoginModel extends CI_Model
 			'user_password' => $user_password,
 			'user_image' => $user_image,
 			'user_nrx' => $user_nrx,
-			'user_alert' => $user_alert,
-			'user_return' => $user_return,
+			'status' => $status,
+			'status_message' => $status_message,
 		);
 		$jsonArray[] = $dt;
 

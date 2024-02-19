@@ -124,7 +124,6 @@ window.jssor_2_slider_init = function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style>
 .owl-carousel {
-	max-width: 700px;
 	margin: 0 auto;
 	padding: 30px 0;
 }
@@ -134,7 +133,6 @@ window.jssor_2_slider_init = function() {
 	padding: 40px 20px;
 	line-height: 2;
 	font-weight: 700;
-	background-color: #eee;
 }
 
 .owl-carousel .owl-nav button.owl-prev,

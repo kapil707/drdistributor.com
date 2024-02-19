@@ -128,9 +128,6 @@ window.jssor_2_slider_init = function() {
 	padding: 30px 0;
 }
 .owl-carousel .item {
-	font-size: 30px;
-	text-align: center;
-	padding: 40px 20px;
 	line-height: 2;
 	font-weight: 700;
 }
@@ -145,19 +142,6 @@ window.jssor_2_slider_init = function() {
 	position: absolute;
 	top: 50%;
 	transform: translatey(-50%);
-}
-
-.owl-nav button span {
-	font-size: 30px;
-	height: 100%;
-	display: block;
-	width: 100%;
-}
-.owl-carousel .owl-nav button.owl-prev {
-	left: 0;
-}
-.owl-carousel .owl-nav button.owl-next {
-	right: 0;
 }
 .owl-carousel .owl-nav {
 	margin: 0;

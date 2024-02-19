@@ -143,6 +143,19 @@ window.jssor_2_slider_init = function() {
 	top: 50%;
 	transform: translatey(-50%);
 }
+
+.owl-nav button span {
+	font-size: 30px;
+	height: 100%;
+	display: block;
+	width: 100%;
+}
+.owl-carousel .owl-nav button.owl-prev {
+	left: 0;
+}
+.owl-carousel .owl-nav button.owl-next {
+	right: 0;
+}
 .owl-carousel .owl-nav {
 	margin: 0;
 }

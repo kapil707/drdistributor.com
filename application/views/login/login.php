@@ -399,9 +399,9 @@ function submitbtn()
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					if(item.user_return=="1")
+					if(item.status=="1")
 					{
-						$(".submit_div").html("<p class='text-success'>"+item.user_alert+"</p>");
+						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
 						if(item.user_type=="chemist" || item.user_type=="sales")
 						{
 							<?php if(isset($_GET["back_url"])) {
@@ -413,8 +413,8 @@ function submitbtn()
 							<?php } ?>
 						}
 					}else{
-						swal(item.user_alert);
-						$(".submit_div").html("<p class='text-danger'>"+item.user_alert+"</p>");
+						swal(item.status_message);
+						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
 
 						$(".submit_div").html("&nbsp;");
 						$("#submitbtn").show();

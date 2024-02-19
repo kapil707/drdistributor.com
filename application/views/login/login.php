@@ -413,10 +413,9 @@ function submitbtn()
 							<?php } ?>
 						}
 					}else{
-						swal(item.status_message);
 						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
+						swal(item.status_message);
 
-						$(".submit_div").html("&nbsp;");
 						$("#submitbtn").show();
 						$("#submitbtn_disable").hide();
 					}

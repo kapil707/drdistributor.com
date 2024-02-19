@@ -64,9 +64,9 @@ class ChemistLoginModel extends CI_Model
 						{
 							$user_image = base_url()."img_v51/logo.png";
 						}
-						$status 		= 	"chemist";
-						$user_return 	= 	"1";
-						$user_alert 	= 	"Logged in successfully";
+						$user_type 		= 	"chemist";
+						$status 		= 	"1";
+						$status_message = 	"Logged in successfully";
 						if($type=="mobile")
 						{							
 							$otp_type 			= "1";
@@ -103,7 +103,7 @@ class ChemistLoginModel extends CI_Model
 						$user_altercode	= 	$query->customer_code;
 						$user_type 		= 	"sales";
 						$status 		= 	"1";
-						$status_message 	= 	"Logged in successfully";
+						$status_message = 	"Logged in successfully";
 						$user_nrx 		= "yes";
 					}
 					else

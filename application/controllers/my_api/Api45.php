@@ -1,12 +1,6 @@
 <?php 
-header("Content-type: application/json; charset=utf-8");
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('memory_limit','-1');
-ini_set('post_max_size','500M');
-ini_set('upload_max_filesize','500M');
-ini_set('max_execution_time',36000);
-class Api45 extends CI_Controller {	
-	
+class Api45 extends CI_Controller {		
 	public function get_login_api()
 	{
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");

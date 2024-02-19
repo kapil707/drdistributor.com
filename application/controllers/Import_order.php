@@ -372,8 +372,7 @@ class Import_order extends CI_Controller {
 	public function upload_import_file(){
 		
 		error_reporting(0);
-		header('Content-Type: application/json');
-		$items = "";
+
 		$headername	= strtoupper($_GET['headername']);
 		$itemname 	= strtoupper($_GET['itemname']);
 		
@@ -480,14 +479,23 @@ class Import_order extends CI_Controller {
 		else{
 			$url = base_url()."import_order";
 		}
-$items.= <<<EOD
-{"url":"{$url}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+
+		$jsonArray = array();
+		$dt = array(
+			'url'=>$url,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 	
 	function clean($string) {
@@ -538,8 +546,6 @@ if ($items != '') {
 		return $temp_rec;
 	}
 	
-	
-	
 	function highlightWords($string, $search){
 		$string = strtoupper($this->clean2($string));
 		$search = strtoupper($search);
@@ -553,7 +559,6 @@ if ($items != '') {
 		}
 		return $string;
 	}
-	
 	
 	public function insert_main_row_data()
 	{		
@@ -792,85 +797,104 @@ if ($items != '') {
 	
 	public function change_order_quantity()
 	{
-		header('Content-Type: application/json');
-		$items = "";
 		$row_id 		= $_POST["row_id"];
 		$quantity		= $_POST["quantity"];
 		
-		$response = $this->db->query("update drd_import_file set quantity='$quantity' where id='$row_id'");
-$items.= <<<EOD
-{"response":"{$response}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+		$status = $this->db->query("update drd_import_file set quantity='$quantity' where id='$row_id'");
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data change successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 	
 	public function delete_row_medicine()
 	{
-		//error_reporting(0);
-		header('Content-Type: application/json');
-		$items = "";
+		$status = 0;
 		$row_id	= $_POST["row_id"];
-		if($row_id!="")
+		if(!empty($row_id))
 		{
 			$this->db->query("update drd_import_file set status=0 where id='$row_id'");
 			$this->db->query("delete from drd_temp_rec where excel_number='$row_id'");
+			$status = 1;
 		}
-		$response = "1";
-$items.= <<<EOD
-{"response":"{$response}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 	
 	/*21-01-2020*/
 	public function change_medicine_2()
 	{
-		//error_reporting(0);
-		header('Content-Type: application/json');
-		$items = "";
 		$item_code		= ($_POST["item_code"]);	
-		$row_id			= ($_POST["row_id"]);	
-		
-		$row = $this->db->query("select item_name from tbl_medicine where i_code='$item_code'")->row();
-		$item_name = $row->item_name;
-		$row1 = $this->db->query("select item_name from drd_import_file where id='$row_id'")->row();
-		$your_item_name = $row1->item_name;
-		$this->db->query("delete from drd_temp_rec where excel_number='$row_id'");
-		
-		$this->db->query("delete from drd_import_orders_suggest where your_item_name='$your_item_name'");
-		$user_altercode	= $_COOKIE["user_altercode"];
-		$date = date('Y-m-d');
-		$time = time();
-		$datetime = date("d-M-y H:i",$time);
-		
-		$response = $this->db->query("insert into drd_import_orders_suggest set your_item_name='$your_item_name',item_name='$item_name',i_code='$item_code',user_altercode='$user_altercode',date='$date',time='$time',datetime='$datetime'");
-$items.= <<<EOD
-{"response":"{$response}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+		$row_id			= ($_POST["row_id"]);
+		$status = 0;
+		if(!empty($item_code) && !empty($row_id)){
+			$row = $this->db->query("select item_name from tbl_medicine where i_code='$item_code'")->row();
+			$item_name = $row->item_name;
+			$row1 = $this->db->query("select item_name from drd_import_file where id='$row_id'")->row();
+			$your_item_name = $row1->item_name;
+			$this->db->query("delete from drd_temp_rec where excel_number='$row_id'");
+			
+			$this->db->query("delete from drd_import_orders_suggest where your_item_name='$your_item_name'");
+			$user_altercode	= $_COOKIE["user_altercode"];
+			$date = date('Y-m-d');
+			$time = time();
+			$datetime = date("d-M-y H:i",$time);
+			
+			$status = $this->db->query("insert into drd_import_orders_suggest set your_item_name='$your_item_name',item_name='$item_name',i_code='$item_code',user_altercode='$user_altercode',date='$date',time='$time',datetime='$datetime'");
+		}
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 	
 	public function delete_suggested_medicine()
 	{
-		//error_reporting(0);
-		header('Content-Type: application/json');
-		$items = "";
 		$user_type 		= $_COOKIE['user_type'];
 		$user_altercode	= $_REQUEST["user_altercode"];
 		$row_id 		= ($_REQUEST["row_id"]);
-		$response 		= 0;
+		$status 		= 0;
 		$row = $this->db->query("select item_name from drd_import_file where id='$row_id'")->row();
 		if(!empty($row->item_name))
 		{
@@ -885,31 +909,38 @@ if ($items != '') {
 			}
 			$item_code = $row1->i_code;
 			$this->db->query("delete from drd_temp_rec where i_code='$item_code' and user_type='$user_type' and selesman_id='$salesman_id' and chemist_id='$user_altercode' and status=0");
+			$status = 1;
 		}
-$items.= <<<EOD
-{"response":"{$response}"},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
-?>
-{"items":[<?= $items;?>]}<?php
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 
 	public function delete_suggest_by_id()
 	{
-		$items = "";
-		$user_type 		= $_COOKIE['user_type'];
-		$user_altercode	= $_COOKIE["user_altercode"];
-		$id 			= ($_REQUEST["id"]);
-		
-		$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+		$id = ($_REQUEST["id"]);
+		if(!empty($id)){
+			$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+		}
 		
 		$response = array(
             'success' => "1",
             'message' => 'Data delete successfully',
             'items' => $items,
-            'other_items' => $other_items
         );
 
         // Send JSON response

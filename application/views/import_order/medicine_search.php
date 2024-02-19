@@ -232,7 +232,7 @@ function change_order_quantity(row_id)
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					if(item.response=="1")
+					if(item.status=="1")
 					{
 						$(".your_item_qty_"+row_id).val(quantity);
 						swal("Quantity updated successfully");
@@ -270,7 +270,7 @@ function delete_row_medicine(row_id)
 					$.each(data.items, function(i,item){	
 						if (item)
 						{
-							if(item.response=="1")
+							if(item.status=="1")
 							{
 								$(".remove_css_"+row_id).html('');
 								swal("Medicine deleted successfully", {
@@ -312,7 +312,7 @@ function delete_suggested_medicine(row_id)
 					$.each(data.items, function(i,item){	
 						if (item)
 						{
-							if(item.response=="1")
+							if(item.status=="1")
 							{
 								swal("Suggested Medicine deleted successfully", {
 									icon: "success",
@@ -573,7 +573,7 @@ function change_medicine_2(item_code)
 					$.each(data.items, function(i,item){	
 					if (item)
 					{
-						if(item.response=="1")
+						if(item.status=="1")
 						{
 							setTimeout(insert_main_row_data(row_id),200);
 							swal("Medicine changed successfully", {

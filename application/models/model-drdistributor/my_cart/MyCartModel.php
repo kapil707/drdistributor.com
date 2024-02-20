@@ -162,6 +162,7 @@ class MyCartModel extends CI_Model
 				'item_stock' => $item_stock,
 				'item_quantity_price' => $item_quantity_price,
 				'item_date_time' => $item_date_time,
+				'item_datetime' => $item_date_time,
 				'item_modalnumber' => $item_modalnumber,
 				'item_order_quantity'=>$item_order_quantity,
 			);

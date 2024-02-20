@@ -27,6 +27,43 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
+	public function my_cart_api(){
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$get_record	 	= $_POST["get_record"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $get_record = "";
+		if(!empty($user_type) && !empty($user_altercode)) {
+
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$items = $result["items"];
+			$items_other = $result["items_other"];
+			$items_total = $result["items_total"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'items_other' => $items_other,
+			'items_total' => $items_total
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
 	public function my_order_api(){
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 		

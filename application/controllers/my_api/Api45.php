@@ -130,6 +130,47 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
+	public function my_invoice_details_api(){
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$item_id	 	= $_POST["item_id"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $get_record = "";
+		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
+
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$items  		= $result["items"];
+			$items_edit  	= $result["items_edit"];
+			$items_delete  	= $result["items_delete"];
+			$download_url  	= $result["download_url"];
+			$header_title	= $result["header_title"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+			'items_edit' => $items_edit,
+			'items_delete' => $items_delete,
+			'download_url' => $download_url,
+			'header_title' => $header_title,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
 	public function my_notification_api(){
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 		

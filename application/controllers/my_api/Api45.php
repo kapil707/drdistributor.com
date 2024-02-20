@@ -48,15 +48,13 @@ class Api45 extends CI_Controller {
 			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
 			$items = $result["items"];
 			$items_other = $result["items_other"];
-			$items_total = $result["items_total"];
 		}
 
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items,
-            'items_other' => $items_other,
-			'items_total' => $items_total
+            'items_other' => $items_other
         );
 
         // Send JSON response

@@ -49,6 +49,7 @@ class Api45 extends CI_Controller {
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 		}
+		
 
 		$response = array(
             'success' => "1",

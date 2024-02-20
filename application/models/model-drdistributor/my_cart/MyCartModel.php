@@ -124,7 +124,6 @@ class MyCartModel extends CI_Model
 		{
 			$item_id			= $row->id;
 			$item_code 			= $row->i_code;
-			$item_quantity		= $row->quantity;
 			$item_order_quantity= $row->quantity;
 			$item_image			= $row->image;
 			$item_name			= (ucwords(strtolower($row->item_name)));
@@ -136,15 +135,12 @@ class MyCartModel extends CI_Model
 			$item_margin 		= round($row->margin);
 			$item_featured 		= $row->featured;
 			$item_price			= sprintf('%0.2f',round($row->sale_rate,2));
-			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_quantity,2));
+			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_order_quantity,2));
 			$item_date_time		= $row->datetime;
 			$item_modalnumber	= ($row->modalnumber);
 			
 			$items_total++;
 			$items_price 		= $items_price + $item_quantity_price;
-			
-			$item_stock = "";
-			$item_quantity = "";
 			
 			$dt = array(
 			    'item_id' => $item_id,
@@ -158,13 +154,10 @@ class MyCartModel extends CI_Model
 				'item_margin' => $item_margin,
 				'item_featured' => $item_featured,
 				'item_price' => $item_price,
-				'item_quantity' => $item_quantity,
-				'item_stock' => $item_stock,
+				'item_order_quantity'=>$item_order_quantity,
 				'item_quantity_price' => $item_quantity_price,
 				'item_date_time' => $item_date_time,
-				'item_datetime' => $item_date_time,
 				'item_modalnumber' => $item_modalnumber,
-				'item_order_quantity'=>$item_order_quantity,
 			);
 			$jsonArray[] = $dt;
 		}

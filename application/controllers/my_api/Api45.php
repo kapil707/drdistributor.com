@@ -62,6 +62,39 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
+	public function my_order_details_api(){
+		$this->load->model("model-drdistributor/my_order/MyOrderModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$item_id	 	= $_POST["item_id"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $get_record = "";
+		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
+
+			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+			$items  	= $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
 	public function my_invoice_api(){
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 		

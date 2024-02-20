@@ -35,7 +35,7 @@ class Api45 extends CI_Controller {
 		$user_altercode = $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
 		$chemist_id 	= $_POST["chemist_id"];
-		$get_record	 	= $_POST["get_record"];
+		//$get_record	 	= $_POST["get_record"];
 		$salesman_id 	= "";
 		if($user_type=="sales")
 		{
@@ -70,7 +70,7 @@ class Api45 extends CI_Controller {
 		$user_altercode = $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
 		$chemist_id 	= $_POST["chemist_id"];
-		$get_record	 	= $_POST["get_record"];
+		//$get_record	 	= $_POST["get_record"];
 		$salesman_id 	= "";
 		if($user_type=="sales")
 		{

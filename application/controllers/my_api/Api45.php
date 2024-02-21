@@ -27,7 +27,7 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
-	public function home_page_api($page_type)
+	public function home_page_api()
 	{
 		$api_key 		= $_POST["api_key"];
 		$phone_type 	= $_POST["phone_type"];

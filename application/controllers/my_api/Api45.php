@@ -137,87 +137,27 @@ class Api45 extends CI_Controller {
 
 			/***************broadcast message********************/
 			$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
-			$broadcast = $broadcast_title = "";
+			$broadcast_title = $broadcast_message = "";
 			if($broadcast_status=="1")
 			{
 				$broadcast_title = $this->Scheme_Model->get_website_data("broadcast_title");
-				$broadcast = $this->Scheme_Model->get_website_data("broadcast_message");
+				$broadcast_message = $this->Scheme_Model->get_website_data("broadcast_message");
 			}		
 			
 			/*****************update ke liya code*********************/
 			$force_update 			= $this->Scheme_Model->get_website_data("force_update");
 			$force_update_title 	= $this->Scheme_Model->get_website_data("force_update_title");
 			$force_update_message	= $this->Scheme_Model->get_website_data("force_update_message");	
-						
-			/************notificaion ke status ata ha**************************/
-			$android_noti = 0;
-			if($user_type == "chemist")
-			{
-				$where1= array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0',);
-				$row = $this->Scheme_Model->select_row("tbl_android_notification",$where1);
-				if(!empty($row->id))
-				{
-					$android_noti = 1;
-				}
-			}
-			
-			/*******************website_menu_json*******************/
-			$menu_json = $this->Chemist_Model->website_menu_json_new();
-			$menu_json = "[$menu_json]";
-			
-			/*******************featured_brand_json******************/
-			$medicine_title0 = "Our top brands";
-			$medicine_json0 = $this->Chemist_Model->featured_brand_json_new();
-			$medicine_json0 = "[$medicine_json0]";
-			
-			/**********************hot_selling_today_json************/
-			$medicine_json1 = $this->Chemist_Model->new_medicine_this_month_json_new();
-			$medicine_json1 = "[$medicine_json1]";
-			
-			/**********************must_buy_medicines_json************/
-			$medicine_json2 = $this->Chemist_Model->hot_selling_today_json_new();
-			$medicine_json2 = "[$medicine_json2]";
-			/**********************short_medicines_available_now_json******/
-			$medicine_json3 = $this->Chemist_Model->must_buy_medicines_json_new();
-			$medicine_json3 = "[$medicine_json3]";
-			/**********************new 5 number box************/
-			$medicine_json4 = $this->Chemist_Model->frequently_use_medicines_json_new();
-			$medicine_json4 = "[$medicine_json4]";
-			/***************************************************/
-			/**********************new 5 number box************/
-			$medicine_json5 = $this->Chemist_Model->stock_now_available();
-			$medicine_json5 = "[$medicine_json5]";
-			/***************************************************/
-			/**********************new 6 number box************/
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			$medicine_json6 = "";//$this->Chemist_Model->user_top_search_items($user_type,$user_altercode,$salesman_id);
-			$medicine_json6 = "[$medicine_json6]";
-			/***************************************************/
-			
-			/***************Under Construction**********************/
+
+			/***********************************************************/
 			$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 			$under_construction_message = "";
 			if($under_construction == 1)
 			{
 				$under_construction_message = "Android App Under Construction";
 			}
-			$under_construction_message = base64_encode($under_construction_message);
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			$val = $this->Order_Model->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all","android");
-			$user_cart_json0 = $val[0];
-			$user_cart_json1 = $val[1];
-			$user_cart_json0 = "[$user_cart_json0]";
-			$user_cart_json1 = "[$user_cart_json1]";
+			/*******************website_menu_json*******************/
+			$menu_json = $this->Chemist_Model->website_menu_json_new();
 
 			$response = array(
 				'success' => "1",
@@ -225,12 +165,13 @@ class Api45 extends CI_Controller {
 				'logout' => $logout,
 				'versioncode' => $versioncode,
 				'broadcast_title' => $broadcast_title,
-				'broadcast' => $broadcast,
+				'broadcast_message' => $broadcast_message,
 				'force_update' => $force_update,
 				'force_update_title' => $force_update_title,
 				'force_update_message' => $force_update_message,
 				'under_construction' => $under_construction,
 				'under_construction_message' => $under_construction_message,
+				'menu_json' => $menu_json,
 			);
 	
 			// Send JSON response
@@ -241,7 +182,7 @@ class Api45 extends CI_Controller {
 
 			$items = "";		
 $items .= <<<EOD
-{"logout":"{$logout}","user_cart_json0":$user_cart_json0,"user_cart_json1":$user_cart_json1,"broadcast_title":"{$broadcast_title}","broadcast":"{$broadcast}","versioncode":"{$versioncode}","force_update":"{$force_update}","force_update_title":"{$force_update_title}","force_update_message":"{$force_update_message}","under_construction":"{$under_construction}","under_construction_message":"{$under_construction_message}","ratingbarpage":"{$ratingbarpage}","android_noti":"{$android_noti}","medicine_title0":"{$medicine_title0}","menu_json":$menu_json,"medicine_json0":$medicine_json0,"medicine_json1":$medicine_json1,"medicine_json2":$medicine_json2,"medicine_json3":$medicine_json3,"medicine_json4":$medicine_json4,"medicine_json5":$medicine_json5,"medicine_json6":$medicine_json6},
+{"logout":"{$logout}","user_cart_json0":$user_cart_json0,"user_cart_json1":$user_cart_json1,"broadcast_title":"{$broadcast_title}","broadcast":"{$broadcast_message}","versioncode":"{$versioncode}","force_update":"{$force_update}","force_update_title":"{$force_update_title}","force_update_message":"{$force_update_message}","under_construction":"{$under_construction}","under_construction_message":"{$under_construction_message}","ratingbarpage":"{$ratingbarpage}","android_noti":"{$android_noti}","medicine_title0":"{$medicine_title0}","menu_json":$menu_json,"medicine_json0":$medicine_json0,"medicine_json1":$medicine_json1,"medicine_json2":$medicine_json2,"medicine_json3":$medicine_json3,"medicine_json4":$medicine_json4,"medicine_json5":$medicine_json5,"medicine_json6":$medicine_json6},
 EOD;
 if ($items != '') {
 	$items = substr($items, 0, -1);

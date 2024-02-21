@@ -310,27 +310,28 @@ class Api45 extends CI_Controller {
 	public function medicine_search_api()
 	{
 		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
-		
+
 		$items = "";
-		$keyword   				= $_POST['keyword'];
-		$total_rec   			= $_POST['total_rec'];
-		$checkbox_medicine 		= $_POST['checkbox_medicine_val'];
-		$checkbox_company		= $_POST['checkbox_company_val'];
-		$checkbox_out_of_stock	= $_POST['checkbox_out_of_stock_val'];
-		$user_nrx  				= $_POST["user_nrx"];
 
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];
 		$user_altercode = $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
 		$chemist_id 	= $_POST["chemist_id"];
-		$item_id	 	= $_POST["item_id"];
 		$salesman_id 	= "";
 		if($user_type=="sales")
 		{
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+
+		$keyword   				= $_POST['keyword'];
+		$total_rec   			= $_POST['total_rec'];
+		$checkbox_medicine 		= $_POST['checkbox_medicine_val'];
+		$checkbox_company		= $_POST['checkbox_company_val'];
+		$checkbox_out_of_stock	= $_POST['checkbox_out_of_stock_val'];
+		$user_nrx  				= $_POST["user_nrx"];
+		
 		if(!empty($keyword))
 		{
 			$items = $this->MedicineSearchModel->medicine_search_api($keyword,$user_nrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);

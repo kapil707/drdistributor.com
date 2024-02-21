@@ -423,7 +423,8 @@ class Api45 extends CI_Controller {
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items,
-            'items_other' => $items_other
+            'items_other' => $items_other,
+			'status'=>$status
         );
 
         // Send JSON response

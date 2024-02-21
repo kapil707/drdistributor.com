@@ -156,8 +156,12 @@ class Api45 extends CI_Controller {
 			{
 				$under_construction_message = "Android App Under Construction";
 			}
-			/*******************website_menu_json*******************/
-			$menu_json = $this->Chemist_Model->website_menu_json_new();
+			
+			$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
+
+			$result = $this->HomeMenuModel->get_menu_api();
+		    $result_row = $result["items"];
+			$result_title  = 'menu';
 
 			$response = array(
 				'success' => "1",
@@ -171,7 +175,8 @@ class Api45 extends CI_Controller {
 				'force_update_message' => $force_update_message,
 				'under_construction' => $under_construction,
 				'under_construction_message' => $under_construction_message,
-				'menu_json' => $menu_json,
+				'result_row' => $result_row,
+				'result_title' => $result_title,
 			);
 	
 			// Send JSON response

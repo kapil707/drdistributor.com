@@ -383,4 +383,51 @@ class Api45 extends CI_Controller {
         header('Content-Type: application/json');
         echo "[".json_encode($response)."]";
 	}
+
+	public function medicine_add_to_cart_api()
+	{
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		$order_type 			= "Android";
+		$item_code				= $_POST["item_code"];
+		$item_order_quantity	= $_POST["item_order_quantity"];
+		$mobilenumber 			= $_POST["mobilenumber"];
+		$modalnumber 			= $_POST["modalnumber"];
+		$device_id 				= $_POST["device_id"];
+
+		if(!empty($user_type) && !empty($user_altercode)){
+			$excel_number = "";		
+			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			/*****************************************************/
+		}
+
+		if(!empty($user_type) && !empty($user_altercode)){
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$items = $result["items"];
+			$items_other = $result["items_other"];
+		}
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+            'items_other' => $items_other
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
 }

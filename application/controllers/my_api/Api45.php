@@ -351,19 +351,22 @@ class Api45 extends CI_Controller {
 	public function medicine_details_api()
 	{
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
-		
+
 		$item_code		= $_REQUEST["item_code"];
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$items = "";
+
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$salesman_id 	= "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_code)){
 			
 			$result = $this->MedicineDetailsModel->medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code);

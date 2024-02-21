@@ -30,13 +30,13 @@ class Api45 extends CI_Controller {
 	public function home_page_api()
 	{
 		$api_key 		= $_POST["api_key"];
-		$phone_type 	= $_POST["phone_type"];
-		$firebase_token = $_POST["firebase_token"];
-		$device_id		= $_POST["device_id"];
 		$user_type 		= $_POST["user_type"];
 		$user_altercode	= $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
 		$chemist_id		= $_POST["chemist_id"];
+
+		$firebase_token = $_POST["firebase_token"];
+		$device_id		= $_POST["device_id"];
 		
 		$versioncode	= $_POST["versioncode"];
 		$getlatitude	= $_POST['getlatitude'];
@@ -47,8 +47,8 @@ class Api45 extends CI_Controller {
 		if(!empty($api_key))
 		{
 			$login = $this->Chemist_Model->login($user_altercode,$user_password);
-			$time			= time();
-			$date			= date("Y-m-d");
+			$time	= time();
+			$date	= date("Y-m-d");
 			
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);
 			$row = $this->Scheme_Model->select_row("tbl_android_device_id",$where1);

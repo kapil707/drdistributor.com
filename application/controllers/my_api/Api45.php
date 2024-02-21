@@ -27,7 +27,7 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
-	public function home_page_api()
+	public function main_page_api()
 	{
 		$api_key 		= $_POST["api_key"];
 		$user_type 		= $_POST["user_type"];

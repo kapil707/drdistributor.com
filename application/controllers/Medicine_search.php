@@ -106,7 +106,7 @@ class Medicine_search extends CI_Controller {
 
 	public function medicine_search_api()
 	{
-		$items = "[]";
+		$items = "";
 		$keyword   			= $_REQUEST['keyword'];
 		$total_rec   		= $_REQUEST['total_rec'];
 		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];

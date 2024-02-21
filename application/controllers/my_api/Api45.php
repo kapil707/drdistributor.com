@@ -222,6 +222,7 @@ class Api45 extends CI_Controller {
 			$response = array(
 				'success' => "1",
 				'message' => 'Data load successfully',
+				'logout' => $logout,
 				'versioncode' => $versioncode,
 				'broadcast_title' => $broadcast_title,
 				'broadcast' => $broadcast,

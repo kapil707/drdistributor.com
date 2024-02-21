@@ -327,9 +327,9 @@ class Api45 extends CI_Controller {
 
 		$keyword   				= $_POST['keyword'];
 		$total_rec   			= $_POST['total_rec'];
-		$checkbox_medicine 		= $_POST['checkbox_medicine_val'];
-		$checkbox_company		= $_POST['checkbox_company_val'];
-		$checkbox_out_of_stock	= $_POST['checkbox_out_of_stock_val'];
+		$checkbox_medicine 		= $_POST['checkbox_medicine'];
+		$checkbox_company		= $_POST['checkbox_company'];
+		$checkbox_out_of_stock	= $_POST['checkbox_out_of_stock'];
 		$user_nrx  				= $_POST["user_nrx"];
 		
 		if(!empty($keyword))

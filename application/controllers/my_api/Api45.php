@@ -201,7 +201,7 @@ class Api45 extends CI_Controller {
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;
 			}
-			$medicine_json6 = $this->Chemist_Model->user_top_search_items($user_type,$user_altercode,$salesman_id);
+			$medicine_json6 = "";//$this->Chemist_Model->user_top_search_items($user_type,$user_altercode,$salesman_id);
 			$medicine_json6 = "[$medicine_json6]";
 			/***************************************************/
 			

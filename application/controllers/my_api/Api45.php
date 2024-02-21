@@ -164,7 +164,8 @@ class Api45 extends CI_Controller {
 				$under_construction_message = "Android App Under Construction";
 			}
 		}
-
+		$rating_bar_page = 0;
+		
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
@@ -177,6 +178,7 @@ class Api45 extends CI_Controller {
 			'force_update_message' => $force_update_message,
 			'under_construction' => $under_construction,
 			'under_construction_message' => $under_construction_message,
+			'rating_bar_page' => $rating_bar_page,
 		);
 
 		// Send JSON response

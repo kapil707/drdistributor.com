@@ -186,6 +186,24 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
+	public function get_slider_api(){
+		$items = "";
+		if(!empty($_POST)){
+			$api_key 		= $_POST["api_key"];
+			
+			$top_flash = $this->Chemist_Model->top_flash();
+$items .= <<<EOD
+{"top_flash":$top_flash},
+EOD;
+if ($items != '') {
+	$items = substr($items, 0, -1);
+}
+?>
+[<?= $top_flash;?>]
+<?php
+		}
+	}
+
 	public function my_cart_api(){
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 		

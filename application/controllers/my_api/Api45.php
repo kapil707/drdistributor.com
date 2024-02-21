@@ -414,6 +414,7 @@ class Api45 extends CI_Controller {
 		}
 
 		if(!empty($user_type) && !empty($user_altercode)){
+			
 			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
 			$items = $result["items"];
 			$items_other = $result["items_other"];

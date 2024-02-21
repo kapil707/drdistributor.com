@@ -133,6 +133,8 @@ class Api45 extends CI_Controller {
 					$this->db->query("update tbl_android_device_id set logout='0' where device_id='$device_id'");
 				}
 			}
+			$versioncode 	= $this->Scheme_Model->get_website_data("android_versioncode");
+
 			/***************broadcast message********************/
 			$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
 			$broadcast = $broadcast_title = "";
@@ -140,20 +142,12 @@ class Api45 extends CI_Controller {
 			{
 				$broadcast_title = $this->Scheme_Model->get_website_data("broadcast_title");
 				$broadcast = $this->Scheme_Model->get_website_data("broadcast_message");
-				$broadcast_title = base64_encode($broadcast_title);
-				$broadcast = base64_encode($broadcast);
-			}
-			
-			/***************versioncode kya ha wo yaha say ata ha********************/
-			$versioncode 	= $this->Scheme_Model->get_website_data("android_versioncode");
-			
+			}		
 			
 			/*****************update ke liya code*********************/
 			$force_update 			= $this->Scheme_Model->get_website_data("force_update");
 			$force_update_title 	= $this->Scheme_Model->get_website_data("force_update_title");
-			$force_update_message	= $this->Scheme_Model->get_website_data("force_update_message");			
-			$force_update_title 	= base64_encode($force_update_title);
-			$force_update_message 	= base64_encode($force_update_message);			
+			$force_update_message	= $this->Scheme_Model->get_website_data("force_update_message");	
 						
 			/************notificaion ke status ata ha**************************/
 			$android_noti = 0;
@@ -224,6 +218,26 @@ class Api45 extends CI_Controller {
 			$user_cart_json1 = $val[1];
 			$user_cart_json0 = "[$user_cart_json0]";
 			$user_cart_json1 = "[$user_cart_json1]";
+
+			$response = array(
+				'success' => "1",
+				'message' => 'Data load successfully',
+				'versioncode' => $versioncode,
+				'broadcast_title' => $broadcast_title,
+				'broadcast' => $broadcast,
+				'force_update' => $force_update,
+				'force_update_title' => $force_update_title,
+				'force_update_message' => $force_update_message,
+				'under_construction' => $under_construction,
+				'under_construction_message' => $under_construction_message,
+			);
+	
+			// Send JSON response
+			header('Content-Type: application/json');
+			echo "[".json_encode($response)."]";
+
+			die;
+
 			$items = "";		
 $items .= <<<EOD
 {"logout":"{$logout}","user_cart_json0":$user_cart_json0,"user_cart_json1":$user_cart_json1,"broadcast_title":"{$broadcast_title}","broadcast":"{$broadcast}","versioncode":"{$versioncode}","force_update":"{$force_update}","force_update_title":"{$force_update_title}","force_update_message":"{$force_update_message}","under_construction":"{$under_construction}","under_construction_message":"{$under_construction_message}","ratingbarpage":"{$ratingbarpage}","android_noti":"{$android_noti}","medicine_title0":"{$medicine_title0}","menu_json":$menu_json,"medicine_json0":$medicine_json0,"medicine_json1":$medicine_json1,"medicine_json2":$medicine_json2,"medicine_json3":$medicine_json3,"medicine_json4":$medicine_json4,"medicine_json5":$medicine_json5,"medicine_json6":$medicine_json6},

@@ -187,6 +187,7 @@ class Api45 extends CI_Controller {
 	}
 
 	public function get_slider_api(){
+		header('Content-Type: application/json');
 		$items = "";
 		if(!empty($_POST)){
 			$api_key 		= $_POST["api_key"];

@@ -53,7 +53,7 @@ class Api45 extends CI_Controller {
 		
 		if(!empty($api_key))
 		{
-			$login = $this->Chemist_Model->login($user_altercode,$user_password);
+			//$login = $this->Chemist_Model->login($user_altercode,$user_password);
 			$time	= time();
 			$date	= date("Y-m-d");
 			

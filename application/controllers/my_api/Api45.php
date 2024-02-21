@@ -35,6 +35,13 @@ class Api45 extends CI_Controller {
 		$user_password	= $_POST["user_password"];
 		$chemist_id		= $_POST["chemist_id"];
 
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
 		$firebase_token = $_POST["firebase_token"];
 		$device_id		= $_POST["device_id"];
 		
@@ -156,46 +163,25 @@ class Api45 extends CI_Controller {
 			{
 				$under_construction_message = "Android App Under Construction";
 			}
-			
-			$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
-
-			$result = $this->HomeMenuModel->get_menu_api();
-		    $result_row = $result["items"];
-			$result_title  = 'menu';
-
-			$response = array(
-				'success' => "1",
-				'message' => 'Data load successfully',
-				'logout' => $logout,
-				'versioncode' => $versioncode,
-				'broadcast_title' => $broadcast_title,
-				'broadcast_message' => $broadcast_message,
-				'force_update' => $force_update,
-				'force_update_title' => $force_update_title,
-				'force_update_message' => $force_update_message,
-				'under_construction' => $under_construction,
-				'under_construction_message' => $under_construction_message,
-				'result_row' => $result_row,
-				'result_title' => $result_title,
-			);
-	
-			// Send JSON response
-			header('Content-Type: application/json');
-			echo "[".json_encode($response)."]";
-
-			die;
-
-			$items = "";		
-$items .= <<<EOD
-{"logout":"{$logout}","user_cart_json0":$user_cart_json0,"user_cart_json1":$user_cart_json1,"broadcast_title":"{$broadcast_title}","broadcast":"{$broadcast_message}","versioncode":"{$versioncode}","force_update":"{$force_update}","force_update_title":"{$force_update_title}","force_update_message":"{$force_update_message}","under_construction":"{$under_construction}","under_construction_message":"{$under_construction_message}","ratingbarpage":"{$ratingbarpage}","android_noti":"{$android_noti}","medicine_title0":"{$medicine_title0}","menu_json":$menu_json,"medicine_json0":$medicine_json0,"medicine_json1":$medicine_json1,"medicine_json2":$medicine_json2,"medicine_json3":$medicine_json3,"medicine_json4":$medicine_json4,"medicine_json5":$medicine_json5,"medicine_json6":$medicine_json6},
-EOD;
-if ($items != '') {
-	$items = substr($items, 0, -1);
-}
 		}
-?>
-[<?= $items;?>]
-<?php
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'logout' => $logout,
+			'versioncode' => $versioncode,
+			'broadcast_title' => $broadcast_title,
+			'broadcast_message' => $broadcast_message,
+			'force_update' => $force_update,
+			'force_update_title' => $force_update_title,
+			'force_update_message' => $force_update_message,
+			'under_construction' => $under_construction,
+			'under_construction_message' => $under_construction_message,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo "[".json_encode($response)."]";
 	}
 
 	public function my_cart_api(){

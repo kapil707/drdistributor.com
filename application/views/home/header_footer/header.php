@@ -1167,8 +1167,9 @@ function get_top_menu_api(){
 						item_code	 	= item.item_code;
 						item_company	= item.item_company;
 						item_image	 	= item.item_image;
+						item_url	 	= "<?= base_url();?>category/"+item.item_url;
 
-						$(".top_menu_menu").append('<li><a href=""><span>'+item_company+'</span></a></li>');
+						$(".top_menu_menu").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
 					}
 				});
 			}

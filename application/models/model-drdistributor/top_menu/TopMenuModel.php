@@ -19,6 +19,7 @@ class TopMenuModel extends CI_Model
 		{
 			$item_code		=	$row->code;
 			$item_company	=	ucwords(strtolower($row->menu));
+			$item_url		=	str_replace(" ","-",strtolower($item_company));
 			$item_image		=  	constant('img_url_site')."uploads/manage_medicine_menu/photo/resize/".$row->image;
 			if (empty($row->image)){
 				$item_image 	= constant('img_url_site')."uploads/default_img.jpg";
@@ -28,6 +29,7 @@ class TopMenuModel extends CI_Model
 				'item_code' => $item_code,
 				'item_company' => $item_company,
 				'item_image' => $item_image,
+				'item_url' => $item_url,
 			);
 			$jsonArray[] = $dt;
 		}

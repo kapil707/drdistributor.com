@@ -187,7 +187,7 @@ class Api45 extends CI_Controller {
 	}
 
 	public function home_page_api(){
-		$this->load->model("model-drdistributor/slider/SliderModel");
+		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 

@@ -44,8 +44,11 @@ class SliderModel extends CI_Model
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($funtype,$compid,$division);
 			
+			$title = "testing";
+			
 			$dt = array(
 				'id' => $id,
+				'title' => $title,
 				'funtype' => $funtype,
 				'itemid' => $itemid,
 				'division' => $division,

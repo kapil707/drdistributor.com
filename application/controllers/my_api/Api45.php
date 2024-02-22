@@ -649,7 +649,7 @@ class Api45 extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$items = $user_cart_items = $user_cart_items_other = "";
-		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
+		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode) && !empty($item_code)) {
 
 			$result = $this->MyCartModel->medicine_delete_api($user_type,$user_altercode,$salesman_id,$item_code);
 			$items = $result["items"];

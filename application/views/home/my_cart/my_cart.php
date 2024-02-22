@@ -306,7 +306,7 @@ function place_order_complete()
 		type       : "POST",
 		dataType   : "json",
 		data       :  {remarks:remarks},
-		url        : "<?php echo base_url(); ?>my_cart/place_order",
+		url        : "<?php echo base_url(); ?>my_cart/place_order_api",
 		cache	   : true,
 		error: function(){
 			window.location.href = "<?= base_url();?>my_cart";

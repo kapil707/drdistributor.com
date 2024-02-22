@@ -705,6 +705,55 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
+	public function place_order_api()
+	{
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		//$get_record	 	= $_POST["get_record"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		$remarks 		= $_POST["remarks"];			
+		$latitude		= $_POST["latitude"];
+		$longitude		= $_POST["longitude"];
+		$mobilenumber	= $_POST["mobilenumber"];
+		$modalnumber	= $_POST["modalnumber"];
+		$device_id		= $_POST["device_id"];
+		
+		if(!empty($api_key) &&!empty($user_type) &&!empty($user_altercode) &&!empty($user_password)){
+			$result = $this->MyCartModel->place_order_api("Android",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
+			$status = $result["status"];
+			$status_message = $result["status_message"];
+		}
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+			'status_message'=>$status_message,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo "[".json_encode($response)."]";
+	}
+
 	/******************salesman ke liya ha sirf************************ */
 
 	public function select_chemist_api(){

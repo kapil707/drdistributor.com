@@ -308,7 +308,7 @@ class MyCartModel extends CI_Model
 		return $order_id;
 	}
 
-	public function place_order($order_type='',$remarks='',$selesman_id='',$chemist_id='',$user_type='',$user_password='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
+	public function place_order_api($order_type='',$remarks='',$selesman_id='',$chemist_id='',$user_type='',$user_password='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
 		$return["status"] = "0";
 		$return["status_message"] = "<font color='red'>Sorry your order has been failed please try again.</font>";

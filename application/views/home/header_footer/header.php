@@ -306,9 +306,6 @@ if(empty($chemist_id_for_cart_total))
 {
 	$chemist_id_for_cart_total = "";
 }
-$website_menu 	= $this->Chemist_Model->website_menu_json_new();
-$website_menu 	= '['.$website_menu.']';
-$website_menu 	= json_decode($website_menu, true);
 ?>
 	<div class="top_menu_bar">
 		<div class="container-fluid">

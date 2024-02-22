@@ -716,6 +716,7 @@ function clear_small_noti(){
 	$(".small_noti_box").hide(500);
 }
 $(document).ready(function(){
+	get_top_menu_api();
 	//setTimeout('count_temp_rec();',500);
 	//setTimeout('check_login_function();',6000);
 
@@ -1149,6 +1150,30 @@ function medicine_add_to_cart_api()
 			swal("Enter quantity one or more than one");
 		}
 	}
+}
+
+function get_top_menu_api(){
+	myid = '';
+	$.ajax({
+		type       : "POST",
+		dataType   : "json",
+		data       :  {myid:myid} ,
+		url        : "<?php echo base_url(); ?>home/get_top_menu_api",
+		cache	   : true,
+		success : function(data){
+			if(data!="") {
+				$.each(data.items, function(i,item){
+					if (item){
+						item_code	 	= item.item_code;
+						item_company	= item.item_company;
+						item_image	 	= item.item_image;
+
+						$(".top_menu_menu").append('<li><a href=""><span>'+item_company+'</span></a></li>');
+					}
+				});
+			}
+		}
+	});
 }
 
 </script>

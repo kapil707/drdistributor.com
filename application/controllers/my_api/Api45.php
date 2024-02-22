@@ -296,39 +296,6 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
-	public function medicine_delete_all_api(){
-		$this->load->model("model-drdistributor/my_cart/MyCartModel");
-		
-		$api_key		= $_POST['api_key'];
-		$user_type 		= $_POST["user_type"];
-		$user_altercode = $_POST["user_altercode"];
-		$user_password	= $_POST["user_password"];
-		$chemist_id 	= $_POST["chemist_id"];
-		//$get_record	 	= $_POST["get_record"];
-		$salesman_id 	= "";
-		if($user_type=="sales")
-		{
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-		$items = $get_record = "";
-		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
-
-			$result = $this->MyCartModel->medicine_delete_all_api($user_type,$user_altercode,$salesman_id);
-			$items = $result["items"];
-		}
-
-		$response = array(
-            'success' => "1",
-			'message' => 'Data delete successfully',
-			'items' => $items,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo "[".json_encode($response)."]";
-	}
-
 	public function my_order_api(){
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 		
@@ -659,6 +626,78 @@ class Api45 extends CI_Controller {
             'items' => $items,
             'items_other' => $items_other,
 			'status'=>$status
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
+	public function medicine_delete_api(){
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$item_code	 	= $_POST["item_code"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = $user_cart_items = $user_cart_items_other = "";
+		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
+
+			$result = $this->MyCartModel->medicine_delete_api($user_type,$user_altercode,$salesman_id,$item_code);
+			$items = $result["items"];
+
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$user_cart_items = $result["items"];
+			$user_cart_items_other = $result["items_other"];
+		}
+
+		$response = array(
+            'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+			'user_cart_items' => $user_cart_items,
+			'user_cart_items_other' => $user_cart_items_other,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
+	public function medicine_delete_all_api(){
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		//$get_record	 	= $_POST["get_record"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$items = "";
+		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
+
+			$result = $this->MyCartModel->medicine_delete_all_api($user_type,$user_altercode,$salesman_id);
+			$items = $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
         );
 
         // Send JSON response

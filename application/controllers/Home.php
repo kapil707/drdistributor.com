@@ -7,6 +7,7 @@ class Home extends CI_Controller {
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
 
+		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		//$this->load->model("MenuModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
@@ -59,12 +60,29 @@ class Home extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
-		$data["tbl_home"] = $tbl_home;
+		/*$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
+		$data["tbl_home"] = $tbl_home; */
 		
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/home/home', $data);
 		$this->load->view('home/header_footer/footer', $data);
+	}
+
+	public function get_top_menu_api(){
+		$items = "";
+
+		$result = $this->TopMenuModel->get_top_menu_api();
+		$items = $result["items"];
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo '{"get_result":['.json_encode($response).']}'; 
 	}
 
 	public function home_page_api()

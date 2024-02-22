@@ -215,9 +215,19 @@ class Api45 extends CI_Controller {
 		if(!empty($_POST)){
 			$api_key 		= $_POST["api_key"];
 			$category_id	= $_POST["category_id"];
-			$result = $this->MedicineDivisionModel->medicine_division($category_id);
-			$title  = $result["title"];
-		    $items = $result["items"];
+			$page_type		= $_POST["page_type"];
+
+			if($page_type=="divisioncategory"){
+				$result = $this->MedicineDivisionModel->medicine_division($category_id);
+				$title  = $result["title"];
+				$items = $result["items"];
+			}
+
+			if($page_type=="asdfsaf"){
+				$result = $this->MedicineDivisionModel->medicine_division($category_id);
+				$title  = $result["title"];
+				$items = $result["items"];
+			}
 		}
 
 		$response = array(

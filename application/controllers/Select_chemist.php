@@ -105,7 +105,7 @@ class Select_chemist extends CI_Controller {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode	= $_COOKIE["user_altercode"];
 		$items = "";
-		if($user_type!="" && $user_altercode!="")
+		if(!empty($user_type) && !empty($user_altercode))
 		{
 			$result = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
 			$items = $result["items"];

@@ -195,7 +195,6 @@ class Api45 extends CI_Controller {
 			if(!empty($api_key)){
 				$result = $this->SliderModel->slider(1);
 				$items = $result["items"];
-				$result_title  = 'slider';
 			}
 		}
 

@@ -82,7 +82,7 @@ class Home extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo '{"get_result":['.json_encode($response).']}'; 
+		echo json_encode($response); 
 	}
 
 	public function home_page_api()

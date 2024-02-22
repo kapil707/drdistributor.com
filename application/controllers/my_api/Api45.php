@@ -27,8 +27,10 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
-	public function main_page_api()
-	{
+	public function main_page_api()	{
+
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+
 		$api_key 		= $_POST["api_key"];
 		$user_type 		= $_POST["user_type"];
 		$user_altercode	= $_POST["user_altercode"];
@@ -165,6 +167,14 @@ class Api45 extends CI_Controller {
 			}
 		}
 		$rating_bar_page = 0;
+
+		$user_cart_items = $user_cart_items_other = "";
+		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
+
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$user_cart_items = $result["items"];
+			$user_cart_items_other = $result["items_other"];
+		}
 		
 		$response = array(
 			'success' => "1",
@@ -179,6 +189,8 @@ class Api45 extends CI_Controller {
 			'under_construction' => $under_construction,
 			'under_construction_message' => $under_construction_message,
 			'rating_bar_page' => $rating_bar_page,
+			'user_cart_items' => $user_cart_items,
+			'user_cart_items_other' => $user_cart_items_other,
 		);
 
 		// Send JSON response

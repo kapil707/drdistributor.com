@@ -191,9 +191,9 @@ class Api45 extends CI_Controller {
 
 		if(!empty($_POST)){
 			$api_key 		= $_POST["api_key"];
-			
+			$slider_type	= $_POST["slider_type"];
 			if(!empty($api_key)){
-				$result = $this->SliderModel->slider(1);
+				$result = $this->SliderModel->slider($slider_type);
 				$items = $result["items"];
 			}
 		}

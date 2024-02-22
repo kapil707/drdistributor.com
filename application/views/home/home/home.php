@@ -382,7 +382,32 @@ function home_page_load(myid)
 		timeout: 10000
 	});
 }
+
+function get_top_menu_api(){
+	$.ajax({
+		type       : "POST",
+		dataType   : "json",
+		data       :  {myid:myid} ,
+		url        : "<?php echo base_url(); ?>home/get_top_menu_api",
+		cache	   : true,
+		success : function(data){
+			if(data!="") {
+				$.each(data.items, function(i,item){
+					if (item){
+						item_code	 	= item.item_code;
+						item_company	= item.item_company;
+						item_image	 	= item.item_image;
+
+						$(".top_menu_menu").append('<li><a href=""><span>'+item_company+'</span></a></li>');
+					}
+				});
+			}
+		}
+	});
+}
+
 $(document).ready(function() {
+	get_top_menu_api();
 	home_page_load(1);
 	setTimeout(function() {
 		home_page_load(2);

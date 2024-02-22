@@ -75,7 +75,7 @@ class Select_chemist extends CI_Controller {
 		$keyword 		= $_REQUEST["keyword"];
 		if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
 		{
-			$result = $this->SelectChemistModel->select_chemist_api($user_type,$user_altercode,$keyword);
+			$result = $this->SelectChemistModel->select_chemist_api($keyword);
 			$items = $result["items"];
 		}
 		$response = array(

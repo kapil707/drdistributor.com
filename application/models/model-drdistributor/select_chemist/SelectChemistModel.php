@@ -6,7 +6,7 @@ class SelectChemistModel extends CI_Model
 		parent::__construct();
 	}
 	
-	public function select_chemist_api($user_type="",$user_altercode="",$keyword="")
+	public function select_chemist_api($keyword="")
 	{		
 		$jsonArray = array();
 

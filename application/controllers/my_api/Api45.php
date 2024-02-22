@@ -661,4 +661,41 @@ class Api45 extends CI_Controller {
         header('Content-Type: application/json');
         echo "[".json_encode($response)."]";
 	}
+
+	/******************salesman ke liya ha sirf************************ */
+
+	public function select_chemist_api(){
+		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
+
+		$items = "";
+		if(!empty($_POST)){
+			$api_key		= $_POST['api_key'];
+			$user_type 		= $_POST["user_type"];
+			$user_altercode = $_POST["user_altercode"];
+			$user_password	= $_POST["user_password"];
+			$keyword		= $_POST["keyword"];
+			/*$chemist_id 	= $_POST["chemist_id"];
+			$salesman_id 	= "";
+			if($user_type=="sales")
+			{
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}*/
+			if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
+			{
+				$result = $this->SelectChemistModel->select_chemist_api($keyword);
+				$items = $result["items"];
+			}
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
 }

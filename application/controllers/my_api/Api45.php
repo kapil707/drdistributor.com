@@ -211,20 +211,35 @@ class Api45 extends CI_Controller {
 
 	public function home_page_api(){
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 
 		if(!empty($_POST)){
 			$api_key 		= $_POST["api_key"];
+			$user_type 		= $_POST["user_type"];
+			$user_altercode = $_POST["user_altercode"];
+			$user_password	= $_POST["user_password"];
+			$chemist_id 	= $_POST["chemist_id"];
+			//$get_record	 	= $_POST["get_record"];
+			$salesman_id 	= "";
+			if($user_type=="sales")
+			{
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			$session_yes_no = "yes";
+
 			$category_id	= $_POST["category_id"];
 			$page_type		= $_POST["page_type"];
 
+			$items = $title = "";
 			if($page_type=="divisioncategory"){
 				$result = $this->MedicineDivisionModel->medicine_division($category_id);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}
 
-			if($page_type=="asdfsaf"){
-				$result = $this->MedicineDivisionModel->medicine_division($category_id);
+			if($page_type=="itemcategory"){
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}

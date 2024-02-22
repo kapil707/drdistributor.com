@@ -187,6 +187,7 @@ class Api45 extends CI_Controller {
 	}
 
 	public function home_page_api(){
+		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
@@ -210,6 +211,12 @@ class Api45 extends CI_Controller {
 			$page_type		= $_POST["page_type"];
 
 			$items = $title = "";
+
+			if($page_type=="top_menu"){
+				$result = $this->TopMenuModel->get_top_menu_api();
+				$items = $result["items"];
+				$title  = "top menu";
+			}
 
 			if($page_type=="slider"){
 				$result = $this->SliderModel->slider($category_id);

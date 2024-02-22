@@ -217,6 +217,7 @@ class Api45 extends CI_Controller {
 				$items = $result["items"];
 				$title  = "top menu";
 			}
+			
 
 			if($page_type=="slider"){
 				$result = $this->SliderModel->slider($category_id);

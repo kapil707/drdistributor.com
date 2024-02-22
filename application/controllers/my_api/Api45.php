@@ -209,6 +209,29 @@ class Api45 extends CI_Controller {
         echo "[".json_encode($response)."]";
 	}
 
+	public function home_page_api(){
+		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+
+		if(!empty($_POST)){
+			$api_key 		= $_POST["api_key"];
+			$category_id	= $_POST["category_id"];
+			$result = $this->MedicineDivisionModel->medicine_division($category_id);
+			$title  = $result["title"];
+		    $items = $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+			'title' => $title,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
 	public function my_cart_api(){
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 		

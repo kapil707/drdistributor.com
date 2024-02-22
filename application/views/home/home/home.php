@@ -384,6 +384,7 @@ function home_page_load(myid)
 }
 
 function get_top_menu_api(){
+	myid = '';
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",

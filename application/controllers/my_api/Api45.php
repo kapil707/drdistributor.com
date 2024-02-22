@@ -186,30 +186,8 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
-	public function get_slider_api(){
-		$this->load->model("model-drdistributor/slider/SliderModel");
-
-		if(!empty($_POST)){
-			$api_key 		= $_POST["api_key"];
-			$slider_type	= $_POST["slider_type"];
-			if(!empty($api_key)){
-				$result = $this->SliderModel->slider($slider_type);
-				$items = $result["items"];
-			}
-		}
-
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo "[".json_encode($response)."]";
-	}
-
 	public function home_page_api(){
+		$this->load->model("model-drdistributor/slider/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 
@@ -232,6 +210,13 @@ class Api45 extends CI_Controller {
 			$page_type		= $_POST["page_type"];
 
 			$items = $title = "";
+
+			if($page_type=="slider"){
+				$result = $this->SliderModel->slider($category_id);
+				$items = $result["items"];
+				$title  = "slider";
+			}
+
 			if($page_type=="divisioncategory"){
 				$result = $this->MedicineDivisionModel->medicine_division($category_id);
 				$title  = $result["title"];

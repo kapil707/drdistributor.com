@@ -436,16 +436,17 @@ $website_menu 	= json_decode($website_menu, true);
 				<div class="col-sm-12">
 					<div class="top_menu_menu_main">
 						<ul class="top_menu_menu">
-							<?php foreach($website_menu as $row) { ?>
+							<?php 
+							/*foreach($website_menu as $row) { ?>
 							<li>
-								<?php /*<a href="<?= base_url();?>home/medicine_category/medicine_category/<?= $row["item_code"] ?>">*/ ?>
+								<?php /*<a href="<?= base_url();?>home/medicine_category/medicine_category/<?= $row["item_code"] ?>">*/ /*?>
 								<a href="<?= base_url();?>category/<?= str_replace(" ","-",strtolower($row["item_company"])); ?>">
 									<span>
 									<?= ($row["item_company"]) ?>
 									</span>
 								</a>
 							</li>
-							<?php } ?>
+							<?php } */ ?>
 						</ul>
 					</div>
 				</div>

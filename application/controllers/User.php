@@ -229,8 +229,6 @@ class User extends CI_Controller {
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-	}
-
 	public function update_password_api()
 	{
 		//error_reporting(0);

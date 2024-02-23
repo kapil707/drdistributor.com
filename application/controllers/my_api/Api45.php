@@ -178,7 +178,7 @@ class Api45 extends CI_Controller {
 		
 		$broadcast_status = "1";
 		$broadcast_title = "Test Broadcast";
-		$force_update_message = "Test Broadcast ok ok ";
+		$broadcast_message = "Test Broadcast ok ok ";
 
 		$response = array(
 			'success' => "1",

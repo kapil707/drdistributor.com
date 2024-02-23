@@ -109,6 +109,10 @@ $route['change_account']='user/update_account';
 $route['change_image']='user/update_image';
 $route['change_password']='user/update_password';
 
+$route['update_account']='user/update_account';
+$route['update_image']='user/update_image';
+$route['update_password']='user/update_password';
+
 $route['category/(:any)'] = 'Category/index/$1';
 $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';

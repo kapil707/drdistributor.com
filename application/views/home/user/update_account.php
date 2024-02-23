@@ -142,7 +142,7 @@ function submitbtn()
 	
 	$.ajax({
 		type       : "POST",
-		data       : {uuser_phone:mobile1,user_email:email1,user_address:address1},
+		data       : {user_phone:mobile1,user_email:email1,user_address:address1},
 		url        : "<?= base_url();?>User/update_user_account_api",
 		cache	   : false,
 		error: function(){

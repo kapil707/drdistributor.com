@@ -13,7 +13,7 @@
 <script>
 $(".headertitle").html("Update image");
 function goBack() {
-	window.location.href = "<?= base_url();?>home/account";
+	window.location.href = "<?= base_url();?>account";
 }
 </script>
 <div class="container maincontainercss">
@@ -29,7 +29,8 @@ function goBack() {
 							</div>
 							<div class="col-sm-10 col-10 text-left">
 								<span class="chemist_user_name"><?= $_COOKIE['user_fname'] ?></span><br>
-								<span class="chemist_altercode">Code : <?= $_COOKIE['user_altercode'] ?></span>
+								<span class="chemist_altercode">Code :
+								<?php echo $_COOKIE['user_altercode'] ?></span>
 							</div>
 						</div>
 					</div>

@@ -43,11 +43,11 @@ function goBack() {
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter mobile number" required="" name="mobile1" id="mobile1" title="Enter mobile number" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12">
-					<h5 class="mt-2">Enter email address</h5>
+					<h5 class="mt-2">Enter email</h5>
 				</div>
 				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/email1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
-					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter email address" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
+					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter email" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12">
 					<h5 class="mt-2">Enter address</h5>

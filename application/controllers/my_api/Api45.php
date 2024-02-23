@@ -207,6 +207,8 @@ class Api45 extends CI_Controller {
 			$user_cart_items_other = $result["items_other"];
 		}
 
+		$logout = 1;
+
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',

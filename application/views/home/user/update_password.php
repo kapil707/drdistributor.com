@@ -21,8 +21,8 @@ function goBack() {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12 website_box_part">
 			<div class="row">
-				<div class="col-sm-12 m-2">
-					<div class="main_theme_li_bg p-4">
+				<div class="col-sm-12">
+					<div class="main_theme_li_bg">
 						<div class="row">
 						<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
@@ -35,7 +35,7 @@ function goBack() {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="password" value="" class="input_type_text login_textbox" placeholder="Enter oldpassword" required="" name="old_password" id="old_password" title="Enter oldpassword" autocomplete="new-password" onchange="check_old_password()" style="padding-left:40px;float: left;">
 					<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">
@@ -43,10 +43,10 @@ function goBack() {
 						<img src="<?= base_url() ?>/img_v51/b_eyes.png" width="25px" onclick="hidepassword()" id="eyes" style="display:none" alt>
 					</div>
 				</div>
-				<div class="col-sm-12 m-1">
+				<div class="col-sm-12">
 					<div style="border-top: 1px solid white;"></div>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="password" value="" class="input_type_text login_textbox" placeholder="Enter newpassword" required="" name="new_password" id="new_password" title="Enter newpassword" maxlength="16" autocomplete="new-password" onchange="check_password1()" style="padding-left:40px;float: left;">
 					<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">
@@ -54,11 +54,11 @@ function goBack() {
 						<img src="<?= base_url() ?>/img_v51/b_eyes.png" width="25px" onclick="hidepassword1()" id="eyes" style="display:none" alt>
 					</div>
 				</div>
-				<div class="col-sm-12 m-1">
+				<div class="col-sm-12">
 					<div style="border-top: 1px solid white;"></div>
 				</div>
 				
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="password" value="" class="input_type_text login_textbox" placeholder="Re-enter newpassword" required="" name="renew_password" id="renew_password" title="Re-enter newpassword" autocomplete="new-password" onchange="check_password2()" style="padding-left:40px;float: left;">
 					<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">
@@ -66,10 +66,10 @@ function goBack() {
 						<img src="<?= base_url() ?>/img_v51/b_eyes.png" width="25px" onclick="hidepassword2()" id="eyes" style="display:none" alt>
 					</div>
 				</div>
-				<div class="col-sm-12 m-1 text-center">
+				<div class="col-sm-12 text-center">
 					<span class="text-center main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12">
 					<input type="submit" value="Update password" class="mainbutton" onclick="submitbtn()" id="submitbtn">
 					<input type="submit" value="Update password" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>

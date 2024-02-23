@@ -95,7 +95,7 @@ table{
 }
 .website_box_part{
 
-    padding: 10px;
+    /*padding: 10px;*/
     background-color: var(--main_theme_white_background_color);
 	border-radius: 10px;
     overflow-y: scroll;

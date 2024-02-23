@@ -1,6 +1,6 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Api45 extends CI_Controller {		
+class Api45 extends CI_Controller {	
 	public function get_login_api()
 	{
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
@@ -20,6 +20,37 @@ class Api45 extends CI_Controller {
             'success' => "1",
             'message' => 'Data load successfully',
             'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
+	public function get_logout_api()
+	{
+		$api_key 		= $_POST["api_key"];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode	= $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id		= $_POST["chemist_id"];
+
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		$device_id  = $_POST["device_id"];
+		if(!empty($api_key))
+		{
+			$this->db->query("delete from tbl_android_device_id where device_id='$device_id' and chemist_id='$user_altercode'  and user_type='$user_type'");
+		}
+
+		$response = array(
+            'success' => "1",
+			'message' => 'logout successfully',
         );
 
         // Send JSON response
@@ -175,10 +206,6 @@ class Api45 extends CI_Controller {
 			$user_cart_items = $result["items"];
 			$user_cart_items_other = $result["items_other"];
 		}
-		
-		$broadcast_status = "1";
-		$broadcast_title = "Test Broadcast";
-		$broadcast_message = "Test Broadcast ok ok ";
 
 		$response = array(
 			'success' => "1",

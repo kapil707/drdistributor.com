@@ -22,7 +22,7 @@ function goBack() {
 		<div class="col-sm-8 col-12 website_box_part">
 			<div class="row">
 				<div class="col-sm-12 m-2">
-					<div class="main_theme_li_bg p-4">
+					<div class="main_theme_li_bg p-2">
 						<div class="row">
 							<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
@@ -35,10 +35,10 @@ function goBack() {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Change Image" style="margin-left:30%" id="user_profile">
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<div class="main_theme_li_bg p-4">
 						<a href="javascript:getfile_fun()" title="Select image from gallery">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
@@ -71,7 +71,7 @@ function call_page(lastid1)
 	$.ajax({
 		type       : "POST",
 		data       :  {user_type:user_type,user_altercode:user_altercode} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/user_account_api",
+		url        : "<?php echo base_url(); ?>User/user_account_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
@@ -87,9 +87,19 @@ function call_page(lastid1)
 			}
 			$.each(data.items, function(i,item){	
 				if (item){		
-					if(item.user_profile!="")
+					user_id 		= item.user_id;
+					user_name 		= item.user_name;
+					user_altercode 	= item.user_altercode;
+					user_mobile 	= item.user_mobile;
+					user_email 		= item.user_email;
+					user_address 	= item.user_address;
+					user_gstno 		= item.user_gstno;
+					user_status 	= item.user_status;
+					user_image 		= item.user_image;
+
+					if(user_image!="")
 					{
-						$("#user_profile").attr("src",item.user_profile);
+						$("#user_profile").attr("src",user_image);
 					}
 				}
 			});

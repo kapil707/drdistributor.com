@@ -121,6 +121,54 @@ class UserModel extends CI_Model
 		return $return;
 	}
 
+	public function update_user_account_api($user_type,$user_altercode,$user_phone,$user_email,$user_address)
+	{
+		$jsonArray = array();
+		
+		$status = "0";
+		$status_message = "";
+		if($user_type=="chemist")
+		{
+			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			if(!empty($row->id))
+			{
+				$code = ($row->code);
+				$this->db->query("update tbl_acm_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where code='$code'");
+				$status_message = "Request has been sent. Your account will update soon.";
+				$status = "1";
+			}
+			else
+			{
+				$status_message = "Logic error.";
+			}
+		}
+		if($user_type=="sales")
+		{
+			$status1 = "";
+			$row = $this->db->query("select * from tbl_users where customer_code='$user_altercode' and slcd='CL'")->row();
+			if(!empty($row->id))
+			{
+				$code = ($row->customer_code);
+				$this->db->query("update tbl_users_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where customer_code='$code'");
+				$status_message = "Request has been sent";
+				$status = "1";
+			}
+			else
+			{
+				$status_message = "Logic error.";
+			}
+		}
+
+		$dt = array(
+			'status' => $status,
+			'status_message' => $status_message,
+		);
+		$jsonArray[] = $dt;
+
+		$return["items"] = $jsonArray;
+		return $return;
+	}
+
 	public function update_password_api($user_type,$user_altercode,$user_password,$new_password)
 	{
 		$jsonArray = array();

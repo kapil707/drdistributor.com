@@ -110,7 +110,6 @@ function call_page(lastid1)
 }
 function submitbtn()
 {
-	alert("adfasf")
 	mobile1 	= $('#mobile1').val();
 	email1	    = $('#email1').val();
 	address1	= $('#address1').val();
@@ -144,7 +143,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       : {uuser_phone:mobile1,user_email:email1,user_address:address1},
-		url        : "<?= base_url();?>chemist_json/update_user_account_api",
+		url        : "<?= base_url();?>User/update_user_account_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")
@@ -162,14 +161,14 @@ function submitbtn()
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					swal(item.status);
-					if(item.status1=="1")
+					swal(item.status_message);
+					if(item.status=="1")
 					{
-						$(".submit_div").html("<p class='text-success'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
 						call_page("kapil");
 					}
 					else{
-						$(".submit_div").html("<p class='text-danger'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
 					}
 				}
 			});	

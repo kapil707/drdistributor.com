@@ -181,6 +181,7 @@ class Api45 extends CI_Controller {
 			'message' => 'Data load successfully',
 			'logout' => $logout,
 			'versioncode' => $versioncode,
+			'broadcast_status' => $broadcast_status,
 			'broadcast_title' => $broadcast_title,
 			'broadcast_message' => $broadcast_message,
 			'force_update' => $force_update,

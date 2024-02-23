@@ -22,12 +22,12 @@ function goBack() {
 		<div class="col-sm-8 col-12 website_box_part">
 			<div class="row">
 				<div class="col-sm-12 mt-2">
-					<div class="main_theme_li_bg">
+					<div class="main_theme_li_bg p-2">
 						<div class="row">
-							<div class="col-sm-1 col-2">
+							<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 							</div>
-							<div class="col-sm-11 col-10 text-left">
+							<div class="col-sm-10 col-10 text-left">
 								<span class="chemist_user_name"><?= $_COOKIE['user_fname'] ?></span><br>
 								<span class="chemist_altercode">Code :
 								<?php echo $_COOKIE['user_altercode'] ?></span>

@@ -185,6 +185,27 @@ class User extends CI_Controller {
 		echo json_encode($response);
 	}
 
+	public function check_user_account_api(){
+		//error_reporting(0);
+		$user_type 		= $_POST['user_type'];
+		$user_altercode	= $_POST['user_altercode'];
+		if(!empty($user_type) && !empty($user_altercode))
+		{
+			$return = $this->UserModel->check_user_account_api($user_type,$user_altercode);
+			$items = $return["items"];
+		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
+	}
+
 	public function update_password_api()
 	{
 		//error_reporting(0);

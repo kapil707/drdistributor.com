@@ -21,8 +21,8 @@ function goBack() {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12 website_box_part">
 			<div class="row">
-				<div class="col-sm-12 m-2">
-					<div class="main_theme_li_bg p-4">
+				<div class="col-sm-12 mt-2">
+					<div class="main_theme_li_bg p-2">
 						<div class="row">
 							<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
@@ -35,33 +35,27 @@ function goBack() {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/phone1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter mobile number" required="" name="mobile1" id="mobile1" title="Enter mobile number" style="padding-left:40px;float: left;">
 				</div>
-				<div class="col-sm-12 m-1">
-					<div style="border-top: 1px solid white;"></div>
-				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/email1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
 				</div>
-				<div class="col-sm-12 m-1">
-					<div style="border-top: 1px solid white;"></div>
-				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/map1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter address" required="" name="address1" id="address1" title="Enter address" style="padding-left:40px;float: left;">
 				</div>
-				<div class="col-sm-12 m-2 text-center">
+				<div class="col-sm-12 mt-2 text-center">
 					<span class="main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12">
 					<input type="submit" value="Update account" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
 					<input type="submit" value="Update account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 			</div>
-			<div class="main_theme_li_bg load_page" style="padding:10px; margin-top: 30px;">
+			<div class="main_theme_li_bg load_page mt-2" style="display:none;">
 				
 			</div>
 		</div>
@@ -78,6 +72,7 @@ function call_page_by_last_id()
 }
 function call_page(lastid1)
 {
+	$(".load_page").hide();
 	new_i = 0;
 	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
 	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
@@ -86,7 +81,7 @@ function call_page(lastid1)
 	$.ajax({
 		type       : "POST",
 		data       :  {user_type:user_type,user_altercode:user_altercode} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/check_user_account_api",
+		url        : "<?php echo base_url(); ?>User/check_user_account_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
@@ -99,6 +94,7 @@ function call_page(lastid1)
 			else
 			{
 				$(".load_page").html("");
+				$(".load_page").show();
 			}
 			$.each(data.items, function(i,item){	
 				if (item){

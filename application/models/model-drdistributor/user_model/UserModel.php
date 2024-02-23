@@ -85,13 +85,11 @@ class UserModel extends CI_Model
 
 	public function check_user_account_api($user_type,$user_altercode)
 	{
-		$items = "";
 		if($user_type=="chemist")
 		{
 			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
-				$id			= ($row->id);
 				$row1 = $this->db->query("select * from tbl_acm_other where code='$row->code'")->row();
 				$user_phone		= ($row1->user_phone);
 				$user_email		= ($row1->user_email);

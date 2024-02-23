@@ -271,15 +271,15 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="row">
 			<div class="col-md-3">
 			</div>
-			<div class="col-md-6 login_new_box m-2">
-				<h4 class="text-center">Username</h4>
+			<div class="col-md-6 login_new_box">
+				<h4 class="mt-2">Username</h4>
 				<div class="form-row">
 					<div class="form-group col">
 						<i class="fa fa-user login_pg_icon" aria-hidden="true"></i>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter username" required="" name="user_name1" id="user_name1" title="Enter username">
 					</div>
 				</div>
-				<h4 class="text-center" style="margin-top:15px;">Password</h4>
+				<h4 class="mt-2">Password</h4>
 				<div class="form-row">
 					<div class="form-group col">
 						<i class="fa fa-key login_pg_icon" aria-hidden="true"></i>
@@ -291,8 +291,8 @@ if (isset($_COOKIE["theme_type"])) {
 						</div>
 					</div>
 				</div>
-				<h5 class="text-center main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</h5>
-				<div class="form-row" style="margin-top:15px;">
+				<h5 class="text-center main_theme_gray_text submit_div mt-2">&nbsp;</h5>
+				<div class="form-row">
 					<div class="form-group col text-center">
 						<label class="main_theme_gray_text">
 							<input type="checkbox" checked id="checkbox" style="width:auto;"> I agree to the
@@ -302,10 +302,10 @@ if (isset($_COOKIE["theme_type"])) {
 						</a>
 					</div>
 				</div>
-				<div class="text-center">
+				<div class="text-center mt-2">
 					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn" ><input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
-				<div class="text-center" style="margin-top:30px;">
+				<div class="text-center mt-4">
 					Don't have an account? 
 					<a href="<?= base_url() ?>register" class="main_theme_a">
 					Create account</a>

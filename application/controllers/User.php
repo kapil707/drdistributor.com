@@ -120,7 +120,7 @@ class User extends CI_Controller {
 		$this->load->view('home/user/update_image', $data);
 	}
 	
-	public function change_password(){
+	public function update_password(){
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

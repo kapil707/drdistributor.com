@@ -113,6 +113,8 @@ $route['update_account']='user/update_account';
 $route['update_image']='user/update_image';
 $route['update_password']='user/update_password';
 
+$route['privacy_policy']='main/privacy_policy';
+
 $route['category/(:any)'] = 'Category/index/$1';
 $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/medicine_item_wise/(:any)']= 'Category/medicine_item_wise/$1';

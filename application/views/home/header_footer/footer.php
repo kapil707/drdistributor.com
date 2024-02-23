@@ -72,7 +72,7 @@ wow.init();
 				<ul>
 					<li class="footer_li_title">Need Help?</li>
 					<li class="footer_li_text">
-						<a href="<?= base_url('user/privacy_policy')?>" title="Privacy policy">
+						<a href="<?= base_url() ;?>privacy_policy" title="Privacy policy">
 							<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
 							Privacy policy
 						</a>

@@ -187,7 +187,7 @@ class UserModel extends CI_Model
 					$code = $query->code;
 					$new_password = md5($new_password);
 					$this->db->query("update tbl_acm_other set password='$new_password',download_status=0 where code='$code'");
-					$status_message = "Updated successfully";
+					$status_message = "Password updated successfully";
 					$status = "1";
 				}
 				else

@@ -754,6 +754,41 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
+	/******************user account************************ */
+	public function user_account_api()
+	{
+		$this->load->model("model-drdistributor/user_model/UserModel");
+		
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		//$get_record	 	= $_POST["get_record"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		if(!empty($user_type) && !empty($user_altercode))
+		{
+			$return = $this->UserModel->user_account_api($user_type,$user_altercode);
+			$items = $return["items"];
+		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo "[".json_encode($response)."]";
+	}
+
 	/******************salesman ke liya ha sirf************************ */
 
 	public function select_chemist_api(){

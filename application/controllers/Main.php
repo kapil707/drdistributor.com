@@ -70,6 +70,7 @@ class Main extends CI_Controller {
 		
 		$this->load->view('home/header_footer/header', $data);
 	    $this->load->view('main_page/privacy_policy', $data);
+		$this->load->view('home/header_footer/footer', $data);
 	}
 
 	public function download_order($order_id,$chemist_id)

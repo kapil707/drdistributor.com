@@ -24,7 +24,7 @@ function goBack() {
 				<div class="col-sm-12">
 					<div class="main_theme_li_bg">
 						<div class="row">
-						<div class="col-sm-2 col-2">
+							<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
 							</div>
 							<div class="col-sm-10 col-10 text-left">
@@ -35,7 +35,7 @@ function goBack() {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12">
+				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="password" value="" class="input_type_text login_textbox" placeholder="Enter oldpassword" required="" name="old_password" id="old_password" title="Enter oldpassword" autocomplete="new-password" onchange="check_old_password()" style="padding-left:40px;float: left;">
 					<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">

@@ -572,7 +572,7 @@ if(empty($chemist_id_for_cart_total))
 						</a>
 					</li>
 					<li title="Privacy policy">
-						<a href="<?= base_url('user/privacy_policy')?>" title="Privacy policy">
+						<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
 							<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
 							Privacy policy
 						</a>

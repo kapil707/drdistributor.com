@@ -134,7 +134,7 @@ class UserModel extends CI_Model
 		if($user_type=="chemist")
 		{
 			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
-			if ($query->id!="")
+			if(!empty($query->id))
 			{
 				if ($query->password == $user_password && $query->block=="0" && $query->status=="1")
 				{
@@ -157,7 +157,7 @@ class UserModel extends CI_Model
 		if($user_type=="sales")
 		{
 			$query = $this->db->query("select u.id,u.customer_code,u.customer_name,u.cust_addr1,u.cust_mobile,u.cust_email,u.is_active,u.user_role,u.login_expiry,u.divison,u.company_name,lu.password	from tbl_users u left join tbl_users_other lu on lu.customer_code = u.customer_code where lu.customer_code='$user_altercode' limit 1")->row();
-			if ($query->id!="")
+			if(!empty($query->id))
 			{
 				if ($query->password == $user_password)
 				{

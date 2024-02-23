@@ -21,8 +21,8 @@ function goBack() {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12">
 			<div class="row website_box_part">
-				<div class="col-sm-12 m-2">
-					<div class="main_theme_li_bg p-4">
+				<div class="col-sm-12 mt-2">
+					<div class="main_theme_li_bg p-2">
 						<div class="row">
 							<div class="col-sm-2 col-2">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">

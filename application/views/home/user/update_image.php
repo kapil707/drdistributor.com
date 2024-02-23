@@ -21,7 +21,7 @@ function goBack() {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12 website_box_part">
 			<div class="row">
-				<div class="col-sm-12 m-2">
+				<div class="col-sm-12 mt-2">
 					<div class="main_theme_li_bg p-2">
 						<div class="row">
 							<div class="col-sm-2 col-2">

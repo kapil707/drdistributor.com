@@ -154,6 +154,37 @@ class User extends CI_Controller {
 		$this->load->view('home/user/change_password', $data);
 	}
 
+	public function user_account_api()
+	{
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		if(!empty($user_type) && !empty($user_altercode))
+		{
+			$return = $this->UserModel->user_account_api($user_type,$user_altercode);
+			$items = $return["items"];
+		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
+	}
+
 	public function change_password_api()
 	{
 		//error_reporting(0);

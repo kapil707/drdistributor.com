@@ -5,30 +5,122 @@ class UserModel extends CI_Model
 	public function __construct(){
 		parent::__construct();
 	}
-    
-    public function login_check($back_url='')
+
+	public function user_account_api($user_type,$user_altercode)
 	{
-        if(empty($_COOKIE["user_altercode"])){
-			if(!empty($back_url)){
-				redirect(base_url()."login?back_url=".$back_url);
-			}else{
-				redirect(base_url()."login");
+		$items = "";
+		if($user_type=="chemist")
+		{
+			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			if(!empty($row->id))
+			{
+				$user_id		= ($row->id);
+				$user_name 		= (ucwords(strtolower($row->name)));
+				$user_altercode = ($row->altercode);
+				$user_mobile 	= ($row->mobile);
+				$user_email 	= ($row->email);
+				$user_address 	= ($row->address);
+				$user_gstno 	= ($row->gstno);				
+				$where= array('code'=>$row->code);
+				$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
+				$user_image = base_url()."user_profile/$row1->image";
+				if(empty($row1->image))
+				{
+					$user_image = base_url()."img_v51/logo.png";
+				}
+				$user_status	= ($row1->status);
+				if($user_status)
+				{
+					$user_status = "Active";
+				}
+				else
+				{
+					$user_status = "Inactive";
+				}
 			}
 		}
-		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
-		if($under_construction=="1")
+		if($user_type=="sales")
 		{
-			redirect(base_url()."under_construction");
+			$row = $this->db->query("select * from tbl_users where customer_code='$user_altercode'")->row();
+			if(!empty($row->id))
+			{
+				$user_id		= ($row->id);
+				$user_name 		= (ucwords(strtolower($row->customer_name)));
+				$user_altercode = ($row->customer_code);
+				$user_mobile 	= ($row->cust_mobile);
+				$user_email 	= ($row->cust_email);
+				$user_address 	= ($row->cust_addr1);
+				$user_gstno 	= "";
+				$user_status	= "1";
+				$where= array('customer_code'=>$row->customer_code);
+				$row1 = $this->Scheme_Model->select_row("tbl_users_other",$where);
+				$user_image = base_url()."user_profile/$row1->image";
+				if(empty($row1->image))
+				{
+					$user_image = base_url()."img_v51/logo.png";
+				}
+				if($user_status=="1")
+				{
+					$user_status = "Active";
+				}
+			}
 		}
 
-		if(!empty($_COOKIE["user_type"]))
+		$dt = array(
+			'user_id' => $user_id,
+			'user_name' => $user_name,
+			'user_altercode' => $user_altercode,
+			'user_mobile' => $user_mobile,
+			'user_email' => $user_email,
+			'user_address' => $user_address,
+			'user_gstno' => $user_gstno,
+			'user_status' => $user_status,
+			'user_image' => $user_image,
+		);
+		$jsonArray[] = $dt;
+
+		$return["items"] = $jsonArray;
+		return $return;
+	}
+
+	public function check_user_account_api($user_type,$user_altercode)
+	{
+		$items = "";
+		if($user_type=="chemist")
 		{
-			$user_type = $_COOKIE["user_type"];
-			if($user_type=="sales" && empty($_COOKIE["chemist_id"]))
+			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			if(!empty($row->id))
 			{
-				redirect(base_url()."select_chemist");
+				$id			= ($row->id);
+				$row1 = $this->db->query("select * from tbl_acm_other where code='$row->code'")->row();
+				$user_phone		= ($row1->user_phone);
+				$user_email		= ($row1->user_email);
+				$user_address	= ($row1->user_address);
+				$user_update	= ($row1->user_update);
 			}
-		}	
+		}
+		if($user_type=="sales")
+		{
+			$row = $this->db->query("select * from tbl_users where customer_code='$user_altercode'")->row();
+			if(!empty($row->id))
+			{
+				$user_phone		= ($row->user_phone);
+				$user_email		= ($row->user_email);
+				$user_address	= ($row->user_address);
+				$user_update	= ($row->user_update);
+			}
+		}
+
+		$dt = array(
+			'user_phone' => $user_phone,
+			'user_email' => $user_email,
+			'user_address' => $user_address,
+			'user_update' => $user_update,
+		);
+		$jsonArray[] = $dt;
+
+		$return["items"] = $jsonArray;
+		return $return;
 	}
 
 	public function change_password_api($user_type,$user_altercode,$user_password,$new_password)

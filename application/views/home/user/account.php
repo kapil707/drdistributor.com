@@ -29,7 +29,7 @@ function goBack() {
 							</div>
 							<div class="col-sm-10 col-10 text-left">
 								<span class="chemist_user_name"><?= $_COOKIE['user_fname'] ?></span><br>
-								<span class="chemist_altercode">
+								<span class="chemist_altercode">Code :
 								<?php echo $_COOKIE['user_altercode'] ?></span>
 							</div>
 						</div>

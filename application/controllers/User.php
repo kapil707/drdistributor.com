@@ -47,7 +47,7 @@ class User extends CI_Controller {
 		$this->load->view('home/user/account', $data);
 	}
 
-	public function change_account(){
+	public function update_account(){
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -83,10 +83,10 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);	
-		$this->load->view('home/user/change_account', $data);
+		$this->load->view('home/user/update_account', $data);
 	}
 
-	public function change_image(){
+	public function update_image(){
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -117,7 +117,7 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/user/change_image', $data);
+		$this->load->view('home/user/update_image', $data);
 	}
 	
 	public function change_password(){
@@ -151,7 +151,7 @@ class User extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/user/change_password', $data);
+		$this->load->view('home/user/update_password', $data);
 	}
 
 	public function user_account_api()
@@ -185,7 +185,7 @@ class User extends CI_Controller {
 		echo json_encode($response);
 	}
 
-	public function change_password_api()
+	public function update_password_api()
 	{
 		//error_reporting(0);
 		$user_type		= $_POST['user_type'];
@@ -194,7 +194,7 @@ class User extends CI_Controller {
 		$new_password   = $_POST['new_password'];
 		if(!empty($user_type) && !empty($user_altercode) && !empty($old_password) && !empty($new_password))
 		{
-			$return = $this->UserModel->change_password_api($user_type,$user_altercode,$old_password,$new_password);
+			$return = $this->UserModel->update_password_api($user_type,$user_altercode,$old_password,$new_password);
 			$items = $return["items"];
 		}
 

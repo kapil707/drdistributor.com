@@ -55,7 +55,7 @@ function goBack() {
 					<input type="submit" value="Update account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 			</div>
-			<div class="main_theme_li_bg load_page mt-2" style="display:none;">
+			<div class="main_theme_li_bg load_page mt-2 p-2" style="display:none;">
 				
 			</div>
 		</div>

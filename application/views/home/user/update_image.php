@@ -36,7 +36,7 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Change Image" style="margin-left:30%" id="user_profile">
+					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Update Image" style="margin-left:30%" id="user_profile">
 				</div>
 				<div class="col-sm-12 mt-2">
 					<div class="main_theme_li_bg p-4">

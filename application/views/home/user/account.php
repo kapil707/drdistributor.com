@@ -42,7 +42,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 m-2">
 					<div class="main_theme_li_bg p-4">
-						<a href="<?= base_url('home/change_image')?>" title="Update Image">
+						<a href="<?= base_url(); ?>update_image" title="Update image">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Update Image" title="Update Image">
 							<span style="margin-left:20px;">Update image</span>
 						</a>
@@ -50,7 +50,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 m-2">
 					<div class="main_theme_li_bg p-4">
-						<a href="<?= base_url('home/change_password')?>" title="Update Pas51
+						<a href="<?= base_url();?>update_password" title="Update password">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/b_lock.png" width="30" alt="Update Password" title="Update Password">
 							<span style="margin-left:20px;">Update password</span>
 						</a>

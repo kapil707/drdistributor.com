@@ -21,7 +21,7 @@ $(".headertitle").html("Privacy policy");
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 col-12 load_page">
+				<div class="col-sm-12 col-12">
 					<div class="website_box_part">
 						<p>This Website Privacy Policy ("Privacy Policy") and additional policies linked below explain how we collect, use, protect, and treat your personal information and user data. The Website is operated by us at http://drdistributor.com/ ("Website").</p><br>
 						<p>This Privacy Policy covers only information and data collected or processed through the Website and not any other information or data collected or processed by third parties who provide products and services on the Website ("Service Providers") or affiliated organizations ("Affiliates"), third party web pages, or websites, products, or services to which we link that do not display a direct link to this Privacy Policy.</p><br>

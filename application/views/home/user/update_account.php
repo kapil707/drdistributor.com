@@ -36,11 +36,11 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12">
-					<h5 class="mt-2">Enter mobile number</h5>
+					<h5 class="mt-2">Enter mobile</h5>
 				</div>
 				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/phone1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
-					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter mobile number" required="" name="mobile1" id="mobile1" title="Enter mobile number" style="padding-left:40px;float: left;">
+					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter mobile" required="" name="mobile1" id="mobile1" title="Enter mobile" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12">
 					<h5 class="mt-2">Enter email</h5>
@@ -125,8 +125,8 @@ function submitbtn()
 	submit = "98c08565401579448aad7c64033dcb4081906dcb";
 	if(mobile1=="")
 	{
-		swal("Enter mobile number")
-		$(".submit_div").html("<p class='text-danger'>Enter mobile number</p>");
+		swal("Enter mobile")
+		$(".submit_div").html("<p class='text-danger'>Enter mobile</p>");
 		$('#mobile1').focus();
 		return false;
 	}

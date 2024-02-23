@@ -185,7 +185,7 @@ class User extends CI_Controller {
 		echo json_encode($response);
 	}
 
-	public function get_user_account_api(){
+	public function get_update_user_account_api(){
 		//error_reporting(0);
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -201,7 +201,7 @@ class User extends CI_Controller {
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
-			$return = $this->UserModel->get_user_account_api($user_type,$user_altercode);
+			$return = $this->UserModel->get_update_user_account_api($user_type,$user_altercode);
 			$items = $return["items"];
 		}
 

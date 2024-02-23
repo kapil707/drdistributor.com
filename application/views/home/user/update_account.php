@@ -74,13 +74,12 @@ function call_page(lastid1)
 {
 	$(".load_page").hide();
 	new_i = 0;
-	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
-	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
+	id = "";
 	$(".load_more").hide();
 	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
-		data       :  {user_type:user_type,user_altercode:user_altercode} ,
+		data       :  {id:id} ,
 		url        : "<?php echo base_url(); ?>User/check_user_account_api",
 		cache	   : false,
 		error: function(){
@@ -111,8 +110,7 @@ function call_page(lastid1)
 }
 function submitbtn()
 {
-	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
-	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
+	alert("adfasf")
 	mobile1 	= $('#mobile1').val();
 	email1	    = $('#email1').val();
 	address1	= $('#address1').val();
@@ -145,7 +143,7 @@ function submitbtn()
 	
 	$.ajax({
 		type       : "POST",
-		data       : {user_type:user_type,user_altercode:user_altercode,user_phone:mobile1,user_email:email1,user_address:address1},
+		data       : {uuser_phone:mobile1,user_email:email1,user_address:address1},
 		url        : "<?= base_url();?>chemist_json/update_user_account_api",
 		cache	   : false,
 		error: function(){

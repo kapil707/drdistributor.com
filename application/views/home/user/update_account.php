@@ -41,7 +41,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/email1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
-					<input type="text" value="" class="input_type_text login_textbox" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
+					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter email address" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12 mt-2">
 					<img src="<?= base_url() ?>/img_v51/map1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>

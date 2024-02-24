@@ -10,7 +10,11 @@ class MedicineItemWiseModel extends CI_Model
 		$this->db->select("name");
 		$this->db->where('id',$category_id);
 		$row = $this->db->get("tbl_item_category")->row();
-		return $row->name;
+		if(!empty($row)){
+			return $row->name;
+		}else{
+			return "";
+		}
 	}
 	
 	public function get_medicine_item_view_api($session_yes_no,$category_id)

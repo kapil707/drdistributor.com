@@ -297,7 +297,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<label class="main_theme_gray_text">
 							<input type="checkbox" checked id="checkbox" style="width:auto;"> I agree to the
 						</label>&nbsp;
-						<a href="<?= base_url(); ?>termsofservice" class="main_theme_a">
+						<a href="<?= base_url(); ?>terms_of_services" class="main_theme_a">
 							<strong>terms of services</strong>
 						</a>
 					</div>

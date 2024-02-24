@@ -53,12 +53,15 @@ $route['default_controller'] = 'main/index';
 $route['login'] = 'Chemist_login/login';
 $route['register'] = 'Chemist_login/logout';
 $route['logout'] = 'Chemist_login/logout';
-$route['termsofservice'] = 'main/termsofservice';
 
 $route['user/login'] = 'Chemist_login/login';
 $route['user/register'] = 'Chemist_login/register';
 $route['user/logout'] = 'Chemist_login/logout';
-$route['user/termsofservice'] = 'main/termsofservice';
+
+$route['privacy_policy']='main/privacy_policy';
+$route['user/termsofservice'] = 'main/terms_of_services';
+$route['termsofservice']='main/terms_of_services';
+$route['terms_of_services']='main/terms_of_services';
 
 
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';
@@ -112,8 +115,6 @@ $route['change_password']='user/update_password';
 $route['update_account']='user/update_account';
 $route['update_image']='user/update_image';
 $route['update_password']='user/update_password';
-
-$route['privacy_policy']='main/privacy_policy';
 
 $route['category/(:any)'] = 'Category/index/$1';
 $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';

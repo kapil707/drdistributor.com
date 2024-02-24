@@ -40,7 +40,7 @@ class Main extends CI_Controller {
 		$this->load->view('home/header_footer/footer', $data);
 	}
 
-	public function terms_of_service() {
+	public function terms_of_services() {
 
 		$data["main_page_title"] = "Home";
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
@@ -49,7 +49,7 @@ class Main extends CI_Controller {
 		$data["chemist_id"] = "";
 
 		$this->load->view('home/header_footer/header', $data);
-	    $this->load->view('main_page/terms_of_service', $data);
+	    $this->load->view('main_page/terms_of_services', $data);
 		$this->load->view('home/header_footer/footer', $data);
 	}
 	public function privacy_policy() {

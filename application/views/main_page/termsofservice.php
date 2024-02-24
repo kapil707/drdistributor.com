@@ -23,7 +23,7 @@ $(".headertitle").html("Terms of services");
 			<div class="row">
 				<div class="col-sm-12 col-12">	
 					<div class="website_box_part p-2">
-						<?= $this->Scheme_Model->get_website_data("termsofservice") ;?>
+						<?= $this->Scheme_Model->get_website_data("terms_of_services") ;?>
 					</div>
 				</div>
 			</div>

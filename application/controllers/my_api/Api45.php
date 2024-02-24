@@ -995,8 +995,8 @@ class Api45 extends CI_Controller {
 
 	/******************main pages api************************ */
 
-	public function termsofservice_api(){
-		$page_data = $this->Scheme_Model->get_website_data("termsofservice");
+	public function terms_of_services_api(){
+		$page_data = $this->Scheme_Model->get_website_data("terms_of_services");
 	
 		$jsonArray = array();
 		$dt = array(

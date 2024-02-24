@@ -967,18 +967,17 @@ class Api45 extends CI_Controller {
 				$get_record  = $result["get_record"];
 			}
 
+			if($row->type=="itemcategory"){
+				$category_id = $item_code;//yha sahi ha yaha par yha category_id ban jata ha
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+				$items = $result["items"];
+				$title  = $result["title"];
+			}
+
 			if($item_page_type=="medicine_similar")
 			{
 				$items = $this->Chemist_Model->medicine_similar_api($item_code,$get_record);
 			}	
-
-			if($item_page_type=="medicine_item_wise")
-			{
-				$category_id = $item_code;
-				$result = $this->Chemist_Model->medicine_item_wise_json_50($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
-				$items  = $result["items"];
-				$title  = $result["title"];
-			}
 		}
 
 		$response = array(

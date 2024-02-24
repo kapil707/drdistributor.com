@@ -992,4 +992,48 @@ class Api45 extends CI_Controller {
         header('Content-Type: application/json');
         echo "[".json_encode($response)."]";
 	}
+
+	/******************main pages api************************ */
+
+	public function termsofservice_api(){
+		$page_data = $this->Scheme_Model->get_website_data("termsofservice");
+	
+		$jsonArray = array();
+		$dt = array(
+			'page_data'=>$page_data,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
+	public function privacy_policy_api(){
+		$page_data = $this->Scheme_Model->get_website_data("privacy_policy");
+	
+		$jsonArray = array();
+		$dt = array(
+			'page_data'=>$page_data,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
 }

@@ -207,6 +207,8 @@ class Api45 extends CI_Controller {
 			$user_cart_items_other = $result["items_other"];
 		}
 
+		$rating_bar_page = 1;
+
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
@@ -1147,7 +1149,7 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 	
-	public function ratingbar_review()
+	public function ratingbar_review_api()
 	{
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];

@@ -5,10 +5,10 @@ class Chemist_login extends CI_Controller {
 		parent::__construct();
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
 	}
-	public function register() {
+	public function create_new() {
 		//error_reporting(0);
 		$data["main_page_title"] = "Create account";
-	    $this->load->view('login/register', $data);
+	    $this->load->view('login/create_new', $data);
 	}
 	
 	public function login() {

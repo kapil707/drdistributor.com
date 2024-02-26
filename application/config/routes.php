@@ -51,11 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'main/index';
 
 $route['login'] = 'Chemist_login/login';
-$route['register'] = 'Chemist_login/register';
+$route['create_new'] = 'Chemist_login/create_new';
 $route['logout'] = 'Chemist_login/logout';
 
 $route['user/login'] = 'Chemist_login/login';
-$route['user/register'] = 'Chemist_login/register';
+$route['user/create_new'] = 'Chemist_login/create_new';
 $route['user/logout'] = 'Chemist_login/logout';
 
 $route['privacy_policy']='main/privacy_policy';

@@ -292,6 +292,7 @@ class Api45 extends CI_Controller {
         header('Content-Type: application/json');
         echo "[".json_encode($response)."]";
 	}
+	
 
 	public function my_cart_api(){
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");

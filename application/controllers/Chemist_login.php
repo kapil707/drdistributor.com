@@ -51,7 +51,7 @@ class Chemist_login extends CI_Controller {
 		$chemist_code 	= $_POST["chemist_code"];
 		$phone_number	= $_POST["phone_number"];
 
-		if(!empty($user_name1) && !empty($password1)){
+		if(!empty($chemist_code) && !empty($phone_number)){
 			$result = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
 			$items = $result["items"];
 		}

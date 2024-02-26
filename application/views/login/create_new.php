@@ -348,7 +348,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       : {chemist_code:chemist_code,phone_number:phone_number},
-		url        : "<?= base_url();?>chemist_json/create_new_api",
+		url        : "<?= base_url();?>chemist_login/get_create_new_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")
@@ -366,15 +366,15 @@ function submitbtn()
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					swal(item.status);
-					if(item.status1=="1")
+					swal(item.status_message);
+					if(item.status=="1")
 					{
-						$(".submit_div").html("<p class='text-success'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
 						$('#user_name1').val('');
 						$('#phone_number1').val('');
 					}
 					else{
-						$(".submit_div").html("<p class='text-danger'>"+item.status+"</p>");
+						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
 					}
 				}
 			});	

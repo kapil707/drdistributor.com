@@ -1212,7 +1212,7 @@ class Api45 extends CI_Controller {
 		$image = "xx";
 
 		
-		$token = "dTCRJOxd3ms:APA91bHhdG9Ecr8uCqDESHZbejT1CxJKHQAZtvChaV4AP0a2pO0MLP_OPjMK5hEEIpiQ_dDMgajwzcsKLVb34qzgG7hZdcZOCF_P_FImJQ6PxgE4IpwdcNetDDCwy1-OPE671W-eD0BQ";
+		$token = "eL5CTtwbhHE:APA91bEtZqBebXSG6BGrvdYoLTG_rmedVYq4vHLIaGxCfu_VzhqIpL3Cx-o7M8R-n0SPFuHmvFyEjXMnmieYKslqqzn5y8dHMVdZEGEmmjJswiGVo1BYB9gJDv-xSAOW363H6WtzyBMw";
 		$data = array
 		(
 			'id'=>$id,

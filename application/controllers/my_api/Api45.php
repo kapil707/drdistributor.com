@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Api45 extends CI_Controller {	
 
-	public function get_create_new()
+	public function get_create_new_api()
 	{
 		$api_key		= $_POST['api_key'];
 		$chemist_code 	= $_POST["chemist_code"];
@@ -11,7 +11,7 @@ class Api45 extends CI_Controller {
 		{
 			$items = $this->Chemist_Model->create_new($chemist_code,$phone_number);
 		}
-		
+
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',

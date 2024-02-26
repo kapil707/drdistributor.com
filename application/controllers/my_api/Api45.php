@@ -1102,4 +1102,91 @@ class Api45 extends CI_Controller {
 		header('Content-Type: application/json');
         echo "[".json_encode($response)."]";
 	}
+
+	/******************ratingbar pages api************************ */
+	public function ratingbar_done_api()
+	{
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		
+		$device_id	= $_POST['device_id'];
+		$rating 	= $_POST['rating'];
+		if(!empty($api_key))
+		{
+			$this->db->query("update tbl_android_device_id set rating='$rating' where device_id='$device_id'");
+		}
+
+		$status = 1;
+		$status_message = "working";
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+			'status_message'=>$status_message,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo "[".json_encode($response)."]";
+	}
+	
+	public function ratingbar_review()
+	{
+		$api_key		= $_POST['api_key'];
+		$user_type 		= $_POST["user_type"];
+		$user_altercode = $_POST["user_altercode"];
+		$user_password	= $_POST["user_password"];
+		$chemist_id 	= $_POST["chemist_id"];
+		$salesman_id 	= "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		
+		$device_id	= $_POST['device_id'];
+		$review 	= $_POST['review'];
+		if(!empty($api_key))
+		{
+			$this->db->query("update tbl_android_device_id set review='$review' where device_id='$device_id'");
+		}
+
+		$status = 1;
+		$status_message = "Thank You To Sending Your Rating & Review";
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+			'status_message'=>$status_message,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo "[".json_encode($response)."]";
+	}
 }

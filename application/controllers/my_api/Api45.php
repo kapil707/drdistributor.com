@@ -1,6 +1,27 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Api45 extends CI_Controller {	
+
+	public function get_create_new()
+	{
+		$api_key		= $_POST['api_key'];
+		$chemist_code 	= $_POST["chemist_code"];
+		$phone_number 	= $_POST["phone_number"];
+		if(!empty($api_key) && !empty($chemist_code) && !empty($phone_number))
+		{
+			$items = $this->Chemist_Model->create_new($chemist_code,$phone_number);
+		}
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
 	public function get_login_api()
 	{
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");

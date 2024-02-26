@@ -286,7 +286,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">
 					</div>
 				</div>
-				<h5 class="text-center gray_text_31 submit_div" style="margin-top:10px;">&nbsp;</h5>
+				<h5 class="text-center gray_text_31 submit_div mt-2">&nbsp;</h5>
 				<div class="text-center" style="margin-top:10px;">
 					<input type="submit" value="Create account" class="mainbutton" name="Submit" onclick="submitbtn()"
 					id="submitbtn"><input type="submit" value="Create account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">

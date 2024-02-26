@@ -1205,7 +1205,7 @@ class Api45 extends CI_Controller {
 		$id = "xx";
 		$title = "xx";
 		$message = "xx";
-		$funtype = "5";
+		$funtype = "0";
 		$itemid = "xx";
 		$division = "xx";
 		$company_full_name = "xx";

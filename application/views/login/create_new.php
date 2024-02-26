@@ -271,16 +271,16 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="row" style="margin-top:30px;">
 			<div class="col-md-3">
 			</div>
-			<div class="col-md-6 login_new_box m-2">
-				<h4 class="text-center">Chemist code</h4>
+			<div class="col-md-6 login_new_box">
+				<h4 class="mt-2">Enter chemist code</h4>
 				<div class="form-row">
 					<div class="form-group col">
 						<img src="<?= base_url() ?>img_v51/my_account1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Chemist code(e.g. A125)" required="" name="user_name1" id="user_name1" title="Chemist code(e.g. A125)">
 					</div>
 				</div>
-				<h4 class="text-center">Mobile number</h4>
-				<div class="form-row" style="margin-top:15px;">
+				<h4 class="mt-2">Enter mobile number</h4>
+				<div class="form-row">
 					<div class="form-group col">
 						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">

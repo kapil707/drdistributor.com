@@ -162,4 +162,74 @@ class ChemistLoginModel extends CI_Model
 		}
 		return "1";
 	}
+
+	public function get_create_new_api($chemist_code,$phone_number)
+	{		
+		$status = "0";
+		$query = $this->db->query("select * from tbl_acm where altercode='$chemist_code' and slcd='CL' limit 1")->row();
+		if (empty($query->id))
+		{
+			$status_message = "User account doesn't exist.";
+		}
+		else
+		{
+			$code = $query->code;
+			$row1 = $this->db->query("select * from tbl_acm_other where code='$code'")->row();
+			if(empty($row1->id))
+			{
+				$new_request = 1;
+				$dt = array(
+					'code'=>$code,
+					'new_request'=>$new_request,
+					'order_limit'=>"3000",
+					'website_limit'=>"3000",
+					'android_limit'=>"3000",
+					'user_phone'=>$phone_number,
+					'download_status'=>0,
+				);
+				$this->Scheme_Model->insert_fun("tbl_acm_other",$dt);
+				$subject = "Request for New Account";
+				$message = "Request for New Account <br><br>Chemist Code : $chemist_code <br><br>Phone Number : $phone_number";
+				$email_function = "new_account";
+				$mail_server = "";		
+				$user_email_id = "vipul@drdindia.com";
+				$date = date('Y-m-d');
+				$time = date("H:i",time());
+				$dt = array(
+					'user_email_id'=>$user_email_id,
+					'subject'=>$subject,
+					'message'=>$message,
+					'email_function'=>$email_function,
+					'mail_server'=>$mail_server,
+					'date'=>$date,
+					'time'=>$time,
+				);
+				$x = $this->Scheme_Model->insert_fun("tbl_email_send",$dt);
+				if($x){
+					$status = "1";
+					$status_message = "Thank you for submitting your request we will get in touch with you shortly.";
+				}
+				/******************group message******************************/
+				$group1_message 	= "Request for New Account<br><br>Chemist Code : $chemist_code<br><br>Phone Number : $phone_number";
+				$whatsapp_group1 = $this->Scheme_Model->get_website_data("whatsapp_group1");
+				$this->Message_Model->insert_whatsapp_group_message($whatsapp_group1,$group1_message);
+				$group2_message 	= $group1_message;
+				$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
+				$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
+				/**********************************************************/
+			}
+			else{
+				$status_message = "User account already exists.";
+			}
+		}
+
+		$dt = array(
+			'status' => $status,
+			'status_message' => $status_message,
+		);
+		$jsonArray[] = $dt;
+
+		$return["items"] = $jsonArray;
+		return $return;	
+	}
 }

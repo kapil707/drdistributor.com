@@ -4,12 +4,14 @@ class Api45 extends CI_Controller {
 
 	public function get_create_new_api()
 	{
+		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+
 		$api_key		= $_POST['api_key'];
 		$chemist_code 	= $_POST["chemist_code"];
 		$phone_number 	= $_POST["phone_number"];
 		if(!empty($api_key) && !empty($chemist_code) && !empty($phone_number))
 		{
-			$items = $this->Chemist_Model->create_new($chemist_code,$phone_number);
+			$items = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
 		}
 
 		$response = array(

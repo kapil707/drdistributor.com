@@ -46,6 +46,26 @@ class Chemist_login extends CI_Controller {
 		redirect(base_url());
 	}
 
+	public function get_create_new_api(){
+		//error_reporting(0);
+		$chemist_code 	= $_POST["chemist_code"];
+		$phone_number	= $_POST["phone_number"];
+
+		if(!empty($user_name1) && !empty($password1)){
+			$result = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
+			$items = $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
 	public function chemist_login_api(){
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];

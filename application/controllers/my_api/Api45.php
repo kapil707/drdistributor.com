@@ -11,7 +11,8 @@ class Api45 extends CI_Controller {
 		$phone_number 	= $_POST["phone_number"];
 		if(!empty($api_key) && !empty($chemist_code) && !empty($phone_number))
 		{
-			$items = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
+			$return = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
+			$items = $return["items"];
 		}
 
 		$response = array(

@@ -1202,7 +1202,7 @@ class Api45 extends CI_Controller {
 		//error_reporting(0);
 		define('API_ACCESS_KEY', 'AAAAdZCD4YU:APA91bFjmo0O-bWCz2ESy0EuG9lz0gjqhAatkakhxJmxK1XdNGEusI5s_vy7v7wT5TeDsjcQH0ZVooDiDEtOU64oTLZpfXqA8EOmGoPBpOCgsZnIZkoOLVgErCQ68i5mGL9T6jnzF7lO');
 
-		$id = "xx";
+		$id = "1012";
 		$title = "xx";
 		$message = "xx";
 		$funtype = "0";

@@ -207,11 +207,8 @@ class Api45 extends CI_Controller {
 			$user_cart_items_other = $result["items_other"];
 		}
 
-		$rating_bar_page = 1;
-
-		$response = array(
-			'success' => "1",
-			'message' => 'Data load successfully',
+		$jsonArray = array();
+		$dt = array(
 			'logout' => $logout,
 			'versioncode' => $versioncode,
 			'force_update' => $force_update,
@@ -225,6 +222,14 @@ class Api45 extends CI_Controller {
 			'rating_bar_page' => $rating_bar_page,
 			'user_cart_items' => $user_cart_items,
 			'user_cart_items_other' => $user_cart_items_other,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
 		);
 
 		// Send JSON response

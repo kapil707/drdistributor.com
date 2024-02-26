@@ -1212,7 +1212,7 @@ class Api45 extends CI_Controller {
 		$image = "xx";
 
 		
-		$token = $_POST["token"];
+		echo $token = $_POST["token"];
 
 		//$token = "emzHfsBsC6g:APA91bHOcEPNpdHVJJyYuZzSjG8tJiD86qJQl0zqu3oanJvmBDMlQo9xg_3x-2rQ3yCQpDvOW3dAA0Z8IgNvWzs14kJIiyEKrMQ4UEMbunAGID6z3BKcWPl09jUigZGPZa6AxbA7OpoB";
 		$data = array

@@ -1196,4 +1196,58 @@ class Api45 extends CI_Controller {
 		header('Content-Type: application/json');
 		echo "[".json_encode($response)."]";
 	}
+
+	function test_notification()
+	{
+		//error_reporting(0);
+		define('API_ACCESS_KEY', 'AAAAdZCD4YU:APA91bFjmo0O-bWCz2ESy0EuG9lz0gjqhAatkakhxJmxK1XdNGEusI5s_vy7v7wT5TeDsjcQH0ZVooDiDEtOU64oTLZpfXqA8EOmGoPBpOCgsZnIZkoOLVgErCQ68i5mGL9T6jnzF7lO');
+
+		$id = "xx";
+		$title = "xx";
+		$message = "xx";
+		$funtype = "5";
+		$itemid = "xx";
+		$division = "xx";
+		$company_full_name = "xx";
+		$image = "xx";
+
+		
+		$token = "dTCRJOxd3ms:APA91bHhdG9Ecr8uCqDESHZbejT1CxJKHQAZtvChaV4AP0a2pO0MLP_OPjMK5hEEIpiQ_dDMgajwzcsKLVb34qzgG7hZdcZOCF_P_FImJQ6PxgE4IpwdcNetDDCwy1-OPE671W-eD0BQ";
+		$data = array
+		(
+			'id'=>$id,
+			'title'=>$title,
+			'message'=>$message,
+			'funtype'=>$funtype,
+			'itemid'=>$itemid,
+			'division'=>$division,
+			'company_full_name'=>$company_full_name,
+			'image'=>$image,
+		);
+		//print_r($data);
+			
+		$fields = array
+		(
+			'to'=>$token,
+			'data'=>$data,
+			"priority"=>"high",
+		);
+		$headers = array
+		(
+			'Authorization: key=' . API_ACCESS_KEY,
+			'Content-Type: application/json'
+		);
+		#Send Reponse To FireBase Server	
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL,'https://fcm.googleapis.com/fcm/send');
+		curl_setopt($ch,CURLOPT_POST,true);
+		curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+		curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($fields));
+		$respose = curl_exec($ch);
+		
+		echo $respose;
+		curl_close($ch);
+	}
 }

@@ -112,6 +112,19 @@ class Home extends CI_Controller {
 		$category_id 	= $_POST["category_id"];
 		$page_type 		= $_POST["page_type"];
 
+		$next_id		= $category_id + 1;
+		$next_function	= $page_type;
+
+		if($next_id==3 && $page_type=="divisioncategory"){
+			$next_id = 2;
+			$next_function	= "slider";
+		}
+
+		if($next_id==11 && $page_type=="itemcategory"){
+			$next_id = 2;
+			$next_function	= "divisioncategory";
+		}
+
 		if($category_id=="1" && $page_type=="invoice"){
 			if(!empty($user_type) && !empty($user_altercode)) {
 

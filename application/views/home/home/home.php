@@ -372,7 +372,9 @@ var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
 var local_myid = '';
 var query_work = 0;
-function home_page_load(myid,page_type='')
+var next_id = "";
+var next_function = "";
+function home_page_load(category_id,page_type)
 {
 	$('.myloading').show();
 	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
@@ -383,68 +385,60 @@ function home_page_load(myid,page_type='')
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {myid:myid,page_type:page_type} ,
+		data       :  {category_id:category_id,page_type:page_type} ,
 		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
 			$('.myloading').hide();
 			if(data!="")
 			{
-				if(page_type==''){
-					local_myid = parseInt(myid) + 1;
-				}
-				console.log(local_myid)
 				query_work = 0;
 				console.log("query_work:"+query_work)
 				$('.myloading').hide();
 				$.each(data.get_result, function(i,row){
 					//alert(row.myid);
-					$(".main_loading_css").hide();
-					var category_id = row.result_category_id;
-					var result_row = row.result_row;
-					var title = row.result_title;
+					$(".main_loading_css").hide();			
+					items = row.items;
+					title = row.title;
 
-					if(row.result=="invoice") {
-						dt_result = home_page_invoice(result_row,result_row,title);
+					next_id = row.next_id;
+					next_function = row.next_function;
+
+					if(page_type=="invoice") {
+						dt_result = home_page_invoice(items,title);
 						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 
-					if(row.result=="notification") {
-						dt_result = home_page_notification(result_row,result_row,title);
+					if(page_type=="notification") {
+						dt_result = home_page_notification(items,title);
 						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 					
-					if(row.result=="menu") {
-						dt_result = home_page_menu(result_row);
+					if(page_type=="menu") {
+						dt_result = home_page_menu(items,title);
 						$(".home_page_menu_data").html(dt_result);
 					}
-					if(row.result=="slider" && (row.result_category_id=="1" || row.result_category_id=="2")) {
-						dt_result = home_page_slider(category_id,result_row);
-						if(row.result_category_id=="1"){
-							$(".home_page_slider1_data").html(dt_result);
-						}
-						if(row.result_category_id=="2"){
-							$(".home_page_all_data").append(dt_result);
-						}
-						
+					
+					if(page_type=="slider" && (category_id=="1" || category_id=="2")) {
+						dt_result = home_page_slider(category_id,items);
 						if(category_id=="1"){
+							$(".home_page_slider1_data").html(dt_result);
 							jssor_1_slider_init();
 						}
 						if(category_id=="2"){
+							$(".home_page_all_data").append(dt_result);
 							jssor_2_slider_init();
 						}
 					}
-					if(row.result=="divisioncategory") {
-						dt_result = home_page_divisioncategory(category_id,result_row,title);
+					if(result=="divisioncategory") {
+						dt_result = home_page_divisioncategory(category_id,items,title);
 						$(".home_page_all_data").append(dt_result);
-						//alert(category_id)
 						home_page_owl_load(category_id);
 					}
 					
-					if(row.result=="itemcategory") {
-						dt_result = home_page_itemcategory(category_id,result_row,title);
+					if(result=="itemcategory") {
+						dt_result = home_page_itemcategory(category_id,items,title);
 						$(".home_page_all_data").append(dt_result);
-						//alert(category_id)
 						home_page_owl_load(category_id);
 					}
 				});
@@ -455,15 +449,15 @@ function home_page_load(myid,page_type='')
 }
 
 $(document).ready(function() {
-	home_page_load(1);
-	home_page_load(2);
-	home_page_load(99,"invoice");
-	home_page_load(99,"notification");
+	home_page_load(1,"slider");
+	home_page_load(2,"menu");
+	home_page_load(1,"divisioncategory");
+	home_page_load(1,"invoice");
+	home_page_load(1,"notification");
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){
-			home_page_load(local_myid);
-			console.log(local_myid)
+			home_page_load(next_id,next_function);
 		}
     });
 });

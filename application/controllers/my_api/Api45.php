@@ -349,6 +349,7 @@ class Api45 extends CI_Controller {
             'message' => 'Data load successfully',
             'items' => $items,
 			'title' => $title,
+			'category_id' => $category_id,
 			'next_id' => $next_id,
 			'next_function' => $next_function,
         );

@@ -115,12 +115,9 @@ class Home extends CI_Controller {
 			if(!empty($user_type) && !empty($user_altercode)) {
 
 				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$result_row    = $result["items"];
-				$result_title  = 'invoice';
-
-				$result = 'invoice';
-				$result_id = '99';
-				$category_id = '99';
+				$items    = $result["items"];
+				$title  = 'invoice';
+				$category_id = '1';
 			}
 		}
 
@@ -128,12 +125,9 @@ class Home extends CI_Controller {
 			if(!empty($user_type) && !empty($user_altercode)) {
 
 				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$result_row    = $result["items"];
-				$result_title  = 'notification';
-
-				$result = 'notification';
-				$result_id = '99';
-				$category_id = '99';
+				$items    = $result["items"];
+				$title  = 'notification';
+				$category_id = '1';
 			}
 		}
 		
@@ -142,45 +136,46 @@ class Home extends CI_Controller {
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			
-			$result_row = "[]";
 			if($row->type=="slider"){
 			    $result = $this->SliderModel->slider($row->category_id);
-		        $result_row = $result["items"];
-				$result_title  = 'slider';
+		        $items = $result["items"];
+				$title  = 'slider';
 			}
 			
 			if($row->type=="menu"){
 				$result = $this->HomeMenuModel->get_menu_api();
-		        $result_row = $result["items"];
-				$result_title  = 'menu';				
+		        $items = $result["items"];
+				$title  = 'menu';				
 			}
 			
 			if($row->type=="divisioncategory"){
 			    $result = $this->MedicineDivisionModel->medicine_division($category_id);
 				
-				$result_title  = $result["title"];
-		        $result_row = $result["items"];
+				$title  = $result["title"];
+		        $items = $result["items"];
 			}
 			
 			if($row->type=="itemcategory"){
 				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
-				$result_title  = $result["title"];
-				$result_row = $result["items"];
+				$title  = $result["title"];
+				$items = $result["items"];
 			}
+			$page_type = $row->type;
+		}
 
-			$result = $row->type;
-			$result_id = $row->id;
+		if(($page_type=="top_menu" || $page_type=="slider" || $page_type=="divisioncategory" || $page_type=="invoice" || $page_type=="notification") && $category_id==1){
+			$next_id = 1;
+			$next_function = "itemcategory";
 		}
 
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
-			'result' => $result,
-			'result_id' => $result_id,
-			'result_category_id' => $category_id,
-			'result_title' => $result_title,
-			'result_row' => $result_row,
-			'myid' => $myid,
+			'items' => $items,
+			'title' => $title,
+			'category_id' => $category_id,
+			'next_id' => $next_id,
+			'next_function' => $next_function,
 		);
 		
 		/****************************************************** */

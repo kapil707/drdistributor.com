@@ -287,6 +287,14 @@ class Api45 extends CI_Controller {
 			$category_id	= $_POST["category_id"];
 			$page_type		= $_POST["page_type"];
 
+			$next_id		= $category_id + 1;
+			$next_function	= $page_type;
+			
+			if($next_id==11 && $page_type=="itemcategory"){
+				$next_id = 2;
+				$next_function	= "divisioncategory";
+			}
+
 			$items = $title = "";
 
 			if($page_type=="top_menu"){
@@ -331,6 +339,8 @@ class Api45 extends CI_Controller {
             'message' => 'Data load successfully',
             'items' => $items,
 			'title' => $title,
+			'next_id' => $next_id,
+			'next_function' => $next_function,
         );
 
         // Send JSON response

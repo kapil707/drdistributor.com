@@ -987,7 +987,7 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
-	public function update_user_image_upload()
+	public function update_user_image_upload_api()
 	{
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];

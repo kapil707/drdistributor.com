@@ -185,12 +185,12 @@ class Home extends CI_Controller {
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
-			'items' => $items,
 			'title' => $title,
 			'category_id' => $category_id,
 			'page_type' => $page_type,
 			'next_id' => $next_id,
 			'next_function' => $next_function,
+			'items' => $items,
 		);
 		
 		/****************************************************** */

@@ -1035,14 +1035,15 @@ class Api45 extends CI_Controller {
 
 				$this->db->query("update tbl_acm_other set image='$image' where code='$row->code'");*/
 			}
+			$status = 1;
 			$status_message = "Uploaded successfully.";
 		} else {
 			// Invalid file or no file uploaded
+
+			$status = 0;
 			$status_message = "Invalid file or no file uploaded.";
 		}
 		
-		$status = 1;
-		$status_message = "Uploaded successfully";
 
 		$jsonArray = array();
 		$dt = array(

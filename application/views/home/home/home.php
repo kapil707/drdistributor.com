@@ -286,6 +286,38 @@ function home_page_itemcategory(category_id,result_row,title){
 	return myval;
 }
 
+function home_page_invoice(category_id,result_row,title){
+	var mydata = '';
+	$.each(result_row, function(i,item){
+		if (item){
+			item_id	 		= item.item_id;
+			item_title 		= item.item_title;
+			item_total 		= item.item_message;
+			item_date_time 	= item.item_date_time;
+			out_for_delivery= item.out_for_delivery;
+			delete_status	= item.delete_status;
+			download_url	= item.download_url;
+			item_image 		= item.item_image;
+
+			if(out_for_delivery!="")
+			{
+				out_for_delivery = ' | Out For Delivery Date Time : ' + out_for_delivery;
+			}
+			delete_status_div = "";
+			if(delete_status==1)
+			{
+				delete_status_div = '<div class="medicine_cart_item_datetime">Some items have been deleted / modified in this order</div>';
+			}
+			
+			mydata+='<div class="main_theme_li_bg"><div class="medicine_my_page_div1"><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><span class="medicine_cart_item_name">'+item_title+'</span></a><span style="float: right;color: red;"><a href="'+download_url+'" style="color: red;">Download Invoice</a></span></div><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
+		}
+	});
+	
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">'+mydata+'</div></div></div>';
+	
+	return myval;
+}
+
 function home_page_owl_load(category_id){
 	//alert(category_id)
     $(".owl-carousel"+category_id).owlCarousel({
@@ -349,7 +381,12 @@ function home_page_load(myid,page_type='')
 					var category_id = row.result_category_id;
 					var result_row = row.result_row;
 					var title = row.result_title;
-					alert(title)
+
+					if(row.result=="invoice") {
+						dt_result = home_page_invoice(result_row);
+						$(".home_page_all_data").append(dt_result);
+					}
+					
 					if(row.result=="menu") {
 						dt_result = home_page_menu(result_row);
 						$(".home_page_all_data").append(dt_result);

@@ -114,7 +114,7 @@ class Home extends CI_Controller {
 		if($myid=="99" && $page_type=="invoice"){
 			if(!empty($user_type) && !empty($user_altercode)) {
 
-				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0");
+				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
 				$result_row    = $result["items"];
 				$result_title  = 'invoice';
 
@@ -127,7 +127,7 @@ class Home extends CI_Controller {
 		if($myid=="99" && $page_type=="notification"){
 			if(!empty($user_type) && !empty($user_altercode)) {
 
-				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0");
+				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
 				$result_row    = $result["items"];
 				$result_title  = 'notification';
 

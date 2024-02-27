@@ -67,38 +67,30 @@ class MyInvoiceModel extends CI_Model
 	}
 	
 	/********************************************************/
-
-	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="")
-	{
-		$jsonArray = array();
-
-		/************************************** */
-		$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
-		$user_image = base_url()."user_profile/$row1->image";
-		if(empty($row1->image))
+	public function get_chemist_photo($user_altercode){
+		$row = $this->db->query("SELECT tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+		$user_image = base_url()."user_profile/$row->image";
+		if(empty($row->image))
 		{
 			$user_image = base_url()."img_v51/logo.png";
 		}
+		return $user_image;
+	}
+	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12") {
+	{
+		$jsonArray = array();
+
+		$user_image = $this->get_chemist_photo($user_altercode);
+		
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
 		/************************************** */
-
-		if($user_type=="sales")
-		{
-			$order_by = array('id','desc');
-			$get_limit = array('12',$get_record);
-			$where = array('chemist_id'=>$user_altercode);
-			$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
-			$query = $query->result();
-		}
-		else
-		{
-			$order_by = array('id','desc');
-			$get_limit = array('12',$get_record);
-			$where = array('chemist_id'=>$user_altercode);
-			$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
-			$query = $query->result();
-		}
+		$order_by = array('id','desc');
+		//$get_limit = array('12',$get_record);
+		$get_limit = array($limit,$get_record);
+		$where = array('chemist_id'=>$user_altercode);
+		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
+		$query = $query->result();
 		foreach($query as $row)
 		{
 			$get_record++;

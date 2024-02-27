@@ -16,7 +16,7 @@ class MyNotificationModel extends CI_Model
 		return $user_image;
 	}
 	
-	public function get_my_notification_api($user_type="",$user_altercode="",$salesman_id="",$get_record="") {
+	public function get_my_notification_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12") {
 		
 		$user_image = $this->get_chemist_photo($user_altercode);
 		
@@ -25,7 +25,7 @@ class MyNotificationModel extends CI_Model
 		$this->db->where('chemist_id',$user_altercode);
 		$this->db->where('device_id','default');
 		$this->db->order_by('id','desc');
-		$this->db->limit(12,$get_record);
+		$this->db->limit($limit,$get_record);
 		$query = $this->db->get("tbl_android_notification")->result();
 		foreach($query as $row)
 		{

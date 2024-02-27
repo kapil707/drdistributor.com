@@ -177,7 +177,7 @@ class Home extends CI_Controller {
 			$page_type = $row->type;
 		}
 
-		if(($page_type=="top_menu" || $page_type=="slider" || $page_type=="divisioncategory" || $page_type=="invoice" || $page_type=="notification") && $category_id==1){
+		if(($page_type=="top_menu" || $page_type=="menu" || $page_type=="slider" || $page_type=="divisioncategory" || $page_type=="invoice" || $page_type=="notification") && $category_id==1){
 			$next_id = 1;
 			$next_function = "itemcategory";
 		}

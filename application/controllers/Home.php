@@ -115,6 +115,9 @@ class Home extends CI_Controller {
 				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0");
 				$result_row    = $result["items"];
 				$result_title  = 'invoice';
+
+				$result = 'invoice';
+				$result_id = '99';
 			}
 		}
 		
@@ -148,13 +151,16 @@ class Home extends CI_Controller {
 				$result_title  = $result["title"];
 				$result_row = $result["items"];
 			}
+
+			$result = $row->type;
+			$result_id = $row->id;
 		}
 
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
-			'result' => $row->type,
-			'result_id' => $row->id,
+			'result' => $result,
+			'result_id' => $result_id,
 			'result_category_id' => $category_id,
 			'result_title' => $result_title,
 			'result_row' => $result_row,

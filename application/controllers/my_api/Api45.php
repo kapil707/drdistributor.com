@@ -313,7 +313,7 @@ class Api45 extends CI_Controller {
 			}
 			if($page_type=="invoice"){
 				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$title  = $result["title"];
+				$title  = "My invoice";
 				$items = $result["items"];
 			}
 		}

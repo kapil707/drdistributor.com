@@ -368,7 +368,7 @@ function home_page_load(myid,page_type='')
 			$('.myloading').hide();
 			if(data!="")
 			{
-				if(page_type!=''){
+				if(page_type==''){
 					local_myid = parseInt(myid) + 1;
 				}
 				console.log(local_myid)

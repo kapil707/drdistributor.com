@@ -266,6 +266,7 @@ class Api45 extends CI_Controller {
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		if(!empty($_POST)){
 			$api_key 		= $_POST["api_key"];
@@ -307,6 +308,11 @@ class Api45 extends CI_Controller {
 
 			if($page_type=="itemcategory"){
 				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+				$title  = $result["title"];
+				$items = $result["items"];
+			}
+			if($page_type=="invoice"){
+				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
 				$title  = $result["title"];
 				$items = $result["items"];
 			}

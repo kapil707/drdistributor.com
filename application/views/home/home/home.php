@@ -313,7 +313,7 @@ function home_page_invoice(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title">'+title+'</div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title"><a href="<?= base_url() ?>my_invoice" title="My invoice">'+title+'</a></div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
 	
 	return myval;
 }
@@ -332,7 +332,7 @@ function home_page_notification(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title">'+title+'</div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title"><a href="<?= base_url() ?>my_notification" title="My notification">'+title+'</div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
 	
 	return myval;
 }

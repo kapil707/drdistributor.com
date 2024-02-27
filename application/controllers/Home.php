@@ -119,6 +119,7 @@ class Home extends CI_Controller {
 
 				$result = 'invoice';
 				$result_id = '99';
+				$category_id = '99';
 			}
 		}
 		

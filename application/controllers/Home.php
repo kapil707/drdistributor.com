@@ -109,9 +109,10 @@ class Home extends CI_Controller {
 			}
 		}
 		
-		$myid = $nid = $_REQUEST["myid"];
-		$page_type = $_POST["page_type"];
-		if($myid=="99" && $page_type=="invoice"){
+		$category_id 	= $_POST["category_id"];
+		$page_type 		= $_POST["page_type"];
+
+		if($category_id=="1" && $page_type=="invoice"){
 			if(!empty($user_type) && !empty($user_altercode)) {
 
 				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
@@ -121,7 +122,7 @@ class Home extends CI_Controller {
 			}
 		}
 
-		if($myid=="99" && $page_type=="notification"){
+		if($category_id=="1" && $page_type=="notification"){
 			if(!empty($user_type) && !empty($user_altercode)) {
 
 				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
@@ -132,7 +133,7 @@ class Home extends CI_Controller {
 		}
 		
 		$items = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and id='$nid' order by seq_id asc")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and id='$category_id' order by seq_id asc")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			

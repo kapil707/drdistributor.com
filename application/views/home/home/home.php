@@ -162,6 +162,7 @@ window.jssor_2_slider_init = function() {
 </style>
 <div class="container-fluid maincontainercss">
 	<div class="row home_page_slider1_data"></div>
+	<div class="row home_page_divisioncategory1_data"></div>
 	<div class="row home_page_menu_data"></div>
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
@@ -432,13 +433,17 @@ function home_page_api(seq_id)
 							jssor_2_slider_init();
 						}
 					}
-					if(result=="divisioncategory") {
+					if(page_type=="divisioncategory") {
 						dt_result = home_page_divisioncategory(category_id,items,title);
-						$(".home_page_all_data").append(dt_result);
+						if(category_id=="1"){
+							$(".home_page_divisioncategory1_data").append(dt_result);
+						}else{
+							$(".home_page_all_data").append(dt_result);
+						}
 						home_page_owl_load(category_id);
 					}
 					
-					if(result=="itemcategory") {
+					if(page_type=="itemcategory") {
 						dt_result = home_page_itemcategory(category_id,items,title);
 						$(".home_page_all_data").append(dt_result);
 						home_page_owl_load(category_id);
@@ -465,7 +470,7 @@ $(document).ready(function() {
 });
 
 function load_more(){
-	home_page_load(local_myid);
+	home_page_api(next_id);
 }
 
 function download_invoice(url){

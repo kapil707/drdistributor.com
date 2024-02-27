@@ -110,43 +110,9 @@ class Home extends CI_Controller {
 		}
 		
 		$category_id 	= $_POST["category_id"];
-		$page_type 		= $_POST["page_type"];
-
-		$next_id		= $category_id + 1;
-		$next_function	= $page_type;
-
-		if($next_id==3 && $page_type=="divisioncategory"){
-			$next_id = 2;
-			$next_function	= "slider";
-		}
-
-		if($next_id==11 && $page_type=="itemcategory"){
-			$next_id = 2;
-			$next_function	= "divisioncategory";
-		}
-
-		if($category_id=="1" && $page_type=="invoice"){
-			if(!empty($user_type) && !empty($user_altercode)) {
-
-				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$items    = $result["items"];
-				$title  = 'invoice';
-				$category_id = '1';
-			}
-		}
-
-		if($category_id=="1" && $page_type=="notification"){
-			if(!empty($user_type) && !empty($user_altercode)) {
-
-				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$items    = $result["items"];
-				$title  = 'notification';
-				$category_id = '1';
-			}
-		}
 		
 		$items = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and category_id='$category_id' order by seq_id asc")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$category_id' ")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			
@@ -161,6 +127,20 @@ class Home extends CI_Controller {
 		        $items = $result["items"];
 				$title  = 'menu';				
 			}
+
+			if(!empty($user_type) && !empty($user_altercode) && $row->type=="notification") {
+
+				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
+				$items    = $result["items"];
+				$title  = 'notification';
+			}
+
+			if(!empty($user_type) && !empty($user_altercode) && $row->type=="invoice") {
+
+				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
+				$items    = $result["items"];
+				$title  = 'invoice';
+			}
 			
 			if($row->type=="divisioncategory"){
 			    $result = $this->MedicineDivisionModel->medicine_division($category_id);
@@ -174,12 +154,14 @@ class Home extends CI_Controller {
 				$title  = $result["title"];
 				$items = $result["items"];
 			}
+
 			$page_type = $row->type;
+			$seq_id = $row->type;
+			$next_id = $seq_id + 1;
 		}
 
-		if(($page_type=="top_menu" || $page_type=="menu" || $page_type=="slider" || $page_type=="divisioncategory" || $page_type=="invoice" || $page_type=="notification") && $category_id==1){
-			$next_id = 1;
-			$next_function = "itemcategory";
+		if($seq_id<=5){
+			$next_id = 6;
 		}
 
 		$response = array(
@@ -189,7 +171,6 @@ class Home extends CI_Controller {
 			'category_id' => $category_id,
 			'page_type' => $page_type,
 			'next_id' => $next_id,
-			'next_function' => $next_function,
 			'items' => $items,
 		);
 		

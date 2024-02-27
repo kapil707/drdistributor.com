@@ -375,7 +375,7 @@ var local_myid = '';
 var query_work = 0;
 var next_id = "";
 var next_function = "";
-function home_page_api(category_id,page_type)
+function home_page_api(category_id)
 {
 	$('.myloading').show();
 	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
@@ -386,7 +386,7 @@ function home_page_api(category_id,page_type)
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {category_id:category_id,page_type:page_type} ,
+		data       :  {category_id:category_id} ,
 		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
@@ -406,7 +406,6 @@ function home_page_api(category_id,page_type)
 					page_type = row.page_type;
 
 					next_id = row.next_id;
-					next_function = row.next_function;
 
 					if(page_type=="invoice") {
 						dt_result = home_page_invoice(category_id,items,title);
@@ -453,15 +452,15 @@ function home_page_api(category_id,page_type)
 }
 
 $(document).ready(function() {
-	home_page_api(1,"slider");
-	home_page_api(1,"menu");
-	home_page_api(1,"divisioncategory");
-	home_page_api(1,"invoice");
-	home_page_api(1,"notification");
+	home_page_api(1);
+	home_page_api(2);
+	home_page_api(3);
+	home_page_api(4);
+	home_page_api(5);
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){
-			home_page_api(next_id,next_function);
+			home_page_api(next_id);
 		}
     });
 });

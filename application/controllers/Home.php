@@ -107,29 +107,16 @@ class Home extends CI_Controller {
 			}
 		}
 		
-		/*
-		$my_notification = "";
-		if($user_type!="" && $user_altercode!="" && $get_record!="")
-		{
-			$result = $this->Chemist_Model->my_notification_json_50($user_type,$user_altercode,$salesman_id,$get_record);
-
-			$my_notification  = $result["items"];
-		}
-		$my_notification = '{"my_notification":['.$my_notification.']}';
-
-		/****************************************************** */
-		/*
-		$my_invoice = "";
-		if($user_type!="" && $user_altercode!="" && $get_record!="")
-		{
-			$result = $this->Chemist_Model->my_invoice_json_50($user_type,$user_altercode,$salesman_id,$get_record);
-
-			$my_invoice  = $result["items"];
-		}
-		$my_invoice = '{"my_invoice":['.$my_invoice.']}';
-		*/
-		
 		$myid = $nid = $_REQUEST["myid"];
+		$page_type = $_POST["page_type"];
+		if($myid=="99" && $page_type=="invoice"){
+			if(!empty($user_type) && !empty($user_altercode)) {
+
+				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0");
+				$result_row    = $result["items"];
+				$result_title  = 'invoice';
+			}
+		}
 		
 		$items = "";
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 and id='$nid' order by seq_id asc")->result();
@@ -161,18 +148,18 @@ class Home extends CI_Controller {
 				$result_title  = $result["title"];
 				$result_row = $result["items"];
 			}
-
-			$response = array(
-				'success' => "1",
-				'message' => 'Data load successfully',
-				'result' => $row->type,
-				'result_id' => $row->id,
-				'result_category_id' => $category_id,
-				'result_title' => $result_title,
-				'result_row' => $result_row,
-				'myid' => $myid,
-			);
 		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'result' => $row->type,
+			'result_id' => $row->id,
+			'result_category_id' => $category_id,
+			'result_title' => $result_title,
+			'result_row' => $result_row,
+			'myid' => $myid,
+		);
 		
 		/****************************************************** */
 		//$response = '{"get_result":['.$response.']}'; 

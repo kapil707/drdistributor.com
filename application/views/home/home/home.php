@@ -318,7 +318,7 @@ var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
 var local_myid = '';
 var query_work = 0;
-function home_page_load(myid)
+function home_page_load(myid,page_type='')
 {
 	$('.myloading').show();
 	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
@@ -329,14 +329,16 @@ function home_page_load(myid)
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {myid:myid} ,
+		data       :  {myid:myid,page_type:page_type} ,
 		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
 			$('.myloading').hide();
 			if(data!="")
 			{
-				local_myid = parseInt(myid) + 1;
+				if(page_type!=''){
+					local_myid = parseInt(myid) + 1;
+				}
 				console.log(local_myid)
 				query_work = 0;
 				console.log("query_work:"+query_work)
@@ -347,6 +349,7 @@ function home_page_load(myid)
 					var category_id = row.result_category_id;
 					var result_row = row.result_row;
 					var title = row.result_title;
+					alert(title)
 					if(row.result=="menu") {
 						dt_result = home_page_menu(result_row);
 						$(".home_page_all_data").append(dt_result);
@@ -391,6 +394,9 @@ $(document).ready(function() {
 	setTimeout(function() {
 		home_page_load(3);
 	}, 1500);	
+	setTimeout(function() {
+		home_page_load(99,"invoice");
+	}, 1500);
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){

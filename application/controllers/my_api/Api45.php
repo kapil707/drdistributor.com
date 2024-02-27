@@ -289,7 +289,12 @@ class Api45 extends CI_Controller {
 
 			$next_id		= $category_id + 1;
 			$next_function	= $page_type;
-			
+
+			if($next_id==3 && $page_type=="divisioncategory"){
+				$next_id = 2;
+				$next_function	= "divisioncategory";
+			}
+
 			if($next_id==11 && $page_type=="itemcategory"){
 				$next_id = 2;
 				$next_function	= "divisioncategory";

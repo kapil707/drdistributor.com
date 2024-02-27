@@ -109,10 +109,10 @@ class Home extends CI_Controller {
 			}
 		}
 		
-		$category_id 	= $_POST["category_id"];
+		$seq_id = $_POST["seq_id"];
 		
 		$items = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$category_id' ")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$seq_id' ")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			
@@ -156,11 +156,10 @@ class Home extends CI_Controller {
 			}
 
 			$page_type = $row->type;
-			$seq_id = $row->seq_id;
-			$next_id = $seq_id + 1;
+			$next_id = $row->seq_id + 1;
 		}
 
-		if($seq_id<=5){
+		if($next_id<=5){
 			$next_id = 6;
 		}
 

@@ -374,8 +374,7 @@ var my_invoice_no_record_found = 0;
 var local_myid = '';
 var query_work = 0;
 var next_id = "";
-var next_function = "";
-function home_page_api(category_id)
+function home_page_api(seq_id)
 {
 	$('.myloading').show();
 	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
@@ -386,7 +385,7 @@ function home_page_api(category_id)
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {category_id:category_id} ,
+		data       :  {seq_id:seq_id} ,
 		url        : "<?php echo base_url(); ?>home/home_page_api",
 		cache	   : true,
 		success : function(data){
@@ -422,7 +421,7 @@ function home_page_api(category_id)
 						$(".home_page_menu_data").html(dt_result);
 					}
 					
-					if(page_type=="slider" && (category_id=="1" || category_id=="2")) {
+					if(page_type=="slider") {
 						dt_result = home_page_slider(category_id,items,title);
 						if(category_id=="1"){
 							$(".home_page_slider1_data").html(dt_result);

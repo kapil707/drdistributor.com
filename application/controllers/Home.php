@@ -146,7 +146,7 @@ class Home extends CI_Controller {
 		}
 		
 		$items = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and id='$category_id' order by seq_id asc")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and category_id='$category_id' order by seq_id asc")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			

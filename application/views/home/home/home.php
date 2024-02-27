@@ -454,7 +454,7 @@ function home_page_api(category_id,page_type)
 
 $(document).ready(function() {
 	home_page_api(1,"slider");
-	home_page_api(2,"menu");
+	home_page_api(1,"menu");
 	home_page_api(1,"divisioncategory");
 	home_page_api(1,"invoice");
 	home_page_api(1,"notification");

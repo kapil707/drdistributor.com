@@ -161,6 +161,9 @@ window.jssor_2_slider_init = function() {
 }
 </style>
 <div class="container-fluid maincontainercss">
+	<div class="row home_page_slider1_data"></div>
+	<div class="row home_page_menu_data"></div>
+	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
 	<div class="row">
 		<div class="col-sm-12 text-center">
@@ -417,7 +420,12 @@ function home_page_load(myid,page_type='')
 					}
 					if(row.result=="slider" && (row.result_category_id=="1" || row.result_category_id=="2")) {
 						dt_result = home_page_slider(category_id,result_row);
-						$(".home_page_all_data").append(dt_result);
+						if(row.result_category_id=="1"){
+							$(".home_page_slider1_data").html(dt_result);
+						}
+						if(row.result_category_id=="2"){
+							$(".home_page_all_data").append(dt_result);
+						}
 						
 						if(category_id=="1"){
 							jssor_1_slider_init();

@@ -261,8 +261,42 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
+	public function get_top_menu_api(){
+		$items = "";
+		
+		if(!empty($_POST)){
+			$api_key 		= $_POST["api_key"];
+			$user_type 		= $_POST["user_type"];
+			$user_altercode	= $_POST["user_altercode"];
+			$user_password	= $_POST["user_password"];
+			$chemist_id		= $_POST["chemist_id"];
+
+			$salesman_id 	= "";
+			if($user_type=="sales")
+			{
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			$session_yes_no = "yes";
+			
+			$this->load->model("model-drdistributor/top_menu/TopMenuModel");
+
+			$result = $this->TopMenuModel->get_top_menu_api();
+			$items = $result["items"];
+		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data load successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+        echo "[".json_encode($response)."]";
+	}
+
 	public function home_page_api(){
-		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
@@ -334,7 +368,7 @@ class Api45 extends CI_Controller {
 				$next_id = $row->seq_id + 1;
 			}
 		}
-		
+
 		if($next_id<=5){
 			$next_id = 6;
 		}

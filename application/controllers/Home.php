@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 
 		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 	}
 	
 	public function index(){	

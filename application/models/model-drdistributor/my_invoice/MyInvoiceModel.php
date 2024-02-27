@@ -76,12 +76,11 @@ class MyInvoiceModel extends CI_Model
 		}
 		return $user_image;
 	}
-	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12") {
-	{
+	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12")	{
 		$jsonArray = array();
 
 		$user_image = $this->get_chemist_photo($user_altercode);
-		
+
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
 		/************************************** */

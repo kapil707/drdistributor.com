@@ -330,12 +330,16 @@ class Api45 extends CI_Controller {
 				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
 				$title  = "My invoice";
 				$items = $result["items"];
+				$next_id = 1;
+				$next_function = "itemcategory";
 			}
 
 			if($page_type=="notification"){
 				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
 				$title  = "My notification";
 				$items = $result["items"];
+				$next_id = 1;
+				$next_function = "itemcategory";
 			}
 		}
 

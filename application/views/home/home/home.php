@@ -447,7 +447,6 @@ function home_page_load(myid,page_type='')
 						//alert(category_id)
 						home_page_owl_load(category_id);
 					}
-
 				});
 			}
 		},
@@ -457,15 +456,9 @@ function home_page_load(myid,page_type='')
 
 $(document).ready(function() {
 	home_page_load(1);
-	setTimeout(function() {
-		home_page_load(2);
-	}, 750);
-	setTimeout(function() {
-		home_page_load(99,"invoice");
-	}, 1500);
-	setTimeout(function() {
-		home_page_load(99,"notification");
-	}, 1500);
+	home_page_load(2);
+	home_page_load(99,"invoice");
+	home_page_load(99,"notification");
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){

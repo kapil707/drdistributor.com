@@ -156,7 +156,7 @@ class Home extends CI_Controller {
 			}
 
 			$page_type = $row->type;
-			$seq_id = $row->type;
+			$seq_id = $row->seq_id;
 			$next_id = $seq_id + 1;
 		}
 

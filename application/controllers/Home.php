@@ -175,6 +175,7 @@ class Home extends CI_Controller {
 			'items' => $items,
 			'title' => $title,
 			'category_id' => $category_id,
+			'page_type' => $page_type,
 			'next_id' => $next_id,
 			'next_function' => $next_function,
 		);

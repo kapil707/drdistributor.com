@@ -180,32 +180,9 @@ window.jssor_2_slider_init = function() {
 
 
 <script>
-function home_page_menu(result_row){
+function home_page_slider(category_id,items,title){
 	var mydata = '';
-	$.each(result_row, function(i,item){
-		if (item){
-			
-			menu_id 	= item.menu_id;
-			menu_name 	= item.menu_name;
-			menu_image 	= item.menu_image;
-			menu_url 	= '<?= base_url(); ?>'+item.menu_url;
-			
-			mobile_off_cls = "";
-			if(menu_id==6){
-				mobile_off_cls = "mobile_off";
-			}
-
-			mydata+='<div class="home_menu_main_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_menu_main_btn">'+menu_name+'</div></div></a></div>';
-		}
-	});
-	
-	myval = '<div class="col-xs-12 col-sm-12 col-12" style="margin-top: 20px;margin-bottom: 20px;">'+mydata+'</div>';
-	
-	return myval;
-}
-function home_page_slider(category_id,result_row){
-	var mydata = '';
-	$.each(result_row, function(i,item){
+	$.each(items, function(i,item){
 		if (item){
 			division 	= item.division;
 			funtype		= item.funtype;
@@ -228,9 +205,33 @@ function home_page_slider(category_id,result_row){
 	return myval;
 }
 
-function home_page_divisioncategory(category_id,result_row,title){
+function home_page_menu(category_id,items,title){
 	var mydata = '';
-	$.each(result_row, function(i,item){
+	$.each(items, function(i,item){
+		if (item){
+			
+			menu_id 	= item.menu_id;
+			menu_name 	= item.menu_name;
+			menu_image 	= item.menu_image;
+			menu_url 	= '<?= base_url(); ?>'+item.menu_url;
+			
+			mobile_off_cls = "";
+			if(menu_id==6){
+				mobile_off_cls = "mobile_off";
+			}
+
+			mydata+='<div class="home_menu_main_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_menu_main_btn">'+menu_name+'</div></div></a></div>';
+		}
+	});
+	
+	myval = '<div class="col-xs-12 col-sm-12 col-12" style="margin-top: 20px;margin-bottom: 20px;">'+mydata+'</div>';
+	
+	return myval;
+}
+
+function home_page_divisioncategory(category_id,items,title){
+	var mydata = '';
+	$.each(items, function(i,item){
 		if (item){			
 			item_code 		= item.item_code;
 			item_company 	= item.item_company;
@@ -246,9 +247,9 @@ function home_page_divisioncategory(category_id,result_row,title){
 	return myval;
 }
 
-function home_page_itemcategory(category_id,result_row,title){
+function home_page_itemcategory(category_id,items,title){
 	var mydata = '';
-	$.each(result_row, function(i,item){
+	$.each(items, function(i,item){
 		if (item){			
 			item_code			= item.item_code;
 			item_image			= item.item_image;
@@ -289,9 +290,9 @@ function home_page_itemcategory(category_id,result_row,title){
 	return myval;
 }
 
-function home_page_invoice(category_id,result_row,title){
+function home_page_invoice(category_id,items,title){
 	var mydata = '';
-	$.each(result_row, function(i,item){
+	$.each(items, function(i,item){
 		if (item){
 			item_id	 		= item.item_id;
 			item_title 		= item.item_title;
@@ -321,9 +322,9 @@ function home_page_invoice(category_id,result_row,title){
 	return myval;
 }
 
-function home_page_notification(category_id,result_row,title){
+function home_page_notification(category_id,items,title){
 	var mydata = '';
-	$.each(result_row, function(i,item){
+	$.each(items, function(i,item){
 		if (item){
 			item_id 			= item.item_id;
 			item_title 			= item.item_title;
@@ -374,7 +375,7 @@ var local_myid = '';
 var query_work = 0;
 var next_id = "";
 var next_function = "";
-function home_page_load(category_id,page_type)
+function home_page_api(category_id,page_type)
 {
 	$('.myloading').show();
 	$(".home_page_my_notification").html('<div><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
@@ -397,30 +398,33 @@ function home_page_load(category_id,page_type)
 				$('.myloading').hide();
 				$.each(data.get_result, function(i,row){
 					//alert(row.myid);
-					$(".main_loading_css").hide();			
+					$(".main_loading_css").hide();	
 					items = row.items;
-					title = row.title;
+					items = row.items;
+
+					category_id = row.category_id;
+					page_type = row.page_type;
 
 					next_id = row.next_id;
 					next_function = row.next_function;
 
 					if(page_type=="invoice") {
-						dt_result = home_page_invoice(items,title);
+						dt_result = home_page_invoice(category_id,items,title);
 						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 
 					if(page_type=="notification") {
-						dt_result = home_page_notification(items,title);
+						dt_result = home_page_notification(category_id,items,title);
 						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 					
 					if(page_type=="menu") {
-						dt_result = home_page_menu(items,title);
+						dt_result = home_page_menu(category_id,items,title);
 						$(".home_page_menu_data").html(dt_result);
 					}
 					
 					if(page_type=="slider" && (category_id=="1" || category_id=="2")) {
-						dt_result = home_page_slider(category_id,items);
+						dt_result = home_page_slider(category_id,items,title);
 						if(category_id=="1"){
 							$(".home_page_slider1_data").html(dt_result);
 							jssor_1_slider_init();
@@ -449,15 +453,15 @@ function home_page_load(category_id,page_type)
 }
 
 $(document).ready(function() {
-	home_page_load(1,"slider");
-	home_page_load(2,"menu");
-	home_page_load(1,"divisioncategory");
-	home_page_load(1,"invoice");
-	home_page_load(1,"notification");
+	home_page_api(1,"slider");
+	home_page_api(2,"menu");
+	home_page_api(1,"divisioncategory");
+	home_page_api(1,"invoice");
+	home_page_api(1,"notification");
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){
-			home_page_load(next_id,next_function);
+			home_page_api(next_id,next_function);
 		}
     });
 });

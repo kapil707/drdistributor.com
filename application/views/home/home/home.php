@@ -429,11 +429,11 @@ $(document).ready(function() {
 		home_page_load(2);
 	}, 750);
 	setTimeout(function() {
-		home_page_load(3);
-	}, 1500);	
-	setTimeout(function() {
 		home_page_load(99,"invoice");
-	}, 2000);
+	}, 1500);
+	setTimeout(function() {
+		home_page_load(99,"notification");
+	}, 1500);
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){

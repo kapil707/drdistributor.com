@@ -400,7 +400,7 @@ function home_page_api(category_id)
 					//alert(row.myid);
 					$(".main_loading_css").hide();	
 					items = row.items;
-					items = row.items;
+					title = row.title;
 
 					category_id = row.category_id;
 					page_type = row.page_type;

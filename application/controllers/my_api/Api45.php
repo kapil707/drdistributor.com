@@ -292,7 +292,7 @@ class Api45 extends CI_Controller {
 
 			if($next_id==3 && $page_type=="divisioncategory"){
 				$next_id = 2;
-				$next_function	= "divisioncategory";
+				$next_function	= "slider";
 			}
 
 			if($next_id==11 && $page_type=="itemcategory"){

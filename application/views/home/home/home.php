@@ -383,7 +383,7 @@ function home_page_load(myid,page_type='')
 					var title = row.result_title;
 
 					if(row.result=="invoice") {
-						dt_result = home_page_invoice(result_row);
+						dt_result = home_page_invoice(result_row,result_row,title);
 						$(".home_page_all_data").append(dt_result);
 					}
 					

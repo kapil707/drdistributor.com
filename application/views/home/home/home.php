@@ -313,7 +313,7 @@ function home_page_invoice(category_id,result_row,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="featured_home_title1"><div class="heading_home1"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">'+mydata+'</div></div></div>';
+	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title">'+title+'</div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
 	
 	return myval;
 }

@@ -396,7 +396,7 @@ $(document).ready(function() {
 	}, 1500);	
 	setTimeout(function() {
 		home_page_load(99,"invoice");
-	}, 1500);
+	}, 2000);
 	
     $(window).scroll(function(){
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){

@@ -318,6 +318,25 @@ function home_page_invoice(category_id,result_row,title){
 	return myval;
 }
 
+function home_page_notification(category_id,result_row,title){
+	var mydata = '';
+	$.each(result_row, function(i,item){
+		if (item){
+			item_id 			= item.item_id;
+			item_title 			= item.item_title;
+			item_message 		= item.item_message;
+			item_date_time 		= item.item_date_time;
+			item_image 			= item.item_image;
+			
+			mydata+='<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_notification_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>';
+		}
+	});
+	
+	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_new_box_inv_title">'+title+'</div><div class="website_box_part home_page_new_box_inv">'+mydata+'</div></div>';
+	
+	return myval;
+}
+
 function home_page_owl_load(category_id){
 	//alert(category_id)
     $(".owl-carousel"+category_id).owlCarousel({
@@ -384,6 +403,11 @@ function home_page_load(myid,page_type='')
 
 					if(row.result=="invoice") {
 						dt_result = home_page_invoice(result_row,result_row,title);
+						$(".home_page_all_data").append(dt_result);
+					}
+
+					if(row.result=="notification") {
+						dt_result = home_page_notification(result_row,result_row,title);
 						$(".home_page_all_data").append(dt_result);
 					}
 					

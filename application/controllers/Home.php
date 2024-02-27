@@ -15,6 +15,7 @@ class Home extends CI_Controller {
 
 		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 	}
 	
 	public function index(){	
@@ -118,6 +119,19 @@ class Home extends CI_Controller {
 				$result_title  = 'invoice';
 
 				$result = 'invoice';
+				$result_id = '99';
+				$category_id = '99';
+			}
+		}
+
+		if($myid=="99" && $page_type=="notification"){
+			if(!empty($user_type) && !empty($user_altercode)) {
+
+				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0");
+				$result_row    = $result["items"];
+				$result_title  = 'notification';
+
+				$result = 'notification';
 				$result_id = '99';
 				$category_id = '99';
 			}

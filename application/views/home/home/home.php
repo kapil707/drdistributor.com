@@ -406,17 +406,17 @@ function home_page_load(myid,page_type='')
 
 					if(row.result=="invoice") {
 						dt_result = home_page_invoice(result_row,result_row,title);
-						$(".home_page_all_data").append(dt_result);
+						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 
 					if(row.result=="notification") {
 						dt_result = home_page_notification(result_row,result_row,title);
-						$(".home_page_all_data").append(dt_result);
+						$(".home_page_invoice_notification_data").append(dt_result);
 					}
 					
 					if(row.result=="menu") {
 						dt_result = home_page_menu(result_row);
-						$(".home_page_all_data").append(dt_result);
+						$(".home_page_menu_data").html(dt_result);
 					}
 					if(row.result=="slider" && (row.result_category_id=="1" || row.result_category_id=="2")) {
 						dt_result = home_page_slider(category_id,result_row);

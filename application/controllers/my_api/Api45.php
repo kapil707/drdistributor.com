@@ -284,75 +284,70 @@ class Api45 extends CI_Controller {
 			}
 			$session_yes_no = "yes";
 
-			$category_id	= $_POST["category_id"];
-			$page_type		= $_POST["page_type"];
+			$seq_id = $_POST["seq_id"];
+		
+			$items = "";
+			$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$seq_id' ")->result();
+			foreach($tbl_home as $row){
+				$category_id = $row->category_id;
+				
+				if($row->type=="slider"){
+					$result = $this->SliderModel->slider($row->category_id);
+					$items = $result["items"];
+					$title  = 'slider';
+				}
+				
+				if($row->type=="menu"){
+					$result = $this->HomeMenuModel->get_menu_api();
+					$items = $result["items"];
+					$title  = 'menu';				
+				}
 
-			$next_id		= $category_id + 1;
-			$next_function	= $page_type;
+				if(!empty($user_type) && !empty($user_altercode) && $row->type=="notification") {
 
-			if($next_id==3 && $page_type=="divisioncategory"){
-				$next_id = 2;
-				$next_function	= "slider";
+					$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
+					$items    = $result["items"];
+					$title  = 'notification';
+				}
+
+				if(!empty($user_type) && !empty($user_altercode) && $row->type=="invoice") {
+
+					$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
+					$items    = $result["items"];
+					$title  = 'invoice';
+				}
+				
+				if($row->type=="divisioncategory"){
+					$result = $this->MedicineDivisionModel->medicine_division($category_id);
+					
+					$title  = $result["title"];
+					$items = $result["items"];
+				}
+				
+				if($row->type=="itemcategory"){
+					$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+					$title  = $result["title"];
+					$items = $result["items"];
+				}
+
+				$page_type = $row->type;
+				$next_id = $row->seq_id + 1;
 			}
-
-			if($next_id==11 && $page_type=="itemcategory"){
-				$next_id = 2;
-				$next_function	= "divisioncategory";
-			}
-
-			$items = $title = "";
-
-			if($page_type=="top_menu"){
-				$result = $this->TopMenuModel->get_top_menu_api();
-				$items = $result["items"];
-				$title  = "top menu";
-			}
-
-			if($page_type=="slider"){
-				$result = $this->SliderModel->slider($category_id);
-				$items = $result["items"];
-				$title  = "slider";
-			}
-
-			if($page_type=="divisioncategory"){
-				$result = $this->MedicineDivisionModel->medicine_division($category_id);
-				$title  = $result["title"];
-				$items = $result["items"];
-			}
-
-			if($page_type=="itemcategory"){
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
-				$title  = $result["title"];
-				$items = $result["items"];
-			}
-
-			if($page_type=="invoice"){
-				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$title  = "My invoice";
-				$items = $result["items"];
-			}
-
-			if($page_type=="notification"){
-				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$title  = "My notification";
-				$items = $result["items"];
-			}
-
-			if(($page_type=="top_menu" || $page_type=="slider" || $page_type=="divisioncategory" || $page_type=="invoice" || $page_type=="notification") && $category_id==1){
-				$next_id = 1;
-				$next_function = "itemcategory";
-			}
+		}
+		
+		if($next_id<=5){
+			$next_id = 6;
 		}
 
 		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
+			'success' => "1",
+			'message' => 'Data load successfully',
 			'title' => $title,
 			'category_id' => $category_id,
+			'page_type' => $page_type,
 			'next_id' => $next_id,
-			'next_function' => $next_function,
-        );
+			'items' => $items,
+		);
 
         // Send JSON response
         header('Content-Type: application/json');

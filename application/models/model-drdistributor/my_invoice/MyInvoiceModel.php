@@ -59,11 +59,11 @@ class MyInvoiceModel extends CI_Model
 		{
 			$db_invoice->order_by($order_by[0],$order_by[1]);
 		}
-		print_r($get_limit);die;
 		if(!empty($get_limit))
 		{
+			print_r($get_limit);
 			$db_invoice->limit($get_limit[0],$get_limit[1]);
-		}
+		}die;
 		return $db_invoice->get($tbl);	
 	}
 	

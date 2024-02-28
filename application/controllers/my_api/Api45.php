@@ -513,7 +513,7 @@ class Api45 extends CI_Controller {
 			$items  	= $result["items"];
 			$get_record  = $result["get_record"];
 		}
-		$items = "[]";
+
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',

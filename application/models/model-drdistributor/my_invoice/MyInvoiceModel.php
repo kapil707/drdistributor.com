@@ -168,6 +168,8 @@ class MyInvoiceModel extends CI_Model
 				
 				$row2 = $this->db->query("select * from tbl_medicine where item_code='$item_code'")->row();
 
+				$item_code 		= $row1->itemc; //yha sahi ha
+
 				$item_price = sprintf('%0.2f',round($row2->sale_rate,2));
 				$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row2->sale_rate,2));
 				$item_date_time 	= date("d-M-y",strtotime($date_time));

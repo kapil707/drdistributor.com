@@ -1151,7 +1151,7 @@ class Api45 extends CI_Controller {
 			if($item_page_type=="medicine_similar")
 			{
 				$items = $this->Chemist_Model->medicine_similar_api($item_code,$get_record);
-			}	
+			}
 		}
 
 		$response = array(

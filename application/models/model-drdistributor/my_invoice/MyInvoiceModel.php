@@ -61,11 +61,7 @@ class MyInvoiceModel extends CI_Model
 		}
 		if(!empty($get_limit))
 		{
-			$lim = $get_limit[1];
-			if(empty($lim)){
-				$lim = 0;
-			}
-			$db_invoice->limit($get_limit[0],$lim);
+			$db_invoice->limit($get_limit[0],$get_limit[1]);
 		}
 		return $db_invoice->get($tbl);	
 	}
@@ -92,7 +88,7 @@ class MyInvoiceModel extends CI_Model
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
 		$where = array('chemist_id'=>$user_altercode);
-		$query = $this->select_fun_limit("tbl_invoice_newx",$where,$get_limit,$order_by);
+		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)
 		{

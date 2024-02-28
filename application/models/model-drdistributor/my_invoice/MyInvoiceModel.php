@@ -133,7 +133,7 @@ class MyInvoiceModel extends CI_Model
 		$jsonArray1 = array();
 		$jsonArray2 = array();
 		
-		$header_title = "";
+		$title = "";
 		$download_url = "";
 		
 		$where = array('id'=>$item_id,'chemist_id'=>$user_altercode);
@@ -144,7 +144,7 @@ class MyInvoiceModel extends CI_Model
 			$inv_type 	= "insert";
 			$id			= $row->id;
 			$gstvno 	= $row->gstvno;
-			$header_title = $gstvno;
+			$title 		= $gstvno;
 			$date_time 	= date("d-M-y",strtotime($row->date));
 			$total 		= number_format($row->amt,2);
 			$folder_dt 	= $row->date;
@@ -273,7 +273,7 @@ class MyInvoiceModel extends CI_Model
 		$return_value["items_edit"] 	= $jsonArray1;
 		$return_value["items_delete"] 	= $jsonArray2;
 		$return_value["download_url"] 	= $download_url;
-		$return_value["header_title"] 	= $header_title;
+		$return_value["title"] 			= $title;
 		return $return_value;
 	}
 	

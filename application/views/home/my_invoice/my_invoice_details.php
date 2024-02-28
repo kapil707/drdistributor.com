@@ -80,9 +80,9 @@ function call_page()
 			{
 				$(".download_excel_url").html("<a href="+data.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
 			}
-			if (data.header_title)
+			if (data.title)
 			{
-				$(".headertitle").html(data.header_title);
+				$(".headertitle").html(data.title);
 			}
 			$.each(data.items, function(i,item){	
 				if (item)

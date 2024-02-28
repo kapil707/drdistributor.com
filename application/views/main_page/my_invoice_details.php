@@ -194,10 +194,10 @@ function call_page()
 				}
 			});	
 
-			$.each(data.header_title, function(i,item){	
+			$.each(data.title, function(i,item){	
 				if (item)
 				{
-					$(".headertitle").html(item.header_title);
+					$(".headertitle").html(item.title);
 				}
 			});	
 		},

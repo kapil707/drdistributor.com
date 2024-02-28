@@ -549,7 +549,7 @@ class Api45 extends CI_Controller {
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];
 			$download_url  	= $result["download_url"];
-			$header_title	= $result["header_title"];
+			$title	= $result["title"];
 		}
 
 		$response = array(
@@ -559,7 +559,7 @@ class Api45 extends CI_Controller {
 			'items_edit' => $items_edit,
 			'items_delete' => $items_delete,
 			'download_url' => $download_url,
-			'header_title' => $header_title,
+			'title' => $title,
         );
 
         // Send JSON response

@@ -124,14 +124,14 @@ class My_invoice extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $items_edit = $items_delete = $download_url = $header_title = "";
+		$items = $items_edit = $items_delete = $download_url = $title = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];
 			$download_url  	= $result["download_url"];
-			$header_title	= $result["header_title"];
+			$title			= $result["title"];
 		}	
 		
 		$response = array(
@@ -141,7 +141,7 @@ class My_invoice extends CI_Controller {
 			'items_edit' => $items_edit,
 			'items_delete' => $items_delete,
 			'download_url' => $download_url,
-			'header_title' => $header_title,
+			'title' => $title,
         );
 
         // Send JSON response

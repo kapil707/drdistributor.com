@@ -88,7 +88,7 @@ class MyInvoiceModel extends CI_Model
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
 		$where = array('chemist_id'=>$user_altercode);
-		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
+		$query = $this->select_fun_limit("tbl_invoice_newx",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)
 		{

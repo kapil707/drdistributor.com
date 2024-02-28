@@ -61,9 +61,12 @@ class MyInvoiceModel extends CI_Model
 		}
 		if(!empty($get_limit))
 		{
-			print_r($get_limit);
-			$db_invoice->limit($get_limit[0],$get_limit[1]);
-		}die;
+			$lim = $get_limit[1];
+			if(empty($lim)){
+				$lim = 0;
+			}
+			$db_invoice->limit($get_limit[0],$lim);
+		}
 		return $db_invoice->get($tbl);	
 	}
 	

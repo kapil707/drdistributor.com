@@ -403,7 +403,7 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
 
 			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
@@ -473,7 +473,7 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
 
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
@@ -541,7 +541,7 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
 
 			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
@@ -582,7 +582,7 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
 			$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,$get_record);
@@ -617,7 +617,7 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
 
 			$result = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);

@@ -25,8 +25,7 @@ class MedicineItemModel extends CI_Model
 		}
 		if($category_id=="3"){
 			return $this->MedicineMustBuyModel->get_medicine_must_buy_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
-		}
-		
+		}		
 		if($category_id=="4"){
 			return $this->MedicineAvailableNowModel->get_medicine_available_now_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}

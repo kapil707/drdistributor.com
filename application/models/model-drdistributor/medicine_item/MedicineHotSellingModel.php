@@ -20,16 +20,18 @@ class MedicineHotSellingModel extends CI_Model
 		$jsonArray = array();
 
 		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		$this->db->from('tbl_hot_selling AS t1');
+		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
 		if($show_out_of_stock==1){
-			$this->db->where('batchqty !=', 0);
+			$this->db->where('t2.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
 			$this->db->order_by("RAND()");
 		}else{
-			$this->db->order_by('id', 'desc');
+			$this->db->order_by('t2.id', 'desc');
 		}
-		$query = $this->db->get("tbl_medicine")->result();
+		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
 			$get_record++;

@@ -31,9 +31,9 @@ class MyOrderModel extends CI_Model
 			$get_record++;
 			$order_id 	= $row->order_id;						
 			$item_total = round($row->total,2);
-			if($row->gstvno=="")
+			if(empty($row->gstvno))
 			{
-				$item_title = "Pending / Order no. ".$order_id;
+				$item_title = "Pending / Order no. ".$row->order_id;
 			}
 			else
 			{
@@ -62,6 +62,13 @@ class MyOrderModel extends CI_Model
 	
 	public function get_my_order_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="") {
 		
+		$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
+		$this->db->where('o.chemist_id',$user_altercode);
+		$this->db->where('o.order_id',$item_id);
+		$this->db->order_by('o.id','desc');
+		$this->db->from('tbl_order as o');
+		$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
+		$query = $this->db->get()->result();
 		if($user_type=="sales")
 		{
 			$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
@@ -73,18 +80,17 @@ class MyOrderModel extends CI_Model
 			$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
 			$query = $this->db->get()->result();
 		}
-		else
-		{
-			$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
-			$this->db->where('o.chemist_id',$user_altercode);
-			$this->db->where('o.order_id',$item_id);
-			$this->db->order_by('o.id','desc');
-			$this->db->from('tbl_order as o');
-			$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
-			$query = $this->db->get()->result();
-		}
 		foreach($query as $row)
 		{
+			if(empty($row->gstvno))
+			{
+				$title = "Pending / Order no. ".$row->order_id;
+			}
+			else
+			{
+				$title = "Generated / Order no. ".$row->gstvno;
+			}
+
 			$item_code 			= $row->i_code;
 			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity 		= $row->quantity;
@@ -121,6 +127,7 @@ class MyOrderModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
+		$return["title"] = $title;
 		return $return;		
 	}
 

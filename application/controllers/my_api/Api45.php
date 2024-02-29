@@ -478,11 +478,13 @@ class Api45 extends CI_Controller {
 
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items  	= $result["items"];
+			$title  	= $result["title"];
 		}
 
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
+			'title' => $title,
             'items' => $items
         );
 

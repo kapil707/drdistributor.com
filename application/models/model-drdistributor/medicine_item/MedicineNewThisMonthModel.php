@@ -24,7 +24,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 		$this->db->where('item_date>=',$date);
 		if($show_out_of_stock==1){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		$this->db->order_by('id', 'desc');

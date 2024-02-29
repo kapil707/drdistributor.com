@@ -32,7 +32,7 @@ class MedicineMustBuyModel extends CI_Model
 		if($order_by_type=="RAND"){
 			$this->db->order_by("RAND()");
 		}else{
-			$this->db->order_by('id', 'desc');
+			$this->db->order_by('i_code', 'desc');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)

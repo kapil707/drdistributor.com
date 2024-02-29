@@ -95,7 +95,7 @@ class MyOrderModel extends CI_Model
 			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity 		= $row->quantity;
 			$item_quantity_price= sprintf('%0.2f',round($row->quantity * $row->sale_rate,2));
-			$item_date_time 	= $row->date." ".$row->time;
+			$item_date_time 	= date("d-M-y",strtotime($row->date))." ".$row->time;
 			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 			$item_name 		= (ucwords(strtolower($row->item_name)));
 			$item_packing 	= ($row->packing);

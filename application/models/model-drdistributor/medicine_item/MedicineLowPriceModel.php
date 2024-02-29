@@ -109,4 +109,3 @@ class MedicineLowPriceModel extends CI_Model
 		return $return;
 	}
 }
-

@@ -318,7 +318,8 @@ class Api45 extends CI_Controller {
 			}
 			$session_yes_no = "yes";
 
-			$seq_id = $_POST["seq_id"];
+			$seq_id  = $_POST["seq_id"];
+			$next_id = $_POST["seq_id"];
 		
 			$items = "";
 			$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$seq_id' ")->result();

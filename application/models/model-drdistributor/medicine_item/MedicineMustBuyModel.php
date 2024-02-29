@@ -52,6 +52,12 @@ class MedicineMustBuyModel extends CI_Model
 			if($show_out_of_stock==0){
 				$this->db->where('batchqty !=', 0);
 			}
+			$this->db->limit($limit,$get_record);
+			if($order_by_type=="RAND"){
+				$this->db->order_by("RAND()");
+			}else{
+				$this->db->order_by('id', 'desc');
+			}
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{

@@ -41,7 +41,7 @@ class MedicineAvailableNowModel extends CI_Model
 			$this->db->where($sameid);
 			$this->db->where("batchqty!=0");
 			if($show_out_of_stock==0){
-				$db2->where('batchqty !=', 0);
+				$this->db->where('batchqty !=', 0);
 			}
 			$this->db->limit($limit,$get_record);
 			if($order_by_type=="RAND"){

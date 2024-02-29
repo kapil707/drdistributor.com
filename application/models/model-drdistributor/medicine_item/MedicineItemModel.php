@@ -15,7 +15,7 @@ class MedicineItemModel extends CI_Model
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemWiseModel");		
 	}
 	
-	public function medicine_item($session_yes_no="no",$category_id,$user_type='',$user_altercode='',$salesman_id='',$show_out_of_stock="0",$get_record="12",$limit="12",$order_by_type="RAND")
+	public function medicine_item($session_yes_no="no",$category_id,$user_type='',$user_altercode='',$salesman_id='',$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
 		if($category_id=="1"){
 			return $this->MedicineNewThisMonthModel->get_medicine_new_this_month_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);

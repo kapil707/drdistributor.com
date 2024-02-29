@@ -25,6 +25,9 @@ class SliderModel extends CI_Model
 			$itemid	    =	$row->itemid;
 			$division	=	$row->division;
 			$compid		=	$row->compid;
+			if($funtype==2){
+				$itemid	    = $compid;
+			}
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($funtype,$compid,$division);
 			$android_action = $this->slider_to_url($funtype,$compid,$division);

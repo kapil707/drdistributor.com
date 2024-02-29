@@ -52,6 +52,8 @@ class MedicineMustBuyModel extends CI_Model
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{
+				$get_record++;
+
 				$item_code			=	$row->i_code;
 				$item_name			=	ucwords(strtolower($row->item_name));
 				$item_packing		=	$row->packing;
@@ -104,6 +106,7 @@ class MedicineMustBuyModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }

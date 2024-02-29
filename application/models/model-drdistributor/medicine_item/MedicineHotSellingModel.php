@@ -15,12 +15,25 @@ class MedicineHotSellingModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_hot_selling_api($session_yes_no,$category_id,$get_record="",$limit="12")
+	public function get_medicine_hot_selling_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
-		$query = $this->db->query("SELECT t2.i_code,t2.item_name,t2.image1,t2.packing,t2.company_name,t2.batchqty,t2.mrp,t2.sale_rate,t2.final_price,t2.margin,t2.featured,t2.misc_settings FROM tbl_hot_selling AS t1 LEFT JOIN tbl_medicine AS t2 ON t1.item_code = t2.i_code WHERE t2.batchqty != 0 ORDER BY RAND() LIMIT 50")->result();
+
+		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		if($show_out_of_stock==1){
+			$this->db->where('batchqty !=', 0);
+		}
+		$this->db->limit($limit,$get_record);
+		if($order_by_type=="RAND"){
+			$this->db->order_by("RAND()");
+		}else{
+			$this->db->order_by('id', 'desc');
+		}
+		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{
+			$get_record++;
+
 			$item_code			=	$row->i_code;
 			$item_name			=	ucwords(strtolower($row->item_name));
 			$item_packing		=	$row->packing;
@@ -72,7 +85,7 @@ class MedicineHotSellingModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }
-

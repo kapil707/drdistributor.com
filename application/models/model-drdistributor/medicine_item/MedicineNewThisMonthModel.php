@@ -92,4 +92,3 @@ class MedicineNewThisMonthModel extends CI_Model
 		return $return;
 	}
 }
-

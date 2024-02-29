@@ -27,7 +27,7 @@ class MedicineTopSearchModel extends CI_Model
 		$this->db->where('salesman_id', $salesman_id);
 		$this->db->where('t2.batchqty !=', 0);
 		$this->db->limit($limit,$get_record);
-		$this->db->order_by('id', 'desc');
+		$this->db->order_by('t1.id', 'desc');
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{

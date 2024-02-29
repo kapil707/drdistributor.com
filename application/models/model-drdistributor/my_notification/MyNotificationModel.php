@@ -34,7 +34,7 @@ class MyNotificationModel extends CI_Model
 			$item_title		=	($row->title);
 			$item_message	=	($row->message);
 			$item_message	=   str_replace("<br>"," ",$item_message);
-			$item_date_time = 	$row->date." ".$row->time;
+			$item_date_time = date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
 			$item_message	= 	substr($item_message, 0, 50)."....";
 			
 			$item_image = $user_image;
@@ -69,10 +69,12 @@ class MyNotificationModel extends CI_Model
 		$query = $this->db->get("tbl_android_notification")->result();
 		foreach($query as $row)
 		{
+			$title			=	($row->title);
+
 			$item_id		=	$row->id;
 			$item_title		=	($row->title);
 			$item_message	=	($row->message);
-			$item_date_time = 	date("d-M-y",strtotime($row->date))." ".$row->time;
+			$item_date_time = date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
 			$item_fun_type	= 	($row->funtype);
 			$itemid			= 	($row->itemid);
 			$compid			= 	($row->compid);
@@ -125,7 +127,8 @@ class MyNotificationModel extends CI_Model
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
-		$return["items"] 		= $jsonArray;
+		$return["items"] 	= $jsonArray;
+		$return["title"] 	= $title;
 		return $return;
 	}
 }

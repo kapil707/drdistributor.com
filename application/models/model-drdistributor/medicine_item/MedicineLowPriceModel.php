@@ -23,9 +23,9 @@ class MedicineLowPriceModel extends CI_Model
 		$sameid = "";
 
 		if($order_by_type=="RAND"){
-			$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='mrp' ORDER BY RAND()")->result();
+			$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='mrp' ORDER BY RAND() limit 250")->result();
 		}else{
-			$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='mrp' ORDER BY i_code desc")->result();
+			$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='mrp' ORDER BY i_code desc limit 250")->result();
 		}
 		foreach ($query as $row)
 		{

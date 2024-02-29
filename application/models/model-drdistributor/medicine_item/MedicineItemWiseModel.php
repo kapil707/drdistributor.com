@@ -26,6 +26,7 @@ class MedicineItemWiseModel extends CI_Model
 		$this->db->order_by('id','desc');
 		$this->db->where("status=1");
 		$this->db->where("category_id='$category_id'");
+		$this->db->limit("250");
 		$query = $this->db->get("tbl_item_wise")->result();
 		foreach ($query as $row)
 		{

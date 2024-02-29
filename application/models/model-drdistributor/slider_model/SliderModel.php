@@ -43,10 +43,10 @@ class SliderModel extends CI_Model
 			$title = "";
 
 			$dt = array(
-				'id' => $id,
+				'item_id' => $id,
 				'item_title' => $title,
 				'item_type' => $funtype,
-				'item_id' => $itemid,
+				'item_code' => $itemid,
 				'item_division' => $division,
 				'item_image' => $image,
 				'item_web_action' => $web_action,

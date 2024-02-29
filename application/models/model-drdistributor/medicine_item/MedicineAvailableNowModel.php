@@ -28,7 +28,7 @@ class MedicineAvailableNowModel extends CI_Model
 		{
 			$sameid.=$row->i_code.",";
 		}
-		$sameid = substr($sameid,0,-1);
+		echo $sameid = substr($sameid,0,-1);
 		if(!empty($sameid))
 		{
 			$sameid = "i_code in(".$sameid.")";
@@ -40,7 +40,6 @@ class MedicineAvailableNowModel extends CI_Model
 			$this->db->where($sameid);
 			$this->db->where("batchqty!=0");
 			$this->db->order_by("RAND()");
-			$this->db->limit('25');
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{

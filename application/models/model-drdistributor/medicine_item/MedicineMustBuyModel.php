@@ -22,7 +22,7 @@ class MedicineMustBuyModel extends CI_Model
 		$jsonArray = array();
 		$sameid = "";
 		
-		$this->db->select('DISTINCT i_code, COUNT(*) as quantity');
+		$this->db->select('i_code, COUNT(*) as quantity');
 		$this->db->from('tbl_order');
 		$this->db->where('date', $date);
 		$this->db->group_by('i_code, item_name');

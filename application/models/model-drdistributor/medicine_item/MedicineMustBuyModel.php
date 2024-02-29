@@ -25,7 +25,7 @@ class MedicineMustBuyModel extends CI_Model
 		$this->db->select('i_code, COUNT(*) as quantity');
 		$this->db->from('tbl_order');
 		$this->db->where('date', $date);
-		$this->db->group_by('i_code, item_name');
+		$this->db->group_by('i_code');
 		$this->db->having('COUNT(*) >', 1);
 		$this->db->order_by('quantity', 'desc');
 		$this->db->limit($limit,$get_record);

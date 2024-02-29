@@ -30,7 +30,7 @@ class MedicineMustBuyModel extends CI_Model
 		$this->db->order_by('quantity', 'desc');
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by("RAND()");
+			$this->db->order_by('t2.id', "RAND()");
 		}else{
 			$this->db->order_by('i_code', 'desc');
 		}

@@ -30,7 +30,7 @@ class MedicineTopSearchModel extends CI_Model
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by("RAND()");
+			$this->db->order_by('t1.id',"RAND()");
 		}else{
 			$this->db->order_by('t1.id', 'desc');
 		}

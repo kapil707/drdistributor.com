@@ -28,7 +28,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by("RAND()");
+			$this->db->order_by('id', "RAND()");
 		}else{
 			$this->db->order_by('id', 'desc');
 		}

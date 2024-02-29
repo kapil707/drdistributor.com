@@ -27,7 +27,7 @@ class MedicineAvailableNowModel extends CI_Model
 		}
 		$db2->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$db2->order_by("RAND()");
+			$db2->order_by('t2.id',"RAND()");
 		}else{
 			$db2->order_by('t2.id', 'desc');
 		}

@@ -1032,8 +1032,7 @@ class Api45 extends CI_Controller {
 			if($user_type=="chemist")
 			{
 				$row = $this->db->query("select code from tbl_acm where altercode='$user_altercode'")->row();
-
-				echo "update tbl_acm_other set image='$image_url' where code='$row->code'";
+				
 				$this->db->query("update tbl_acm_other set image='$image_url' where code='$row->code'");
 			}
 			$status = 1;

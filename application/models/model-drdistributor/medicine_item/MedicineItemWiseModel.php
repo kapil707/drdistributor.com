@@ -103,6 +103,7 @@ class MedicineItemWiseModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }

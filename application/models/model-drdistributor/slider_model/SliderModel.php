@@ -50,7 +50,7 @@ class SliderModel extends CI_Model
 				'item_division' => $division,
 				'item_image' => $image,
 				'item_web_action' => $web_action,
-				'item_android_action' => $android_action,
+				'item_page_type' => $android_action,
 			);
 			$jsonArray[] = $dt;
 		}

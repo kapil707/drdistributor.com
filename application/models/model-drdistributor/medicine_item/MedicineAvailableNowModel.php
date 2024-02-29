@@ -13,7 +13,7 @@ class MedicineAvailableNowModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_available_now_api($session_yes_no,$category_id,$get_record,$limit="12")
+	public function get_medicine_available_now_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$db2 = $this->load->database('default2', TRUE);
 		
@@ -22,6 +22,7 @@ class MedicineAvailableNowModel extends CI_Model
 
 		$db2->distinct("i_code");
 		$db2->order_by('id','desc');
+		$db2->where("type='batchqty'");
 		$db2->limit($limit,$get_record);
 		$query = $db2->get("tbl_medicine_compare_final")->result();
 		foreach ($query as $row)
@@ -33,7 +34,7 @@ class MedicineAvailableNowModel extends CI_Model
 		{
 			$sameid = "i_code in(".$sameid.")";
 		}
-		
+
 		if(!empty($sameid))
 		{
 			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
@@ -44,6 +45,7 @@ class MedicineAvailableNowModel extends CI_Model
 			foreach ($query as $row)
 			{
 				$get_record++;
+
 				$item_code			=	$row->i_code;
 				$item_name			=	ucwords(strtolower($row->item_name));
 				$item_packing		=	$row->packing;

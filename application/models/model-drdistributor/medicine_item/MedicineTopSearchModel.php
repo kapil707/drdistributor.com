@@ -18,9 +18,11 @@ class MedicineTopSearchModel extends CI_Model
 	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$get_record="",$limit="12")
 	{		
 		$jsonArray = array();
-		$query = $this->db->query("SELECT t2.i_code,t2.item_name,t2.image1,t2.packing,t2.company_name,t2.batchqty,t2.mrp,t2.sale_rate,t2.final_price,t2.margin,t2.featured,t2.misc_settings FROM tbl_top_search AS t1 LEFT JOIN tbl_medicine AS t2 ON t1.item_code = t2.i_code WHERE t1.user_type = '$user_type' AND t1.user_altercode = '$user_altercode' AND salesman_id='$salesman_id' AND t2.batchqty != 0 ORDER BY RAND() LIMIT 50")->result();
+		$query = $this->db->query("SELECT t2.i_code,t2.item_name,t2.image1,t2.packing,t2.company_name,t2.batchqty,t2.mrp,t2.sale_rate,t2.final_price,t2.margin,t2.featured,t2.misc_settings FROM tbl_top_search AS t1 LEFT JOIN tbl_medicine AS t2 ON t1.item_code = t2.i_code WHERE t1.user_type = '$user_type' AND t1.user_altercode = '$user_altercode' AND salesman_id='$salesman_id' AND t2.batchqty != 0 ORDER BY id desc limit $limit $get_record")->result();
 		foreach ($query as $row)
 		{
+			$get_record++;
+			
 			$item_code			=	$row->i_code;
 			$item_name			=	ucwords(strtolower($row->item_name));
 			$item_packing		=	$row->packing;
@@ -65,6 +67,7 @@ class MedicineTopSearchModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }

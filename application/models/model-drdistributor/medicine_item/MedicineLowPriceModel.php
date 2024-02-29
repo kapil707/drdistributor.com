@@ -16,12 +16,17 @@ class MedicineLowPriceModel extends CI_Model
 	}
 	
 	public function get_medicine_low_price_api($session_yes_no,$category_id,$get_record="",$limit="12")
-	{		
+	{	
 		$db2 = $this->load->database('default2', TRUE);
-		
+
 		$jsonArray = array();
 		$sameid = "";
-		$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='mrp' ORDER BY RAND() limit 12")->result();
+
+		$db2->distinct("i_code");
+		$db2->order_by('id','desc');
+		$db2->where("type='mrp'");
+		$db2->limit($limit,$get_record);
+		$query = $db2->get("tbl_medicine_compare_final")->result();
 		foreach ($query as $row)
 		{
 			$sameid.=$row->i_code.",";
@@ -36,12 +41,13 @@ class MedicineLowPriceModel extends CI_Model
 		{
 			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
-			$this->db->where("batchqty!=0");
+			//$this->db->where("batchqty!=0");
 			$this->db->order_by("RAND()");
-			$this->db->limit('25');
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{
+				$get_record++;
+
 				$item_code			=	$row->i_code;
 				$item_name			=	ucwords(strtolower($row->item_name));
 				$item_packing		=	$row->packing;
@@ -94,6 +100,7 @@ class MedicineLowPriceModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }

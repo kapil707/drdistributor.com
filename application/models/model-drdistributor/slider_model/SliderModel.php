@@ -14,20 +14,12 @@ class SliderModel extends CI_Model
 	{
 		$jsonArray = array();
 		
-		$i = 1;
 		$where = array('status'=>1,'slider_type'=>$slider_type);
 		$this->db->where($where);
 		$this->db->order_by('RAND()');
 		$query = $this->db->get("tbl_slider")->result();
 		foreach ($query as $row)
 		{
-			if($i==1)
-			{
-				$id	=	"active";
-			}
-			else{
-				$id = "";
-			}
 			$i++;
 			$funtype	=	$row->funtype;
 			$itemid	    =	$row->itemid;
@@ -40,7 +32,6 @@ class SliderModel extends CI_Model
 			$title = "";
 
 			$dt = array(
-				'id' => $id,
 				'item_title' => $title,
 				'item_type' => $funtype,
 				'item_id' => $itemid,

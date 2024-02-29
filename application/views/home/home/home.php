@@ -185,12 +185,11 @@ function home_page_slider(category_id,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){
-			division 	= item.division;
-			funtype		= item.funtype;
-			itemid 		= item.itemid;
-			compname	= item.compname;
-			image 		= item.image;
-			web_action	= item.web_action;
+			division 	= item.item_division;
+			funtype		= item.item_type;
+			itemid 		= item.item_id;
+			image 		= item.item_image;
+			web_action	= item.item_web_action;
 
 			if(division){
 				division="not";

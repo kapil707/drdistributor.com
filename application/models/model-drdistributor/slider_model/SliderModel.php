@@ -29,33 +29,25 @@ class SliderModel extends CI_Model
 				$id = "";
 			}
 			$i++;
-			$compname="";
-			if($row->funtype=="1"){ 				
-			}
-			if($row->funtype=="2" || $row->funtype=="3"){
-				$row->itemid = $row->compid; 
-				$row1 = $this->db->query("select company_full_name from tbl_medicine where compcode='$row->itemid'")->row();
-				$compname = ($row1->company_full_name);
-			}
 			$funtype	=	$row->funtype;
 			$itemid	    =	$row->itemid;
 			$division	=	$row->division;
 			$compid		=	$row->compid;
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($funtype,$compid,$division);
+			$android_action = $this->slider_to_url($funtype,$compid,$division);
 			
 			$title = "";
 
 			$dt = array(
 				'id' => $id,
-				'title' => $title,
-				'funtype' => $funtype,
-				'itemid' => $itemid,
-				'division' => $division,
-				'image' => $image,
-				'compname' => $compname,
-				'compid' => $compid,
-				'web_action' => $web_action,
+				'item_title' => $title,
+				'item_type' => $funtype,
+				'item_id' => $itemid,
+				'item_division' => $division,
+				'item_image' => $image,
+				'item_web_action' => $web_action,
+				'item_android_action' => $android_action,
 			);
 			$jsonArray[] = $dt;
 		}

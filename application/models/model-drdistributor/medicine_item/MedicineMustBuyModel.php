@@ -15,13 +15,26 @@ class MedicineMustBuyModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_must_buy_api($session_yes_no,$category_id,$get_record="",$limit="12")
+	public function get_medicine_must_buy_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$date = date("Y-m-d");
 		
 		$jsonArray = array();
 		$sameid = "";
-		$query = $this->db->query("select DISTINCT i_code, COUNT(*) as `quantity` FROM tbl_order where date='$date' GROUP BY i_code,item_name HAVING COUNT(*) > 1 order by quantity desc,RAND() limit 25")->result();
+		
+		$this->db->select('DISTINCT i_code, COUNT(*) as quantity');
+		$this->db->from('tbl_order');
+		$this->db->where('date', $date);
+		$this->db->group_by('i_code, item_name');
+		$this->db->having('COUNT(*) >', 1);
+		$this->db->order_by('quantity', 'desc');
+		$this->db->limit($limit,$get_record);
+		if($order_by_type=="RAND"){
+			$this->db->order_by("RAND()");
+		}else{
+			$this->db->order_by('id', 'desc');
+		}
+		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
 			$sameid.=$row->i_code.",";
@@ -36,9 +49,6 @@ class MedicineMustBuyModel extends CI_Model
 		{
 			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
-			$this->db->where("batchqty!=0");
-			$this->db->order_by("RAND()");
-			$this->db->limit('25');
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{

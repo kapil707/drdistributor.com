@@ -25,7 +25,7 @@ class MedicineAvailableNowModel extends CI_Model
 		if($show_out_of_stock==1){
 			$db2->where('t2.batchqty !=', 0);
 		}
-		$this->db->limit($limit,$get_record);
+		$db2->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
 			$db2->order_by("RAND()");
 		}else{

@@ -13,13 +13,17 @@ class MedicineAvailableNowModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_available_now_api($session_yes_no,$category_id)
+	public function get_medicine_available_now_api($session_yes_no,$category_id,$get_record,$limit="12")
 	{		
 		$db2 = $this->load->database('default2', TRUE);
 		
 		$jsonArray = array();
 		$sameid = "";
-		$query = $db2->query("select DISTINCT i_code from tbl_medicine_compare_final where type='batchqty' ORDER BY RAND() limit 12")->result();
+
+		$db2->distinct("i_code");
+		$db2->order_by('id','desc');
+		$db2->limit($limit,$get_record);
+		$query = $db2->get("tbl_medicine_compare_final")->result();
 		foreach ($query as $row)
 		{
 			$sameid.=$row->i_code.",";

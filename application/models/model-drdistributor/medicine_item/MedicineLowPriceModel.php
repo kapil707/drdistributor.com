@@ -15,7 +15,7 @@ class MedicineLowPriceModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_low_price_api($session_yes_no,$category_id)
+	public function get_medicine_low_price_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$db2 = $this->load->database('default2', TRUE);
 		

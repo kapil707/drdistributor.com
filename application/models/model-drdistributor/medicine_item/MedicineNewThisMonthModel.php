@@ -15,7 +15,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_new_this_month_api($session_yes_no,$category_id)
+	public function get_medicine_new_this_month_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$jsonArray = array();
 		$time  = time();
@@ -25,7 +25,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		$this->db->where('item_date>=',$date);
 		$this->db->where("batchqty!=0");
 		$this->db->order_by("RAND()");
-		$this->db->limit('25');
+		$this->db->limit($get_record);
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{

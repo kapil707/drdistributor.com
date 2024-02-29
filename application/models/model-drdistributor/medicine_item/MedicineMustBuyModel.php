@@ -15,7 +15,7 @@ class MedicineMustBuyModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_must_buy_api($session_yes_no,$category_id)
+	public function get_medicine_must_buy_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$date = date("Y-m-d");
 		

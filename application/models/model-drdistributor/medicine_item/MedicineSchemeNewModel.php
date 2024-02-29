@@ -15,7 +15,7 @@ class MedicineSchemeNewModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_scheme_now_api($session_yes_no,$category_id)
+	public function get_medicine_scheme_now_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$medicine_db = $this->medicine_db;
 		

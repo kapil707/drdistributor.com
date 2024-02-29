@@ -15,7 +15,7 @@ class MedicineHotSellingModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_hot_selling_api($session_yes_no,$category_id)
+	public function get_medicine_hot_selling_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
 		$jsonArray = array();
 		$query = $this->db->query("SELECT t2.i_code,t2.item_name,t2.image1,t2.packing,t2.company_name,t2.batchqty,t2.mrp,t2.sale_rate,t2.final_price,t2.margin,t2.featured,t2.misc_settings FROM tbl_hot_selling AS t1 LEFT JOIN tbl_medicine AS t2 ON t1.item_code = t2.i_code WHERE t2.batchqty != 0 ORDER BY RAND() LIMIT 50")->result();

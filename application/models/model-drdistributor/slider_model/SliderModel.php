@@ -20,7 +20,7 @@ class SliderModel extends CI_Model
 		$query = $this->db->get("tbl_slider")->result();
 		foreach ($query as $row)
 		{
-			$i++;
+			$id			=	$row->id;
 			$funtype	=	$row->funtype;
 			$itemid	    =	$row->itemid;
 			$division	=	$row->division;
@@ -32,6 +32,7 @@ class SliderModel extends CI_Model
 			$title = "";
 
 			$dt = array(
+				'id' => $id,
 				'item_title' => $title,
 				'item_type' => $funtype,
 				'item_id' => $itemid,

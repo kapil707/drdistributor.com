@@ -10,6 +10,14 @@ class SliderModel extends CI_Model
 		}
 		return $url;
 	}
+	function slider_to_android($funtype=""){
+		$return = "";
+		if($funtype==2)
+		{
+			$return = "featured_brand";
+		}
+		return $return;
+	}
 	public function slider($slider_type=1)
 	{
 		$jsonArray = array();
@@ -30,7 +38,7 @@ class SliderModel extends CI_Model
 			}
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($funtype,$compid,$division);
-			$android_action = $this->slider_to_url($funtype,$compid,$division);
+			$android_action = $this->slider_to_android($funtype);
 			
 			$title = "";
 

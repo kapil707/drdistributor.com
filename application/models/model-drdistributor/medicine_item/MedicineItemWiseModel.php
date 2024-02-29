@@ -19,10 +19,15 @@ class MedicineItemWiseModel extends CI_Model
 	
 	public function get_medicine_item_view_api($session_yes_no,$category_id,$get_record="",$limit="12")
 	{		
-		$jsonArray = array();
-		
+		$jsonArray = array();		
 		$sameid = "";
-		$query = $this->db->query("select i_code from tbl_item_wise where status='1' and category_id='$category_id' limit 12")->result();
+
+		$this->db->distinct("i_code");
+		$this->db->order_by('id','desc');
+		$this->db->where("status=1");
+		$this->db->where("category_id='$category_id'");
+		$this->db->limit($limit,$get_record);
+		$query = $this->db->get("tbl_item_wise")->result();
 		foreach ($query as $row)
 		{
 			$sameid.=$row->i_code.",";

@@ -49,6 +49,9 @@ class MedicineMustBuyModel extends CI_Model
 		{
 			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
+			if($show_out_of_stock==0){
+				$this->db->where('batchqty !=', 0);
+			}
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{

@@ -22,7 +22,7 @@ class MedicineAvailableNowModel extends CI_Model
 		$db2->from('tbl_medicine_compare_final AS t1');
 		$db2->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		$db2->where('t1.type=', 'batchqty');
-		if($show_out_of_stock==1){
+		if($show_out_of_stock==0){
 			$db2->where('t2.batchqty !=', 0);
 		}
 		$db2->limit($limit,$get_record);

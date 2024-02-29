@@ -1143,7 +1143,14 @@ class Api45 extends CI_Controller {
 			if($item_page_type=="itemcategory"){
 				$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 				$category_id = $item_code;//yha sahi ha yaha par yha category_id ban jata ha
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$get_record);
+
+				/*****************************/
+				$show_out_of_stock="1";
+				$limit="12";
+				$order_by_type="id";
+				/*****************************/
+
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

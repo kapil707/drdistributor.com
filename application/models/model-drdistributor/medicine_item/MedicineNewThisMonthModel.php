@@ -15,7 +15,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_new_this_month_api($session_yes_no,$category_id,$get_record="",$limit="12")
+	public function get_medicine_new_this_month_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit)
 	{		
 		$jsonArray = array();
 		$time  = time();
@@ -23,12 +23,16 @@ class MedicineNewThisMonthModel extends CI_Model
 		
 		$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 		$this->db->where('item_date>=',$date);
-		$this->db->where("batchqty!=0");
-		$this->db->order_by("RAND()");
-		$this->db->limit($get_record);
+		if($show_out_of_stock==1){
+			$this->db->where('t2.batchqty !=', 0);
+		}
+		$this->db->limit($limit,$get_record);
+		$this->db->order_by('id', 'desc');
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{
+			$get_record++;
+
 			$item_code			=	$row->i_code;
 			$item_name			=	ucwords(strtolower($row->item_name));
 			$item_packing		=	$row->packing;
@@ -80,6 +84,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $this->get_item_category_name($category_id);
+		$return["get_record"] = $get_record;
 		return $return;
 	}
 }

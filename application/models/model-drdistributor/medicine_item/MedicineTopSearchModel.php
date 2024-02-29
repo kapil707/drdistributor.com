@@ -15,7 +15,7 @@ class MedicineTopSearchModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$get_record="",$limit="12")
+	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit)
 	{		
 		$jsonArray = array();
 
@@ -25,7 +25,9 @@ class MedicineTopSearchModel extends CI_Model
 		$this->db->where('t1.user_type', $user_type);
 		$this->db->where('t1.user_altercode', $user_altercode);
 		$this->db->where('salesman_id', $salesman_id);
-		$this->db->where('t2.batchqty !=', 0);
+		if($show_out_of_stock==1){
+			$this->db->where('t2.batchqty !=', 0);
+		}
 		$this->db->limit($limit,$get_record);
 		$this->db->order_by('t1.id', 'desc');
 		$query = $this->db->get()->result();

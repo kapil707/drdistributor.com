@@ -44,7 +44,8 @@ class MedicineCategoryModel extends CI_Model
 						$sameid[$id]    =	$id;
 						$item_code		=	$row->i_code;
 						$item_name		=	ucwords(strtolower($row->item_name));		
-						$item_packing	=	$row->packing;				
+						$item_packing	=	$row->packing;
+						$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 						$item_company 	= 	ucwords(strtolower($row->company_full_name));
 						$item_margin	=	$row->margin;
 						$item_quantity	=	$row->batchqty;
@@ -75,6 +76,7 @@ class MedicineCategoryModel extends CI_Model
 							'item_image' => $item_image,
 							'item_name' => $item_name,
 							'item_packing' => $item_packing,
+							'item_scheme' => $item_scheme,
 							'item_company' => $item_company,
 							'item_quantity' => $item_quantity,
 							'item_stock' => $item_stock,
@@ -102,7 +104,8 @@ class MedicineCategoryModel extends CI_Model
 					$get_record++;
 					$item_code	=	$row->i_code;
 					$item_name		=	ucwords(strtolower($row->item_name));		
-					$item_packing	=	$row->packing;				
+					$item_packing	=	$row->packing;
+					$item_scheme	=	$row->salescm1."+".$row->salescm2;		
 					$item_company 	= 	ucwords(strtolower($row->company_full_name));
 					$item_margin	=	$row->margin;
 					$item_quantity	=	$row->batchqty;
@@ -133,6 +136,7 @@ class MedicineCategoryModel extends CI_Model
 						'item_image' => $item_image,
 						'item_name' => $item_name,
 						'item_packing' => $item_packing,
+						'item_scheme' => $item_scheme,
 						'item_company' => $item_company,
 						'item_quantity' => $item_quantity,
 						'item_stock' => $item_stock,
@@ -188,7 +192,8 @@ class MedicineCategoryModel extends CI_Model
 						$sameid[$id]    =	$id;
 						$item_code		=	$row->i_code;
 						$item_name		=	ucwords(strtolower($row->item_name));		
-						$item_packing	=	$row->packing;				
+						$item_packing	=	$row->packing;	
+						$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 						$item_company 	= 	ucwords(strtolower($row->company_full_name));
 						$item_margin		=	$row->margin;
 						$item_quantity	=	$row->batchqty;
@@ -220,6 +225,7 @@ class MedicineCategoryModel extends CI_Model
 							'item_image' => $item_image,
 							'item_name' => $item_name,
 							'item_packing' => $item_packing,
+							'item_scheme' => $item_scheme,
 							'item_company' => $item_company,
 							'item_quantity' => $item_quantity,
 							'item_stock' => $item_stock,
@@ -247,7 +253,8 @@ class MedicineCategoryModel extends CI_Model
 					$get_record++;
 					$item_code		=	$row->i_code;
 					$item_name		=	ucwords(strtolower($row->item_name));		
-					$item_packing	=	$row->packing;				
+					$item_packing	=	$row->packing;
+					$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 					$item_company 	= 	ucwords(strtolower($row->company_full_name));
 					$item_margin		=	$row->margin;
 					$item_quantity	=	$row->batchqty;
@@ -279,6 +286,7 @@ class MedicineCategoryModel extends CI_Model
 						'item_image' => $item_image,
 						'item_name' => $item_name,
 						'item_packing' => $item_packing,
+						'item_scheme' => $item_scheme,
 						'item_company' => $item_company,
 						'item_quantity' => $item_quantity,
 						'item_stock' => $item_stock,

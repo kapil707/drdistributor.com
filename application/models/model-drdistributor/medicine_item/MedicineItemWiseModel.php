@@ -17,7 +17,7 @@ class MedicineItemWiseModel extends CI_Model
 		}
 	}
 	
-	public function get_medicine_item_view_api($session_yes_no,$category_id,$get_record="",$limit="12")
+	public function get_medicine_item_view_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();		
 		$sameid = "";
@@ -26,7 +26,6 @@ class MedicineItemWiseModel extends CI_Model
 		$this->db->order_by('id','desc');
 		$this->db->where("status=1");
 		$this->db->where("category_id='$category_id'");
-		$this->db->limit($limit,$get_record);
 		$query = $this->db->get("tbl_item_wise")->result();
 		foreach ($query as $row)
 		{
@@ -41,9 +40,15 @@ class MedicineItemWiseModel extends CI_Model
 		{
 			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
-			$this->db->where("batchqty!=0");
-			$this->db->order_by("RAND()");
-			$this->db->limit('25');
+			if($show_out_of_stock==0){
+				$this->db->where('batchqty !=', 0);
+			}
+			$this->db->limit($limit,$get_record);
+			if($order_by_type=="RAND"){
+				$this->db->order_by("RAND()");
+			}else{
+				$this->db->order_by('id', 'desc');
+			}
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{

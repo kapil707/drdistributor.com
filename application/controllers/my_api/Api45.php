@@ -619,16 +619,18 @@ class Api45 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = "";
+		$items = $title = "";
 		if(!empty($user_type) && !empty($user_altercode)&& !empty($item_id)){	
 
 			$result = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$items  	= $result["items"];
+			$title  	= $result["title"];
 		}
 
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
+			'title' => $title,
             'items' => $items
         );
 

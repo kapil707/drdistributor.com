@@ -39,7 +39,7 @@ class MedicineLowPriceModel extends CI_Model
 		
 		if(!empty($sameid))
 		{
-			$this->db->select("i_code,item_name,packing,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
+			$this->db->select("i_code,item_name,packing,salescm1,salescm2,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
 			$this->db->where("batchqty!=0");
 			if($show_out_of_stock==0){
@@ -59,6 +59,7 @@ class MedicineLowPriceModel extends CI_Model
 				$item_code			=	$row->i_code;
 				$item_name			=	ucwords(strtolower($row->item_name));
 				$item_packing		=	$row->packing;
+				$item_scheme		=	$row->salescm1."+".$row->salescm2;
 				$item_company		=  	ucwords(strtolower($row->company_name));
 				$item_quantity		=	$row->batchqty;
 				$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
@@ -93,6 +94,7 @@ class MedicineLowPriceModel extends CI_Model
 					'item_name' => $item_name,
 					'item_packing' => $item_packing,
 					'item_company' => $item_company,
+					'item_scheme' => $item_scheme,
 					'item_quantity' => $item_quantity,
 					'item_stock' => $item_stock,
 					'item_ptr' => $item_ptr,

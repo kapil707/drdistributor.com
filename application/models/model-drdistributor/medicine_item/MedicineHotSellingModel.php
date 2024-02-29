@@ -19,7 +19,7 @@ class MedicineHotSellingModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$this->db->from('tbl_hot_selling AS t1');
 		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
 		if($show_out_of_stock==0){
@@ -39,6 +39,7 @@ class MedicineHotSellingModel extends CI_Model
 			$item_code			=	$row->i_code;
 			$item_name			=	ucwords(strtolower($row->item_name));
 			$item_packing		=	$row->packing;
+			$item_scheme		=	$row->salescm1."+".$row->salescm2;
 			$item_company		=  	ucwords(strtolower($row->company_name));
 			$item_quantity		=	$row->batchqty;
 			$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
@@ -72,6 +73,7 @@ class MedicineHotSellingModel extends CI_Model
 				'item_image' => $item_image,
 				'item_name' => $item_name,
 				'item_packing' => $item_packing,
+				'item_scheme' => $item_scheme,
 				'item_company' => $item_company,
 				'item_quantity' => $item_quantity,
 				'item_stock' => $item_stock,

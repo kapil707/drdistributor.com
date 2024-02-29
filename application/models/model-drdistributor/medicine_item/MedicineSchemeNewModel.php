@@ -20,7 +20,7 @@ class MedicineSchemeNewModel extends CI_Model
 		$jsonArray = array();
 		$db2 = $this->load->database('default2', TRUE);
 
-		$db2->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		$db2->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$db2->from('tbl_medicine_compare_final AS t1');
 		$db2->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		$db2->where('t1.type=', 'margin');
@@ -41,6 +41,7 @@ class MedicineSchemeNewModel extends CI_Model
 			$item_code			=	$row->i_code;
 			$item_name			=	ucwords(strtolower($row->item_name));
 			$item_packing		=	$row->packing;
+			$item_scheme		=	$row->salescm1."+".$row->salescm2;
 			$item_company		=  	ucwords(strtolower($row->company_name));
 			$item_quantity		=	$row->batchqty;
 			$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
@@ -48,7 +49,7 @@ class MedicineSchemeNewModel extends CI_Model
 			$item_price			=	sprintf('%0.2f',round($row->final_price,2));
 			$item_margin 		=   round($row->margin);
 			$item_featured 		= 	$row->featured;
-			$misc_settings =	$row->misc_settings;
+			$misc_settings 		=	$row->misc_settings;
 			$item_stock = "";
 			if($misc_settings=="#NRX" && $item_quantity>=10){
 				$item_stock = "Available";
@@ -73,6 +74,7 @@ class MedicineSchemeNewModel extends CI_Model
 				'item_image' => $item_image,
 				'item_name' => $item_name,
 				'item_packing' => $item_packing,
+				'item_scheme' => $item_scheme,
 				'item_company' => $item_company,
 				'item_quantity' => $item_quantity,
 				'item_stock' => $item_stock,

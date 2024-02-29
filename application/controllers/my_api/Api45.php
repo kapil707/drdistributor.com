@@ -1165,9 +1165,9 @@ class Api45 extends CI_Controller {
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $items,
             'title' => $title,
 			'get_record' => $get_record,
+            'items' => $items,
         );
 
         // Send JSON response

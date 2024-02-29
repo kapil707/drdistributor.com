@@ -29,7 +29,7 @@ class MedicineItemModel extends CI_Model
 		if($category_id=="4"){
 			return $this->MedicineAvailableNowModel->get_medicine_available_now_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
-		
+		/************************************ */
 		if($category_id=="5" && $session_yes_no=="yes"){
 			 return $this->MedicineTopSearchModel->get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
@@ -39,7 +39,7 @@ class MedicineItemModel extends CI_Model
 			$return["title"] = 'Search';
 			return $return;
 		}
-		
+		/************************************ */
 		if($category_id=="6"){
 			return $this->MedicineLowPriceModel->get_medicine_low_price_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}

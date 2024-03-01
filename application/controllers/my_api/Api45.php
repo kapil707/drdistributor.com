@@ -117,7 +117,9 @@ class Api45 extends CI_Controller {
 			/********************************/ 
 			$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
 			/********************************/ 
-			$user_nrx = $this->ChemistLoginModel->check_nrx_user($user_altercode);
+			$return = $this->ChemistLoginModel->check_nrx_user($user_altercode);
+			$user_image = $return["user_image"];
+			$user_nrx = $return["user_nrx"];
 			/********************************/ 
 			
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);
@@ -239,6 +241,7 @@ class Api45 extends CI_Controller {
 
 		$jsonArray = array();
 		$dt = array(
+			'user_image' => $user_image,
 			'user_nrx' => $user_nrx,
 			'logout' => $logout,
 			'versioncode' => $versioncode,

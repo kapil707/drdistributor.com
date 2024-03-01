@@ -117,7 +117,7 @@ class Api45 extends CI_Controller {
 			/********************************/ 
 			$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
 			/********************************/ 
-			$user_nrx = $thiz->ChemistLoginModel->check_nrx_user($user_altercode);
+			$user_nrx = $this->ChemistLoginModel->check_nrx_user($user_altercode);
 			/********************************/ 
 			
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);

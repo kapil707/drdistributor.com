@@ -160,6 +160,7 @@ class MedicineCategoryModel extends CI_Model
 	public function featured_brand_api($session_yes_no="",$compcode="",$division="",$get_record="")
 	{
 		$jsonArray = array();
+		$title = "";
 
 		$this->db->where('compcode',$compcode);
 		if($division!="")

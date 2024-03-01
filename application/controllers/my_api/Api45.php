@@ -113,6 +113,12 @@ class Api45 extends CI_Controller {
 			//$login = $this->Chemist_Model->login($user_altercode,$user_password);
 			$time	= time();
 			$date	= date("Y-m-d");
+
+			/********************************/ 
+			$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+			/********************************/ 
+			$user_nrx = $thiz->ChemistLoginModel->check_nrx_user($user_altercode);
+			/********************************/ 
 			
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);
 			$row = $this->Scheme_Model->select_row("tbl_android_device_id",$where1);
@@ -233,6 +239,7 @@ class Api45 extends CI_Controller {
 
 		$jsonArray = array();
 		$dt = array(
+			'user_nrx' => $user_nrx,
 			'logout' => $logout,
 			'versioncode' => $versioncode,
 			'force_update' => $force_update,

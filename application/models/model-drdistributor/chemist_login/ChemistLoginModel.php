@@ -34,18 +34,17 @@ class ChemistLoginModel extends CI_Model
 	public function check_nrx_user($user_altercode)
 	{
 		$user_nrx = "no";
-		$user_image = "";
+		$user_image = base_url()."img_v51/logo.png";
+
 		$query = $this->db->query("select tbl_acm.id,tbl_acm.narcolicence,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 		if(!empty($query->id)){
 			$narcolicence	= 	$query->narcolicence;
 			if($narcolicence=="."){
 				$user_nrx = "yes";
-			}
-
-			$user_image 	= 	base_url()."user_profile/".$query->image;
-			if(empty($query->image))
+			}			
+			if(!empty($query->image))
 			{
-				$user_image = base_url()."img_v51/logo.png";
+				$user_image = base_url()."user_profile/".$query->image;
 			}
 		}
 

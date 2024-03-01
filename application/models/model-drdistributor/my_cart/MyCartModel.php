@@ -254,10 +254,14 @@ class MyCartModel extends CI_Model
 				);
 			$this->insert_fun("drd_temp_rec",$dt);
 			$status = "1";
+			$status_message = "Medicine added successfully";
 		}else{
 			$status = "0";
+			$status_message = "Medicine added error";
 		}
-		return $status;
+		$return["status"] = $status;
+		$return["status_message"] = $status_message;
+		return $return;
 	}
 
 	public function medicine_delete_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")

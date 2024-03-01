@@ -751,7 +751,9 @@ class Api45 extends CI_Controller {
 
 		if(!empty($user_type) && !empty($user_altercode)){
 			$excel_number = "";		
-			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$status = $result["status"];
+			$status_message = $result["status_message"];
 			/*****************************************************/
 		}
 
@@ -766,7 +768,8 @@ class Api45 extends CI_Controller {
             'message' => 'Data load successfully',
             'items' => $items,
             'items_other' => $items_other,
-			'status'=>$status
+			'status'=>$status,
+			'status_message'=>$status_message,
         );
 
         // Send JSON response

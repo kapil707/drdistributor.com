@@ -14,6 +14,7 @@ class MedicineCategoryModel extends CI_Model
 	public function medicine_category_api($session_yes_no="",$itemcat="",$get_record="")
 	{
 		$jsonArray = array();
+		$title = "";
 
 		$this->db->where('itemcat',$itemcat);
 		$this->db->where('status','1');

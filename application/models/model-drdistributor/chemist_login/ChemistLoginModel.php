@@ -52,6 +52,7 @@ class ChemistLoginModel extends CI_Model
 		$return["user_image"] 	= $user_image;
 		return $return;	
 	}
+	
 
 	public function chemist_login_api($user_name1,$password1,$type="")
 	{	

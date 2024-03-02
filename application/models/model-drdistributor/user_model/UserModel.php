@@ -233,4 +233,63 @@ class UserModel extends CI_Model
 		$return["items"] = $jsonArray;
 		return $return;	
 	}
+
+	public function update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES)
+	{
+		$jsonArray = array();
+
+		$user_image = "";
+		$upload_image = "user_profile";
+		if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+			ini_set('upload_max_filesize', '10M');
+			ini_set('post_max_size', '10M');
+			ini_set('max_input_time', 300);
+			ini_set('max_execution_time', 300);
+	
+			$config['upload_path'] = $upload_image;  // Define the directory where you want to store the uploaded files.
+			$config['allowed_types'] = '*';  // You may want to restrict allowed file types.
+			$config['max_size'] = 0;  // Set to 0 to allow any size.
+
+			$new_name = time().$_FILES["image"]['name'];
+			$config['file_name'] = $new_name;
+	
+			$this->load->library('upload', $config);
+	
+			if (!$this->upload->do_upload('image')) {
+				$error = array('error' => $this->upload->display_errors());
+				//$this->load->view('upload_form', $error);
+				//print_r($error);
+				$status = 0;
+				$status_message = $error;
+			} else {
+				$data = $this->upload->data();
+				$user_image = ($data['file_name']);
+				//$this->load->view('upload_success', $data);
+			}
+
+			if($user_type=="chemist")
+			{
+				$row = $this->db->query("select code from tbl_acm where altercode='$user_altercode'")->row();
+				
+				$this->db->query("update tbl_acm_other set image='$user_image' where code='$row->code'");
+			}
+			$status = 1;
+			$status_message = "Uploaded successfully.";
+		} else {
+			// Invalid file or no file uploaded
+
+			$status = 0;
+			$status_message = "Invalid file or no file uploaded.";
+		}
+
+		$dt = array(
+			'status' => $status,
+			'status_message' => $status_message,
+			'user_image' => $user_image,
+		);
+		$jsonArray[] = $dt;
+
+		$return["items"] = $jsonArray;
+		return $return;	
+	}
 }

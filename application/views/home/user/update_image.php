@@ -38,7 +38,7 @@ function goBack() {
 				<div class="col-sm-12 mt-2">
 					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Update Image" style="margin-left:30%" id="user_profile">
 				</div>
-				<div class="col-sm-12 mt-2">
+				<div class="col-sm-12 mt-2 mb-2">
 					<div class="main_theme_li_bg p-4">
 						<a href="javascript:getfile_fun()" title="Select image from gallery">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
@@ -64,13 +64,12 @@ function call_page_by_last_id()
 function call_page(lastid1)
 {
 	new_i = 0;
-	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
-	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
+	id = "";
 	$(".load_more").hide();
 	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
-		data       :  {user_type:user_type,user_altercode:user_altercode} ,
+		data       :  {id:id} ,
 		url        : "<?php echo base_url(); ?>User/user_account_api",
 		cache	   : false,
 		error: function(){
@@ -122,7 +121,7 @@ function image_upload_start()
 	form_data.append('user_altercode',user_altercode);
     //alert(form_data);                             
     $.ajax({
-		url: "<?= base_url()?>Chemist_json/user_image_upload",
+		url: "<?= base_url()?>User/update_user_image_upload_api",
 		/*dataType: 'text',*/
 		cache: false,
 		contentType: false,

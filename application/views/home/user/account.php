@@ -86,13 +86,12 @@ function call_page_by_last_id()
 function call_page(lastid1)
 {
 	new_i = 0;
-	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
-	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
+	id = "";
 	$(".load_more").hide();
 	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
-		data       :  {user_type:user_type,user_altercode:user_altercode} ,
+		data       :  {id:id} ,
 		url        : "<?php echo base_url(); ?>User/user_account_api",
 		cache	   : false,
 		error: function(){

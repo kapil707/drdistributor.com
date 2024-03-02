@@ -68,21 +68,18 @@ function call_page()
 			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success    : function(data){
+			$(".load_page_loading").html("");
 			if(data.items=="")
 			{
 				$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 			}
-			else
-			{
-				$(".load_page_loading").html("");
-			}
-			if (data.download_url)
-			{
-				$(".download_excel_url").html("<a href="+data.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
-			}
-			if (data.title)
-			{
+			
+			if (data.title!="") {
 				$(".headertitle").html(data.title);
+			}
+
+			if (data.download_url!="") {
+				$(".download_excel_url").html("<a href="+data.download_url+"><button type='button' class='btn btn-warning btn-block'>Download Excel</button></a>");
 			}
 			$.each(data.items, function(i,item){	
 				if (item)

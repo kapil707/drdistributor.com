@@ -56,13 +56,13 @@ function call_page()
 			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 		},
 		success    : function(data){
-			if(data.items=="")
-			{
+			$(".load_page_loading").html("");
+			if(data.items=="") {
 				$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 			}
-			else
-			{
-				$(".load_page_loading").html("");
+			
+			if (data.title!="") {
+				$(".headertitle").html(data.title);
 			}
 			$.each(data.items, function(i,item){	
 				if (item)

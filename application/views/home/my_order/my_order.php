@@ -80,8 +80,7 @@ function call_page(get_record)
 			success    : function(data){
 				
 				$(".load_page_loading").html("");				
-				if(data.items=="" && no_record_found=="0")
-				{
+				if(data.items=="" && no_record_found=="0") {
 					$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 				}
 				

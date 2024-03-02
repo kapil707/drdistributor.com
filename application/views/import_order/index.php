@@ -1,5 +1,5 @@
 <style>
-.menubtn1,.search_medicine_main
+.menubtn1
 {
 	display:none;
 }
@@ -28,7 +28,7 @@ function goBack() {
 <div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-12 col-12 website_box_part">
-			<div class="form-group">
+			<div class="form-group mt-2">
 				<label for="file">Upload excel file</label>
 				<div class="row">
 					<div class="col-sm-8 col-11">

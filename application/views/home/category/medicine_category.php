@@ -155,8 +155,13 @@ function call_page(get_record)
 						item_image_div = item_other_image_div+'<img src="'+item_image+'" class="medicine_cart_item_image medicine_category_img" '+error_img+'>';
 						
 						rete_div =  '<div class="medicine_cart_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </div><div class="medicine_cart_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </div><div class="medicine_cart_item_price"> *Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </div>';
+
+						item_scheme_div = "";
+						if(item_scheme!="0+0") {
+							item_scheme_div = '<div class="medicine_cart_item_scheme">Scheme : '+item_scheme+'</div>';
+						}
 						
-						$(".load_page").append('<div class="col-sm-3 col-6 p-0 m-0 text-center"><div class="featured_brand_div" onClick="medicine_details_funcation('+item_code+')" style="cursor: pointer;" title="'+item_name+'">'+item_image_div+'<div class="medicine_cart_item_name">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_company">By '+item_company+'</div>'+rete_div+'</div></div>'+div_all_data);
+						$(".load_page").append('<div class="col-sm-3 col-6 p-0 m-0 text-center"><div class="featured_brand_div" onClick="medicine_details_funcation('+item_code+')" style="cursor: pointer;" title="'+item_name+'">'+item_image_div+'<div class="medicine_cart_item_name">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_company">By '+item_company+'</div>'+item_scheme+''+rete_div+'</div></div>'+div_all_data);
 
 						//$(".headertitle").html(item.item_header_title);
 

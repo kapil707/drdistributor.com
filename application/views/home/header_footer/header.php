@@ -324,7 +324,7 @@ if(empty($chemist_id_for_cart_total))
 							Delivering to
 						</h1>
 						<div class="pro-link headertitle1">
-							<?= $session_user_fname ?>
+							Code : <?= $session_user_altercode ?>
 						</div>
 					</div>
 				</div>

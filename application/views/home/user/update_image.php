@@ -40,7 +40,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2 mb-2">
 					<div class="main_theme_li_bg p-4">
-						<a href="javascript:getfile_fun()" title="Select image from gallery">
+						<a href="javascript:getfile_fun()" title="Select image from gallery" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
 							<span style="margin-left:20px;">Select image from gallery</span>
 						</a>

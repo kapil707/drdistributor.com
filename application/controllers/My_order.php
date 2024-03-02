@@ -130,13 +130,15 @@ class My_order extends CI_Controller {
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
-			$items  	= $result["items"];
+			$title  = $result["title"];
+			$items  = $result["items"];
 		}	
 		
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $items,
+            'title' => $title,
+			'items' => $items,
         );
 
         // Send JSON response

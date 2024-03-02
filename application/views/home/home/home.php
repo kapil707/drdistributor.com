@@ -460,6 +460,7 @@ function home_page_api(seq_id)
 }
 
 $(document).ready(function() {
+	get_top_menu_api();
 	home_page_api(1);
 	home_page_api(2);
 	home_page_api(3);

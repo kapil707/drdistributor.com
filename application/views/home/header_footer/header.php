@@ -716,7 +716,6 @@ function clear_small_noti(){
 	$(".small_noti_box").hide(500);
 }
 $(document).ready(function(){
-	get_top_menu_api();
 	//setTimeout('count_temp_rec();',500);
 	//setTimeout('check_login_function();',6000);
 

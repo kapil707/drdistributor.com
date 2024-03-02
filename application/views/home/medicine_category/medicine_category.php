@@ -45,7 +45,7 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<input type="text" class="get_record" value="0">
+<input type="hidden" class="get_record" value="0">
 <script>
 $(window).scroll(function(){
 	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();

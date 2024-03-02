@@ -1803,7 +1803,7 @@ section{
 
 .medicine_details_item_company
 {
-	color:var(--home_company_color);
+	color:var(--item_company_color);
     font-size: 18px;
 	text-overflow: ellipsis;
     white-space: nowrap;

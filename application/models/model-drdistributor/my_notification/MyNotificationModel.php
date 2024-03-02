@@ -112,6 +112,7 @@ class MyNotificationModel extends CI_Model
 			$item_image = $user_image;
 
 			$item_message = str_replace("\\n","<br>",$item_message);
+			$item_message = str_replace("\'","",$item_message);
 			
 			$dt = array(
 				'item_id' => $item_id,

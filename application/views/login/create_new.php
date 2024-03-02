@@ -261,7 +261,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
 					<h5 class="text-right login_text_font">
-						Create account
+						Request for login credentials
 					</h5>
 				</div>
 			</div>
@@ -272,14 +272,14 @@ if (isset($_COOKIE["theme_type"])) {
 			<div class="col-md-3">
 			</div>
 			<div class="col-md-6 login_new_box">
-				<h4 class="mt-2">Enter chemist code</h4>
+				<label>Enter chemist code</label>
 				<div class="form-row">
 					<div class="form-group col">
 						<img src="<?= base_url() ?>img_v51/my_account1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Chemist code(e.g. A125)" required="" name="user_name1" id="user_name1" title="Chemist code(e.g. A125)">
 					</div>
 				</div>
-				<h4 class="mt-2">Enter mobile number</h4>
+				<label>Enter mobile number</label>
 				<div class="form-row">
 					<div class="form-group col">
 						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>

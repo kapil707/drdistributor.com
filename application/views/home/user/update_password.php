@@ -35,8 +35,8 @@ function goBack() {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12">
-					<h5 class="mt-2">Enter oldpassword</h5>
+				<div class="col-sm-12 mt-2">
+					<label>Enter oldpassword</label>
 				</div>
 				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
@@ -46,8 +46,8 @@ function goBack() {
 						<img src="<?= base_url() ?>/img_v51/b_eyes.png" width="25px" onclick="hidepassword()" id="eyes" style="display:none" alt>
 					</div>
 				</div>
-				<div class="col-sm-12">
-					<h5 class="mt-2">Enter newpassword</h5>
+				<div class="col-sm-12 mt-2">
+					<label>Enter newpassword</label>
 				</div>
 				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
@@ -57,8 +57,8 @@ function goBack() {
 						<img src="<?= base_url() ?>/img_v51/b_eyes.png" width="25px" onclick="hidepassword1()" id="eyes" style="display:none" alt>
 					</div>
 				</div>
-				<div class="col-sm-12">
-					<h5 class="mt-2">Re-enter newpassword</h5>
+				<div class="col-sm-12 mt-2">
+					<label>Re-enter newpassword</label>
 				</div>
 				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>

@@ -118,7 +118,7 @@ function update_user_image_upload_api()
     //alert(form_data);                             
     $.ajax({
 		url: "<?= base_url()?>User/update_user_image_upload_api",
-		/*dataType: 'text',*/
+		dataType: 'json',
 		cache: false,
 		contentType: false,
 		processData: false,
@@ -131,8 +131,8 @@ function update_user_image_upload_api()
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					swal(item.status)
-					if(item.status1=="1")
+					swal(item.status_message)
+					if(item.status=="1")
 					{
 						call_page("kapil");
 					}

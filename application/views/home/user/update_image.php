@@ -45,7 +45,7 @@ function goBack() {
 							<span style="margin-left:20px;">Select image from gallery</span>
 						</a>
 					</div>
-					<input type="file" id="getfile" onchange="update_user_image_upload_api()" style="display:none" accept=", image/gif,image/jpg,image/png,image/jpeg" />
+					<input type="file" id="getfile" onchange="update_user_upload_image_api()" style="display:none" accept=", image/gif,image/jpg,image/png,image/jpeg" />
 				</div>
 			</div> 
 		</div>
@@ -70,7 +70,7 @@ function call_page(lastid1)
 	$.ajax({
 		type       : "POST",
 		data       :  {id:id} ,
-		url        : "<?php echo base_url(); ?>User/user_account_api",
+		url        : "<?php echo base_url(); ?>User/get_user_account_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
@@ -110,14 +110,14 @@ function getfile_fun()
 {
 	document.getElementById('getfile').click();
 }
-function update_user_image_upload_api()
+function update_user_upload_image_api()
 {
 	var file_data = $('#getfile').prop('files')[0];
 	var form_data = new FormData();                  
     form_data.append('upload_image',file_data);
     //alert(form_data);                             
     $.ajax({
-		url: "<?= base_url()?>User/update_user_image_upload_api",
+		url: "<?= base_url()?>User/update_user_upload_image_api",
 		dataType: 'json',
 		cache: false,
 		contentType: false,

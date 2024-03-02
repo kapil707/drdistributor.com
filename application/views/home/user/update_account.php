@@ -89,7 +89,7 @@ function call_page(lastid1)
 	$.ajax({
 		type       : "POST",
 		data       :  {id:id} ,
-		url        : "<?php echo base_url(); ?>User/get_update_user_account_api",
+		url        : "<?php echo base_url(); ?>User/get_new_user_account_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');

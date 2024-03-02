@@ -899,7 +899,7 @@ class Api45 extends CI_Controller {
 	}
 
 	/******************user account************************ */
-	public function user_account_api()
+	public function get_user_account_api()
 	{
 		$this->load->model("model-drdistributor/user_model/UserModel");
 		
@@ -918,7 +918,7 @@ class Api45 extends CI_Controller {
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
-			$return = $this->UserModel->user_account_api($user_type,$user_altercode,$salesman_id);
+			$return = $this->UserModel->get_user_account_api($user_type,$user_altercode,$salesman_id);
 			$items = $return["items"];
 		}
 
@@ -933,7 +933,7 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
-	public function get_update_user_account_api()
+	public function get_new_user_account_api()
 	{
 		$this->load->model("model-drdistributor/user_model/UserModel");
 		
@@ -952,7 +952,7 @@ class Api45 extends CI_Controller {
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
-			$return = $this->UserModel->get_update_user_account_api($user_type,$user_altercode);
+			$return = $this->UserModel->get_new_user_account_api($user_type,$user_altercode);
 			$items = $return["items"];
 		}
 
@@ -1004,7 +1004,7 @@ class Api45 extends CI_Controller {
 		echo "[".json_encode($response)."]";
 	}
 
-	public function update_user_image_upload_api()
+	public function update_user_upload_image_api()
 	{
 		$this->load->model("model-drdistributor/user_model/UserModel");
 
@@ -1024,7 +1024,8 @@ class Api45 extends CI_Controller {
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))
 		{
-			$items = $this->UserModel->update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES);
+			$return = $this->UserModel->update_user_upload_image_api($user_type,$user_altercode,$salesman_id,$_FILES);
+			$items = $return["items"];
 		}
 
 		$response = array(

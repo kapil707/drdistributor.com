@@ -6,7 +6,7 @@ class UserModel extends CI_Model
 		parent::__construct();
 	}
 
-	public function user_account_api($user_type,$user_altercode,$salesman_id)
+	public function get_user_account_api($user_type,$user_altercode,$salesman_id)
 	{
 		$items = "";
 		if($user_type=="chemist")
@@ -83,7 +83,7 @@ class UserModel extends CI_Model
 		return $return;
 	}
 
-	public function get_update_user_account_api($user_type,$user_altercode)
+	public function get_new_user_account_api($user_type,$user_altercode)
 	{
 		if($user_type=="chemist")
 		{
@@ -234,7 +234,7 @@ class UserModel extends CI_Model
 		return $return;	
 	}
 
-	public function update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$files)
+	public function update_user_upload_image_api($user_type,$user_altercode,$salesman_id,$files)
 	{
 		$jsonArray = array();
 

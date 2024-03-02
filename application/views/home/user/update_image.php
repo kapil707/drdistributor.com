@@ -1,5 +1,5 @@
 <style>
-.menubtn1,.search_medicine_main
+.menubtn1
 {
 	display:none;
 }

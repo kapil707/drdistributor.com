@@ -116,9 +116,7 @@ function image_upload_start()
 	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
 	var file_data = $('#getfile').prop('files')[0];
 	var form_data = new FormData();                  
-    form_data.append('image_path',file_data);
-	form_data.append('user_type',user_type);
-	form_data.append('user_altercode',user_altercode);
+    form_data.append('image',file_data);
     //alert(form_data);                             
     $.ajax({
 		url: "<?= base_url()?>User/update_user_image_upload_api",

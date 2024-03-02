@@ -282,4 +282,36 @@ class User extends CI_Controller {
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
+
+	public function update_user_image_upload_api()
+	{
+		//error_reporting(0);
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		
+		$items = "";
+		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))
+		{
+			$items = $this->UserModel->update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES);
+		}
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data uploaded successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
+	}
 }

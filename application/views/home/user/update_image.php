@@ -45,7 +45,7 @@ function goBack() {
 							<span style="margin-left:20px;">Select image from gallery</span>
 						</a>
 					</div>
-					<input type="file" id="getfile" onchange="image_upload_start()" style="display:none" accept=", image/gif,image/jpg,image/png,image/jpeg" />
+					<input type="file" id="getfile" onchange="update_user_image_upload_api()" style="display:none" accept=", image/gif,image/jpg,image/png,image/jpeg" />
 				</div>
 			</div> 
 		</div>
@@ -110,10 +110,8 @@ function getfile_fun()
 {
 	document.getElementById('getfile').click();
 }
-function image_upload_start()
+function update_user_image_upload_api()
 {
-	user_type 		= "<?php echo $_COOKIE['user_type']; ?>";
-	user_altercode 	= "<?php echo $_COOKIE['user_altercode']; ?>";
 	var file_data = $('#getfile').prop('files')[0];
 	var form_data = new FormData();                  
     form_data.append('image',file_data);

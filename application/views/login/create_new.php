@@ -269,7 +269,7 @@ if (isset($_COOKIE["theme_type"])) {
 	</div>
 	<div class="container-fluid" style="margin-top:50px;">
 		<div class="row" style="margin-top:30px;">
-			<div class="col-md-3">
+			<div class="col-md-3"> 
 			</div>
 			<div class="col-md-6 login_new_box">
 				<label>Enter chemist code</label>

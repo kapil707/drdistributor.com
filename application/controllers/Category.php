@@ -9,6 +9,7 @@ class Category extends CI_Controller {
         $this->ChemistLoginModel->login_check();
 
 		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
+		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 	}
 
 	public function index($item_company=""){

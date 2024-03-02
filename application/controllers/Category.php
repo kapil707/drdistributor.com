@@ -97,6 +97,50 @@ class Category extends CI_Controller {
 		$this->load->view('home/header_footer/header', $data);		
 		$this->load->view('home/medicine_category/medicine_category', $data);
 	}
+
+	public function itemcategory($item_code=""){
+		$item_page_type="featured_brand";
+		////error_reporting(0);
+		//$this->login_check();
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"] 			= "";
+		
+		$data["main_page_title"] = "Dr";
+		if(empty($_COOKIE['user_session'])){
+			//redirect(base_url()."home");			
+		}
+		$data["item_page_type"] = $item_page_type;
+		$data["item_code"] 		= $item_code;
+		$data["item_division"] 	= $item_division;
+
+		$data["company_full_name"] = "Dr";
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "medicine_category";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$this->load->view('home/header_footer/header', $data);		
+		$this->load->view('home/medicine_category/medicine_category', $data);
+	}
 	
 	public function medicine_item_wise($item_code="",$item_division=""){
 		$item_page_type="medicine_item_wise";

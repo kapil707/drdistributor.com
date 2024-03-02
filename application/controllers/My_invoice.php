@@ -56,7 +56,7 @@ class My_invoice extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $get_record = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
 			$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,$get_record);

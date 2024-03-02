@@ -301,7 +301,8 @@ class User extends CI_Controller {
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))
 		{
-			$items = $this->UserModel->update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES);
+			$return = $this->UserModel->update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES);
+			$items = $return["items"];
 		}
 
 		$response = array(

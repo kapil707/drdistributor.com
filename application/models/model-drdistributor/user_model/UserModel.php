@@ -234,13 +234,13 @@ class UserModel extends CI_Model
 		return $return;	
 	}
 
-	public function update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$_FILES)
+	public function update_user_image_upload_api($user_type,$user_altercode,$salesman_id,$files)
 	{
 		$jsonArray = array();
 
 		$user_image = "";
 		$upload_image = "user_profile";
-		if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+		if (isset($files['image']) && $files['image']['error'] === UPLOAD_ERR_OK) {
 			ini_set('upload_max_filesize', '10M');
 			ini_set('post_max_size', '10M');
 			ini_set('max_input_time', 300);
@@ -250,7 +250,7 @@ class UserModel extends CI_Model
 			$config['allowed_types'] = '*';  // You may want to restrict allowed file types.
 			$config['max_size'] = 0;  // Set to 0 to allow any size.
 
-			$new_name = time().$_FILES["image"]['name'];
+			$new_name = time().$files["image"]['name'];
 			$config['file_name'] = $new_name;
 	
 			$this->load->library('upload', $config);

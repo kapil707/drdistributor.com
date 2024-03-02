@@ -240,7 +240,7 @@ class UserModel extends CI_Model
 
 		$user_image = "";
 		$upload_image = "user_profile";
-		if (isset($files['image']) && $files['image']['error'] === UPLOAD_ERR_OK) {
+		if (isset($files['upload_image']) && $files['upload_image']['error'] === UPLOAD_ERR_OK) {
 			ini_set('upload_max_filesize', '10M');
 			ini_set('post_max_size', '10M');
 			ini_set('max_input_time', 300);
@@ -250,12 +250,12 @@ class UserModel extends CI_Model
 			$config['allowed_types'] = '*';  // You may want to restrict allowed file types.
 			$config['max_size'] = 0;  // Set to 0 to allow any size.
 
-			$new_name = time().$files["image"]['name'];
+			$new_name = time().$files["upload_image"]['name'];
 			$config['file_name'] = $new_name;
 	
 			$this->load->library('upload', $config);
 	
-			if (!$this->upload->do_upload('image')) {
+			if (!$this->upload->do_upload('upload_image')) {
 				$error = array('error' => $this->upload->display_errors());
 				//$this->load->view('upload_form', $error);
 				//print_r($error);

@@ -99,7 +99,8 @@ class Category extends CI_Controller {
 	}
 
 	public function itemcategory($item_code=""){
-		$item_page_type="featured_brand";
+		$item_page_type="itemcategory";
+		$item_division = "";
 		////error_reporting(0);
 		//$this->login_check();
 		$data["session_user_image"] 	= $_COOKIE['user_image'];

@@ -6,7 +6,7 @@ class UserModel extends CI_Model
 		parent::__construct();
 	}
 
-	public function user_account_api($user_type,$user_altercode)
+	public function user_account_api($user_type,$user_altercode,$salesman_id)
 	{
 		$items = "";
 		if($user_type=="chemist")
@@ -41,7 +41,7 @@ class UserModel extends CI_Model
 		}
 		if($user_type=="sales")
 		{
-			$row = $this->db->query("select * from tbl_users where customer_code='$user_altercode'")->row();
+			$row = $this->db->query("select * from tbl_users where customer_code='$salesman_id'")->row();
 			if(!empty($row->id))
 			{
 				$user_id		= ($row->id);

@@ -918,7 +918,7 @@ class Api45 extends CI_Controller {
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
-			$return = $this->UserModel->user_account_api($user_type,$user_altercode);
+			$return = $this->UserModel->user_account_api($user_type,$user_altercode,$salesman_id);
 			$items = $return["items"];
 		}
 

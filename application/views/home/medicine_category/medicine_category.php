@@ -45,7 +45,7 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<input type="hidden" class="get_record" value="0">
+<input type="text" class="get_record" value="0">
 <script>
 $(window).scroll(function(){
 	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
@@ -99,7 +99,7 @@ function call_page(get_record)
 				{
 					$(".load_page_loading").html("");
 				}
-				title 		= data.title;
+				title 	= data.title;
 				if(title!=""){
 					$(".headertitle").html(title);
 				}

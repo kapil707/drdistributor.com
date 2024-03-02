@@ -281,7 +281,7 @@ function home_page_itemcategory(category_id,items,title){
 				item_other_image_div = '<img src="<?= base_url() ?>img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
 			}
 
-			item_scheme_div = "";
+			item_scheme_div = "xxxx";
 			if(item_scheme!="0+0") {
 				item_scheme_div = '<div class="medicine_cart_item_scheme">Scheme : '+item_scheme+'</div>';
 			}

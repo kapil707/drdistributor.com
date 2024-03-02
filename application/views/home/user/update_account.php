@@ -59,12 +59,12 @@ function goBack() {
 				<div class="col-sm-12 mt-2 text-center">
 					<span class="main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
-				<div class="col-sm-12">
+				<div class="col-sm-12 mb-2">
 					<input type="submit" value="Update account" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
 					<input type="submit" value="Update account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 			</div>
-			<div class="main_theme_li_bg load_page mt-2 p-2" style="display:none;">
+			<div class="main_theme_li_bg load_page mt-2 p-2 mb-2" style="display:none;">
 				
 			</div>
 		</div>

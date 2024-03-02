@@ -48,7 +48,7 @@ function goBack() {
 						</a>
 					</div>
 				</div>
-				<div class="col-sm-12 mt-2 md-2">
+				<div class="col-sm-12 mt-2 mb-2">
 					<div class="main_theme_li_bg p-4">
 						<a href="<?= base_url();?>update_password" title="Update password">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/b_lock.png" width="30" alt="Update Password" title="Update Password">

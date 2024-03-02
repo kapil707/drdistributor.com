@@ -78,21 +78,16 @@ function call_page(get_record)
 				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
-				if(data.items=="")
+				
+				$(".load_page_loading").html("");				
+				if(data.items=="" && no_record_found=="0")
 				{
-					if(no_record_found=="0")
-					{
-						$(".load_page_loading").html("");
-						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
-					}
+					$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 				}
-				else
-				{
-					$(".load_page_loading").html("");
-				}
+				
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);
-				
+
 				$.each(data.items, function(i,item){
 					if (item){
 						item_id	 		= item.item_id;

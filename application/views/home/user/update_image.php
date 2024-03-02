@@ -115,7 +115,7 @@ function update_user_image_upload_api()
 	var file_data = $('#getfile').prop('files')[0];
 	var form_data = new FormData();                  
     form_data.append('image',file_data);
-    //alert(form_data);                             
+    alert(form_data);                             
     $.ajax({
 		url: "<?= base_url()?>User/update_user_image_upload_api",
 		/*dataType: 'text',*/

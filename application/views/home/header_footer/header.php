@@ -944,7 +944,7 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_ptr + "/-")
 	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_mrp + "/-")
 	$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
-	$(".medicine_details_item_price").html('*Approximate Value ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
+	$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
 
 	$(".medicine_details_item_scheme_line").show()
 	$(".medicine_details_item_scheme").show()

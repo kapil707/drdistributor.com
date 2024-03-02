@@ -1,5 +1,5 @@
 <style>
-.menubtn1,.home_page_search_div
+.menubtn1
 {
 	display:none;
 }

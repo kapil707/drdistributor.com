@@ -297,7 +297,7 @@ class User extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		print_r($_FILES);
+		
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))
 		{

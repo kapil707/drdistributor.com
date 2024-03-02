@@ -97,22 +97,25 @@ function call_page(get_record)
 				}
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);
-				$.each(data.items, function(i,item){
-					if (item){
-						item_id	 		= item.item_id;
-						item_title 		= item.item_title;
-						item_total 		= item.item_message;
-						item_date_time 	= item.item_date_time;
-						item_image 		= item.item_image;
-						
-						$(".load_page").append('<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_order_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>');
-						
-						query_work = 0;
-						no_record_found = 1;
-						$(".load_more").show();
-						$(".load_page").show();
-					}
-				});
+				
+				if(data.items!="[]"){
+					$.each(data.items, function(i,item){
+						if (item){
+							item_id	 		= item.item_id;
+							item_title 		= item.item_title;
+							item_total 		= item.item_message;
+							item_date_time 	= item.item_date_time;
+							item_image 		= item.item_image;
+							
+							$(".load_page").append('<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_order_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>');
+							
+							query_work = 0;
+							no_record_found = 1;
+							$(".load_more").show();
+							$(".load_page").show();
+						}
+					});
+				}
 			},
 			timeout: 10000
 		});

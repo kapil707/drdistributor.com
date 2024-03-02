@@ -59,6 +59,8 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2">
 					<label>Re-enter newpassword</label>
+				</div>
+				<div class="col-sm-12">
 					<img src="<?= base_url() ?>/img_v51/b_lock.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="password" value="" class="input_type_text login_textbox" placeholder="Re-enter newpassword" required="" name="renew_password" id="renew_password" title="Re-enter newpassword" autocomplete="new-password" onchange="check_password2()" style="padding-left:40px;float: left;">
 					<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">

@@ -273,15 +273,15 @@ if (isset($_COOKIE["theme_type"])) {
 			</div>
 			<div class="col-md-6 login_new_box">
 				<div class="form-row">
+					<label>Username</label>
 					<div class="form-group col">
-						<label>Username</label>
 						<i class="fa fa-user login_pg_icon" aria-hidden="true"></i>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter username" required="" name="user_name1" id="user_name1" title="Enter username">
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row">					
+					<label>Password</label>
 					<div class="form-group col">
-						<label>Password</label>
 						<i class="fa fa-key login_pg_icon" aria-hidden="true"></i>
 						<input type="password" value="" class="input_type_text login_textbox" placeholder="Enter password" required="" name="password1" id="password1" style="float: left;" title="Enter password">
 						<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">

@@ -43,7 +43,7 @@ function goBack() {
 				<div class="col-sm-12 mt-2">
 					<div class="main_theme_li_bg p-4">
 						<a href="<?= base_url(); ?>update_account" title="Update account" class="main_theme_a">
-							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Update Image" title="Update account">
+							<img class="img-circle" src="<?= base_url() ?>/img_v51/edit_icon.png" width="30" alt="Update Image" title="Update account">
 							<span style="margin-left:20px;">Update account</span>
 						</a>
 					</div>

@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 			{
 				if(!empty($_COOKIE['chemist_id'])){
 					$chemist_id = $_COOKIE['chemist_id'];
-					$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+					$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 				}
 			}
 		}
@@ -65,9 +65,9 @@ class Home extends CI_Controller {
 		/*$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
 		$data["tbl_home"] = $tbl_home; */
 		
-		$this->load->view('home/header_footer/header', $data);		
+		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home/home/home', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function get_top_menu_api(){

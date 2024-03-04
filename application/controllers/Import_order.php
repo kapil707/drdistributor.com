@@ -32,7 +32,7 @@ class Import_order extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -56,9 +56,9 @@ class Import_order extends CI_Controller {
 		}
 		$data["chemist_id"] = $chemist_id;
 		
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/index', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	public function medicine_suggest(){
@@ -77,7 +77,7 @@ class Import_order extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -93,9 +93,9 @@ class Import_order extends CI_Controller {
 		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
 		$data["result"] = $result;
 
-		$this->load->view('home/header_footer/header',$data);
+		$this->load->view('header_footer/header',$data);
 		$this->load->view('import_order/medicine_suggest', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	public function medicine_search($order_id='')
@@ -118,7 +118,7 @@ class Import_order extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -139,9 +139,9 @@ class Import_order extends CI_Controller {
 			redirect(base_url()."import_order");
 		}
 		$data["import_order_page"] = "yes";
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	public function medicine_deleted_items($order_id='')
@@ -163,7 +163,7 @@ class Import_order extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")
@@ -268,9 +268,9 @@ class Import_order extends CI_Controller {
 			$this->Scheme_Model->insert_fun("tbl_email_send",$dt);				
 		}
 		
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_deleted_items', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	public function import_orders_delete_items($query)

@@ -62,6 +62,7 @@ function goBack() {
 		<div class="col-sm-1"></div>
 	</div>
 </div>
+
 <div class="place_order_or_empty_cart_btn_div">
 	<div class="container">
 		<div class="row">

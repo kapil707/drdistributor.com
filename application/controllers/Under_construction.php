@@ -7,7 +7,7 @@ class under_construction extends CI_Controller {
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction!="1")
 		{
-			//redirect(base_url());
+			redirect(base_url());
 		}
 	}
 	

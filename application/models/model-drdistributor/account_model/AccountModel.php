@@ -270,6 +270,9 @@ class AccountModel extends CI_Model
 			$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
 			$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
 			/*************************************************************/
+
+			$status = "1";
+			$status_message = "Thank you for submitting your request your account delete with in 7 dayes.";
 		}
 
 		$dt = array(

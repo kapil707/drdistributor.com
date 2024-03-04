@@ -43,8 +43,8 @@ class User extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "Account";
-		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/account', $data);
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('account_user/account', $data);
 	}
 
 	public function update_account(){
@@ -82,8 +82,8 @@ class User extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);	
-		$this->load->view('user/update_account', $data);
+		$this->load->view('header_footer/header', $data);	
+		$this->load->view('account_user/update_account', $data);
 	}
 
 	public function update_image(){
@@ -116,8 +116,8 @@ class User extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/update_image', $data);
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('account_user/update_image', $data);
 	}
 	
 	public function update_password(){
@@ -150,8 +150,8 @@ class User extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('user/update_password', $data);
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('account_user/update_password', $data);
 	}
 
 	public function get_user_account_api()

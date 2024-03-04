@@ -30,7 +30,7 @@ function goBack() {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12 text-center">
+				<div class="col-sm-12 text-center p-2">
 					<span class="load_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
 				</div>
 				<div class="col-sm-12" style="margin-top:10px;">

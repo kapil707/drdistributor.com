@@ -17,14 +17,14 @@
 <script>
 $(".headertitle").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home/my_notification";
+	window.location.href = "<?= base_url();?>my_notification";
 }
 </script>
 <div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 col-12">
+				<div class="col-sm-12 col-12 p-2">
 					<div class="website_box_part load_page" style="display:none">
 					</div>
 				</div>

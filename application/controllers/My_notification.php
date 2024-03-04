@@ -40,7 +40,7 @@ class My_notification extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);		
+		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_notification/my_notification', $data);
 	}
 

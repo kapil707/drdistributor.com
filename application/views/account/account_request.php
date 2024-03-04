@@ -348,7 +348,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       : {chemist_code:chemist_code,phone_number:phone_number},
-		url        : "<?= base_url();?>chemist_login/get_create_new_api",
+		url        : "<?= base_url();?>Account/get_create_new_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

@@ -387,7 +387,7 @@ function submitbtn()
 		type       : "POST",
 		dataType   : "json",
 		data       : {user_name1:user_name1,password1:password1,submit:submit},
-		url        : "<?= base_url();?>chemist_login/chemist_login_api",
+		url        : "<?= base_url();?>Account/chemist_login_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

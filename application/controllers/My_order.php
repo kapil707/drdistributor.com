@@ -109,7 +109,7 @@ class My_order extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);		
+		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_order/my_order_details', $data);
 	}
 

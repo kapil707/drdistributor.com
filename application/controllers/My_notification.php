@@ -5,8 +5,8 @@ class My_notification extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
-        $this->ChemistLoginModel->login_check("my_notification");
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check("my_notification");
 
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 	}

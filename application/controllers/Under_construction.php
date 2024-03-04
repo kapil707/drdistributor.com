@@ -13,7 +13,7 @@ class under_construction extends CI_Controller {
 	
 	public function index(){
 		//error_reporting(0);	
-		$this->load->view('under_construction');
+		$this->load->view('under_construction/under_construction');
 	}
 }
 ?>

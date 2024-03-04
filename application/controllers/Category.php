@@ -52,7 +52,7 @@ class Category extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/category/medicine_category', $data);
+		$this->load->view('home/medicine_category/medicine_category', $data);
 	}
 	
 	public function featured_brand($item_code="",$item_division=""){

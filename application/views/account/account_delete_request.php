@@ -261,7 +261,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
 					<h5 class="text-right login_text_font">
-						Request for login credentials
+						Request for account delete
 					</h5>
 				</div>
 			</div>
@@ -292,9 +292,8 @@ if (isset($_COOKIE["theme_type"])) {
 					id="submitbtn"><input type="submit" value="Create account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 				<div class="text-center" style="margin-top:30px;">
-					Already have an account? 
 					<a href="<?= base_url() ?>login" class="main_theme_a">
-					Login</a>
+					Go back</a>
 				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
@@ -348,7 +347,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       : {chemist_code:chemist_code,phone_number:phone_number},
-		url        : "<?= base_url();?>chemist_login/get_create_new_api",
+		url        : "<?= base_url();?>Account/account_delete_request_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

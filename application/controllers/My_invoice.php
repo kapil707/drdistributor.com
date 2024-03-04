@@ -39,7 +39,7 @@ class My_invoice extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "My invoice";
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice',$data);
 	}
 

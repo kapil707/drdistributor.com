@@ -1,14 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Chemist_login extends CI_Controller {
+class Account extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
 	}
-	public function create_new() {
+	public function account_request() {
 		//error_reporting(0);
-		$data["main_page_title"] = "Create account";
-	    $this->load->view('login/create_new', $data);
+		$data["main_page_title"] = "Request for login credentials";
+	    $this->load->view('account/account_request', $data);
+	}
+
+	public function account_delete_request() {
+		//error_reporting(0);
+		$data["main_page_title"] = "Request for login credentials";
+	    $this->load->view('account/account_delete_request', $data);
 	}
 	
 	public function login() {
@@ -17,7 +23,7 @@ class Chemist_login extends CI_Controller {
 			redirect('home');
 		}
 		$data["main_page_title"] = "Login";
-	    $this->load->view('login/login', $data);
+	    $this->load->view('account/account_login', $data);
 	}
 	
 	public function logout(){

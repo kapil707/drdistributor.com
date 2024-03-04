@@ -49,7 +49,7 @@ class Main extends CI_Controller {
 		$data["chemist_id"] = "";
 
 		$this->load->view('header_footer/header', $data);
-	    $this->load->view('main_page/terms_of_services', $data);
+	    $this->load->view('terms_of_services/terms_of_services', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 	public function privacy_policy() {
@@ -69,7 +69,7 @@ class Main extends CI_Controller {
 		}
 		
 		$this->load->view('header_footer/header', $data);
-	    $this->load->view('main_page/privacy_policy', $data);
+	    $this->load->view('privacy_policy/privacy_policy', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 

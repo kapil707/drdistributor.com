@@ -50,13 +50,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'main/index';
 
-$route['login'] = 'Chemist_login/login';
-$route['create_new'] = 'Chemist_login/create_new';
-$route['logout'] = 'Chemist_login/logout';
+$route['login'] = 'Account/login';
+$route['create_new'] = 'Account/account_request';
+$route['account_request'] = 'Account/account_request';
+$route['account_delete_request'] = 'Account/account_delete_request';
+$route['logout'] = 'Account/logout';
 
-$route['user/login'] = 'Chemist_login/login';
-$route['user/create_new'] = 'Chemist_login/create_new';
-$route['user/logout'] = 'Chemist_login/logout';
+$route['user/login'] = 'Account/login';
+$route['user/create_new'] = 'Account/account_request';
+$route['user/account_request'] = 'Account/account_request';
+$route['user/logout'] = 'Account/logout';
 
 $route['privacy_policy']='main/privacy_policy';
 $route['user/termsofservice'] = 'main/terms_of_services';

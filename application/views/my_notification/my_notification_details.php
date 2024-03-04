@@ -24,8 +24,8 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 col-12 p-2">
-					<div class="website_box_part load_page" style="display:none">
+				<div class="col-sm-12 col-12">
+					<div class="website_box_part load_page p-2" style="display:none">
 					</div>
 				</div>
 				<div class="col-sm-12 load_page_loading" style="margin-top:10px;">

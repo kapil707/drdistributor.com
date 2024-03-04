@@ -25,12 +25,12 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="website_box_part load_page" style="display:none">
+					<div class="website_box_part load_page p-2" style="display:none">
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12 text-center p-2">
+				<div class="col-sm-12 text-center">
 					<span class="load_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
 				</div>
 				<div class="col-sm-12" style="margin-top:10px;">

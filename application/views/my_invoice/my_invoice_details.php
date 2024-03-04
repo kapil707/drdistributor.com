@@ -25,8 +25,8 @@ function goBack() {
 		<div class="col-sm-3 col-6 download_excel_url" style="margin-top:5px;margin-bottom:5px;">
 					
 		</div>
-		<div class="col-sm-12 col-12 p-2">
-			<div class="website_box_part load_page" style="display:none">
+		<div class="col-sm-12 col-12">
+			<div class="website_box_part load_page p-2" style="display:none">
 			</div>
 		</div>
 		<div class="col-sm-12 load_page_loading" style="margin-top:10px;">

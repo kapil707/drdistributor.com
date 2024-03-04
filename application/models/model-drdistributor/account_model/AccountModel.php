@@ -265,7 +265,7 @@ class AccountModel extends CI_Model
 		{
 			$status_message = "User account doesn't exist.";
 		}else{
-			$group2_message = "Hello Team Account Delete Request,<br><br>Chemist Code : ".$chemist_code."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
+			$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$chemist_code."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
 			/***************only for group message***********************/
 			$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
 			$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);

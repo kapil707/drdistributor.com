@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+		$this->load->model("model-drdistributor/account_model/AccountModel");
 	}
 	public function account_request() {
 		//error_reporting(0);
@@ -58,7 +58,7 @@ class Account extends CI_Controller {
 		$phone_number	= $_POST["phone_number"];
 
 		if(!empty($chemist_code) && !empty($phone_number)){
-			$result = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
+			$result = $this->AccountModel->get_create_new_api($chemist_code,$phone_number);
 			$items = $result["items"];
 		}
 
@@ -79,7 +79,7 @@ class Account extends CI_Controller {
 		$phone_number	= $_POST["phone_number"];
 
 		if(!empty($chemist_code) && !empty($phone_number)){
-			$result = $this->ChemistLoginModel->account_delete_request_api($chemist_code,$phone_number);
+			$result = $this->AccountModel->account_delete_request_api($chemist_code,$phone_number);
 			$items = $result["items"];
 		}
 
@@ -100,7 +100,7 @@ class Account extends CI_Controller {
 		$password1	= $_POST["password1"];
 
 		if(!empty($user_name1) && !empty($password1)){
-			$result = $this->ChemistLoginModel->chemist_login_api($user_name1,$password1,"website");
+			$result = $this->AccountModel->chemist_login_api($user_name1,$password1,"website");
 			$items = $result["items"];
 		}
 

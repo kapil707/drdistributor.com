@@ -35,9 +35,9 @@ class Main extends CI_Controller {
 
 		/**********************************************************/
 		
-		$this->load->view('home/header_footer/header', $data);		
+		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home/home/home', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function terms_of_services() {
@@ -48,9 +48,9 @@ class Main extends CI_Controller {
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
 
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 	    $this->load->view('main_page/terms_of_services', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	public function privacy_policy() {
 		//error_reporting(0);
@@ -68,9 +68,9 @@ class Main extends CI_Controller {
 			$data["chemist_id"] = $this->session->userdata('user_altercode');
 		}
 		
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 	    $this->load->view('main_page/privacy_policy', $data);
-		$this->load->view('home/header_footer/footer', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function download_order($order_id,$chemist_id)

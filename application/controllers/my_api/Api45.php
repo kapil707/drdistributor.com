@@ -4,14 +4,14 @@ class Api45 extends CI_Controller {
 
 	public function get_create_new_api()
 	{
-		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+		$this->load->model("model-drdistributor/account_model/AccountModel");
 
 		$api_key		= $_POST['api_key'];
 		$chemist_code 	= $_POST["chemist_code"];
 		$phone_number 	= $_POST["phone_number"];
 		if(!empty($api_key) && !empty($chemist_code) && !empty($phone_number))
 		{
-			$return = $this->ChemistLoginModel->get_create_new_api($chemist_code,$phone_number);
+			$return = $this->AccountModel->get_create_new_api($chemist_code,$phone_number);
 			$items = $return["items"];
 		}
 
@@ -27,7 +27,7 @@ class Api45 extends CI_Controller {
 	}
 	public function get_login_api()
 	{
-		$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+		$this->load->model("model-drdistributor/account_model/AccountModel");
 
 		$api_key		= $_POST['api_key'];
 		$user_name 		= $_POST['user_name'];
@@ -36,7 +36,7 @@ class Api45 extends CI_Controller {
 
 		if(!empty($api_key) && !empty($user_name) && !empty($user_password))
 		{
-			$result = $this->ChemistLoginModel->chemist_login_api($user_name,$user_password,"");
+			$result = $this->AccountModel->chemist_login_api($user_name,$user_password,"");
 			$items = $result["items"];
 		}
 
@@ -115,9 +115,9 @@ class Api45 extends CI_Controller {
 			$date	= date("Y-m-d");
 
 			/********************************/ 
-			$this->load->model("model-drdistributor/chemist_login/ChemistLoginModel");
+			$this->load->model("model-drdistributor/account_model/AccountModel");
 			/********************************/ 
-			$return = $this->ChemistLoginModel->check_nrx_user($user_altercode);
+			$return = $this->AccountModel->check_nrx_user($user_altercode);
 			$user_image = $return["user_image"];
 			$user_nrx = $return["user_nrx"];
 			/********************************/ 

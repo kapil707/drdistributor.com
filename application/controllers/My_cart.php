@@ -39,8 +39,8 @@ class My_cart extends CI_Controller {
 		/********************************************************** */
 		
 		$data["main_page_title"] = "My order";
-		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/my_cart/my_cart', $data);
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('my_cart/my_cart', $data);
 	}
 
 	public function my_cart_api(){

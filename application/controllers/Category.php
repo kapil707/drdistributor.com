@@ -51,8 +51,8 @@ class Category extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/medicine_category/medicine_category', $data);
+		$this->load->view('header_footer/header', $data);		
+		$this->load->view('medicine_category/medicine_category', $data);
 	}
 	
 	public function featured_brand($item_code="",$item_division=""){
@@ -95,8 +95,8 @@ class Category extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/medicine_category/medicine_category', $data);
+		$this->load->view('header_footer/header', $data);		
+		$this->load->view('medicine_category/medicine_category', $data);
 	}
 	
 	public function itemcategory($item_code=""){
@@ -140,8 +140,8 @@ class Category extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/medicine_category/medicine_category', $data);
+		$this->load->view('header_footer/header', $data);		
+		$this->load->view('medicine_category/medicine_category', $data);
 	}
 
 	public function medicine_category_api(){

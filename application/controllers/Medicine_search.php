@@ -26,7 +26,7 @@ class Medicine_search extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id = $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."home/select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 		}
 
@@ -100,8 +100,8 @@ class Medicine_search extends CI_Controller {
 		
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;
-		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/medicine_search/medicine_search', $data);
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('medicine_search/medicine_search', $data);
 	}
 
 	public function medicine_search_api()

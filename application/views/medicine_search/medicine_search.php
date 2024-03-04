@@ -100,13 +100,13 @@ function goBack() {
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
-			<div class="website_box_part search_page_main_div get_medicine_favourite_div">
+			<div class="website_box_part search_page_main_div get_medicine_favourite_div p-2">
 				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
 			</div>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
-			<div class="website_box_part search_page_main_div medicine_cart_list_div">
+			<div class="website_box_part search_page_main_div medicine_cart_list_div p-2">
 				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
 			</div>
 		</div>

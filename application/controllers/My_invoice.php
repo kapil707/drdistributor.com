@@ -40,7 +40,7 @@ class My_invoice extends CI_Controller {
 		
 		$data["main_page_title"] = "My invoice";
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/my_invoice/my_invoice',$data);
+		$this->load->view('my_invoice/my_invoice',$data);
 	}
 
 	public function my_invoice_api(){
@@ -108,7 +108,7 @@ class My_invoice extends CI_Controller {
 		/********************************************************** */
 		
 		$this->load->view('home/header_footer/header', $data);
-		$this->load->view('home/my_invoice/my_invoice_details',$data);
+		$this->load->view('my_invoice/my_invoice_details',$data);
 	}
 
 	public function my_invoice_details_api(){
@@ -149,4 +149,3 @@ class My_invoice extends CI_Controller {
         echo json_encode($response);
 	}
 }
-?>

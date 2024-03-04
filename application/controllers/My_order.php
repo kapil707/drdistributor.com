@@ -42,7 +42,7 @@ class My_order extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/my_order/my_order', $data);
+		$this->load->view('my_order/my_order', $data);
 	}
 
 	public function my_order_api(){
@@ -110,7 +110,7 @@ class My_order extends CI_Controller {
 		/********************************************************** */
 
 		$this->load->view('home/header_footer/header', $data);		
-		$this->load->view('home/my_order/my_order_details', $data);
+		$this->load->view('my_order/my_order_details', $data);
 	}
 
 	

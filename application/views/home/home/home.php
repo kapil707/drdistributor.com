@@ -238,7 +238,7 @@ function home_page_divisioncategory(category_id,items,title){
 			item_division 	= item.item_division;
 			item_image 		= item.item_image;
 
-			mydata+= '<div class="item"><div class="featured_brand_home_div text-center"><a href="<?= base_url(); ?>category/featured_brand/'+item_code+'/'+item_division+'"><img src="'+item_image+'" alt=""></a><a href="<?= base_url(); ?>category/featured_brand/'+item_code+'/'+item_division+'"><div class="medicine_details_item_company">'+item_company+'</div></a></div></div>';
+			mydata+= '<div class="item"><div class="featured_brand_home_div1 text-center"><a href="<?= base_url(); ?>category/featured_brand/'+item_code+'/'+item_division+'"><img src="'+item_image+'" alt=""></a><a href="<?= base_url(); ?>category/featured_brand/'+item_code+'/'+item_division+'"><div class="medicine_details_item_company">'+item_company+'</div></a></div></div>';
 		}
 	});
 	

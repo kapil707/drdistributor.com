@@ -72,6 +72,28 @@ class Account extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
+
+	public function account_delete_request_api(){
+		//error_reporting(0);
+		$chemist_code 	= $_POST["chemist_code"];
+		$phone_number	= $_POST["phone_number"];
+
+		if(!empty($chemist_code) && !empty($phone_number)){
+			$result = $this->ChemistLoginModel->account_delete_request_api($chemist_code,$phone_number);
+			$items = $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	public function chemist_login_api(){
 		//error_reporting(0);
 		$user_name1 = $_POST["user_name1"];

@@ -268,7 +268,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function get_top_menu_api(){
@@ -895,7 +895,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	/******************user account************************ */
@@ -930,7 +930,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function get_new_user_account_api()
@@ -964,7 +964,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function update_user_account_api()
@@ -1001,7 +1001,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function update_user_upload_image_api()
@@ -1036,7 +1036,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function update_password_api()
@@ -1072,7 +1072,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	public function medicine_category_api(){
@@ -1299,7 +1299,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 	
 	public function ratingbar_review_api()
@@ -1342,7 +1342,7 @@ class Api01 extends CI_Controller {
 
 		// Send JSON response
 		header('Content-Type: application/json');
-		echo "[".json_encode($response)."]";
+		echo json_encode($response);
 	}
 
 	function test_notification()

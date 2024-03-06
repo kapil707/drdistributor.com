@@ -265,49 +265,43 @@ class AccountModel extends CI_Model
 		$status = "0";
 		$status_message = "User account doesn't exist.";
 
-		$query = $this->db->query("select id from tbl_acm where altercode='$user_name' and slcd='CL' limit 1")->row();
-		if (empty($query->id))
+		if(!empty($user_name) && !empty($user_password))
 		{
-			$status_message = "User account doesn't exist.";
-		}else{
-			if(!empty($user_name) && !empty($user_password))
+			$user_password = md5($user_password);			
+			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			if (!empty($query->id) && empty($query->delete_request))
 			{
-				$user_password = md5($user_password);			
-				$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
-				if (!empty($query->id) && empty($query->delete_request))
+				if ($query->password == $user_password)
 				{
-					if ($query->password == $user_password)
+					if($query->block=="0" && $query->status=="1")
 					{
-						if($query->block=="0" && $query->status=="1")
-						{
-							$date = date('Y-m-d');
-							$delete_request_date = date('Y-m-d', strtotime($date. ' + 7 day'));
-							$this->db->query("update tbl_acm_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
+						$date = date('Y-m-d');
+						$delete_request_date = date('Y-m-d', strtotime($date. ' + 7 day'));
+						$this->db->query("update tbl_acm_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 
-							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
-							/***************only for group message***********************/
-							$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-							$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
-							/*************************************************************/
+						$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
+						/***************only for group message***********************/
+						$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
+						$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
+						/*************************************************************/
 
-							$status = "1";
-							$status_message = "Thank you for submitting your request your account delete with in 7 days.";
-						}
-						else
-						{
-							$status_message = "Can't Login due to technical issues.";
-							if($query->delete_request=="1")
-							{
-								$delete_request_date = date("d-M-y",strtotime($query->delete_request_date));
-								$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
-								$status_message = "Your Account is in delete mode. Your account deleted autolatice after $delete_request_date . <br>if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
-							}
-						}
+						$status = "1";
+						$status_message = "Thank you for submitting your request your account delete with in 7 days.";
 					}
 					else
 					{
-						$status_message = "Invalid password";
+						$status_message = "Can't Login due to technical issues.";
+						if($query->delete_request=="1")
+						{
+							$delete_request_date = date("d-M-y",strtotime($query->delete_request_date));
+							$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
+							$status_message = "Your Account is in delete mode. Your account deleted autolatice after $delete_request_date . <br>if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
+						}
 					}
+				}
+				else
+				{
+					$status_message = "Invalid password";
 				}
 			}
 		}

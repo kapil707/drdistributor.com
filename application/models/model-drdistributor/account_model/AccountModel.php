@@ -297,9 +297,11 @@ class AccountModel extends CI_Model
 						$status_message = "Invalid password";
 					}
 				}
-				if($query->delete_request==1){
-					$status = "1";
-					$status_message = "Delete account request already sent your account is deleted automatic after this date.";
+				if (!empty($query->delete_request)){
+					if($query->delete_request==1){
+						$status = "1";
+						$status_message = "Delete account request already sent your account is deleted automatic after this date.";
+					}
 				}
 			}
 		}

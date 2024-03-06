@@ -63,9 +63,12 @@ wow.init();
 					<li class=""><img src="<?= base_url() ?>img_v51/twitter.svg"></li>
 				<ul>
 				<ul class="bottom-footer-ul">
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><?= $this->Scheme_Model->get_website_data("android_email") ;?></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i><?= $this->Scheme_Model->get_website_data("android_mobile") ;?></li>
-					<li><i class="fa fa-whatsapp" aria-hidden="true"></i><?= $this->Scheme_Model->get_website_data("android_whatsapp") ;?></li>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i>
+					<?= $this->Scheme_Model->get_website_data("android_email") ;?></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>
+					<?= $this->Scheme_Model->get_website_data("android_mobile") ;?></li>
+					<li><i class="fa fa-whatsapp" aria-hidden="true"></i>
+					<?= $this->Scheme_Model->get_website_data("android_whatsapp") ;?></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">

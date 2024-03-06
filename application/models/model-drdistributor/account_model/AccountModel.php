@@ -66,7 +66,7 @@ class AccountModel extends CI_Model
 		if(!empty($user_name) && !empty($user_password))
 		{
 			$user_password = md5($user_password);			
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -100,6 +100,11 @@ class AccountModel extends CI_Model
 					else
 					{
 						$status_message = "Can't Login due to technical issues.";
+						if($query->delete_request=="1")
+						{
+							$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
+							$status_message = "Your Account is in deleted mode of your recover your account then you can connect to Vipul Gupta ($android_mobile)";
+						}
 					}
 				}
 				else
@@ -276,7 +281,7 @@ class AccountModel extends CI_Model
 						if($query->block=="0" && $query->status=="1")
 						{
 							$date = date('Y-m-d');
-							$delete_request_date = date('Y-m-d', strtotime($date. ' + 6 day'));
+							$delete_request_date = date('Y-m-d', strtotime($date. ' + 7 day'));
 							$this->db->query("update tbl_acm_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 
 							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";

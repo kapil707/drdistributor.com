@@ -98,11 +98,13 @@ class Account extends CI_Controller {
 
 	public function account_delete_request_api(){
 		//error_reporting(0);
-		$chemist_code 	= $_POST["chemist_code"];
+		$user_name 		= $_POST["user_name"];
+		$user_password 	= $_POST["user_password"];
 		$phone_number	= $_POST["phone_number"];
 
-		if(!empty($chemist_code) && !empty($phone_number)){
-			$result = $this->AccountModel->account_delete_request_api($chemist_code,$phone_number);
+		$items = "";
+		if(!empty($user_name) && !empty($user_password)){
+			$result = $this->AccountModel->account_delete_request_api($user_name,$user_password,$phone_number);
 			$items = $result["items"];
 		}
 

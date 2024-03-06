@@ -278,7 +278,7 @@ class AccountModel extends CI_Model
 							$delete_request_date = date("Y-m-d");
 							$this->db->query("update tbl_acm_other set block=1,status=1,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 
-							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$chemist_code."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
+							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
 							/***************only for group message***********************/
 							$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
 							$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);

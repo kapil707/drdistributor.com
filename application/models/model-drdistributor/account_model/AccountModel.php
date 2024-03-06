@@ -269,7 +269,7 @@ class AccountModel extends CI_Model
 		{
 			$user_password = md5($user_password);			
 			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
-			if (!empty($query->id) && empty($query->delete_request))
+			if (!empty($query->id))
 			{
 				if ($query->password == $user_password)
 				{

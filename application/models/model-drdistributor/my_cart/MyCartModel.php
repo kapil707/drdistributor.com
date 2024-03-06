@@ -49,6 +49,7 @@ class MyCartModel extends CI_Model
 				if($device_type=="android")
 				{
 					$user_order_limit = $row->android_limit;
+					
 				}
 			}
 		}

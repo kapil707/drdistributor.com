@@ -103,7 +103,7 @@ class AccountModel extends CI_Model
 						if($query->delete_request=="1")
 						{
 							$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
-							$status_message = "Your Account is in deleted mode of your recover your account then you can connect to Vipul Gupta ($android_mobile)";
+							$status_message = "Your Account is in deleted mode if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
 						}
 					}
 				}
@@ -295,18 +295,17 @@ class AccountModel extends CI_Model
 						}
 						else
 						{
-							$status_message = "User account is blocked.";
+							$status_message = "Can't Login due to technical issues.";
+							if($query->delete_request=="1")
+							{
+								$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
+								$status_message = "Your Account is in deleted mode if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
+							}
 						}
 					}
 					else
 					{
 						$status_message = "Invalid password";
-					}
-				}
-				if (!empty($query->delete_request)){
-					if($query->delete_request==1){
-						$status = "1";
-						$status_message = "Delete account request already sent your account is deleted automatic after this date.";
 					}
 				}
 			}

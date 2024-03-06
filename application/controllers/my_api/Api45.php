@@ -36,7 +36,7 @@ class Api45 extends CI_Controller {
 
 		if(!empty($api_key) && !empty($user_name) && !empty($user_password))
 		{
-			$result = $this->AccountModel->chemist_login_api($user_name,$user_password,"");
+			$result = $this->AccountModel->get_login_api($user_name,$user_password,"");
 			$items = $result["items"];
 		}
 

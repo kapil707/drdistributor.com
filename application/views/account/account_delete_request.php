@@ -1,4 +1,5 @@
 <?php
+$site_v = 51;
 $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];
@@ -242,9 +243,8 @@ if (isset($_COOKIE["theme_type"])) {
 	<script src="<?= base_url(); ?>assets/website/js/bootstrap.min.js"></script>
 	<script src="<?= base_url(); ?>assets/website/js/bigSlide.js"></script> 
 
-
-	<link href="<?= base_url(); ?>assets/website/css/style51.css" rel="stylesheet" type="text/css"/>
-	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16">
+	<link href="<?= base_url(); ?>assets/website/css/style<?= $site_v ?>.css" rel="stylesheet" type="text/css"/>
+	<link rel="icon" href="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png" type="image/logo" sizes="16x16">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
@@ -256,44 +256,59 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="col-md-6">						
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v51/logo.png" width="60px" alt>
+						<img src="<?= base_url() ?>img_v<?= $site_v ?>/logo.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
 					<h5 class="text-right login_text_font">
-						Request for account delete
+						Login
 					</h5>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid" style="margin-top:50px;">
-		<div class="row" style="margin-top:30px;">
-			<div class="col-md-3"> 
+		<div class="row">
+			<div class="col-md-3">
 			</div>
 			<div class="col-md-6 login_new_box">
-				<label>Enter chemist code</label>
+				<label>Enter username</label>
 				<div class="form-row">
 					<div class="form-group col">
-						<img src="<?= base_url() ?>img_v51/my_account1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
-						<input type="text" value="" class="input_type_text login_textbox" placeholder="Chemist code(e.g. A125)" required="" name="user_name1" id="user_name1" title="Chemist code(e.g. A125)">
+						<i class="fa fa-user login_pg_icon" aria-hidden="true"></i>
+						<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter username" required="" name="user_name1" id="user_name1" title="Enter username">
 					</div>
 				</div>
-				<label>Enter mobile number</label>
-				<div class="form-row">
+				<label>Enter password</label>
+				<div class="form-row">			
 					<div class="form-group col">
-						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
-						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">
+						<i class="fa fa-key login_pg_icon" aria-hidden="true"></i>
+						<input type="password" value="" class="input_type_text login_textbox" placeholder="Enter password" required="" name="password1" id="password1" style="float: left;" title="Enter password">
+						<div style="float: right; margin-top: 10px;margin-left: -50px; width:45px;">
+							<i class="fa fa-eye login_pg_eye_icon" aria-hidden="true" onclick="showpassword()" id="eyes1"></i>
+
+							<i class="fa fa-eye-slash login_pg_eye_icon" aria-hidden="true" onclick="hidepassword()" id="eyes" style="display:none"></i>
+						</div>
 					</div>
 				</div>
-				<h5 class="text-center gray_text_31 submit_div mt-2">&nbsp;</h5>
-				<div class="text-center" style="margin-top:10px;">
-					<input type="submit" value="Submit" class="mainbutton" name="Submit" onclick="submitbtn()"
-					id="submitbtn"><input type="submit" value="Submit" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+				<h5 class="text-center main_theme_gray_text submit_div mt-2">&nbsp;</h5>
+				<div class="form-row">
+					<div class="form-group col text-center">
+						<label class="main_theme_gray_text">
+							<input type="checkbox" checked id="checkbox" style="width:auto;"> I agree to the
+						</label>&nbsp;
+						<a href="<?= base_url(); ?>terms_of_services" class="main_theme_a">
+							<strong>terms of services</strong>
+						</a>
+					</div>
 				</div>
-				<div class="text-center" style="margin-top:30px;">
-					<a href="<?= base_url() ?>login" class="main_theme_a">
-					Go back</a>
+				<div class="text-center mt-2">
+					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn" ><input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+				</div>
+				<div class="text-center mt-4">
+					Don't have an account? 
+					<a href="<?= base_url() ?>account_request" class="main_theme_a">
+					Request for login credentials</a>
 				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
@@ -309,13 +324,25 @@ if (isset($_COOKIE["theme_type"])) {
 </body>
 </html>
 <script>
+function showpassword()
+{
+	$("#eyes1").hide();
+	$("#eyes").show();
+	document.getElementById("password1").type = 'text';
+}
+function hidepassword()
+{
+	$("#eyes1").show();
+	$("#eyes").hide();
+	document.getElementById("password1").type = 'password';
+}
 $('#user_name1').on("keypress", function(e) {
 	if (e.keyCode == 13) {
 		submitbtn()
 		return false; // prevent the button click from happening
 	}
 });
-$('#phone_number1').on("keypress", function(e) {
+$('#password1').on("keypress", function(e) {
 	if (e.keyCode == 13) {
 		submitbtn()
 		return false; // prevent the button click from happening
@@ -323,30 +350,43 @@ $('#phone_number1').on("keypress", function(e) {
 });
 function submitbtn()
 {
-	chemist_code 	= $('#user_name1').val();
-	phone_number	= $('#phone_number1').val();
-	if(chemist_code=="")
+	user_name1 	= $('#user_name1').val();
+	password1	= $('#password1').val();
+	checkbox	= $('#checkbox').val();
+	submit = "98c08565401579448aad7c64033dcb4081906dcb";
+	if(user_name1=="")
 	{
-		swal("Enter Chemist code");
-		$(".submit_div").html("<p class='text-danger'>Enter Chemist code</p>");
+		swal("Enter username");
+		$(".submit_div").html("<p class='text-danger'>Enter username</p>");
 		$('#user_name1').focus();
 		return false;
 	}
-	if(phone_number=="")
+	if(password1=="")
 	{
-		swal("Enter Mobile number");
-		$(".submit_div").html("<p class='text-danger'>Enter Mobile number</p>");
-		$('#phone_number1').focus();
+		swal("Enter password");
+		$(".submit_div").html("<p class='text-danger'>Enter password</p>");
+		$('#password1').focus();
+		return false;
+	}
+	if($('#checkbox').is(':checked'))
+	{
+	}
+	else
+	{
+		swal("Check terms of service");
+		$(".submit_div").html("<p class='text-danger'>Check terms of service</p>");
+		$('#checkbox').focus();
 		return false;
 	}
 	
 	$("#submitbtn").hide();
 	$("#submitbtn_disable").show();
 	$(".submit_div").html("Loading....");
-	
+
 	$.ajax({
 		type       : "POST",
-		data       : {chemist_code:chemist_code,phone_number:phone_number},
+		dataType   : "json",
+		data       : {user_name:user_name,user_password:user_password,phone_number:phone_number},
 		url        : "<?= base_url();?>Account/account_delete_request_api",
 		cache	   : false,
 		error: function(){
@@ -356,24 +396,28 @@ function submitbtn()
 			$("#submitbtn_disable").hide();
 		},
 		success    : function(data){
-			if(data!="")
-			{
-				$(".submit_div").html("");
-				$("#submitbtn").show();
-				$("#submitbtn_disable").hide();
-			}
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
-					swal(item.status_message);
 					if(item.status=="1")
 					{
 						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
-						$('#user_name1').val('');
-						$('#phone_number1').val('');
-					}
-					else{
+						if(item.user_type=="chemist" || item.user_type=="sales")
+						{
+							<?php if(isset($_GET["back_url"])) {
+							?>
+							window.location.href = "<?= base_url();?><?php echo $_GET["back_url"]; ?>";
+							<?php
+							} else { ?>
+								window.location.href = "<?= base_url();?>home";
+							<?php } ?>
+						}
+					}else{
 						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
+						swal(item.status_message);
+
+						$("#submitbtn").show();
+						$("#submitbtn_disable").hide();
 					}
 				}
 			});	

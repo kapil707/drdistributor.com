@@ -53,7 +53,7 @@ class AccountModel extends CI_Model
 		return $return;	
 	}
 
-	public function chemist_login_api($user_name1,$password1,$type="")
+	public function get_login_api($user_name,$user_password,$type="")
 	{	
 		$jsonArray = array();
 
@@ -61,12 +61,12 @@ class AccountModel extends CI_Model
 		
 		$defaultpassword= $this->Scheme_Model->get_website_data("defaultpassword");
 		$status 		= 	"0";
-		$status_message	= 	"Logic error.";
+		$status_message	= 	"User account doesn't exist.";
 		$user_nrx 		= 	"no";
-		if(!empty($user_name1) && !empty($password1))
+		if(!empty($user_name) && !empty($user_password))
 		{
-			$user_password = md5($password1);			
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name1' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$user_password = md5($user_password);			
+			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -109,7 +109,7 @@ class AccountModel extends CI_Model
 			}
 			else
 			{
-				$query = $this->db->query("select u.id,u.customer_code,u.customer_name,u.cust_addr1,u.cust_mobile,u.cust_email,u.is_active,u.user_role,u.login_expiry,u.divison,u.company_name,lu.password,lu.image	from tbl_users u left join tbl_users_other lu on lu.customer_code = u.customer_code where lu.customer_code='$user_name1' limit 1")->row();
+				$query = $this->db->query("select u.id,u.customer_code,u.customer_name,u.cust_addr1,u.cust_mobile,u.cust_email,u.is_active,u.user_role,u.login_expiry,u.divison,u.company_name,lu.password,lu.image	from tbl_users u left join tbl_users_other lu on lu.customer_code = u.customer_code where lu.customer_code='$user_name' limit 1")->row();
 				if (!empty($query->id))
 				{
 					if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -185,10 +185,10 @@ class AccountModel extends CI_Model
 		return "1";
 	}
 
-	public function get_create_new_api($chemist_code,$phone_number)
+	public function get_create_new_api($user_name,$phone_number)
 	{		
 		$status = "0";
-		$query = $this->db->query("select * from tbl_acm where altercode='$chemist_code' and slcd='CL' limit 1")->row();
+		$query = $this->db->query("select * from tbl_acm where altercode='$user_name' and slcd='CL' limit 1")->row();
 		if (empty($query->id))
 		{
 			$status_message = "User account doesn't exist.";
@@ -255,24 +255,53 @@ class AccountModel extends CI_Model
 		return $return;	
 	}
 
-	public function account_delete_request_api($chemist_code,$phone_number)
+	public function account_delete_request_api($user_name,$user_password,$phone_number)
 	{		
 		$status = "0";
 		$status_message = "User account doesn't exist.";
 
-		$query = $this->db->query("select * from tbl_acm where altercode='$chemist_code' and slcd='CL' limit 1")->row();
+		$query = $this->db->query("select id from tbl_acm where altercode='$user_name' and slcd='CL' limit 1")->row();
 		if (empty($query->id))
 		{
 			$status_message = "User account doesn't exist.";
 		}else{
-			$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$chemist_code."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
-			/***************only for group message***********************/
-			$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-			$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
-			/*************************************************************/
+			if(!empty($user_name) && !empty($user_password))
+			{
+				$user_password = md5($user_password);			
+				$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+				if (!empty($query->id) && empty($query->delete_request))
+				{
+					if ($query->password == $user_password)
+					{
+						if($query->block=="0" && $query->status=="1")
+						{
+							$delete_request_date = date("Y-m-d");
+							$this->db->query("update tbl_acm_other set block=1,status=1,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 
-			$status = "1";
-			$status_message = "Thank you for submitting your request your account delete with in 7 dayes.";
+							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$chemist_code."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
+							/***************only for group message***********************/
+							$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
+							$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
+							/*************************************************************/
+
+							$status = "1";
+							$status_message = "Thank you for submitting your request your account delete with in 7 days.";
+						}
+						else
+						{
+							$status_message = "Your account deleted.";
+						}
+					}
+					else
+					{
+						$status_message = "Invalid password";
+					}
+				}
+				if($query->delete_request==1){
+					$status = "1";
+					$status_message = "Delete account request already sent your account is deleted automatic after this date.";
+				}
+			}
 		}
 
 		$dt = array(

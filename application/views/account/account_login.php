@@ -310,6 +310,10 @@ if (isset($_COOKIE["theme_type"])) {
 					<a href="<?= base_url() ?>account_request" class="main_theme_a">
 					Request for login credentials</a>
 				</div>
+				<div class="text-center" style="margin-top:15px;">
+					<<a href="<?= base_url() ;?>privacy_policy" title="Privacy policy" class="main_theme_a">
+					Privacy policy</a>
+				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
 				</div>
@@ -350,18 +354,18 @@ $('#password1').on("keypress", function(e) {
 });
 function submitbtn()
 {
-	user_name1 	= $('#user_name1').val();
-	password1	= $('#password1').val();
-	checkbox	= $('#checkbox').val();
+	user_name 		= $('#user_name1').val();
+	user_password	= $('#password1').val();
+	checkbox		= $('#checkbox').val();
 	submit = "98c08565401579448aad7c64033dcb4081906dcb";
-	if(user_name1=="")
+	if(user_name=="")
 	{
 		swal("Enter username");
 		$(".submit_div").html("<p class='text-danger'>Enter username</p>");
 		$('#user_name1').focus();
 		return false;
 	}
-	if(password1=="")
+	if(user_password=="")
 	{
 		swal("Enter password");
 		$(".submit_div").html("<p class='text-danger'>Enter password</p>");
@@ -386,7 +390,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       : {user_name1:user_name1,password1:password1,submit:submit},
+		data       : {user_name:user_name,user_password:user_password},
 		url        : "<?= base_url();?>Account/chemist_login_api",
 		cache	   : false,
 		error: function(){

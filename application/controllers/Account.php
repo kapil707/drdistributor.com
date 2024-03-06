@@ -52,6 +52,27 @@ class Account extends CI_Controller {
 		redirect(base_url());
 	}
 
+	public function get_login_api(){
+		//error_reporting(0);
+		$user_name 		= $_POST["user_name"];
+		$user_password	= $_POST["user_password"];
+
+		if(!empty($user_name1) && !empty($password1)){
+			$result = $this->AccountModel->get_login_api($user_name1,$password1,"website");
+			$items = $result["items"];
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	public function get_create_new_api(){
 		//error_reporting(0);
 		$chemist_code 	= $_POST["chemist_code"];
@@ -80,27 +101,6 @@ class Account extends CI_Controller {
 
 		if(!empty($chemist_code) && !empty($phone_number)){
 			$result = $this->AccountModel->account_delete_request_api($chemist_code,$phone_number);
-			$items = $result["items"];
-		}
-
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
-	public function chemist_login_api(){
-		//error_reporting(0);
-		$user_name1 = $_POST["user_name1"];
-		$password1	= $_POST["password1"];
-
-		if(!empty($user_name1) && !empty($password1)){
-			$result = $this->AccountModel->chemist_login_api($user_name1,$password1,"website");
 			$items = $result["items"];
 		}
 

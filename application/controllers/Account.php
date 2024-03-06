@@ -57,8 +57,9 @@ class Account extends CI_Controller {
 		$user_name 		= $_POST["user_name"];
 		$user_password	= $_POST["user_password"];
 
-		if(!empty($user_name1) && !empty($password1)){
-			$result = $this->AccountModel->get_login_api($user_name1,$password1,"website");
+		$items = "";
+		if(!empty($user_name) && !empty($password1)){
+			$result = $this->AccountModel->get_login_api($user_name,$user_password,"website");
 			$items = $result["items"];
 		}
 

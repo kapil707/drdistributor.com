@@ -311,7 +311,7 @@ if (isset($_COOKIE["theme_type"])) {
 					Request for login credentials</a>
 				</div>
 				<div class="text-center" style="margin-top:15px;">
-					<<a href="<?= base_url() ;?>privacy_policy" title="Privacy policy" class="main_theme_a">
+					<a href="<?= base_url() ;?>privacy_policy" title="Privacy policy" class="main_theme_a">
 					Privacy policy</a>
 				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">

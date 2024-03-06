@@ -289,7 +289,8 @@ if (isset($_COOKIE["theme_type"])) {
 				<h5 class="text-center gray_text_31 submit_div mt-2">&nbsp;</h5>
 				<div class="text-center" style="margin-top:10px;">
 					<input type="submit" value="Submit" class="mainbutton" name="Submit" onclick="submitbtn()"
-					id="submitbtn"><input type="submit" value="Submit" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+					id="submitbtn">
+					<input type="submit" value="Submit" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 				<div class="text-center" style="margin-top:30px;">
 					Already have an account? 

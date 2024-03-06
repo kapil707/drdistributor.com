@@ -291,24 +291,21 @@ if (isset($_COOKIE["theme_type"])) {
 						</div>
 					</div>
 				</div>
-				<h5 class="text-center main_theme_gray_text submit_div mt-2">&nbsp;</h5>
+				<label>Enter mobile number</label>
 				<div class="form-row">
-					<div class="form-group col text-center">
-						<label class="main_theme_gray_text">
-							<input type="checkbox" checked id="checkbox" style="width:auto;"> I agree to the
-						</label>&nbsp;
-						<a href="<?= base_url(); ?>terms_of_services" class="main_theme_a">
-							<strong>terms of services</strong>
-						</a>
+					<div class="form-group col">
+						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
+						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">
 					</div>
 				</div>
+				<h5 class="text-center main_theme_gray_text submit_div mt-2">&nbsp;</h5>
 				<div class="text-center mt-2">
-					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn" ><input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+					<input type="submit" value="Submit" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
+					<input type="submit" value="Submit" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 				<div class="text-center mt-4">
-					Don't have an account? 
-					<a href="<?= base_url() ?>account_request" class="main_theme_a">
-					Request for login credentials</a>
+					<a href="<?= base_url() ?>login" class="main_theme_a">
+					Go back</a>
 				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
@@ -368,14 +365,11 @@ function submitbtn()
 		$('#password1').focus();
 		return false;
 	}
-	if($('#checkbox').is(':checked'))
+	if(password1=="")
 	{
-	}
-	else
-	{
-		swal("Check terms of service");
-		$(".submit_div").html("<p class='text-danger'>Check terms of service</p>");
-		$('#checkbox').focus();
+		swal("Enter password");
+		$(".submit_div").html("<p class='text-danger'>Enter password</p>");
+		$('#password1').focus();
 		return false;
 	}
 	

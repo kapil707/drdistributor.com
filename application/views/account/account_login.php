@@ -303,7 +303,8 @@ if (isset($_COOKIE["theme_type"])) {
 					</div>
 				</div>
 				<div class="text-center mt-2">
-					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn" ><input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
+					<input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 				<div class="text-center mt-4">
 					Don't have an account? 

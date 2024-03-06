@@ -52,31 +52,36 @@ class MyCartModel extends CI_Model
 				}
 			}
 		}
-			
+		
 		$return["status"] = 1; // ek honay par he place hoga order
 		$return["status_message"] = "";
-		if($user_type=="chemist")
-		{
-			$return["status_message"] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
-			$order_price      = round($order_price);
-			$user_order_limit = round($user_order_limit);
-			if($order_price<=$user_order_limit)
+		if(!empty($row)){
+			if($user_type=="chemist")
 			{
-				$return["status"] = 0;
+				$return["status_message"] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
+				$order_price      = round($order_price);
+				$user_order_limit = round($user_order_limit);
+				if($order_price<=$user_order_limit)
+				{
+					$return["status"] = 0;
+				}
+				/**jab user block yha inactive ho to */
+				if($row->block=="1" || $row->status=="0")
+				{
+					$return["status"] = 0;
+					$return["status_message"] = "<font color='red'>Can't Place Order due to technical issues.</font>";
+				}		
+				/**jab user ka password match na kray to */
+				if($row->password!=$user_password)
+				{
+					$return["status"] = 0;
+					$return["status_message"] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
+				}
 			}
-			/**jab user block yha inactive ho to */
-			if($row->block=="1" || $row->status=="0")
-			{
-				$return["status"] = 0;
-				$return["status_message"] = "<font color='red'>Can't Place Order due to technical issues.</font>";
-			}		
-			/**jab user ka password match na kray to */
-			if($row->password!=$user_password)
-			{
-				$return["status"] = 0;
-				$return["status_message"] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
-			}
-		}		
+		}else{
+			$return["status"] = 0;
+			$return["status_message"] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
+		}	
 		return $return;
 	}
 	

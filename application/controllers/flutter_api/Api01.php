@@ -120,6 +120,10 @@ class Api01 extends CI_Controller {
 			$return = $this->AccountModel->check_nrx_user($user_altercode);
 			$user_image = $return["user_image"];
 			$user_nrx = $return["user_nrx"];
+			$logout = $return["logout"]; 
+			if($user_type=="sales") { 
+				$logout = 0;
+			}
 			/********************************/ 
 			
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);
@@ -180,7 +184,7 @@ class Api01 extends CI_Controller {
 			}
 			
 			/********************************************************************/
-			$logout = $clear_database = 0;
+			$clear_database = 0;
 			if(!empty($row->id))
 			{
 				/*****versioncode same nahi ha to database clear ****/

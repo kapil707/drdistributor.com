@@ -33,12 +33,13 @@ class AccountModel extends CI_Model
 
 	public function check_nrx_user($user_altercode)
 	{
-		$user_nrx = "no";
+		$logout   	= 0;
+		$user_nrx 	= "no";
 		$user_image = base_url()."img_v51/logo.png";
 
-		$query = $this->db->query("select tbl_acm.id,tbl_acm.narcolicence,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+		$query = $this->db->query("select tbl_acm.id,tbl_acm.narcolicence,tbl_acm_other.image,tbl_acm_other.status,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 		if(!empty($query->id)){
-			$narcolicence	= 	$query->narcolicence;
+			$narcolicence = $query->narcolicence;
 			if($narcolicence=="."){
 				$user_nrx = "yes";
 			}			
@@ -46,10 +47,16 @@ class AccountModel extends CI_Model
 			{
 				$user_image = base_url()."user_profile/".$query->image;
 			}
+			if($query->block=="1" || $query->status=="0" || $query->delete_request=="1"){
+				$logout = 1;
+			}
+		}else{
+			$logout = 1;
 		}
 
 		$return["user_nrx"] 	= $user_nrx;
 		$return["user_image"] 	= $user_image;
+		$return["logout"] 		= $logout;
 		return $return;	
 	}
 

@@ -295,7 +295,7 @@ class AccountModel extends CI_Model
 						{
 							$delete_request_date = date("d-M-y",strtotime($query->delete_request_date));
 							$android_mobile = $this->Scheme_Model->get_website_data("android_mobile");
-							$status_message = "Your Account is in delete mode. Your account deleted autolatice after $delete_request_date . <br>if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
+							$status_message = "Your Account is in delete mode. Your account deleted automatically after $delete_request_date . if your recover your account then you can connect to Vipul Gupta ($android_mobile)";
 						}
 					}
 				}

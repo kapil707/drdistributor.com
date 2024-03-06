@@ -39,15 +39,17 @@ class MyCartModel extends CI_Model
 		$row = $this->db->query("select tbl_acm_other.password,tbl_acm_other.block,tbl_acm_other.status,tbl_acm_other.order_limit,tbl_acm_other.website_limit,tbl_acm_other.android_limit from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$chemist_id' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 		
 		$user_order_limit = "5000";
-		if($user_type=="chemist")
-		{
-			if($device_type=="website")
+		if(!empty($row)){
+			if($user_type=="chemist")
 			{
-				$user_order_limit = $row->website_limit;
-			}
-			if($device_type=="android")
-			{
-				$user_order_limit = $row->android_limit;
+				if($device_type=="website")
+				{
+					$user_order_limit = $row->website_limit;
+				}
+				if($device_type=="android")
+				{
+					$user_order_limit = $row->android_limit;
+				}
 			}
 		}
 			

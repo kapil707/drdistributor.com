@@ -297,6 +297,10 @@ if (isset($_COOKIE["theme_type"])) {
 					<a href="<?= base_url() ?>login" class="main_theme_a">
 					Login</a>
 				</div>
+				<div class="text-center" style="margin-top:15px;">
+					<a href="<?= base_url() ;?>privacy_policy" title="Privacy policy" class="main_theme_a">
+					Privacy policy</a>
+				</div>
 				<div class="text-center website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
 				</div>

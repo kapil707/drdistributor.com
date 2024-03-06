@@ -211,7 +211,7 @@ class AccountModel extends CI_Model
 				);
 				$this->Scheme_Model->insert_fun("tbl_acm_other",$dt);
 				$subject = "Request for New Account";
-				$message = "Request for New Account <br><br>Chemist Code : $chemist_code <br><br>Phone Number : $phone_number";
+				$message = "Request for New Account <br><br>Chemist Code : $user_name <br><br>Phone Number : $phone_number";
 				$email_function = "new_account";
 				$mail_server = "";		
 				$user_email_id = "vipul@drdindia.com";

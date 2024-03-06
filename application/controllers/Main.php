@@ -47,6 +47,7 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
+		$data["main_page_title"] = "Request for account delete";
 
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('terms_of_services/terms_of_services', $data);
@@ -55,6 +56,7 @@ class Main extends CI_Controller {
 	public function privacy_policy() {
 		//error_reporting(0);
 		
+		$data["main_page_title"] = "Privacy policy";
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";

@@ -76,11 +76,12 @@ class Account extends CI_Controller {
 
 	public function get_create_new_api(){
 		//error_reporting(0);
-		$chemist_code 	= $_POST["chemist_code"];
+		$user_name 		= $_POST["user_name"];
 		$phone_number	= $_POST["phone_number"];
 
-		if(!empty($chemist_code) && !empty($phone_number)){
-			$result = $this->AccountModel->get_create_new_api($chemist_code,$phone_number);
+		$items = "";
+		if(!empty($user_name) && !empty($phone_number)){
+			$result = $this->AccountModel->get_create_new_api($user_name,$phone_number);
 			$items = $result["items"];
 		}
 

@@ -324,9 +324,9 @@ $('#phone_number1').on("keypress", function(e) {
 });
 function submitbtn()
 {
-	chemist_code 	= $('#user_name1').val();
+	user_name 		= $('#user_name1').val();
 	phone_number	= $('#phone_number1').val();
-	if(chemist_code=="")
+	if(user_name=="")
 	{
 		swal("Enter Chemist code");
 		$(".submit_div").html("<p class='text-danger'>Enter Chemist code</p>");
@@ -347,7 +347,7 @@ function submitbtn()
 	
 	$.ajax({
 		type       : "POST",
-		data       : {chemist_code:chemist_code,phone_number:phone_number},
+		data       : {user_name:user_name,phone_number:phone_number},
 		url        : "<?= base_url();?>Account/get_create_new_api",
 		cache	   : false,
 		error: function(){

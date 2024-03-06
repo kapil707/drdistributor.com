@@ -92,6 +92,13 @@ wow.init();
 							Download App
 						</a>
 					</li>
+
+					<li class="footer_li_text">
+						<a href="<?= base_url() ;?>account_delete_request" title="Download App">
+							<i class="fa fa-delete left_menu_icon" aria-hidden="true"></i>
+							Delete your account
+						</a>
+					</li>
 				<ul>
 			</div>
 		</div>
@@ -100,26 +107,26 @@ wow.init();
 
 <div class="fix_footer mobile_show">
 	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok text-center">
-		<a href="<?= base_url('home/account')?>">
+		<a href="<?= base_url('account')?>">
 			<i class="fa fa-user" aria-hidden="true"></i>
 			<div style="font-size: 11px;">Account</div>
 		</a>
 	</div>
 	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_left text-center">
-		<a href="<?= base_url('home/track_order')?>">
+		<a href="<?= base_url('track_order')?>">
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
 			<div style="font-size: 11px;">Track</div>
 		</a>
 	</div>
 	
 	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_center text-center">
-		<a href="<?= base_url('home/search_medicine')?>" alt>
+		<a href="<?= base_url('search_medicine')?>" alt>
 			<i class="fa fa-plus" aria-hidden="true"></i>
 		</a>
 	</div>
 	
 	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_right text-center">
-		<a href="<?= base_url('home/my_notification')?>">
+		<a href="<?= base_url('my_notification')?>">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
 			<div style="font-size: 11px;" class="mobile_off">Notifications <span class="notificationdiv"></span></div>
 			<div style="font-size: 11px;" class="mobile_show">Notifications <span class="notificationdiv"></span></div>

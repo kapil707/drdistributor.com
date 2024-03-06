@@ -351,29 +351,28 @@ $('#password1').on("keypress", function(e) {
 });
 function submitbtn()
 {
-	user_name1 	= $('#user_name1').val();
-	password1	= $('#password1').val();
-	checkbox	= $('#checkbox').val();
-	submit = "98c08565401579448aad7c64033dcb4081906dcb";
-	if(user_name1=="")
+	user_name 		= $('#user_name1').val();
+	user_password	= $('#password1').val();
+	phone_number	= $('#phone_number1').val();
+	if(user_name=="")
 	{
 		swal("Enter username");
 		$(".submit_div").html("<p class='text-danger'>Enter username</p>");
 		$('#user_name1').focus();
 		return false;
 	}
-	if(password1=="")
+	if(user_password=="")
 	{
 		swal("Enter password");
 		$(".submit_div").html("<p class='text-danger'>Enter password</p>");
 		$('#password1').focus();
 		return false;
 	}
-	if(password1=="")
+	if(phone_number=="")
 	{
-		swal("Enter password");
-		$(".submit_div").html("<p class='text-danger'>Enter password</p>");
-		$('#password1').focus();
+		swal("Enter Mobile number");
+		$(".submit_div").html("<p class='text-danger'>Enter Mobile number</p>");
+		$('#phone_number1').focus();
 		return false;
 	}
 	

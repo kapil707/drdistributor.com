@@ -95,7 +95,7 @@ wow.init();
 
 					<li class="footer_li_text">
 						<a href="<?= base_url() ;?>account_delete_request" title="Delete your account">
-							<i class="fa fa-delete left_menu_icon" aria-hidden="true"></i>
+							<i class="fa fa-trash left_menu_icon" aria-hidden="true"></i>
 							Delete your account
 						</a>
 					</li>

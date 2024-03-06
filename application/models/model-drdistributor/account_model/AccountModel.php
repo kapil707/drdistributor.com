@@ -276,7 +276,7 @@ class AccountModel extends CI_Model
 						if($query->block=="0" && $query->status=="1")
 						{
 							$delete_request_date = date("Y-m-d");
-							$this->db->query("update tbl_acm_other set block=1,status=1,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
+							$this->db->query("update tbl_acm_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 
 							$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
 							/***************only for group message***********************/

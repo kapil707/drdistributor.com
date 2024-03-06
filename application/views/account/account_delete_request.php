@@ -261,7 +261,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
 					<h5 class="text-right login_text_font">
-						Login
+						Request for account delete
 					</h5>
 				</div>
 			</div>

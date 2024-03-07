@@ -61,6 +61,7 @@ $route['user/create_new'] = 'Account/account_request';
 $route['user/account_request'] = 'Account/account_request';
 $route['user/logout'] = 'Account/logout';
 
+$route['user/privacy_policy'] = 'main/privacy_policy';
 $route['privacy_policy']='main/privacy_policy';
 $route['user/termsofservice'] = 'main/terms_of_services';
 $route['termsofservice']='main/terms_of_services';

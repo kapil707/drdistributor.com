@@ -243,6 +243,7 @@ class Api46 extends CI_Controller {
 			$user_cart_items_other = $result["items_other"];
 		}
 
+		
 		$jsonArray = array();
 		$dt = array(
 			'user_image' => $user_image,

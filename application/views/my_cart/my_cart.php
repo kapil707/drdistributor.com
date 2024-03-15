@@ -279,7 +279,7 @@ function medicine_cart_list()
 		},
 		timeout: 60000
 	});
-	setTimeout('medicine_cart_list();',60000);
+	setTimeout('medicine_cart_list();',120000);
 }
 function place_order_model()
 {

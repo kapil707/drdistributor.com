@@ -21,17 +21,15 @@ class My_cart extends CI_Controller {
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id		= $_COOKIE['chemist_id'];
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
 		if($user_type=="sales")
 		{
-			$chemist_id		= $_COOKIE['chemist_id'];
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 

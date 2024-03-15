@@ -88,16 +88,16 @@ class MyCartModel extends CI_Model
 	public function delete_duplicate_cart($user_type="",$user_altercode="",$user_password="",$selesman_id=""){
 		if($user_type=="sales")
 		{
-			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec_test where `chemist_id`='$user_altercode' and selesman_id ='$selesman_id' and user_type='$user_type' and status=0")->row();
+			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec where `chemist_id`='$user_altercode' and selesman_id ='$selesman_id' and user_type='$user_type' and status=0")->row();
 			if(!empty($row)){
-				$this->db->query("DELETE t1 FROM drd_temp_rec_test t1 INNER JOIN drd_temp_rec_test t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.selesman_id ='$selesman_id' and t2.user_type='$user_type' and t2.status=0");
+				$this->db->query("DELETE t1 FROM drd_temp_rec t1 INNER JOIN drd_temp_rec t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.selesman_id ='$selesman_id' and t2.user_type='$user_type' and t2.status=0");
 			}
 		}
 		if($user_type!="sales")
 		{
-			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec_test where `chemist_id`='$user_altercode' and user_type='$user_type' and status=0")->row();
+			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec where `chemist_id`='$user_altercode' and user_type='$user_type' and status=0")->row();
 			if(!empty($row)){
-				$this->db->query("DELETE t1 FROM drd_temp_rec_test t1 INNER JOIN drd_temp_rec_test t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.user_type='$user_type' and t2.status=0");
+				$this->db->query("DELETE t1 FROM drd_temp_rec t1 INNER JOIN drd_temp_rec t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.user_type='$user_type' and t2.status=0");
 			}
 		}
 	}
@@ -281,6 +281,7 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",
 				);
 			$this->insert_fun("drd_temp_rec",$dt);
+			$this->insert_fun("drd_temp_rec_copy",$dt); // ek bari check karna ha ha ki sab sahi ha kya nahi
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{

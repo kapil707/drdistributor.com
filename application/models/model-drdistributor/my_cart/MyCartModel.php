@@ -134,17 +134,23 @@ class MyCartModel extends CI_Model
 			$selesman_id 	= "";
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0');
 				$this->db->select("DISTINCT i_code, *");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
+				$this->db->where('temp_rec', $temp_rec);
+				$this->db->where('user_type', $user_type);
+				$this->db->where('chemist_id', $user_altercode);
+				$this->db->where('order_type', $order_type);
+				$this->db->where('status', '0');
+				$this->db->order_by('excel_number', 'ASC');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
 				$this->db->select("DISTINCT i_code, *");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
+				$this->db->where('temp_rec', $temp_rec);
+				$this->db->where('user_type', $user_type);
+				$this->db->where('chemist_id', $user_altercode);
+				$this->db->where('order_type', $order_type);
+				$this->db->where('status', '0');
+				$this->db->order_by('excel_number', 'ASC');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}
 		}	

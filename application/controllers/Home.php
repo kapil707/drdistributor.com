@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];
 		
 		if(!empty($_COOKIE['user_type']))
 		{
@@ -34,7 +35,7 @@ class Home extends CI_Controller {
 			{
 				if(!empty($_COOKIE['chemist_id'])){
 					$chemist_id = $_COOKIE['chemist_id'];
-					$data["session_user_altercode"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+					$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 				}
 			}
 		}

@@ -11,6 +11,17 @@ class My_cart extends CI_Controller {
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 	}
 
+	public function test(){
+		$this->db->select("DISTINCT i_code, *");
+		$this->db->where('user_type','chemist');
+		$this->db->where('chemist_id','v153');
+		$this->db->where('status','0');
+		$this->db->order_by('id','desc');	
+		$query = $this->db->get("drd_temp_rec")->result();
+
+		print_r($query);
+	}
+
 	public function index(){
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];

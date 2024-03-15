@@ -356,25 +356,24 @@ class MyCartModel extends CI_Model
 			$this->db->where('status','0');
 			$this->db->order_by('id','desc');	
 			$query = $this->db->get("drd_temp_rec")->result();
-			
+						
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;
-			$i_code = $item_qty ="";
+			$i_code = "";
+			$temp_rec_new = $order_id."_".$temp_rec;
 			foreach($query as $row)
 			{
-				$i_code		= $row->i_code;
-				$item_qty	= $row->quantity;
-				$quantity 	= $item_qty;
-				$item_name 	=  $row->item_name;
-				$sale_rate 	=  $row->sale_rate;
-				$item_code 	=  $row->item_code; // its real id
-				$item_image	=  $row->image;				
+				$i_code		= 	$row->i_code;
+				$quantity 	= 	$row->quantity;
+				$item_name 	=  	$row->item_name;
+				$sale_rate 	=  	$row->sale_rate;
+				$item_code 	=  	$row->item_code; // its real id
+				$item_image	=  	$row->image;				
 				
 				$total = $total + ($sale_rate * $quantity);
 				
-				$temp_rec_new = $order_id."_".$temp_rec;
 				
-				if($item_name!=""){
+				if(!empty($item_name)){
 					$dt = array(
 						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,

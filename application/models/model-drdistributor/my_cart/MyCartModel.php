@@ -347,7 +347,8 @@ class MyCartModel extends CI_Model
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
 			
-			$this->db->select("DISTINCT i_code,quantity,item_name,sale_rate,item_code,image");
+			$this->db->distinct("i_code");
+			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);

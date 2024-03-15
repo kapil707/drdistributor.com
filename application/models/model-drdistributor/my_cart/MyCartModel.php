@@ -104,7 +104,7 @@ class MyCartModel extends CI_Model
 	
 	public function my_cart_api($user_type="",$user_altercode="",$user_password="",$selesman_id="",$order_type="",$device_type="website")
 	{
-		/***************************************************************************** */
+		/***************************************************************************** *
 		$this->delete_duplicate_cart($user_type,$user_altercode,$user_password,$selesman_id);
 		/***************************************************************************** */
 

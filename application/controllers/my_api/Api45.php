@@ -879,7 +879,7 @@ class Api45 extends CI_Controller {
 		$device_id		= $_POST["device_id"];
 		
 		if(!empty($api_key) &&!empty($user_type) &&!empty($user_altercode) &&!empty($user_password)){
-			$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"Android",$remarks);
+			$result = $this->MyCartModel->place_order_api("Android",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
 			$status = $result["status"];
 			$status_message = $result["status_message"];
 		}

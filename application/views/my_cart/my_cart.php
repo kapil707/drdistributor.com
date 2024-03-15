@@ -277,9 +277,9 @@ function medicine_cart_list()
 				}
 			});
 		},
-		timeout: 60000
+		timeout: 10000
 	});
-	setTimeout('medicine_cart_list();',120000);
+	setTimeout('medicine_cart_list();',60000);
 }
 function place_order_model()
 {
@@ -309,8 +309,7 @@ function place_order_complete()
 		url        : "<?php echo base_url(); ?>my_cart/place_order_api",
 		cache	   : true,
 		error: function(){
-			//window.location.href = "<?= base_url();?>my_cart";
-			//count_temp_rec();
+			window.location.href = "<?= base_url();?>my_cart";
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){
@@ -326,7 +325,7 @@ function place_order_complete()
 				}
 			});
 		},
-		timeout: 60000
+		//timeout: 10000
 	});
 }
 function delete_medicine(item_code)

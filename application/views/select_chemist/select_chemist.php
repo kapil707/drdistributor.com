@@ -37,7 +37,7 @@
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="website_box_part load_page" style="display:none">
+					<div class="website_box_part load_page p-2" style="display:none">
 					</div>
 				</div>
 			</div>

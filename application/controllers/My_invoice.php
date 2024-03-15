@@ -16,19 +16,22 @@ class My_invoice extends CI_Controller {
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];
+		
+		$data["main_page_title"] = "My invoice";
 
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		$data["chemist_id"] = $chemist_id;
 
 		/********************************************************** */
 		$page_name = "my_invoice";
@@ -37,8 +40,6 @@ class My_invoice extends CI_Controller {
 
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
-		
-		$data["main_page_title"] = "My invoice";
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice',$data);
 	}

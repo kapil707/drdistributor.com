@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
 
-		/*$this->load->model("model-drdistributor/top_menu/TopMenuModel");
+		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		//$this->load->model("MenuModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
@@ -15,12 +15,12 @@ class Home extends CI_Controller {
 
 		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");*/
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 	}
 	
 	public function index(){	
-		/*$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check();*/
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check();
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -59,7 +59,7 @@ class Home extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		//$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
 		/*$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();

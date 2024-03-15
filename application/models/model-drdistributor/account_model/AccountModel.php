@@ -24,6 +24,7 @@ class AccountModel extends CI_Model
 		if(!empty($_COOKIE["user_type"]))
 		{
 			$user_type = $_COOKIE["user_type"];
+			echo $_COOKIE["chemist_id"];die();
 			if($user_type=="sales" && empty($_COOKIE["chemist_id"]))
 			{
 				redirect(base_url()."select_chemist");

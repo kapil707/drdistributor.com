@@ -19,20 +19,20 @@ class Medicine_search extends CI_Controller {
 		
 		$data["main_page_title"] = "Search medicines";
 
+		$chemist_id = "";
 		if(!empty($_COOKIE["user_type"]))
 		{
 			$user_type = $_COOKIE['user_type'];
-			$chemist_id = "";
 			if($user_type=="sales")
 			{
 				$chemist_id = $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 			}
 		}
 
 		$user_session 	= $_COOKIE['user_session'];
 		$user_type 		= $_COOKIE['user_type'];
-		$chemist_id 	= "";
+
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{

@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
 
-		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
+		/*$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		//$this->load->model("MenuModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
@@ -15,7 +15,7 @@ class Home extends CI_Controller {
 
 		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");*/
 	}
 	
 	public function index(){	

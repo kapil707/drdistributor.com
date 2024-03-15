@@ -34,7 +34,7 @@ class Import_order extends CI_Controller {
 			if($user_type=="sales")
 			{
 				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				$data["session_delivering_to"]     = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
 			}
 			$salesman_id = "";
 			if($user_type=="sales")

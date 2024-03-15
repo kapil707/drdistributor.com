@@ -19,47 +19,33 @@ class Medicine_search extends CI_Controller {
 		
 		$data["main_page_title"] = "Search medicines";
 
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
 		$chemist_id = "";
-		if(!empty($_COOKIE["user_type"]))
+		if($user_type=="sales")
 		{
-			$user_type = $_COOKIE['user_type'];
-			if($user_type=="sales")
-			{
-				$chemist_id = $_COOKIE['chemist_id'];
-				$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-			}
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$user_type = $_COOKIE['user_type'];
+		if($user_type=="sales")
+		{
+			$chemist_id = $_COOKIE['chemist_id'];
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
-		$user_session 	= $_COOKIE['user_session'];
-		$user_type 		= $_COOKIE['user_type'];
-
+		/******************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE['chemist_id'];
-			$data["chemist_id"] = $chemist_id;
+			$user_session 	= $_COOKIE['user_session'];
 			if(!empty($chemist_id))
 			{
 				$user_temp_rec = $user_session."_".$user_type."_".$chemist_id;
 				setcookie("user_temp_rec", $user_temp_rec, time() + (86400 * 30), "/");
 			}
-		}
-		else
-		{
-			$data["chemist_id"] = "";
-		}
-
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-
-		$chemist_id 	= "";
-
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
 		}
 
 		/********************************************************** */

@@ -468,6 +468,9 @@ $(document).ready(function() {
 	home_page_api(5);
 	
     $(window).scroll(function(){
+		console.log("scrollTop"+$(window).scrollTop())
+		console.log("document-height"+$(window).scrollTop())
+		console.log("window-height"+$(window).scrollTop())
 		if(($(window).scrollTop() == $(document).height() - $(window).height()) && query_work==0){
 			home_page_api(next_id);
 		}

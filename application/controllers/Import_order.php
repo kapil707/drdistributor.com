@@ -11,6 +11,8 @@ class Import_order extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("import_order");
+
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 	}
 	
 	public function index()
@@ -782,17 +784,18 @@ class Import_order extends CI_Controller {
 	
 	public function add_excelFile_temp_tbl($item_code,$item_order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id)
 	{		
-		$return_status = 0;
+		$status = 0;
 		$order_type 	= "excelFile";
 		$mobilenumber 	= "";
 		$modalnumber 	= "PC - Import Order";
 		$device_id    	= "";
 		if($item_code!="")
 		{
-			$return_status = $this->Chemist_Model->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$return = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$status = $result["status"];
 			$this->db->query("update drd_import_file set status='1' where id='$excel_number' and order_id='$order_id'");
 		}
-		return $return_status;
+		return $status;
 	}
 	
 	public function change_order_quantity()

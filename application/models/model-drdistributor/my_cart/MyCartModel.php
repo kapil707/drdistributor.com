@@ -377,7 +377,7 @@ class MyCartModel extends CI_Model
 			$this->db->where('chemist_id',$chemist_id);
 			$this->db->where('status','0');
 			$this->db->order_by('id','desc');	
-			$query = $this->db->get("drd_temp_rec")->result();
+			$query = $this->db->get("drd_temp_recxxx")->result();
 			
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;

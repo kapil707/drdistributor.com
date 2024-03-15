@@ -195,7 +195,7 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}	
-		$result = $this->MyCartModel->place_order_api("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
+		$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"pc_mobile",$remarks);
 		$status = $result["status"];
 		$status_message = $result["status_message"];
 		if($status=="1"){

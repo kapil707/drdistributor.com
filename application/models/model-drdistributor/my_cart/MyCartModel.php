@@ -26,6 +26,7 @@ class MyCartModel extends CI_Model
 		{
 			$this->db->where('selesman_id',$selesman_id);
 		}
+		$this->db->where('user_type',$user_type);
 		$this->db->where('temp_rec',$temp_rec);
 		$this->db->where('chemist_id',$chemist_id);
 		$this->db->where('status','0');
@@ -94,14 +95,14 @@ class MyCartModel extends CI_Model
 		{
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else{
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
+				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
@@ -113,14 +114,14 @@ class MyCartModel extends CI_Model
 			$selesman_id 	= "";
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0');
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
+				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
@@ -195,11 +196,16 @@ class MyCartModel extends CI_Model
 
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
-		$where = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
+		/**************************************************************** */
+		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
+		/**************************************************************** */
+
 		$time = time();
 		$date = date("Y-m-d",$time);
 		$datetime = date("d-M-y H:i",$time);
+
+		/**************************************************************** */
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
@@ -208,15 +214,17 @@ class MyCartModel extends CI_Model
 		{
 			$temp_rec = $user_type."_".$user_altercode;
 		}
-		if($excel_number==0 || $excel_number=="0" || $excel_number==""){
-			$row2 = $this->db->query("select excel_number from drd_temp_rec where chemist_id='$user_altercode' and selesman_id='$salesman_id' and user_type='$user_type' and status=0 order by id desc")->row();
-			if(!empty($row2->excel_number)){
-				$excel_number = $row2->excel_number + 1;
-			}
-			if($excel_number==0){
-				$excel_number = 1;
+		
+		/**************************************************************** */
+		if(empty($excel_number)){
+			$excel_number = 1;
+			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
+			if(!empty($row->excel_number)){
+				$excel_number = $row->excel_number + 1;
 			}
 		}
+
+		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -257,14 +265,14 @@ class MyCartModel extends CI_Model
 				'filename'=>"",
 				'your_item_name'=>"",
 				'join_temp'=>"",
-				'order_id'=>"",
-				);
+				'order_id'=>"",);
+
 			$this->insert_fun("drd_temp_rec",$dt);
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{
 			$status = "0";
-			$status_message = "Medicine added error";
+			$status_message = "Medicine added fail";
 		}
 		$return["status"] = $status;
 		$return["status_message"] = $status_message;
@@ -319,8 +327,10 @@ class MyCartModel extends CI_Model
 		return $order_id;
 	}
 
-	public function place_order_api($order_type='',$remarks='',$selesman_id='',$chemist_id='',$user_type='',$user_password='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
+	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
+		$chemist_id = $user_altercode;
+		
 		$return["status"] = "0";
 		$return["status_message"] = "<font color='red'>Sorry your order has been failed please try again.</font>";
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");

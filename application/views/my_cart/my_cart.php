@@ -277,7 +277,7 @@ function medicine_cart_list()
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});
 	setTimeout('medicine_cart_list();',60000);
 }

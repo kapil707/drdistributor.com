@@ -56,36 +56,6 @@ class Medicine_search extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 		
-		if(!empty($_COOKIE['user_temp_rec'])){
-			/************jab table m oss id ko davai nahi ha to yha remove karta ha */
-			$user_temp_rec = $_COOKIE['user_temp_rec'];
-			$this->db->query("delete from drd_temp_rec where temp_rec='$user_temp_rec' and status='0' and i_code='' ");
-			/************************************************************************/
-		}
-		
-		if(!empty($chemist_id))
-		{
-			$where = array('altercode'=>$chemist_id);
-			$row = $this->Scheme_Model->select_row("tbl_acm",$where);
-			$data["chemist_name"] = $row->name;
-			$data["chemist_id"]   = $row->altercode;
-
-			$where= array('code'=>$row->code);
-			$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
-
-			$user_profile = base_url()."img_v51/logo.png";
-			if(!empty($row1->image)){
-				$user_profile = base_url()."user_profile/".$row1->image;
-				if(empty($row1->image))
-				{
-					$user_profile = base_url()."img_v51/logo.png";
-				}
-			}
-			$data["chemist_image"]   = $user_profile;
-		}
-		
-		$data["chemist_id"] = $chemist_id;
-		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_search/medicine_search', $data);
 	}

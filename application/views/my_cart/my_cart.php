@@ -25,6 +25,17 @@
 	}
 }
 </style>
+<?php if(!empty($chemist_id)){ ?>
+<style>
+.headertitle
+{
+	margin-top: -5px;
+}
+</style>
+<script>
+$(".headertitle1").show();
+</script>
+<?php } ?>
 <script>
 $(".headertitle").html("My cart");
 function goBack() {

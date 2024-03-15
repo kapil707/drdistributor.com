@@ -85,7 +85,7 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 
-	public function delete_duplicate_cart($user_type="",$user_altercode="",$user_password="",$selesman_id=""){
+	/*public function delete_duplicate_cart($user_type="",$user_altercode="",$user_password="",$selesman_id=""){
 		if($user_type=="sales")
 		{
 			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec where `chemist_id`='$user_altercode' and selesman_id ='$selesman_id' and user_type='$user_type' and status=0")->row();
@@ -100,7 +100,7 @@ class MyCartModel extends CI_Model
 				$this->db->query("DELETE t1 FROM drd_temp_rec t1 INNER JOIN drd_temp_rec t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.user_type='$user_type' and t2.status=0");
 			}
 		}
-	}
+	}*/
 	
 	public function my_cart_api($user_type="",$user_altercode="",$user_password="",$selesman_id="",$order_type="",$device_type="website")
 	{
@@ -116,14 +116,14 @@ class MyCartModel extends CI_Model
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
-				$this->db->select("*");
+				$this->db->select("DISTINCT i_code, *");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else{
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
-				$this->db->select("*");
+				$this->db->select("DISTINCT i_code, *");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
@@ -135,14 +135,14 @@ class MyCartModel extends CI_Model
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0');
-				$this->db->select("*");
+				$this->db->select("DISTINCT i_code, *");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
-				$this->db->select("*");
+				$this->db->select("DISTINCT i_code, *");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
 				$query = $this->db->get("drd_temp_rec")->result();
@@ -368,6 +368,7 @@ class MyCartModel extends CI_Model
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
 
+			$this->db->select("DISTINCT i_code, *");
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);
@@ -376,16 +377,17 @@ class MyCartModel extends CI_Model
 			$this->db->where('chemist_id',$chemist_id);
 			$this->db->where('status','0');
 			$this->db->order_by('id','desc');	
-			$query = $this->db->get("drd_temp_recxxx")->result();
+			$query = $this->db->get("drd_temp_rec")->result();
+
+			print_r($query);die();
 			
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;
-			$i_code = $item_qty ="";
+			$i_code = "";
 			foreach($query as $row)
 			{
 				$i_code		= $row->i_code;
-				$item_qty	= $row->quantity;
-				$quantity 	= $item_qty;
+				$quantity 	= $row->quantity;
 				$item_name 	=  $row->item_name;
 				$sale_rate 	=  $row->sale_rate;
 				$item_code 	=  $row->item_code; // its real id

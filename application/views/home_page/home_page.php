@@ -471,7 +471,7 @@ $(document).ready(function() {
 		console.log("scrollTop"+$(window).scrollTop())
 		console.log("document-height"+$(window).scrollTop())
 		console.log("window-height"+$(window).scrollTop())
-		if(($(window).scrollTop() == $(document).height() - ($(window).height()+500)) && query_work==0){
+		if(($(window).scrollTop() == $(document).height() - ($(window).height()-500)) && query_work==0){
 			home_page_api(next_id);
 		}
     });

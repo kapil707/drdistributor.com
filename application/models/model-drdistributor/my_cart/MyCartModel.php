@@ -84,9 +84,30 @@ class MyCartModel extends CI_Model
 		}	
 		return $return;
 	}
+
+	public function delete_duplicate_cart($user_type="",$user_altercode="",$user_password="",$selesman_id=""){
+		if($user_type=="sales")
+		{
+			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec_test where `chemist_id`='$user_altercode' and selesman_id ='$selesman_id' and user_type='$user_type' and status=0")->row();
+			if(!empty($row)){
+				$this->db->query("DELETE t1 FROM drd_temp_rec_test t1 INNER JOIN drd_temp_rec_test t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.selesman_id ='$selesman_id' and t2.user_type='$user_type' and t2.status=0");
+			}
+		}
+		if($user_type!="sales")
+		{
+			$row = $this->db->query("SELECT `i_code` FROM drd_temp_rec_test where `chemist_id`='$user_altercode' and user_type='$user_type' and status=0")->row();
+			if(!empty($row)){
+				$this->db->query("DELETE t1 FROM drd_temp_rec_test t1 INNER JOIN drd_temp_rec_test t2 WHERE t1.id < t2.id AND t1.i_code = t2.i_code and t2.`chemist_id`='$user_altercode' and t2.user_type='$user_type' and t2.status=0");
+			}
+		}
+	}
 	
 	public function my_cart_api($user_type="",$user_altercode="",$user_password="",$selesman_id="",$order_type="",$device_type="website")
 	{
+		/***************************************************************************** */
+		$this->delete_duplicate_cart($user_type,$user_altercode,$user_password,$selesman_id);
+		/***************************************************************************** */
+
 	    $jsonArray = $jsonArray1 = array();
 	    
 		$items_total = $items_price = 0;
@@ -362,7 +383,6 @@ class MyCartModel extends CI_Model
 			$i_code = $item_qty ="";
 			foreach($query as $row)
 			{
-
 				$i_code		= $row->i_code;
 				$item_qty	= $row->quantity;
 				$quantity 	= $item_qty;
@@ -376,11 +396,6 @@ class MyCartModel extends CI_Model
 				$temp_rec_new = $order_id."_".$temp_rec;
 				
 				if($item_name!=""){
-					/******** yha dubplicate rec ko insert honay say rokta ha */
-					$where_d = array('i_code'=>$i_code,'order_id'=>$order_id,'chemist_id'=>$chemist_id,'selesman_id'=>$selesman_id,'user_type'=>$user_type,);
-					$this->db->delete("tbl_order", $where_d);
-					/******************************************************** */
-
 					$dt = array(
 						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,

@@ -362,6 +362,7 @@ class MyCartModel extends CI_Model
 			$i_code = $item_qty ="";
 			foreach($query as $row)
 			{
+
 				$i_code		= $row->i_code;
 				$item_qty	= $row->quantity;
 				$quantity 	= $item_qty;
@@ -375,6 +376,11 @@ class MyCartModel extends CI_Model
 				$temp_rec_new = $order_id."_".$temp_rec;
 				
 				if($item_name!=""){
+					/******** yha dubplicate rec ko insert honay say rokta ha */
+					$where = array('i_code'=>$i_code,'order_id'=>$order_id,'chemist_id'=>$chemist_id,'selesman_id'=>$selesman_id,'user_type'=>$user_type,);
+					$this->db->delete("tbl_order", $where);
+					/******************************************************** */
+
 					$dt = array(
 						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,

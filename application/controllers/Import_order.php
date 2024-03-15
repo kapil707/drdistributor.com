@@ -646,7 +646,7 @@ class Import_order extends CI_Controller {
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
 				$item_code = $row->i_code;
-				$return_status = $this->add_excelFile_temp_tbl($item_code,$order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id);				
+				$this->medicine_add_to_cart_api($item_code,$order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id);				
 			}
 			/******************************************/
 		}
@@ -782,7 +782,7 @@ class Import_order extends CI_Controller {
 		return $r;
 	}
 	
-	public function add_excelFile_temp_tbl($item_code,$item_order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id)
+	public function medicine_add_to_cart_api($item_code,$item_order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id)
 	{		
 		$status = 0;
 		$order_type 	= "excelFile";

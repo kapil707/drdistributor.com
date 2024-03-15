@@ -281,7 +281,6 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",
 				);
 			$this->insert_fun("drd_temp_rec",$dt);
-			$this->insert_fun("drd_temp_rec_copy",$dt); // ek bari check karna ha ha ki sab sahi ha kya nahi
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{

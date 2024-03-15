@@ -791,7 +791,7 @@ class Import_order extends CI_Controller {
 		$device_id    	= "";
 		if($item_code!="")
 		{
-			$return = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
 			$status = $result["status"];
 			$this->db->query("update drd_import_file set status='1' where id='$excel_number' and order_id='$order_id'");
 		}

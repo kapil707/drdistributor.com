@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 		/**********************************************************/
 		
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('home/home/home', $data);
+		$this->load->view('home_page/home_page', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 

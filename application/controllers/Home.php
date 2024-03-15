@@ -66,7 +66,7 @@ class Home extends CI_Controller {
 		$data["tbl_home"] = $tbl_home; */
 		
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('home/home/home', $data);
+		$this->load->view('home_page/home_page', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 

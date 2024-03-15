@@ -19,8 +19,10 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 	
-	public function get_total_price_of_order($user_type='',$chemist_id='',$user_password='',$selesman_id='',$device_type="website")
+	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$selesman_id='',$device_type="website")
 	{
+		$chemist_id = $user_altercode;
+		
 		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
 		if($user_type=="sales")
 		{

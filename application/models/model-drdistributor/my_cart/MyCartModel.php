@@ -346,15 +346,17 @@ class MyCartModel extends CI_Model
 			$time = date("H:i",time());
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
-
+			
+			$this->db->select("DISTINCT i_code,quantity,item_name,sale_rate,item_code,image");
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);
 			}
+			$this->db->where('user_type',$user_type);
 			$this->db->where('temp_rec',$temp_rec);
 			$this->db->where('chemist_id',$chemist_id);
 			$this->db->where('status','0');
-			$this->db->order_by('id','desc');	
+			$this->db->order_by('i_code','desc');	
 			$query = $this->db->get("drd_temp_rec")->result();
 						
 			$total = 0;
@@ -370,8 +372,7 @@ class MyCartModel extends CI_Model
 				$item_code 	=  	$row->item_code; // its real id
 				$item_image	=  	$row->image;				
 				
-				$total = $total + ($sale_rate * $quantity);
-				
+				$total = $total + ($sale_rate * $quantity);				
 				
 				if(!empty($item_name)){
 					$dt = array(

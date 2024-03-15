@@ -377,8 +377,8 @@ class MyCartModel extends CI_Model
 				
 				if($item_name!=""){
 					/******** yha dubplicate rec ko insert honay say rokta ha */
-					$where = array('i_code'=>$i_code,'order_id'=>$order_id,'chemist_id'=>$chemist_id,'selesman_id'=>$selesman_id,'user_type'=>$user_type,);
-					$this->db->delete("tbl_order", $where);
+					$where_d = array('i_code'=>$i_code,'order_id'=>$order_id,'chemist_id'=>$chemist_id,'selesman_id'=>$selesman_id,'user_type'=>$user_type,);
+					$this->db->delete("tbl_order", $where_d);
 					/******************************************************** */
 
 					$dt = array(

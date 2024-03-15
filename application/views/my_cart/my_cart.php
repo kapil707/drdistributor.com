@@ -325,7 +325,7 @@ function place_order_complete()
 				}
 			});
 		},
-		//timeout: 10000
+		timeout: 60000
 	});
 }
 function delete_medicine(item_code)

@@ -19,8 +19,8 @@ class Home extends CI_Controller {
 	}
 	
 	public function index(){	
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check();
+		/*$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check();*/
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

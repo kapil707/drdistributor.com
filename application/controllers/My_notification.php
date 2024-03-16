@@ -13,23 +13,28 @@ class My_notification extends CI_Controller {
 
 	public function index(){
 		
+		$data["main_page_title"] = "My notification";
+
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "My notification";
-
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -37,13 +42,56 @@ class My_notification extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_notification/my_notification', $data);
 	}
 
+	public function my_notification_details($item_id=""){
+		
+		$data["main_page_title"] = "My notification details";
+
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+		}
+
+		/********************************************************** */
+		$page_name = "my_notification_details";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$data["item_id"] = $item_id;
+
+		$this->load->view('header_footer/header', $data);		
+		$this->load->view('my_notification/my_notification_details', $data);
+	}
+
+	/*******************api start*********************/
 	public function my_notification_api(){
 		$get_record	 	= $_REQUEST["get_record"];
 		$user_type 		= $_COOKIE["user_type"];
@@ -77,42 +125,6 @@ class My_notification extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function my_notification_details($item_id=""){
-
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] = $_COOKIE['user_altercode'];
-		
-		$data["main_page_title"] = "My notification details";
-		
-		$data["item_id"] = $item_id;
-
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-
-		/********************************************************** */
-		$page_name = "my_notification_details";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
-
-		$this->load->view('header_footer/header', $data);		
-		$this->load->view('my_notification/my_notification_details', $data);
-	}
-
-	
 	public function my_notification_details_api(){
 		$item_id		= $_REQUEST['item_id'];
 		$user_type 		= $_COOKIE["user_type"];

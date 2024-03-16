@@ -16,22 +16,28 @@ class User extends CI_Controller {
 	}
 	public function account(){
 
+		$data["main_page_title"] = "Account";
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
-
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -39,39 +45,37 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
-		
-		$data["main_page_title"] = "Account";
+
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/account', $data);
 	}
-
 	public function update_account(){
 
+		$data["main_page_title"] = "Update account";
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Update account";
-		$user_type = $_COOKIE['user_type'];
-		if($user_type=="sales")
-		{
-			redirect(base_url());
-		}
-
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -79,33 +83,43 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
+
+		if($user_type=="sales")
+		{
+			redirect(base_url());
+		}
 
 		$this->load->view('header_footer/header', $data);	
 		$this->load->view('user/update_account', $data);
 	}
 
 	public function update_image(){
-
+		
+		$data["main_page_title"] = "Update image";
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"]	 			= $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Update image";
-
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -113,7 +127,8 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
@@ -121,25 +136,29 @@ class User extends CI_Controller {
 	}
 	
 	public function update_password(){
-
+		
+		$data["main_page_title"] = "Update password";
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["chemist_id"] 			= $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Update password";
-
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
+		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -147,13 +166,15 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/update_password', $data);
 	}
 
+	/*******************api start*********************/
 	public function get_user_account_api()
 	{
 		$user_type 		= $_COOKIE["user_type"];

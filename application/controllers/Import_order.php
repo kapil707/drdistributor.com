@@ -17,34 +17,38 @@ class Import_order extends CI_Controller {
 	
 	public function index()
 	{
-		////error_reporting(0);
-		
+		$data["main_page_title"] = "Upload order";
+
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		//$data["chemist_id"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Upload order";
-		$user_altercode	= $_COOKIE['user_altercode'];
-		$user_type		= $_COOKIE['user_type'];
-		$chemist_id		= "";
-		$data["chemist_id"] = $chemist_id;
-		if(!empty($user_type))
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
 		{
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-			}
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["chemist_id"] = $chemist_id;
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
 		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+		}
+
+		/********************************************************** */
+		$page_name = "import_order";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
 		
 		$where = array('user_altercode'=>$user_altercode);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
@@ -56,7 +60,6 @@ class Import_order extends CI_Controller {
 			$data["itemqty"] 	= $row->itemqty;
 			$data["itemmrp"] 	= $row->itemmrp;
 		}
-		$data["chemist_id"] = $chemist_id;
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/index', $data);
@@ -64,32 +67,39 @@ class Import_order extends CI_Controller {
 	}
 	
 	public function medicine_suggest(){
-		////error_reporting(0);
+
+		$data["main_page_title"] = "Suggest medicine";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["main_page_title"] = "Suggest medicine";
-		$user_altercode	= $_COOKIE['user_altercode'];
-		$user_type		= $_COOKIE['user_type'];
-		$chemist_id		= "";
-		$data["chemist_id"] = $chemist_id;
-		if(!empty($user_type))
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
 		{
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
-			}
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["chemist_id"] = $chemist_id;
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
 		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+		}
+
+		/********************************************************** */
+		$page_name = "import_order_medicine_suggest";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
 		
 		$where = array('user_altercode'=>$user_altercode);
 		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
@@ -100,37 +110,41 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function medicine_search($order_id='')
-	{
-		////error_reporting(0);
+	public function medicine_search($order_id=''){
+		
+		$data["main_page_title"] = "Import order";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		//$data["chemist_id"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Upload order";
-		
-		$user_altercode	= $_COOKIE['user_altercode'];
-		$user_type		= $_COOKIE['user_type'];
-		$chemist_id		= "";
-		$data["chemist_id"] = $chemist_id;
-		if(!empty($user_type))
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
 		{
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
-			}
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["chemist_id"] = $chemist_id;
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
 		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+		}
+
+		/********************************************************** */
+		$page_name = "import_order";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		$data["myname"] 	= $user_altercode;
 		$where = array('order_id'=>$order_id,'status'=>'0');
@@ -141,44 +155,48 @@ class Import_order extends CI_Controller {
 			redirect(base_url()."import_order");
 		}
 		$data["import_order_page"] = "yes";
+
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function medicine_deleted_items($order_id='')
-	{
-		////error_reporting(0);
+	public function medicine_deleted_items($order_id=''){
+		
+		$data["main_page_title"] = "Deleted items";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Deleted items";
-		
-		$user_altercode	= $_COOKIE['user_altercode'];
-		$user_type		= $_COOKIE['user_type'];
-		$chemist_id		= "";
-		$data["chemist_id"] = $chemist_id;
-		if(!empty($user_type))
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
 		{
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
-			}
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id		= $_COOKIE['chemist_id'];
-				$data["chemist_id"] = $chemist_id;
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
 		}
+		$data["chemist_id"] = $chemist_id;
+		if($user_type=="sales")
+		{
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+		}
+
+		/********************************************************** */
+		$page_name = "import_order_deleted_items";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
 		$data["order_id"]	= $order_id = base64_decode($order_id);
-		
-		/*****************************************/
 		if($user_type=="chemist")
 		{
 			$users = $this->db->query("select * from tbl_acm where altercode='$chemist_id' ")->row();
@@ -367,10 +385,7 @@ class Import_order extends CI_Controller {
 		exit;
 	}
 	
-	
-	/**********************************************/
-	
-	
+	/*******************api start*********************/	
 	public function upload_import_file(){
 		
 		error_reporting(0);

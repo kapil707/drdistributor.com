@@ -12,14 +12,14 @@ class Medicine_search extends CI_Controller {
 	}
     
     public function index(){
+		
+		$data["main_page_title"] = "Search medicines";
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
-		$data["main_page_title"] = "Search medicines";
-
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
@@ -36,30 +36,21 @@ class Medicine_search extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
-				
-		/********************************************************** *
-		if($user_type=="sales")
-		{
-			$user_session 	= $_COOKIE['user_session'];
-			if(!empty($chemist_id))
-			{
-				$user_temp_rec = $user_session."_".$user_type."_".$chemist_id;
-				setcookie("user_temp_rec", $user_temp_rec, time() + (86400 * 30), "/");
-			}
-		}
 
 		/********************************************************** */
 		$page_name = "search_medicine";
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_search/medicine_search', $data);
 	}
 
+	/*******************api start*********************/
 	public function medicine_search_api()
 	{
 		$items = "";

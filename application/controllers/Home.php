@@ -6,28 +6,18 @@ class Home extends CI_Controller {
 		// Load model
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
-
-		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
-		$this->load->model("model-drdistributor/slider_model/SliderModel");
-		//$this->load->model("MenuModel");
-		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
-		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
-
-		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 	}
 	
 	public function index(){	
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check();
+
+		$data["main_page_title"] = "Home";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];
-		
-		$data["main_page_title"] = "Home";
+		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
 		
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -51,11 +41,9 @@ class Home extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
-
-		/*$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
-		$data["tbl_home"] = $tbl_home; */
 		
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home_page/home_page', $data);
@@ -63,7 +51,7 @@ class Home extends CI_Controller {
 	}
 
 	public function get_top_menu_api(){
-		$items = "";
+		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 
 		$result = $this->TopMenuModel->get_top_menu_api();
 		$items = $result["items"];
@@ -81,6 +69,14 @@ class Home extends CI_Controller {
 
 	public function home_page_api()
 	{
+		$this->load->model("model-drdistributor/slider_model/SliderModel");
+		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
+
+		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
+
 		$get_record	 	= "0";//$_REQUEST["get_record"];
 		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
 		if(!empty($_COOKIE["user_type"])){

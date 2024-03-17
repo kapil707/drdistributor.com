@@ -2316,8 +2316,14 @@ section{
 }
 .all_item_out_of_stock{
 	color:var(--out_of_stock-color);
-	font-size:16px;
+	font-size:15px;
 	font-weight: bold;
+	line-height: 18px;
+}
+
+.all_item_order_quantity{
+	color:var(--item_order_quantity);
+	font-size: 15px;
 	line-height: 18px;
 }
 .all_item_scheme{
@@ -2354,11 +2360,6 @@ section{
 .all_item_model_number{
 	color:var(--item_model_number);
 	font-size: 13px;
-	line-height: 18px;
-}
-.all_item_order_quantity{
-	color:var(--item_order_quantity);
-	font-size: 15px;
 	line-height: 18px;
 }
 

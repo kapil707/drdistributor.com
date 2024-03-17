@@ -369,6 +369,9 @@ function home_page_owl_load(category_id){
 			,1280:{
                 items:8,
             }
+			,1500:{
+                items:10,
+            }
         }
     });
 }

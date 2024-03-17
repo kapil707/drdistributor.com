@@ -943,7 +943,7 @@ function get_top_menu_api(){
 			<div class="modal-header">
 				<h5 class="modal-title">Medicine details</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>
+					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>
 				</button>
 			</div>
 			<div class="modal-body">

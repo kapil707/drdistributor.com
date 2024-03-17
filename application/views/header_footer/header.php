@@ -1153,10 +1153,10 @@ function setDefaultImage(image) {
 }
 function change_item_order_quantity(){
 	
-	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
+	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();
 	
 	
-	item_order_quantity = parseInt(item_order_quantity);
+	item_order_quantity  = parseInt(item_order_quantity);
 	item_price_calculate = parseInt(item_price) * item_order_quantity;
 
 	$(".medicine_details_item_price_calculate").html("Total : " + item_price_calculate);

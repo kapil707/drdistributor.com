@@ -699,6 +699,7 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_mrp + "/-")
 	$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 	$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
+	$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
 
 	$(".medicine_details_item_scheme_line").show()
 	$(".medicine_details_item_scheme").show()
@@ -1024,7 +1025,7 @@ function get_top_menu_api(){
 								<span class="medicine_details_item_gst"></span>
 							</div>
 							<div class="col-sm-8 col-7 text-right">
-								<span class="medicine_details_item_price" title="*Approximate value ~"></span>
+								<span class="medicine_details_item_price" title="*Approximate ~"></span>
 							</div>
 							<div class="col-sm-12 col-12 medicine_details_hr">
 							</div>
@@ -1039,9 +1040,13 @@ function get_top_menu_api(){
 					<div class="col-sm-2 col-12"></div>
 					<div class="col-sm-8 col-12">
 						<div class="row">
-							<div class="col-sm-12 col-12">
+							<div class="col-sm-4 col-4">
 								<span class="medicine_details_item_order_quantity">Order quantity
 								</span>
+							</div>
+
+							<div class="col-sm-4 col-4">
+								<span class="medicine_details_item_price_calculate"></span>
 							</div>
 
 							<div class="col-sm-4 col-4">

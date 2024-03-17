@@ -15,7 +15,7 @@ class MedicineDetailsModel extends CI_Model
 	{
 		$jsonArray = array();
 		$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
-		$items = "";
+
 		$item_date_time = date('d-M h:i A');
 		
 		$db_medicine = $this->db_medicine;
@@ -96,6 +96,7 @@ class MedicineDetailsModel extends CI_Model
 			{
 				$items1 = ',"items1":""';
 			}
+
 			$item_stock = "";
 			if($misc_settings=="#NRX")
 			{
@@ -103,16 +104,18 @@ class MedicineDetailsModel extends CI_Model
 					$item_stock = "Available";
 				}
 			}
+
+			/************************************************************************************* */
 			$item_order_quantity = "";
 			$where1 = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
-			//$this->db->select(*);
+			$this->db->select("quantity");
 			$this->db->where($where1);
 			$row1 = $this->db->get("drd_temp_rec")->row();
-			if(!empty($row1->id))
-			{
+			if(!empty($row1->id)){
 				$item_order_quantity = $row1->quantity;
 			}
-
+			
+			/************************************************************************************* */
 			$dt = array(
 				'item_date_time' => $item_date_time,
 				'item_code' => $item_code,

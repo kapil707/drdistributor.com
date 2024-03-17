@@ -1,15 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-@media screen and (max-width: 767px) {
-	.homebtn_div
-	{
-		display:none;
-	}
-}
-</style>
 <script>
 $(".headertitle").html("Loading....");
 function goBack() {

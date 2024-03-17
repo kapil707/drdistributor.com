@@ -1043,16 +1043,15 @@ function get_top_menu_api(){
 				</div>
 				<div class="col-sm-12 col-12 medicine_details_hr">
 				</div>
+
 				<div class="col-sm-12 col-12">
-					<span class="medicine_details_item_order_quantity" style="width:50%;float:left;margin-top:5px;">Order quantity
+					<span class="medicine_details_item_order_quantity">Order quantity
 					</span>
 				</div>
 
-				<div class="col-sm-6 col-6">				
-					<span class="text-right" style="width:50%;float:left;margin-top:5px;">
-						<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;float:right;" value="" title="Enter quantity" min="1" max="1000">
-						<input type="hidden" class="medicine_details_item_quantity">
-					</span>
+				<div class="col-sm-6 col-6">
+					<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;float:right;" value="" title="Enter quantity" min="1" max="1000">
+					<input type="hidden" class="medicine_details_item_quantity">
 				</div>
 
 				<div class="col-sm-6 col-6">

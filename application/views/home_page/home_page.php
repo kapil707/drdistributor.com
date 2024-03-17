@@ -122,44 +122,6 @@ window.jssor_2_slider_init = function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<style>
-.owl-carousel {
-	margin: 0 auto;
-	padding: 30px 0;
-}
-.owl-carousel .item {
-	line-height: 2;
-	font-weight: 700;
-}
-
-.owl-carousel .owl-nav button.owl-prev,
-.owl-carousel .owl-nav button.owl-next {
-	z-index: 1;
-	width: 40px;
-	height: 40px;
-	background-color: #ccc;
-	border-radius: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translatey(-50%);
-}
-
-.owl-nav button span {
-	font-size: 30px;
-	height: 100%;
-	display: block;
-	width: 100%;
-}
-.owl-carousel .owl-nav button.owl-prev {
-	left: 0;
-}
-.owl-carousel .owl-nav button.owl-next {
-	right: 0;
-}
-.owl-carousel .owl-nav {
-	margin: 0;
-}
-</style>
 <div class="container-fluid maincontainercss">
 	<div class="row home_page_slider1_data"></div>
 	<div class="row home_page_divisioncategory1_data"></div>

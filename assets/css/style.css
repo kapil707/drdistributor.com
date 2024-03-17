@@ -2284,6 +2284,10 @@ section{
 	font-size: 13px;
 	color:var(--item_model_number);
 }
+.all_item_order_quantity{
+	font-size: 13px;
+	color:var(--item_order_quantity);
+}
 
 
 @media screen and (max-width: 767px) {

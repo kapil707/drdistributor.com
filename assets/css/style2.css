@@ -2280,6 +2280,26 @@ section{
 	line-height: 18px;
 }
 
+.all_item_title{
+	color:var(--item_name_color);
+	font-size:15px;
+	font-weight:bold;
+	line-height: 18px;
+}
+.all_item_message{
+	color:var(--item_total_color);
+    font-size: 14px;
+	line-height: 16px;
+}
+
+.all_item_download{
+	color:var(--item_download_color);
+	font-size:15px;
+	font-weight:bold;
+	line-height: 18px;
+}
+
+
 
 @media screen and (max-width: 767px) {
 	.top_icon_menu li {

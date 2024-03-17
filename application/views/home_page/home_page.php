@@ -315,10 +315,10 @@ function home_page_invoice(category_id,items,title){
 			delete_status_div = "";
 			if(delete_status==1)
 			{
-				delete_status_div = '<div class="medicine_cart_item_datetime">Some items have been deleted / modified in this order</div>';
+				delete_status_div = '<div class="all_item_date_time">Some items have been deleted / modified in this order</div>';
 			}
 			
-			mydata+='<div class="main_theme_li_bg"><div class="medicine_my_page_div1"><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><span class="medicine_cart_item_name">'+item_title+'</span></a><span style="float: right;color: red;"><a href="'+download_url+'" style="color: red;">Download Invoice</a></span></div><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
+			mydata+='<div class="main_theme_li_bg"><div class="medicine_my_page_div1"><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="all_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><span class="all_item_title">'+item_title+'</span></a><span style="float: right;"><a href="'+download_url+'" class="all_item_download">Download Invoice</a></span></div><a href="<?php echo base_url() ?>my_invoice_details/'+item_id+'"><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
 		}
 	});
 	
@@ -337,7 +337,7 @@ function home_page_notification(category_id,items,title){
 			item_date_time 		= item.item_date_time;
 			item_image 			= item.item_image;
 			
-			mydata+='<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_notification_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>';
+			mydata+='<div class="main_theme_li_bg"><a href="<?php echo base_url() ?>my_notification_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg" class="all_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>';
 		}
 	});
 	

@@ -72,7 +72,7 @@
     
     --item_name_color:#27ae60;
     --item_title_color:#27ae60;
-
+    
     --item_packing_color:#ff9800;
     --item_batch_no_color:#795548;
     --item_margin_color:#1084a1;
@@ -94,9 +94,11 @@
     --item_order_quantity:#685c5c;
     --item_date_time_color:#795548;
     --out_of_stock-color:#ff0a0a;    
+    --item_download_color:#ff9800;
 
     --chemist_user_name_color:#27ae60;
     --chemist_altercode_color:#795548;    
 
     --item_order_quantity_bg:#e8e8e8;
+    
 }

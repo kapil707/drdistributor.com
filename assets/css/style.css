@@ -2264,11 +2264,21 @@ section{
     font-size: 14px;
 	font-weight: bold;
 }
-.all_item_price2
+.all_item_total
 {
 	color:var(--item_price_color);
     font-size: 14px;
 	font-weight: bold;
+}
+.all_item_date_time
+{
+	font-size: 13px;
+	color:var(--item_date_time_color);
+}
+.all_item_model_number
+{
+	font-size: 13px;
+	color:var(--item_model_number);
 }
 
 

@@ -1033,39 +1033,36 @@ function get_top_menu_api(){
 						<div class="col-sm-12 col-12 medicine_details_hr">
 						</div>
 
-						
+						<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
+						</div>
 
 						<div class="col-sm-12 col-12 medicine_details_hr">
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
-			</div>
-
 			<div class="col-sm-12 col-12 medicine_details_hr">
 			</div>
 			<div class="col-sm-12 col-12">
-							<span class="medicine_details_item_order_quantity" style="width:50%;float:left;margin-top:5px;">Order quantity
-							</span>
-							
-							<span class="text-right" style="width:50%;float:left;margin-top:5px;">
+				<span class="medicine_details_item_order_quantity" style="width:50%;float:left;margin-top:5px;">Order quantity
+				</span>
+			</div>
 
-								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;float:right;" value="" title="Enter quantity" min="1" max="1000">
+			<div class="col-sm-6 col-6">				
+				<span class="text-right" style="width:50%;float:left;margin-top:5px;">
+					<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;float:right;" value="" title="Enter quantity" min="1" max="1000">
+					<input type="hidden" class="medicine_details_item_quantity">
+				</span>
+			</div>
 
-								<input type="hidden" class="medicine_details_item_quantity">
-							</span>
-						</div>
+			<div class="col-sm-6 col-6">
+				<button type="submit" class="btn btn-primary mainbutton medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
 
-						<div class="col-sm-12 col-12">
-							<button type="submit" class="btn btn-primary mainbutton medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
+				<button type="submit" class="btn btn-primary mainbutton_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
 
-							<button type="submit" class="btn btn-primary mainbutton_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
-
-							<div class="medicine_details_item_add_to_cart_btn_loading text-center" style="display:none">
-								<button type="submit" class="btn btn-primary mainbutton_disable" onclick="" title="Loading....">Loading....</button>
-							</div>
-						</div>
+				<div class="medicine_details_item_add_to_cart_btn_loading text-center" style="display:none">
+					<button type="submit" class="btn btn-primary mainbutton_disable" onclick="" title="Loading....">Loading....</button>
+				</div>
 			</div>
 		</div>
 	</div>

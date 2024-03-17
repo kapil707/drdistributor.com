@@ -1172,8 +1172,7 @@ function change_item_order_quantity(){
 			$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
 			$(".medicine_details_item_add_to_cart_btn").hide();
 			$(".medicine_details_item_add_to_cart_btn_disable").show();
-		}
-		
+		}		
 	}
 }
 </script>

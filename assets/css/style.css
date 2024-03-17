@@ -2225,6 +2225,18 @@ section{
     border-radius: 10px;
 	margin-bottom: 5px;
 }
+.all_cart_item_out_of_stock_img
+{
+	width:65px;
+	position: absolute;
+	border-top-left-radius: 10px;
+}
+.all_cart_item_featured_img
+{
+	width:65px;
+	position: absolute;
+	border-top-left-radius: 10px;
+}
 .all_item_name{
 	color:var(--item_name_color);
 	font-size:15px;

@@ -2314,6 +2314,12 @@ section{
 	line-height: 18px;
 	font-weight: bold;
 }
+.all_item_out_of_stock{
+	color:var(--out_of_stock-color);
+	font-size:16px;
+	font-weight: bold;
+	line-height: 18px;
+}
 .all_item_scheme{
     color:var(--item_scheme_color);
 	font-size: 13px;

@@ -1045,7 +1045,7 @@ function get_top_menu_api(){
 								</span>
 							</div>
 
-							<div class="col-sm-6 col-6 text-right">
+							<div class="col-sm-8 col-8 text-right">
 								<span class="medicine_details_item_price_calculate"></span>
 							</div>
 

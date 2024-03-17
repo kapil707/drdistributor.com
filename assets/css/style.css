@@ -2198,6 +2198,12 @@ section{
 	color:var(--home_company_color_hover);
 }
 
+.all_item_image
+{
+    width: 100%;
+    /*height: 20vh;*/
+    border-radius: 10px;
+}
 .all_item_name
 {
 	color:var(--item_name_color);

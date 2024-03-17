@@ -1,8 +1,7 @@
 :root{
-    --main_theme_bg_color:#fbfbfb;
-    
-    --main_theme_body_text_color:#000000;
-    --main_theme_color:#27ae60;
+    --mainthemebgcolor:#fbfbfb;    
+    --mainthemetextcolor:#000000;
+    --mainthemecolor:#27ae60;
     
     --main_theme_top_menu_bar_bg:#ffffff;
     --main_theme_top_menu_bar_bg1:#ffffff;

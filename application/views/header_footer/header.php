@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style223101.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style2231010.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -53,38 +53,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/min.css"/>
 	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
-	<style>
-	.menubtn1{
-		display:none;
-	}
-	.typewriter h1{
-		animation: 
-		typing 2s steps(22),
-		cursor .4s step-end infinite alternate;
-		
-		overflow:hidden;
-		width:100%;
-		white-space:nowrap;
-	}
-	@keyframes cursor{
-		50%{
-			border-color:transparent;
-		}
-	}
-	@keyframes typing{
-		from{
-			width:0;
-		}
-	}
-	</style>
 </head>
 <body>
-<?php
-if(empty($chemist_id_for_cart_total))
-{
-	$chemist_id_for_cart_total = "";
-}
-?>
+	<?php
+	if(empty($chemist_id_for_cart_total))
+	{
+		$chemist_id_for_cart_total = "";
+	}
+	?>
 	<div class="top_menu_bar">
 		<div class="container-fluid">
 			<div class="row">

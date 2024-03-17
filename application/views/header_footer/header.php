@@ -1159,7 +1159,7 @@ function change_item_order_quantity(){
 		$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
 	}else{
 		item_order_quantity  = parseInt(item_order_quantity);
-		if(parseInt(item_quantity)>item_order_quantity){
+		if(item_order_quantity<=parseInt(item_quantity)){
 			item_price_calculate = parseFloat(item_price) * item_order_quantity;
 
 			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-")

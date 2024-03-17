@@ -2309,7 +2309,7 @@ section{
     font-weight: 500;
 	line-height: 18px;
 }
-.all_details_item_stock{
+.all_item_stock{
 	color:var(--item_stock_color);
 	font-size:15px;
 	line-height: 18px;

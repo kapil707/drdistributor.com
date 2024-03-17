@@ -1064,7 +1064,7 @@ function get_top_menu_api(){
 								</div>
 							</div>
 
-							<div class="col-sm-12 col-12 add_to_cart_error_message text-danger"></div>
+							<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>
 						</div>
 					</div>
 					<div class="col-sm-2 col-12"></div>

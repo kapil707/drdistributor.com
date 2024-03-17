@@ -2383,6 +2383,17 @@ section{
 	line-height: 18px;
 }
 
+.favourite_medicines_div1{
+	width:6%;
+	float:left;
+	padding:5px;
+}
+.favourite_medicines_div2{
+	width:94%;
+	float:left;	
+	padding:5px;
+}
+
 
 
 @media screen and (max-width: 767px) {

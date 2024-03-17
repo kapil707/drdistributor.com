@@ -68,38 +68,35 @@
     
     --main_theme_search_icon_color:#6a6767;
 
+    /***************************************/
     
-    --item_name_color:#27ae60; /*27ae60 */
-    --item_date_time_color:#795548;
-    
-    --item_name_color_hover:#757575; /*27ae60 */
+    --item_name_color:#27ae60;
+    --item_title_color:#27ae60;
+
     --item_packing_color:#ff9800;
     --item_batch_no_color:#795548;
     --item_margin_color:#1084a1;
     --item_company_color:#3f51b5;
-    --item_company2_color:#795548;
     --item_expiry_color:#981e1e;
     --item_stock_color:#1084a1;
     --item_scheme_color:#c66464;
     --item_scheme_line_color:#685c5c;
-    --item_hr_line_color:#d9d9d9;
-
-    --out_of_stock-color:#ff0a0a;
-
     --item_ptr_color:#795548;
     --item_mrp_color:#795548;
     --item_price_color:#6c757d;
-    --item_toal_color:#795548;
+    --item_total_color:#795548;
     --item_gst_color:#965400;
-
-    --chemist_user_name_color:#27ae60;
-    --chemist_altercode_color:#795548;
-    
+    --item_message_color:#685c5c;	
     --item_description1_color:#685c5c;	
     --item_description2_color:#685c5c;
-    --item_similar_items_color:#965400;
-    
+    --item_similar_items_color:#965400;    
 
     --item_order_quantity:#685c5c;
+    --item_date_time_color:#795548;
+    --out_of_stock-color:#ff0a0a;    
+
+    --chemist_user_name_color:#27ae60;
+    --chemist_altercode_color:#795548;    
+
     --item_order_quantity_bg:#e8e8e8;
 }

@@ -2220,17 +2220,17 @@ section{
 .all_item_packing{
 	color:var(--item_packing_color);
 	font-size:12px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_margin{
 	color:var(--item_margin_color);
 	font-size:13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_expiry{
 	color:var(--item_expiry_color);
 	font-size:13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_company{
 	color:var(--item_company_color);
@@ -2241,38 +2241,38 @@ section{
 .all_item_scheme{
     color:var(--item_scheme_color);
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_mrp{
 	color:var(--item_mrp_color);
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_ptr{
 	color:var(--item_ptr_color);
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 20px;
 }
 .all_item_price{
 	color:var(--item_price_color);
 	font-weight: bold;
 	font-size: 14px;
-	line-height: 16px;
+	line-height: 18px;
 }
 .all_item_total{
 	color:var(--item_total_color);
     font-size: 14px;
-	line-height: 16px;
+	line-height: 18px;
 }
 .all_item_date_time{
 	color:var(--item_date_time_color);
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_model_number{
 	color:var(--item_model_number);
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 18px;
 }
 .all_item_order_quantity{
 	color:var(--item_order_quantity);
@@ -2281,15 +2281,15 @@ section{
 }
 
 .all_item_title{
-	color:var(--item_name_color);
+	color:var(--item_title_color);
 	font-size:15px;
 	font-weight:bold;
 	line-height: 18px;
 }
 .all_item_message{
-	color:var(--item_total_color);
+	color:var(--item_message_color);
     font-size: 14px;
-	line-height: 16px;
+	line-height: 18px;
 }
 
 .all_item_download{

@@ -2149,8 +2149,8 @@ section{
 
 /*****************home page css**************************/
 .owl-carousel {
-	/*margin: 0 auto;
-	padding: 30px 0;*/
+	margin: 0px;
+	padding: 0px;
 }
 .owl-carousel .item {
 	line-height: 2;
@@ -2162,7 +2162,7 @@ section{
 	z-index: 1;
 	width: 40px;
 	height: 40px;
-	background-color: #ccc;
+	background-color: var(--mainthemebtnbgcolor);
 	border-radius: 50%;
 	position: absolute;
 	top: 50%;
@@ -2240,13 +2240,14 @@ section{
     background: var(--main_theme_li_bg_hover_color);
 }
 .all_itemcategory{
-	min-height: 330px;
+	height: 350px;
 	border-radius: 10px;
 	padding:5px;
 	margin: 5px;
 	background-color: var(--main_theme_li2_bg_color);
 	/*border: 1px solid var(--main_theme_border_color);*/
     box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+	overflow: hidden;
 }
 .all_itemcategory:hover {
     background: var(--main_theme_li_bg_hover_color);

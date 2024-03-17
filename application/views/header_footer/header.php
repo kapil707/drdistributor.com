@@ -938,7 +938,7 @@ function get_top_menu_api(){
 <div type="hidden" class="medicine_details_all_data"></div>
 <a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></a>
 <div class="modal modaloff" id="myModal_medicine_details">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title">Medicine details</h5>

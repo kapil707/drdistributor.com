@@ -2149,8 +2149,8 @@ section{
 
 /*****************home page css**************************/
 .owl-carousel {
-	margin: 0 auto;
-	padding: 30px 0;
+	/*margin: 0 auto;
+	padding: 30px 0;*/
 }
 .owl-carousel .item {
 	line-height: 2;
@@ -2187,7 +2187,7 @@ section{
 .home_heading
 {
 	margin-top: 60px;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 }
 .home_heading_title{
     text-align: center;

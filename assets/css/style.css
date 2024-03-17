@@ -2264,6 +2264,12 @@ section{
     font-size: 14px;
 	font-weight: bold;
 }
+.all_item_price2
+{
+	color:var(--item_price_color);
+    font-size: 14px;
+	font-weight: bold;
+}
 
 
 @media screen and (max-width: 767px) {

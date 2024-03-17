@@ -1142,6 +1142,11 @@ function logout_function(){
 		} 
 	});
 }
+
+function setDefaultImage(image) {
+	image.onerror = "<?= base_url(); ?>/uploads/default_img.jpg"; 
+	image.src = "<?= base_url(); ?>/uploads/default_img.jpg"; 
+}
 </script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>

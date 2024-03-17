@@ -1153,7 +1153,9 @@ function setDefaultImage(image) {
 function change_item_order_quantity(){
 
 	$(".add_to_cart_error_message").html('');
-	
+	$(".medicine_details_item_add_to_cart_btn").show()
+	$(".medicine_details_item_add_to_cart_btn_disable").hide()
+
 	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){
 		$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
@@ -1167,6 +1169,8 @@ function change_item_order_quantity(){
 			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-")
 		}else{
 			$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
+			$(".medicine_details_item_add_to_cart_btn").hide()
+			$(".medicine_details_item_add_to_cart_btn_disable").show()
 		}
 	}
 }

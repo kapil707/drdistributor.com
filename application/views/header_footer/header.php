@@ -1153,13 +1153,15 @@ function setDefaultImage(image) {
 }
 function change_item_order_quantity(){
 	
-	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();
-	
-	
-	item_order_quantity  = parseInt(item_order_quantity);
-	item_price_calculate = parseInt(item_price) * item_order_quantity;
+	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
+	if(item_order_quantity==""){
+		$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
+	}else{
+		item_order_quantity  = parseFloat(item_order_quantity);
+		item_price_calculate = parseFloat(item_price) * item_order_quantity;
 
-	$(".medicine_details_item_price_calculate").html("Total : " + item_price_calculate);
+		$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-")
+	}
 }
 </script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />

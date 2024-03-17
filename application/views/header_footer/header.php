@@ -1043,23 +1043,28 @@ function get_top_menu_api(){
 					<div class="col-sm-12 col-12 medicine_details_hr">
 					</div>
 
-					<div class="col-sm-12 col-12">
-						<span class="medicine_details_item_order_quantity">Order quantity
-						</span>
-					</div>
+					<div class="col-sm-3 col-12"></div>
+					<div class="col-sm-6 col-12">
+						<div class="row">
+							<div class="col-sm-12 col-12">
+								<span class="medicine_details_item_order_quantity">Order quantity
+								</span>
+							</div>
 
-					<div class="col-sm-6 col-6">
-						<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000">
-						<input type="hidden" class="medicine_details_item_quantity">
-					</div>
+							<div class="col-sm-6 col-6">
+								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000">
+								<input type="hidden" class="medicine_details_item_quantity">
+							</div>
 
-					<div class="col-sm-6 col-6">
-						<button type="submit" class="btn btn-primary mainbutton medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
+							<div class="col-sm-6 col-6">
+								<button type="submit" class="btn btn-primary mainbutton medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
 
-						<button type="submit" class="btn btn-primary mainbutton_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
+								<button type="submit" class="btn btn-primary mainbutton_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
 
-						<div class="medicine_details_item_add_to_cart_btn_loading text-center" style="display:none">
-							<button type="submit" class="btn btn-primary mainbutton_disable" onclick="" title="Loading....">Loading....</button>
+								<div class="medicine_details_item_add_to_cart_btn_loading text-center" style="display:none">
+									<button type="submit" class="btn btn-primary mainbutton_disable" onclick="" title="Loading....">Loading....</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

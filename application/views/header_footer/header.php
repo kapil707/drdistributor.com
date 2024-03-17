@@ -1045,12 +1045,12 @@ function get_top_menu_api(){
 								</span>
 							</div>
 
-							<div class="col-sm-6 col-6">
+							<div class="col-sm-6 col-6 text-right">
 								<span class="medicine_details_item_price_calculate"></span>
 							</div>
 
 							<div class="col-sm-4 col-4">
-								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000">
+								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000" onchange="change_item_order_quantity()">
 								<input type="hidden" class="medicine_details_item_quantity">
 							</div>
 
@@ -1150,6 +1150,16 @@ function logout_function(){
 
 function setDefaultImage(image) {
 	image.onerror = "<?= base_url(); ?>/uploads/default_img.jpg";
+}
+function change_item_order_quantity(){
+	
+	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
+	
+	
+	item_order_quantity = parseInt(item_order_quantity);
+	item_price_calculate = parseInt(item_price) * item_order_quantity;
+
+	$(".medicine_details_item_price_calculate").html("Total : " + item_price_calculate);
 }
 </script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />

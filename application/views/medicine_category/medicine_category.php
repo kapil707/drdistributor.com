@@ -109,8 +109,10 @@ function call_page(get_record)
 						item_scheme 		= item.item_scheme;
 						item_margin 		= item.item_margin;
 						item_featured 		= item.item_featured;
-						item_description1 	= item.item_description1;
-						similar_items 		= item.similar_items;
+
+						item_description1 	= "";
+						similar_items 		= "";
+						item_expiry 		= "";
 
 						div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></span>"
 						

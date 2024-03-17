@@ -141,17 +141,6 @@ function call_page(get_record)
 						if(item_scheme!="0+0") {
 							item_scheme_div = '<div class="all_item_scheme">Scheme : '+item_scheme+'</div>';
 						}
-
-						error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
-
-						item_image_div = item_other_image_div+'<img src="'+item_image+'" class="all_item_image medicine_category_img" '+error_img+'>';
-						
-						rete_div =  '<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </div><div class="all_item_price"> *Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </div>';
-
-						item_scheme_div = "";
-						if(item_scheme!="0+0") {
-							item_scheme_div = '<div class="all_item_scheme">Scheme : '+item_scheme+'</div>';
-						}
 						
 						$(".load_page").append('<div class="col-sm-3 col-6 p-0 m-0 text-center"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img src="'+item_image+'" alt="" '+error_img+' class="all_item_image"></a><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>');
 

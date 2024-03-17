@@ -1067,9 +1067,6 @@ function get_top_menu_api(){
 					</div>
 					<div class="col-sm-2 col-12"></div>
 
-					<div class="col-sm-12 col-12 medicine_details_hr">
-					</div>
-
 					<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
 					</div>
 				</div>

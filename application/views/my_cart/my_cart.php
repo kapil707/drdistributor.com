@@ -1,30 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-.maincontainercss{
-	margin-bottom:100px;
-}
-.main_theme_li_bg{
-	width:49%;
-	margin-left:0.5%;
-}
-@media screen and (max-width: 800px) {
-	.search_pg_menu_off,.main_home_top_btn
-	{
-		display: none;
-	}
-	.current_order_search_page,.delete_btn_icon
-	{
-		display: block !important;
-	}
-	.main_theme_li_bg{
-		width:100%;
-		margin-left:0px;
-	}
-}
-</style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
 .headertitle

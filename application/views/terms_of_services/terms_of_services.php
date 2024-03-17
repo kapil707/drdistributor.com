@@ -1,20 +1,4 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-.headertitle
-{
-    margin-top: 5px !important;
-}
-@media screen and (max-width: 767px) {
-	.homebtn_div
-	{
-		display:none;
-	}
-}
-</style>
-<script>
+script>
 $(".headertitle").html("Terms of services");
 </script>
 <div class="container maincontainercss">

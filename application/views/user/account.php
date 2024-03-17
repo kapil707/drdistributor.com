@@ -1,15 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-@media screen and (max-width: 767px) {
-	.website_menu,.current_order_search_page1,.select_chemist,.homebtn_div
-	{
-		display: none ;
-	}
-}
-</style>
 <script>
 $(".headertitle").html("Account");
 function goBack() {

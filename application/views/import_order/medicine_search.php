@@ -1,35 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-@media screen and (max-width: 767px) {
-	.search_pg_menu_off,.main_home_top_btn
-	{
-		display:none;
-	}
-	.current_order_search_page,.delete_btn_icon
-	{
-		display: block !important;
-	}
-}
-.deleteicon
-{
-	display: initial !important;
-}
-.home_page_search_div_box,.select_medicine
-{
-	display: inline-block;
-}
-.select_chemist,.home_page_search_div,.search_medicine_result,.clear_search_icon
-{
-	display: none;
-}
-.headertitle
-{
-    margin-top: 5px;
-}
-</style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
 .headertitle

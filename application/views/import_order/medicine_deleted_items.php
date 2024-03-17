@@ -1,13 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-.headertitle
-{
-    margin-top: 5px;
-}
-</style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
 .headertitle

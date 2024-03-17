@@ -1,19 +1,3 @@
-<style>
-.menubtn1
-{
-	display:none;
-}
-.headertitle
-{
-    margin-top: 5px !important;
-}
-@media screen and (max-width: 767px) {
-	.homebtn_div
-	{
-		display:none;
-	}
-}
-</style>
 <script>
 $(".headertitle").html("<?= $main_page_title ?>");
 function goBack() {

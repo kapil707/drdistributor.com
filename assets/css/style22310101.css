@@ -2309,6 +2309,12 @@ section{
     font-weight: 500;
 	line-height: 18px;
 }
+.all_details_item_stock{
+	color:var(--item_stock_color);
+	font-size:15px;
+	line-height: 18px;
+	font-weight: bold;
+}
 .all_item_scheme{
     color:var(--item_scheme_color);
 	font-size: 13px;

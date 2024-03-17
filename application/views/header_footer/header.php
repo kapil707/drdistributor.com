@@ -635,15 +635,12 @@ function medicine_details_get(item_code)
 {	
 	item_image = $(".medicine_details_all_data_"+item_code).attr("item_image")
 	item_name = $(".medicine_details_all_data_"+item_code).attr("item_name")
-
-	console.log(item_code+"---"+item_name)
 	item_packing = $(".medicine_details_all_data_"+item_code).attr("item_packing")
 	item_expiry = $(".medicine_details_all_data_"+item_code).attr("item_expiry")
 	item_company = $(".medicine_details_all_data_"+item_code).attr("item_company")
 	item_quantity = $(".medicine_details_all_data_"+item_code).attr("item_quantity")
 	item_stock = $(".medicine_details_all_data_"+item_code).attr("item_stock")
 	item_ptr = $(".medicine_details_all_data_"+item_code).attr("item_ptr")
-
 	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
 	item_price = $(".medicine_details_all_data_"+item_code).attr("item_price")
 	item_scheme = $(".medicine_details_all_data_"+item_code).attr("item_scheme")

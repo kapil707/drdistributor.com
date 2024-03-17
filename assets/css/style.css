@@ -2183,6 +2183,72 @@ section{
 }
 
 
+/*****************home page css**************************/
+.home_page_item_company
+{
+	color:var(--home_company_color_hover);
+    font-size: 18px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.home_page_item_company:hover
+{
+	color:var(--home_company_color_hover);
+}
+
+.all_item_name
+{
+	color:var(--item_name_color);
+	font-size:15px;
+	font-weight:bold;
+	line-height: 18px;
+}
+.all_item_packing
+{
+	color:var(--item_packing_color);
+	font-size:12px;
+}
+.all_item_margin
+{
+	color:var(--item_margin_color);
+	font-size:13px;
+}
+.all_item_company
+{
+	color:var(--item_company_color);
+    font-size: 15px;
+    font-weight: 500;
+}
+.all_item_scheme
+{
+	font-size: 13px;
+    color:var(--item_scheme_color);
+}
+.all_item_scheme
+{
+	font-size: 13px;
+    color:var(--item_scheme_color);
+}
+.all_item_mrp
+{
+	font-size: 13px;
+	color:var(--item_mrp_color);
+}
+.all_item_ptr
+{
+	font-size: 13px;
+	color:var(--item_ptr_color);
+}
+.all_item_price
+{
+	color:var(--item_price_color);
+    font-size: 14px;
+	font-weight: bold;
+}
+
+
 @media screen and (max-width: 767px) {
 	.top_icon_menu li {
 		margin-right: -10px;

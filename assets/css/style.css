@@ -2184,6 +2184,50 @@ section{
 
 
 /*****************home page css**************************/
+.home_heading
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.home_heading_title{
+    text-align: center;
+    margin-bottom: 0rem;
+    position: relative;
+}
+.home_heading_title::before{
+    content: '';
+    position: absolute;
+    top:50%; left:0;
+    transform: translateY(-50%);
+    width: 100%;
+    height:.01rem;
+    background: var(--heading_home_hr_line);
+	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+    z-index: -1;
+}
+.home_heading_title span{
+    font-size: 30px;
+    padding: 40px;
+    color: var(--main_theme_hearder_color) !important;
+    background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
+    /*border: solid 1px var(--mainthemecolor);*/
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+	border-bottom-right-radius: 500px;
+    border-top-left-radius: 500px;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+	transition-duration: 3s;
+}
+.home_heading_title span:hover{
+	border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 500px;
+    border-top-right-radius: 500px;
+}
+.home_heading_title span a{
+	color: var(--main_theme_hearder_color) !important;
+}
+
 .all_divisioncategory{
 	border-radius: 10px;
 	padding:5px;

@@ -1674,7 +1674,6 @@ section{
 {
 	cursor: none;
 	outline: none;
-	border:0px;
 	background:var(--main_theme_li_bg_hover_color);
 }
 .main_theme_li_bg:hover

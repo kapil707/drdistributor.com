@@ -1167,7 +1167,7 @@ function change_item_order_quantity(){
 
 			item_price_calculate = item_price_calculate.toFixed(2);
 
-			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-")
+			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
 		}else{
 			$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
 			$(".medicine_details_item_add_to_cart_btn").hide();

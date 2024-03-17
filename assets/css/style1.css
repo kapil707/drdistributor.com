@@ -2232,6 +2232,11 @@ section{
 	color:var(--item_margin_color);
 	font-size:13px;
 }
+.all_item_expiry
+{
+	color:var(--item_expiry_color);
+	font-size:13px;
+}
 .all_item_company
 {
 	color:var(--item_company_color);
@@ -2266,9 +2271,8 @@ section{
 }
 .all_item_total
 {
-	color:var(--item_price_color);
+	color:var(--item_total_color);
     font-size: 14px;
-	font-weight: bold;
 }
 .all_item_date_time
 {

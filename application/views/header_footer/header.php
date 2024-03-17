@@ -622,7 +622,7 @@ function medicine_details_funcation(item_code)
 		$(".medicine_details_item_order_quantity_textbox").focus();
 		
 		medicine_details_get(item_code);
-		//setTimeout(medicine_details_api(item_code),500);// its on header page
+		setTimeout(medicine_details_api(item_code),500);// its on header page
 
 		$('.search_textbox').val("");
 		$(".search_medicine_result").html("");

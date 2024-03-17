@@ -956,7 +956,7 @@ function get_top_menu_api(){
 					<div>Loading....</div>
 				</div>
 				<div class="row medicine_details_api_data" style="display:none">
-					<div class="col-sm-4 col-12">
+					<div class="col-sm-5 col-12">
 						<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
 							<a class="example-image-link" data-standard="">
 							<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
@@ -975,7 +975,7 @@ function get_top_menu_api(){
 
 						<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;" class="medicine_details_image_small modal_item_image_change4" onclick="modal_item_image_change(4)" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					</div>
-					<div class="col-sm-8 col-12">
+					<div class="col-sm-7 col-12">
 						<div class="row">
 							<div class="col-sm-12 col-12" style="margin-top: 5px;">
 								<span class="medicine_details_item_name"></span>
@@ -1061,7 +1061,7 @@ function get_top_menu_api(){
 						</div>
 					</div>
 					<div class="col-sm-3 col-12"></div>
-					
+
 					<div class="col-sm-12 col-12 medicine_details_hr">
 					</div>
 

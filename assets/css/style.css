@@ -2311,4 +2311,7 @@ section{
 	{
 		min-height:160px;
 	}
+	.view_cart_or_empty_cart_btn_div, .place_order_or_empty_cart_btn_div {
+		border-radius: 10px;
+	}
 }

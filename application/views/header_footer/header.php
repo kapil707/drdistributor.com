@@ -1026,17 +1026,10 @@ function get_top_menu_api(){
 							<div class="col-sm-8 col-7 text-right">
 								<span class="medicine_details_item_price" title="*Approximate value ~"></span>
 							</div>
+							<div class="col-sm-12 col-12 medicine_details_hr">
+							</div>
 							<div class="col-sm-12 col-12 text-left">
 								*The information given on this page is based on historical data and estimates . Please refer to the final invoice for the exact value. E&OE.
-							</div>
-
-							<div class="col-sm-12 col-12 medicine_details_hr">
-							</div>
-
-							<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
-							</div>
-
-							<div class="col-sm-12 col-12 medicine_details_hr">
 							</div>
 						</div>
 					</div>
@@ -1066,6 +1059,13 @@ function get_top_menu_api(){
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="col-sm-3 col-12"></div>
+					
+					<div class="col-sm-12 col-12 medicine_details_hr">
+					</div>
+
+					<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
 					</div>
 				</div>
 			</div>

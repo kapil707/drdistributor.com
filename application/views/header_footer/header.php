@@ -1156,7 +1156,7 @@ function change_item_order_quantity(){
 	}else{
 		item_order_quantity  = parseInt(item_order_quantity);
 		if(item_order_quantity==0){
-			
+			$(".add_to_cart_error_message").html('Minimum order quantity one and more than one');
 		}else{
 			if(item_order_quantity<=parseInt(item_quantity)){
 				item_price_calculate = parseFloat(item_price) * item_order_quantity;

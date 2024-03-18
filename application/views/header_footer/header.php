@@ -1155,20 +1155,23 @@ function change_item_order_quantity(){
 		$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");
 	}else{
 		item_order_quantity  = parseInt(item_order_quantity);
-
-		if(item_order_quantity<=parseInt(item_quantity)){
-			item_price_calculate = parseFloat(item_price) * item_order_quantity;
-
-			item_price_calculate = item_price_calculate.toFixed(2);
-
-			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
-
-			$(".medicine_details_item_add_to_cart_btn").show();
-			$(".medicine_details_item_add_to_cart_btn_disable").hide();
+		if(item_order_quantity==0){
 			
 		}else{
-			$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
-		}		
+			if(item_order_quantity<=parseInt(item_quantity)){
+				item_price_calculate = parseFloat(item_price) * item_order_quantity;
+
+				item_price_calculate = item_price_calculate.toFixed(2);
+
+				$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
+
+				$(".medicine_details_item_add_to_cart_btn").show();
+				$(".medicine_details_item_add_to_cart_btn_disable").hide();
+				
+			}else{
+				$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
+			}
+		}	
 	}
 }
 </script>

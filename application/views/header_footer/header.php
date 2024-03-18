@@ -504,7 +504,10 @@ function get_single_medicine_info(item_code)
 
 function medicine_details_api(item_code)
 {
+	/***************************************************************** */
+	$('.order_quantity_div').hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
+	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_loading').hide();
 
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
@@ -661,8 +664,8 @@ function medicine_details_get(item_code)
 
 function medicine_details_api_data(item_code)
 {
-	$(".medicine_details_api_loading").hide();
 	$(".medicine_details_api_data").show();
+	$(".medicine_details_api_loading").hide();
 
 	/***********************important ************************/
 	$('.medicine_details_item_code').val(item_code);
@@ -688,23 +691,23 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_stock").html("Stock : " +item_quantity)
 	$(".medicine_details_item_scheme").html("Scheme : " +item_scheme)
 
-	$(".medicine_details_item_description1").html(item_description1)
-	$(".medicine_details_item_description1").show()
-	if(item_description1=="")
-	{
-		$(".medicine_details_item_description1").hide()
+	$(".medicine_details_item_description1").hide()
+	if(item_description1!=""){
+		$(".medicine_details_item_description1").show()
+		$(".medicine_details_item_description1").html(item_description1)
 	}
 
+	/******************************************************************* */
 	$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_ptr + "/-")
 	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_mrp + "/-")
 	$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 	$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
 	$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
+	/******************************************************************* */
 
 	$(".medicine_details_item_scheme_line").show()
 	$(".medicine_details_item_scheme").show()
-	if(item_scheme=="0+0")
-	{
+	if(item_scheme=="0+0"){
 		$(".medicine_details_out_of_stock_img").hide()
 		$(".medicine_details_item_scheme_line").hide()
 		$(".medicine_details_item_scheme").hide()
@@ -714,25 +717,16 @@ function medicine_details_api_data(item_code)
 		$(".medicine_details_featured_img").show()
 	}
 
+	$(".medicine_details_item_stock").html(item_stock)
+	$(".order_quantity_div").show()
 	if(parseInt(item_quantity)==0){
-		
-		$(".medicine_details_item_add_to_cart_btn_disable").show()
-		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
 
+		$(".order_quantity_div").hide()		
 		$(".medicine_details_out_of_stock_img").show()
-		$(".medicine_details_item_scheme").hide()
-		$(".medicine_details_item_scheme_line").hide()
-		$(".order_quantity_div").hide()
-	}else{
-		$(".medicine_details_item_add_to_cart_btn").show()
+		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")		
 	}
 
-	if(item_stock!="")
-	{
-		$(".medicine_details_item_stock").html(item_stock)
-	}
-
-	$(".medicine_details_item_quantity").val(item_quantity)
+	$(".medicine_details_item_order_quantity_hidden").val(item_quantity)
 	if(item_order_quantity){
 		$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
 	}
@@ -761,7 +755,7 @@ function medicine_add_to_cart_api()
 		} 
 	}?>	
 
-	item_quantity		= $(".medicine_details_item_quantity").val();
+	item_quantity		= $(".medicine_details_item_order_quantity_hidden").val();
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();
 
@@ -1052,7 +1046,7 @@ function get_top_menu_api(){
 
 							<div class="col-sm-4 col-4">
 								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
-								<input type="hidden" class="medicine_details_item_quantity">
+								<input type="hidden" class="medicine_details_item_order_quantity_hidden">
 							</div>
 
 							<div class="col-sm-8 col-8">

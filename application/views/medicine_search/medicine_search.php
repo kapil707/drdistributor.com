@@ -3,8 +3,10 @@
 	margin-bottom:100px;
 }
 @media screen and (max-width: 800px) {
-	.search_pg_menu_off,.main_home_top_btn
-	{
+	.home_page_search_div_box_more_btn{
+		display:none;
+	}
+	.search_pg_menu_off,.main_home_top_btn{
 		display:none;
 	}
 	.current_order_search_page,.delete_btn_icon

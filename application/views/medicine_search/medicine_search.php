@@ -3,7 +3,7 @@
 	margin-bottom:100px;
 }
 .home_page_search_div_box_more_btn{
-	display: inline-block !important;
+	display: inline-block;
 }
 @media screen and (max-width: 800px) {
 	.home_page_search_div_box_more_btn{

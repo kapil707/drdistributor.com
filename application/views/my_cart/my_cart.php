@@ -132,6 +132,11 @@ function goBack() {
 		</div>
 	</div>
 </div>
+<style>
+@media screen and (max-width: 767px) {
+	
+}
+</style>
 <script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>
 <script>
 // function my_cart_api_div()

@@ -108,7 +108,7 @@ function medicine_details_funcation(item_code)
 	var session_user_altercode = get_user_altercode();
 	if(session_user_altercode=="" || session_user_altercode==null)
 	{
-		window.location.href = "<?=base_url(); ?>home";
+		window.location.href = get_base_url() + "home";
 	} else 
 	{		
 		medicine_details_get(item_code);
@@ -408,7 +408,7 @@ function medicine_add_to_cart_api()
 					success    : function(data){
 						if(data.items=="")
 						{
-							$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/cartempty.png" width="80%"></center></h1>');
+							$(".medicine_cart_list_div").html('<h1><center><img src="'+get_base_url()+'/img_v51/cartempty.png" width="80%"></center></h1>');
 							$(".delete_all_btn").hide();
 						}
 						else
@@ -447,7 +447,7 @@ function medicine_add_to_cart_api()
 
 								item_other_image_div = '';
 								if(item_featured=="1"){
-									item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
+									item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 								}
 								
 								image_div = item_other_image_div+'<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" onclick="medicine_details_funcation('+item_code+')" onerror="setDefaultImage(this);">';

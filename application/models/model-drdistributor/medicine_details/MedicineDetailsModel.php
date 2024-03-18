@@ -111,7 +111,7 @@ class MedicineDetailsModel extends CI_Model
 			$this->db->select("quantity");
 			$this->db->where($where1);
 			$row1 = $this->db->get("drd_temp_rec")->row();
-			if(!empty($row1->id)){
+			if(!empty($row1->quantity)){
 				$item_order_quantity = $row1->quantity;
 			}
 			

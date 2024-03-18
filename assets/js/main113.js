@@ -525,3 +525,92 @@ function modal_item_image_change(_id)
 	
 	$(".easyzoom-flyout img").attr("src",modal_item_image_change_url)
 }
+
+function delete_medicine(item_code)
+{
+	swal({
+		title: "Are you sure to delete medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) 
+		{
+			$.ajax({                          
+				url:  get_base_url() +"my_cart/medicine_delete_api",
+				type:"POST",
+				dataType: 'json',
+				data:{item_code: item_code},
+				error: function(){
+					swal("Medicine not deleted");
+				},
+				success: function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								$(".item_focues"+item_code).html('')
+								swal("Medicine deleted successfully", {
+									icon: "success",
+								});
+								cart_page_load();
+							}
+							else{
+								swal("Medicine not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 10000
+			});
+		} else {
+			swal("Medicine not deleted");
+		}
+	});
+}
+function delete_all_medicine()
+{
+	swal({
+		title: "Are you sure to delete all medicines?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) 
+		{
+			id = "";
+			$.ajax({                          
+				url:  get_base_url() +"my_cart/medicine_delete_all_api",
+				type:"POST",
+				dataType: 'json',
+				data: {id:id},
+				error: function(){
+					swal("Medicines not deleted");
+				},
+				success: function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status==1)
+							{
+								swal("Medicines deleted successfully", {
+									icon: "success",
+								});
+								cart_page_load();
+							}
+							else{
+								swal("Medicines not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 10000
+			});
+		} else {
+			swal("Medicines not deleted");
+		}
+	});
+}

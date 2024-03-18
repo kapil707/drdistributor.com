@@ -497,7 +497,6 @@ function get_single_medicine_info(item_code)
 		$(".medicine_details_item_description1").hide();
 		$(".medicine_details_item_description2").hide();
 
-		$(".medicine_details_item_order_quantity_textbox").val("");
 		medicine_details_api(item_code);
 	}
 }
@@ -620,9 +619,7 @@ function medicine_details_funcation(item_code)
 	{
 		window.location.href = "<?=base_url(); ?>home";
 	} else 
-	{
-		$(".medicine_details_item_order_quantity_textbox").focus();
-		
+	{		
 		medicine_details_get(item_code);
 		medicine_details_api(item_code);
 		//setTimeout(medicine_details_api(item_code),500);// its on header page

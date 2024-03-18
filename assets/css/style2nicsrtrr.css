@@ -2257,6 +2257,17 @@ section{
 .all_itemcategory:hover {
     background: var(--main_theme_li_bg_hover_color);
 }
+.medicine_category_page{
+	border-radius: 10px;
+	padding:5px;
+	margin: 5px;
+	background-color: var(--main_theme_li2_bg_color);
+	border: 1px solid var(--main_theme_border_color);
+    /*box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);*/
+}
+.medicine_category_page:hover {
+    background: var(--main_theme_li_bg_hover_color);
+}
 
 .home_page_item_company{
 	color:var(--home_company_color_hover);

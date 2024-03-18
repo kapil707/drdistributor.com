@@ -621,7 +621,6 @@ function medicine_details_funcation(item_code)
 		window.location.href = "<?=base_url(); ?>home";
 	} else 
 	{
-		$(".medicine_details_item_order_quantity_textbox").val("");
 		$(".medicine_details_item_order_quantity_textbox").focus();
 		
 		medicine_details_get(item_code);
@@ -759,7 +758,6 @@ function medicine_add_to_cart_api()
 
 	if(item_order_quantity==""){
 		swal("Enter quantity");
-		$(".medicine_details_item_order_quantity_textbox").val("");
 		$(".medicine_details_item_order_quantity_textbox").focus();
 	}
 	else
@@ -770,6 +768,7 @@ function medicine_add_to_cart_api()
 		{
 			if(item_order_quantity<=item_quantity)
 			{
+				$(".medicine_details_item_order_quantity_textbox").val("");
 				$(".modaloff").click();
 				$(".search_textbox").focus();
 				

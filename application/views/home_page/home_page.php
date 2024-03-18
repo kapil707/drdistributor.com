@@ -6,7 +6,8 @@
 	display: none !important;
 }
 .headertitle{
-	margin-top: -5px;
+	margin-top: 2px;
+	font-size:16px;
 }
 .headertitle1{
 	display: inline !important;

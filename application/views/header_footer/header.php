@@ -568,6 +568,7 @@ function medicine_details_api(item_code)
 					}
 
 					item_order_quantity	= item.item_order_quantity;
+					console.log(item_order_quantity)
 					$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
 					if(item_order_quantity!=""){
 						$('.medicine_details_item_add_to_cart_btn').html("Update cart");

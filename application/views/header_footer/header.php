@@ -790,30 +790,7 @@ function medicine_add_to_cart_api()
 	}
 }
 
-function get_top_menu_api(){
-	myid = '';
-	$.ajax({
-		type       : "POST",
-		dataType   : "json",
-		data       :  {myid:myid} ,
-		url        : "<?php echo base_url(); ?>home/get_top_menu_api",
-		cache	   : true,
-		success : function(data){
-			if(data!="") {
-				$.each(data.items, function(i,item){
-					if (item){
-						item_code	 	= item.item_code;
-						item_company	= item.item_company;
-						item_image	 	= item.item_image;
-						item_url	 	= "<?= base_url();?>category/"+item.item_url;
 
-						$(".top_menu_menu").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
-					}
-				});
-			}
-		}
-	});
-}
 
 </script>
 <div class="select_medicine_in_modal_script_css"></div>
@@ -1001,34 +978,11 @@ if($broadcast_status=="1"){ ?>
 	<?php
 }
 ?>
-
-<script>
-function new_style_menu_show()
-{
-	$(".left_menu_bar").show(500);
-}
-function new_style_menu_hide()
-{
-	$(".left_menu_bar").hide(500);
-}
-function logout_function(){
-	swal({
-		title: "Are you sure to Logout?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) 
-		{
-			window.location.href = "<?= base_url('logout')?>"
-		} 
-	});
-}
-
-
-
-</script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
-<script src="<?= base_url(); ?>assets/js/main.js"></script>
+<script>
+function get_base_url(){
+ return "<?php echo base_url(); ?>";
+}
+</script>
+<script src="<?= base_url(); ?>assets/js/main1.js"></script>

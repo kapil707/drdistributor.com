@@ -1,6 +1,54 @@
 function setDefaultImage(image) {
 	image.onerror = "<?= base_url(); ?>/uploads/default_img.jpg";
 }
+function new_style_menu_show()
+{
+	$(".left_menu_bar").show(500);
+}
+function new_style_menu_hide()
+{
+	$(".left_menu_bar").hide(500);
+}
+function logout_function(){
+	swal({
+		title: "Are you sure to Logout?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) 
+		{
+			window.location.href = "<?= base_url('logout')?>"
+		} 
+	});
+}
+
+function get_top_menu_api(){
+	myid = '';
+	$.ajax({
+		type       : "POST",
+		dataType   : "json",
+		data       :  {myid:myid} ,
+		url        : get_base_url() + "home/get_top_menu_api",
+		cache	   : true,
+		success : function(data){
+			if(data!="") {
+				$.each(data.items, function(i,item){
+					if (item){
+						item_code	 	= item.item_code;
+						item_company	= item.item_company;
+						item_image	 	= item.item_image;
+						item_url	 	= get_base_url() + "category/"+item.item_url;
+
+						$(".top_menu_menu").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
+					}
+				});
+			}
+		}
+	});
+}
+
 function change_item_order_quantity(){
 
 	$(".add_to_cart_error_message").html('');

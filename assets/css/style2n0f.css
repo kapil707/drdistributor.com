@@ -2434,6 +2434,11 @@ section{
 	.medicine_category_page {
 		height: 375px;
 	}
+	.maincontainercss {
+		padding-top: 115px;
+		min-height: 500px;
+		padding-bottom: 100px;
+	}
 }
 
 @media screen and (max-width: 767px) {

@@ -5,6 +5,11 @@
 .menubtn2{
 	display: none !important;
 }
+.headertitle
+{
+	margin-top: -5px;
+	display: inline !important;
+}
 </style>
 <?php
 $ua = strtolower($_SERVER["HTTP_USER_AGENT"]);

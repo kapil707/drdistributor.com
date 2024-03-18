@@ -706,15 +706,6 @@ function medicine_details_api_data(item_code)
 	}
 
 	/******************************************************************* */
-	$(".medicine_details_item_order_quantity_hidden").val(item_quantity)
-	if(item_order_quantity!=""){
-		$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
-		$('.medicine_details_item_add_to_cart_btn').html("Update cart");
-		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
-	}
-	$(".medicine_details_item_order_quantity_textbox").focus()
-
-	/******************************************************************* */
 	$(".medicine_details_item_add_to_cart_btn").hide()
 	$(".medicine_details_item_add_to_cart_btn_disable").show()
 	$(".order_quantity_div").show()
@@ -723,6 +714,15 @@ function medicine_details_api_data(item_code)
 		$(".medicine_details_out_of_stock_img").show()
 		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
 	}
+
+	/******************************************************************* */
+	$(".medicine_details_item_order_quantity_hidden").val(item_quantity)
+	if(item_order_quantity!=""){
+		$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
+		$('.medicine_details_item_add_to_cart_btn').html("Update cart");
+		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
+	}
+	$(".medicine_details_item_order_quantity_textbox").focus()
 }
 
 function modal_item_image_change(_id)

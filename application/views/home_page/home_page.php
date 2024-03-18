@@ -1,9 +1,9 @@
 <style>
 .menubtn1{
-	display: inline;
+	display: inline !important;
 }
 .menubtn2{
-	display: none;
+	display: none !important;
 }
 </style>
 <?php

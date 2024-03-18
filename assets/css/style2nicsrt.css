@@ -2151,7 +2151,7 @@ section{
 	display: none;
 }
 .menubtn2{
-	display: block;
+	display: inline;
 }
 .owl-carousel {
 	margin: 0px;

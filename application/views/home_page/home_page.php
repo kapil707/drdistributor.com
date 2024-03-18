@@ -12,6 +12,10 @@
 .headertitle1{
 	display: inline !important;
 }
+.maincontainercss{
+	padding-top: 160px;
+    min-height: 500px;
+}
 </style>
 <?php
 $ua = strtolower($_SERVER["HTTP_USER_AGENT"]);

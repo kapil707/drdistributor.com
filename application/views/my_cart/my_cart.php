@@ -133,8 +133,15 @@ function goBack() {
 	</div>
 </div>
 <style>
-@media screen and (max-width: 767px) {
-	
+.main_theme_li_bg{
+	width:49%;
+	margin-left:0.5%;
+}
+@media screen and (max-width: 800px) {
+	.main_theme_li_bg{
+		width:100%;
+		margin-left:0px;
+	}
 }
 </style>
 <script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>

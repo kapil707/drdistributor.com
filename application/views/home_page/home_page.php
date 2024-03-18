@@ -5,9 +5,10 @@
 .menubtn2{
 	display: none !important;
 }
-.headertitle
-{
+.headertitle{
 	margin-top: -5px;
+}
+.headertitle1{
 	display: inline !important;
 }
 </style>

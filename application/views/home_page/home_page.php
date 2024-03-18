@@ -1,6 +1,6 @@
 <style>
-.menubtn1{
-	display:inline;
+.menubtn2{
+	display: none;
 }
 </style>
 <?php

@@ -1,5 +1,5 @@
 function setDefaultImage(image) {
-	image.onerror = "<?= base_url(); ?>/uploads/default_img.jpg";
+	image.onerror = get_base_url() + "uploads/default_img.jpg";
 }
 function new_style_menu_show()
 {
@@ -19,7 +19,7 @@ function logout_function(){
 	}).then(function(result) {
 		if (result) 
 		{
-			window.location.href = "<?= base_url('logout')?>"
+			window.location.href = get_base_url() +"logout"
 		} 
 	});
 }
@@ -445,14 +445,12 @@ function medicine_add_to_cart_api()
 								item_datetime 		= item.item_date_time;
 								item_modalnumber 	= item.item_modalnumber;
 
-								error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
-
 								item_other_image_div = '';
 								if(item_featured=="1"){
 									item_other_image_div = '<img src="<?= base_url() ?>img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
 								}
 								
-								image_div = item_other_image_div+'<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" onclick="medicine_details_funcation('+item_code+')" '+error_img+'>';
+								image_div = item_other_image_div+'<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" onclick="medicine_details_funcation('+item_code+')" onerror="setDefaultImage(this);">';
 								
 								item_scheme_div = "";
 								if(item_scheme!="0+0")

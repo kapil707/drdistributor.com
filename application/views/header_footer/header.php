@@ -365,7 +365,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 <script>
 
 
-
+/*
 function check_login_function()
 {
 	$(".small_noti_box").hide(500);
@@ -426,6 +426,7 @@ function check_login_function()
 								$(".cssnotification1").show();
 							}
 						}*/
+						/*
 					}
 				});	
 			}
@@ -436,21 +437,7 @@ function check_login_function()
 }
 function clear_small_noti(){
 	$(".small_noti_box").hide(500);
-}
-
-
-
-
-// start new code for fast open modal
-
-// end new code for fast open modal 
-
-
-
-
-
-
-
+}*/
 </script>
 <div class="select_medicine_in_modal_script_css"></div>
 <div class="only_for_noti"></div>
@@ -647,4 +634,4 @@ function get_user_altercode(){
 	return "<?= $_COOKIE["user_altercode"] ?>";
 }
 </script>
-<script src="<?= base_url(); ?>assets/js/main122.js"></script>
+<script src="<?= base_url(); ?>assets/js/main.js"></script>

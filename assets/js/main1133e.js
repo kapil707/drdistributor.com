@@ -551,11 +551,11 @@ function delete_medicine(item_code)
 						{
 							if(item.status=="1")
 							{
-								$(".item_focues"+item_code).html('')
+								cart_page_load();
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});
-								cart_page_load();
+								$(".item_focues"+item_code).html('')
 							}
 							else{
 								swal("Medicine not deleted");
@@ -596,10 +596,10 @@ function delete_all_medicine()
 						{
 							if(item.status==1)
 							{
+								cart_page_load();
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});
-								cart_page_load();
 							}
 							else{
 								swal("Medicines not deleted");

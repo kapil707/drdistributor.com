@@ -34,7 +34,7 @@ function goBack() {
 		</div>
 		<div class="col-sm-12 col-12">
 			<div class="website_box_part p-2">
-				<span class="my_cart_api_div_div"></span>
+				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
 		<div class="col-sm-3 col-8 text-left">

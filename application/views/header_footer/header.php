@@ -1044,7 +1044,7 @@ function get_top_menu_api(){
 							</div>
 
 							<div class="col-sm-4 col-4">
-								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
+								<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Enter quantity" min="1" max="1000" maxlength="4" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
 								<input type="hidden" class="medicine_details_item_order_quantity_hidden">
 							</div>
 

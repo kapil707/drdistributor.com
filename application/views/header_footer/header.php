@@ -707,7 +707,7 @@ function medicine_details_api_data(item_code)
 
 	/******************************************************************* */
 	$(".medicine_details_item_order_quantity_hidden").val(item_quantity)
-	if(item_order_quantity){
+	if(item_order_quantity!=""){
 		$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
 		$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");

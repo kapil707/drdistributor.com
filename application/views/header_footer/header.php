@@ -508,7 +508,6 @@ function medicine_details_api(item_code)
 	$('.order_quantity_div').hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
-	$('.medicine_details_item_add_to_cart_btn_loading').hide();
 
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
 
@@ -573,6 +572,7 @@ function medicine_details_api(item_code)
 					$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity)
 					if(item_order_quantity!=""){
 						$('.medicine_details_item_add_to_cart_btn').html("Update cart");
+						$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 					}
 
 					item_name		= item.item_name;
@@ -714,7 +714,6 @@ function medicine_details_api_data(item_code)
 	}
 
 	/******************************************************************* */
-	$('.medicine_details_item_add_to_cart_btn_loading').hide()
 	$(".medicine_details_item_add_to_cart_btn").hide()
 	$(".medicine_details_item_add_to_cart_btn_disable").show()
 	$(".order_quantity_div").show()
@@ -758,8 +757,7 @@ function medicine_add_to_cart_api()
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();
 
-	if(item_order_quantity=="")
-	{
+	if(item_order_quantity==""){
 		swal("Enter quantity");
 		$(".medicine_details_item_order_quantity_textbox").val("");
 		$(".medicine_details_item_order_quantity_textbox").focus();
@@ -772,11 +770,6 @@ function medicine_add_to_cart_api()
 		{
 			if(item_order_quantity<=item_quantity)
 			{
-				$(".medicine_details_item_add_to_cart_btn").hide()
-				$(".medicine_details_item_add_to_cart_btn_disable").hide()
-
-				$('.medicine_details_item_add_to_cart_btn_loading').show();
-
 				$(".modaloff").click();
 				$(".search_textbox").focus();
 				
@@ -1052,10 +1045,6 @@ function get_top_menu_api(){
 								<button type="submit" class="btn btn-primary mainbutton medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
 
 								<button type="submit" class="btn btn-primary mainbutton_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
-
-								<div class="medicine_details_item_add_to_cart_btn_loading text-center" style="display:none">
-									<button type="submit" class="btn btn-primary mainbutton_disable" onclick="" title="Loading....">Loading....</button>
-								</div>
 							</div>
 
 							<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>

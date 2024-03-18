@@ -671,10 +671,6 @@ function medicine_details_api_data(item_code)
 	$('.medicine_details_item_code').val(item_code);
 	/********************************************************/
 
-	$(".medicine_details_item_add_to_cart_btn").hide()
-	$(".medicine_details_item_add_to_cart_btn_disable").hide()
-	$('.medicine_details_item_add_to_cart_btn_loading').hide()
-
 	$(".medicine_details_featured_img").hide()
 	$(".medicine_details_out_of_stock_img").hide()	
 
@@ -717,13 +713,16 @@ function medicine_details_api_data(item_code)
 		$(".medicine_details_featured_img").show()
 	}
 
+	/******************************************************************* */
+	$('.medicine_details_item_add_to_cart_btn_loading').hide()
+	$(".medicine_details_item_add_to_cart_btn").hide()
+	$(".medicine_details_item_add_to_cart_btn_disable").show()
 	$(".medicine_details_item_stock").html(item_stock)
 	$(".order_quantity_div").show()
 	if(parseInt(item_quantity)==0){
-
 		$(".order_quantity_div").hide()		
 		$(".medicine_details_out_of_stock_img").show()
-		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")		
+		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
 	}
 
 	$(".medicine_details_item_order_quantity_hidden").val(item_quantity)

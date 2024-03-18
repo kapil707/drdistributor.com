@@ -8,8 +8,8 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {item_id:item_id} ,
-		url        : "<?php echo base_url(); ?>my_notification/my_notification_details_api",
+		data       : {item_id:item_id} ,
+		url        : get_base_url()+"my_notification/my_notification_details_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html('<h1><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h1>');

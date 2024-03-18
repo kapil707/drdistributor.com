@@ -20,6 +20,6 @@ function goBack() {
 	</div>
 </div>
 <script>
-var item_id = "<?php echo $item_id; ?>";
+	var item_id = "<?php echo $item_id; ?>";
 </script>
 <script src="<?php echo base_url(); ?>/assets/js/my_notification_details.js"></script>

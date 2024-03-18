@@ -37,12 +37,13 @@ function goBack() {
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
-		<div class="col-sm-3 col-8 text-left">
+		<div class="col-sm-4 col-12"></div>
+		<div class="col-sm-4 col-12 text-center">
 			<a href="<?=base_url();?>home/search_medicine" class="btn mainbutton" style="margin-top:10px;"> 
 				+ Add new medicine
 			</a>
 		</div>
-		<div class="col-sm-1"></div>
+		<div class="col-sm-4 col-12"></div>
 	</div>
 </div>
 <div class="place_order_or_empty_cart_btn_div">

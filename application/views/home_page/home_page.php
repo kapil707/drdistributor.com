@@ -2,27 +2,6 @@
 .menubtn1{
 	display:inline;
 }
-.menubtn2,.homebtn_div
-{
-	display:none;
-}
-.headertitle
-{
-	margin-top: 2px;
-	font-size:16px;
-}
-.headertitle1
-{
-	display:block !important;
-}
-/*
-.search_medicine_main{
-	display:none;
-} */
-.maincontainercss{
-	padding-top: 160px;
-    min-height: 500px;
-}
 </style>
 <?php
 $ua = strtolower($_SERVER["HTTP_USER_AGENT"]);

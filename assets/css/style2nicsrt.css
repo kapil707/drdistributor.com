@@ -2147,6 +2147,12 @@ section{
 
 
 /*****************home page css**************************/
+.menubtn1{
+	display: none;
+}
+.menubtn2{
+	display: block;
+}
 .owl-carousel {
 	margin: 0px;
 	padding: 0px;

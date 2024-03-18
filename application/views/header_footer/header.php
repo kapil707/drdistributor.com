@@ -66,11 +66,11 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			<div class="row">
 				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
 					<div class="" style="float:left;">
-						<a href="javascript:goBack()" class="menubtn2" title="Go Back">
-							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
-						</a>
 						<a href="javascript:new_style_menu_show()" class="menubtn1" style="color:white;" title="Drd Menu">
 							<img src="<?= base_url() ?>img_v51/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
+						</a>
+						<a href="javascript:goBack()" class="menubtn2" title="Go Back">
+							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
 						</a>
 					</div>
 					<div class="" style="float:left; margin-left:5px;width: inherit;">

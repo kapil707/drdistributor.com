@@ -106,7 +106,7 @@ function goBack() {
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
-			<div class="website_box_part search_page_main_div medicine_cart_list_div p-2">
+			<div class="website_box_part search_page_main_div my_cart_api_div p-2">
 				<h1 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h1><h1 class="text-center">Loading....</h1>
 			</div>
 		</div>
@@ -170,7 +170,7 @@ function cart_page_load()
 	$(".search_medicine_result").hide();
 	$('.homepgsearch_w').hide();
 	$('.search_textbox').focus();
-	medicine_cart_list();
+	my_cart_api();
 }
 function clear_search_icon()
 {

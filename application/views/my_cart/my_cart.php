@@ -34,7 +34,7 @@ function goBack() {
 		</div>
 		<div class="col-sm-12 col-12">
 			<div class="website_box_part p-2">
-				<span class="medicine_cart_list_div">
+				<span class="my_cart_api_div_div">
 				</span>
 			</div>
 		</div>
@@ -156,10 +156,10 @@ function my_cart_page_load()
 	//place_order_or_empty_cart_btn();
 }
 
-// function medicine_cart_list()
+// function my_cart_api_div()
 // {
 // 	$(".header_result_found").html("Loading....");
-// 	$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+// 	$(".my_cart_api_div_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 // 	id = "";
 // 	$.ajax({
 // 		url: "<?php echo base_url(); ?>my_cart/my_cart_api",
@@ -168,17 +168,17 @@ function my_cart_page_load()
 // 		cache: true,
 // 		data: {id:id},
 // 		error: function(){
-// 			$(".medicine_cart_list_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
+// 			$(".my_cart_api_div_div").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 // 		},
 // 		success: function(data){
 // 			if(data.items=="")
 // 			{
-// 				$(".medicine_cart_list_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/cartempty.png" width="30%"></center></h1>');
+// 				$(".my_cart_api_div_div").html('<h1><center><img src="<?= base_url(); ?>/img_v51/cartempty.png" width="30%"></center></h1>');
 // 				$(".delete_all_btn").hide();
 // 			}
 // 			else
 // 			{
-// 				$(".medicine_cart_list_div").html("");
+// 				$(".my_cart_api_div_div").html("");
 // 				$(".delete_all_btn").show();
 // 			}
 // 			$.each(data.items, function(i,item){
@@ -222,7 +222,7 @@ function my_cart_page_load()
 
 // 					rate_div = '<div class="cart_ki_main_div3"><span class="all_item_price" title="*Approximate ~">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="all_item_price2">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div><div class="cart_ki_main_div3"><span class="all_item_datetime">'+item_modalnumber+' | '+item_datetime+'</span><span style="float:right;"><a href="javascript:delete_medicine('+item_code+')" tabindex="-10" title="Delete '+item_name+'"><i class="fa fa-trash-o cart_new_btn_color_css" aria-hidden="true" style="margin-right:5px;"></i></a>&nbsp;<a href="javascript:medicine_details_funcation('+item_code+')" tabindex="-10" title="Edit '+item_name+'" class="edit_item_focues'+item_code+'"><i class="fa fa-pencil cart_new_btn_color_css" aria-hidden="true"></i></a>&nbsp;&nbsp;</div>';
 					
-// 					$(".medicine_cart_list_div").append('<div class="main_theme_li_bg"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>'+div_all_data);
+// 					$(".my_cart_api_div_div").append('<div class="main_theme_li_bg"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>'+div_all_data);
 // 				}
 // 			});
 // 			$.each(data.items_other, function(i,item){
@@ -266,7 +266,7 @@ function my_cart_page_load()
 // 		},
 // 		timeout: 60000
 // 	});
-// 	setTimeout('medicine_cart_list();',120000);
+// 	setTimeout('my_cart_api_div();',120000);
 // }
 function place_order_model()
 {

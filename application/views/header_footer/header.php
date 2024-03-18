@@ -722,6 +722,7 @@ function medicine_details_api_data(item_code)
 		$(".medicine_details_out_of_stock_img").show()
 		$(".medicine_details_item_scheme").hide()
 		$(".medicine_details_item_scheme_line").hide()
+		$(".order_quantity_div").hide()
 	}else{
 		$(".medicine_details_item_add_to_cart_btn").show()
 	}
@@ -1038,7 +1039,7 @@ function get_top_menu_api(){
 					</div>
 
 					<div class="col-sm-2 col-12"></div>
-					<div class="col-sm-8 col-12">
+					<div class="col-sm-8 col-12 order_quantity_div">
 						<div class="row">
 							<div class="col-sm-4 col-4">
 								<span class="medicine_details_item_order_quantity">Order quantity
@@ -1153,8 +1154,8 @@ function setDefaultImage(image) {
 function change_item_order_quantity(){
 
 	$(".add_to_cart_error_message").html('');
-	$(".medicine_details_item_add_to_cart_btn").show();
-	$(".medicine_details_item_add_to_cart_btn_disable").hide();
+	$(".medicine_details_item_add_to_cart_btn").hide();
+	$(".medicine_details_item_add_to_cart_btn_disable").show();
 
 	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){
@@ -1168,11 +1169,12 @@ function change_item_order_quantity(){
 			item_price_calculate = item_price_calculate.toFixed(2);
 
 			$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
+
+			$(".medicine_details_item_add_to_cart_btn").show();
+			$(".medicine_details_item_add_to_cart_btn_disable").hide();
 			
 		}else{
 			$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
-			$(".medicine_details_item_add_to_cart_btn").hide();
-			$(".medicine_details_item_add_to_cart_btn_disable").show();
 		}		
 	}
 }

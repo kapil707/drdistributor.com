@@ -2,6 +2,9 @@
 .maincontainercss{
 	margin-bottom:100px;
 }
+.home_page_search_div_box_more_btn{
+	display: inline-block !important;
+}
 @media screen and (max-width: 800px) {
 	.home_page_search_div_box_more_btn{
 		display:none;
@@ -16,9 +19,6 @@
 	.maincontainercss{
 		margin-bottom:80px;
 	}
-}
-.home_page_search_div_box_more_btn{
-	display: inline-block !important;
 }
 .menu_search_icon{
 	display: none;

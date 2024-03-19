@@ -159,7 +159,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					</div>
 
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-						<div class="home_page_search_div_box_more_btn" style="display:none">
+						<div class="top_bar_search_textbox_div_menu" style="display:none">
 							<div class="row">
 								<div class="col-sm-6">
 									<label>Medicine : <input type="checkbox" class="menu_search_icon_checkbox checkbox_medicine" onchange="medicine_search_api()" checked></label>

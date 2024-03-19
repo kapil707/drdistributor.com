@@ -83,9 +83,8 @@ function clear_search_icon()
 	$(".search_pg_current_order").show();
 	$(".search_pg_result_found").hide();
 }
-function menu_search_icon()
-{
-	$(".top_bar_search_textbox_div_menu_icon").show();
+function menu_search_icon() {
+	$(".top_bar_search_textbox_div_menu").show();
 }
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){

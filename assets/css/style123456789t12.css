@@ -67,6 +67,17 @@ table{
 	display:none;
 }
 
+/******important css delete mar karna kabhi be*******/
+.background_blur{
+	background: #3e2e2e94;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 13;
+    top: 0px;
+}
+/****************************************************/
+
 .input_type_text{
 	background-color: var(--main_theme_textbox_background_color) !important;
 	border: 1px solid var(--main_theme_border_color) !important;

@@ -1,4 +1,7 @@
 function cart_page_load(){
+
+	$(".search_page_div_for_fix_height").css("height",$(window).height() - 240)
+
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
 	$('.medicine_search_textbox').show();

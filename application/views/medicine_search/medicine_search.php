@@ -18,11 +18,6 @@ $(".top_bar_title1").show();
 <?php } ?>
 <script>
 $(".top_bar_title").html("Search medicines");
-setTimeout('div_height();',500);
-function  div_height(){
-	$(".search_page_main_div").css("height",$(window).height() - 240)
-	console.log($(window).height());
-}
 function goBack() {
 	window.location.href = "<?= base_url();?>home";
 }
@@ -44,13 +39,13 @@ function goBack() {
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
-			<div class="main_box_div get_medicine_favourite_api_div p-2">
+			<div class="main_box_div search_page_div_for_fix_height get_medicine_favourite_api_div p-2">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
-			<div class="main_box_div my_cart_api_div p-2">
+			<div class="main_box_div search_page_div_for_fix_height my_cart_api_div p-2">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>

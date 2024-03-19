@@ -65,8 +65,8 @@ function clear_search_icon()
 	$(".search_result_div").html("");
 	$(".search_result_div").hide();
 
-	$(".search_textbox").val("");
-	$('.search_textbox').focus();
+	$(".medicine_search_textbox").val("");
+	$('.medicine_search_textbox').focus();
 
 	$(".menu_search_icon").hide();	
 	$(".menu_search_icon_box").hide();
@@ -81,15 +81,15 @@ function menu_search_icon()
 	$(".menu_search_icon_box").show();
 }
 $(document).ready(function(){	
-	$(".search_textbox").keyup(function(e){
+	$(".medicine_search_textbox").keyup(function(e){
 		if(e.keyCode == 8)
 		{
-			var keyword = $(".search_textbox").val();
+			var keyword = $(".medicine_search_textbox").val();
 			if(keyword!="")
 			{
 				if(keyword.length<3)
 				{
-					$('.search_textbox').focus();
+					$('.medicine_search_textbox').focus();
 					$(".search_result_div").html("");
 				}
 			}
@@ -98,14 +98,14 @@ $(document).ready(function(){
 			}
 		}
 	})  
-	$(".search_textbox").keypress(function() { 
-		var keyword = $(".search_textbox").val();
+	$(".medicine_search_textbox").keypress(function() { 
+		var keyword = $(".medicine_search_textbox").val();
 		//$('.headertitle').html(keyword)
 		if(keyword!="")
 		{
 			if(keyword.length<3)
 			{
-				$('.search_textbox').focus();
+				$('.medicine_search_textbox').focus();
 				$(".search_result_div").html("");
 			}
 			if(keyword.length>2)
@@ -118,12 +118,12 @@ $(document).ready(function(){
 			clear_search_icon();
 		}
 	});
-	$(".search_textbox").change(function() { 
+	$(".medicine_search_textbox").change(function() { 
 	});
-	$(".search_textbox").on("search", function() { 
+	$(".medicine_search_textbox").on("search", function() { 
 	});
 	
-    $(".search_textbox").keydown(function(event) {
+    $(".medicine_search_textbox").keydown(function(event) {
     	if(event.key=="ArrowDown")
     	{
 			page_up_down_arrow("1");
@@ -160,7 +160,7 @@ function page_up_down_arrow(new_i)
 		{
 			if(parseInt(new_i)==1)
 			{
-				var searchInput = $('.search_textbox');
+				var searchInput = $('.medicine_search_textbox');
 				var strLength = searchInput.val().length * 2;
 
 				searchInput.focus();
@@ -194,7 +194,7 @@ function medicine_search_api()
 	new_i = 0;
 	$(".menu_search_icon").show();
 	$(".clear_search_icon").show();
-	var keyword = $(".search_textbox").val();
+	var keyword = $(".medicine_search_textbox").val();
 	//$('.headertitle').html(keyword)
 	if(keyword!="")
 	{

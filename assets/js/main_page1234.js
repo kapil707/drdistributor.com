@@ -471,7 +471,7 @@ function medicine_add_to_cart_api()
 								status = item.status;
 								status_message = item.status_message;
 								$(".search_cart_footer_div_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
-								$(".search_cart_footer_div_total_items").html("My Cart ("+items_total+")");
+								$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 								$(".search_cart_page_total_cart_items").html("("+items_total+")");
 								$(".header_cart_span").html(items_total);
 								$(".place_order_message").html(status_message);
@@ -695,7 +695,7 @@ function my_cart_api()
 					status = item.status;
 					status_message = item.status_message;
 					$(".search_cart_footer_div_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
-					$(".search_cart_footer_div_total_items").html("My Cart ("+items_total+")");
+					$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 					$(".search_cart_page_total_cart_items").html("("+items_total+")");
 					$(".header_cart_span").html(items_total);
 					$(".place_order_message").html(status_message);

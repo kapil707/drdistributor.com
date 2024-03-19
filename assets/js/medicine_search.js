@@ -9,7 +9,7 @@ function get_medicine_favourite()
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".get_medicine_favourite_div").html('<h1><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h1>');
+			$(".get_medicine_favourite_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success: function(data){
 			if(data.items=="")
@@ -227,7 +227,7 @@ function medicine_search_api()
 			
 			$(".background_blur").show();
 			$(".search_medicine_result").show();
-			$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h1><h1>Loading....</h1></div></div>');
+			$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 			type       : "POST",
@@ -236,13 +236,13 @@ function medicine_search_api()
 			url        : get_base_url() + "medicine_search/medicine_search_api",
 			cache	   : true,
 			error: function(){
-				$(".search_medicine_result").html('<h1><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h1>');
+				$(".search_medicine_result").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 				$(".header_result_found").html("No record found");
 			},
 			success    : function(data){
 				if(data.items=="")
 				{
-					$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h1><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h1></div></div>');
+					$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
 					$(".header_result_found").html("No record found");
 				}
 				else

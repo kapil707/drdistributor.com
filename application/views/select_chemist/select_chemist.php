@@ -43,7 +43,6 @@ function clear_search_icon()
 	$(".clear_search_icon").hide();
 	$(".search_result_div").hide();	
 	$(".background_blur").hide();
-51
 }
 $(document).ready(function(){
 	$(".chemist_search_textbox").keyup(function(e){

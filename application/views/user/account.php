@@ -9,7 +9,7 @@ function goBack() {
 	window.location.href = "<?= base_url();?>my_invoice";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12">

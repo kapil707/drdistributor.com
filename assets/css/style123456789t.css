@@ -696,6 +696,17 @@ table{
 	padding:5px;
 }
 
+.medicine_search_box_left_div{
+	width:13%;
+	float:left;
+	padding:5px;
+}
+.medicine_search_box_right_div{
+	width:87%;
+	float:left;	
+	padding:5px;
+}
+
 /***************************medicine details*****************/
 .medicine_details_data{
 	background:white;

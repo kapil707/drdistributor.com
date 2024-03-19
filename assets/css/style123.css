@@ -82,6 +82,53 @@ table{
 .top_bar_logo img{
 	width:40px;
 }
+.top_bar_title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+	color: var(--top_icon_menu_color);
+	margin-top: 7px;
+    font-size: 25px;
+}
+
+.top_bar_title1 {
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+	margin-top: -2px;
+	display: none;
+	color: var(--top_icon_menu_color);
+}
+
+.top_bar_menu {
+	text-align: right;
+    float: right;
+}
+.top_bar_menu li {
+    /* width: 25px; */
+    float: left;
+    margin-right: 7px;
+    /*background: var(--top_icon_menu_li_bg);*/
+    padding: 10px;
+	border-radius:5px;
+}
+.top_bar_menu li:hover {
+    background: var(--top_icon_menu_li_bg_hover);
+}
+.top_bar_menu li a{
+	font-size: 15px;
+    top: -10px;
+    color: var(--top_icon_menu_color);
+    display: flex;
+    margin-top: 0px;
+}
+.top_bar_menu li a i{
+    font-size: 30px;
+	color: var(--top_icon_menu_color);
+	margin-top: -4px;
+    margin-right: 5px;
+}
 
 
 /*****************home page css**************************/

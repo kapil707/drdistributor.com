@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style12.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -68,17 +68,17 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</div>
 					<div class="" style="float:left; margin-left:5px;width: inherit;">
-						<h1 class="pro-link headertitle">
+						<h1 class="pro-link top_bar_title">
 							Delivering to
 						</h1>
-						<div class="pro-link headertitle1">
+						<div class="pro-link top_bar_title1">
 							Code : <?= $session_delivering_to ?>
 						</div>
 					</div>
 				</div>
 				
 				<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
-					<ul class="top_icon_menu">
+					<ul class="top_bar_menu">
 						<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 							<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
 								<i class="fa fa-mobile main_icon1" aria-hidden="true"></i>

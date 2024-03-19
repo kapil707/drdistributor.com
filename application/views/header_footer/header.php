@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style2n0fghi.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style1.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -55,12 +55,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
 </head>
 <body>
-	<?php
-	if(empty($chemist_id_for_cart_total))
-	{
-		$chemist_id_for_cart_total = "";
-	}
-	?>
 	<div class="top_menu_bar">
 		<div class="container-fluid">
 			<div class="row">
@@ -362,83 +356,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			</div>
 		</div>				
 	</div>
-<script>
-
-
-/*
-function check_login_function()
-{
-	$(".small_noti_box").hide(500);
-	id ='';
-	$.ajax({
-		type       : "POST",
-		data       :  { id:id} ,
-		url        : "<?php echo base_url(); ?>Chemist_json/check_login_function",
-		cache	   : true,
-		success : function(data){
-			if(data!="")
-			{
-				$.each(data.items, function(i,item){	
-					if (item){
-						
-						if(item.download_invoice_url!="")
-						{
-							download_invoice(item.download_invoice_url)
-						}
-
-						if(item.noti_id!="")
-						{
-							$(".small_noti_box").show(500);
-							$(".small_noti_box_data").html("<b>"+item.noti_title+"</b>"+"<p>"+item.noti_message+"</p>");
-						}
-
-						/*if(item.status=="0")
-						{
-							window.location.href = "<?= base_url();?>user/logout2";
-						}*/
-
-						/*notiid		= (item.notiid);
-						broadcastid = (item.broadcastid);
-						if(notiid!=""){
-							notititle 	= atob(item.notititle);
-							notibody 	= atob(item.notibody);
-							$(".only_for_noti").append('<li class="only_for_noti_li notiid_'+notiid+'"><div class="notititle">'+notititle+'</div><div class="notibody">'+notibody+'</div></li>');						
-							setTimeout('$(".notiid_"+notiid).hide()',10000);
-						}
-						if(broadcastid!=""){
-							broadcasttitle 		= atob(item.broadcasttitle);
-							broadcastmessage 	= atob(item.broadcastmessage);
-							$('.broadcast_title').html(broadcasttitle);
-							$('.broadcast_message').html(broadcastmessage);
-							$('.myModal_broadcast').click();
-						}
-						if(item.count!="")
-						{
-							//$(".notificationdiv").html("("+item.count+")");
-							if(item.count=="0")
-							{
-								$(".cssnotification").show();
-								$(".cssnotification1").hide();
-							}
-							else
-							{
-								$(".cssnotification").hide();
-								$(".cssnotification1").show();
-							}
-						}*/
-						/*
-					}
-				});	
-			}
-		},
-		timeout: 10000
-	});
-	setTimeout('check_login_function();',60000);
-}
-function clear_small_noti(){
-	$(".small_noti_box").hide(500);
-}*/
-</script>
 <div class="select_medicine_in_modal_script_css"></div>
 <div class="only_for_noti"></div>
 

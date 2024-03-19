@@ -448,45 +448,6 @@ table{
 .social-icon ul li a{
 	color: var(--top_icon_menu_color);
 }
-/*.top_menu_bar {
-	margin-left: 1%;
-    width: 98%;
-    margin-top: 7px;
-    padding: 10px;
-    height: 125px;
-    /* background: var(--main_theme_top_menu_bar_bg) !important; */
-    /*position: fixed;
-    z-index: 14;
-    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
-    background-image: linear-gradient(#f6f6f6, #ffffff);
-    border-bottom-left-radius: 500px;
-    border-top-right-radius: 500px;
-    border-bottom-right-radius: 40px;
-    border-top-left-radius: 40px;
-}*/
-.top_menu_bar {
-    margin-top: 5px;
-    margin-left: 0.5%;
-    width: 99%;
-    padding-top: 5px;
-	padding-bottom: 5px;
-    position: fixed;
-    z-index: 14;
-    background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
-    /*border: solid 1px var(--mainthemecolor);*/
-    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
-    border-bottom-left-radius: 500px;
-    border-top-right-radius: 500px;
-    border-bottom-right-radius: 125px;
-    border-top-left-radius: 125px;
-	transition-duration: 3s;
-}
-/*.top_menu_bar:hover{
-	border-bottom-left-radius: 125px;
-    border-top-right-radius: 125px;
-    border-bottom-right-radius: 500px;
-    border-top-left-radius: 500px;
-}*/
 .top-menu123
 {
 	margin-top: -5px;
@@ -1994,7 +1955,24 @@ section{
     font-size: 15px;
 }
 
-
+/***new css123*/
+.top_menu_bar {
+    margin-top: 5px;
+    margin-left: 0.5%;
+    width: 99%;
+    padding-top: 5px;
+	padding-bottom: 5px;
+    position: fixed;
+    z-index: 14;
+    background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
+    /*border: solid 1px var(--mainthemecolor);*/
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+    border-bottom-left-radius: 500px;
+    border-top-right-radius: 500px;
+    border-bottom-right-radius: 125px;
+    border-top-left-radius: 125px;
+	transition-duration: 3s;
+}
 /*****************home page css**************************/
 .menubtn1{
 	display: none;
@@ -2028,6 +2006,7 @@ section{
 	height: 100%;
 	display: block;
 	width: 100%;
+	background-color: var(--mainthemebtncolor);
 }
 .owl-carousel .owl-nav button.owl-prev {
 	left: 0;

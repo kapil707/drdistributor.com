@@ -1,3 +1,10 @@
+function cart_page_load(){
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+	$('.medicine_search').focus();
+	my_cart_api();
+}
+
 function get_medicine_favourite()
 {
 	$(".get_medicine_favourite_api_div").html('');
@@ -51,13 +58,7 @@ function current_order_ref()
 	cart_page_load();
 }
 get_medicine_favourite();
-function cart_page_load()
-{
-	$(".search_medicine_result").hide();
-	$('.homepgsearch_w').hide();
-	$('.search_textbox').focus();
-	my_cart_api();
-}
+
 function clear_search_icon()
 {
 	$(".search_medicine_result").html("");

@@ -147,7 +147,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<div class="top_bar_search_textbox_div">
 							<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
 
-							<input type="text" class="select_medicine input_type_text" placeholder="Search medicine / company" tabindex="1">
+							<input type="text" class="medicine_search input_type_text" placeholder="Search medicine / company" tabindex="1">
 
 							<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
 

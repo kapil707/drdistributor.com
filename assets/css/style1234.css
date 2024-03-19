@@ -130,6 +130,24 @@ table{
     margin-right: 5px;
 }
 
+.top_bar_search_div{
+	background-color: var(--main_theme_textbox_background_color) !important;
+    height: 40px;
+    width: 100%;
+    float: left;
+    border-radius: 10px;
+    padding: 8px;
+    padding-left: 38px;
+    font-size: 18px;
+    font-weight: bold;
+	color: var(--main_theme_textbox_text_color) !important;
+	/*box-shadow: 0px 0px 5px 0px;*/
+	border: 1px solid var(--main_theme_border_color) !important;
+}
+.top_bar_search_div:hover{
+	color:#6A6767;
+}
+
 
 /*****************home page css**************************/
 .menubtn1{

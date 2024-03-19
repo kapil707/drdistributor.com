@@ -142,10 +142,10 @@ function search_chemist()
 								chemist_message = "";
 								if(item.user_cart!="0")
 								{
-									chemist_message = '<div class="medicine_cart_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
+									chemist_message = '<div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
 								}
 								
-								$(".search_result_div").append('<div class="main_theme_li_bg '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="search_chemist_div1"><img src="'+item.chemist_image+'" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>/uploads/default_img.jpg"></div><div class="search_chemist_div2"><div class="chemist_user_name">'+item.chemist_name+'</div><div class="chemist_altercode"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>');
+								$(".search_result_div").append('<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>');
 							}
 						});					
 					}

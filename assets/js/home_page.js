@@ -138,7 +138,7 @@ function home_page_invoice(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_invoice" title="My invoice">My invoice</a></div><div class="main_box_div home_page_new_box_inv p-2">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_invoice" title="My invoice">My invoice</a></div><div class="main_box_div p-2">'+mydata+'</div></div>';
 	
 	return myval;
 }
@@ -153,11 +153,11 @@ function home_page_notification(category_id,items,title){
 			item_date_time 		= item.item_date_time;
 			item_image 			= item.item_image;
 			
-			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="row"><div class="col-sm-1"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="col-sm-11 text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></div></a></div>';
+			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="home_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="home_page_box_right_div text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>';
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_notification" title="My notification">My notification</div><div class="main_box_div home_page_new_box_inv p-2">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_notification" title="My notification">My notification</div><div class="main_box_div p-2">'+mydata+'</div></div>';
 	
 	return myval;
 }

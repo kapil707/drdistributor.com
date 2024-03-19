@@ -669,25 +669,21 @@ table{
 }
 
 /***************************medicine details*****************/
-.medicine_details_data
-{
+.medicine_details_data{
 	background:white;
 	border-radius:10px;
 }
-.medicine_details_item_date_time
-{
+.medicine_details_item_date_time{
 	color:var(--item_date_time_color);
 	font-size: 16px;
     margin-top: -35px;
 }
-.medicine_details_hr{
-	
+.medicine_details_hr{	
 	border-top: 1px solid var(--heading_home_hr_line);
 	padding-top: 5px;
 	margin-top: 5px;
 }
-.medicine_details_image
-{
+.medicine_details_image{
 	/*background-image: url(http://drdweb.co.in/uploads/default_img.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -696,52 +692,43 @@ table{
 	border-radius: 10px;
 	border: 1px solid var(--mainborder-color);
 }
-.medicine_details_image_small
-{
+.medicine_details_image_small{
     width: 20%;
     height: 15%;
 	border-radius: 10px;
 	border: 1px solid var(--mainbutton-color);
 }
-.medicine_details_featured_img
-{
+.medicine_details_featured_img{
 	border-top-left-radius: 10px;
 	width:100px;
 }
-.medicine_details_out_of_stock_img
-{
+.medicine_details_out_of_stock_img{
 	border-top-left-radius: 10px;
 	width:100px;
 }
-.medicine_details_item_name
-{
+.medicine_details_item_name{
 	color:var(--item_name_color);
 	font-size:25px;
 	font-weight:bold;
 }
-.medicine_details_item_packing
-{
+.medicine_details_item_packing{
 	color:var(--item_packing_color);
 	font-size:16px;
 }
-.medicine_details_item_batch_no
-{
+.medicine_details_item_batch_no{
 	font-size: 16px;
     color:var(--item_batch_no_color);
 }
-.medicine_details_item_margin
-{
+.medicine_details_item_margin{
 	font-size: 16px;
     color:var(--item_margin_color);
 }
-.medicine_details_item_expiry
-{
+.medicine_details_item_expiry{
 	font-size: 16px;
     color:var(--item_expiry_color);
 }
 
-.medicine_details_item_company
-{
+.medicine_details_item_company{
 	color:var(--item_company_color);
     font-size: 20px;
 	text-overflow: ellipsis;
@@ -749,42 +736,35 @@ table{
     overflow: hidden;
 }
 
-.medicine_details_item_company:hover
-{
+.medicine_details_item_company:hover{
 	color:var(--home_company_color_hover);
 }
 
-.medicine_details_item_stock
-{
+.medicine_details_item_stock{
 	color:var(--item_stock_color);
 	font-size:25px;
 	font-weight: bold;
 }
-.medicine_details_item_scheme
-{
+.medicine_details_item_schem{
 	margin-top: 3px;
 	font-size: 16px;
     color:var(--item_scheme_color);
     font-weight: bold;
 }
-.medicine_details_item_scheme_line
-{
+.medicine_details_item_scheme_line{
 	font-size: 15px;
     color:var(--item_scheme_line_color);
 }
 
-.medicine_details_item_ptr
-{
+.medicine_details_item_ptr{
 	color:var(--item_ptr_color);
     font-size: 16px;
 }
-.medicine_details_item_mrp
-{
+.medicine_details_item_mrp{
 	color:var(--item_mrp_color);
     font-size: 16px;
 }
-.medicine_details_item_price
-{
+.medicine_details_item_price{
 	color:var(--item_price_color);
     font-size: 18px;
     font-weight: bold;
@@ -795,41 +775,50 @@ table{
     font-size: 18px;
     font-weight: bold;
 }
-.medicine_details_item_gst
-{
+.medicine_details_item_gst{
 	color:var(--item_gst_color);
     font-size: 16px;
 }
-.medicine_details_item_order_quantity
-{
+.medicine_details_item_order_quantity{
 	color:var(--item_order_quantity);
     font-size: 18px;
 	font-weight: bold;
 }
-.medicine_details_item_order_quantity_textbox
-{
+.medicine_details_item_order_quantity_textbox{
 	background:var(--item_order_quantity_bg);
     border: 0px;
     border-radius: 10px;
     padding: 5px;
 	border: 1px solid var(--mainborder-color);
 }
-.medicine_details_item_order_quantity:focus
-{
+.medicine_details_item_order_quantity:focus{
 	outline: none !important;
 	outline-style:none !important;
 	box-shadow:none !important;
 	border-color:transparent !important;
 }
-.medicine_details_item_description1
-{
+.medicine_details_item_description1{
 	color:var(--item_description1_color);
     font-size: 14px;
 }
-.medicine_details_item_description2
-{
+.medicine_details_item_description2{
 	color:var(--item_description2_color);
     font-size: 14px;
+}
+
+.search_cart_footer_div {
+    bottom: 10px;
+    position: fixed;
+    width: 99%;
+    margin-left: 0.5%;
+    padding: 5px;
+    /* border-top: solid 1px var(--mainthemecolor); */
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+    background-image: linear-gradient(var(--main_theme_footer_bg), var(--main_theme_footer_bg1));
+    border-bottom-left-radius: 500px;
+    border-top-right-radius: 500px;
+    border-bottom-right-radius: 125px;
+    border-top-left-radius: 125px;
 }
 
 @media screen and (max-width: 767px) {

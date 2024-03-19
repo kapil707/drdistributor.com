@@ -55,7 +55,7 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<div class="view_cart_or_empty_cart_btn_div">
+<div class="search_cart_footer_div">
 	<div class="container">
 		<div class="row">
 			<div class="col-5 text-center">				

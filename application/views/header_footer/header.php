@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789t1234.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456789t12345.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -194,17 +194,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				<div class="col-sm-12 current_order_search_page text-right" style="display:none;">
 					<span class="header_result_found"></span>
 				</div>
-
-				<div class="col-sm-3 col-3 current_order_cart_page account_page_header" style="margin-top:10px;display:none;">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="rounded account_page_header_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
-				</div>
 			</div>
 		</div>
 	</div>
 
 	<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
 	<div class="left_menu_bar">
-		<div class="left_menu_bar_part1">
+		<div class="left_menu_bar_div1">
 			<div class="row">
 				<div class="col-sm-2 col-4">
 					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
@@ -229,126 +225,124 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 			</div>
 		</div>
-		<div class="left_menu_bar_part2 text-center">
-			<div class="social-icon">
+		<div class="left_menu_bar_div2 text-center">
 			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
-				<ul>
-					<li>
-						<a href="<?= base_url() ?>account" title="Account">
-							<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>update_account" title="Update account">
-							<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
-							Update account
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>update_image" title="Update image">
-							<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>update_password" title="Update password">
-						<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
-						Update password
-						</a>
-					</li>
-					<li class="mobile_off">
-						<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
-							<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
-						</a>
-					</li>
-					<?php
-					if(!empty($_COOKIE['user_type'])){
-					if($_COOKIE['user_type']=="sales")
-					{
-						$user_type = $_COOKIE['user_type'];
-						?>
-					<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Server Report</div>
+			<ul>
+				<li>
+					<a href="<?= base_url() ?>account" title="Account">
+						<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
+					</a>
+				</li>
+				<li>
+					<a href="<?= base_url() ?>update_account" title="Update account">
+						<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
+						Update account
+					</a>
+				</li>
+				<li>
+					<a href="<?= base_url() ?>update_image" title="Update image">
+						<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
+					</a>
+				</li>
+				<li>
+					<a href="<?= base_url() ?>update_password" title="Update password">
+					<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
+					Update password
+					</a>
+				</li>
+				<li class="mobile_off">
+					<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
+						<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
+					</a>
+				</li>
+				<?php
+				if(!empty($_COOKIE['user_type'])){
+				if($_COOKIE['user_type']=="sales")
+				{
+					$user_type = $_COOKIE['user_type'];
+					?>
+				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Server Report</div>
 
-					<li>
-						<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
-							Pending Order
-						</a>
-					</li>
+				<li>
+					<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
+						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
+						Pending Order
+					</a>
+				</li>
 
-					<li>
-						<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
-							All Invoice
-						</a>
-					</li>
-					
-					<li>
-						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
-							Pickedby Invoice
-						</a>
-					</li>
-					
-					<li>
-						<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
-							Deliverby Invoice
-						</a>
-					</li>
-					
-					<li>
-						<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-							<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
-							Delivery Report
-						</a>
-					</li>
-					<?php } }?>
-					<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Others</div>
-					<li>
-						<a href="tel:+919899133989" title="Contact us">
-							<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us
-						</a>
-					</li>
-					<li title="Email">
-						<a href="mailto:vipul@drdindia.com" title="Email">
-							<i class="fa fa-envelope left_menu_icon" aria-hidden="true"></i> Email
-						</a>
-					</li>
-					<li title="Privacy policy">
-						<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
-							<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
-							Privacy policy
-						</a>
-					</li>
-					<li title="Share App">
-						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
-							<i class="fa fa-share-alt-square left_menu_icon" aria-hidden="true"></i>
-							Share App
-						</a>
-					</li>
-					<li title="Download App">
-						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-							<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
-							Download App
-						</a>
-					</li>
-					<?php if(!empty($_COOKIE['user_session'])){ ?>
-					<li title="Logout">
-						<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
-							<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
-							Logout
-						</a>
-					</li>
-					<?php } else { ?>
-					<li title="Login">
-						<a href="<?= base_url('login')?>" title="Login">
-							<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
-							Login
-						</a>
-					</li>
-					<?php } ?>
-				</ul>
-			</div>
+				<li>
+					<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
+						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+						All Invoice
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
+						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+						Pickedby Invoice
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
+						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+						Deliverby Invoice
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
+						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+						Delivery Report
+					</a>
+				</li>
+				<?php } }?>
+				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Others</div>
+				<li>
+					<a href="tel:+919899133989" title="Contact us">
+						<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us
+					</a>
+				</li>
+				<li title="Email">
+					<a href="mailto:vipul@drdindia.com" title="Email">
+						<i class="fa fa-envelope left_menu_icon" aria-hidden="true"></i> Email
+					</a>
+				</li>
+				<li title="Privacy policy">
+					<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
+						<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
+						Privacy policy
+					</a>
+				</li>
+				<li title="Share App">
+					<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
+						<i class="fa fa-share-alt-square left_menu_icon" aria-hidden="true"></i>
+						Share App
+					</a>
+				</li>
+				<li title="Download App">
+					<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+						<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
+						Download App
+					</a>
+				</li>
+				<?php if(!empty($_COOKIE['user_session'])){ ?>
+				<li title="Logout">
+					<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
+						<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+						Logout
+					</a>
+				</li>
+				<?php } else { ?>
+				<li title="Login">
+					<a href="<?= base_url('login')?>" title="Login">
+						<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+						Login
+					</a>
+				</li>
+				<?php } ?>
+			</ul>
 		</div>				
 	</div>
 <div class="select_medicine_in_modal_script_css"></div>

@@ -271,18 +271,40 @@ table{
 .left_menu_bar_cancel_icon{
 	font-size: 30px;
 }
-.left_menu_bar_account_image,.account_page_header_image{
+.left_menu_bar_account_image{
 	width: 100%;
 }
-.left_menu_bar_accoun_chemist_name,.account_page_chemist_name{
+.left_menu_bar_accoun_chemist_name{
 	word-wrap: break-word;
 	font-size: 18px;
 	font-weight: bold;
 }
-.left_menu_bar_accoun_chemist_code,.account_page_chemist_code{
+.left_menu_bar_accoun_chemist_code{
 	font-size: 16px;
 }
+.left_menu_bar_div1{
+    padding: 10px;
+}
 
+.left_menu_bar_div2{
+	margin: 0px 0;
+    overflow-y: scroll;
+    /* height: inherit; */
+    color:var(--main_theme_hearder_color);
+    height: 485px;
+}
+.left_menu_bar_div2 ul li {
+    list-style: none;
+	text-align: left; 
+	font-size: 1em;
+	padding:10px;
+}
+.left_menu_bar_div2 ul li:hover {
+	background: var(--top_icon_menu_li_bg);
+}
+.left_menu_bar_div2 ul li a{
+	color: var(--top_icon_menu_color);
+}
 /*****************home page css**************************/
 .menubtn1{
 	display: none;

@@ -857,14 +857,14 @@ table{
 }
 
 /****************************************/
-.search_result_div{
+.search_result_div {
 	background-color: var(--main_theme_white_background_color);
 	margin-top: -8px;
     z-index: 15;
     max-height: 550px;
     overflow-y: auto;
     overflow-x: hidden;
-    width: 96%;
+    width: 96.9%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 5px;

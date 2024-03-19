@@ -140,7 +140,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 col-12">
 
 							<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
-								<i class="fa fa-search search_icon1 main_icon1" aria-hidden="true"></i> <div class="my_typing">Search medicine / company...</div> 
+								<i class="fa fa-search top_bar_search_div_icon" aria-hidden="true"></i>
+								<div class="my_typing">Search medicine / company...</div> 
 							</a>
 							
 							<div class="home_page_search_div_box">

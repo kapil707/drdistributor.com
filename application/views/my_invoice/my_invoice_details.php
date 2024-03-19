@@ -25,14 +25,14 @@ function goBack() {
 			<h4>Item quantity changed</h4>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="main_box_div main_page_data_edit" style="display:none">
+			<div class="main_box_div main_page_data_edit p-2" style="display:none">
 			</div>
 		</div>
 		<div class="col-sm-12 col-12 text-center main_page_data_delete" style="display:none" style="margin-top:5px;margin-bottom:5px;">
 			<h4>Items deleted</h4>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="main_box_div load_page_delete" style="display:none">
+			<div class="main_box_div load_page_delete p-2" style="display:none">
 			</div>
 		</div>
 	</div>

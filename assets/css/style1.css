@@ -741,33 +741,23 @@ table{
 	padding:5px;
 }
 
-.my_notification_page_box_left_div{
+.all_page_box_left_div{
 	width:7%;
 	float:left;
 	padding:5px;
 }
-.my_notification_box_right_div{
-	width:93%;
-	float:left;	
-	padding:5px;
-}
-.my_notification_page_box_left_div{
-	width:7%;
-	float:left;
-	padding:5px;
-}
-.my_notification_box_right_div{
+.all_page_box_right_div{
 	width:93%;
 	float:left;	
 	padding:5px;
 }
 
-.my_notification_details_page_box_left_div{
+.all_page_details_page_box_left_div{
 	width:10%;
 	float:left;
 	padding:5px;
 }
-.my_notification_details_page_box_right_div{
+.all_page_details_page_box_right_div{
 	width:90%;
 	float:left;	
 	padding:5px;

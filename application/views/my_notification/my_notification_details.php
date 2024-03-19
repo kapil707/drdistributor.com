@@ -14,10 +14,10 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="website_box_part load_page p-2" style="display:none">
+					<div class="main_box_div main_page_data p-2" style="display:none">
 					</div>
 				</div>
-				<div class="col-sm-12 load_page_loading" style="margin-top:10px;">
+				<div class="col-sm-12 main_page_loading" style="margin-top:10px;">
 				
 				</div>
 			</div>
@@ -27,4 +27,4 @@ function goBack() {
 <script>
 	var item_id = "<?php echo $item_id; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/my_notification_details1.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_notification_details12.js"></script>

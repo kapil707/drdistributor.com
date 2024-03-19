@@ -21,8 +21,7 @@ function call_page(get_record)
 	if(query_work=="0")
 	{
 		query_work = 1;
-		$(".load_more").hide();
-		$(".load_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+		$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 		$.ajax({
 			type       : "POST",
 			dataType   : "json",
@@ -30,14 +29,14 @@ function call_page(get_record)
 			url        : get_base_url()+"my_notification/my_notification_api",
 			cache	   : false,
 			error: function(){
-				$(".load_page_loading").html("");
-				$(".load_page").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+				$(".main_page_loading").html("");
+				$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 			},
 			success    : function(data){
 
-				$(".load_page_loading").html("");				
+				$(".main_page_loading").html("");				
 				if(data.items=="" && no_record_found=="0") {
-					$(".load_page").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 				}
 				
 				get_record 	= data.get_record;
@@ -51,12 +50,12 @@ function call_page(get_record)
 						item_date_time 		= item.item_date_time;
 						item_image 			= item.item_image;
 						
-						$(".load_page").append('<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="my_notification_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="my_notification_page_box_right_div text-left"><div class="all_item_name">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_datetime">'+item_date_time+'</div></div></a></div>');
+						$(".main_page_data").append('<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="all_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="all_page_box_right_div text-left"><div class="all_item_name">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>');
 						
 						query_work = 0;
 						no_record_found = 1;
-						$(".load_more").show();
-						$(".load_page").show();
+						
+						$(".main_page_data").show();
 					}
 				});
 			},

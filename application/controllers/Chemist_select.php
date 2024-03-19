@@ -60,9 +60,8 @@ class chemist_select extends CI_Controller {
 	}
 
 	/*******************api start*********************/
-	public function select_chemist_api()
+	public function chemist_search_api()
 	{
-		//error_reporting(0);
 		$items = "";
 		$user_type 		= $_COOKIE['user_type'];
 		$user_altercode	= $_COOKIE['user_altercode'];

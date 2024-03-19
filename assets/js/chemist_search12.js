@@ -83,7 +83,7 @@ function search_chemist()
 				type       : "POST",
 				dataType   : "json",
 				data       : {keyword : keyword} ,
-				url        : get_base_url()+"chemist_select/select_chemist_api",
+				url        : get_base_url()+"chemist_select/chemist_search_api",
 				cache	   : false,
 				error: function(){
 					$(".search_result_div").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');

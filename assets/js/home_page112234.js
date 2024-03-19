@@ -58,7 +58,7 @@ function home_page_divisioncategory(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="home_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="home_page_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }
@@ -106,7 +106,7 @@ function home_page_itemcategory(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="home_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'category/itemcategory/'+category_id+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'category/itemcategory/'+category_id+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }

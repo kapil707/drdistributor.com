@@ -63,7 +63,7 @@ function get_medicine_favourite() {
 
 function current_order_ref()
 {
-	cart_page_load();
+	my_cart_api();
 }
 
 function clear_search_icon()
@@ -74,8 +74,8 @@ function clear_search_icon()
 	$(".medicine_search_textbox").val("");
 	$('.medicine_search_textbox').focus();
 
-	$(".menu_search_icon").hide();	
 	$(".top_bar_search_textbox_div_menu_icon").hide();
+	$(".top_bar_search_textbox_div_menu").hide();
 
 	$(".top_bar_search_textbox_div_clear_icon").hide();	
 	$(".background_blur").hide();
@@ -196,9 +196,8 @@ function medicine_search_api()
 {
 	$(".search_pg_current_order").hide();
 	$(".search_pg_result_found").show();
+
 	new_i = 0;
-	
-	$(".menu_search_icon").show();
 
 	$(".top_bar_search_textbox_div_menu_icon").show();
 	$(".top_bar_search_textbox_div_clear_icon").show();
@@ -323,9 +322,10 @@ function medicine_search_api()
 			});
 		}
 		else{
-			$(".menu_search_icon").hide();
 			
 			$(".top_bar_search_textbox_div_menu_icon").hide();
+			$(".top_bar_search_textbox_div_menu").hide();
+
 			$(".top_bar_search_textbox_div_clear_icon").hide();
 			$(".search_result_div").html("");
 		}

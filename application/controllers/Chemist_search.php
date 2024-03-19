@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Select_chemist extends CI_Controller {
+class Chemist_search extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
@@ -15,12 +15,12 @@ class Select_chemist extends CI_Controller {
 			redirect(base_url()."under_construction");
 		}
 
-		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
+		$this->load->model("model-drdistributor/chemist_search/ChemistSelectModel");
 	}
     
     public function index(){
 		
-		$data["main_page_title"] = "Select Chemist";
+		$data["main_page_title"] = "Chemist select";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -69,7 +69,7 @@ class Select_chemist extends CI_Controller {
 		$keyword 		= $_REQUEST["keyword"];
 		if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
 		{
-			$result = $this->SelectChemistModel->select_chemist_api($keyword);
+			$result = $this->ChemistSelectModel->chemist_search_api($keyword);
 			$items = $result["items"];
 		}
 		$response = array(
@@ -101,7 +101,7 @@ class Select_chemist extends CI_Controller {
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode))
 		{
-			$result = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
+			$result = $this->ChemistSelectModel->salesman_my_cart_api($user_type,$user_altercode);
 			$items = $result["items"];
 		}
 		

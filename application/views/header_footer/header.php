@@ -542,4 +542,4 @@ function get_user_altercode(){
 	return "<?= $_COOKIE["user_altercode"] ?>";
 }
 </script>
-<script src="<?= base_url(); ?>assets/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>

@@ -5,14 +5,14 @@
 .top_bar_back_btn{
 	display: none !important;
 }
-.headertitle{
+.top_bar_title{
 	margin-top: 2px;
 	font-size:16px;
 }
-.headertitle1{
+.top_bar_title1{
 	display: inline !important;
 }
-.maincontainercss{
+.main_container{
 	padding-top: 160px;
     min-height: 500px;
 }
@@ -115,7 +115,7 @@ window.jssor_2_slider_init = function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<div class="container-fluid maincontainercss">
+<div class="container-fluid main_container">
 	<div class="row home_page_slider1_data"></div>
 	<div class="row home_page_divisioncategory1_data"></div>
 	<div class="row home_page_menu_data"></div>

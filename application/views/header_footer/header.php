@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789t12345.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456789t123456.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -55,301 +55,303 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
 </head>
 <body>
-	<div class="top_bar">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
-					<div class="" style="float:left;">
-						<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
-							<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
-						</a>
-						<a href="javascript:goBack()" class="top_bar_back_btn" title="Go Back">
-							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
-						</a>
-					</div>
-					<div class="" style="float:left; margin-left:5px;width: inherit;">
-						<h1 class="pro-link top_bar_title">
-							Delivering to
-						</h1>
-						<div class="pro-link top_bar_title1">
-							Code : <?= $session_delivering_to ?>
-						</div>
+<div class="top_bar">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
+				<div class="" style="float:left;">
+					<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
+						<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
+					</a>
+					<a href="javascript:goBack()" class="top_bar_back_btn" title="Go Back">
+						<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
+					</a>
+				</div>
+				<div class="" style="float:left; margin-left:5px;width: inherit;">
+					<h1 class="pro-link top_bar_title">
+						Delivering to
+					</h1>
+					<div class="pro-link top_bar_title1">
+						Code : <?= $session_delivering_to ?>
 					</div>
 				</div>
-				
-				<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
-					<ul class="top_bar_menu">
-						<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
-							<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-								<i class="fa fa-mobile main_icon1" aria-hidden="true"></i>
-								Download App
-							</a>
-						</li>
-						<li>
-							<a href="<?= base_url() ?>" title="Home">
-								<i class="fa fa-home main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Home</span>
-							</a>
-						</li>
-						<li>
-							<a href="<?= base_url() ?>search_medicine" title="Search medicine / company">
-								<i class="fa fa-search main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Search</span>
-							</a>
-						</li>
-						<li>
-							<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
-								<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block"> Cart</span>&nbsp;
-								(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
-							</a>
-						</li>
-						<li class="d-none d-sm-block">
-							<a href="javascript:new_style_menu_show()" class="mobile_off">
-								<i class="fa fa-user main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Account</span>
-							</a>
-						</li>
-						<li class="d-none d-xl-block">
-							<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
-								<i class="fa fa-flag main_icon1" aria-hidden="true"></i>
-								Invoice
-							</a>
-						</li>
-						<li class="d-none d-sm-block">
-							<a href="<?= base_url() ?>my_notification" class="mobile_off" title="Notification">
-								<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Notification</span>
-							</a>
-						</li>
+			</div>
+			
+			<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
+				<ul class="top_bar_menu">
+					<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
+						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+							<i class="fa fa-mobile main_icon1" aria-hidden="true"></i>
+							Download App
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>" title="Home">
+							<i class="fa fa-home main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Home</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company">
+							<i class="fa fa-search main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Search</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
+							<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block"> Cart</span>&nbsp;
+							(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
+						</a>
+					</li>
+					<li class="d-none d-sm-block">
+						<a href="javascript:new_style_menu_show()" class="mobile_off">
+							<i class="fa fa-user main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Account</span>
+						</a>
+					</li>
+					<li class="d-none d-xl-block">
+						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
+							<i class="fa fa-flag main_icon1" aria-hidden="true"></i>
+							Invoice
+						</a>
+					</li>
+					<li class="d-none d-sm-block">
+						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="Notification">
+							<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Notification</span>
+						</a>
+					</li>
+					
+					<?php if(!empty($_COOKIE['user_session'])){ ?>
+					<li class="d-none d-sm-block">
+						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
+							<i class="fa fa-sign-out main_icon1" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Logout</span>
+						</a>
+					</li>
+					<?php } ?>
+				<ul>
+			</div>
+			
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 search_medicine_main" style="margin-top:5px;">
+				<div class="row">
+					<div class="col-lg-3 col-md-1 col-sm-12 col-xs-12 col-12"></div>
+					<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 col-12">
+
+						<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
+							<i class="fa fa-search top_bar_search_div_search_icon" aria-hidden="true"></i>
+							<div class="my_typing">Search medicine / company...</div> 
+						</a>
 						
-						<?php if(!empty($_COOKIE['user_session'])){ ?>
-						<li class="d-none d-sm-block">
-							<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
-								<i class="fa fa-sign-out main_icon1" aria-hidden="true"></i>
-								<span class="d-none d-lg-block">Logout</span>
-							</a>
-						</li>
-						<?php } ?>
-					<ul>
-				</div>
-				
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 search_medicine_main" style="margin-top:5px;">
-					<div class="row">
-						<div class="col-lg-3 col-md-1 col-sm-12 col-xs-12 col-12"></div>
-						<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 col-12">
+						<div class="top_bar_search_textbox_div">
+							<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
 
-							<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
-								<i class="fa fa-search top_bar_search_div_search_icon" aria-hidden="true"></i>
-								<div class="my_typing">Search medicine / company...</div> 
-							</a>
-							
-							<div class="top_bar_search_textbox_div">
-								<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
+							<input type="text" class="select_medicine input_type_text" placeholder="Search medicine / company" tabindex="1">
 
-								<input type="text" class="select_medicine input_type_text" placeholder="Search medicine / company" tabindex="1">
+							<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
 
-								<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
+							<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
 
-								<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
-
-								<i class="fa fa-times top_bar_search_textbox_div_clear_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
-							</div>
-							<div class="search_medicine_result"></div>
+							<i class="fa fa-times top_bar_search_textbox_div_clear_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
 						</div>
+						<div class="search_medicine_result"></div>
+					</div>
 
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-							<div class="home_page_search_div_box_more_btn" style="display:none">
-								<div class="row">
-									<div class="col-sm-6">
-										<label>Medicine : <input type="checkbox" class="menu_search_icon_checkbox checkbox_medicine" onchange="medicine_search_api()" checked></label>
-									</div>
-									<div class="col-sm-6">
-										<label>Company : <input type="checkbox" class="menu_search_icon_checkbox checkbox_company" onchange="medicine_search_api()" checked></label>
-									</div>
-									<div class="col-sm-8">
-										Result Show :
-									</div>
-									<div class="col-sm-4">
-										<select class="medicine_total_rec" onchange="medicine_search_api()">
-											<option value="25">25</option>
-											<option value="50">50</option>
-											<option value="75">75</option>
-											<option value="100">100</option>
-											<option value="all">All</option>
-										</select>
-									</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+						<div class="home_page_search_div_box_more_btn" style="display:none">
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Medicine : <input type="checkbox" class="menu_search_icon_checkbox checkbox_medicine" onchange="medicine_search_api()" checked></label>
+								</div>
+								<div class="col-sm-6">
+									<label>Company : <input type="checkbox" class="menu_search_icon_checkbox checkbox_company" onchange="medicine_search_api()" checked></label>
+								</div>
+								<div class="col-sm-8">
+									Result Show :
+								</div>
+								<div class="col-sm-4">
+									<select class="medicine_total_rec" onchange="medicine_search_api()">
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="75">75</option>
+										<option value="100">100</option>
+										<option value="all">All</option>
+									</select>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-sm-12">
-					<div class="top_bar_menu2">
-						<ul class="top_bar_menu2_ul"></ul>
-					</div>
+			</div>
+			
+			<div class="col-sm-12">
+				<div class="top_bar_menu2">
+					<ul class="top_bar_menu2_ul"></ul>
 				</div>
+			</div>
 
-				<div class="col-sm-12 current_order_search_page text-right" style="display:none;">
-					<span class="header_result_found"></span>
-				</div>
+			<div class="col-sm-12 current_order_search_page text-right" style="display:none;">
+				<span class="header_result_found"></span>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
-	<div class="left_menu_bar">
-		<div class="left_menu_bar_div1">
-			<div class="row">
-				<div class="col-sm-2 col-4">
-					<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
+<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
+<div class="left_menu_bar">
+	<div class="left_menu_bar_div1">
+		<div class="row">
+			<div class="col-sm-2 col-4">
+				<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
+			</div>
+			<div class="col-sm-8 col-6">
+				<div class="left_menu_bar_accoun_chemist_name">
+					<?= $session_user_fname ?>
 				</div>
-				<div class="col-sm-8 col-6">
-					<div class="left_menu_bar_accoun_chemist_name">
-						<?= $session_user_fname ?>
-					</div>
-					<div class="left_menu_bar_accoun_chemist_code">
-						Code : <?= $session_user_altercode ?>
-					</div>
-				</div>
-				<div class="col-sm-2 col-2 text-left">
-					<i class="fa fa-times left_menu_bar_cancel_icon" aria-hidden="true" onclick="new_style_menu_hide()"></i>
-				</div>
-				<div class="col-sm-12 col-12">
-					<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Select theme</div>
-					<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="margin-top:10px;">
-						<option value="lite" <?php if($theme_type=="lite") { echo "selected"; } ?>>Lite</option>
-						<option value="dark" <?php if($theme_type=="dark") { echo "selected"; } ?>>Dark</option>
-					</select>
+				<div class="left_menu_bar_accoun_chemist_code">
+					Code : <?= $session_user_altercode ?>
 				</div>
 			</div>
+			<div class="col-sm-2 col-2 text-left">
+				<i class="fa fa-times left_menu_bar_cancel_icon" aria-hidden="true" onclick="new_style_menu_hide()"></i>
+			</div>
+			<div class="col-sm-12 col-12">
+				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Select theme</div>
+				<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="margin-top:10px;">
+					<option value="lite" <?php if($theme_type=="lite") { echo "selected"; } ?>>Lite</option>
+					<option value="dark" <?php if($theme_type=="dark") { echo "selected"; } ?>>Dark</option>
+				</select>
+			</div>
 		</div>
-		<div class="left_menu_bar_div2 text-center">
-			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
-			<ul>
-				<li>
-					<a href="<?= base_url() ?>account" title="Account">
-						<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
-					</a>
-				</li>
-				<li>
-					<a href="<?= base_url() ?>update_account" title="Update account">
-						<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
-						Update account
-					</a>
-				</li>
-				<li>
-					<a href="<?= base_url() ?>update_image" title="Update image">
-						<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
-					</a>
-				</li>
-				<li>
-					<a href="<?= base_url() ?>update_password" title="Update password">
-					<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
-					Update password
-					</a>
-				</li>
-				<li class="mobile_off">
-					<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
-						<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
-					</a>
-				</li>
-				<?php
-				if(!empty($_COOKIE['user_type'])){
-				if($_COOKIE['user_type']=="sales")
-				{
-					$user_type = $_COOKIE['user_type'];
-					?>
-				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Server Report</div>
-
-				<li>
-					<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
-						Pending Order
-					</a>
-				</li>
-
-				<li>
-					<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
-						All Invoice
-					</a>
-				</li>
-				
-				<li>
-					<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
-						Pickedby Invoice
-					</a>
-				</li>
-				
-				<li>
-					<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
-						Deliverby Invoice
-					</a>
-				</li>
-				
-				<li>
-					<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-						<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
-						Delivery Report
-					</a>
-				</li>
-				<?php } }?>
-				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Others</div>
-				<li>
-					<a href="tel:+919899133989" title="Contact us">
-						<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us
-					</a>
-				</li>
-				<li title="Email">
-					<a href="mailto:vipul@drdindia.com" title="Email">
-						<i class="fa fa-envelope left_menu_icon" aria-hidden="true"></i> Email
-					</a>
-				</li>
-				<li title="Privacy policy">
-					<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
-						<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
-						Privacy policy
-					</a>
-				</li>
-				<li title="Share App">
-					<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
-						<i class="fa fa-share-alt-square left_menu_icon" aria-hidden="true"></i>
-						Share App
-					</a>
-				</li>
-				<li title="Download App">
-					<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-						<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
-						Download App
-					</a>
-				</li>
-				<?php if(!empty($_COOKIE['user_session'])){ ?>
-				<li title="Logout">
-					<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
-						<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
-						Logout
-					</a>
-				</li>
-				<?php } else { ?>
-				<li title="Login">
-					<a href="<?= base_url('login')?>" title="Login">
-						<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
-						Login
-					</a>
-				</li>
-				<?php } ?>
-			</ul>
-		</div>				
 	</div>
+	<div class="left_menu_bar_div2 text-center">
+		<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
+		<ul>
+			<li>
+				<a href="<?= base_url() ?>account" title="Account">
+					<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
+				</a>
+			</li>
+			<li>
+				<a href="<?= base_url() ?>update_account" title="Update account">
+					<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
+					Update account
+				</a>
+			</li>
+			<li>
+				<a href="<?= base_url() ?>update_image" title="Update image">
+					<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
+				</a>
+			</li>
+			<li>
+				<a href="<?= base_url() ?>update_password" title="Update password">
+				<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
+				Update password
+				</a>
+			</li>
+			<li class="mobile_off">
+				<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
+					<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
+				</a>
+			</li>
+			<?php
+			if(!empty($_COOKIE['user_type'])){
+			if($_COOKIE['user_type']=="sales")
+			{
+				$user_type = $_COOKIE['user_type'];
+				?>
+			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Server Report</div>
+
+			<li>
+				<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
+					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
+					Pending Order
+				</a>
+			</li>
+
+			<li>
+				<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
+					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+					All Invoice
+				</a>
+			</li>
+			
+			<li>
+				<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
+					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+					Pickedby Invoice
+				</a>
+			</li>
+			
+			<li>
+				<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
+					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+					Deliverby Invoice
+				</a>
+			</li>
+			
+			<li>
+				<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
+					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+					Delivery Report
+				</a>
+			</li>
+			<?php } }?>
+			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Others</div>
+			<li>
+				<a href="tel:+919899133989" title="Contact us">
+					<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us
+				</a>
+			</li>
+			<li title="Email">
+				<a href="mailto:vipul@drdindia.com" title="Email">
+					<i class="fa fa-envelope left_menu_icon" aria-hidden="true"></i> Email
+				</a>
+			</li>
+			<li title="Privacy policy">
+				<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
+					<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
+					Privacy policy
+				</a>
+			</li>
+			<li title="Share App">
+				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
+					<i class="fa fa-share-alt-square left_menu_icon" aria-hidden="true"></i>
+					Share App
+				</a>
+			</li>
+			<li title="Download App">
+				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+					<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
+					Download App
+				</a>
+			</li>
+			<?php if(!empty($_COOKIE['user_session'])){ ?>
+			<li title="Logout">
+				<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
+					<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+					Logout
+				</a>
+			</li>
+			<?php } else { ?>
+			<li title="Login">
+				<a href="<?= base_url('login')?>" title="Login">
+					<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+					Login
+				</a>
+			</li>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
+
 <div class="select_medicine_in_modal_script_css"></div>
 <div class="only_for_noti"></div>
 
 <input type="hidden" class="medicine_details_item_code">
 <div type="hidden" class="medicine_details_all_data"></div>
+
 <a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></a>
 <div class="modal modaloff" id="myModal_medicine_details">
 	<div class="modal-dialog modal-lg">

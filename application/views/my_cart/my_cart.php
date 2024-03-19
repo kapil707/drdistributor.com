@@ -38,29 +38,29 @@ function goBack() {
 </div>
 <div class="container-fluid main_container">
 	<div class="row">
-		<div class="col-sm-6 col-6 current_order_search_page1 mobile_off">
-			<h6 class="search_pg_title_color Current_Order">
-				My cart <span class="div_cart_total_items1"></span>
+		<div class="col-sm-6 col-6 mobile_off">
+			<h6 class="home_page_heading_title2">
+				My cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>
-		<div class="col-sm-6 col-6 text-right current_order_search_page1 mobile_off" style="margin-bottom:5px;">
+		<div class="col-sm-6 col-6 text-right mobile_off" style="margin-bottom:5px;">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicine"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all <span class="mobile_off">medicines</span></a>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="website_box_part p-2">
+			<div class="main_box_div p-2">
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
 		<div class="col-sm-4 col-12"></div>
 		<div class="col-sm-4 col-12 text-center">
-			<a href="<?=base_url();?>home/search_medicine" class="btn mainbutton" style="margin-top:10px;"> 
+			<a href="<?=base_url();?>home/search_medicine" class="btn main_theme_button" style="margin-top:10px;"> 
 				+ Add new medicine
 			</a>
 		</div>
 		<div class="col-sm-4 col-12"></div>
 	</div>
 </div>
-<div class="place_order_or_empty_cart_btn_div">
+<div class="search_cart_footer_div">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center">	
@@ -68,18 +68,18 @@ function goBack() {
 				</strong>
 			</div>
 			<div class="col-5 text-center">				
-				<div class="div_cart_total_items">Your cart is empty</div>
-				<div class="div_cart_total_price"><i class="fa fa-inr"></i>0.00</div>
+				<div class="search_cart_footer_div_total_items">Your cart is empty</div>
+				<div class="search_cart_footer_div_total_price"><i class="fa fa-inr"></i>0.00/-</div>
 			</div>
 			<div class="col-7 text-center">
-				<span class="cart_empty_cart_div">
-					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn mainbutton_disable" onclick="cart_empty_btn()" tabindex="-3" title="Your cart is empty">Your cart is empty</button>
+				<span class="search_cart_footer_div_cart_empty">
+					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn main_theme_button_disable" onclick="cart_empty_btn()" tabindex="-3" title="Your cart is empty">Your cart is empty</button>
 				</span>
-				<span class="cart_disabled_cart_div" style="display:none">
-					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton_disable" tabindex="-3" title="Can't place order">Can't place order</button>
+				<span class="cart_footer_div_can_not_place_order_btn" style="display:none">
+					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn main_theme_button_disable" tabindex="-3" title="Can't place order">Can't place order</button>
 				</span>
-				<span class="place_order_div" style="display:none">
-					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn mainbutton" onclick="place_order_model()" tabindex="-3" title="Place order">Place order</button>
+				<span class="cart_footer_div_place_order_btn" style="display:none">
+					<em class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></em><button class="btn main_theme_button" onclick="place_order_model()" tabindex="-3" title="Place order">Place order</button>
 				</span>
 			</div>
 		</div>

@@ -472,7 +472,7 @@ function medicine_add_to_cart_api()
 								status_message = item.status_message;
 								$(".search_cart_footer_div_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
 								$(".search_cart_footer_div_total_items").html("My Cart ("+items_total+")");
-								$(".search_page_total_cart_items").html("("+items_total+")");
+								$(".search_cart_page_total_cart_items").html("("+items_total+")");
 								$(".header_cart_span").html(items_total);
 								$(".place_order_message").html(status_message);
 								$(".header_result_found").html("Current order ("+items_total+")");
@@ -480,8 +480,8 @@ function medicine_add_to_cart_api()
 								{
 									$(".search_cart_footer_div_cart_empty").show();
 									$(".search_cart_footer_div_add_to_cart").hide();
-									$(".cart_disabled_cart_div").hide();
-									$(".place_order_div").hide();
+									$(".cart_footer_div_can_not_place_order_btn").hide();
+									$(".cart_footer_div_place_order_btn").hide();
 								}
 								if(items_total!=0)
 								{
@@ -489,14 +489,14 @@ function medicine_add_to_cart_api()
 									if(status==1)
 									{
 										$(".search_cart_footer_div_cart_empty").hide();
-										$(".cart_disabled_cart_div").hide();
+										$(".cart_footer_div_can_not_place_order_btn").hide();
 										$(".place_order_message").html('');
-										$(".place_order_div").show();
+										$(".cart_footer_div_place_order_btn").show();
 									}
 									else{
 										$(".search_cart_footer_div_cart_empty").hide();
-										$(".cart_disabled_cart_div").show();
-										$(".place_order_div").hide();
+										$(".cart_footer_div_can_not_place_order_btn").show();
+										$(".cart_footer_div_place_order_btn").hide();
 									}
 								}
 							}
@@ -704,8 +704,8 @@ function my_cart_api()
 					{
 						$(".search_cart_footer_div_cart_empty").show();
 						$(".search_cart_footer_div_add_to_cart").hide();
-						$(".cart_disabled_cart_div").hide();
-						$(".place_order_div").hide();
+						$(".cart_footer_div_can_not_place_order_btn").hide();
+						$(".cart_footer_div_place_order_btn").hide();
 					}
 					if(items_total!=0)
 					{
@@ -713,14 +713,14 @@ function my_cart_api()
 						if(status==1)
 						{
 							$(".search_cart_footer_div_cart_empty").hide();
-							$(".cart_disabled_cart_div").hide();
+							$(".cart_footer_div_can_not_place_order_btn").hide();
 							$(".place_order_message").html('');
-							$(".place_order_div").show();
+							$(".cart_footer_div_place_order_btn").show();
 						}
 						else{
 							$(".search_cart_footer_div_cart_empty").hide();
-							$(".cart_disabled_cart_div").show();
-							$(".place_order_div").hide();
+							$(".cart_footer_div_can_not_place_order_btn").show();
+							$(".cart_footer_div_place_order_btn").hide();
 						}
 					}
 				}

@@ -56,7 +56,7 @@ class chemist_select extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('select_chemist/select_chemist', $data);
+		$this->load->view('chemist_select/chemist_select', $data);
 	}
 
 	/*******************api start*********************/

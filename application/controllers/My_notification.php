@@ -157,4 +157,3 @@ class My_notification extends CI_Controller {
         echo json_encode($response);
 	}
 }
-?>

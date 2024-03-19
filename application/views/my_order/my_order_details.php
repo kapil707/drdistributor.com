@@ -24,4 +24,4 @@ function goBack() {
 <script>
 	var item_id = "<?php echo $item_id; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/my_order_details123eifgh.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_order_details123eifghi.js"></script>

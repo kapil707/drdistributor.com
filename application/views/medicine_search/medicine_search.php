@@ -19,6 +19,7 @@
 	.maincontainercss{
 		margin-bottom:80px;
 	}
+	
 }
 .menu_search_icon{
 	display: none;

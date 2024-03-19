@@ -27,12 +27,12 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<div class="main_theme_li_bg p-4 load_page">
+					<div class="main_box_div_data p-4 load_page">
 						
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<div class="main_theme_li_bg p-4">
+					<div class="main_box_div_data p-4">
 						<a href="<?= base_url(); ?>update_account" title="Update account" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/edit_icon.png" width="30" alt="Update Image" title="Update account">
 							<span style="margin-left:20px;">Update account</span>
@@ -40,7 +40,7 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<div class="main_theme_li_bg p-4">
+					<div class="main_box_div_data p-4">
 						<a href="<?= base_url(); ?>update_image" title="Update image" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Update Image" title="Update Image">
 							<span style="margin-left:20px;">Update image</span>
@@ -48,7 +48,7 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2 mb-2">
-					<div class="main_theme_li_bg p-4">
+					<div class="main_box_div_data p-4">
 						<a href="<?= base_url();?>update_password" title="Update password" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/b_lock.png" width="30" alt="Update Password" title="Update Password">
 							<span style="margin-left:20px;">Update password</span>

@@ -552,7 +552,7 @@ function clear_small_noti(){
 							</div>
 
 							<div class="col-sm-8 col-8 text-right">
-								<span class="medicine_details_item_price_calculate"></span>
+								<span class="medicine_details_item_total"></span>
 							</div>
 
 							<div class="col-sm-4 col-4">

@@ -100,6 +100,16 @@ table{
 .input_type_text::-ms-input-placeholder { /* Microsoft Edge */
 	color: var(--main_theme_textbox_text_color) !important;
 }
+
+.main_box_div{
+    /*padding: 10px;*/
+    background-color: var(--main_theme_white_background_color);
+	border-radius: 10px;
+    overflow-y: scroll;
+	
+	/*border: solid 1px var(--mainthemecolor);*/
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+}
 /*************************************************************/
 .top_bar {
     margin-top: 5px;
@@ -195,7 +205,7 @@ table{
 }
 .top_bar_search_textbox_div{
 	width:100%;
-	/*display:none;*/
+	display:none;
 }
 .top_bar_search_textbox_div_search_icon{
 	position: absolute;
@@ -205,7 +215,7 @@ table{
 	font-size:25px;
 }
 .top_bar_search_textbox_div_menu_icon{
-	/*display:none;*/
+	display:none;
 	position: absolute;
     right: 50px;
     top: 10px;
@@ -213,7 +223,7 @@ table{
     font-size: 23px;
 }
 .top_bar_search_textbox_div_clear_icon{
-	/*display:none;*/
+	display:none;
 	position: absolute;
     right: 20px;
     top: 7px;
@@ -365,17 +375,17 @@ table{
 .owl-carousel .owl-nav {
 	margin: 0;
 }
-.home_heading
+.home_page_heading
 {
 	margin-top: 60px;
 	margin-bottom: 60px;
 }
-.home_heading_title{
+.home_page_heading_title{
     text-align: center;
     margin-bottom: 0rem;
     position: relative;
 }
-.home_heading_title::before{
+.home_page_heading_title::before{
     content: '';
     position: absolute;
     top:50%; left:0;
@@ -386,7 +396,7 @@ table{
 	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
     z-index: -1;
 }
-.home_heading_title span{
+.home_page_heading_title span{
     font-size: 30px;
     padding: 40px;
     color: var(--main_theme_hearder_color) !important;
@@ -399,15 +409,25 @@ table{
     border-top-right-radius: 40px;
 	transition-duration: 3s;
 }
-.home_heading_title span:hover{
+.home_page_heading_title span:hover{
 	border-bottom-right-radius: 40px;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 500px;
     border-top-right-radius: 500px;
 }
-.home_heading_title span a{
+.home_page_heading_title span a{
 	color: var(--main_theme_hearder_color) !important;
 }
+
+.home_page_heading_title2{
+	color: var(--main_theme_hearder_color);
+    font-size: 20px;
+    font-weight: bold;
+}
+.home_page_heading_title2 a{
+	color: var(--main_theme_hearder_color);
+}
+
 
 .all_divisioncategory{
 	border-radius: 10px;

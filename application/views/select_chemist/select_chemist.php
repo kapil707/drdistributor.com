@@ -246,7 +246,7 @@ function call_page(lastid1)
 					chemist_altercode = item.chemist_altercode
 					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
 					
-					$(".main_page_data").append('<div class="main_box_div_data" '+a_+'><div class="medicine_chemist_div1"><img src="'+item.chemist_image+'" class="medicine_cart_item_image" onerror="setDefaultImage(this);"></div><div class="medicine_chemist_div2"><div class="medicine_cart_item_name">'+item.chemist_name+'</div><div class="medicine_cart_item_packing"> Code : '+item.chemist_altercode+'</div><div class="medicine_cart_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');	
+					$(".main_page_data").append('<div class="main_box_div_data" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div><div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');	
 
 					no_record_found = 1;
 					$(".main_page_data").show();

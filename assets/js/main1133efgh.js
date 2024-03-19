@@ -287,7 +287,7 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_mrp + "/-")
 	$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 	$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
-	$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
+	$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
 	/******************************************************************* */
 
 	$(".medicine_details_item_scheme_line").show()
@@ -342,7 +342,7 @@ function change_item_order_quantity(){
 
 	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){
-		$(".medicine_details_item_price_calculate").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");
+		$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");
 	}else{
 		item_order_quantity  = parseInt(item_order_quantity);
 		if(item_order_quantity==0){
@@ -353,7 +353,7 @@ function change_item_order_quantity(){
 
 				item_price_calculate = item_price_calculate.toFixed(2);
 
-				$(".medicine_details_item_price_calculate").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
+				$(".medicine_details_item_total").html('Total : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price_calculate + "/-");
 
 				$(".medicine_details_item_add_to_cart_btn").show();
 				$(".medicine_details_item_add_to_cart_btn_disable").hide();

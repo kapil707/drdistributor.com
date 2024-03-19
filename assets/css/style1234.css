@@ -62,8 +62,12 @@ body{
 table{
 	color:var(--main_theme_text_black_color) !important;
 }
-.input_type_text
-{
+
+.mobile_show{
+	display:none;
+}
+
+.input_type_text{
 	background-color: var(--main_theme_textbox_background_color) !important;
 	border: 1px solid var(--main_theme_border_color) !important;
 	border-radius:10px;
@@ -76,27 +80,26 @@ table{
 	padding: 7px;
 	padding-left:40px;
 }
+
 .input_type_text:-webkit-autofill,
 .input_type_text:-webkit-autofill:hover, 
 .input_type_text:-webkit-autofill:focus,
 .input_type_text:-webkit-autofill:active {
 	color: var(--main_theme_textbox_text_color) !important;
 }
+
 .input_type_text:hover, 
 .input_type_text:focus,
 .input_type_text:active {
 	color: var(--main_theme_textbox_text_color) !important;
 }
-
 .input_type_text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: var(--main_theme_textbox_text_color) !important;
 	opacity: 1; /* Firefox */
-}
-  
+}  
 .input_type_text::-ms-input-placeholder { /* Internet Explorer 10-11 */
 	color: var(--main_theme_textbox_text_color) !important;
-}
-  
+}  
 .input_type_text::-ms-input-placeholder { /* Microsoft Edge */
 	color: var(--main_theme_textbox_text_color) !important;
 }
@@ -655,12 +658,12 @@ table{
 }
 
 .my_cart_box_left_div{
-	width:6%;
+	width:13%;
 	float:left;
 	padding:5px;
 }
 .my_cart_box_right_div{
-	width:94%;
+	width:87%;
 	float:left;	
 	padding:5px;
 }
@@ -830,6 +833,12 @@ table{
 }
 
 @media screen and (max-width: 767px) {
+	.mobile_off{
+		display:none;
+	}
+    .mobile_show{
+		display:block;
+	}
 	.top_menu_bar {
 		margin-top: 0px; 
 		margin-left: 0.5%;
@@ -848,63 +857,4 @@ table{
 		/* border-top-left-radius: 125px; */
 		transition-duration: 3s;
 	}
-	.medicine_category_page {
-		height: 375px;
-	}
-	.maincontainercss {
-		padding-top: 115px;
-		min-height: 500px;
-		padding-bottom: 100px;
-	}
 }
-
-@media screen and (max-width: 767px) {
-	.top_icon_menu li {
-		margin-right: -10px;
-	}
-	.medicine_search_div1
-	{
-		width:30%;
-		float:left;
-		padding:5px;
-	}
-	.medicine_search_div2
-	{
-		width:70%;
-		float:left;	
-		padding:5px;
-	}
-	.medicine_cart_div1,.medicine_cart_small_div1
-	{
-		width:30%;
-		float:left;
-		padding:5px;
-	}
-	.medicine_cart_div2,.medicine_cart_small_div2
-	{
-		width:70%;
-		float:left;	
-		padding:5px;
-	}
-
-	.medicine_my_page_div1
-	{
-		width:30%;
-		float:left;
-		padding:5px;
-	}
-	.medicine_my_page_div2
-	{
-		width:70%;
-		float:left;	
-		padding:5px;
-	}
-	.medicine_category_img
-	{
-		min-height:160px;
-	}
-	.view_cart_or_empty_cart_btn_div, .place_order_or_empty_cart_btn_div {
-		border-radius: 10px;
-	}
-}
-

@@ -1,59 +1,19 @@
 <style>
-.maincontainercss{
-	margin-bottom:100px;
-}
-.home_page_search_div_box_more_btn{
-	display: inline-block;
-}
-@media screen and (max-width: 800px) {
-	.home_page_search_div_box_more_btn{
-		display:none;
-	}
-	.search_pg_menu_off,.main_home_top_btn{
-		display:none;
-	}
-	.current_order_search_page,.delete_btn_icon
-	{
-		display: block !important;
-	}
-	.maincontainercss{
-		margin-bottom:80px;
-	}
-}
-.menu_search_icon{
-	display: none;
-}
-.deleteicon
-{
-	display: initial !important;
-}
-.home_page_search_div_box,.select_medicine
-{
-	display: inline-block;
-}
-.select_chemist,.home_page_search_div,.search_medicine_result,.clear_search_icon
-{
-	display: none;
-}
-.search_medicine_main{
+.top_bar_back_btn{
 	display:block;
 }
-.top_menu_menu_main{
-	display: none;
-}
-.maincontainercss {
-    padding-top: 135px;
-    min-height: 500px;
+.main_container{
+	margin-bottom:100px;
 }
 </style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.headertitle {
+.top_bar_title {
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".headertitle1").show();
+$(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
@@ -67,7 +27,7 @@ function goBack() {
 	window.location.href = "<?= base_url();?>home";
 }
 </script>
-<div class="container-fluid maincontainercss">
+<div class="container-fluid main_container">
 	<div class="row">
 		<div class="col-sm-6 col-12 mobile_off" style="margin-bottom:5px;">
 			<span class="text-left">

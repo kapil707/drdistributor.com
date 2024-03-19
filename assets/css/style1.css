@@ -147,6 +147,12 @@ table{
     border-top-left-radius: 125px;
 	transition-duration: 3s;
 }
+.top_bar_logo{
+	display: none;
+}
+.top_bar_back_btn{
+	display: none;
+}
 .top_bar_logo img{
 	width:40px;
 }

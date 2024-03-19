@@ -2,6 +2,9 @@
 .main_container{
 	margin-bottom:100px;
 }
+.top_bar_back_btn{
+	display: none;
+}
 </style>
 <script>
 $(".top_bar_title").html("Search chemist");
@@ -91,15 +94,12 @@ $(document).ready(function(){
     	}
     });
 	setTimeout('page_load();',100);
-	
-51
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
 		if (evt.keyCode == 27) {
-			clear_search_icon();51
+			clear_search_icon();
 		}
 	};
-51
 });
 function search_chemist()
 {

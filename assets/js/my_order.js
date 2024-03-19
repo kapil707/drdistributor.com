@@ -50,7 +50,7 @@ function call_page(get_record)
 						item_date_time 	= item.item_date_time;
 						item_image 		= item.item_image;
 						
-						$(".main_page_data").append('<div class="main_theme_li_bg"><a href="'+get_base_url()+'my_order_details/'+item_id+'"><div class="medicine_my_page_div1"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="medicine_cart_item_image"></div><div class="medicine_my_page_div2 text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>');
+						$(".main_page_data").append('<div class="main_box_div_data"><a href="'+get_base_url()+'my_order_details/'+item_id+'"><div class="all_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="all_page_box_right_div text-left"><div class="all_item_name">'+item_title+'</div><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>');
 						
 						query_work = 0;
 						no_record_found = 1;

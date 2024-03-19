@@ -1,5 +1,11 @@
+
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
 <script>
-$(".headertitle").html("<?= $main_page_title ?>");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>my_order";
 }
@@ -9,7 +15,7 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="website_box_part main_page_data p-2" style="display:none">
+					<div class="main_box_div main_page_data p-2" style="display:none">
 					</div>
 				</div>
 			</div>

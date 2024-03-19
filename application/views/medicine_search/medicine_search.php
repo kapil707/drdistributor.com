@@ -17,7 +17,7 @@ $(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("Search medicines");
+$(".top_bar_title").html("Search medicines");
 setTimeout('div_height();',500);
 function  div_height(){
 	$(".search_page_main_div").css("height",$(window).height() - 240)
@@ -31,11 +31,11 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-6 col-12 mobile_off" style="margin-bottom:5px;">
 			<span class="text-left">
-				<h6 class="search_pg_title_color">Favourite medicines</h6>
+				<h6 class="home_page_heading_title2">Favourite medicines</h6>
 			</span>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off" style="margin-bottom:5px;">
-			<h6 class="search_pg_title_color" onclick="current_order_ref()">My Cart <span class="div_cart_total_items1"></span></h6>
+			<h6 class="home_page_heading_title2" onclick="current_order_ref()">My Cart <span class="div_cart_total_items1"></span></h6>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-bottom:5px;">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicines">

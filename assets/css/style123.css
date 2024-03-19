@@ -101,6 +101,12 @@ table{
 	color: var(--main_theme_textbox_text_color) !important;
 }
 
+.main_container{
+	padding-top:125px;
+	min-height: 500px;
+	padding-bottom: 0px;
+}
+
 .main_box_div{
     /*padding: 10px;*/
     background-color: var(--main_theme_white_background_color);

@@ -218,7 +218,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					</div>
 				</div>
 				<div class="col-sm-2 col-2 text-left">
-					<i class="fa fa-times left_menu_bar_cancel" aria-hidden="true" onclick="new_style_menu_hide()"></i>
+					<i class="fa fa-times left_menu_bar_cancel_icon" aria-hidden="true" onclick="new_style_menu_hide()"></i>
 				</div>
 				<div class="col-sm-12 col-12">
 					<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Select theme</div>

@@ -258,6 +258,19 @@ table{
     color: var(--top_icon_menu_color);
 }
 
+.left_menu_bar{
+	border-right: 1px solid var(--main_theme_border_color) !important;
+	display:none;
+	position: fixed;
+	background-image: linear-gradient(var(--main_theme_left_menu_bg_color), var(--main_theme_left_menu_bg_color1));
+	width: 30%;
+	z-index: 20;
+	top: 0px;
+	height: -webkit-fill-available;
+}
+.left_menu_bar_cancel_icon{
+	font-size: 30px;
+}
 
 /*****************home page css**************************/
 .menubtn1{

@@ -478,23 +478,23 @@ function medicine_add_to_cart_api()
 								$(".header_result_found").html("Current order ("+items_total+")");
 								if(items_total==0)
 								{
-									$(".cart_empty_cart_div").show();
-									$(".cart_add_to_cart_div").hide();
+									$(".search_cart_footer_div_cart_empty").show();
+									$(".search_cart_footer_div_add_to_cart").hide();
 									$(".cart_disabled_cart_div").hide();
 									$(".place_order_div").hide();
 								}
 								if(items_total!=0)
 								{
-									$(".cart_add_to_cart_div").show();
+									$(".search_cart_footer_div_add_to_cart").show();
 									if(status==1)
 									{
-										$(".cart_empty_cart_div").hide();
+										$(".search_cart_footer_div_cart_empty").hide();
 										$(".cart_disabled_cart_div").hide();
 										$(".place_order_message").html('');
 										$(".place_order_div").show();
 									}
 									else{
-										$(".cart_empty_cart_div").hide();
+										$(".search_cart_footer_div_cart_empty").hide();
 										$(".cart_disabled_cart_div").show();
 										$(".place_order_div").hide();
 									}
@@ -702,23 +702,23 @@ function my_cart_api()
 					$(".header_result_found").html("Current order ("+items_total+")");
 					if(items_total==0)
 					{
-						$(".cart_empty_cart_div").show();
-						$(".cart_add_to_cart_div").hide();
+						$(".search_cart_footer_div_cart_empty").show();
+						$(".search_cart_footer_div_add_to_cart").hide();
 						$(".cart_disabled_cart_div").hide();
 						$(".place_order_div").hide();
 					}
 					if(items_total!=0)
 					{
-						$(".cart_add_to_cart_div").show();
+						$(".search_cart_footer_div_add_to_cart").show();
 						if(status==1)
 						{
-							$(".cart_empty_cart_div").hide();
+							$(".search_cart_footer_div_cart_empty").hide();
 							$(".cart_disabled_cart_div").hide();
 							$(".place_order_message").html('');
 							$(".place_order_div").show();
 						}
 						else{
-							$(".cart_empty_cart_div").hide();
+							$(".search_cart_footer_div_cart_empty").hide();
 							$(".cart_disabled_cart_div").show();
 							$(".place_order_div").hide();
 						}

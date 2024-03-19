@@ -821,6 +821,17 @@ table{
     border-top-left-radius: 125px;
 }
 
+.search_cart_footer_div_total_items {
+	color:var(--item_packing_color);
+	font-size:15px;
+	font-weight:bold;
+}
+.search_cart_footer_div_total_price {
+	color:var(--item_price_color);
+	font-size:15px;
+	font-weight:bold;
+}
+
 @media screen and (max-width: 767px) {
 	.mobile_off{
 		display:none;

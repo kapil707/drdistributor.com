@@ -61,14 +61,14 @@ function goBack() {
 		<div class="row">
 			<div class="col-5 text-center">				
 				<div class="search_cart_footer_div_total_items">Your cart is empty</div>
-				<div class="search_cart_footer_div_total_price"><i class="fa fa-inr"></i>0.00</div>
+				<div class="search_cart_footer_div_total_price"><i class="fa fa-inr"></i>0.00/-</div>
 			</div>
 			<div class="col-7 text-center">
 				<span class="search_cart_footer_div_cart_empty">
-					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn btn-primary btn-block mainbutton_disable" onclick="cart_empty_btn()" tabindex="-3" title="Your cart is empty">Your cart is empty</button>
+					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn btn-primary btn-block main_theme_button_disable" onclick="cart_empty_btn()" tabindex="-3" title="Your cart is empty">Your cart is empty</button>
 				</span>
-				<span class="search_cart_footer_div_add_to_cart cart_add_to_cart_div" style="display:none">
-					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn btn-primary btn-block mainbutton" onclick="view_cart_btn()" tabindex="-3" title="View cart">View cart</button>
+				<span class="search_cart_footer_div_add_to_cart" style="display:none">
+					<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px;display:none" id="order_loading"></i><button class="btn btn-primary btn-block main_theme_button" onclick="view_cart_btn()" tabindex="-3" title="View cart">View cart</button>
 				</span>
 			</div>
 		</div>

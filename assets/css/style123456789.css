@@ -104,6 +104,34 @@ table{
 	color: var(--main_theme_textbox_text_color) !important;
 }
 
+.main_theme_button{
+	background-color: var(--mainbutton-color);
+	border-color: var(--mainbutton-color);
+	color: white;
+    border-radius: 10px;
+	width:100%;
+	padding: 7px;
+}
+.main_theme_button:hover,.main_theme_button:focus,.main_theme_button:active{
+	background-color: var(--mainbuttonhover-color);
+	border-color: var(--mainbuttonhover-color);
+	color: white;
+}
+
+.main_theme_button_disable{
+	background-color: var(--mainbuttondisable-color);
+	border-color: var(--mainbuttondisable-color);
+	color:white;
+	border-radius: 10px;
+	width:100%;
+	padding: 7px;
+}
+.main_theme_button_disable:hover,.main_theme_button_disable:focus,.main_theme_button_disable:active{
+	background-color: var(--mainbuttondisablehover-color);
+	border-color: var(--mainbuttondisablehover-color);
+	color:#000000;
+}
+/*******************************/
 .main_container{
 	padding-top:125px;
 	min-height: 500px;

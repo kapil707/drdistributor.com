@@ -77,7 +77,7 @@ function get_top_menu_api(){
 						item_image	 	= item.item_image;
 						item_url	 	= get_base_url() + "category/"+item.item_url;
 
-						$(".top_menu_menu").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
+						$(".top_bar_menu2_ul").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
 					}
 				});
 			}

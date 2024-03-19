@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456789t.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -186,8 +186,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 				
 				<div class="col-sm-12">
-					<div class="top_menu_menu_main">
-						<ul class="top_menu_menu">
+					<div class="top_bar_menu2">
+						<ul class="top_menu_menu top_bar_menu2_ul">
 						</ul>
 					</div>
 				</div>
@@ -547,4 +547,4 @@ function get_user_altercode(){
 	return "<?= $_COOKIE["user_altercode"] ?>";
 }
 </script>
-<script src="<?= base_url(); ?>assets/js/main1133efgh.js"></script>
+<script src="<?= base_url(); ?>assets/js/main1133efght.js"></script>

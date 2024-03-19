@@ -220,6 +220,43 @@ table{
     color: var(--main_theme_search_icon_color) !important;
     font-size: 25px;
 }
+.top_bar_menu2::-webkit-scrollbar{
+    width:5px;
+	height: 5px; 
+}
+
+.top_bar_menu2::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.top_bar_menu2::-webkit-scrollbar-thumb{
+    background:var(--main_theme_scrollbar_color);
+}
+
+.top_bar_menu2{
+	margin-top: 5px;
+    padding-top: 5px;
+    /*border-top: 1px solid var(--main_theme_border_color);*/
+    overflow-x: none;
+}
+.top_menu_menu2_ul{
+	width: max-content;
+    margin: auto;
+}
+.top_menu_menu2_ul li {
+    float: left;
+    margin-right: 7px;
+    padding: 5px;
+	border-radius:5px;
+    background: var(--top_icon_menu_li_bg);
+}
+.top_menu_menu2_ul li:hover {
+    background: var(--top_icon_menu_li_bg_hover);
+}
+.top_menu_menu2_ul li a {
+    font-size: 15px;
+    color: var(--top_icon_menu_color);
+}
 
 
 /*****************home page css**************************/

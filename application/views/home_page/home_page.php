@@ -134,4 +134,4 @@ window.jssor_2_slider_init = function() {
 	</div>
 </div>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?php echo base_url(); ?>/assets/js/home_page11.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/home_page112.js"></script>

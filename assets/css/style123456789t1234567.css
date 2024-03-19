@@ -306,12 +306,28 @@ table{
 	color: var(--top_icon_menu_color);
 }
 /*****************home page css**************************/
-.menubtn1{
-	display: none;
+.home_page_menu_div{	
+	padding:10px;
+    float: left;
+	width: 13.5%;
+    margin-right: 0.7%;
+	border-bottom-left-radius: 60px;
+    border-top-right-radius: 60px;
 }
-.menubtn2{
-	display: inline;
+.home_page_menu_div:hover{
+	/*border: 1px solid var(--main_theme_border_hover_color);*/
+	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
+.home_page_menu_div_btn{
+	font-size: 20px;
+    color: var(--main_theme_home_pg_menu_color);
+	font-weight: bold;
+}
+.home_page_menu_div_btn:hover{	
+    color: var(--main_theme_home_pg_menu_color_hover);
+	font-weight: bold;
+}
+
 .owl-carousel {
 	margin: 0px;
 	padding: 0px;

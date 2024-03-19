@@ -239,21 +239,21 @@ table{
     /*border-top: 1px solid var(--main_theme_border_color);*/
     overflow-x: none;
 }
-.top_menu_menu2_ul{
+.top_bar_menu2_ul{
 	width: max-content;
     margin: auto;
 }
-.top_menu_menu2_ul li {
+.top_bar_menu2_ul li {
     float: left;
     margin-right: 7px;
     padding: 5px;
 	border-radius:5px;
     background: var(--top_icon_menu_li_bg);
 }
-.top_menu_menu2_ul li:hover {
+.top_bar_menu2_ul li:hover {
     background: var(--top_icon_menu_li_bg_hover);
 }
-.top_menu_menu2_ul li a {
+.top_bar_menu2_ul li a {
     font-size: 15px;
     color: var(--top_icon_menu_color);
 }

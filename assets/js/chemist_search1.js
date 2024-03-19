@@ -78,19 +78,20 @@ function search_chemist()
 		{
 			$(".background_blur").show();
 			$(".search_result_div").show();
-			$(".search_result_div").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h2><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
+			$(".search_result_div").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h2><img src="'+get_base_url()+'img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
 			$.ajax({
 				type       : "POST",
-				data       :  {keyword : keyword} ,
-				url        : "<?php echo base_url(); ?>select_chemist/select_chemist_api",
+				dataType   : "json",
+				data       : {keyword : keyword} ,
+				url        : get_base_url()+"select_chemist/select_chemist_api",
 				cache	   : false,
 				error: function(){
-					$(".search_result_div").html('<h2><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h2>');
+					$(".search_result_div").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 				},
 				success    : function(data){
 					if(data.items=="")
 					{
-						$(".search_result_div").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
+						$(".search_result_div").html('<h2><center><img src="'+get_base_url()+'img_v51/no_record_found.png" width="100%"></center></h2>');
 					}
 					else
 					{
@@ -125,7 +126,7 @@ function search_chemist()
 }
 function chemist_session_add(chemist_id)
 {	
-	window.location.href = "<?= base_url();?>select_chemist/chemist_session_add/"+chemist_id
+	window.location.href = get_base_url()+"chemist_select/chemist_session_add/"+chemist_id
 }
 function page_up_down_arrow(new_i)
 {
@@ -172,16 +173,16 @@ function call_page_by_last_id()
 var no_record_found = 0;
 function call_page(lastid1)
 {
-	$(".main_page_loading").html('<h2><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+	$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
 		data       :  {lastid1:lastid1} ,
-		url        : "<?php echo base_url(); ?>select_chemist/salesman_my_cart_api",
+		url        : get_base_url()+"select_chemist/salesman_my_cart_api",
 		cache	   : false,
 		error: function(){
 			$(".main_page_loading").html("");
-			$(".main_page_data").html('<h2><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success    : function(data){
 			if(data.items=="")
@@ -189,7 +190,7 @@ function call_page(lastid1)
 				if(no_record_found=="0")
 				{
 					$(".main_page_loading").html("");
-					$(".main_page_data").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
+					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 				}
 				else
 				{

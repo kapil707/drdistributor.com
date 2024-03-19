@@ -30,4 +30,4 @@ function goBack() {
 	</div>     
 </div>
 <div class="background_blur" onclick="clear_search_icon()" style="display:none"></div>
-<script src="<?= base_url(); ?>assets/js/chemist_search.js"></script>
+<script src="<?= base_url(); ?>assets/js/chemist_search1.js"></script>

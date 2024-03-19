@@ -1,8 +1,8 @@
 <style>
-.menubtn1{
+.top_bar_logo{
 	display: inline !important;
 }
-.menubtn2{
+.top_bar_back_btn{
 	display: none !important;
 }
 .headertitle{

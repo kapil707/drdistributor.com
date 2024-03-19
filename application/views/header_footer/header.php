@@ -55,15 +55,15 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
 </head>
 <body>
-	<div class="top_menu_bar">
+	<div class="top_bar">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
 					<div class="" style="float:left;">
-						<a href="javascript:new_style_menu_show()" class="menubtn1" style="color:white;" title="Drd Menu">
-							<img src="<?= base_url() ?>img_v51/logo4.png" class="main_white_logo" alt="<?= $title;?>" title="<?= $title;?>">
+						<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
+							<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
 						</a>
-						<a href="javascript:goBack()" class="menubtn2" title="Go Back">
+						<a href="javascript:goBack()" class="top_bar_back_btn" title="Go Back">
 							<i class="fa fa-chevron-left main_back_button main_icon1" aria-hidden="true"></i>
 						</a>
 					</div>

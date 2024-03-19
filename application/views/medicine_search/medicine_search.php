@@ -43,13 +43,13 @@ function goBack() {
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
-			<div class="main_box_div search_page_main_div get_medicine_favourite_div p-2">
+			<div class="main_box_div get_medicine_favourite_api_div p-2">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
-			<div class="main_box_div search_page_main_div my_cart_api_div p-2">
+			<div class="main_box_div my_cart_api_div p-2">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>
@@ -102,4 +102,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_search.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_search1.js"></script>

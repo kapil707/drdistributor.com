@@ -1,6 +1,5 @@
 function get_medicine_favourite()
 {
-	//$('.get_medicine_favourite_div').html('');
 	id = "";
 	$.ajax({
 		url: get_base_url() + "medicine_details/get_medicine_favourite_api",
@@ -43,7 +42,7 @@ function get_medicine_favourite()
 
 					div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></div>"
 					
-					$(".get_medicine_favourite_div").append('<a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')" style="text-decoration: none;"><div class="main_theme_li_bg"><div class="favourite_medicines_div1"><img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" onclick="medicine_details_funcation('+item_code+')" onerror="setDefaultImage(this);"></div><div class="favourite_medicines_div2"><div class="text-capitalize all_item_name">'+item_name+'</div><div class="text-left all_item_order_quantity">Last order quantity : '+item_quantity+'</div></div></div></a>'+div_all_data);
+					$(".get_medicine_favourite_api_div").append('<div class="main_box_div_data"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')" style="text-decoration: none;"><div class="favourite_medicines_div1"><img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" onclick="medicine_details_funcation('+item_code+')" onerror="setDefaultImage(this);"></div><div class="favourite_medicines_div2"><div class="text-capitalize all_item_name">'+item_name+'</div><div class="text-left all_item_order_quantity">Last order quantity : '+item_quantity+'</div></div></a></div>'+div_all_data);
 				}
 			});
 		},

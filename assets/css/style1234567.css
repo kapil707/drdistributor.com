@@ -204,6 +204,21 @@ table{
 	color:var(--main_theme_search_icon_color) !important;
 	font-size:25px;
 }
+.top_bar_search_textbox_div_menu_icon{
+	display:none;
+	position: absolute;
+    right: 50px;
+    top: 10px;
+    color: var(--main_theme_search_icon_color) !important;
+    font-size: 23px;
+}
+.top_bar_search_textbox_div_clear_icon{
+	position: absolute;
+    right: 20px;
+    top: 7px;
+    color: var(--main_theme_search_icon_color) !important;
+    font-size: 25px;
+}
 
 
 /*****************home page css**************************/

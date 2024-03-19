@@ -151,9 +151,9 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 								<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
 
-								<i class="fa fa-list-alt menu_search_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
+								<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
 
-								<i class="fa fa-times clear_search_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
+								<i class="fa fa-times top_bar_search_textbox_div_clear_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
 							</div>
 							<div class="search_medicine_result"></div>
 						</div>

@@ -28,14 +28,11 @@ function goBack() {
 </div>
 <div class="background_blur" onclick="clear_search_icon()" style="display:none"></div>
 <script>
-function page_load()
-{
-	search_focus();
-	clear_search_icon();
-}
-function search_focus()
-{
-	$(".search_result_div").hide();
+function page_load(){
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+	$(".chemist_search_textbox").val("");
+	$('.chemist_search_textbox').show();
 	$('.chemist_search_textbox').focus();
 }
 function clear_search_icon()

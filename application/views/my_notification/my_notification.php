@@ -1,10 +1,15 @@
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
 <script>
-$(".headertitle").html("<?= $main_page_title ?>");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
@@ -25,4 +30,4 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js/my_notification.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_notification1.js"></script>

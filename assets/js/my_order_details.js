@@ -40,7 +40,6 @@ function call_page()
 
 					item_description1 	= "";
 					similar_items 		= "";
-					item_expiry 		= "";
 					item_stock			= "";
 					item_ptr			= "";
 					item_mrp			= "";

@@ -643,12 +643,23 @@ table{
 	line-height: 18px;
 }
 
-.favourite_medicines_div1{
+.favourite_medicines_box_left_div{
 	width:6%;
 	float:left;
 	padding:5px;
 }
-.favourite_medicines_div2{
+.favourite_medicines_box_right_div{
+	width:94%;
+	float:left;	
+	padding:5px;
+}
+
+.my_cart_box_left_div{
+	width:6%;
+	float:left;
+	padding:5px;
+}
+.my_cart_box_right_div{
 	width:94%;
 	float:left;	
 	padding:5px;

@@ -98,11 +98,7 @@ function call_page(lastid1)
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
-					$(".load_page").append('<div class="col-sm-12 col-12"><h5>Last update request</h5></div>');
-					
-					$(".load_page").append('><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div>');
-					$(".load_page").append('<div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div>');
-					$(".load_page").append('<div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div>');
+					$(".load_page").append('<div class="col-sm-12 col-12"><h5>Last update request</h5></div>'<div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div>');
 				}
 			});
 		},

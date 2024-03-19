@@ -67,8 +67,6 @@ $route['user/termsofservice'] = 'main/terms_of_services';
 $route['termsofservice']='main/terms_of_services';
 $route['terms_of_services']='main/terms_of_services';
 
-$route['select_chemist']='main/terms_of_services';
-
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';
 $route['chemist/android/Api_mobile30/get_online_cart/(:any)'] = 'android/Api_mobile30/get_online_cart/$1';
 $route['chemist/android/Api_mobile30/get_online_cart2/(:any)'] = 'android/Api_mobile30/get_online_cart2/$1';
@@ -127,8 +125,8 @@ $route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 
-$route['select_chemist'] = 'Select_chemist/index';
-$route['home/select_chemist'] = 'Select_chemist/index';
+$route['select_chemist'] = 'Chemist_select/index';
+$route['home/select_chemist'] = 'Chemist_select/index';
 
 $route['404_override'] = 'errors/custom_404';
 $route['translate_uri_dashes'] = FALSE;

@@ -30,7 +30,7 @@ function goBack() {
 					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Update Image" style="margin-left:30%" id="user_profile">
 				</div>
 				<div class="col-sm-12 mt-2 mb-2">
-					<div class="main_theme_li_bg p-4">
+					<div class="main_box_div_data p-4">
 						<a href="javascript:getfile_fun()" title="Select image from gallery" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
 							<span style="margin-left:20px;">Select image from gallery</span>
@@ -57,19 +57,19 @@ function call_page(lastid1)
 	new_i = 0;
 	id = "";
 	$(".load_more").hide();
-	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$.ajax({
 		type       : "POST",
 		data       :  {id:id} ,
 		url        : "<?php echo base_url(); ?>User/get_user_account_api",
 		cache	   : false,
 		error: function(){
-			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+			$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+				$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
 			}
 			else
 			{

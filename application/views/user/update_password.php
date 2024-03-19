@@ -63,8 +63,8 @@ function goBack() {
 					<span class="text-center main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
 				<div class="col-sm-12 mb-2">
-					<input type="submit" value="Update password" class="main_theme_button" onclick="submitbtn()" id="submitbtn">
-					<input type="submit" value="Update password" class="main_theme_button_disable" id="submitbtn_disable" style="display:none">
+					<input type="submit" value="Update password" class="main_theme_button" onclick="submitbtn()" id="submitbtn" style="display:none">
+					<input type="submit" value="Update password" class="main_theme_button_disable" id="submitbtn_disable">
 				</div>
 			</div> 
 		</div>

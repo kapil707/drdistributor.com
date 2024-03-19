@@ -152,6 +152,10 @@ table{
 }
 .top_bar_back_btn{
 	display: none;
+	margin-top:7px;
+	width: 25px;
+	color: var(--top_icon_menu_color);
+	font-size: 30px;
 }
 .top_bar_logo img{
 	width:40px;

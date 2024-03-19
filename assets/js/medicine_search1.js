@@ -200,8 +200,10 @@ function medicine_search_api()
 	new_i = 0;
 	
 	$(".menu_search_icon").show();
-	$(".top_bar_search_textbox_div_menu_icon").hide();
+
+	$(".top_bar_search_textbox_div_menu_icon").show();
 	$(".top_bar_search_textbox_div_clear_icon").show();
+
 	var keyword = $(".medicine_search_textbox").val();
 	//$('.headertitle').html(keyword)
 	if(keyword!="")

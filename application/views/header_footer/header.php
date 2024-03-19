@@ -40,6 +40,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<?php if($theme_type=="lite") { ?>
 		<link href="<?= base_url(); ?>assets/css/style-light.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
+	
 
 	<?php if($theme_type=="dark") { ?>
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>

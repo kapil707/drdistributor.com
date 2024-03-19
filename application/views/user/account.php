@@ -1,23 +1,30 @@
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
 <script>
-$(".headertitle").html("Account");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home";
+	window.location.href = "<?= base_url();?>my_invoice";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12">
-			<div class="row main_box_div p-2">
+			<div class="row">
 				<div class="col-sm-12">
-					<div class="main_box_div_data">
-						<div class="chemist_search_box_left_div">
-							<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
-						</div>
-						<div class="chemist_search_box_right_div text-left">
-							<span class="all_item_name"><?= $_COOKIE['user_fname'] ?></span><br>
-							<span class="all_item_packing">Code :
-							<?php echo $_COOKIE['user_altercode'] ?></span>
+					<div class="main_box_div">
+						<div class="main_box_div_data">
+							<div class="chemist_search_box_left_div">
+								<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror="setDefaultImage(this);">
+							</div>
+							<div class="chemist_search_box_right_div text-left">
+								<span class="all_item_name"><?= $_COOKIE['user_fname'] ?></span><br>
+								<span class="all_item_packing">Code :
+								<?php echo $_COOKIE['user_altercode'] ?></span>
+							</div>
 						</div>
 					</div>
 				</div>

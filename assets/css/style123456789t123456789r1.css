@@ -447,6 +447,17 @@ table{
 	color: var(--main_theme_hearder_color);
 }
 
+.home_page_box_left_div{
+	width:7%;
+	float:left;
+	padding:5px;
+}
+.home_page_box_right_div{
+	width:93%;
+	float:left;	
+	padding:5px;
+}
+
 
 .all_divisioncategory{
 	border-radius: 10px;

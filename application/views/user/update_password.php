@@ -1,10 +1,15 @@
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
 <script>
-$(".headertitle").html("Update password");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>account";
+	window.location.href = "<?= base_url();?>my_invoice";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8 col-12 website_box_part">

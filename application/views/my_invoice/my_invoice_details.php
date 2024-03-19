@@ -1,29 +1,34 @@
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
 <script>
-$(".headertitle").html("<?= $main_page_title ?>");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>my_invoice";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-3 col-6 download_excel_url" style="margin-top:5px;margin-bottom:5px;">
 					
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="website_box_part load_page p-2" style="display:none">
+			<div class="main_box_div main_page_data p-2" style="display:none">
 			</div>
 		</div>
 		<div class="col-sm-12 load_page_loading" style="margin-top:10px;">
 		
 		</div>
 		<div class="col-sm-12 col-12 text-center div_item_edit" style="display:none" style="margin-top:5px;margin-bottom:5px;">
-			<h4>Item Quantity changed</h4>
+			<h4>Item quantity changed</h4>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="website_box_part load_page_edit" style="display:none">
+			<div class="website_box_part main_page_data_edit" style="display:none">
 			</div>
 		</div>
-		<div class="col-sm-12 col-12 text-center div_item_delete" style="display:none" style="margin-top:5px;margin-bottom:5px;">
+		<div class="col-sm-12 col-12 text-center main_page_data_delete" style="display:none" style="margin-top:5px;margin-bottom:5px;">
 			<h4>Items deleted</h4>
 		</div>
 		<div class="col-sm-12 col-12">
@@ -38,10 +43,8 @@ $(document).ready(function(){
 });
 function call_page()
 {
-	item_id 		= "<?php echo $item_id; ?>";
-	
-	$(".load_more").hide();
-	$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+	item_id = "<?php echo $item_id; ?>";
+	$(".load_page_loading").html('<h2><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -49,13 +52,13 @@ function call_page()
 		url        : "<?php echo base_url(); ?>my_invoice/my_invoice_details_api",
 		cache	   : false,
 		error: function(){
-			$(".load_page_loading").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
+			$(".load_page_loading").html('<h2><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success    : function(data){
 			$(".load_page_loading").html("");
 			if(data.items=="")
 			{
-				$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+				$(".load_page_loading").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
 			}
 			
 			if (data.title!="") {
@@ -84,17 +87,17 @@ function call_page()
 					
 					error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
 					
-					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" '+error_img+'>';
+					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" '+error_img+'>';
 					
 					item_scheme_div = "";
 					if(item_scheme!="0+0")
 					{
-						item_scheme_div =  ' | <span class="medicine_cart_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
+						item_scheme_div =  ' | <span class="all_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
 					}
-					rate_div = '<div class="cart_ki_main_div3 medicine_cart_item_datetime">'+item_modalnumber+' | '+item_date_time+'</div><div class="cart_ki_main_div3"><span class="medicine_cart_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
+					rate_div = '<div class="all_item_date_time">'+item_modalnumber+' | '+item_date_time+'</div><div class=""><span class="all_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="all_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
 					
-					$(".load_page").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="medicine_cart_item_name" title="'+item_name+'">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_expiry">Expiry : '+item_expiry+'</div><div class="medicine_cart_item_company">By '+item_company+'</div><div class="text-left medicine_cart_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>');
-					$(".load_page").show();
+					$(".main_page_data").append('<div class="main_box_div_data" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="all_page_details_page_box_left_div">'+image_div+'</div><div class="all_page_details_page_box_right_div"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span></div>');
+					$(".main_page_data").show();
 				}
 			});	
 			$.each(data.items_edit, function(i,item){	
@@ -117,18 +120,18 @@ function call_page()
 					
 					error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
 					
-					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" '+error_img+'>';
+					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" '+error_img+'>';
 					
 					item_scheme_div = "";
 					if(item_scheme!="0+0")
 					{
-						item_scheme_div =  ' | <span class="medicine_cart_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
+						item_scheme_div =  ' | <span class="all_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
 					}
-					rate_div = '<div class="cart_ki_main_div3 medicine_cart_item_datetime">'+item_modalnumber+' | '+item_date_time+'</div><div class="cart_ki_main_div3"><span class="medicine_cart_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
+					rate_div = '<div class="cart_ki_main_div3 all_item_datetime">'+item_modalnumber+' | '+item_date_time+'</div><div class="cart_ki_main_div3"><span class="all_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="all_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
 					
-					$(".load_page_edit").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="medicine_cart_item_name" title="'+item_name+'">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_expiry">Expiry : '+item_expiry+'</div><div class="medicine_cart_item_company">By '+item_company+'</div><div class="text-left medicine_cart_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span><div class="cart_ki_main_div3 medicine_cart_item_description1">'+item_description1+'</div></div>');
+					$(".main_page_data_edit").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="all_div1">'+image_div+'</div><div class="all_div2"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span><div class="cart_ki_main_div3 all_item_description1">'+item_description1+'</div></div>');
 					$(".div_item_edit").show();
-					$(".load_page_edit").show();
+					$(".main_page_data_edit").show();
 				}
 			});	
 			
@@ -152,17 +155,17 @@ function call_page()
 					
 					error_img ="onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'"
 					
-					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="medicine_cart_item_image" '+error_img+'>';
+					image_div = '<img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" '+error_img+'>';
 					
 					item_scheme_div = "";
 					if(item_scheme!="0+0")
 					{
-						item_scheme_div =  ' | <span class="medicine_cart_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
+						item_scheme_div =  ' | <span class="all_item_scheme" title="'+item_name+' '+item_scheme+'">Scheme : '+item_scheme+'</span>';
 					}
-					rate_div = '<div class="cart_ki_main_div3 medicine_cart_item_datetime">'+item_modalnumber+' | '+item_date_time+'</div><div class="cart_ki_main_div3"><span class="medicine_cart_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="medicine_cart_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
+					rate_div = '<div class="cart_ki_main_div3 all_item_datetime">'+item_modalnumber+' | '+item_date_time+'</div><div class="cart_ki_main_div3"><span class="all_item_price2">Price : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="all_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div>';
 					
-					$(".load_page_delete").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="medicine_cart_div1">'+image_div+'</div><div class="medicine_cart_div2"><div class="medicine_cart_item_name" title="'+item_name+'">'+item_name+' <span class="medicine_cart_item_packing">('+item_packing+' Packing)</span></div><div class="medicine_cart_item_expiry">Expiry : '+item_expiry+'</div><div class="medicine_cart_item_company">By '+item_company+'</div><div class="text-left medicine_cart_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span><div class="cart_ki_main_div3 medicine_cart_item_description1">'+item_description1+'</div></div>');
-					$(".div_item_delete").show();
+					$(".load_page_delete").append('<div class="main_theme_li_bg" onclick="get_single_medicine_info('+item_code+')" style="cursor: pointer;"><div class="all_div1">'+image_div+'</div><div class="all_div2"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span><div class="cart_ki_main_div3 all_item_description1">'+item_description1+'</div></div>');
+					$(".main_page_data_delete").show();
 					$(".load_page_delete").show();
 				}
 			});

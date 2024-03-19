@@ -15,7 +15,7 @@ class chemist_select extends CI_Controller {
 			redirect(base_url()."under_construction");
 		}
 
-		$this->load->model("model-drdistributor/chemist_search/ChemistSelectModel");
+		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 	}
     
     public function index(){

@@ -15,7 +15,7 @@ function goBack() {
 		<div class="col-sm-8 col-12">
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="main_box_div">
+					<div class="main_box_div p-2">
 						<div class="main_box_div_data">
 							<div class="chemist_search_box_left_div">
 								<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror="setDefaultImage(this);">
@@ -29,8 +29,10 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<div class="main_theme_li_bg p-4 load_page">
-						
+					<div class="main_box_div p-2">
+						<div class="main_box_div_data load_page">
+							
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">

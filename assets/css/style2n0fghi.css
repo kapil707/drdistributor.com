@@ -2379,7 +2379,13 @@ section{
 .medicine_details_item_price
 {
 	color:var(--item_price_color);
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.medicine_details_item_total
+{
+	color:var(--item_total_color);
+    font-size: 18px;
     font-weight: bold;
 }
 .medicine_details_item_gst

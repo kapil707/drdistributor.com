@@ -1,6 +1,6 @@
 function get_medicine_favourite()
 {
-	$(".get_medicine_favourite_div").html('');
+	$(".get_medicine_favourite_api_div").html('');
 	id = "";
 	$.ajax({
 		url: get_base_url() + "medicine_details/get_medicine_favourite_api",
@@ -9,11 +9,11 @@ function get_medicine_favourite()
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".get_medicine_favourite_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".get_medicine_favourite_api_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success: function(data){
 			if(data.items==""){
-				$(".get_medicine_favourite_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
+				$(".get_medicine_favourite_api_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
 				$(".header_result_found").html("No record found");
 			}
 			$.each(data.items, function(i,item){

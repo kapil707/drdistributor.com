@@ -147,12 +147,23 @@ table{
 .top_bar_search_div:hover{
 	color:#6A6767;
 }
-.top_bar_search_div_icon{
+.top_bar_search_div_search_icon{
 	position: absolute;
     margin-top: -3px;
     margin-left: -30px;
     color: var(--main_theme_search_icon_color) !important;
     font-size: 25px;
+}
+.top_bar_search_textbox_div{
+	width:100%;
+	/*display:none;*/
+}
+.top_bar_search_textbox_div_search_icon{
+	position: absolute;
+    margin-top: 7px;
+    margin-left: 7px;
+	color:var(--main_theme_search_icon_color) !important;
+	font-size:25px;
 }
 
 

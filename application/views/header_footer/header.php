@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style12345.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -140,15 +140,19 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 col-12">
 
 							<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
-								<i class="fa fa-search top_bar_search_div_icon" aria-hidden="true"></i>
+								<i class="fa fa-search top_bar_search_div_search_icon" aria-hidden="true"></i>
 								<div class="my_typing">Search medicine / company...</div> 
 							</a>
 							
-							<div class="home_page_search_div_box">
-								<i class="fa fa-search textbox_search_icon" aria-hidden="true"></i>
+							<div class="top_bar_search_textbox_div">
+								<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
+
 								<input type="text" class="select_medicine search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1">
+
 								<input type="text" class="select_chemist search_textbox input_type_text" placeholder="Search chemist"  tabindex="1" />
+
 								<i class="fa fa-list-alt menu_search_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
+
 								<i class="fa fa-times clear_search_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
 							</div>
 							<div class="search_medicine_result"></div>
@@ -184,17 +188,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				<div class="col-sm-12">
 					<div class="top_menu_menu_main">
 						<ul class="top_menu_menu">
-							<?php 
-							/*foreach($website_menu as $row) { ?>
-							<li>
-								<?php /*<a href="<?= base_url();?>home/medicine_category/medicine_category/<?= $row["item_code"] ?>">*/ /*?>
-								<a href="<?= base_url();?>category/<?= str_replace(" ","-",strtolower($row["item_company"])); ?>">
-									<span>
-									<?= ($row["item_company"]) ?>
-									</span>
-								</a>
-							</li>
-							<?php } */ ?>
 						</ul>
 					</div>
 				</div>

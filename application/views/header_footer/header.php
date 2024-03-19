@@ -100,7 +100,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 							<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
-							<span class="d-none d-lg-block"> Cart</span>&nbsp;
+							<span class="d-none d-lg-block">My cart</span>&nbsp;
 							(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
 						</a>
 					</li>
@@ -149,7 +149,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 							<input type="text" class="medicine_search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1" style="display:none">
 
-							<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" style="display:none">
+							<input type="text" class="chemist_search_textbox input_type_text" placeholder="Search chemist"  tabindex="1" style="display:none">
 
 							<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
 

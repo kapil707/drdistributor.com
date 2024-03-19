@@ -62,6 +62,45 @@ body{
 table{
 	color:var(--main_theme_text_black_color) !important;
 }
+.input_type_text
+{
+	background-color: var(--main_theme_textbox_background_color) !important;
+	border: 1px solid var(--main_theme_border_color) !important;
+	border-radius:10px;
+	color: var(--main_theme_textbox_text_color) !important;
+	width:100%;
+
+	font-size: 18px;
+    font-weight: bold;
+	border-width: 0px;
+	padding: 7px;
+	padding-left:40px;
+}
+.input_type_text:-webkit-autofill,
+.input_type_text:-webkit-autofill:hover, 
+.input_type_text:-webkit-autofill:focus,
+.input_type_text:-webkit-autofill:active {
+	color: var(--main_theme_textbox_text_color) !important;
+}
+.input_type_text:hover, 
+.input_type_text:focus,
+.input_type_text:active {
+	color: var(--main_theme_textbox_text_color) !important;
+}
+
+.input_type_text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: var(--main_theme_textbox_text_color) !important;
+	opacity: 1; /* Firefox */
+}
+  
+.input_type_text::-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: var(--main_theme_textbox_text_color) !important;
+}
+  
+.input_type_text::-ms-input-placeholder { /* Microsoft Edge */
+	color: var(--main_theme_textbox_text_color) !important;
+}
+/*************************************************************/
 .top_bar {
     margin-top: 5px;
     margin-left: 0.5%;

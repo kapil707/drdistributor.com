@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style1234567.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -147,9 +147,9 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<div class="top_bar_search_textbox_div">
 								<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
 
-								<input type="text" class="select_medicine search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1">
+								<input type="text" class="select_medicine input_type_text" placeholder="Search medicine / company" tabindex="1">
 
-								<input type="text" class="select_chemist search_textbox input_type_text" placeholder="Search chemist"  tabindex="1" />
+								<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
 
 								<i class="fa fa-list-alt menu_search_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
 

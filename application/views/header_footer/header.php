@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456789t.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -147,15 +147,15 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<div class="top_bar_search_textbox_div">
 							<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
 
-							<input type="text" class="medicine_search input_type_text" placeholder="Search medicine / company" tabindex="1">
+							<input type="text" class="medicine_search input_type_text" placeholder="Search medicine / company" tabindex="1" style="display:none">
 
-							<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" />
+							<input type="text" class="select_chemist input_type_text" placeholder="Search chemist"  tabindex="1" style="display:none">
 
 							<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_icon()"></i>
 
 							<i class="fa fa-times top_bar_search_textbox_div_clear_icon" aria-hidden="true" onclick="clear_search_icon()"></i>
 						</div>
-						<div class="search_medicine_result"></div>
+						<div class="search_result_div"></div>
 					</div>
 
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">

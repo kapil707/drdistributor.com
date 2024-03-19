@@ -1,6 +1,7 @@
 function cart_page_load(){
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
+	$('.medicine_search').show();
 	$('.medicine_search').focus();
 	my_cart_api();
 }
@@ -61,8 +62,8 @@ get_medicine_favourite();
 
 function clear_search_icon()
 {
-	$(".search_medicine_result").html("");
-	$(".search_medicine_result").hide();
+	$(".search_result_div").html("");
+	$(".search_result_div").hide();
 
 	$(".search_textbox").val("");
 	$('.search_textbox').focus();
@@ -89,7 +90,7 @@ $(document).ready(function(){
 				if(keyword.length<3)
 				{
 					$('.search_textbox').focus();
-					$(".search_medicine_result").html("");
+					$(".search_result_div").html("");
 				}
 			}
 			else{
@@ -105,7 +106,7 @@ $(document).ready(function(){
 			if(keyword.length<3)
 			{
 				$('.search_textbox').focus();
-				$(".search_medicine_result").html("");
+				$(".search_result_div").html("");
 			}
 			if(keyword.length>2)
 			{
@@ -222,8 +223,8 @@ function medicine_search_api()
             }
 			
 			$(".background_blur").show();
-			$(".search_medicine_result").show();
-			$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
+			$(".search_result_div").show();
+			$(".search_result_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 			type       : "POST",
@@ -232,18 +233,18 @@ function medicine_search_api()
 			url        : get_base_url() + "medicine_search/medicine_search_api",
 			cache	   : true,
 			error: function(){
-				$(".search_medicine_result").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+				$(".search_result_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 				$(".header_result_found").html("No record found");
 			},
 			success    : function(data){
 				if(data.items=="")
 				{
-					$(".search_medicine_result").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
+					$(".search_result_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
 					$(".header_result_found").html("No record found");
 				}
 				else
 				{
-					$(".search_medicine_result").html("");
+					$(".search_result_div").html("");
 					$(".header_result_found").html("Found result");
 				}
 				$.each(data.items, function(i,item){
@@ -297,14 +298,14 @@ function medicine_search_api()
 							
 							rete_div =  '<span class="all_item_ptr" title="PTR : '+item_ptr+'">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </span> | <span class="all_item_mrp" title="MRP : '+item_mrp+'">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </span> | <span class="all_item_price" title="*Approximate ~ '+item_price+'">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </span>';							
 
-							$(".search_medicine_result").append('<div class="main_theme_li_bg '+csshover1+' medicine_details_funcation_'+new_i+'" '+div_start+'><div class="medicine_search_div1">'+item_other_image_div+'<img src="'+item_image+'" alt="'+item_name+'" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="medicine_search_div2"><div class="all_item_name">'+item_name+'<span class="all_item_packing mobile_off"> ('+item_packing+' Packing)</span></div><div class="all_item_packing mobile_show">'+item_packing+' Packing</div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span>| <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div>'+item_quantity_div+'</div><div class="mobile_off">'+rete_div+'</div></div><div class="medicine_search_full_width mobile_show" style="margin-left:5px;">'+rete_div+'</div><div class="medicine_search_full_width medicine_cart_item_description1">'+item_description1+'</div><div class="medicine_search_full_width medicine_cart_item_similar_items"><a href="<?= base_url();?>home/medicine_category/medicine_similar/'+item_code+'">'+similar_items+'</a></div></div>'+div_all_data);
+							$(".search_result_div").append('<div class="main_theme_li_bg '+csshover1+' medicine_details_funcation_'+new_i+'" '+div_start+'><div class="medicine_search_div1">'+item_other_image_div+'<img src="'+item_image+'" alt="'+item_name+'" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="medicine_search_div2"><div class="all_item_name">'+item_name+'<span class="all_item_packing mobile_off"> ('+item_packing+' Packing)</span></div><div class="all_item_packing mobile_show">'+item_packing+' Packing</div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span>| <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div>'+item_quantity_div+'</div><div class="mobile_off">'+rete_div+'</div></div><div class="medicine_search_full_width mobile_show" style="margin-left:5px;">'+rete_div+'</div><div class="medicine_search_full_width medicine_cart_item_description1">'+item_description1+'</div><div class="medicine_search_full_width medicine_cart_item_similar_items"><a href="<?= base_url();?>home/medicine_category/medicine_similar/'+item_code+'">'+similar_items+'</a></div></div>'+div_all_data);
 				
 							$(".search_pg_result_found").html("Search result");	
 							$(".headertitle").html("Search medicines ("+new_i+")");
 							
 							if(new_i=="50")
 							{
-								$(".search_medicine_result").append('<div style="color: green;font-weight: bold;margin: 10px" class="text-center"><a href="'+ get_base_url()+'home/search_view_all?keyword='+keyword+'">View All</a></div>');
+								$(".search_result_div").append('<div style="color: green;font-weight: bold;margin: 10px" class="text-center"><a href="'+ get_base_url()+'home/search_view_all?keyword='+keyword+'">View All</a></div>');
 							}
 						}						
 					});
@@ -316,7 +317,7 @@ function medicine_search_api()
 			$(".menu_search_icon").hide();
 			$(".menu_search_icon_box").hide();
 			$(".clear_search_icon").hide();
-			$(".search_medicine_result").html("");
+			$(".search_result_div").html("");
 		}
 	}
 }

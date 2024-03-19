@@ -834,6 +834,25 @@ table{
     font-size: 14px;
 }
 
+/****************************************/
+.search_result_div{
+	background-color: var(--main_theme_white_background_color);
+	margin-top: -8px;
+    z-index: 15;
+    max-height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 96%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+	position: absolute;
+	display: none;
+	border-left: 1px solid var(--main_theme_border_color);
+    border-right: 1px solid var(--main_theme_border_color);
+    border-bottom: 1px solid var(--main_theme_border_color);
+}
+
 .search_cart_footer_div {
     bottom: 10px;
     position: fixed;

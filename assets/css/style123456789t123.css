@@ -271,6 +271,17 @@ table{
 .left_menu_bar_cancel_icon{
 	font-size: 30px;
 }
+.left_menu_bar_account_image,.account_page_header_image{
+	width: 100%;
+}
+.left_menu_bar_accoun_chemist_name,.account_page_chemist_name{
+	word-wrap: break-word;
+	font-size: 18px;
+	font-weight: bold;
+}
+.left_menu_bar_accoun_chemist_code,.account_page_chemist_code{
+	font-size: 16px;
+}
 
 /*****************home page css**************************/
 .menubtn1{

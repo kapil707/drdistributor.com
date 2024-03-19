@@ -62,7 +62,7 @@ function call_page()
 			}
 			
 			if (data.title!="") {
-				$(".headertitle").html(data.title);
+				$(".top_bar_title").html(data.title);
 			}
 
 			if (data.download_url!="") {

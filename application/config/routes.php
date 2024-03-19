@@ -67,7 +67,7 @@ $route['user/termsofservice'] = 'main/terms_of_services';
 $route['termsofservice']='main/terms_of_services';
 $route['terms_of_services']='main/terms_of_services';
 
-$route['select_chemist']='chemist_select';
+$route['select_chemist']='Chemist_select';
 
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';
 $route['chemist/android/Api_mobile30/get_online_cart/(:any)'] = 'android/Api_mobile30/get_online_cart/$1';

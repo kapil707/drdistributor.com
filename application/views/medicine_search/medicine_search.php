@@ -35,11 +35,12 @@ function goBack() {
 			</span>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off" style="margin-bottom:5px;">
-			<h6 class="home_page_heading_title2" onclick="current_order_ref()">My Cart <span class="div_cart_total_items1"></span></h6>
+			<h6 class="home_page_heading_title2" onclick="current_order_ref()">
+				My Cart <span class="search_page_total_cart_items"></span>
+			</h6>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-bottom:5px;">
-			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicines">
-			<i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
+			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
@@ -59,8 +60,8 @@ function goBack() {
 	<div class="container">
 		<div class="row">
 			<div class="col-5 text-center">				
-				<div class="div_cart_total_items">Your cart is empty</div>
-				<div class="div_cart_total_price"><i class="fa fa-inr"></i>0.00</div>
+				<div class="search_cart_footer_div_total_items">Your cart is empty</div>
+				<div class="search_cart_footer_div_total_price"><i class="fa fa-inr"></i>0.00/-</div>
 			</div>
 			<div class="col-7 text-center">
 				<span class="cart_empty_cart_div">

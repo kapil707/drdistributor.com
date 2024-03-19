@@ -2390,7 +2390,7 @@ section{
 .medicine_details_item_order_quantity
 {
 	color:var(--item_order_quantity);
-    font-size: 20px;
+    font-size: 18px;
 	font-weight: bold;
 }
 .medicine_details_item_order_quantity_textbox
@@ -2399,7 +2399,7 @@ section{
     border: 0px;
     border-radius: 10px;
     padding: 5px;
-	border: 1px solid var(--mainthemecolor);
+	border: 1px solid var(--mainborder-color);
 }
 .medicine_details_item_order_quantity:focus
 {
@@ -2411,7 +2411,12 @@ section{
 .medicine_details_item_description1
 {
 	color:var(--item_description1_color);
-    font-size: 16px;
+    font-size: 14px;
+}
+.medicine_details_item_description2
+{
+	color:var(--item_description2_color);
+    font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {

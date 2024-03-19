@@ -14,7 +14,7 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="main_box_div load_page p-2" style="display:none">
+					<div class="main_box_div main_page_data p-2" style="display:none">
 					</div>
 				</div>
 			</div>
@@ -212,12 +212,11 @@ function call_page_by_last_id()
 var no_record_found = 0;
 function call_page(lastid1)
 {
-	$(".load_more").hide();
 	$(".main_page_loading").html('<h2><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  { lastid1:lastid1} ,
+		data       :  {lastid1:lastid1} ,
 		url        : "<?php echo base_url(); ?>select_chemist/salesman_my_cart_api",
 		cache	   : false,
 		error: function(){

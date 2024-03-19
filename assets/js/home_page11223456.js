@@ -134,11 +134,11 @@ function home_page_invoice(category_id,items,title){
 				delete_status_div = '<div class="all_item_date_time">Some items have been deleted / modified in this order</div>';
 			}
 			
-			mydata+='<div class="main_box_div_data"><div class="medicine_my_page_div1"><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></a></div><div class="medicine_my_page_div2 text-left"><div class=""><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><span class="all_item_title">'+item_title+'</span></a><span style="float: right;"><a href="'+download_url+'" class="all_item_download">Download Invoice</a></span></div><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
+			mydata+='<div class="main_box_div_data"><div class="row"><div class="col-sm-1"><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></a></div><div class="col-sm-11 text-left"><div class=""><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><span class="all_item_title">'+item_title+'</span></a><span style="float: right;"><a href="'+download_url+'" class="all_item_download">Download Invoice</a></span></div><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></div></a></div>';
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_invoice" title="My invoice">My invoice</a></div><div class="main_box_div home_page_new_box_inv p-2">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInLeft animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_invoice" title="My invoice">My invoice</a></div><div class="main_box_div p-2">'+mydata+'</div></div>';
 	
 	return myval;
 }
@@ -153,11 +153,11 @@ function home_page_notification(category_id,items,title){
 			item_date_time 		= item.item_date_time;
 			item_image 			= item.item_image;
 			
-			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="row"><div class="col-sm-2"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="col-sm-10 text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></div></a></div>';
+			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="row"><div class="col-sm-1"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="col-sm-11 text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></div></a></div>';
 		}
 	});
 	
-	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_notification" title="My notification">My notification</div><div class="main_box_div home_page_new_box_inv p-2">'+mydata+'</div></div>';
+	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_notification" title="My notification">My notification</div><div class="main_box_div p-2">'+mydata+'</div></div>';
 	
 	return myval;
 }

@@ -16,10 +16,10 @@ function goBack() {
 			<div class="row main_box_div p-2">
 				<div class="col-sm-12">
 					<div class="main_box_div_data">
-						<div class="chemist_search_box_left_div">
+						<div class="all_page_box_left_div">
 							<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror="setDefaultImage(this);">
 						</div>
-						<div class="chemist_search_box_right_div text-left">
+						<div class="all_page_box_right_div text-left">
 							<span class="all_item_name"><?= $_COOKIE['user_fname'] ?></span><br>
 							<span class="all_item_packing">Code :
 							<?php echo $_COOKIE['user_altercode'] ?></span>

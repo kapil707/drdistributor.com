@@ -27,4 +27,4 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js/my_invoice1.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_invoice.js"></script>

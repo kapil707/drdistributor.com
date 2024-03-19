@@ -187,8 +187,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				
 				<div class="col-sm-12">
 					<div class="top_bar_menu2">
-						<ul class="top_menu_menu top_bar_menu2_ul">
-						</ul>
+						<ul class="top_bar_menu2_ul"></ul>
 					</div>
 				</div>
 

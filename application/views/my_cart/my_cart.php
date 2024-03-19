@@ -1,16 +1,30 @@
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+.main_box_div_data{
+	width:49%;
+	margin-left:0.5%;
+}
+@media screen and (max-width: 800px) {
+	.main_box_div_data{
+		width:100%;
+		margin-left:0px;
+	}
+}
+</style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.headertitle
-{
+.top_bar_title1 {
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".headertitle1").show();
+$(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("My cart");
+$(".top_bar_title").html("My cart");
 function goBack() {
 	window.location.href = "<?= base_url();?>search_medicine";
 }
@@ -22,7 +36,7 @@ function goBack() {
 	<h1 class="text-center">Loading....</h1>
 	<h1 class="text-center">Please wait, Your order is under process.</h1>
 </div>
-<div class="container-fluid maincontainercss">
+<div class="container-fluid main_container">
 	<div class="row">
 		<div class="col-sm-6 col-6 current_order_search_page1 mobile_off">
 			<h6 class="search_pg_title_color Current_Order">
@@ -132,18 +146,6 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<style>
-.main_theme_li_bg{
-	width:49%;
-	margin-left:0.5%;
-}
-@media screen and (max-width: 800px) {
-	.main_theme_li_bg{
-		width:100%;
-		margin-left:0px;
-	}
-}
-</style>
 <script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>
 <script>
 // function my_cart_api_div()

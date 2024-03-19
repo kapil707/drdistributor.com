@@ -1,7 +1,4 @@
 <style>
-.top_bar_back_btn{
-	display:block;
-}
 .main_container{
 	margin-bottom:100px;
 }

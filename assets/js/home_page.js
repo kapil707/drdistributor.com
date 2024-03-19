@@ -153,7 +153,7 @@ function home_page_notification(category_id,items,title){
 			item_date_time 		= item.item_date_time;
 			item_image 			= item.item_image;
 			
-			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="home_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="home_page_box_right_div text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="medicine_cart_item_datetime">'+item_date_time+'</div></div></a></div>';
+			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="home_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="home_page_box_right_div text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>';
 		}
 	});
 	

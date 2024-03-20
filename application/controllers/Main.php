@@ -161,7 +161,6 @@ class Main extends CI_Controller {
 			$data["item_id"] 		= $row->id;
 			$data["user_altercode"] = $chemist_id;
 		}
-		echo $row->id;die();
 		
 		$data["main_page_title"] = $invoice_id;	
 		$this->load->view('header_footer/header', $data);

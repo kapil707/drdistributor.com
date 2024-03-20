@@ -84,12 +84,11 @@ table{
 	border-radius:10px;
 	color: var(--main_theme_textbox_text_color) !important;
 	width:100%;
-
 	font-size: 18px;
     font-weight: bold;
 	border-width: 0px;
 	padding: 7px;
-	padding-left:40px;
+	padding-left:35px;
 }
 
 .input_type_text:-webkit-autofill,
@@ -231,6 +230,7 @@ table{
 .top_bar_back_btn i {
 	color: var(--top_icon_menu_color);
 	font-size: 30px;
+	margin-top: 5px;
 }
 .top_bar_logo img{
 	width:40px;
@@ -1134,6 +1134,7 @@ table{
 	}
 	.top_bar_search_div_search_text{		
 		font-size: 15px;
+		margin-left: 25px;
 	}
 	.top_bar_search_div_search_icon {
 		font-size: 20px;
@@ -1157,5 +1158,10 @@ table{
 	}
 	.my_cart_box_right_div,.medicine_search_box_right_div {
 		width: 78%;
+	}
+	.search_cart_footer_div{
+		width: 98%;
+    	margin-left: 1%;
+		border-radius: 10px;
 	}
 }

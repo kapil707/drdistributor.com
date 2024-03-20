@@ -35,7 +35,7 @@ function place_order_complete()
 	remarks 	= $("#remarks").val();
 	$(".place_order_div").show();
 	$(".main_container").hide();
-	$(".place_order_or_empty_cart_btn_div").hide();
+	$(".search_cart_footer_div").hide();
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -43,7 +43,7 @@ function place_order_complete()
 		url        : get_base_url() +"my_cart/place_order_api",
 		cache	   : true,
 		error: function(){
-			window.location.href = "<?= base_url();?>my_cart";
+			window.location.href = get_base_url() + "my_cart";
 			//count_temp_rec();
 		},
 		success    : function(data){
@@ -65,5 +65,5 @@ function place_order_complete()
 }
 function gohome()
 {
-	window.location.href= "<?= base_url() ?>";
+	window.location.href = get_base_url();
 }

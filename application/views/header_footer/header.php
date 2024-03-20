@@ -135,6 +135,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<span class="d-none d-lg-block">Logout</span>
 						</a>
 					</li>
+					<?php } else { ?>
+						<li class="d-none d-sm-block">
+						<a href="<?php echo base_url(); ?>login" title="Login">
+							<i class="fa fa-sign-out" aria-hidden="true"></i>
+							<span class="d-none d-lg-block">Login</span>
+						</a>
+					</li>
 					<?php } ?>
 				<ul>
 			</div>

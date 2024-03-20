@@ -5,13 +5,14 @@ class My_invoice extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_invoice");
 
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 	}
 
 	public function index(){
+
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check("my_invoice");
 		
 		$data["main_page_title"] = "My invoice";
 
@@ -51,6 +52,9 @@ class My_invoice extends CI_Controller {
 	}
 
 	public function my_invoice_details($item_id=""){
+
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check("my_invoice");
 		
 		$data["main_page_title"] = "My invoice details";
 

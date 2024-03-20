@@ -16,12 +16,13 @@ function load_more()
 }
 var query_work = 0;
 var no_record_found = 0;
+var new_i = 0;
 function call_page(get_record)
 {
+	$(".top_bar_title2").html("Loading....");
 	if(query_work=="0")
 	{
 		query_work = 1;
-		$(".load_more").hide();
 		$(".load_page_loading").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 		$.ajax({
 			type       : "POST",
@@ -31,6 +32,7 @@ function call_page(get_record)
 			error: function(){
 				$(".load_page_loading").html("");
 				$(".load_page").html('<div><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></div>');
+				$(".top_bar_title2").html("No record found");
 			},
 			success    : function(data){
 				if(data.items=="")
@@ -39,6 +41,7 @@ function call_page(get_record)
 					{
 						$(".load_page_loading").html("");
 						$(".load_page").html('<div><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></div>');
+						$(".top_bar_title2").html("No record found");
 					}
 					else
 					{
@@ -97,7 +100,10 @@ function call_page(get_record)
 
 						query_work = 0;
 						no_record_found = 1;
+						
 						$(".load_more").show();
+						new_i = parseInt(new_i) + 1;
+						$(".top_bar_title2").html("Found result ("+new_i+")");
 					}
 				});
 			},

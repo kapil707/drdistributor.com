@@ -1,8 +1,3 @@
-<style>
-.main_container{
-	margin-bottom:100px;
-}
-</style>
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
@@ -41,7 +36,7 @@ var item_page_type = '<?= $item_page_type; ?>';
 var item_code = '<?= $item_code; ?>';
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category123.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category1234.js"></script>
 <script>
 function show_sorting_div()
 {

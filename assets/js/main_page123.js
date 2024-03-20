@@ -60,32 +60,6 @@ function gosearchpage()
 	window.location.href = get_base_url() + "search_medicine";
 }
 
-function get_top_menu_api(){
-	myid = '';
-	$.ajax({
-		type       : "POST",
-		dataType   : "json",
-		data       :  {myid:myid} ,
-		url        : get_base_url() + "home/get_top_menu_api",
-		cache	   : true,
-		success : function(data){
-			if(data!="") {
-				$(".top_bar_menu2").show();
-				$.each(data.items, function(i,item){
-					if (item){
-						item_code	 	= item.item_code;
-						item_company	= item.item_company;
-						item_image	 	= item.item_image;
-						item_url	 	= get_base_url() + "category/"+item.item_url;
-
-						$(".top_bar_menu2_ul").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
-					}
-				});
-			}
-		}
-	});
-}
-
 function get_single_medicine_info(item_code)
 {
 	var session_user_altercode = get_user_altercode();

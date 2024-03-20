@@ -1,3 +1,35 @@
+function home_page_owl_load(category_id){
+	//alert(category_id)
+    $(".owl-carousel"+category_id).owlCarousel({
+        items: 10, // Number of items to display
+        loop: true, // Enable loop
+        margin: 4, // Margin between items
+        autoplay: true, // Enable autoplay
+        autoplayTimeout: 5000, // Autoplay interval in milliseconds
+        responsiveClass:true,
+		nav: true,
+        responsive:{
+            0:{
+                items:3,
+            },
+			500:{
+                items:3,
+            },
+            768:{
+                items:5,
+            },
+            1024:{
+                items:7,
+            }
+			,1280:{
+                items:8,
+            }
+			,1500:{
+                items:10,
+            }
+        }
+    });
+}
 function home_page_slider(category_id,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
@@ -160,36 +192,6 @@ function home_page_notification(category_id,items,title){
 	myval = '<div class="col-sm-6 wow fadeInRight animated" data-wow-duration="0.10s" data-wow-delay="0.2s"><div class="home_page_heading_title2"><a href="'+get_base_url()+'my_notification" title="My notification">My notification</div><div class="main_box_div p-2">'+mydata+'</div></div>';
 	
 	return myval;
-}
-
-function home_page_owl_load(category_id){
-	//alert(category_id)
-    $(".owl-carousel"+category_id).owlCarousel({
-        items: 10, // Number of items to display
-        loop: true, // Enable loop
-        margin: 4, // Margin between items
-        autoplay: true, // Enable autoplay
-        autoplayTimeout: 5000, // Autoplay interval in milliseconds
-        responsiveClass:true,
-		nav: true,
-        responsive:{
-            0:{
-                items:3,
-            },
-            768:{
-                items:5,
-            },
-            1024:{
-                items:7,
-            }
-			,1280:{
-                items:8,
-            }
-			,1500:{
-                items:10,
-            }
-        }
-    });
 }
 
 /*************************************** */

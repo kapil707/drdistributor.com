@@ -114,6 +114,7 @@ class MyNotificationModel extends CI_Model
 			$item_message = str_replace("\\n", "<br>", $item_message);
 			$item_message = $this->new_clean($item_message);
 			$item_message = str_replace("br", "<br>", $item_message);
+			$item_message = $this->convertUrlsToLinks($item_message);
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -142,5 +143,12 @@ class MyNotificationModel extends CI_Model
 		$k = preg_replace('/[^A-Za-z0-9\#:\/]/', ' ', $string);
 		return $k;
 		//return preg_replace('/[^A-Za-z0-9\#]/', '', $string); // Removes special chars.
+	}
+	function convertUrlsToLinks($text) {
+		return preg_replace(
+			"/\b(((https?|ftp|file):\/\/|www\.)[^\s]+)/i",
+			"<a href=\"$1\" target=\"_blank\">$1</a>",
+			$text
+		);
 	}
 }

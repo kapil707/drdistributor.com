@@ -98,7 +98,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 					<li class="mobile_show">
-						<a href="<?= base_url() ?>" title="Home" class="top_bar_menu_delete_all_btn">
+						<a href="#" onclick="delete_all_medicine()" title="delete all" class="top_bar_menu_delete_all_btn">
 							<i class="fa fa-trash-o" aria-hidden="true"></i>
 						</a>
 					</li>

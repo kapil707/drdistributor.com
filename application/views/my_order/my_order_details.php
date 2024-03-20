@@ -18,7 +18,7 @@ function goBack() {
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<span class="main_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
+					<span class="main_page_loading"></span>
 				</div>
 			</div>
 		</div>

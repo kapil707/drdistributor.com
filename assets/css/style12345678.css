@@ -1141,4 +1141,7 @@ table{
 	.top_bar_search_textbox_div_clear_icon {
 		font-size: 20px;
 	}
+	.search_result_div {
+		width: 92.5%;
+	}
 }

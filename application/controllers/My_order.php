@@ -142,6 +142,7 @@ class My_order extends CI_Controller {
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$title  = $result["title"];
 			$items  = $result["items"];
+			$download_url  = $result["download_url"];
 		}	
 		
 		$response = array(
@@ -149,6 +150,7 @@ class My_order extends CI_Controller {
             'message' => 'Data load successfully',
             'title' => $title,
 			'items' => $items,
+			'download_url' => $download_url,
         );
 
         // Send JSON response
@@ -156,4 +158,3 @@ class My_order extends CI_Controller {
         echo json_encode($response);
 	}
 }
-?>

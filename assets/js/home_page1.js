@@ -1,7 +1,7 @@
 function home_page_owl_load(category_id){
 	//alert(category_id)
     $(".owl-carousel"+category_id).owlCarousel({
-        items: 10, // Number of items to display
+        items: 3, // Number of items to display
         loop: true, // Enable loop
         margin: 4, // Margin between items
         autoplay: true, // Enable autoplay

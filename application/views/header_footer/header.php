@@ -85,13 +85,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							Download App
 						</a>
 					</li>
-					<li>
+					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>" title="Home" class="d-none d-lg-block">
 							<i class="fa fa-home" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Home</span>
 						</a>
 					</li>
-					<li>
+					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company" class="d-none d-lg-block">
 							<i class="fa fa-search" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Search</span>

@@ -115,6 +115,32 @@ table{
 	color: var(--main_theme_textbox_text_color) !important;
 }
 
+.input_type_text2{
+	background-color: var(--main_theme_textbox2_bg_color);
+	border-color: var(--main_theme_textbox2_border_color);
+	border-radius:10px;
+	color: var(--main_theme_textbox_color);
+	width:100%;
+
+	font-size: 18px;
+    font-weight: bold;
+	border-width: 0px;
+	padding: 7px;
+	border: 1px solid var(--main_theme_border_color);
+}
+
+.input_type_text2:-webkit-autofill,
+.input_type_text2:-webkit-autofill:hover, 
+.input_type_text2:-webkit-autofill:focus,
+.input_type_text2:-webkit-autofill:active {
+	background-color: var(--main_theme_textbox2_bg_color);
+	border-color: var(--main_theme_textbox2_border_color);
+	color: var(--main_theme_textbox_color);
+	border-width: 0px;
+}
+
+/****************************************************/
+
 .main_theme_button{
 	background-color: var(--mainbutton-color);
 	border-color: var(--mainbutton-color);

@@ -35,4 +35,4 @@ function goBack() {
 <script>
 	var item_id = "<?php echo $item_id; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/my_invoice_details2.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_invoice_details23.js"></script>

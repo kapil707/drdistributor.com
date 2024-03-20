@@ -100,7 +100,7 @@ class Main extends CI_Controller {
 	}
 
 	/***************invoice part********************** */	
-	public function index($chemist_id='',$invoice_id=''){
+	public function invoice($chemist_id='',$invoice_id=''){
 		
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;
@@ -113,8 +113,32 @@ class Main extends CI_Controller {
 		$data["user_altercode"] = $chemist_id;
 		
 		$data["main_page_title"] = $invoice_id;	
-		$this->load->view('home/header_footer/header', $data);
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('main_page/invoice', $data);		
+	}
+	
+	public function invoice_download($chemist_id='',$invoice_id='')
+	{
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+
+		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
+		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
+		$row   = $query->row();
+		if(!empty($row->id))
+		{
+			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
+		}else{
+			$data["session_user_image"] = base_url()."img_v51/logo2.png";
+			$data["session_user_fname"]     = "Guest";
+			$data["session_user_altercode"] = "xxxxxx";
+			
+			$data["item_id"] 		= "";
+			$data["user_altercode"] = "";
+			
+			$data["main_page_title"] = "";
+			$this->load->view('home/header_footer/header', $data);
+			$this->load->view('main_page/invoice', $data);
+		}
 	}
 
 	public function my_invoice_details_api(){
@@ -150,29 +174,5 @@ class Main extends CI_Controller {
         // Send JSON response
         header('Content-Type: application/json');
         echo json_encode($response);
-	}
-	
-	public function invoice_download($chemist_id='',$invoice_id='')
-	{
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
-		if(!empty($row->id))
-		{
-			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
-		}else{
-			$data["session_user_image"] = base_url()."img_v51/logo2.png";
-			$data["session_user_fname"]     = "Guest";
-			$data["session_user_altercode"] = "xxxxxx";
-			
-			$data["item_id"] 		= "";
-			$data["user_altercode"] = "";
-			
-			$data["main_page_title"] = "";
-			$this->load->view('home/header_footer/header', $data);
-			$this->load->view('main_page/invoice', $data);
-		}
 	}
 }

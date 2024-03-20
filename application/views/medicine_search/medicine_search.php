@@ -31,7 +31,7 @@ function goBack() {
 				My Cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>
-		<div class="col-sm-3 col-12 mobile_off text-right">
+		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-top: 5px;">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		

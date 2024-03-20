@@ -43,8 +43,8 @@ function goBack() {
 				My cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>
-		<div class="col-sm-6 col-6 text-right mobile_off" style="margin-bottom:5px;">
-			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicine"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all <span class="mobile_off">medicines</span></a>
+		<div class="col-sm-6 col-6 text-right mobile_off">
+			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		<div class="col-sm-12 col-12">
 			<div class="main_box_div p-2">

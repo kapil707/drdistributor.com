@@ -21,17 +21,17 @@ function goBack() {
 </script>
 <div class="container-fluid main_container">
 	<div class="row">
-		<div class="col-sm-6 col-12 mobile_off" style="margin-bottom:5px;">
+		<div class="col-sm-6 col-12 mobile_off">
 			<span class="text-left">
 				<h6 class="home_page_heading_title2">Favourite medicines</h6>
 			</span>
 		</div>
-		<div class="col-sm-3 col-12 mobile_off" style="margin-bottom:5px;">
+		<div class="col-sm-3 col-12 mobile_off">
 			<h6 class="home_page_heading_title2" onclick="current_order_ref()">
 				My Cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>
-		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-bottom:5px;">
+		<div class="col-sm-3 col-12 mobile_off text-right">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		

@@ -929,11 +929,11 @@ table{
 }
 
 .search_cart_delete_all_btn{
+	margin-top: 5px;
 	font-size: 18px;
 	color:#c45353;
 }
 .search_cart_delete_all_btn:hover{
-	font-size: 18px;
 	color:red;
 }
 

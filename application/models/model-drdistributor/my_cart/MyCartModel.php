@@ -506,14 +506,17 @@ class MyCartModel extends CI_Model
 		if($remarks){
 			$remarks = "<br>Remarks : ".$remarks;
 		}
+
 		$default_place_order_text = $this->Scheme_Model->get_website_data("default_place_order_text");
+
 		$whatsapp_footer_text = $this->Scheme_Model->get_website_data("whatsapp_footer_text");
-		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>Download excel file </b><br><br>https://www.drdistributor.com/user/download_order/".$order_id."/".$acm_altercode." ".$whatsapp_footer_text;	
+		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>Download excel file </b><br><br>https://www.drdistributor.com/download_order/".$order_id."/".$acm_altercode." ".$whatsapp_footer_text;
+
 		$email_footer_text = $this->Scheme_Model->get_website_data("email_footer_text");
-		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>Download excel file</b> <br><br>https://www.drdistributor.com/user/download_order/".$order_id."/".$acm_altercode." ".$email_footer_text."<br><br>".$html_table_formet_dt;	
+		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>Download excel file</b> <br><br>https://www.drdistributor.com/download_order/".$order_id."/".$acm_altercode." ".$email_footer_text."<br><br>".$html_table_formet_dt;	
 		
 			
-		/*************27-11-19***********************/
+		/************************************************/
 		$q_altercode 	= $acm_altercode;
 		$q_title 		= "New Order - $order_id";
 		$q_message		= $txt_msg;

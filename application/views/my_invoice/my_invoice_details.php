@@ -7,7 +7,7 @@ function goBack() {
 <div class="container main_container">
 	<div class="row">
 		<div class="col-sm-4"></div>
-		<div class="col-sm-4 col-12 download_excel_url m-2">
+		<div class="col-sm-4 col-12 download_excel_url p-2">
 					
 		</div>
 		<div class="col-sm-4"></div>

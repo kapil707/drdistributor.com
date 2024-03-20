@@ -254,6 +254,11 @@ table{
 	color: var(--top_icon_menu_color);
 }
 
+.top_bar_title2 {
+    font-size: 13px;
+	color: var(--top_icon_menu_color);
+}
+
 .top_bar_menu {
 	text-align: right;
     float: right;

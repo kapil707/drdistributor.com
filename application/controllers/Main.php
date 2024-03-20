@@ -119,7 +119,7 @@ class Main extends CI_Controller {
 
 		$data["main_page_title"] = $order_id;	
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_order/my_order_details', $data);		
+		$this->load->view('my_order/my_order_details_main', $data);		
 	}
 
 	public function order_download($chemist_id='',$order_id=''){
@@ -164,7 +164,7 @@ class Main extends CI_Controller {
 		
 		$data["main_page_title"] = $invoice_id;	
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_invoice/my_invoice_details', $data);		
+		$this->load->view('my_invoice/my_invoice_details_main', $data);		
 	}
 	
 	public function invoice_download($chemist_id='',$invoice_id='')
@@ -188,40 +188,5 @@ class Main extends CI_Controller {
 			$this->load->view('home/header_footer/header', $data);
 			$this->load->view('main_page/invoice', $data);
 		}
-	}
-
-	public function my_invoice_details_api(){
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		
-		$item_id	 	= $_REQUEST["item_id"];
-		$user_altercode = $_REQUEST["user_altercode"];
-		$salesman_id 	= "";
-		$user_type 		= "chemist";
-		$items 			= "";
-		$delete_items	= "";
-		$download_url 	= "";
-		$items = $items_edit = $items_delete = $download_url = $header_title = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
-			$items  		= $result["items"];
-			$items_edit  	= $result["items_edit"];
-			$items_delete  	= $result["items_delete"];
-			$download_url  	= $result["download_url"];
-			$header_title  	= $result["header_title"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-			'items_edit' => $items_edit,
-			'items_delete' => $items_delete,
-			'download_url' => $download_url,
-			'header_title' => $header_title,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }

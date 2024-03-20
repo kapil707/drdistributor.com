@@ -133,7 +133,7 @@ class MyOrderModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $title;
-		$return_value["download_url"] 	= $download_url;
+		$return["download_url"] 	= $download_url;
 		return $return;		
 	}
 

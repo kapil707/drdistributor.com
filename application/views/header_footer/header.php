@@ -98,6 +98,12 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 					<li>
+						<a href="<?= base_url() ?>" title="Home" class="d-none d-xs-block">
+							<i class="fa fa-home main_icon1" aria-hidden="true"></i>
+							<span class="">delete</span>
+						</a>
+					</li>
+					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 							<i class="fa fa-shopping-cart main_icon1" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">My cart</span>&nbsp;

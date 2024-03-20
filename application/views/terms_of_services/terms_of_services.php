@@ -6,7 +6,7 @@
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>my_invoice";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
 <div class="container main_container">

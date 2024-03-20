@@ -100,8 +100,7 @@ function home_page_menu(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12" style="margin-top: 20px;margin-bottom: 20px;">'+mydata+'</div>';
-	
+	myval = '<div class="col-xs-12 col-sm-12 col-12">'+mydata+'</div>';	
 	return myval;
 }
 

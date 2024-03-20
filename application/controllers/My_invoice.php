@@ -163,7 +163,7 @@ class My_invoice extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function my_invoice_details_api_main(){
+	public function my_invoice_details_main_api(){
 
 		$item_id		= $_REQUEST['item_id'];
 		$user_type 		= "chemist";

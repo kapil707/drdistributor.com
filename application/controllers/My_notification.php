@@ -46,8 +46,9 @@ class My_notification extends CI_Controller {
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('header_footer/header', $data);		
+		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_notification/my_notification', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function my_notification_details($item_id=""){

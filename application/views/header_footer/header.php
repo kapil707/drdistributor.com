@@ -86,15 +86,15 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 					<li class="d-none d-xl-block">
-						<a href="<?= base_url() ?>" title="Home" class="d-none d-lg-block">
+						<a href="<?= base_url() ?>" title="Home">
 							<i class="fa fa-home" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">Home</span>
+							<span class="">Home</span>
 						</a>
 					</li>
 					<li class="d-none d-xl-block">
-						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company" class="d-none d-lg-block">
+						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">Search</span>
+							<span class="">Search</span>
 						</a>
 					</li>
 					<li class="mobile_show">

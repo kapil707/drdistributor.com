@@ -1186,4 +1186,8 @@ table{
 	.home_page_menu_div_btn{
 		font-size: 15px;
 	}
+	.home_page_heading_title span {
+		font-size: 15px;
+		padding: 20px;
+	}
 }

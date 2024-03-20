@@ -111,8 +111,8 @@ class MyNotificationModel extends CI_Model
 			
 			$item_image = $user_image;
 
-			$item_message = str_replace("\\n", "<br>", $item_message);
 			$item_message = $this->new_clean($item_message);
+			$item_message = str_replace("mybreaktext", "<br>", $item_message);
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -137,7 +137,7 @@ class MyNotificationModel extends CI_Model
 
 	function new_clean($string)
 	{
-		//$k = str_replace('\n', '<br>', $string);
+		$k = str_replace('\n', 'mybreaktext', $string);
 		$k = preg_replace('/[^A-Za-z0-9\#]/', ' ', $string);
 		return $k;
 		//return preg_replace('/[^A-Za-z0-9\#]/', '', $string); // Removes special chars.

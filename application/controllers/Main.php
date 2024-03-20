@@ -100,25 +100,22 @@ class Main extends CI_Controller {
 	}
 	
 	/***************invoice part********************** */	
-	public function view_order($chemist_id='',$invoice_id=''){
+	public function view_order($chemist_id='',$order_id=''){
 		
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;
 		$data["session_user_altercode"] = $chemist_id;
 		
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
-		$data["item_id"] 		= $row->id;
+		$data["item_id"] 		= $order_id;
 		$data["user_altercode"] = $chemist_id;
 		
-		$data["main_page_title"] = $invoice_id;	
+		$data["main_page_title"] = $order_id;	
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('main_page/order', $data);		
 	}
 
-	public function order_download($chemist_id,$order_id)
-	{
+	public function order_download($chemist_id='',$order_id=''){
+
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
 		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
@@ -126,8 +123,8 @@ class Main extends CI_Controller {
 		$query = $this->db->get("tbl_order");
 		$row   = $query->row();
 		$query = $query->result();
-		if($row->id!="")
-		{
+		if(!empty($row->id)){
+
 			$where 			= array('altercode'=>$row->chemist_id);
 			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
 			$acm_altercode 	= $users->altercode;
@@ -142,7 +139,8 @@ class Main extends CI_Controller {
 
 	/***************invoice part********************** */	
 	public function view_invoice($chemist_id='',$invoice_id=''){
-		
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;
 		$data["session_user_altercode"] = $chemist_id;
@@ -165,8 +163,7 @@ class Main extends CI_Controller {
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
 		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
 		$row   = $query->row();
-		if(!empty($row->id))
-		{
+		if(!empty($row->id)){
 			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
 		}else{
 			$data["session_user_image"] = base_url()."img_v51/logo2.png";

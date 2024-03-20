@@ -288,7 +288,7 @@ table{
     width: 100%;
     float: left;
     border-radius: 10px;
-    padding: 8px;
+    padding: 7px;
 	color: var(--main_theme_textbox_text_color) !important;
 	/*box-shadow: 0px 0px 5px 0px;*/
 	border: 1px solid var(--main_theme_border_color) !important;
@@ -299,7 +299,7 @@ table{
 .top_bar_search_div_search_text{
     font-size: 18px;
     font-weight: bold;
-	margin-left: 25px;
+	margin-left: 30px;
 }
 .top_bar_search_div_search_icon{
 	position: absolute;

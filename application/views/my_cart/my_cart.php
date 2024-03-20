@@ -145,4 +145,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/my_cart12.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>

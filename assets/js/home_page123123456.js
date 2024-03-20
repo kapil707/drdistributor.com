@@ -243,15 +243,15 @@ function home_page_api(seq_id)
 		cache	   : true,
 		error: function(){
 			$('.myloading').hide();
+			$('load_more').hide();
 		},
 		success : function(data){
 			//console.log(data);
 			$('.myloading').hide();
+			$('load_more').show();
 			if(data!="")
 			{
 				query_work = 0;
-				//console.log("query_work:"+query_work)
-				$('.myloading').hide();
 				$.each(data.get_result, function(i,row){
 					//alert(row.myid);
 					$(".main_loading_css").hide();	

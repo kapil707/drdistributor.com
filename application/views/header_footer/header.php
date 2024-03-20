@@ -105,7 +105,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">My cart</span>
+							<span class="d-none d-lg-block">My cart </span>
 							(<span class="top_bar_menu_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
 						</a>
 					</li>

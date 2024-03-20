@@ -364,6 +364,7 @@ function medicine_add_to_cart_api()
 	{
 		item_order_quantity = parseInt(item_order_quantity);
 		item_quantity		= parseInt(item_quantity);
+		console.log("item_order_quantity" + item_order_quantity);
 		if(item_order_quantity!=0)
 		{
 			if(item_order_quantity<=item_quantity)

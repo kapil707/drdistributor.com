@@ -1087,14 +1087,14 @@ table{
 }
 
 
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 800px){
 	.mobile_off{
 		display:none;
 	}
     .mobile_show{
 		display:block;
 	}
-	.top_menu_bar {
+	.top_bar {
 		margin-top: 0px; 
 		margin-left: 0.5%;
 		width: 100%;

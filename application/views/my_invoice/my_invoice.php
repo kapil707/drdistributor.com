@@ -1,8 +1,3 @@
-<style>
-.main_container{
-	margin-bottom:100px;
-}
-</style>
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
@@ -27,4 +22,4 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js/my_invoice.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_invoice1.js"></script>

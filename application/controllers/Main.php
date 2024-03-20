@@ -107,7 +107,7 @@ class Main extends CI_Controller {
 		$data["session_user_altercode"] = $chemist_id;
 		
 		$data["item_id"] = "";
-		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
+		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id,);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
 		$row   = $query->row();

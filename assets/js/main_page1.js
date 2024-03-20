@@ -409,12 +409,10 @@ function medicine_add_to_cart_api()
 						if(data.items=="")
 						{
 							$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/cartempty.png" width="80%"></center></h2>');
-							$(".delete_all_btn").hide();
 						}
 						else
 						{
 							$(".my_cart_api_div").html("");
-							$(".delete_all_btn").show();
 						}
 						$.each(data.items, function(i,item){
 							if (item)
@@ -633,12 +631,10 @@ function my_cart_api()
 			if(data.items=="")
 			{
 				$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'img_v51/cartempty.png" width="80%"></center></h2>');
-				$(".delete_all_btn").hide();
 			}
 			else
 			{
 				$(".my_cart_api_div").html("");
-				$(".delete_all_btn").show();
 			}
 			$.each(data.items, function(i,item){
 				if (item)
@@ -700,12 +696,16 @@ function my_cart_api()
 					$(".header_cart_span").html(items_total);
 					$(".place_order_message").html(status_message);
 					$(".header_result_found").html("Current order ("+items_total+")");
+					$(".top_bar_menu_delete_all_btn").show();
+					$(".search_cart_delete_all_btn").show();
 					if(items_total==0)
 					{
 						$(".search_cart_footer_div_cart_empty").show();
 						$(".search_cart_footer_div_add_to_cart").hide();
 						$(".cart_footer_div_can_not_place_order_btn").hide();
 						$(".cart_footer_div_place_order_btn").hide();
+						$(".top_bar_menu_delete_all_btn").hide();
+						$(".search_cart_delete_all_btn").hide();
 					}
 					if(items_total!=0)
 					{

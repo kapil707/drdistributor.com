@@ -1114,6 +1114,11 @@ table{
 		border-top-left-radius: 0px;
 		transition-duration: 3s;
 	}
+	.top_bar_back_btn i {
+		color: var(--top_icon_menu_color);
+		font-size: 25px;
+		margin-top: 5px;
+	}
 	.top_bar_title {
 		font-size: 20px;
 	}

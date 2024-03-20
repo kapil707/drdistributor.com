@@ -32,7 +32,7 @@ function goBack() {
 			</h6>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-bottom:5px;">
-			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="cart_delete_btn delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
+			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">

@@ -140,7 +140,7 @@ class MyNotificationModel extends CI_Model
 	function new_clean($string)
 	{
 		$k = str_replace('\\n', 'mybreaktext', $string);
-		$k = preg_replace('/[^A-Za-z0-9\#:._*\/]/', ' ', $string);
+		$k = preg_replace('/[^A-Za-z0-9\#:._*<>\/]/', ' ', $string);
 		return $k;
 		//return preg_replace('/[^A-Za-z0-9\#]/', '', $string); // Removes special chars.
 	}

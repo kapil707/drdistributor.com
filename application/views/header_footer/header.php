@@ -99,8 +99,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					</li>
 					<li>
 						<a href="<?= base_url() ?>" title="Home" class="mobile_show">
-							<i class="fa fa-home main_icon1" aria-hidden="true"></i>
-							<span class="">delete</span>
+							<i class="fa fa-trash-o all_item_delete_btn" aria-hidden="true"></i>
 						</a>
 					</li>
 					<li>

@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style1234567.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -64,7 +64,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
 					</a>
 					<a href="javascript:goBack()" class="top_bar_back_btn" title="Go Back">
-						<i class="fa fa-chevron-left main_back_button" aria-hidden="true"></i>
+						<i class="fa fa-chevron-left" aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="" style="float:left; margin-left:5px;width: inherit;">

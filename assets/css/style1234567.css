@@ -227,6 +227,8 @@ table{
 .top_bar_back_btn{
 	margin-top:7px;
 	width: 25px;
+}
+.top_bar_back_btn i {
 	color: var(--top_icon_menu_color);
 	font-size: 30px;
 }
@@ -1121,6 +1123,17 @@ table{
 		padding: 4px;
 	}
 	.top_bar_menu li a i {
+		font-size: 20px;
+	}
+	.input_type_text{
+		font-size: 15px;
+		padding-top: 7px;
+		padding-bottom: 5px;
+		padding-left: 30px;
+	}
+	.top_bar_search_textbox_div_search_icon,
+	.top_bar_search_textbox_div_menu_icon,
+	.top_bar_search_textbox_div_clear_icon {
 		font-size: 20px;
 	}
 }

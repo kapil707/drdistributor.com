@@ -99,7 +99,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function download_order($chemist_id,$order_id)
+	public function order_download($chemist_id,$order_id)
 	{
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 

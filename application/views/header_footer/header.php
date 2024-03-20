@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style11.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -190,10 +190,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 			</div>
 			
-			<div class="col-sm-12">
-				<div class="top_bar_menu2">
-					<ul class="top_bar_menu2_ul"></ul>
-				</div>
+			<div class="col-sm-12 top_bar_menu2">
+				<ul class="top_bar_menu2_ul"></ul>
 			</div>
 
 			<div class="col-sm-12 text-right mobile_show">

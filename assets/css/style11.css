@@ -352,6 +352,7 @@ table{
 }
 
 .top_bar_menu2{
+	display: none;
 	margin-top: 5px;
     padding-top: 5px;
     /*border-top: 1px solid var(--main_theme_border_color);*/

@@ -70,6 +70,7 @@ function get_top_menu_api(){
 		cache	   : true,
 		success : function(data){
 			if(data!="") {
+				$(".top_bar_menu2").show();
 				$.each(data.items, function(i,item){
 					if (item){
 						item_code	 	= item.item_code;

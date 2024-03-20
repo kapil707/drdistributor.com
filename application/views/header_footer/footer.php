@@ -106,26 +106,26 @@ wow.init();
 </div>
 
 <div class="fix_footer mobile_show">
-	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok text-center">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css text-center">
 		<a href="<?= base_url('account')?>">
 			<i class="fa fa-user" aria-hidden="true"></i>
 			<div style="font-size: 11px;">Account</div>
 		</a>
 	</div>
-	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_left text-center">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_left text-center">
 		<a href="<?= base_url('track_order')?>">
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
 			<div style="font-size: 11px;">Track</div>
 		</a>
 	</div>
 	
-	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_center text-center">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_center text-center">
 		<a href="<?= base_url('search_medicine')?>" alt>
 			<i class="fa fa-plus" aria-hidden="true"></i>
 		</a>
 	</div>
 	
-	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_right text-center">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_right text-center">
 		<a href="<?= base_url('my_notification')?>">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
 			<div style="font-size: 11px;" class="mobile_off">Notifications <span class="notificationdiv"></span></div>
@@ -133,9 +133,9 @@ wow.init();
 		</a>
 	</div>
 	
-	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok text-center"
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css text-center"
 	style="margin-right: -15px;">
-		<a href="<?= base_url();?>/home">
+		<a href="<?= base_url();?>">
 			<i class="fa fa-refresh" aria-hidden="true"></i>
 			<div style="font-size: 11px;">Reload</div>
 		</a>

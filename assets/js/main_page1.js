@@ -719,3 +719,27 @@ function my_cart_api()
 		timeout: 10000
 	});
 }
+
+/**********************lazy-loading******************** */
+// IntersectionObserver to lazy load images
+const images = document.querySelectorAll('.lazy-image');
+
+const options = {
+	root: null,
+	rootMargin: '0px',
+	threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+	if (entry.isIntersecting) {
+		const lazyImage = entry.target;
+		lazyImage.src = lazyImage.getAttribute('data-src');
+		observer.unobserve(lazyImage);
+	}
+	});
+}, options);
+
+images.forEach(image => {
+	observer.observe(image);
+});

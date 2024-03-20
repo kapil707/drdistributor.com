@@ -3,6 +3,7 @@ $(document).ready(function(){
 });
 function call_page()
 {	
+	$(".top_bar_title2").html("Loading....");
 	$(".main_page_loading").html('<h2><img src="'+get_base_url()+'img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2>');
 	$.ajax({
 		type       : "POST",
@@ -12,15 +13,17 @@ function call_page()
 		cache	   : false,
 		error: function(){
 			$(".main_page_loading").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".top_bar_title2").html("No record found");
 		},
 		success    : function(data){
 			$(".main_page_loading").html("");
 			if(data.items=="") {
 				$(".main_page_loading").html('<h2><img src="'+get_base_url()+'img_v51/no_record_found.png" width="100%"></h2>');
+				$(".top_bar_title2").html("No record found");
 			}
 			
 			if (data.title!="") {
-				$(".headertitle").html(data.title);
+				$(".top_bar_title").html(data.title);
 			}
 			$.each(data.items, function(i,item){	
 				if (item)
@@ -59,6 +62,7 @@ function call_page()
 					$(".main_page_data").append('<div class="main_box_div_data" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;"><div class="all_page_details_page_box_left_div"><img src="'+item_image+'" style="width: 100%;cursor: pointer;" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="all_page_details_page_box_right_div"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span>'+div_all_data+'</div>');
 
 					$(".main_page_data").show();
+					$(".top_bar_title2").html(item_date_time);
 				}
 			});	
 		},

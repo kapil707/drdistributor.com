@@ -242,6 +242,7 @@ function home_page_api(seq_id)
 		url        : get_base_url() + "home/home_page_api",
 		cache	   : true,
 		success : function(data){
+			console.log(data);
 			$('.myloading').hide();
 			if(data!="")
 			{
@@ -303,7 +304,7 @@ function home_page_api(seq_id)
 				});
 			}
 		},
-		timeout: 10000
+		timeout: 60000
 	});
 }
 

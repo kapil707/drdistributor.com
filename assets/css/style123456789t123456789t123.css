@@ -593,6 +593,7 @@ table{
 	color: var(--main_theme_hearder_color);
     font-size: 20px;
     font-weight: bold;
+	margin-top: 15px;
 }
 .home_page_heading_title2 a{
 	color: var(--main_theme_hearder_color);
@@ -1273,5 +1274,8 @@ table{
 	.home_page_heading_title span {
 		font-size: 15px;
 		padding: 20px;
+	}
+	.home_page_heading_title2{
+		font-size: 15px;
 	}
 }

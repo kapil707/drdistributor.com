@@ -1,7 +1,4 @@
 <style>
-.main_container{
-	margin-bottom:100px;
-}
 .main_box_div_data{
 	width:49%;
 	margin-left:0.5%;

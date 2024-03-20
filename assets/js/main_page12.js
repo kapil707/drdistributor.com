@@ -472,7 +472,7 @@ function medicine_add_to_cart_api()
 								$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 								$(".search_cart_page_total_cart_items").html("("+items_total+")");
 								$(".place_order_message").html(status_message);
-								$(".header_result_found").html("Current order ("+items_total+")");
+								$(".top_bar_title2").html("My cart ("+items_total+")");
 
 								$(".search_cart_delete_all_btn").show();
 					
@@ -480,6 +480,8 @@ function medicine_add_to_cart_api()
 								$(".top_bar_menu_delete_all_btn").show();
 								if(items_total==0)
 								{
+									$(".top_bar_title2").html("Your cart is empty");
+
 									$(".search_cart_footer_div_cart_empty").show();
 									$(".search_cart_footer_div_add_to_cart").hide();
 									$(".cart_footer_div_can_not_place_order_btn").hide();
@@ -622,7 +624,7 @@ function delete_all_medicine()
 
 function my_cart_api()
 {
-	$(".header_result_found").html("Loading....");
+	$(".top_bar_title2").html("Loading....");
 	$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	id = "";
 	$.ajax({
@@ -701,7 +703,7 @@ function my_cart_api()
 					$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 					$(".search_cart_page_total_cart_items").html("("+items_total+")");
 					$(".place_order_message").html(status_message);
-					$(".header_result_found").html("Current order ("+items_total+")");
+					$(".top_bar_title2").html("My cart ("+items_total+")");
 
 					$(".search_cart_delete_all_btn").show();
 
@@ -709,6 +711,8 @@ function my_cart_api()
 					$(".top_bar_menu_delete_all_btn").show();
 					if(items_total==0)
 					{
+						$(".top_bar_title2").html("Your cart is empty");
+
 						$(".search_cart_footer_div_cart_empty").show();
 						$(".search_cart_footer_div_add_to_cart").hide();
 						$(".cart_footer_div_can_not_place_order_btn").hide();

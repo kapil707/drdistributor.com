@@ -76,7 +76,30 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function download_order($order_id,$chemist_id)
+	public function download_order_old($order_id,$chemist_id)
+	{
+		$this->load->model("model-drdistributor/my_order/MyOrderModel");
+
+		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
+		$this->db->where($where);
+		$query = $this->db->get("tbl_order");
+		$row   = $query->row();
+		$query = $query->result();
+		if($row->id!="")
+		{
+			$where 			= array('altercode'=>$row->chemist_id);
+			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$acm_altercode 	= $users->altercode;
+			$acm_name		= ucwords(strtolower($users->name));		
+			$chemist_excle 	= "$acm_name ($acm_altercode)";
+			$this->MyOrderModel->order_excel_file($query,$chemist_excle,"direct_download");
+		}
+		else{
+			echo "error";
+		}
+	}
+
+	public function download_order($chemist_id,$order_id)
 	{
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 

@@ -94,7 +94,7 @@ $route['track_order']='home/track_order';
 
 $route['my_order']='my_order/index';
 $route['my_order_details/(:any)']='my_order/my_order_details/$1';
-$route['user/download_order/(:any)/(:any)'] = 'main/download_order/$1/$2';
+$route['user/download_order/(:any)/(:any)'] = 'main/download_order_old/$1/$2';
 $route['download_order/(:any)/(:any)'] = 'main/download_order/$1/$2';
 $route['view_order/(:any)/(:any)'] = 'main/view_order/$1/$2';
 

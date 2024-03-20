@@ -26,13 +26,6 @@ function goBack() {
 	window.location.href = "<?= base_url();?>search_medicine";
 }
 </script>
-<div style="width:100%;display:none;padding-top: 150px;" class="loading_pg">
-	<h1 class="text-center">
-		<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading....">
-	</h1>
-	<h1 class="text-center">Loading....</h1>
-	<h1 class="text-center">Please wait, Your order is under process.</h1>
-</div>
 <div class="container-fluid main_container">
 	<div class="row">
 		<div class="col-sm-6 col-6 mobile_off">
@@ -82,6 +75,15 @@ function goBack() {
 		</div>
 	</div>
 </div>
+
+<div style="width:100%;display:none;padding-top: 150px;" class="place_order_div">
+	<h1 class="text-center">
+		<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading....">
+	</h1>
+	<h1 class="text-center">Loading....</h1>
+	<h1 class="text-center">Please wait, Your order is under process.</h1>
+</div>
+
 <button type="button" class="place_order_model" data-toggle="modal" data-target="#myModal_place_order" style="display:none"></button>
 <!-- The Modal -->
 <div class="modal" id="myModal_place_order">
@@ -143,4 +145,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_cart1.js"></script>

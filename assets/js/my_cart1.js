@@ -33,8 +33,8 @@ function place_order_complete()
 		slice_item 	= $("#slice_item2").val();
 	}
 	remarks 	= $("#remarks").val();
-	$(".loading_pg").show();
-	$(".maincontainercss").hide();
+	$(".place_order_div").show();
+	$(".main_container").hide();
 	$(".place_order_or_empty_cart_btn_div").hide();
 	$.ajax({
 		type       : "POST",
@@ -43,7 +43,7 @@ function place_order_complete()
 		url        : get_base_url() +"my_cart/place_order_api",
 		cache	   : true,
 		error: function(){
-			//window.location.href = "<?= base_url();?>my_cart";
+			window.location.href = "<?= base_url();?>my_cart";
 			//count_temp_rec();
 		},
 		success    : function(data){
@@ -54,7 +54,7 @@ function place_order_complete()
 					status_message = (item.status_message);
 					if(status=="0" || status=="1")
 					{
-						$(".loading_pg").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn mainbutton' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
+						$(".place_order_div").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn main_theme_button' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
 				    }
 					count_temp_rec();
 				}

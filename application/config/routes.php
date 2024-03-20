@@ -75,12 +75,9 @@ $route['chemist/android/Api_mobile30/deleteall_temp_order/(:any)'] = 'android/Ap
 $route['chemist/android/Api_mobile30/save_order_to_server/(:any)'] = 'android/Api_mobile30/save_order_to_server/$1';
 
 
-$route['invoice/(:any)/(:any)'] = 'invoice/index/$1/$2';
-$route['invoice_download/(:any)/(:any)'] = 'invoice/invoice_download/$1/$2';
 $route['all_invoice'] = 'User/local_server_all_invoice';
 $route['pickedby'] = 'User/local_server_pickedby';
 $route['deliverby'] = 'User/local_server_deliverby';
-
 
 $route['home']='Home/index';
 
@@ -100,6 +97,9 @@ $route['my_order_details/(:any)']='my_order/my_order_details/$1';
 $route['user/download_order/(:any)/(:any)'] = 'main/download_order/$1/$2';
 $route['download_order/(:any)/(:any)'] = 'main/download_order/$1/$2';
 $route['view_order/(:any)/(:any)'] = 'main/view_order/$1/$2';
+
+$route['invoice/(:any)/(:any)'] = 'main/invoice/$1/$2';
+$route['invoice_download/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
 
 $route['my_invoice']='my_invoice/index';
 $route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';

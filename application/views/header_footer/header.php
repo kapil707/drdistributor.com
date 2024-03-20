@@ -196,8 +196,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 			</div>
 
-			<div class="col-sm-12 text-right">
-				<span class="top_bar_title2">hello</span>
+			<div class="col-sm-12 text-right mobile_show">
+				<span class="top_bar_title2"></span>
 			</div>
 		</div>
 	</div>

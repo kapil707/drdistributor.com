@@ -542,7 +542,11 @@ function get_base_url(){
 	return "<?php echo base_url(); ?>";
 }
 function get_user_altercode(){
-	return "<?= $_COOKIE["user_altercode"] ?>";
+	<?php if(!empty($_COOKIE["user_altercode"])){ ?>
+		return "<?= $_COOKIE["user_altercode"] ?>";
+	<?php }else {?>
+		return "";
+	<?php } ?>
 }
 </script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>

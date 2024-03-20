@@ -88,13 +88,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li>
 						<a href="<?= base_url() ?>" title="Home" class="d-none d-lg-block">
 							<i class="fa fa-home" aria-hidden="true"></i>
-							<span class="">Home</span>
+							Home
 						</a>
 					</li>
 					<li>
 						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company" class="d-none d-lg-block">
 							<i class="fa fa-search" aria-hidden="true"></i>
-							<span class="">Search</span>
+							Search
 						</a>
 					</li>
 					<li class="mobile_show">
@@ -105,8 +105,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="Cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">My cart</span>&nbsp;
-							(<span class="header_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
+							<span class="d-none d-lg-block">My cart</span>
+							(<span class="top_bar_menu_cart_span" style=""><?= $_COOKIE["user_cart_total"]; ?></span>)
 						</a>
 					</li>
 					<li class="d-none d-sm-block">

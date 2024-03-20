@@ -423,6 +423,68 @@ table{
 .left_menu_bar_div2 ul li a{
 	color: var(--top_icon_menu_color);
 }
+/******slider css******************************************/
+#jssor_1,#jssor_2
+{
+	position:relative;
+	margin:0 auto;
+	left:-15px;
+	width:1000px;
+	height:220px;
+	overflow:hidden;
+	visibility:hidden;
+}
+.top_flash_div
+{
+	cursor:default;
+	position:relative;
+	top:0px;
+	left:0px; 
+	width:1000px;
+	height:220px;
+	overflow:hidden;
+}
+
+/*jssor slider loading skin spin css*/
+.jssorl-009-spin img {
+	animation-name: jssorl-009-spin;
+	animation-duration: 1.6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/*jssor slider bullet skin 051 css*/
+.jssorb051 .i {position:absolute;cursor:pointer;}
+.jssorb051 .i .b {fill:#fff;fill-opacity:0.5;}
+.jssorb051 .i:hover .b {fill-opacity:.7;}
+.jssorb051 .iav .b {fill-opacity: 1;}
+.jssorb051 .i.idn {opacity:.3;}
+
+/*jssor slider arrow skin 051 css*/
+.jssora051 {display:block;position:absolute;cursor:pointer;}
+.jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
+.jssora051:hover {opacity:.8;}
+.jssora051.jssora051dn {opacity:.5;}
+.jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+.img_css_forslider
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	width: 98% !important;
+}
+/* Make the image fully responsive */
+.carousel-inner img {
+	height: 70vh !important;
+	width: 100%;
+	object-fit: cover;
+	object-fit:unset;
+}
 /*****************home page css**************************/
 .home_page_menu_div{	
 	padding:10px;

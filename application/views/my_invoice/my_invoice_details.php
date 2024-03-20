@@ -1,8 +1,3 @@
-<style>
-.main_container{
-	margin-bottom:100px;
-}
-</style>
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
@@ -40,4 +35,4 @@ function goBack() {
 <script>
 	var item_id = "<?php echo $item_id; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/my_invoice_details.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_invoice_details1.js"></script>

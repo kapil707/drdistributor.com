@@ -18,6 +18,7 @@ var query_work = 0;
 var no_record_found = 0;
 function call_page(get_record)
 {
+	new_i = 0;
 	$(".top_bar_title2").html("Loading....");
 	if(query_work=="0")
 	{
@@ -74,7 +75,8 @@ function call_page(get_record)
 						query_work = 0;
 						no_record_found = 1;
 						$(".main_page_data").show();
-						$(".top_bar_title2").html("Found result");
+						new_i = parseInt(new_i) + 1;
+						$(".top_bar_title2").html("Found result ("+new_i+")");
 					}
 				});	
 			},

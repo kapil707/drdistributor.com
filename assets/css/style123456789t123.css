@@ -296,9 +296,10 @@ table{
 .top_bar_search_div:hover{
 	color:#6A6767;
 }
-.top_bar_search_div_search_icon_text{
+.top_bar_search_div_search_text{
     font-size: 18px;
     font-weight: bold;
+	margin-left: 25px;
 }
 .top_bar_search_div_search_icon{
 	position: absolute;
@@ -1131,7 +1132,7 @@ table{
 	.top_bar_search_div{
 		padding: 5px;
 	}
-	.top_bar_search_div_search_icon_text{		
+	.top_bar_search_div_search_text{		
 		font-size: 15px;
 	}
 	.top_bar_search_div_search_icon {

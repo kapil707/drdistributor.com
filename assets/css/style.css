@@ -324,7 +324,7 @@ table{
     font-size: 25px;
 }
 .top_bar_menu_delete_all_btn{
-	display:none;
+	display:none !important;
 }
 .top_bar_menu2::-webkit-scrollbar{
     width:5px;
@@ -1273,6 +1273,9 @@ table{
 	}
 	.all_itemcategory{
 		height: 300px;
+	}
+	.medicine_category_page {
+		height: 355px;
 	}
 	.home_page_item_company{
 		font-size: 15px;

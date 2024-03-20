@@ -141,7 +141,7 @@ class My_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $items_edit = $items_delete = $download_url = $title = "";
+		$items = $download_url = $title = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$title  = $result["title"];
@@ -175,7 +175,7 @@ class My_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}*/
-		$items = $items_edit = $items_delete = $download_url = $title = "";
+		$items = $download_url = $title = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$title  = $result["title"];

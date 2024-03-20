@@ -65,6 +65,9 @@ class MyOrderModel extends CI_Model
 	
 	public function get_my_order_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="") {
 		
+		$jsonArray = array();
+		$title = $download_url = "";
+
 		$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
 		$this->db->where('o.chemist_id',$user_altercode);
 		$this->db->where('o.order_id',$item_id);
@@ -133,7 +136,7 @@ class MyOrderModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $title;
-		$return["download_url"] 	= $download_url;
+		$return["download_url"] = $download_url;
 		return $return;		
 	}
 

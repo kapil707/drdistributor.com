@@ -103,8 +103,10 @@ class Main extends CI_Controller {
 	public function view_order($chemist_id='',$order_id=''){
 		
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;
 		$data["session_user_altercode"] = $chemist_id;
+		$data["chemist_id"] = "";
 		
 		$data["item_id"] = "";
 		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id,);

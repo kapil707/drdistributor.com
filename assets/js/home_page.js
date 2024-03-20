@@ -317,7 +317,7 @@ $(document).ready(function() {
 
 	$(window).scroll(function(){
 		var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
-		if (scrollBottom<100  && query_work==0){
+		if (scrollBottom<500  && query_work==0){
 			home_page_api(next_id);
 		}
 	});

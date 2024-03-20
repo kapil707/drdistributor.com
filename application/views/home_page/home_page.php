@@ -13,7 +13,7 @@
 	display: inline !important;
 }
 .main_container{
-	padding-top: 160px;
+	padding-top: 150px;
     min-height: 500px;
 }
 </style>

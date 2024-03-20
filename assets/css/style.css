@@ -1,23 +1,6 @@
 :root{
-
 	--mainbuttondisable-color:#b2b0b0;
 	--mainbuttondisablehover-color:#928d8d;
-	/*
-	
-	
-	--main_menu_btn:#444;
-	--mainblack-color:#312e2ed4;
-	--cart-id:#312e2ed4;
-
-
-	--border1:#cadfd3;
-	--green:#27ae60;
-    --dark-color:#219150;
-    --black:#444;
-    --light-color:#666;
-    --border:.1rem solid rgba(0,0,0,.1);
-    --border-hover:.1rem solid var(--green);
-    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);*/
 }
 /*html::-webkit-scrollbar{
     width:10px;
@@ -169,7 +152,7 @@ table{
 }
 /*******************************/
 .main_container{
-	padding-top:125px;
+	padding-top:100px;
 	min-height: 500px;
 	padding-bottom: 0px;
 }

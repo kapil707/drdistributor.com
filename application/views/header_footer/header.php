@@ -79,7 +79,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			
 			<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
 				<ul class="top_bar_menu">
-					<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
+					<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
 							<i class="fa fa-mobile" aria-hidden="true"></i>
 							Download App

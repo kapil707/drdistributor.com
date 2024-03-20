@@ -928,6 +928,15 @@ table{
     font-size: 14px;
 }
 
+.search_cart_delete_all_btn{
+	font-size: 18px;
+	color:red;
+}
+.search_cart_delete_all_btn:hover{
+	font-size: 18px;
+	color:red;
+}
+
 /****************************************/
 .search_result_div {
 	background-color: var(--main_theme_white_background_color);

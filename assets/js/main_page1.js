@@ -471,15 +471,22 @@ function medicine_add_to_cart_api()
 								$(".search_cart_footer_div_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
 								$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 								$(".search_cart_page_total_cart_items").html("("+items_total+")");
-								$(".top_bar_menu_cart_span").html(items_total);
 								$(".place_order_message").html(status_message);
 								$(".header_result_found").html("Current order ("+items_total+")");
+
+								$(".search_cart_delete_all_btn").show();
+					
+								$(".top_bar_menu_cart_span").html(items_total);
+								$(".top_bar_menu_delete_all_btn").show();
 								if(items_total==0)
 								{
 									$(".search_cart_footer_div_cart_empty").show();
 									$(".search_cart_footer_div_add_to_cart").hide();
 									$(".cart_footer_div_can_not_place_order_btn").hide();
 									$(".cart_footer_div_place_order_btn").hide();
+
+									$(".search_cart_delete_all_btn").hide();
+									$(".top_bar_menu_delete_all_btn").hide();
 								}
 								if(items_total!=0)
 								{
@@ -693,19 +700,22 @@ function my_cart_api()
 					$(".search_cart_footer_div_total_price").html('<i class="fa fa-inr"></i>'+items_price+'/-');
 					$(".search_cart_footer_div_total_items").html("My cart ("+items_total+")");
 					$(".search_cart_page_total_cart_items").html("("+items_total+")");
-					$(".top_bar_menu_cart_span").html(items_total);
 					$(".place_order_message").html(status_message);
 					$(".header_result_found").html("Current order ("+items_total+")");
-					$(".top_bar_menu_delete_all_btn").show();
+
 					$(".search_cart_delete_all_btn").show();
+
+					$(".top_bar_menu_cart_span").html(items_total);
+					$(".top_bar_menu_delete_all_btn").show();
 					if(items_total==0)
 					{
 						$(".search_cart_footer_div_cart_empty").show();
 						$(".search_cart_footer_div_add_to_cart").hide();
 						$(".cart_footer_div_can_not_place_order_btn").hide();
 						$(".cart_footer_div_place_order_btn").hide();
-						$(".top_bar_menu_delete_all_btn").hide();
+						
 						$(".search_cart_delete_all_btn").hide();
+						$(".top_bar_menu_delete_all_btn").hide();
 					}
 					if(items_total!=0)
 					{

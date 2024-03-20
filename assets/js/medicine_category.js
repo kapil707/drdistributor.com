@@ -52,7 +52,7 @@ function call_page(get_record)
 				}
 				title 	= data.title;
 				if(title!=""){
-					$(".headertitle").html(title);
+					$(".top_bar_title").html(title);
 				}
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);

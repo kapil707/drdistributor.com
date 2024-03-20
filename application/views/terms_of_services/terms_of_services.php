@@ -1,7 +1,15 @@
-script>
-$(".headertitle").html("Terms of services");
+<style>
+.main_container{
+	margin-bottom:100px;
+}
+</style>
+<script>
+$(".top_bar_title").html("<?= $main_page_title ?>");
+function goBack() {
+	window.location.href = "<?= base_url();?>my_invoice";
+}
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">

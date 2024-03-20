@@ -338,6 +338,9 @@ table{
     color: var(--main_theme_search_icon_color) !important;
     font-size: 25px;
 }
+.top_bar_menu_delete_all_btn{
+	display:none;
+}
 .top_bar_menu2::-webkit-scrollbar{
     width:5px;
 	height: 5px; 

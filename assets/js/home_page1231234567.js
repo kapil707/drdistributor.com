@@ -96,7 +96,7 @@ function home_page_menu(category_id,items,title){
 				mobile_off_cls = "mobile_off";
 			}
 
-			mydata+='<div class="home_page_menu_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+get_base_url() + 'uploads/default_img.jpg" loading="lazy" data-src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_page_menu_div_btn">'+menu_name+'</div></div></a></div>';
+			mydata+='<div class="home_page_menu_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_page_menu_div_btn">'+menu_name+'</div></div></a></div>';
 		}
 	});
 	
@@ -161,7 +161,7 @@ function home_page_itemcategory(category_id,items,title){
 				item_scheme_div = '<div class="all_item_scheme">Scheme : '+item_scheme+'</div>';
 			}
 
-			mydata+= '<div class="item"><div class="all_itemcategory text-center" title="'+item_name+'"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img src="'+get_base_url() + 'uploads/default_img.jpg" alt="'+item_name+'" onerror=setDefaultImage(this,"'+item_image+'"); class="all_item_image" loading="lazy"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>'+div_all_data+'</div>';
+			mydata+= '<div class="item"><div class="all_itemcategory text-center" title="'+item_name+'"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img src="'+item_image+'" alt="'+item_name+'" onerror="setDefaultImage(this);" class="all_item_image"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>'+div_all_data+'</div>';
 		}
 	});
 	
@@ -229,8 +229,9 @@ var query_work = 0;
 var next_id = "";
 function home_page_api(seq_id)
 {
-	$('.myloading').hide();
+	$('load_more').hide();
 	$('.myloading').show();
+	
 	$(".home_page_my_notification").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 	$(".home_page_my_invoice").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 

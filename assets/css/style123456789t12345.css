@@ -928,11 +928,11 @@ table{
     font-size: 14px;
 }
 
-.search_cart_delete_all_btn a{
+.search_cart_delete_all_btn{
 	font-size: 18px;
 	color:red;
 }
-.search_cart_delete_all_btn a:hover{
+.search_cart_delete_all_btn:hover{
 	font-size: 18px;
 	color:red;
 }

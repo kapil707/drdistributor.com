@@ -98,6 +98,24 @@ class Main extends CI_Controller {
 			echo "error";
 		}
 	}
+	
+	/***************invoice part********************** */	
+	public function view_order($chemist_id='',$invoice_id=''){
+		
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_fname"]     = $chemist_id;
+		$data["session_user_altercode"] = $chemist_id;
+		
+		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
+		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
+		$row   = $query->row();
+		$data["item_id"] 		= $row->id;
+		$data["user_altercode"] = $chemist_id;
+		
+		$data["main_page_title"] = $invoice_id;	
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('main_page/order', $data);		
+	}
 
 	public function order_download($chemist_id,$order_id)
 	{
@@ -123,7 +141,7 @@ class Main extends CI_Controller {
 	}
 
 	/***************invoice part********************** */	
-	public function invoice($chemist_id='',$invoice_id=''){
+	public function view_invoice($chemist_id='',$invoice_id=''){
 		
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;

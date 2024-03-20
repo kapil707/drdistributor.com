@@ -98,7 +98,8 @@ $route['user/download_order/(:any)/(:any)'] = 'main/download_order_old/$1/$2';
 $route['order_download/(:any)/(:any)'] = 'main/order_download/$1/$2';
 $route['view_order/(:any)/(:any)'] = 'main/view_order/$1/$2';
 
-$route['invoice/(:any)/(:any)'] = 'main/invoice/$1/$2';
+$route['invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
+$route['view_invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
 $route['invoice_download/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
 
 $route['my_invoice']='my_invoice/index';

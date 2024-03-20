@@ -289,7 +289,6 @@ table{
     float: left;
     border-radius: 10px;
     padding: 8px;
-    padding-left: 38px;
     font-size: 18px;
     font-weight: bold;
 	color: var(--main_theme_textbox_text_color) !important;
@@ -301,8 +300,6 @@ table{
 }
 .top_bar_search_div_search_icon{
 	position: absolute;
-    margin-top: -3px;
-    margin-left: -30px;
     color: var(--main_theme_search_icon_color) !important;
     font-size: 25px;
 }
@@ -1133,6 +1130,13 @@ table{
 		padding: 5px;
    		padding-top: 7px;
 		font-size: 15px;
+	}
+	.top_bar_search_div_search_icon {
+		position: absolute;
+		/* margin-top: -3px; */
+		/* margin-left: -30px; */
+		color: var(--main_theme_search_icon_color) !important;
+		font-size: 20px;
 	}
 	.input_type_text{
 		font-size: 15px;

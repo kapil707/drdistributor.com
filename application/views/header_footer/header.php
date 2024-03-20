@@ -196,8 +196,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 			</div>
 
-			<div class="col-sm-12 current_order_search_page text-right" style="display:none;">
-				<span class="header_result_found"></span>
+			<div class="col-sm-12 text-right">
+				<span class="top_bar_title2">hello</span>
 			</div>
 		</div>
 	</div>

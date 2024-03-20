@@ -1251,10 +1251,10 @@ table{
 	.search_result_div {
 		width: 92.5%;
 	}
-	.my_cart_box_left_div,.medicine_search_box_left_div {
+	.my_cart_box_left_div,.medicine_search_box_left_div,.home_page_box_left_div {
 		width: 22%;
 	}
-	.my_cart_box_right_div,.medicine_search_box_right_div {
+	.my_cart_box_right_div,.medicine_search_box_right_div,.home_page_box_right_div {
 		width: 78%;
 	}
 	.search_cart_footer_div{

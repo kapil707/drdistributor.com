@@ -1,5 +1,6 @@
-function setDefaultImage(image) {
+function setDefaultImage(image,url="") {
 	image.onerror = get_base_url() + "uploads/default_img.jpg";
+	image.src = url;
 }
 function new_style_menu_show()
 {

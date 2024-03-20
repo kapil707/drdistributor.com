@@ -382,9 +382,9 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 				<div class="row medicine_details_api_data" style="display:none">
 					<div class="col-sm-5 col-12">
-						<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
-							<a class="example-image-link" data-standard="">
-							<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
+						<div class="">
+							<a href="<?= base_url(); ?>/uploads/default_img.jpg" class="zoom">
+								<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
 							</a>
 						</div>
 						
@@ -558,3 +558,18 @@ function get_user_altercode(){
 </script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
 <script src="<?= base_url(); ?>assets/js/main_page12.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('.zoom112233').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+});
+</script>

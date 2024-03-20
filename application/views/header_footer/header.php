@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789t1.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style123456789t12.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -146,7 +146,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 						<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
 							<i class="fa fa-search top_bar_search_div_search_icon" aria-hidden="true"></i>
-							<div class="my_typing">Search medicine / company...</div> 
+							<div class="top_bar_search_div_search_text">Search medicine / company...</div> 
 						</a>
 						
 						<div class="top_bar_search_textbox_div">

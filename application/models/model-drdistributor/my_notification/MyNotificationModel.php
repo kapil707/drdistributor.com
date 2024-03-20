@@ -135,14 +135,6 @@ class MyNotificationModel extends CI_Model
 		$return["title"] 	= $title;
 		return $return;
 	}
-
-	function new_clean($string)
-	{
-		$string = str_replace('\\n', 'mybreaktext', $string);
-		$string = preg_replace('/[^A-Za-z0-9\#:._*<>\/]/', ' ', $string);
-		return $string;
-		//return preg_replace('/[^A-Za-z0-9\#]/', '', $string); // Removes special chars.
-	}
 	function convertUrlsToLinks($text) {
 		return preg_replace(
 			"/\b(((https?|ftp|file):\/\/|www\.)[^\s]+)/i",

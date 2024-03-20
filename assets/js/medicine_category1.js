@@ -81,11 +81,11 @@ function call_page(get_record)
 
 						item_other_image_div = '';
 						if(item_featured=="1" && item_quantity!="0"){
-							item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="medicine_cart_item_featured_img">';
+							item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="all_item_featured_img">';
 						}
 
 						if(item_quantity==0) {
-							item_other_image_div = '<img src="'+get_base_url()+'img_v51/out_of_stock_img.png" class="medicine_cart_item_out_of_stock_img">';
+							item_other_image_div = '<img src="'+get_base_url()+'img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img">';
 						}
 
 						item_scheme_div = "";

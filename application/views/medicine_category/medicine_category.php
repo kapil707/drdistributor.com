@@ -13,11 +13,11 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 text-right" style="margin-bottom:5px;display:none;">
+				<div class="col-sm-12 text-right" style="display:none;">
 					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="show_sorting_div();" class="showbtn" alt>
 					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="hide_sorting_div();" class="showbtn1" style="display:none;" alt>
 				</div>
-				<div class="col-sm-12 sorting_div text-right" style="margin-bottom:5px;display:none;">
+				<div class="col-sm-12 sorting_div text-right" style="display:none;">
 					<span class="sort_atoz" onclick="sort_atoz();">Name A to Z |</span>
 					<span class="sort_ztoa" onclick="sort_ztoa();" style="display:none;">Name Z to A |</span>
 					<span class="sort_price" onclick="sort_price();">Price Low to High | </span>
@@ -31,9 +31,6 @@ function goBack() {
 				<div class="col-sm-12 text-center">
 					<span class="load_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
 				</div>
-				<div class="col-sm-12" style="margin-top:10px;">
-					<button onclick="load_more()" class="load_more"></button>
-				</div>
 			</div>
 		</div>
 	</div>     
@@ -44,7 +41,7 @@ var item_page_type = '<?= $item_page_type; ?>';
 var item_code = '<?= $item_code; ?>';
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category1.js"></script>
 <script>
 function show_sorting_div()
 {

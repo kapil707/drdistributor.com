@@ -587,6 +587,16 @@ table{
 .home_page_heading_title2 a{
 	color: var(--main_theme_hearder_color);
 }
+.home_page_heading_title3{
+	color: var(--main_theme_hearder_color);
+    font-size: 20px;
+    font-weight: bold;
+	margin-top: 5px;
+}
+.home_page_heading_title3 a{
+	color: var(--main_theme_hearder_color);
+}
+
 
 .home_page_box_left_div{
 	width:7%;

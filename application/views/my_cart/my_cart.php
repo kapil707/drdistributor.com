@@ -29,7 +29,7 @@ function goBack() {
 <div class="container-fluid main_container">
 	<div class="row">
 		<div class="col-sm-6 col-6 mobile_off">
-			<h6 class="home_page_heading_title2">
+			<h6 class="home_page_heading_title3">
 				My cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>

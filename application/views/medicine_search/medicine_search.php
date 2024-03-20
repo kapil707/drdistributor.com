@@ -23,11 +23,11 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-6 col-12 mobile_off">
 			<span class="text-left">
-				<h6 class="home_page_heading_title2">Favourite medicines</h6>
+				<h6 class="home_page_heading_title3">Favourite medicines</h6>
 			</span>
 		</div>
 		<div class="col-sm-3 col-12 mobile_off">
-			<h6 class="home_page_heading_title2" onclick="current_order_ref()">
+			<h6 class="home_page_heading_title3" onclick="current_order_ref()">
 				My Cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>

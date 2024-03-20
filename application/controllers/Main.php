@@ -109,6 +109,7 @@ class Main extends CI_Controller {
 		$data["chemist_id"] = "";
 		
 		$data["item_id"] = "";
+		$data["user_altercode"] = "";
 		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id,);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
@@ -154,8 +155,10 @@ class Main extends CI_Controller {
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = $chemist_id;
 		$data["session_user_altercode"] = $chemist_id;
+		$data["session_delivering_to"]  = $chemist_id;
 		
 		$data["item_id"] = "";
+		$data["user_altercode"] = "";
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
 		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
 		$row   = $query->row();

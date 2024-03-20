@@ -364,12 +364,11 @@ function medicine_add_to_cart_api()
 	{
 		item_order_quantity = parseInt(item_order_quantity);
 		item_quantity		= parseInt(item_quantity);
-		console.log("item_order_quantity" + item_order_quantity);
+		//console.log("item_order_quantity" + item_order_quantity);
 		if(item_order_quantity!=0)
 		{
 			if(item_order_quantity<=item_quantity)
 			{
-				$(".medicine_details_item_order_quantity_textbox").val("");
 				$(".modaloff").click();
 				$(".search_textbox").focus();
 				
@@ -382,6 +381,7 @@ function medicine_add_to_cart_api()
 						swal("error add to cart")
 					},
 					success    : function(data){
+						$(".medicine_details_item_order_quantity_textbox").val("");
 						if(data.items=="")
 						{
 							$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/cartempty.png" width="80%"></center></h2>');

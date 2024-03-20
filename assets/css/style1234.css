@@ -1183,6 +1183,9 @@ table{
     .mobile_show{
 		display:block;
 	}
+	.main_container{
+		padding-top:120px;
+	}
 	.top_bar {
 		margin-top: 0px; 
 		margin-left: 0.5%;

@@ -296,6 +296,7 @@ table{
     font-size: 25px;
 }
 .top_bar_search_textbox_div{
+	margin-top: 5px;
 	width:100%;
 	display:none;
 }
@@ -1232,6 +1233,9 @@ table{
 		padding-top: 7px;
 		padding-bottom: 5px;
 		padding-left: 30px;
+	}
+	.top_bar_search_textbox_div{
+		margin-top: 0px;
 	}
 	.top_bar_search_textbox_div_search_icon,
 	.top_bar_search_textbox_div_menu_icon,

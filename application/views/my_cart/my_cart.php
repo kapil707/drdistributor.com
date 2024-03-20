@@ -138,7 +138,7 @@ function goBack() {
 			</div>
 			<!-- Modal footer -->
 			<div class="modal-footer">
-				<button type="button" class="btn mainbutton" data-dismiss="modal" onclick="place_order_complete()">Place order</button>
+				<button type="button" class="btn main_theme_button" data-dismiss="modal" onclick="place_order_complete()">Place order</button>
 			</div>
 		</div>
 	</div>

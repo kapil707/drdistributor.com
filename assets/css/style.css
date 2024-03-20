@@ -272,6 +272,7 @@ table{
 }
 
 .top_bar_search_div{
+	margin-top: 5px;
 	background-color: var(--main_theme_textbox_background_color) !important;
     width: 100%;
     float: left;
@@ -1216,6 +1217,7 @@ table{
 		font-size: 20px;
 	}
 	.top_bar_search_div{
+		margin-top: 0px;
 		padding: 5px;
 	}
 	.top_bar_search_div_search_text{		

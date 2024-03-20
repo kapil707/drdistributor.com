@@ -153,11 +153,14 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = $chemist_id;
 		$data["session_user_altercode"] = $chemist_id;
 		
+		$data["item_id"] = "";
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
 		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
 		$row   = $query->row();
-		$data["item_id"] 		= $row->id;
-		$data["user_altercode"] = $chemist_id;
+		if(!empty($row->id)){
+			$data["item_id"] 		= $row->id;
+			$data["user_altercode"] = $chemist_id;
+		}
 		
 		$data["main_page_title"] = $invoice_id;	
 		$this->load->view('header_footer/header', $data);

@@ -25,6 +25,11 @@ function call_page()
 			if (data.title!="") {
 				$(".top_bar_title").html(data.title);
 			}
+
+			if (data.download_url!="") {
+				$(".download_excel_url").html("<a href="+data.download_url+"><button type='button' class='btn btn-warning btn-block main_theme_button'>Download Excel</button></a>");
+			}
+			
 			$.each(data.items, function(i,item){	
 				if (item)
 				{

@@ -43,6 +43,8 @@ class MyOrderModel extends CI_Model
 			$item_id = $order_id;
 			$item_message  = $item_total;
 			$item_image = $user_image;
+
+			$download_url = base_url()."order_download/".$user_altercode."/".$row->order_id;
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -50,6 +52,7 @@ class MyOrderModel extends CI_Model
 				'item_message' => $item_message,
 				'item_date_time' => $item_date_time,
 				'item_image' => $item_image,
+				'download_url' => $download_url,
 			);
 			$jsonArray[] = $dt;
 		}
@@ -91,6 +94,8 @@ class MyOrderModel extends CI_Model
 				$title = "Generated / Order no. ".$row->gstvno;
 			}
 
+			$download_url = base_url()."order_download/".$user_altercode."/".$row->order_id;
+
 			$item_code 			= $row->i_code;
 			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity 		= $row->quantity;
@@ -128,6 +133,7 @@ class MyOrderModel extends CI_Model
 		
 		$return["items"] = $jsonArray;
 		$return["title"] = $title;
+		$return_value["download_url"] 	= $download_url;
 		return $return;		
 	}
 

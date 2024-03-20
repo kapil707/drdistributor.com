@@ -1130,6 +1130,9 @@ table{
 	.top_bar_menu li a i {
 		font-size: 20px;
 	}
+	.top_bar_search_div{
+		font-size: 15px;
+	}
 	.input_type_text{
 		font-size: 15px;
 		padding-top: 7px;
@@ -1143,5 +1146,11 @@ table{
 	}
 	.search_result_div {
 		width: 92.5%;
+	}
+	.my_cart_box_left_div,.medicine_search_box_left_div {
+		width: 22%;
+	}
+	.my_cart_box_right_div,.medicine_search_box_right_div {
+		width: 78%;
 	}
 }

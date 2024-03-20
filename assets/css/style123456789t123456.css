@@ -87,7 +87,7 @@ table{
 	font-size: 18px;
     font-weight: bold;
 	border-width: 0px;
-	padding: 7px;
+	padding: 6px;
 	padding-left:35px;
 }
 
@@ -288,7 +288,7 @@ table{
     width: 100%;
     float: left;
     border-radius: 10px;
-    padding: 7px;
+    padding: 6px;
 	color: var(--main_theme_textbox_text_color) !important;
 	/*box-shadow: 0px 0px 5px 0px;*/
 	border: 1px solid var(--main_theme_border_color) !important;
@@ -930,7 +930,7 @@ table{
 
 .search_cart_delete_all_btn{
 	font-size: 18px;
-	color:red;
+	color:#c45353;
 }
 .search_cart_delete_all_btn:hover{
 	font-size: 18px;

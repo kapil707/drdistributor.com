@@ -111,7 +111,7 @@ class Main extends CI_Controller {
 		
 		$data["main_page_title"] = $order_id;	
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('main_page/order', $data);		
+		$this->load->view('my_order/my_order_details', $data);		
 	}
 
 	public function order_download($chemist_id='',$order_id=''){

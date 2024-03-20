@@ -1282,4 +1282,14 @@ table{
 	.home_page_heading_title2{
 		font-size: 15px;
 	}
+	.all_itemcategory{
+		height: 300px;
+	}
+	.home_page_item_company{
+		font-size: 15px;
+	}
+	.home_page_heading{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 }

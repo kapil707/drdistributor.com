@@ -241,13 +241,16 @@ function home_page_api(seq_id)
 		data       :  {seq_id:seq_id} ,
 		url        : get_base_url() + "home/home_page_api",
 		cache	   : true,
+		error: function(){
+			$('.myloading').hide();
+		},
 		success : function(data){
-			console.log(data);
+			//console.log(data);
 			$('.myloading').hide();
 			if(data!="")
 			{
 				query_work = 0;
-				console.log("query_work:"+query_work)
+				//console.log("query_work:"+query_work)
 				$('.myloading').hide();
 				$.each(data.get_result, function(i,row){
 					//alert(row.myid);

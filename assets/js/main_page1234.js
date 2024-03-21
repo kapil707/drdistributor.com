@@ -332,17 +332,14 @@ function medicine_add_to_cart_api()
 	}
 	else
 	{
-		$('.medicine_search_textbox').focus();
-
 		item_order_quantity = parseInt(item_order_quantity);
 		item_quantity		= parseInt(item_quantity);
-		//console.log("item_order_quantity" + item_order_quantity);
 		if(item_order_quantity!=0)
 		{
 			if(item_order_quantity<=item_quantity)
 			{
-				$(".modaloff").click();
-				$(".search_textbox").focus();
+				$(".modaloff").click();				
+				$('.medicine_search_textbox').focus();
 				
 				$.ajax({
 					type       : "POST",

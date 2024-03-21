@@ -332,6 +332,8 @@ function medicine_add_to_cart_api()
 	}
 	else
 	{
+		$('.medicine_search_textbox').focus();
+
 		item_order_quantity = parseInt(item_order_quantity);
 		item_quantity		= parseInt(item_quantity);
 		//console.log("item_order_quantity" + item_order_quantity);

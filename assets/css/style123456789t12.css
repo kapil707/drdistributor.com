@@ -1377,4 +1377,32 @@ table{
 	.all_item_out_of_stock_img{
 		width: 45px;
 	}
+	/**********************/
+	.medicine_details_image_small {
+		margin-top: 7px;
+		height: 60px;
+	}
+	.medicine_details_item_name{
+		font-size: 20px;
+	}
+	.medicine_details_item_packing,
+	.medicine_details_item_batch_no,
+	.medicine_details_item_margin,
+	.medicine_details_item_expiry,
+	.medicine_details_item_gst{
+		font-size: 14px;
+	}
+	.medicine_details_item_company,
+	.medicine_details_item_ptr,
+	.medicine_details_item_mrp{
+		font-size: 15px;
+	}
+	.medicine_details_item_stock,
+	.medicine_details_item_price,
+	.medicine_details_item_total{
+		font-size: 16px;
+	}
+	.medicine_details_item_order_quantity{
+		font-size: 13px;
+	}
 }

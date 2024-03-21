@@ -53,12 +53,12 @@ class MedicineDetailsModel extends CI_Model
 			$item_description1 = (trim($row->title2));
 			$item_description2 = (trim($row->description));
 			
-			$img_url_site = constant('img_url_site');
+			$img_url_site = base_url();
 
-			$item_image  = $img_url_site."uploads/default_img.jpg";
-			$item_image2 = $img_url_site."uploads/default_img.jpg";
-			$item_image3 = $img_url_site."uploads/default_img.jpg";
-			$item_image4 = $img_url_site."uploads/default_img.jpg";
+			$item_image  = $img_url_site."uploads/default_img.webp";
+			$item_image2 = $img_url_site."uploads/default_img.webp";
+			$item_image3 = $img_url_site."uploads/default_img.webp";
+			$item_image4 = $img_url_site."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
 				$item_image = $img_url_site.$row->image1;
@@ -102,6 +102,7 @@ class MedicineDetailsModel extends CI_Model
 			{
 				if($item_quantity>=10){
 					$item_stock = "Available";
+					$item_quantity = 1000; // yha validate kar ke liya ha taki maray pass kitni davi ha oss ko pata na chalay
 				}
 			}
 

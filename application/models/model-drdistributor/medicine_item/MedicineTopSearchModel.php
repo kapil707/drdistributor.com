@@ -57,12 +57,11 @@ class MedicineTopSearchModel extends CI_Model
 				$item_stock = "Available";
 			}
 			
-			$item_image = constant('img_url_site')."uploads/default_img.jpg";
+			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
 				$item_image = constant('img_url_site').$row->image1;
 			}
-			$item_image 		= htmlentities($item_image);
 				
 			$dt = array(
 				'item_code' => $item_code,

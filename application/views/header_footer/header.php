@@ -461,10 +461,10 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<div class="col-sm-6 col-6 text-right">	
 								<span class="medicine_details_item_mrp"></span>
 							</div>
-							<div class="col-sm-4 col-5 text-left">	
+							<div class="col-sm-4 col-3 text-left">	
 								<span class="medicine_details_item_gst"></span>
 							</div>
-							<div class="col-sm-8 col-7 text-right">
+							<div class="col-sm-8 col-9 text-right">
 								<span class="medicine_details_item_price" title="*Approximate ~"></span>
 							</div>
 							<div class="col-sm-12 col-12 medicine_details_hr">

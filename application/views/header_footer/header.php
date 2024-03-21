@@ -570,4 +570,4 @@ var default_img = "<?php base_url(); ?>uploads/default_img.webp";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page12.js"></script>

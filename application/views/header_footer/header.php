@@ -385,7 +385,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				<div class="row medicine_details_api_data" style="display:none">
 					<div class="col-sm-5 col-12">
 						<div class="row">
-							<div class="col-12">
+							<div class="col-12 col-9">
 								<img src="<?= base_url(); ?>/img_v51/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
 
 								<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" alt="" class="medicine_details_out_of_stock_img" loading="lazy">
@@ -398,19 +398,21 @@ if (!isset($_COOKIE["user_cart_total"])) {
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
-							</div>
-							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change2" onclick="modal_item_image_change(2)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
-							</div>
-							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change3" onclick="modal_item_image_change(3)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
-							</div>
-							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change4" onclick="modal_item_image_change(4)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+							<div class="col-12 col-3">
+								<div class="row">
+									<div class="col col-12">
+										<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+									</div>
+									<div class="col col-12">
+										<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change2" onclick="modal_item_image_change(2)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+									</div>
+									<div class="col col-12">
+										<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change3" onclick="modal_item_image_change(3)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+									</div>
+									<div class="col col-12">
+										<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change4" onclick="modal_item_image_change(4)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

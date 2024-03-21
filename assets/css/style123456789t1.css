@@ -808,6 +808,10 @@ table{
 	font-size:18px;
 	color:var(--main_theme_search_icon_color) !important;
 }
+.all_item_description1{
+	color:var(--item_description1_color);
+    font-size: 13px;
+}
 
 .favourite_medicines_box_left_div{
 	width:6%;
@@ -1231,23 +1235,20 @@ table{
 	.main_page_loading{
 		margin-left: 16%;
 	}
+	.main_container {
+		padding-top: 115px;
+	}
 	.top_bar {
 		margin-top: 0px; 
 		margin-left: 0.5%;
 		width: 100%;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		position: fixed;
-		z-index: 14;
-		/* background: green; */
-		background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
-		/* border: solid 1px var(--mainthemecolor); */
-		box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+		
 		border-bottom-left-radius: 50px;
 		border-top-right-radius: 0px;
 		border-bottom-right-radius: 0px;
 		border-top-left-radius: 0px;
-		transition-duration: 3s;
 	}
 	.top_bar_back_btn i {
 		color: var(--top_icon_menu_color);
@@ -1293,11 +1294,17 @@ table{
 	.search_result_div {
 		width: 92.5%;
 	}
-	.all_page_box_left_div,.my_cart_box_left_div,.medicine_search_box_left_div,.home_page_box_left_div {
-		width: 22%;
+	.all_page_box_left_div,
+	.my_cart_box_left_div,
+	.medicine_search_box_left_div,
+	.home_page_box_left_div {
+		width: 20%;
 	}
-	.all_page_box_right_div,.my_cart_box_right_div,.medicine_search_box_right_div,.home_page_box_right_div {
-		width: 78%;
+	.all_page_box_right_div,
+	.my_cart_box_right_div,
+	.medicine_search_box_right_div,
+	.home_page_box_right_div {
+		width: 80%;
 	}
 	.search_cart_footer_div{
 		width: 98%;
@@ -1343,7 +1350,8 @@ table{
 	}
 
 	/**************/
-	.all_item_title{
+	.all_item_title,
+	.all_item_stock{
 		font-size: 14px;
 	}
 	.all_item_company{
@@ -1357,11 +1365,16 @@ table{
 	}
 	.all_item_packing,
 	.all_item_margin,
+	.all_item_expiry,
 	.all_item_ptr,
 	.all_item_mrp,
 	.all_item_message,
-	.all_item_message {
+	.all_item_description1 {
 		font-size: 11px;
 		line-height: 15px;
+	}
+	.all_item_featured_img,
+	.all_item_out_of_stock_img{
+		width: 45px;
 	}
 }

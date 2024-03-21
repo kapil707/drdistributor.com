@@ -1,5 +1,7 @@
 function setDefaultImage(image,image_url) {
 	image.onerror = get_base_url() + "uploads/default_img.jpg";
+	console.log(image_url)
+	//var image = document.getElementById(image_id);
 	var actualImage = new Image();
 	actualImage.onload = function() {
 	  image.src = image_url;

@@ -121,16 +121,5 @@ window.jssor_2_slider_init = function() {
 	<div class="row home_page_menu_data"></div>
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
-	<div class="row">
-		<div class="col-sm-12 text-center">
-			<div class="myloading">
-				<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px">
-				<br>
-				Loading....
-			</div>
-			<br>
-			<div class="load_more btn btn-success" onclick="load_more()">Load More</div>
-		</div>
-	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/home_page123456789.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/home_page123456789t.js"></script>

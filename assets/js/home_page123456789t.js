@@ -230,11 +230,7 @@ var query_work = 0;
 var next_id = "";
 function home_page_api(seq_id)
 {
-	$('.load_more').hide();
-	$('.myloading').show();
-	
-	$(".home_page_my_notification").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
-	$(".home_page_my_invoice").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
+	$(".main_page_loading").show();
 
 	query_work = 1;
 	//alert(id);
@@ -245,13 +241,10 @@ function home_page_api(seq_id)
 		url        : get_base_url() + "home/home_page_api",
 		cache	   : true,
 		error: function(){
-			$('.myloading').hide();
-			$('load_more').hide();
+			$(".main_page_loading").hide();
 		},
 		success : function(data){
-			//console.log(data);
-			$('.myloading').hide();
-			$('load_more').show();
+			$(".main_page_loading").hide();
 			if(data!="")
 			{
 				query_work = 0;

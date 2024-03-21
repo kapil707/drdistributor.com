@@ -127,9 +127,8 @@ function medicine_details_api(item_code)
 					$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 
 					item_image	= item.item_image;
-					$(".medicine_details_image").attr("src",item_image)
+					$(".medicine_details_image").attr("src",item_image).attr('data-zoom-src',item_image);
 					$(".example-image-link").attr("href",item_image)
-					$(".example-image-link").attr("data-standard",item_image)
 					var $easyzoom = $('.easyzoom').easyZoom();
 							/*
 					// Setup thumbnails example

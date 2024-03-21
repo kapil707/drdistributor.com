@@ -51,7 +51,7 @@ class Home extends CI_Controller {
 	}
 
 	public function test(){	
-		$this->load->view('test/test', $data);
+		$this->load->view('test/test');
 	}
 
 	public function get_top_menu_api(){

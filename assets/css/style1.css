@@ -163,10 +163,10 @@ table{
 	color:#000000;
 }
 /*******************************/
-.main_container{
-	padding-top:120px;
+.main_container {
+	padding-top:150px;
 	min-height: 500px;
-	padding-bottom: 0px;
+	padding-bottom: 50px;
 }
 
 .main_box_div{

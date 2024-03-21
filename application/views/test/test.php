@@ -1,6 +1,6 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
-<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
+
 
 
 <div class="thumbnails">
@@ -43,6 +43,8 @@
     </li>
 </ul> -->
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script>
 
 $(document).ready(function() {

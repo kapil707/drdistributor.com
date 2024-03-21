@@ -126,8 +126,7 @@ wow.init();
 	<div class="mobile_footer text_cut_or_dot mobile_footer_css_right text-center">
 		<a href="<?= base_url('my_notification')?>">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
-			<div style="font-size: 11px;" class="mobile_off">Notifications <span class="notificationdiv"></span></div>
-			<div style="font-size: 11px;" class="mobile_show">Notifications <span class="notificationdiv"></span></div>
+			<div style="font-size: 11px;">Notifications</div>
 		</a>
 		<a href="<?= base_url();?>">
 			<i class="fa fa-refresh" aria-hidden="true"></i>

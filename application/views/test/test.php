@@ -3,7 +3,7 @@
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 
 
-<div class="easyzoom" style="width:300px;height:300px;">
+<div class="easyzoom easyzoom--overlay" style="width:300px;height:300px;">
     <a href="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg">
         <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg" alt="" />
     </a>

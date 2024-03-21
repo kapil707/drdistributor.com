@@ -2,7 +2,7 @@ $(window).scroll(function(){
 	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
 	if (scrollBottom<100){
 		//alert(parseInt($(window).scrollTop()))
-		$(".load_more").click()
+		load_more()
 	}
 });
 $(document).ready(function(){

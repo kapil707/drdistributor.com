@@ -35,9 +35,9 @@ function call_page(get_record)
 				$(".main_page_loading").hide();
 				$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 			},
-			success    : function(data){
-
-				$(".main_page_loading").html("");				
+			success    : function(data){	
+				
+				$(".main_page_loading").hide();
 				if(data.items=="" && no_record_found=="0") {
 					$(".top_bar_title2").html("No record found");
 					$(".main_page_loading").hide();

@@ -36,5 +36,15 @@
 <script>
 var $easyzoom = $('.easyzoom').easyZoom();
 
+// $(document).ready(function() {
+//     setTimeout(function() {
+
+// 		// Update the image element with the loaded image URL
+// 		$('.easyzoom').attr('src', 'https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png').attr('data-zoom-src', 'https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png');
+
+// 		// Initialize EasyZoom on the updated image element
+// 		$('.easyzoom').easyZoom();
+//     }, 5000); // 2000 milliseconds = 2 seconds
+// });
 </script>
 

@@ -362,12 +362,13 @@ class MedicineSearchModel extends CI_Model
 		
 		$item_description  = 	(trim($row->title2));
 		$item_description  =   ($item_description);
-		$item_image = constant('img_url_site')."uploads/default_img.jpg";
+		
+		$item_image = base_url()."uploads/default_img.webp";
 		if(!empty($row->image1))
 		{
 			$item_image = constant('img_url_site').$row->image1;
 		}
-		$item_image = str_replace(" ","%20",$item_image);
+		//$item_image = str_replace(" ","%20",$item_image);
 
 		$item_scheme		=	$row->salescm1."+".$row->salescm2;
 		$item_margin 		=   round($row->margin);
@@ -385,8 +386,7 @@ class MedicineSearchModel extends CI_Model
 		
 		$similar_items = "";
 		$itemjoinid = 	$row->itemjoinid;
-		if($itemjoinid!="")
-		{
+		if($itemjoinid!="") {
 			$similar_items = "View similar items";
 		}
 		
@@ -407,7 +407,6 @@ class MedicineSearchModel extends CI_Model
 			'item_margin' => $item_margin,
 			'item_featured' => $item_featured,
 			'item_description' => $item_description,
-			'item_featured' => $item_featured,
 			'similar_items' => $similar_items,
 		);
 		return $dt;

@@ -17,6 +17,33 @@
     min-height: 500px;
 }
 </style>
+<style>
+    /* Style for the container div */
+    .image-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    /* Style for the default image */
+    .default-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Style for the actual image */
+    .actual-image {
+      display: none; /* Initially hidden */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 <?php
 $ua = strtolower($_SERVER["HTTP_USER_AGENT"]);
 $isMob = is_numeric(strpos($ua, "mobile"));
@@ -133,4 +160,4 @@ window.jssor_2_slider_init = function() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/home_page123456.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/home_page1234567.js"></script>

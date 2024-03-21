@@ -45,13 +45,15 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+
+	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/min.css"/>
+	<link href="<?= base_url(); ?>assets/website/css/min.css" rel="stylesheet" type="text/css" />
 	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
 </head>
 <body>
@@ -207,7 +209,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		</div>
 	</div>
 </div>
-
+<!-- ******************************************************** -->
 <img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
 <div class="left_menu_bar">
 	<div class="left_menu_bar_div1">
@@ -355,13 +357,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		</ul>
 	</div>
 </div>
-
+<!-- ******************************************************** -->
 <div class="select_medicine_in_modal_script_css"></div>
 <div class="only_for_noti"></div>
 
 <input type="hidden" class="medicine_details_item_code">
 <div type="hidden" class="medicine_details_all_data"></div>
-
+<!-- ******************************************************** -->
 <a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></a>
 <div class="modal modaloff" id="myModal_medicine_details">
 	<div class="modal-dialog modal-lg">
@@ -498,7 +500,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		</div>
 	</div>
 </div>
-
+<!-- ******************************************************** -->
 <a href="#" data-toggle="modal" data-target="#myModal_loading" style="text-decoration: none;" class="myModal_loading"></a>
 <div class="modal modaloff" id="myModal_loading">
 	<div class="modal-dialog modal-lg">
@@ -515,36 +517,36 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		</div>
 	</div>
 </div>
-<?php /***************************broadcast**************************************/ ?>
-<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
-<div class="modal modaloff" id="myModal_broadcast">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title broadcast_title">
-					<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
-				</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span></button>
-			</div>
-			<div class="modal-body broadcast_message">
-				<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>
-			</div>
-		</div>
-	</div>
-</div>
+<!-- ******************************************************** -->
 <?php
 $broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
 if($broadcast_status=="1"){ ?>
+	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
+	<div class="modal modaloff" id="myModal_broadcast">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title broadcast_title">
+						<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body broadcast_message">
+					<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 	setTimeout(function() {
-        $('.myModal_broadcast').click();
-    }, 3000);
+		$('.myModal_broadcast').click();
+	}, 3000);
 	</script>
 	<?php
 }
 ?>
-
+<!-- ******************************************************** -->
 <span class="main_page_loading text-center">
 	<h2>
 		<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
@@ -552,8 +554,7 @@ if($broadcast_status=="1"){ ?>
 	<h2>Please wait....</h2>
 </span>
 
-<link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
-<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
+<!-- ******************************************************** -->
 <script>
 function get_base_url(){
 	return "<?php echo base_url(); ?>";
@@ -566,5 +567,6 @@ function get_user_altercode(){
 	<?php } ?>
 }
 </script>
+<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
 <script src="<?= base_url(); ?>assets/js/main_page.js"></script>

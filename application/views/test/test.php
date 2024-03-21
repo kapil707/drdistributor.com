@@ -9,9 +9,7 @@
 </div>
 
 <script>
-$(document).ready(function() {
-	var $easyzoom = $('.easyzoom').easyZoom();
-});
+$('.easyzoom').easyZoom();
 </script>
 
 

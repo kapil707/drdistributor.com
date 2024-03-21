@@ -130,8 +130,7 @@ function medicine_details_api(item_code)
 					$(".medicine_details_image").attr("src",item_image)
 					$(".example-image-link").attr("href",item_image)
 					$(".example-image-link").attr("data-standard",item_image)
-					var $easyzoom = $('.easyzoom').easyZoom();
-					var api = $easyzoom.data('easyZoom');
+					
 							/*
 					// Setup thumbnails example
 					var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');

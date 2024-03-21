@@ -50,6 +50,10 @@ class Home extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
+	public function test(){	
+		$this->load->view('test/test', $data);
+	}
+
 	public function get_top_menu_api(){
 		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 

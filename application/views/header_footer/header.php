@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123456789t.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style123456789t1.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 

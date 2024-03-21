@@ -568,6 +568,7 @@ table{
 }
 .home_page_heading_title span{
     font-size: 30px;
+	font-weight: bold;
     padding: 40px;
     color: var(--main_theme_hearder_color) !important;
     background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
@@ -1322,10 +1323,11 @@ table{
 		text-align: left;
 	}
 	.home_page_heading_title span {
-		font-size: 16px;
+		font-size: 18px;
 		padding: 0px;
 		border: none;
 		box-shadow: none;
+		background: none;
 	}
 	.home_page_heading_title2{
 		font-size: 18px;
@@ -1339,8 +1341,27 @@ table{
 	.home_page_item_company{
 		font-size: 15px;
 	}
-	.home_page_heading{
-		margin-top: 20px;
-		margin-bottom: 20px;
+
+	/**************/
+	.all_item_title{
+		font-size: 14px;
+	}
+	.all_item_company{
+		font-size: 13px;
+	}
+	.all_item_price,
+	.all_item_total,
+	.all_item_download {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	.all_item_packing,
+	.all_item_margin,
+	.all_item_ptr,
+	.all_item_mrp,
+	.all_item_message,
+	.all_item_message {
+		font-size: 11px;
+		line-height: 15px;
 	}
 }

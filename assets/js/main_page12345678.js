@@ -1,3 +1,7 @@
+function showActualImage(img) {
+	img.style.display = 'block'; // Show the actual image
+	img.previousElementSibling.style.display = 'none'; // Hide the default image
+}
 function setDefaultImage(image) {
 	image.onerror = get_base_url() + "uploads/default_img.jpg";
 }

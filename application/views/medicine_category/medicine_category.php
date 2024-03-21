@@ -36,7 +36,7 @@ var item_page_type = '<?= $item_page_type; ?>';
 var item_code = '<?= $item_code; ?>';
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category1.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category.js"></script>
 <script>
 function show_sorting_div()
 {

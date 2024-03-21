@@ -664,6 +664,12 @@ table{
     border-radius: 10px;
 	margin-bottom: 5px;
 }
+.all_item_image_load{
+    width: 100%;
+    border-radius: 10px;
+	margin-bottom: 5px;
+	display: none;
+}
 .all_item_out_of_stock_img
 {
 	width:65px;

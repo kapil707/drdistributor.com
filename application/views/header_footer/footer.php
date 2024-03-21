@@ -109,11 +109,11 @@ wow.init();
 	<div class="mobile_footer text_cut_or_dot mobile_footer_css_left text-center">
 		<a href="<?= base_url('account')?>">
 			<i class="fa fa-user" aria-hidden="true"></i>
-			Account
+			<div>Account</div>
 		</a>
 		<a href="<?= base_url('track_order')?>">
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
-			Track
+			<div>Track</div>
 		</a>
 	</div>
 	
@@ -126,11 +126,11 @@ wow.init();
 	<div class="mobile_footer text_cut_or_dot mobile_footer_css_right text-center">
 		<a href="<?= base_url('my_notification')?>">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
-			Notification
+			<div>Notification</div>
 		</a>
 		<a href="<?= base_url();?>">
 			<i class="fa fa-refresh" aria-hidden="true"></i>
-			Reload
+			<div>Reload</div>
 		</a>
 	</div>
 </div>

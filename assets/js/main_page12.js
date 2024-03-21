@@ -321,9 +321,7 @@ function change_item_order_quantity(){
 }
 
 function medicine_add_to_cart_api()
-{
-	$(".medicine_search_textbox").focus();
-	
+{	
 	item_quantity		= $(".medicine_details_item_order_quantity_hidden").val();
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();

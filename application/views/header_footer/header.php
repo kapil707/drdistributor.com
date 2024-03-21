@@ -544,6 +544,14 @@ if($broadcast_status=="1"){ ?>
 	<?php
 }
 ?>
+
+<span class="main_page_loading text-center" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px">
+	<h2>
+		<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
+	</h2>
+	<h2>Please wait....</h2>
+</span>
+
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script>

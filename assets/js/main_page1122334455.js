@@ -126,22 +126,11 @@ function medicine_details_api(item_code)
 					item_gst	= item.item_gst;
 					$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 
+					/*************************************************************** */
 					item_image	= item.item_image;
-					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails" style="width:300px;height:300px;"><a href="'+item_image+'"><img src="'+item_image+'" alt="" class="myimgcss" style="width:300px;height:300px;" /></a></div>');
+					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
 					$('.easyzoom').easyZoom();
-							/*
-					// Setup thumbnails example
-					var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
-
-					/*$('.thumbnails').on('click', 'a', function(e) {
-						var $this = $(this);
-
-						e.preventDefault();
-
-						// Use EasyZoom's `swap` method
-						api1.swap($this.data('standard'), item_image);
-					});*/
-
+					/*************************************************************** */
 
 					item_image	= item.item_image;
 					$(".modal_item_image_change1").attr("src",item_image)

@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$(".myacss").attr("href","https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png")
 		$(".myimgcss").attr("src","https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png")
         console.log('Data loaded after 5 seconds');
-		var $easyzoom = $('.easyzoom').easyZoom();
+		var api = $easyzoom.data('easyZoom');
     }, 5000); // 2000 milliseconds = 2 seconds
 });
 </script>

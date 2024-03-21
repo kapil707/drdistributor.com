@@ -382,8 +382,8 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 				<div class="row medicine_details_api_data" style="display:none">
 					<div class="col-sm-5 col-12">
-						<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
-							<a class="example-image-link" data-standard="">
+						<div class="easyzoom">
+							<a href="<?= base_url(); ?>/uploads/default_img.jpg">
 								<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
 							</a>
 						</div>

@@ -229,7 +229,7 @@ var query_work = 0;
 var next_id = "";
 function home_page_api(seq_id)
 {
-	$('load_more').hide();
+	$('.load_more').hide();
 	$('.myloading').show();
 	
 	$(".home_page_my_notification").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');

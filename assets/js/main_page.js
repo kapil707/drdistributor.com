@@ -2,17 +2,19 @@ function showActualImage(img) {
 	img.style.display = 'block'; // Show the actual image
 	img.previousElementSibling.style.display = 'none'; // Hide the default image
 }
+
 function setDefaultImage(image) {
 	image.onerror = default_img;
 }
-function new_style_menu_show()
-{
+
+function new_style_menu_show(){
 	$(".left_menu_bar").show(500);
 }
-function new_style_menu_hide()
-{
+
+function new_style_menu_hide(){
 	$(".left_menu_bar").hide(500);
 }
+
 function logout_function(){
 	swal({
 		title: "Are you sure to Logout?",
@@ -61,7 +63,7 @@ function callandroidfun(funtype,id,compname,image,division) {
 }
 function gosearchpage()
 {
-	window.location.href = get_base_url() + "search_medicine";
+	window.location.href = get_base_url() + "medicine_search";
 }
 
 function get_single_medicine_info(item_code)
@@ -518,6 +520,7 @@ function delete_medicine(item_code)
 		}
 	});
 }
+
 function delete_all_medicine()
 {
 	swal({

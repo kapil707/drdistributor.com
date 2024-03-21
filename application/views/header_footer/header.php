@@ -364,7 +364,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 <input type="hidden" class="medicine_details_item_code">
 <div type="hidden" class="medicine_details_all_data"></div>
 <!-- ******************************************************** -->
-<a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></a>
+<a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details">testing......</a>
 <div class="modal modaloff" id="myModal_medicine_details">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -375,7 +375,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="medicine_details_item_date_time" style="">Loading....</div>
+				<div class="medicine_details_item_date_time">Loading....</div>
 				<div class="medicine_details_api_loading text-center" style="display:none">
 					<div>
 						<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="loading">
@@ -580,4 +580,4 @@ var default_img = "<?php base_url(); ?>uploads/default_img.webp";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_pagexxx.js"></script>

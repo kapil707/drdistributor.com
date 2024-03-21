@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style123.css" rel="stylesheet" type="text/css"/>
+	<link href="<?= base_url(); ?>assets/css/style1234.css" rel="stylesheet" type="text/css"/>
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
@@ -545,7 +545,7 @@ if($broadcast_status=="1"){ ?>
 }
 ?>
 
-<span class="main_page_loading text-center" style="position: fixed;top: 300px;z-index: 100;margin-left:46%">
+<span class="main_page_loading text-center">
 	<h2>
 		<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
 	</h2>

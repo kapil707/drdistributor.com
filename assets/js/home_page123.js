@@ -100,7 +100,7 @@ function home_page_slider(category_id,items,title){
 				division="not";
 			}
 
-			mydata+='<a href="'+web_action+'"><div><img src="'+get_base_url()+'uploads/default_slider_image.webp" data-u="image" class="img_css_for_slider" alt=""><img src="'+image+'" data-u="image" class="img_css_for_slider" alt="" onload="showActualImage(this)"></div></a>';
+			mydata+='<a href="'+web_action+'"><div><img src="'+get_base_url()+'uploads/default_slider_image.webp" class="img_css_for_slider" alt=""><img src="'+image+'" data-u="image" class="img_css_for_slider" alt="" onload="showActualImage(this)"></div></a>';
 		}
 	});
 	

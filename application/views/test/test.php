@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 
@@ -9,7 +10,9 @@
 </div>
 
 <script>
-$('.easyzoom').easyZoom();
+$(document).ready(function() {
+	var $easyzoom = $('.easyzoom').easyZoom();
+});
 </script>
 
 

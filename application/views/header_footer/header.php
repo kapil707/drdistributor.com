@@ -364,7 +364,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 <input type="hidden" class="medicine_details_item_code">
 <div type="hidden" class="medicine_details_all_data"></div>
 <!-- ******************************************************** -->
-<a href="#" data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details">testing......</a>
+<span data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></span>
 <div class="modal modaloff" id="myModal_medicine_details">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">

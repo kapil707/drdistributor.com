@@ -164,7 +164,6 @@ function home_page_itemcategory(category_id,items,title){
 
 			mydata+= '<div class="item"><div class="all_itemcategory text-center" title="'+item_name+'"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img id="myimg_'+item_code+'" src="'+get_base_url()+'uploads/default_img.jpg" alt="'+item_name+'" onerror="setDefaultImage(this);" class="all_item_image"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>'+div_all_data+'</div>';
 
-
 			image_id = "myimg_"+item_code;
 			load_image(image_id,item_image);
 		}

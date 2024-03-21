@@ -175,7 +175,7 @@ function medicine_details_api(item_code)
 				}
 			});	
 		},
-		timeout: 10000
+		timeout: 60000
 	});
 }
 
@@ -453,7 +453,7 @@ function medicine_add_to_cart_api()
 							}
 						});
 					},
-					timeout: 10000
+					timeout: 60000
 				});
 			}
 			else
@@ -512,7 +512,7 @@ function delete_medicine(item_code)
 						} 
 					});
 				},
-				timeout: 10000
+				timeout: 60000
 			});
 		} else {
 			swal("Medicine not deleted");
@@ -556,7 +556,7 @@ function delete_all_medicine()
 						} 
 					});
 				},
-				timeout: 10000
+				timeout: 60000
 			});
 		} else {
 			swal("Medicines not deleted");
@@ -680,16 +680,6 @@ function my_cart_api()
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});
-}
-
-function load_image(image_id,image_url){
-	console.log(image_id)
-	var image = document.getElementById(image_id);
-	var actualImage = new Image();
-	actualImage.onload = function() {
-	  image.src = image_url;
-	};
-	actualImage.src = image_url;
 }

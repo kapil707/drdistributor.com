@@ -126,21 +126,6 @@ function medicine_details_api(item_code)
 					item_gst	= item.item_gst;
 					$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
 
-					/*************************************************************** */
-					item_image	= item.item_image;
-					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
-					$('.easyzoom').easyZoom();
-					/*************************************************************** */
-
-					item_image	= item.item_image;
-					$(".modal_item_image_change1").attr("src",item_image)
-					item_image2	= item.item_image2;
-					$(".modal_item_image_change2").attr("src",item_image2)
-					item_image3	= item.item_image3;
-					$(".modal_item_image_change3").attr("src",item_image3)
-					item_image4	= item.item_image4;
-					$(".modal_item_image_change4").attr("src",item_image4)
-
 					$(".medicine_details_item_description2").show()
 					item_description2	= item.item_description2;
 					$(".medicine_details_item_description2").html(item_description2)
@@ -168,6 +153,21 @@ function medicine_details_api(item_code)
 					
 					// firebase code
 					medicine_details_api_data(item_code)
+
+					/*************************************************************** */
+					item_image	= item.item_image;
+					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
+					$('.easyzoom').easyZoom();
+					/*************************************************************** */
+
+					item_image	= item.item_image;
+					$(".modal_item_image_change1").attr("src",item_image)
+					item_image2	= item.item_image2;
+					$(".modal_item_image_change2").attr("src",item_image2)
+					item_image3	= item.item_image3;
+					$(".modal_item_image_change3").attr("src",item_image3)
+					item_image4	= item.item_image4;
+					$(".modal_item_image_change4").attr("src",item_image4)
 				}
 			});	
 		},

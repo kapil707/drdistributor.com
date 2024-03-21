@@ -22,9 +22,6 @@ function goBack() {
 				<div class="col-sm-12 text-center">
 					<span class="main_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
 				</div>
-				<div class="col-sm-12" style="margin-top:10px;">
-					<button onclick="load_more()" class="load_more"></button>
-				</div>
 			</div>
 		</div>
 	</div>     

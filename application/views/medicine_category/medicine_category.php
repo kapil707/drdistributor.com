@@ -21,10 +21,10 @@ function goBack() {
 					<span class="sort_margin1" onclick="sort_margin1();" style="display:none;">Margin High to Low</span>
 				</div>
 			</div>
-			<div class="row load_page"></div>
+			<div class="row main_page_data" style="display:none"></div>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<span class="load_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
+					<span class="main_page_loading"></span>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@ var item_page_type = '<?= $item_page_type; ?>';
 var item_code = '<?= $item_code; ?>';
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category12345678.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category123456788.js"></script>
 <script>
 function show_sorting_div()
 {

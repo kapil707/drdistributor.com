@@ -695,7 +695,7 @@ function my_cart_api()
 }
 
 function load_image(image_id,image_url){
-	//console.log(item_image)
+	console.log(image_id)
 	var image = document.getElementById(image_id);
 	var actualImage = new Image();
 	actualImage.onload = function() {

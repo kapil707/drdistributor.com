@@ -156,7 +156,7 @@ function medicine_details_api(item_code)
 
 					/*************************************************************** */
 					item_image	= item.item_image;
-					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazay" onerror="setDefaultImage(this);"/></a></div>');
+					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
 					$('.easyzoom').easyZoom();
 					/*************************************************************** */
 
@@ -479,7 +479,7 @@ function modal_item_image_change(_id)
 {
 	item_image = $(".modal_item_image_change"+_id).attr("src");
 	
-	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazay" onerror="setDefaultImage(this);"/></a></div>');
+	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
 	$('.easyzoom').easyZoom();
 }
 
@@ -694,26 +694,11 @@ function my_cart_api()
 	});
 }
 
-/**********************lazy-loading******************** */
-// IntersectionObserver to lazy load images
-const images = document.querySelectorAll('.lazy-image');
-
-const options = {
-	root: null,
-	rootMargin: '0px',
-	threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach(entry => {
-	if (entry.isIntersecting) {
-		const lazyImage = entry.target;
-		lazyImage.src = lazyImage.getAttribute('data-src');
-		observer.unobserve(lazyImage);
-	}
-	});
-}, options);
-
-images.forEach(image => {
-	observer.observe(image);
-});
+function load_image(image_id,image_url){
+	var image = document.getElementById(image_id);
+	var actualImage = new Image();
+	actualImage.onload = function() {
+	  image.src = image_url;
+	};
+	actualImage.src = image_url;
+}

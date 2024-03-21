@@ -1,34 +1,62 @@
-function home_page_owl_load(category_id){
-	//alert(category_id)
-    $(".owl-carousel"+category_id).owlCarousel({
-        items: 3, // Number of items to display
-        loop: true, // Enable loop
-        margin: 4, // Margin between items
-        autoplay: true, // Enable autoplay
-        autoplayTimeout: 5000, // Autoplay interval in milliseconds
-        responsiveClass:true,
-		nav: true,
-        responsive:{
-            0:{
-                items:3,
-            },
-			500:{
-                items:3,
-            },
-            768:{
-                items:5,
-            },
-            1024:{
-                items:7,
-            }
-			,1280:{
-                items:8,
-            }
-			,1500:{
-                items:10,
-            }
-        }
-    });
+function home_page_owl_load(type,category_id){
+	if(type=="divisioncategory"){
+		$(".owl-carousel"+category_id).owlCarousel({
+			items: 3, // Number of items to display
+			loop: true, // Enable loop
+			margin: 4, // Margin between items
+			autoplay: true, // Enable autoplay
+			autoplayTimeout: 5000, // Autoplay interval in milliseconds
+			responsiveClass:true,
+			nav: true,
+			responsive:{
+				0:{
+					items:3,
+				},
+				500:{
+					items:3,
+				},
+				768:{
+					items:4,
+				},
+				1024:{
+					items:5,
+				}
+				,1280:{
+					items:6,
+				}
+			}
+		});
+	}else{
+		$(".owl-carousel"+category_id).owlCarousel({
+			items: 3, // Number of items to display
+			loop: true, // Enable loop
+			margin: 4, // Margin between items
+			autoplay: true, // Enable autoplay
+			autoplayTimeout: 5000, // Autoplay interval in milliseconds
+			responsiveClass:true,
+			nav: true,
+			responsive:{
+				0:{
+					items:3,
+				},
+				500:{
+					items:3,
+				},
+				768:{
+					items:5,
+				},
+				1024:{
+					items:7,
+				}
+				,1280:{
+					items:8,
+				}
+				,1500:{
+					items:10,
+				}
+			}
+		});
+	}
 }
 
 
@@ -292,13 +320,13 @@ function home_page_api(seq_id)
 						}else{
 							$(".home_page_all_data").append(dt_result);
 						}
-						home_page_owl_load(category_id);
+						home_page_owl_load("divisioncategory",category_id);
 					}
 					
 					if(page_type=="itemcategory") {
 						dt_result = home_page_itemcategory(category_id,items,title);
 						$(".home_page_all_data").append(dt_result);
-						home_page_owl_load(category_id);
+						home_page_owl_load("itemcategory",category_id);
 					}
 				});
 			}

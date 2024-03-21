@@ -10,7 +10,7 @@
 
 <script>
 $(document).ready(function() {
-    $('.easyzoom').easyZoom();
+	var $easyzoom = $('.easyzoom').easyZoom();
 });
 </script>
 

@@ -1,5 +1,10 @@
-function setDefaultImage(image) {
+function setDefaultImage(image,image_url) {
 	image.onerror = get_base_url() + "uploads/default_img.jpg";
+	var actualImage = new Image();
+	actualImage.onload = function() {
+	  image.src = image_url;
+	};
+	actualImage.src = image_url;
 }
 function new_style_menu_show()
 {
@@ -692,14 +697,4 @@ function my_cart_api()
 		},
 		timeout: 10000
 	});
-}
-
-function load_image(image_id,image_url){
-	//console.log(item_image)
-	var image = document.getElementById(image_id);
-	var actualImage = new Image();
-	actualImage.onload = function() {
-	  image.src = image_url;
-	};
-	actualImage.src = image_url;
 }

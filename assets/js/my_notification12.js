@@ -24,7 +24,7 @@ function call_page(get_record)
 	if(query_work=="0")
 	{
 		query_work = 1;
-		$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+		$(".main_page_loading").html('');
 		$.ajax({
 			type       : "POST",
 			dataType   : "json",

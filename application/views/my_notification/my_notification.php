@@ -20,11 +20,13 @@ function goBack() {
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<span class="main_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
+					<span class="main_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px">
+						<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>
+					</span>
 				</div>
 			</div>
 		</div>
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js/my_notification12.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_notification12afdasf.js"></script>

@@ -22,6 +22,7 @@ function call_page(get_record)
 	$(".top_bar_title2").html("Loading....");
 	if(query_work=="0")
 	{
+		console.log("working");
 		query_work = 1;
 		$(".main_page_loading").html('<div><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></div><div><center>Loading....</center></div>');
 		$.ajax({

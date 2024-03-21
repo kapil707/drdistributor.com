@@ -404,13 +404,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
 							</div>
 							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change2" onclick="modal_item_image_change(2)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change2" onclick="modal_item_image_change(2)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
 							</div>
 							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change3" onclick="modal_item_image_change(3)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change3" onclick="modal_item_image_change(3)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
 							</div>
 							<div class="col">
-								<img src="<?= base_url(); ?>/uploads/default_img.webp" width="20%" style="float: left;margin-top:10px;cursor: pointer;" class="medicine_details_image_small modal_item_image_change4" onclick="modal_item_image_change(4)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
+								<img src="<?= base_url(); ?>/uploads/default_img.webp" class="medicine_details_image_small modal_item_image_change4" onclick="modal_item_image_change(4)" alt="zoom" loading="lazy" onerror="setDefaultImage(this);">
 							</div>
 						</div>
 					</div>

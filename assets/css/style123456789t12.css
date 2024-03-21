@@ -1403,6 +1403,7 @@ table{
 	.medicine_details_item_total{
 		font-size: 16px;
 	}
+	.medicine_details_item_date_time,
 	.medicine_details_item_scheme_line,
 	.medicine_details_item_description1,
 	.medicine_details_item_description2,

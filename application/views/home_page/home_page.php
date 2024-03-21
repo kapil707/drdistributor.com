@@ -6,14 +6,14 @@
 	display: none !important;
 }
 .top_bar_title{
-	margin-top: 2px;
-	font-size:16px;
+	margin-top: 0px;
+	font-size:18px;
 }
 .top_bar_title1{
 	display: inline !important;
 }
 .main_container{
-	padding-top: 150px;
+	padding-top: 160px;
     min-height: 500px;
 }
 </style>

@@ -21,8 +21,6 @@
     /* Style for the container div */
     .image-container {
       position: relative;
-      width: 200px;
-      height: 200px;
     }
 
     /* Style for the default image */

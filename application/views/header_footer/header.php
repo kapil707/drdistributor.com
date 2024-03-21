@@ -382,10 +382,12 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 				<div class="row medicine_details_api_data" style="display:none">
 					<div class="col-sm-5 col-12">
-						<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
-							<a class="example-image-link" data-standard="">
-								<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
-							</a>
+						<div class="big1">
+							<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+								<a>
+									<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
+								</a>
+							</div>
 						</div>
 						
 						<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" loading="eager" onerror="setDefaultImage(this);">

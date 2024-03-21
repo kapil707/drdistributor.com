@@ -141,7 +141,7 @@ function home_page_divisioncategory(category_id,items,title){
 			item_division 	= item.item_division;
 			item_image 		= item.item_image;
 
-			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><img class="all_item_image" src="uploads/default_img.jpg" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" onerror="setDefaultImage(this);" style="display:none;"></a><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
+			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><img class="all_item_image" src="uploads/division_category_default_img.webp" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" style="display:none;"></a><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
 		}
 	});
 	
@@ -190,7 +190,7 @@ function home_page_itemcategory(category_id,items,title){
 				item_scheme_div = '<div class="all_item_scheme">Scheme : '+item_scheme+'</div>';
 			}
 
-			mydata+= '<div class="item"><div class="all_itemcategory text-center" title="'+item_name+'"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="uploads/default_img.jpg" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" onerror="setDefaultImage(this);" style="display:none;"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>'+div_all_data+'</div>';
+			mydata+= '<div class="item"><div class="all_itemcategory text-center" title="'+item_name+'"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="uploads/default_img.webp" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" onerror="setDefaultImage(this);" style="display:none;"><div class="all_item_name">'+item_name+'<span class="all_item_packing"> ('+item_packing+' Packing)</span></div><div class="all_item_margin">'+item_margin+'% Margin*</div><div class="all_item_company">By '+item_company+'</div>'+item_scheme_div+'<div class="all_item_ptr">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/-</div><div class="all_item_mrp">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div><div class="all_item_price">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</div></a></div>'+div_all_data+'</div>';
 		}
 	});
 	

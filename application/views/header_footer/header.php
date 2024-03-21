@@ -545,7 +545,7 @@ if($broadcast_status=="1"){ ?>
 }
 ?>
 
-<span class="main_page_loading text-center" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px">
+<span class="main_page_loading text-center" style="position: fixed;top: 300px;z-index: 100;margin-left:46%">
 	<h2>
 		<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
 	</h2>

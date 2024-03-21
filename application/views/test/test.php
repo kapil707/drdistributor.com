@@ -4,8 +4,8 @@
 
 
 <div class="thumbnails">
-    <img src="thumbnail1.jpg" data-full-image="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png" class="thumbnail" />
-    <img src="thumbnail2.jpg" data-full-image="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708860474corium_body-Photoroom_(1).jpg" class="thumbnail" />
+    <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png" data-full-image="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png" class="thumbnail" />
+    <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708860474corium_body-Photoroom_(1).jpg" data-full-image="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708860474corium_body-Photoroom_(1).jpg" class="thumbnail" />
     <!-- Add more thumbnails as needed -->
 </div>
 

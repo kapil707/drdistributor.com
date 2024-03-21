@@ -59,7 +59,8 @@ class MedicineCategoryModel extends CI_Model
 						if($misc_settings=="#NRX" && $item_quantity>=10){
 							$item_stock = "Available";
 						}
-						$item_image = constant('img_url_site')."uploads/default_img.jpg";
+						
+						$item_image = base_url()."uploads/default_img.webp";
 						if(!empty($row->image1))
 						{
 							$item_image = constant('img_url_site').$row->image1;
@@ -119,7 +120,8 @@ class MedicineCategoryModel extends CI_Model
 					if($misc_settings=="#NRX" && $item_quantity>=10){
 						$item_stock = "Available";
 					}
-					$item_image = constant('img_url_site')."uploads/default_img.jpg";
+					
+					$item_image = base_url()."uploads/default_img.webp";
 					if(!empty($row->image1))
 					{
 						$item_image = constant('img_url_site').$row->image1;
@@ -208,7 +210,8 @@ class MedicineCategoryModel extends CI_Model
 						if($misc_settings=="#NRX" && $item_quantity>=10){
 							$item_stock = "Available";
 						}
-						$item_image = constant('img_url_site')."uploads/default_img.jpg";
+						
+						$item_image = base_url()."uploads/default_img.webp";
 						if(!empty($row->image1))
 						{
 							$item_image = constant('img_url_site').$row->image1;
@@ -269,7 +272,8 @@ class MedicineCategoryModel extends CI_Model
 					if($misc_settings=="#NRX" && $item_quantity>=10){
 						$item_stock = "Available";
 					}
-					$item_image = constant('img_url_site')."uploads/default_img.jpg";
+					
+					$item_image = base_url()."uploads/default_img.webp";
 					if(!empty($row->image1))
 					{
 						$item_image = constant('img_url_site').$row->image1;

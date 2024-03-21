@@ -81,7 +81,7 @@ class MedicineMustBuyModel extends CI_Model
 					$item_stock = "Available";
 				}
 				
-				$$item_image = base_url()."uploads/default_img.webp";
+				$item_image = base_url()."uploads/default_img.webp";
 				if(!empty($row->image1))
 				{
 					$item_image = constant('img_url_site').$row->image1;

@@ -3,6 +3,7 @@ $(window).scroll(function(){
 	if (scrollBottom<100){
 		//alert(parseInt($(window).scrollTop()))
 		load_more()
+		console.log("load_more()");
 	}
 });
 $(document).ready(function(){

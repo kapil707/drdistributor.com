@@ -538,10 +538,8 @@ if($broadcast_status=="1"){ ?>
 	<?php
 }
 ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/easyzoom/dist/easyzoom.min.js"></script>
-<!-- <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
-<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script> -->
+<link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
+<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script>
 function get_base_url(){
 	return "<?php echo base_url(); ?>";
@@ -555,4 +553,4 @@ function get_user_altercode(){
 }
 </script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page12.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page123.js"></script>

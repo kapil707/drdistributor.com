@@ -18,12 +18,12 @@
 }
 </style>
 <style>
-    /* Style for the container div */
+    /* Style for the container div 
     .image-container {
       position: relative;
       width: 100%;
       height: 100%;
-    }
+    }*/
 
     /* Style for the default image */
     .default-image {

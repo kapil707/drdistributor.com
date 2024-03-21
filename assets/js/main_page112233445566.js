@@ -167,18 +167,7 @@ function medicine_details_api(item_code)
 					item_description1= item.item_description1;
 					
 					// firebase code
-					medicine_details_api_data(item_code)	
-					
-					item_image	= item.item_image;
-					$(".medicine_details_image").attr("src",item_image)
-					item_image	= item.item_image;
-					$(".modal_item_image_change1").attr("src",item_image)
-					item_image2	= item.item_image2;
-					$(".modal_item_image_change2").attr("src",item_image2)
-					item_image3	= item.item_image3;
-					$(".modal_item_image_change3").attr("src",item_image3)
-					item_image4	= item.item_image4;
-					$(".modal_item_image_change4").attr("src",item_image4)
+					medicine_details_api_data(item_code)
 				}
 			});	
 		},
@@ -488,12 +477,9 @@ function medicine_add_to_cart_api()
 
 function modal_item_image_change(_id)
 {
-	modal_item_image_change_url = $(".modal_item_image_change"+_id).attr("src");
-	$(".modal_item_image_change").attr("src",modal_item_image_change_url);
-	$(".example-image-link").attr("href",modal_item_image_change_url)
-	$(".example-image-link").attr("data-standard",modal_item_image_change_url)
+	item_image = $(".modal_item_image_change"+_id).attr("src");
 	
-	$(".easyzoom-flyout img").attr("src",modal_item_image_change_url)
+	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
 }
 
 function delete_medicine(item_code)

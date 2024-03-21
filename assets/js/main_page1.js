@@ -694,7 +694,7 @@ function my_cart_api()
 	});
 }
 
-function load_image(image_id,item_image){
+function load_image(image_id,image_url){
 	//console.log(item_image)
 	var image = document.getElementById(image_id);
 	var actualImage = new Image();

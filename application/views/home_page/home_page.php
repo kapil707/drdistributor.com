@@ -122,4 +122,4 @@ window.jssor_2_slider_init = function() {
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/home_page123456789t.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/home_page.js"></script>

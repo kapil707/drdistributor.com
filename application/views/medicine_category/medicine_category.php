@@ -22,11 +22,6 @@ function goBack() {
 				</div>
 			</div>
 			<div class="row main_page_data" style="display:none"></div>
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<span class="main_page_loading"></span>
-				</div>
-			</div>
 		</div>
 	</div>     
 </div>
@@ -36,7 +31,7 @@ var item_page_type = '<?= $item_page_type; ?>';
 var item_code = '<?= $item_code; ?>';
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category123456789t.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category.js"></script>
 <script>
 function show_sorting_div()
 {

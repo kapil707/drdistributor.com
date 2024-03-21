@@ -1175,6 +1175,7 @@ table{
 	background: var(--main_theme_footer_bg)  !important;
 	border-top-right-radius: 50px;
 	color: var(--main_theme_footer_color)  !important;
+	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
 .mobile_footer_css_center {
 	background: var(--main_theme_footer_bg) !important;
@@ -1184,6 +1185,7 @@ table{
 	width:6%;
 	float: left;
 	color: var(--main_theme_footer_color)  !important;
+	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
 .mobile_footer_css_right {
 	width:40%;
@@ -1191,6 +1193,7 @@ table{
 	background: var(--main_theme_footer_bg) !important;
 	border-top-left-radius: 50px;
 	color: var(--main_theme_footer_color)  !important;
+	box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
 
 

@@ -5,7 +5,7 @@
 
 <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails" style="width:300px;height:300px;">
     <a href="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg">
-        <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg" alt="" />
+        <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg" alt="" style="width:300px;height:300px;" />
     </a>
 </div>
 

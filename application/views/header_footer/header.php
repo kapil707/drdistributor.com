@@ -382,11 +382,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 				<div class="row medicine_details_api_data" style="display:none">
 					<div class="col-sm-5 col-12">
-						<div class="easyzoom">
-							<a href="<?= base_url(); ?>/uploads/default_img.jpg">
-								<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);">
-							</a>
-						</div>
+						<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change easyzoom" alt="zoom"  onerror="setDefaultImage(this);" data-zoom-src="<?= base_url(); ?>/uploads/default_img.jpg">
 						
 						<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" loading="eager" onerror="setDefaultImage(this);">
 
@@ -542,8 +538,10 @@ if($broadcast_status=="1"){ ?>
 	<?php
 }
 ?>
-<link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
-<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/easyzoom/dist/easyzoom.min.js"></script>
+<!-- <link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
+<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script> -->
 <script>
 function get_base_url(){
 	return "<?php echo base_url(); ?>";
@@ -557,4 +555,4 @@ function get_user_altercode(){
 }
 </script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page12.js"></script>

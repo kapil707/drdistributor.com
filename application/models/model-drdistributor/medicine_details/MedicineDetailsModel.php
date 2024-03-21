@@ -51,28 +51,20 @@ class MedicineDetailsModel extends CI_Model
 				$item_discount = "4.5";
 			}
 			$item_description1 = (trim($row->title2));
-			$item_description2 = (trim($row->description));
-			
-			$img_url_site = base_url();
+			$item_description2 = (trim($row->description));			
 
-			$item_image  = $img_url_site."uploads/default_img.webp";
-			$item_image2 = $img_url_site."uploads/default_img.webp";
-			$item_image3 = $img_url_site."uploads/default_img.webp";
-			$item_image4 = $img_url_site."uploads/default_img.webp";
-			if(!empty($row->image1))
-			{
+			$item_image  = $item_image2 = $item_image3 = $item_image4 = base_url()."uploads/default_img.webp";
+			$img_url_site = constant('img_url_site');
+			if(!empty($row->image1)){
 				$item_image = $img_url_site.$row->image1;
 			}
-			if(!empty($row->image2))
-			{
+			if(!empty($row->image2)){
 				$item_image2 = $img_url_site.$row->image2;
 			}
-			if(!empty($row->image3))
-			{
+			if(!empty($row->image3)){
 				$item_image3 = $img_url_site.$row->image3;
 			}
-			if(!empty($row->image4))
-			{
+			if(!empty($row->image4)){
 				$item_image4 = $img_url_site.$row->image4;
 			}
 			/*******************************************************

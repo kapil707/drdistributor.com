@@ -94,7 +94,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 					<li class="d-none d-xl-block">
-						<a href="<?= base_url() ?>search_medicine" title="Search medicine / company">
+						<a href="<?= base_url() ?>medicine_search" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
 							<span class="">Search</span>
 						</a>
@@ -570,4 +570,4 @@ var default_img = "<?php base_url(); ?>uploads/default_img.webp";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>

@@ -1315,6 +1315,9 @@ table{
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
+	.home_page_heading_title::before {
+		display: none;
+	}
 	.home_page_heading_title {
 		text-align: left;
 	}

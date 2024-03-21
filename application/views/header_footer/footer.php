@@ -106,25 +106,25 @@ wow.init();
 </div>
 
 <div class="fix_footer mobile_show">
-	<div class="mobile_footer text_cut_or_dot mobile_footer_css_left text-center">
-		<a href="<?= base_url('account')?>">
+	<div class="mobile_footer_css_left text-center">
+		<a href="<?= base_url(); ?>account">
 			<i class="fa fa-user" aria-hidden="true"></i>
 			<div>Account</div>
 		</a>
-		<a href="<?= base_url('track_order')?>">
+		<a href="<?= base_url(); ?>track_order">
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
 			<div>Track</div>
 		</a>
 	</div>
 	
-	<div class="mobile_footer text_cut_or_dot mobile_footer_css_center text-center">
-		<a href="<?= base_url('search_medicine')?>" alt>
+	<div class="mobile_footer_css_center text-center">
+		<a href="<?= base_url(); ?>medicine_search">
 			<i class="fa fa-plus" aria-hidden="true"></i>
 		</a>
 	</div>
 	
-	<div class="mobile_footer text_cut_or_dot mobile_footer_css_right text-center">
-		<a href="<?= base_url('my_notification')?>">
+	<div class="mobile_footer_css_right text-center">
+		<a href="<?= base_url(); ?>my_notification">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
 			<div>Notification</div>
 		</a>

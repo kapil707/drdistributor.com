@@ -1,8 +1,7 @@
 $(window).scroll(function(){
 	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
 	if (scrollBottom<100){
-		//alert(parseInt($(window).scrollTop()))
-		$(".load_more").click()
+		load_more()
 	}
 });
 $(document).ready(function(){
@@ -19,11 +18,11 @@ var no_record_found = 0;
 var new_i = 0;
 function call_page(get_record)
 {
-	$(".top_bar_title2").html("Loading....");
 	if(query_work=="0")
 	{
 		query_work = 1;	
-		$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+		$(".top_bar_title2").html("Loading....");
+		$(".main_page_loading").show();
 		$.ajax({
 			type       : "POST",
 			dataType   : "json",
@@ -31,26 +30,22 @@ function call_page(get_record)
 			url        : get_base_url() + "my_invoice/my_invoice_api",
 			cache	   : false,
 			error: function(){
-				$(".main_page_loading").html("");
-				$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 				$(".top_bar_title2").html("No record found");
+				$(".main_page_loading").hide();
+				$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 			},
 			success    : function(data){
 
-				$(".main_page_loading").html("");				
+				$(".main_page_loading").hide();
 				if(data.items=="" && no_record_found=="0") {
-					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'img_v51/no_record_found.png" width="100%"></center></h2>');
 					$(".top_bar_title2").html("No record found");
+					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 				}
 				
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);
-
 				$.each(data.items, function(i,item){
 					if (item){
-						if(item.order_id=="")
-						{
-						}
 						item_id	 		= item.item_id;
 						item_title 		= item.item_title;
 						item_total 		= item.item_message;

@@ -13,11 +13,6 @@ function goBack() {
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<span class="main_page_loading" style="position: fixed;top: 300px;z-index: 100;margin-left:-90px"></span>
-				</div>
-			</div>
 		</div>
 	</div>     
 </div>

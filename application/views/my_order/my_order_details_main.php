@@ -16,16 +16,11 @@ function goBack() {
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<span class="main_page_loading"></span>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
 <script>
-	var item_id = "<?php echo $item_id; ?>";
-	var user_altercode = "<?php echo $user_altercode; ?>";
+var item_id = "<?php echo $item_id; ?>";
+var user_altercode = "<?php echo $user_altercode; ?>";
 </script>
 <script src="<?php echo base_url(); ?>/assets/js/my_order_details_main.js"></script>

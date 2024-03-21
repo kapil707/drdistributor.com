@@ -17,9 +17,6 @@ function goBack() {
 					<div class="main_box_div main_page_data p-2" style="display:none">
 					</div>
 				</div>
-				<div class="col-sm-12 main_page_loading" style="margin-top:10px;">
-				
-				</div>
 			</div>
 		</div>
 	</div>

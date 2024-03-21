@@ -1,7 +1,6 @@
 $(window).scroll(function(){
 	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
 	if (scrollBottom<100){
-		//alert(parseInt($(window).scrollTop()))
 		load_more()
 	}
 });
@@ -40,7 +39,6 @@ function call_page(get_record)
 				$(".main_page_loading").hide();
 				if(data.items=="" && no_record_found=="0") {
 					$(".top_bar_title2").html("No record found");
-					$(".main_page_loading").hide();
 					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 				}
 				
@@ -65,7 +63,7 @@ function call_page(get_record)
 					}
 				});
 			},
-			timeout: 10000
+			timeout: 60000
 		});
 	}
 }

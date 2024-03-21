@@ -16,15 +16,10 @@ function goBack() {
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<span class="main_page_loading"></span>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
 <script>
-	var item_id = "<?php echo $item_id; ?>";
+var item_id = "<?php echo $item_id; ?>";
 </script>
 <script src="<?php echo base_url(); ?>/assets/js/my_order_details.js"></script>

@@ -13,9 +13,6 @@ function goBack() {
 			<div class="main_box_div main_page_data p-2" style="display:none">
 			</div>
 		</div>
-		<div class="col-sm-12 load_page_loading" style="margin-top:10px;">
-		
-		</div>
 		<div class="col-sm-12 col-12 text-center div_item_edit" style="display:none" style="margin-top:5px;margin-bottom:5px;">
 			<h4>Item quantity changed</h4>
 		</div>

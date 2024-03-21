@@ -4,7 +4,7 @@ $(document).ready(function(){
 function call_page()
 {
 	$(".top_bar_title2").html("Loading....");
-	$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+	$(".main_page_loading").show();
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -12,14 +12,16 @@ function call_page()
 		url        : get_base_url()+"my_notification/my_notification_details_api",
 		cache	   : false,
 		error: function(){
-			$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 			$(".top_bar_title2").html("No record found");
+			$(".main_page_loading").hide();
+			$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success    : function(data){
-			$(".main_page_loading").html("");
+			
+			$(".main_page_loading").hide();
 			if(data.items=="") {
-				$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 				$(".top_bar_title2").html("No record found");
+				$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
 			}
 			
 			if (data.title!="") {
@@ -70,7 +72,7 @@ function call_page()
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});
 }
 function callandroidfun(funtype,id,compname,image,division) {

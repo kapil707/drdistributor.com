@@ -1,8 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/easyzoom/dist/easyzoom.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easyzoom/dist/easyzoom.css" />
-
-
+<link rel="stylesheet" href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" />
+<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 
 
 <div class="thumbnails">

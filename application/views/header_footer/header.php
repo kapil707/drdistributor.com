@@ -467,7 +467,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							</div>
 							<div class="col-sm-12 col-12 medicine_details_hr">
 							</div>
-							<div class="col-sm-12 col-12 text-left">
+							<div class="col-sm-12 col-12 text-left medicine_details_item_description1">
 								*The information given on this page is based on historical data and estimates . Please refer to the final invoice for the exact value. E&OE.
 							</div>
 						</div>

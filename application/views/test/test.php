@@ -4,7 +4,7 @@
 
 
 <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails" style="width:300px;height:300px;">
-    <a href="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg">
+    <a href="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg" class="myacss">
         <img src="https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708859763collagen_coffe-Photoroom_(1).jpg" alt="" class="myimgcss" style="width:300px;height:300px;" />
     </a>
 </div>
@@ -17,6 +17,7 @@ var $easyzoom = $('.easyzoom').easyZoom();
 $(document).ready(function() {
     setTimeout(function() {
         // Your code to load data goes here
+		$(".myacss").attr("href","https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png")
 		$(".myimgcss").attr("src","https://www.drdweb.co.in/uploads/manage_medicine_image/photo/resize/1708856059Cosmofix-R-Glow-Serum.png")
         console.log('Data loaded after 5 seconds');
 		var $easyzoom = $('.easyzoom').easyZoom();

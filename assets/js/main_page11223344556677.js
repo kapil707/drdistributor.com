@@ -156,7 +156,7 @@ function medicine_details_api(item_code)
 
 					/*************************************************************** */
 					item_image	= item.item_image;
-					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
+					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazay" onerror="setDefaultImage(this);"/></a></div>');
 					$('.easyzoom').easyZoom();
 					/*************************************************************** */
 
@@ -479,7 +479,8 @@ function modal_item_image_change(_id)
 {
 	item_image = $(".modal_item_image_change"+_id).attr("src");
 	
-	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" alt="" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image modal_item_image_change" alt="zoom" loading="eager" onerror="setDefaultImage(this);"/></a></div>');
+	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazay" onerror="setDefaultImage(this);"/></a></div>');
+	$('.easyzoom').easyZoom();
 }
 
 function delete_medicine(item_code)

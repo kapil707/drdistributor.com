@@ -553,4 +553,4 @@ function get_user_altercode(){
 }
 </script>
 <script src="<?php echo base_url(); ?>/assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page123.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page1234.js"></script>

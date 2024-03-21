@@ -141,7 +141,7 @@ function home_page_divisioncategory(category_id,items,title){
 			item_division 	= item.item_division;
 			item_image 		= item.item_image;
 
-			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><img src="'+item_image+'" alt=""></a><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
+			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><img class="all_item_image" src="uploads/default_img.jpg" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" onerror="setDefaultImage(this);" style="display:none;"></a><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
 		}
 	});
 	

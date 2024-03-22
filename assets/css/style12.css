@@ -479,8 +479,11 @@ table{
 	to { transform: rotate(360deg); }
 }
 
-/*jssor slider bullet skin 051 css*/
+/*jssor slider arrow skin 051 css*/
 .jssora_arrowleft{
+	display:block;
+	position:absolute;
+	cursor:pointer;
 	width:30px;
 	height:30px;
 	top:0px;
@@ -489,6 +492,9 @@ table{
 	border-radius: 30px;
 }
 .jssora_arrowright{
+	display:block;
+	position:absolute;
+	cursor:pointer;
 	width:30px;
 	height:30px;
 	top:0px;

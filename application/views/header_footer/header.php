@@ -566,9 +566,9 @@ if($broadcast_status=="1"){ ?>
 	<h2>Please wait....</h2>
 </span>
 <!-- ******************************************************** -->
-<span class="main_page_cart_empty text-center">
+<span class="main_page_no_record_found text-center">
 	<h2>
-		<img src="<?php echo base_url(); ?>img_v51/cartempty.png" width="80%">
+		<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="80%">
 	</h2>
 </span>
 

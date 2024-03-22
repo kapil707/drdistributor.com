@@ -81,7 +81,7 @@ table{
 	background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
 }
 /****************************************************/
-.main_page_cart_empty{
+.main_page_no_record_found{
 	display: none;
 	padding: 30px;
     position: fixed;

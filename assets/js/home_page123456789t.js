@@ -24,6 +24,10 @@ function home_page_owl_load(type,category_id){
 			autoplayTimeout: 5000, // Autoplay interval in milliseconds
 			responsiveClass:true,
 			nav: true,
+			navText: [
+				"<span><i class='fa fa-angle-left' aria-hidden='true'></i></span>",
+				"<span><i class='fa fa-angle-right' aria-hidden='true'></i></span>"
+			],
 			responsive:{
 				0:{
 					items:3,
@@ -51,7 +55,10 @@ function home_page_owl_load(type,category_id){
 			autoplayTimeout: 5000, // Autoplay interval in milliseconds
 			responsiveClass:true,
 			nav: true,
-			navText: ["<i class='fa fa-long-arrow-left'></i>","<i class='fa fa-long-arrow-right'></i>"],
+			navText: [
+				"<span><i class='fa fa-angle-left' aria-hidden='true'></i></span>",
+				"<span><i class='fa fa-angle-right' aria-hidden='true'></i></span>"
+			],
 			responsive:{
 				0:{
 					items:3,

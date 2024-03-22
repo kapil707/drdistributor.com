@@ -47,7 +47,7 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 
 	<div class="mobile_show">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12 col-col-padding-5">
 				<ul class="home_page_mobile_footer">
 					<li>
 						<a href="tel:<?= $this->Scheme_Model->get_website_data("android_mobile") ;?>">

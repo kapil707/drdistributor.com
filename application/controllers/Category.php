@@ -64,6 +64,8 @@ class Category extends CI_Controller {
 	
 	public function featured_brand($item_code="",$item_division=""){
 
+		$data["main_page_title"] = "Dr";
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];

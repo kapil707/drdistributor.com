@@ -1010,10 +1010,9 @@ table{
 	font-weight: bold;
 }
 .medicine_details_item_order_quantity_textbox{
-	background:var(--item_order_quantity_bg);
+    padding: 5px;
     border: 0px;
     border-radius: 10px;
-    padding: 5px;
 	border: 1px solid var(--mainborder-color);
 }
 .medicine_details_item_order_quantity:focus{
@@ -1417,12 +1416,12 @@ table{
 	}
 	.medicine_details_item_company,
 	.medicine_details_item_ptr,
-	.medicine_details_item_mrp{
-		font-size: 15px;
-	}
-	.medicine_details_item_stock,
+	.medicine_details_item_mrp,
 	.medicine_details_item_price,
 	.medicine_details_item_total{
+		font-size: 15px;
+	}
+	.medicine_details_item_stock{
 		font-size: 16px;
 	}
 	.medicine_details_item_date_time,

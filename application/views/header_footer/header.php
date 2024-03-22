@@ -470,18 +470,18 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<div class="col-sm-12 col-12 text-left medicine_details_hr medicine_details_item_description1">
 								*The information given on this page is based on historical data and estimates . Please refer to the final invoice for the exact value. E&OE.
 							</div>
-							
+
 							<div class="col-sm-12 col-12 medicine_details_hr">
 							</div>
 
 							<div class="col-sm-12 col-12 order_quantity_div">
 								<div class="row">
-									<div class="col-sm-4 col-4">
+									<div class="col-sm-5 col-4">
 										<span class="medicine_details_item_order_quantity">Order quantity
 										</span>
 									</div>
 
-									<div class="col-sm-8 col-8 text-right">
+									<div class="col-sm-7 col-8 text-right">
 										<span class="medicine_details_item_total"></span>
 									</div>
 

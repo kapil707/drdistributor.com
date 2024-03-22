@@ -86,4 +86,4 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<script src="<?php echo base_url(); ?>/assets/js/home_page12.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/home_page123.js"></script>

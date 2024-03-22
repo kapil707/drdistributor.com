@@ -1,5 +1,7 @@
 function cart_page_load(){
 
+	$(".main_page_loading").show();
+
 	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215)
 
 	$(".top_bar_search_div").hide();

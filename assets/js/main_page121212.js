@@ -15,6 +15,13 @@ function new_style_menu_hide(){
 	$(".left_menu_bar").hide(500);
 }
 
+function something_went_wrong_function(){
+	return '<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>';
+}
+function cart_emtpy_function(){
+	return '<h2><center><img src="'+get_base_url()+'img_v51/cartempty.png" width="80%"></center></h2>';
+}
+
 function logout_function(){
 	swal({
 		title: "Are you sure to Logout?",
@@ -350,16 +357,17 @@ function medicine_add_to_cart_api()
 					cache	   : true,
 					error: function(){
 						swal("error add to cart")
+						$(".main_page_loading").hide();
 					},
 					success    : function(data){
-
+						
+						$(".main_page_loading").hide();
 						$(".medicine_details_item_order_quantity_textbox").val("");
 						$(".my_cart_api_div").html("");
 						$(".my_cart_api_div_mobile").html("");
-						if(data.items=="")
-						{
-							$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/cartempty.png" width="80%"></center></h2>');
-							$(".my_cart_api_div_mobile").html('<h2><center><img src="'+get_base_url()+'/img_v51/cartempty.png" width="80%"></center></h2>');
+						if(data.items=="") {
+							$(".my_cart_api_div").html(cart_emtpy_function());
+							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
 						}
 						$.each(data.items, function(i,item){
 							if (item)
@@ -568,14 +576,11 @@ function delete_all_medicine()
 		}
 	});
 }
-
 function my_cart_api() {
 
 	my_cart_api_i = 0;
 	$(".add_more_btn").hide();
 	$(".top_bar_title2").html("Loading....");
-	$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
-	$(".my_cart_api_div_mobile").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	id = "";
 	$.ajax({
 		url: get_base_url() +"my_cart/my_cart_api",
@@ -584,18 +589,19 @@ function my_cart_api() {
 		cache: true,
 		data: {id:id},
 		error: function(){
+			$(".main_page_loading").hide();
 			$(".top_bar_title2").html("No record found");
-			$(".my_cart_api_div").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
-			$(".my_cart_api_div_mobile").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".my_cart_api_div").html(something_went_wrong_function());
+			$(".my_cart_api_div_mobile").html(something_went_wrong_function());
 		},
 		success: function(data){
 
+			$(".main_page_loading").hide();
 			$(".my_cart_api_div").html("");
 			$(".my_cart_api_div_mobile").html("");
-			if(data.items=="")
-			{
-				$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'img_v51/cartempty.png" width="80%"></center></h2>');
-				$(".my_cart_api_div_mobile").html('<h2><center><img src="'+get_base_url()+'img_v51/cartempty.png" width="80%"></center></h2>');
+			if(data.items=="") {
+				$(".my_cart_api_div").html(cart_emtpy_function());
+				$(".my_cart_api_div_mobile").html(cart_emtpy_function());
 			}
 			$.each(data.items, function(i,item){
 				if (item)

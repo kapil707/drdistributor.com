@@ -1,3 +1,9 @@
+$(document).ready(function(){
+	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
+	$(".main_page_loading").show();
+	setTimeout('my_cart_api();',100);
+});
+
 function slice_type_change(mtid)
 {
 	$(".slice_item1_div").hide();
@@ -12,11 +18,6 @@ function slice_type_change(mtid)
 		$(".slice_item2_div").show();
 	}
 }
-$(document).ready(function(){
-	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
-
-	setTimeout('my_cart_api();',100);
-});
 function place_order_model()
 {
 	$(".place_order_model").click();

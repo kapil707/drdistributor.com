@@ -81,6 +81,17 @@ table{
 	background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
 }
 /****************************************************/
+.main_page_cart_empty{
+	padding: 30px;
+    position: fixed;
+    top: 300px;
+    z-index: 100;
+    margin-left: 5%;
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+    border-radius: 10px;
+	background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
+}
+/****************************************************/
 
 .input_type_text{
 	background-color: var(--main_theme_textbox_background_color) !important;

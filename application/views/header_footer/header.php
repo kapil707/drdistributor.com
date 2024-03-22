@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style1234567.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style12345678.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
@@ -565,8 +565,12 @@ if($broadcast_status=="1"){ ?>
 	</h2>
 	<h2>Please wait....</h2>
 </span>
-
-<h2><center><img src="<?php echo base_url(); ?>img_v51/cartempty.png" width="80%"></center></h2>
+<!-- ******************************************************** -->
+<span class="main_page_cart_empty text-center">
+	<h2>
+		<img src="<?php echo base_url(); ?>img_v51/cartempty.png" width="80%">
+	</h2>
+</span>
 
 <!-- ******************************************************** -->
 <script>

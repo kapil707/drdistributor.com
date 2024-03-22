@@ -67,7 +67,7 @@ function goBack() {
 											</span>
 											<span style="float:left;" class="cart_delete_btn_<?= $i ?>">
 											
-											<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="cart_delete_btn">
+											<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="all_item_delete_btn">
 											<img src="<?= base_url(); ?>img_v51/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a>
 											</span>
 										</div>

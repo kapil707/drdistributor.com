@@ -154,7 +154,7 @@ function page_up_down_arrow(new_i)
 	$('.hover_'+new_i).keypress(function (e) {
 		 if (e.which == 13) {
 			item_code = $(".medicine_details_funcation_"+new_i).attr("item_code")
-			console.log(item_code);
+			medicine_details_funcation(item_code);
 		 } 						 
 	 });
 	$('.hover_'+new_i).keydown(function(event) {

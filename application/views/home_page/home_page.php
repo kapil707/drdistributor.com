@@ -31,6 +31,17 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	<div class="row home_page_menu_data"></div>
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<span class="main_page_loading2 text-center">
+				<h2>
+					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
+				</h2>
+				<h2>Please wait....</h2>
+			</span>
+			<div class="load_more btn btn-success" onclick="load_more()">Load More</div>
+		</div>
+	</div>
 </div>
 
 <script src="<?= base_url(); ?>assets/website/js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>

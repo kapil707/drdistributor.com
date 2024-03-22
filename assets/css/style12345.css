@@ -484,11 +484,13 @@ table{
 	display:block;
 	position:absolute;
 	cursor:pointer;
-	width:40px;
-	height:40px;
 	top:0px;
 	left:35px;
-	border-radius: 30px;
+
+	z-index: 1;
+    width: 40px;
+    height: 40px;
+    transform: translatey(-50%);
 }
 .jssora_arrowleft span {
     font-size: 30px;
@@ -496,18 +498,20 @@ table{
     display: block;
     width: 100%;
     border-radius: 100px;
-    color: var(--mainthemebtncolor);
-    background-color: var(--mainthemebtnbgcolor);
+	color: var(--mainthemebtnbgcolor);
+    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
 .jssora_arrowright{
 	display:block;
 	position:absolute;
 	cursor:pointer;
-	width:40px;
-	height:40px;
 	top:0px;
 	right:35px;
-	border-radius: 30px;
+	
+	z-index: 1;
+    width: 40px;
+    height: 40px;
+    transform: translatey(-50%);
 }
 .jssora_arrowright span {
     font-size: 30px;

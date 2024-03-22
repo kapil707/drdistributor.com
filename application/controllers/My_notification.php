@@ -115,11 +115,10 @@ class My_notification extends CI_Controller {
 			$get_record  = $result["get_record"];
 		}
 
-		$items = "";
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $itemsxxx,
+            'items' => $items,
             'get_record' => $get_record
         );
 

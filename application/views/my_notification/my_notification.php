@@ -14,7 +14,7 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="main_page_data" style="display:none">
+					<div class="main_page_data">
 					</div>
 				</div>
 			</div>

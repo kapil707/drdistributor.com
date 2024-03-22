@@ -3,8 +3,14 @@ $(document).ready(function(){
 });
 function call_page()
 {
+	/*********************************** */
 	$(".top_bar_title2").html("Loading....");
+	$(".main_container").show();
 	$(".main_page_loading").show();
+	$(".main_page_no_record_found").hide();
+	$(".main_page_something_went_wrong").hide();
+	/*********************************** */
+
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -13,15 +19,17 @@ function call_page()
 		cache	   : false,
 		error: function(){
 			$(".top_bar_title2").html("No record found");
+			$(".main_container").hide();
 			$(".main_page_loading").hide();
-			$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".main_page_something_went_wrong").show();
 		},
 		success    : function(data){
 			
 			$(".main_page_loading").hide();
 			if(data.items=="") {
 				$(".top_bar_title2").html("No record found");
-				$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+				$(".main_container").hide();
+				$(".main_page_no_record_found").show();
 			}
 			
 			if (data.title!="") {

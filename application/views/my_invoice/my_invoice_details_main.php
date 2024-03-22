@@ -10,21 +10,21 @@ function goBack() {
 		<div class="col-sm-4 col-12 download_excel_url p-2"></div>
 		<div class="col-sm-4"></div>
 		<div class="col-sm-12 col-12">
-			<div class="main_page_data p-2" style="display:none">
+			<div class="main_page_data">
 			</div>
 		</div>
-		<div class="col-sm-12 col-12 text-center div_item_edit" style="display:none" style="margin-top:5px;margin-bottom:5px;">
+		<div class="col-sm-12 col-12 text-center main_page_data_edit_title" style="display:none" style="margin-top:5px;margin-bottom:5px;">
 			<h4>Item quantity changed</h4>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="main_page_data_edit p-2" style="display:none">
+			<div class="main_page_data_edit">
 			</div>
 		</div>
-		<div class="col-sm-12 col-12 text-center main_page_data_delete" style="display:none" style="margin-top:5px;margin-bottom:5px;">
+		<div class="col-sm-12 col-12 text-center main_page_data_delete_title" style="display:none" style="margin-top:5px;margin-bottom:5px;">
 			<h4>Items deleted</h4>
 		</div>
 		<div class="col-sm-12 col-12">
-			<div class="load_page_delete p-2" style="display:none">
+			<div class="main_page_data_delete">
 			</div>
 		</div>
 	</div>

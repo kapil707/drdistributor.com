@@ -3,8 +3,14 @@ $(document).ready(function(){
 });
 function call_page()
 {	
+	/*********************************** */
 	$(".top_bar_title2").html("Loading....");
+	$(".main_container").show();
 	$(".main_page_loading").show();
+	$(".main_page_no_record_found").hide();
+	$(".main_page_something_went_wrong").hide();
+	/*********************************** */
+	
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -13,15 +19,17 @@ function call_page()
 		cache	   : false,
 		error: function(){
 			$(".top_bar_title2").html("No record found");
+			$(".main_container").hide();
 			$(".main_page_loading").hide();
-			$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".main_page_something_went_wrong").show();
 		},
 		success    : function(data){
 			
 			$(".main_page_loading").hide();
 			if(data.items=="") {
 				$(".top_bar_title2").html("No record found");
-				$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+				$(".main_container").hide();
+				$(".main_page_no_record_found").show();
 			}
 			
 			if (data.title!="") {
@@ -68,7 +76,6 @@ function call_page()
 					
 					$(".main_page_data").append('<div class="main_box_div_data" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;"><div class="all_page_details_page_box_left_div"><img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="all_page_details_page_box_right_div"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span>'+div_all_data+'</div>');
 
-					$(".main_page_data").show();
 					$(".top_bar_title2").html(item_date_time);
 				}
 			});	

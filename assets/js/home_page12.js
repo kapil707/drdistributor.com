@@ -119,7 +119,7 @@ function home_page_slider(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div id="jssor_'+category_id+'"><div data-u="slides" class="top_flash_div">'+mydata+'</div><div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75"><div data-u="prototype" class="i" style="width:16px;height:16px;">left</div></div><div data-u="arrowleft" class="jssora051" style="width:30px;height:30px;top:0px;left:35px;background: black;border-radius: 30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">right</div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div id="jssor_'+category_id+'"><div data-u="slides" class="top_flash_div">'+mydata+'</div><div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75"><div data-u="prototype" class="i" style="width:16px;height:16px;">left</div><div data-u="arrowleft" class="jssora051" style="width:30px;height:30px;top:0px;left:35px;background: black;border-radius: 30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">right</div></div>';
 	
 	return myval;
 }

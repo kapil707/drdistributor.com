@@ -588,4 +588,4 @@ var default_img = "<?= base_url(); ?>uploads/default_img.webp";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1212123.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page12121233.js"></script>

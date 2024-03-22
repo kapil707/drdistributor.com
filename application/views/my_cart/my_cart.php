@@ -5,8 +5,8 @@
 	}
 }
 .main_box_div_data{
-	width:49%;
-	margin-left:0.5%;
+	width: 49.7%;
+    margin-right: 0.3%;
 }
 @media screen and (max-width: 800px) {
 	.main_box_div_data{
@@ -42,7 +42,7 @@ function goBack() {
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 
-		<div class="col-sm-12 col-12 col-padding-5">
+		<div class="col-sm-12 col-12 col-padding-5 web-col-padding-5">
 			<div class="main_box_div2 cart_page_div_for_fix_height">
 				<span class="my_cart_api_div"></span>
 			</div>

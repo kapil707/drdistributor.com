@@ -678,13 +678,13 @@ table{
 }
 .medicine_category_page .all_item_featured_img{
     position: absolute;
-	left: 5px;
+	left: 10px;
     width: 60px;
     border-top-left-radius: 10px;
 }
 .medicine_category_page .all_item_out_of_stock_img{
 	position: absolute;
-	left: 5px;
+	left: 10px;
     width: 60px;
     border-top-left-radius: 10px;
 }
@@ -1259,7 +1259,10 @@ table{
 .footer_website_version_css{
 	color: var(--footer_website_name_color);
 }
-
+.web-col-padding-5{
+	padding-right: 5px !important;
+	padding-left: 5px !important;
+}
 
 @media screen and (max-width: 800px){
 	.mobile_off{

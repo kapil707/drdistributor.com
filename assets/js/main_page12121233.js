@@ -117,7 +117,7 @@ function medicine_details_funcation(item_code)
 function medicine_details_api(item_code)
 {
 	/***************************************************************** */
-	$('.order_quantity_div').hide();
+	//$('.order_quantity_div').hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
 

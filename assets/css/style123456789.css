@@ -694,16 +694,10 @@ table{
 	margin-bottom: 5px;
 	display: none;
 }
+.all_item_featured_img,
 .all_item_out_of_stock_img {
     left: 10px;
     width: 65px;
-    position: absolute;
-    border-top-left-radius: 10px;
-}
-.all_item_featured_img{
-	left: 10px;
-    width: 65px;
-    position: absolute;
     border-top-left-radius: 10px;
 }
 .all_item_name{
@@ -1330,14 +1324,6 @@ table{
 	}
 	.search_result_div {
 		display: none !important;
-	}
-	.search_result_div_mobile {
-		position: absolute;
-		height: 100%;
-		background: white;
-		/* width: 100%; */
-		z-index: 999;
-		display: table;
 	}
 	.all_page_box_left_div,
 	.home_page_box_left_div {

@@ -49,7 +49,7 @@ function goBack() {
 
 		<div class="col-12 col-padding-5 mobile_show">
 			<div class="search_result_div_mobile"></div>
-			<div class="my_cart_api_div_mobile"></div>
+			<div class="my_cart_api_div_mobile">hello g</div>
 		</div>
 	</div>
 </div>

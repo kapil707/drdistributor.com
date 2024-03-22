@@ -235,35 +235,35 @@ function medicine_search_api()
             }
 			
 			$(".background_blur").show();
+			$(".top_bar_title2").html("Loading....");
 
 			$(".search_result_div").show();
 			$(".search_result_div").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
-			$(".header_result_found").html("Loading....");
 
 			$(".search_result_div_mobile").show();
 			$(".search_result_div_mobile").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
-			$(".header_result_found").html("Loading....");
-			$.ajax({
-			type       : "POST",
-			dataType   : "json",
-			data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
-			url        : get_base_url() + "medicine_search/medicine_search_api",
-			cache	   : true,
-			error: function(){
-				$(".search_result_div").html(something_went_wrong_function());
-				$(".search_result_div_mobile").html(something_went_wrong_function());
-				$(".top_bar_title2").html("No record found");
-			},
-			success    : function(data){
 
-				$(".search_result_div").html("");
-				$(".search_result_div_mobile").html("");
-				if(data.items==""){
+			$.ajax({
+				type       : "POST",
+				dataType   : "json",
+				data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
+				url        : get_base_url() + "medicine_search/medicine_search_api",
+				cache	   : true,
+				error: function(){
+					$(".search_result_div").html(something_went_wrong_function());
+					$(".search_result_div_mobile").html(something_went_wrong_function());
 					$(".top_bar_title2").html("No record found");
-					$(".search_result_div").html(no_record_found_function());
-					$(".search_result_div_mobile").html(no_record_found_function());
-				}
-				$.each(data.items, function(i,item){
+				},
+				success    : function(data){
+
+					$(".search_result_div").html("");
+					$(".search_result_div_mobile").html("");
+					if(data.items==""){
+						$(".top_bar_title2").html("No record found");
+						$(".search_result_div").html(no_record_found_function());
+						$(".search_result_div_mobile").html(no_record_found_function());
+					}
+					$.each(data.items, function(i,item){
 						if (item)
 						{
 							new_i 				= item.item_count;

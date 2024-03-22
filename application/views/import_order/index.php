@@ -1,23 +1,22 @@
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.headertitle
-{
+.top_bar_title{
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".headertitle1").show();
+$(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("Upload order");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
-		<div class="col-sm-12 col-12 website_box_part">
+		<div class="col-sm-12 col-12 main_box_div">
 			<div class="form-group mt-2">
 				<label for="file">Upload excel file</label>
 				<div class="row">

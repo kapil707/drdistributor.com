@@ -17,7 +17,7 @@
 </style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.top_bar_title1 {
+.top_bar_title {
 	margin-top: -5px;
 }
 </style>

@@ -84,6 +84,7 @@ table{
 .main_page_something_went_wrong,
 .main_page_no_record_found{
 	display: none;
+	padding-top: 200px;
 }
 /****************************************************/
 

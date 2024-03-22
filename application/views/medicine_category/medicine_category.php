@@ -1,10 +1,15 @@
+<style>
+.main_container{
+	width:80%;
+}
+</style>
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>";
 }
 </script>
-<div class="container-sm main_container">
+<div class="container-fluid main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">

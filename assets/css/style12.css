@@ -536,13 +536,15 @@ table{
 }
 
 .owl-nav button span {
-	font-size: 30px;
-	height: 100%;
-	display: block;
-	width: 100%;
-	color: var(--mainthemebtncolor);
-	background-color: var(--mainthemebtnbgcolor);
+    font-size: 30px;
+    height: 100%;
+    display: block;
+    width: 100%;
+    border-radius: 100px;
+    color: var(--mainthemebtncolor);
+    background-color: var(--mainthemebtnbgcolor);
 }
+
 .owl-carousel .owl-nav button.owl-prev {
 	left: 0;
 }
@@ -1314,13 +1316,13 @@ table{
 	.my_cart_box_left_div,
 	.medicine_search_box_left_div,
 	.home_page_box_left_div {
-		width: 20%;
+		width: 16%;
 	}
 	.all_page_box_right_div,
 	.my_cart_box_right_div,
 	.medicine_search_box_right_div,
 	.home_page_box_right_div {
-		width: 80%;
+		width: 84%;
 	}
 	.search_cart_footer_div{
 		width: 98%;

@@ -14,7 +14,7 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="main_page_data p-2" style="display:none">
+					<div class="main_page_data" style="display:none">
 					</div>
 				</div>
 			</div>
@@ -22,4 +22,4 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js/my_notification.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_notification1.js"></script>

@@ -1,6 +1,6 @@
 <style>
 .main_container{
-	padding:0px;
+	padding-bottom:0px;
 }
 </style>
 <?php if(!empty($chemist_id)){ ?>

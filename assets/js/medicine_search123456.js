@@ -38,23 +38,9 @@ function get_medicine_favourite() {
 					item_code			= item.item_code;
 					item_image			= item.item_image;
 					item_name 			= item.item_name;
-					item_packing 		= item.item_packing;
-					item_expiry 		= item.item_expiry;
-					item_company 		= item.item_company;
 					item_quantity 		= item.item_quantity;
-					item_stock 			= item.item_stock;
-					item_ptr 			= item.item_ptr;
-					item_mrp 			= item.item_mrp;
-					item_price 			= item.item_price;
-					item_scheme 		= item.item_scheme;
-					item_margin 		= item.item_margin;
-					item_featured 		= item.item_featured;
-					item_description1 	= item.item_description1;
-					similar_items 		= item.similar_items;					
-
-					div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></div>"
 					
-					$(".get_medicine_favourite_api_div").append('<div class="main_box_div_data"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')" style="text-decoration: none;"><div class="favourite_medicines_box_left_div"><img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="favourite_medicines_box_right_div"><div class="text-capitalize all_item_name">'+item_name+'</div><div class="text-left all_item_order_quantity">Last order quantity : '+item_quantity+'</div></div></a></div>'+div_all_data);
+					$(".get_medicine_favourite_api_div").append('<div class="main_box_div_data"><a href="javascript:void(0)" onClick="get_single_medicine_info('+item_code+')" style="text-decoration: none;"><div class="favourite_medicines_box_left_div"><img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="favourite_medicines_box_right_div"><div class="text-capitalize all_item_name">'+item_name+'</div><div class="text-left all_item_order_quantity">Last order quantity : '+item_quantity+'</div></div></a></div>');
 				}
 			});
 		},
@@ -197,8 +183,7 @@ function view_cart_btn() {
 	window.location.href= get_base_url() + "my_cart";
 }
 
-function medicine_search_api()
-{
+function medicine_search_api() {
 	new_i = 0;
 
 	$(".my_cart_api_div_mobile").hide();

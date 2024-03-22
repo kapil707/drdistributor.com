@@ -55,7 +55,7 @@ function goBack() {
 			</div>
 			<div class="form-group text-center">
 				<span id="upload_import_file_loading" style="display:none">Uploading....</span>
-				<button id="upload_import_file" onclick="upload_import_file()" class="btn btn-primary mainbutton" style="width:20%">Upload</button>
+				<button id="upload_import_file" onclick="upload_import_file()" class="btn btn-primary main_theme_button" style="width:20%">Upload</button>
 			</div>					
 		</div>
 	</div>  

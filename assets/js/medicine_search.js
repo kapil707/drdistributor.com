@@ -11,8 +11,8 @@ function cart_page_load(){
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
-	my_cart_api();
 	get_medicine_favourite();
+	my_cart_api();
 }
 
 function get_medicine_favourite() {

@@ -40,11 +40,11 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
 				</h2>
 				<h2>Please wait....</h2>
-			</span>
+			</div>
 			<!-- <div class="load_more btn btn-success" onclick="load_more()">Load More</div> -->
 		</div>
 	</div>
-	
+
 	<div class="mobile_show">
 		<div class="row">
 			<div class="col-sm-12">

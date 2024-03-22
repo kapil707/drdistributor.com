@@ -90,13 +90,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>" title="Home">
 							<i class="fa fa-home" aria-hidden="true"></i>
-							<span class="">Home</span>
+							<span>Home</span>
 						</a>
 					</li>
 					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>medicine_search" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
-							<span class="">Search</span>
+							<span>Search</span>
 						</a>
 					</li>
 					<li class="mobile_show">

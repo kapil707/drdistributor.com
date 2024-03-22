@@ -201,6 +201,7 @@ function medicine_details_get(item_code)
 	item_expiry = $(".medicine_details_all_data_"+item_code).attr("item_expiry")
 	item_company = $(".medicine_details_all_data_"+item_code).attr("item_company")
 	item_quantity = $(".medicine_details_all_data_"+item_code).attr("item_quantity")
+	console.log(item_quantity)
 	item_stock = $(".medicine_details_all_data_"+item_code).attr("item_stock")
 	item_ptr = $(".medicine_details_all_data_"+item_code).attr("item_ptr")
 	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
@@ -336,7 +337,7 @@ function change_item_order_quantity(){
 
 function medicine_add_to_cart_api()
 {	
-	item_quantity		= $(".medicine_details_item_order_quantity_hidden").val();
+	item_quantity_add	= $(".medicine_details_item_order_quantity_hidden").val();
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();
 
@@ -347,10 +348,10 @@ function medicine_add_to_cart_api()
 	else
 	{
 		item_order_quantity = parseInt(item_order_quantity);
-		item_quantity		= parseInt(item_quantity);
+		item_quantity_add	= parseInt(item_quantity_add);
 		if(item_order_quantity!=0)
 		{
-			if(item_order_quantity<=item_quantity)
+			if(item_order_quantity<=item_quantity_add)
 			{
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();

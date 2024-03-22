@@ -2,6 +2,11 @@
 .main_container{
 	padding-bottom:0px;
 }
+@media screen and (max-width: 800px){
+	.main_container {
+		padding-bottom: 80px;
+	}
+}
 </style>
 <?php if(!empty($chemist_id)){ ?>
 <style>

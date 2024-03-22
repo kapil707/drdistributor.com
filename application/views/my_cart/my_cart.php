@@ -1,4 +1,9 @@
 <style>
+@media screen and (max-width: 800px){
+	.main_container {
+		padding-bottom: 80px;
+	}
+}
 .main_box_div_data{
 	width:49%;
 	margin-left:0.5%;
@@ -42,7 +47,7 @@ function goBack() {
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
-		
+
 		<div class="col-sm-4 col-12"></div>
 		<div class="col-sm-4 col-12 text-center">
 			<a href="<?=base_url();?>home/search_medicine" class="btn main_theme_button" style="margin-top:10px;"> 

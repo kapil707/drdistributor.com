@@ -237,11 +237,11 @@ function medicine_search_api()
 			$(".background_blur").show();
 
 			$(".search_result_div").show();
-			$(".search_result_div").html(loading_img_function());
+			$(".search_result_div").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
 			$(".header_result_found").html("Loading....");
 
 			$(".search_result_div_mobile").show();
-			$(".search_result_div_mobile").html(loading_img_function());
+			$(".search_result_div_mobile").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 			type       : "POST",

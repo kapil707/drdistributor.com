@@ -480,49 +480,47 @@ table{
 }
 
 /*jssor slider arrow skin 051 css*/
-.jssora_arrowleft{
-	display:block;
-	position:absolute;
-	cursor:pointer;
-	top:0px;
-	left:35px;
-
-	z-index: 1;
-    width: 40px;
-    height: 40px;
+.jssora_arrowleft {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 35px;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
     transform: translatey(-50%);
 }
 .jssora_arrowleft span {
-    font-size: 30px;
+    font-size: 20px;
     height: 100%;
     display: block;
     width: 100%;
     border-radius: 100px;
-	color: var(--mainthemebtncolor);
+    color: var(--mainthemebtncolor);
     background-color: var(--mainthemebtnbgcolor);
-	padding-left: 10px;
+    padding-left: 8px;
 }
-.jssora_arrowright{
-	display:block;
-	position:absolute;
-	cursor:pointer;
-	top:0px;
-	right:35px;
-	
-	z-index: 1;
-    width: 40px;
-    height: 40px;
+.jssora_arrowright {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    right: 35px;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
     transform: translatey(-50%);
 }
 .jssora_arrowright span {
-    font-size: 30px;
+    font-size: 20px;
     height: 100%;
     display: block;
     width: 100%;
-    border-radius: 100px;    
-	color: var(--mainthemebtncolor);
+    border-radius: 100px;
+    color: var(--mainthemebtncolor);
     background-color: var(--mainthemebtnbgcolor);
-	padding-left: 10px;
+    padding-left: 10px;
 }
 .img_css_for_slider {
 	margin-left: 10px;

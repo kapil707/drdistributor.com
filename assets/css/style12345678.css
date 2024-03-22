@@ -195,6 +195,7 @@ table{
 	/*background-color:var(--main_theme_li_bg_color);*/
 	border-radius: 5px;
 	border: 1px solid var(--main_theme_border_color);
+	background-color: var(--main_theme_white_background_color);
 }
 .main_box_div_data:focus{
 	cursor: none;

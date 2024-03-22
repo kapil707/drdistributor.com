@@ -362,7 +362,7 @@ class MedicineSearchModel extends CI_Model
 		
 		$item_description  = (trim($row->title2));
 		if(!empty($item_description)){
-			$item_description  = substr($item_description,0,200).'...';
+			$item_description  = substr($item_description,0,100).'...';
 		}
 		
 		$item_image = base_url()."uploads/default_img.webp";

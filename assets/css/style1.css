@@ -480,18 +480,22 @@ table{
 }
 
 /*jssor slider bullet skin 051 css*/
-.jssorb051 .i {position:absolute;cursor:pointer;}
-.jssorb051 .i .b {fill:#fff;fill-opacity:0.5;}
-.jssorb051 .i:hover .b {fill-opacity:.7;}
-.jssorb051 .iav .b {fill-opacity: 1;}
-.jssorb051 .i.idn {opacity:.3;}
-
-/*jssor slider arrow skin 051 css*/
-.jssora051 {display:block;position:absolute;cursor:pointer;}
-.jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
-.jssora051:hover {opacity:.8;}
-.jssora051.jssora051dn {opacity:.5;}
-.jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+.jssora_arrowleft{
+	width:30px;
+	height:30px;
+	top:0px;
+	left:35px;
+	background: black;
+	border-radius: 30px;
+}
+.jssora_arrowright{
+	width:30px;
+	height:30px;
+	top:0px;
+	right:35px;
+	background: black;
+	border-radius: 30px;
+}
 .img_css_for_slider {
 	margin-left: 10px;
 	margin-right: 10px;

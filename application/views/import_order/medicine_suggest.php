@@ -44,8 +44,8 @@ function goBack() {
 						<td><?= $lastcount++?></td>
 						<td class="all_item_name"><?= ucwords(strtolower($row->your_item_name))?></td>
 						<td class="all_item_name"><?= ucwords(strtolower($row->item_name))?></td>
-						<td class="all_item_delete_btn">
-							<a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i> Delete suggest medicine</a>
+						<td class="">
+							<a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine" class="all_item_delete_btn"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i> Delete suggest medicine</a>
 						</td>
 					</tr>
 					<?php

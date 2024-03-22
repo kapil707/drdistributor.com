@@ -35,7 +35,7 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 
 	<div class="row">
 		<div class="col-sm-6"></div>
-		<div class="col-sm-12 text-center">
+		<div class="col-sm-6 text-center">
 			<div class="main_page_loading1">
 				<h2>
 					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">

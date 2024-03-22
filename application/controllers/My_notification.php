@@ -48,6 +48,7 @@ class My_notification extends CI_Controller {
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_notification/my_notification', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function my_notification_details($item_id=""){
@@ -89,6 +90,7 @@ class My_notification extends CI_Controller {
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_notification/my_notification_details', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	/*******************api start*********************/

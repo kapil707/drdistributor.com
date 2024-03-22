@@ -49,6 +49,7 @@ class My_invoice extends CI_Controller {
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice',$data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	public function my_invoice_details($item_id=""){
@@ -93,6 +94,7 @@ class My_invoice extends CI_Controller {
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details',$data);
+		$this->load->view('header_footer/footer', $data);
 	}
 
 	/*******************api start*********************/

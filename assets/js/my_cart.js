@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
 	$(".main_page_loading").show();
-	setTimeout('my_cart_api();',100);
+	my_cart_api();
 });
 
 function slice_type_change(mtid)

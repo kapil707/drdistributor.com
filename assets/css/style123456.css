@@ -768,6 +768,10 @@ table{
 	font-size:12px;
 	line-height: 18px;
 }
+.all_item_batch_no{
+	font-size: 13px;
+    color:var(--item_batch_no_color);
+}
 .all_item_margin{
 	color:var(--item_margin_color);
 	font-size:13px;

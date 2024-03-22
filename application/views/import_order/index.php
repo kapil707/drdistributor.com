@@ -39,19 +39,19 @@ function goBack() {
 			
 			<div class="form-group">
 				<label for="file">Header column number</label>
-				<input type="text" name="headername"  class="input_type_text login_textbox headername" placeholder="Header column number" value="<?= $headername ?>" />
+				<input type="text" name="headername"  class="input_type_text2 login_textbox headername" placeholder="Header column number" value="<?= $headername ?>" />
 			</div>	
 			<div class="form-group">
 				<label for="file">Item column name</label>
-				<input type="text" name="itemname" class="input_type_text login_textbox itemname" placeholder="Item column name" value="<?= $itemname ?>" />
+				<input type="text" name="itemname" class="input_type_text2 login_textbox itemname" placeholder="Item column name" value="<?= $itemname ?>" />
 			</div>	
 			<div class="form-group">
 				<label for="file">Item column mrp</label>
-				<input type="text" name="itemmrp" class="input_type_text login_textbox itemmrp" placeholder="Item column mrp" value="<?= $itemmrp ?>" />
+				<input type="text" name="itemmrp" class="input_type_text2 login_textbox itemmrp" placeholder="Item column mrp" value="<?= $itemmrp ?>" />
 			</div>
 			<div class="form-group">
 				<label for="file">Item column quantity</label>
-				<input type="text" name="itemqty" class="input_type_text login_textbox itemqty" placeholder="Item column quantity" value="<?= $itemqty ?>" />
+				<input type="text" name="itemqty" class="input_type_text2 login_textbox itemqty" placeholder="Item column quantity" value="<?= $itemqty ?>" />
 			</div>
 			<div class="form-group text-center">
 				<span id="upload_import_file_loading" style="display:none">Uploading....</span>

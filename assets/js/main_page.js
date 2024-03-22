@@ -571,6 +571,8 @@ function delete_all_medicine()
 
 function my_cart_api() {
 
+	my_cart_api_i = 0;
+	$(".add_more_btn").hide();
 	$(".top_bar_title2").html("Loading....");
 	$(".my_cart_api_div").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$(".my_cart_api_div_mobile").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
@@ -598,6 +600,12 @@ function my_cart_api() {
 			$.each(data.items, function(i,item){
 				if (item)
 				{
+					my_cart_api_i = parseInt(my_cart_api_i) + 1;
+					$(".add_more_btn").hide();
+					if(parseInt(my_cart_api_i)<=4){
+						$(".add_more_btn").show();
+					}
+
 					item_code			= item.item_code;
 					item_image			= item.item_image;
 					item_name 			= item.item_name;

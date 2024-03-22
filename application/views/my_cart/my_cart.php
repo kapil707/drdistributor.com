@@ -43,7 +43,7 @@ function goBack() {
 		</div>
 
 		<div class="col-sm-12 col-12 col-padding-5">
-			<div class="main_box_div">
+			<div class="main_box_div2 cart_page_div_for_fix_height">
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
@@ -152,4 +152,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/my_cart.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/my_cart1.js"></script>

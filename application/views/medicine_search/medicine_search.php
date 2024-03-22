@@ -105,4 +105,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_search1234567.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_search12345678.js"></script>

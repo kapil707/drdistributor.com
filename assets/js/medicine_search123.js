@@ -24,13 +24,13 @@ function get_medicine_favourite() {
 		cache: true,
 		data: {id:id},
 		error: function(){
-			$(".get_medicine_favourite_api_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".get_medicine_favourite_api_div").html(something_went_wrong_function());
 		},
 		success: function(data){
 
 			$(".get_medicine_favourite_api_div").html('');
 			if(data.items==""){
-				$(".get_medicine_favourite_api_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
+				$(".get_medicine_favourite_api_div").html(no_record_found_function());
 			}
 			$.each(data.items, function(i,item){
 				if (item)
@@ -237,11 +237,11 @@ function medicine_search_api()
 			$(".background_blur").show();
 
 			$(".search_result_div").show();
-			$(".search_result_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
+			$(".search_result_div").html(loading_img_function());
 			$(".header_result_found").html("Loading....");
 
 			$(".search_result_div_mobile").show();
-			$(".search_result_div_mobile").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
+			$(".search_result_div_mobile").html(loading_img_function());
 			$(".header_result_found").html("Loading....");
 			$.ajax({
 			type       : "POST",
@@ -250,22 +250,18 @@ function medicine_search_api()
 			url        : get_base_url() + "medicine_search/medicine_search_api",
 			cache	   : true,
 			error: function(){
-				$(".search_result_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
-				$(".search_result_div_mobile").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+				$(".search_result_div").html(something_went_wrong_function());
+				$(".search_result_div_mobile").html(something_went_wrong_function());
 				$(".top_bar_title2").html("No record found");
 			},
 			success    : function(data){
-				if(data.items=="")
-				{
-					$(".search_result_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
-					$(".search_result_div_mobile").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
+
+				$(".search_result_div").html("");
+				$(".search_result_div_mobile").html("");
+				if(data.items==""){
 					$(".top_bar_title2").html("No record found");
-				}
-				else
-				{
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-					$(".top_bar_title2").html("Found result");
+					$(".search_result_div").html(no_record_found_function());
+					$(".search_result_div_mobile").html(no_record_found_function());
 				}
 				$.each(data.items, function(i,item){
 						if (item)

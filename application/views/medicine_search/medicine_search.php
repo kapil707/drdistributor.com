@@ -31,18 +31,18 @@ function goBack() {
 				My Cart <span class="search_cart_page_total_cart_items"></span>
 			</h6>
 		</div>
-		<div class="col-sm-3 col-12 mobile_off text-right" style="margin-top: 5px;">
+		<div class="col-sm-3 col-12 mobile_off text-right">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block">
-			<div class="main_box_div search_page_div_for_fix_height get_medicine_favourite_api_div p-2">
+			<div class="main_box_div search_page_div_for_fix_height get_medicine_favourite_api_div">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 border_off_mobile">
-			<div class="main_box_div search_page_div_for_fix_height my_cart_api_div p-2">
+			<div class="main_box_div search_page_div_for_fix_height my_cart_api_div">
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>

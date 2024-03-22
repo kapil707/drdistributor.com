@@ -25,11 +25,10 @@ function get_medicine_favourite() {
 			$(".get_medicine_favourite_api_div").html('<h2><img src="'+ get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
 		},
 		success: function(data){
+
+			$(".get_medicine_favourite_api_div").html('');
 			if(data.items==""){
 				$(".get_medicine_favourite_api_div").html('<div class="row p-2" style="background:var(--main_theme_white_background_color);"><div class="col-sm-12 text-center"><h2><img src="'+ get_base_url()+'/img_v51/no_record_found.png" width="100%"></h2></div></div>');
-				$(".header_result_found").html("No record found");
-			}else{
-				$(".get_medicine_favourite_api_div").html('');
 			}
 			$.each(data.items, function(i,item){
 				if (item)

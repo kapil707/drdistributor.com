@@ -176,12 +176,11 @@ table{
 	padding-bottom: 50px;
 }
 
-.main_box_div{
-    /*padding: 10px;*/
+.main_box_div {
+    padding: 5px;
     background-color: var(--main_theme_white_background_color);
 	border-radius: 10px;
-    overflow-y: scroll;
-	
+    overflow-y: scroll;	
 	/*border: solid 1px var(--mainthemecolor);*/
     box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
@@ -417,7 +416,7 @@ table{
     overflow-y: scroll;
     /* height: inherit; */
     color:var(--main_theme_hearder_color);
-    height: 485px;
+    /* height: 485px; */
 }
 .left_menu_bar_div2 ul li {
     list-style: none;
@@ -507,11 +506,11 @@ table{
 }
 .home_page_menu_div_btn{
 	font-size: 20px;
-    color: var(--main_theme_home_pg_menu_color);
+    color: var(--main_theme_home_menu_color);
 	font-weight: bold;
 }
 .home_page_menu_div_btn:hover{	
-    color: var(--main_theme_home_pg_menu_color_hover);
+    color: var(--main_theme_home_menu_color_hover);
 	font-weight: bold;
 }
 
@@ -1239,6 +1238,10 @@ table{
     .mobile_show{
 		display:block;
 	}
+	.main_box_div {
+		background: none;
+		box-shadow: none;
+	}
 	.main_page_loading{
 		margin-left: 16%;
 	}
@@ -1246,12 +1249,11 @@ table{
 		padding-top: 115px;
 	}
 	.top_bar {
-		margin-top: 0px; 
-		margin-left: 0.5%;
+		margin-top: 0px;
+		margin-left: 0px;
 		width: 100%;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		
 		border-bottom-left-radius: 50px;
 		border-top-right-radius: 0px;
 		border-bottom-right-radius: 0px;
@@ -1283,6 +1285,12 @@ table{
 	}
 	.top_bar_search_div_search_icon {
 		font-size: 20px;
+	}
+	.left_menu_bar{
+		width: 70%;
+	}
+	.top_bar_menu2_ul li{
+		background:none;
 	}
 	.input_type_text{
 		font-size: 15px;
@@ -1383,6 +1391,10 @@ table{
 	.all_item_featured_img,
 	.all_item_out_of_stock_img{
 		width: 45px;
+	}
+	.all_divisioncategory,
+	.all_itemcategory{
+		border: none;
 	}
 	/**********************/
 	.medicine_details_image_small {

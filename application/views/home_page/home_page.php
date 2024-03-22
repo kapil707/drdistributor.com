@@ -12,9 +12,10 @@
 .top_bar_title1{
 	display: inline !important;
 }
-.main_container{
-	padding-top: 160px;
+.main_container {
+    padding-top: 160px;
     min-height: 500px;
+    padding-bottom: 100px;
 }
 </style>
 <?php

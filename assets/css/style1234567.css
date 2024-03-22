@@ -1255,6 +1255,9 @@ table{
     .mobile_show{
 		display:block;
 	}
+	.background_blur{
+		display:none !important;
+	}
 	.main_box_div {
 		padding: 0px;
 		background: none;
@@ -1325,21 +1328,21 @@ table{
 		font-size: 20px;
 	}
 	.search_result_div {
-		width: 92.5%;
+		display: none !important;
 	}
 	.all_page_box_left_div,
-	.medicine_search_box_left_div,
 	.home_page_box_left_div {
 		width: 16%;
 	}
 	.all_page_box_right_div,
-	.medicine_search_box_right_div,
 	.home_page_box_right_div {
 		width: 84%;
 	}
+	.medicine_search_box_left_div,
 	.my_cart_box_left_div{
 		width: 23%;
 	}
+	.medicine_search_box_right_div,
 	.my_cart_box_right_div{
 		width: 77%;
 	}

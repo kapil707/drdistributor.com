@@ -40,6 +40,10 @@ function goBack() {
 				<h2 class="text-center"><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading...."></h2><h1 class="text-center">Loading....</h2>
 			</div>
 		</div>
+
+		<div class="col-12 col-padding-5">
+			<div class="search_result_div_mobile"></div>
+		</div>
 		
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12 col-padding-5">
 			<div class="main_box_div search_page_div_for_fix_height my_cart_api_div">
@@ -95,4 +99,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_search.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_search1.js"></script>

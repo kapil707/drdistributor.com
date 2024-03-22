@@ -33,11 +33,13 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
 	<div class="row">
-		<div class="col-sm-12 main_page_loading1 text-center">
-			<h2>
-				<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
-			</h2>
-			<h2>Please wait....</h2>
+		<div class="col-sm-12 text-center">
+			<div class="main_page_loading1 text-center">
+				<h2>
+					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
+				</h2>
+				<h2>Please wait....</h2>
+			</span>
 			<!-- <div class="load_more btn btn-success" onclick="load_more()">Load More</div> -->
 		</div>
 	</div>

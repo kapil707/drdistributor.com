@@ -53,15 +53,15 @@ class Medicine_search extends CI_Controller {
 	/*******************api start*********************/
 	public function medicine_search_api()
 	{
-		$items = "";
 		$keyword   			= $_REQUEST['keyword'];
 		$total_rec   		= $_REQUEST['total_rec'];
 		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
 		$checkbox_company	= $_REQUEST['checkbox_company_val'];
 		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
 		$user_nrx  			= $_COOKIE["user_nrx"];
-		if(!empty($keyword))
-		{
+
+		$items = "";
+		if(!empty($keyword)){
 			$items = $this->MedicineSearchModel->medicine_search_api($keyword,$user_nrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
 		}
         

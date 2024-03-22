@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style1.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
@@ -563,11 +563,29 @@ if($broadcast_status=="1"){ ?>
 	<h2>Please wait....</h2>
 </span>
 <!-- ******************************************************** -->
-<span class="main_page_no_record_found text-center">
-	<h2>
-		<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="100%">
-	</h2>
-</span>
+<div class="main_page_something_went_wrong text-center">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<h2>
+				<img src="<?php echo base_url(); ?>img_v51/something_went_wrong.png" width="100%">
+			</h2>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+</div>
+<!-- ******************************************************** -->
+<div class="main_page_no_record_found text-center">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<h2>
+				<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="100%">
+			</h2>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+</div>
 
 <!-- ******************************************************** -->
 <script>

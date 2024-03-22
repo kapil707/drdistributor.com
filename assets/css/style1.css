@@ -81,13 +81,9 @@ table{
 	background-image: linear-gradient(var(--main_theme_top_menu_bar_bg), var(--main_theme_top_menu_bar_bg1));
 }
 /****************************************************/
+.main_page_something_went_wrong,
 .main_page_no_record_found{
 	display: none;
-	padding: 30px;
-    position: fixed;
-    top: 300px;
-    z-index: 100;
-    left: 0;
 }
 /****************************************************/
 

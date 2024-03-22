@@ -3,7 +3,7 @@ function home_page_owl_load(type,category_id){
 		$(".owl-carousel"+category_id).owlCarousel({
 			items: 3, // Number of items to display
 			loop: true, // Enable loop
-			margin: 4, // Margin between items
+			margin: 2, // Margin between items
 			autoplay: true, // Enable autoplay
 			autoplayTimeout: 5000, // Autoplay interval in milliseconds
 			responsiveClass:true,

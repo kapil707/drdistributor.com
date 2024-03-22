@@ -864,6 +864,12 @@ table{
 	font-size:18px;
 	color:var(--main_theme_search_icon_color) !important;
 }
+.all_item_edit_btn{
+	margin-top: 7px;
+    margin-bottom: 2px;
+	font-size:18px;
+	color:var(--main_theme_search_icon_color) !important;
+}
 
 .all_item_edit_btn{
 	margin-top: 7px;

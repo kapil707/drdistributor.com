@@ -90,29 +90,29 @@ function goBack() {
 									<div class="row select_product_<?= $i ?>" style="display:none">
 										<div class="col-sm-8">
 											DRD : 
-											<span class="medicine_cart_item_name selected_item_name_<?= $i ?>"></span>
-											<span class="medicine_cart_item_packing">
-											(<span class="selected_packing_<?= $i ?>"></span> Packing) </span> - <span class="medicine_cart_item_expiry expiry_css_<?= $i ?>"> Expiry : <span class="selected_expiry_<?= $i ?>"></span></span>
+											<span class="all_item_name selected_item_name_<?= $i ?>"></span>
+											<span class="all_item_packing">
+											(<span class="selected_packing_<?= $i ?>"></span> Packing) </span> - <span class="all_item_expiry expiry_css_<?= $i ?>"> Expiry : <span class="selected_expiry_<?= $i ?>"></span></span>
 										</div>
 										<div class="col-sm-4 text-right">
-											<span class="medicine_cart_item_stock">
+											<span class="all_item_stock">
 											Stock : <span class="selected_batchqty_<?= $i ?>"></span></span> | 
-											<span class="medicine_cart_item_mrp">
+											<span class="all_item_mrp">
 											MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_<?= $i ?>">0.00</span>/- </span>
 										</div>	
 										<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
 										<div class="col-sm-7">
-											<span class="medicine_cart_item_company">
+											<span class="all_item_company">
 											By : <span class="selected_company_full_name_<?= $i ?>"></span></span> 
-											|  <span class="medicine_cart_item_batch_no"> Batch no : <span class="selected_batch_no_<?= $i ?>"></span></span>
+											|  <span class="all_item_batch_no"> Batch no : <span class="selected_batch_no_<?= $i ?>"></span></span>
 											<span class="select_product_<?= $i ?> selected_scheme_span_<?= $i ?>"> | 
-												<span class="medicine_cart_item_scheme selected_scheme_<?= $i ?>"></span>
+												<span class="all_item_scheme selected_scheme_<?= $i ?>"></span>
 											</span>
 										</div>
 										<div class="col-sm-5 text-right">
-											<span class="medicine_cart_item_ptr">
+											<span class="all_item_ptr">
 											PTR : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_sale_rate_<?= $i ?>">0.00</span>/-</span> | 
-											<span class="medicine_cart_item_price">
+											<span class="all_item_price">
 											~ Landing price : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_final_price_<?= $i ?>">0.00</span>/-</span>
 										</div>
 									</div>
@@ -121,7 +121,7 @@ function goBack() {
 								<div class="col-sm-12">
 									<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 									<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
-										<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_delete_btn" title="Change medicine">
+										<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
 										<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
 											Change medicine
 										</a>
@@ -145,11 +145,11 @@ function goBack() {
 			</table>
 		</div>
 		<div class="col-sm-6 col-6 text-left">
-			<button type="submit" class="btn btn-primary mainbutton next_btn" name="submit" value="submit" onclick="add_new_medicine()" style="width:30%"> + Add Medicine</button>
+			<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" onclick="add_new_medicine()" style="width:30%"> + Add Medicine</button>
 		</div>
 		<div class="col-sm-6 col-6 text-right">
 			<a href="<?= base_url(); ?>import_order/medicine_deleted_items/<?php echo base64_encode($order_id); ?>">
-				<button type="submit" class="btn btn-primary mainbutton next_btn" name="submit" value="submit" style="width:20%">Next</button>
+				<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:20%">Next</button>
 			</a>
 		</div>
 		<div class="col-sm-12 col-12">

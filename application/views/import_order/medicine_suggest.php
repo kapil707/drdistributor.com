@@ -1,18 +1,17 @@
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.headertitle
-{
+.top_bar_title{
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".headertitle1").show();
+$(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("Suggest medicine");
+$(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>import_order";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
 <div class="container maincontainercss">

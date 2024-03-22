@@ -21,7 +21,7 @@ function goBack() {
 				<label for="file">Upload excel file</label>
 				<div class="row">
 					<div class="col-sm-8 col-11">
-						<input id="sortpicture" type="file" name="sortpic" class="input_type_text login_textbox" onchange="sortpicture_change()" />
+						<input id="sortpicture" type="file" name="sortpic" class="input_type_text2 login_textbox" onchange="sortpicture_change()" />
 						<input type="hidden" name="chemist_id" id="chemist_id" class="chemist_id" value="<?= $chemist_id ?>" style="padding-bottom: 36px;" />
 					</div>
 					<div class="col-sm-1 col-1">

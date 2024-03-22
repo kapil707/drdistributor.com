@@ -517,7 +517,6 @@ table{
 	font-weight: bold;
 }
 
-
 .owl-carousel {
 	margin: 0px;
 	padding: 0px;
@@ -1360,8 +1359,11 @@ table{
 		font-size: 15px;
 	}
 	.home_page_heading {
-		margin-top: -15px;
+		margin-top: 10px;
 		margin-bottom: 0px;
+	}
+	.home_page_heading_title2{
+		margin-top: 5px;
 	}
 	.home_page_heading_title::before {
 		display: none;

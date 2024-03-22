@@ -42,9 +42,11 @@ function goBack() {
 					?>
 					<tr class="selected_suggest_<?= $row->id ?>">
 						<td><?= $lastcount++?></td>
-						<td><?= ucwords(strtolower($row->your_item_name))?></td>
-						<td><?= ucwords(strtolower($row->item_name))?></td>
-						<td><a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i></a></td>
+						<td class="all_item_name"><?= ucwords(strtolower($row->your_item_name))?></td>
+						<td class="all_item_name"><?= ucwords(strtolower($row->item_name))?></td>
+						<td class="all_item_delete_btn">
+							<a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i>Delete suggest item</a>
+						</td>
 					</tr>
 					<?php
 				}

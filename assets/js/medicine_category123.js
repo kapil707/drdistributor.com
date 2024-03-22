@@ -25,7 +25,7 @@ function call_page(get_record)
 		$(".main_page_loading").show();
 		$.ajax({
 			type       : "POST",
-			data       : {item_page_type:item_page_type,item_code:item_code,item_division:item_division,get_record:get_record} ,
+			data       : {item_page_type:item_page_type,item_code:item_code_pg,item_division:item_division,get_record:get_record} ,
 			url        : get_base_url()+"category/api/medicine_category_api",
 			cache	   : false,
 			error: function(){

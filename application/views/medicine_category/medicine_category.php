@@ -30,13 +30,13 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<input type="text" class="get_record" value="0">
+<input type="hidden" class="get_record" value="0">
 <script>
 var item_page_type = '<?= $item_page_type; ?>';
-var item_code = '<?= $item_code; ?>';
+var item_code_pg = '<?= $item_code; ?>'; // yha sahi ha ku ki item_code already page me ho raha ha use
 var item_division = '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_category12.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_category123.js"></script>
 <script>
 function show_sorting_div()
 {

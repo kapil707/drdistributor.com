@@ -4,7 +4,7 @@ function goBack() {
 	window.location.href = "<?= base_url();?>";
 }
 </script>
-<div class="container-xl main_container">
+<div class="container-lg main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">

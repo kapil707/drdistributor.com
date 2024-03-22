@@ -489,8 +489,15 @@ table{
 	top:0px;
 	left:35px;
 	border-radius: 30px;
-	color: var(--mainthemebtnbgcolor);
-    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
+}
+.jssora_arrowleft span {
+    font-size: 30px;
+    height: 100%;
+    display: block;
+    width: 100%;
+    border-radius: 100px;
+    color: var(--mainthemebtncolor);
+    background-color: var(--mainthemebtnbgcolor);
 }
 .jssora_arrowright{
 	display:block;
@@ -501,6 +508,13 @@ table{
 	top:0px;
 	right:35px;
 	border-radius: 30px;
+}
+.jssora_arrowright span {
+    font-size: 30px;
+    height: 100%;
+    display: block;
+    width: 100%;
+    border-radius: 100px;    
 	color: var(--mainthemebtnbgcolor);
     box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }

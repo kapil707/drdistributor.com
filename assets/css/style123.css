@@ -1233,13 +1233,13 @@ table{
     width: 50%;
     color: var(--top_icon_menu_color);
 }
-.home_page_mobile_footer ul li{
+.home_page_mobile_footer li{
 	margin-top: 10px;
     background: white;
     border-radius: 10px;
     padding: 7px;
 }
-.home_page_mobile_footer ul li a{
+.home_page_mobile_footer li a{
 	color: var(--home_page_mobile_footer_color);
 }
 

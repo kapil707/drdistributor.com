@@ -1139,16 +1139,15 @@ table{
 }
 
 /***********************footer********************/
-.website_footer1
-{
-	background-color: #dedede;
+.website_footer1 {
+	background-color:var(--website_footer1_bg_color);
 	margin-top:50px;
 	padding-top:25px;
 	padding-bottom:100px;
 	margin-bottom:-100px;
 }
 .website_footer {
-	background-color:var(--main_theme_footer_bg);
+	background-color:var(--website_footer1_bg_color);
 	margin-top:50px;
 	padding-top:25px;
 	padding-bottom:100px;

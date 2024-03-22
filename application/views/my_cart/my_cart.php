@@ -36,8 +36,8 @@ function goBack() {
 		<div class="col-sm-6 col-6 text-right mobile_off" style="margin-top: 5px;">
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
-		<div class="col-sm-12 col-12">
-			<div class="main_box_div p-2">
+		<div class="col-sm-12 col-12 col-padding-5">
+			<div class="main_box_div">
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>

@@ -696,6 +696,7 @@ table{
 }
 .all_item_featured_img,
 .all_item_out_of_stock_img {
+	position: absolute;
     left: 10px;
     width: 65px;
     border-top-left-radius: 10px;
@@ -1410,6 +1411,7 @@ table{
 	}
 	.all_item_featured_img,
 	.all_item_out_of_stock_img{
+		left: 0px;
 		width: 45px;
 	}
 	.all_divisioncategory,

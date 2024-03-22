@@ -33,13 +33,41 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	<div class="row home_page_all_data"></div>
 	<div class="row">
 		<div class="col-sm-12 text-center">
-			<span class="main_page_loading2 text-center">
+			<span class="main_page_loading1 text-center">
 				<h2>
 					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
 				</h2>
 				<h2>Please wait....</h2>
 			</span>
-			<div class="load_more btn btn-success" onclick="load_more()">Load More</div>
+			<!-- <div class="load_more btn btn-success" onclick="load_more()">Load More</div> -->
+		</div>
+	</div>
+	<div class="mobile_show">
+		<div class="row">
+			<div class="col-sm-12">
+				<ul>
+					<li>
+						Contact us
+					</li>
+					<li>
+						Email
+					</li>
+					<li>
+						Download App
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-12 text-center">
+				<div class="text-center" style="margin-top:20px;">
+					<img src="<?= base_url() ?>/img_v51/logo.png" class="img-fluid" width="100px;">
+				</div>
+				<div class="text-center website_name_css" style="margin-top:15px;">
+					<?= $this->Scheme_Model->get_website_data("title2") ;?>
+				</div>
+				<div class="text-center website_version_css" style="margin-top:5px;">
+					Website version <?= $this->Scheme_Model->get_website_data("android_versioncode") ;?>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

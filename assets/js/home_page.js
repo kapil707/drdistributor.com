@@ -258,7 +258,7 @@ var query_work = 0;
 var next_id = "";
 function home_page_api(seq_id)
 {
-	$(".main_page_loading").show();
+	$(".main_page_loading1").show();
 
 	query_work = 1;
 	//alert(id);
@@ -269,10 +269,10 @@ function home_page_api(seq_id)
 		url        : get_base_url() + "home/home_page_api",
 		cache	   : true,
 		error: function(){
-			$(".main_page_loading").hide();
+			$(".main_page_loading1").hide();
 		},
 		success : function(data){
-			$(".main_page_loading").hide();
+			$(".main_page_loading1").hide();
 			if(data!="")
 			{
 				query_work = 0;

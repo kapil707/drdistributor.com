@@ -171,13 +171,15 @@ table{
 }
 /*******************************/
 .main_container {
-	padding-top:150px;
-	min-height: 500px;
+	padding-top:115px;
 	padding-bottom: 50px;
+	min-height: 500px;
 }
 
 .main_box_div {
-    padding: 5px;
+    padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
     background-color: var(--main_theme_white_background_color);
 	border-radius: 10px;
     overflow-y: scroll;	
@@ -185,11 +187,11 @@ table{
     box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
 }
 .main_box_div_data {
+	margin-bottom:5px;
 	font-size: 12px;
 	color:var(--mainblack-color);
 	float: left;
 	width:100%;
-	margin-top:5px;
 	/*background-color:var(--main_theme_li_bg_color);*/
 	border-radius: 5px;
 	border: 1px solid var(--main_theme_border_color);

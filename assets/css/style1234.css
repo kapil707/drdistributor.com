@@ -676,6 +676,18 @@ table{
 .medicine_category_page:hover {
     background: var(--main_theme_li_bg_hover_color);
 }
+.medicine_category_page .all_item_featured_img{
+    position: absolute;
+	left: 5px;
+    width: 60px;
+    border-top-left-radius: 10px;
+}
+.medicine_category_page .all_item_out_of_stock_img{
+	position: absolute;
+	left: 5px;
+    width: 60px;
+    border-top-left-radius: 10px;
+}
 
 .home_page_item_company{
 	color:var(--home_company_color_hover);

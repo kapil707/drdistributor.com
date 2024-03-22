@@ -46,15 +46,24 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	<div class="mobile_show">
 		<div class="row">
 			<div class="col-sm-12">
-				<ul>
+				<ul class="home_page_mobile_footer">
 					<li>
-						Contact us
+						<a href="tel:<?= $this->Scheme_Model->get_website_data("android_mobile") ;?>">
+							<i class="fa fa-phone" aria-hidden="true"></i> 
+							<?= $this->Scheme_Model->get_website_data("android_mobile") ;?>
+						</a>
 					</li>
 					<li>
-						Email
+						<a href="mail:<?= $this->Scheme_Model->get_website_data("android_email") ;?>">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<?= $this->Scheme_Model->get_website_data("android_email") ;?>
+						</a>
 					</li>
 					<li>
-						Download App
+						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+							<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
+							Download App
+						</a>
 					</li>
 				</ul>
 			</div>

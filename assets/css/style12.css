@@ -1233,6 +1233,9 @@ table{
     width: 50%;
     color: var(--top_icon_menu_color);
 }
+.home_page_mobile_footer ul li{
+
+}
 
 
 @media screen and (max-width: 800px){

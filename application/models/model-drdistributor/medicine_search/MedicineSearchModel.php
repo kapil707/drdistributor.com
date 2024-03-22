@@ -360,8 +360,10 @@ class MedicineSearchModel extends CI_Model
 		$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
 		$item_price			=	sprintf('%0.2f',round($row->final_price,2));
 		
-		$item_description  = 	(trim($row->title2));
-		$item_description  =   ($item_description);
+		$item_description  = (trim($row->title2));
+		if(!empty($item_description)){
+			$item_description  = substr($item_description,0,200).'...';
+		}
 		
 		$item_image = base_url()."uploads/default_img.webp";
 		if(!empty($row->image1))

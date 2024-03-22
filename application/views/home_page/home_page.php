@@ -33,9 +33,10 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	<div class="row home_page_invoice_notification_data"></div>
 	<div class="row home_page_all_data"></div>
 
-	<div class="main_page_loading1">
-		<div class="row">
-			<div class="col-sm-12 text-center">
+	<div class="row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-12 text-center">
+			<div class="main_page_loading1">
 				<h2>
 					<img src="<?php echo base_url(); ?>/img_v51/loading.gif" width="100px">
 				</h2>
@@ -43,6 +44,7 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 			</div>
 			<!-- <div class="load_more btn btn-success" onclick="load_more()">Load More</div> -->
 		</div>
+		<div class="col-sm-6"></div>
 	</div>
 
 	<div class="mobile_show">

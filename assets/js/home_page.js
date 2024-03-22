@@ -1,3 +1,19 @@
+$(document).ready(function() {
+	get_top_menu_api();
+	home_page_api(1);
+	home_page_api(2);
+	home_page_api(3);
+	home_page_api(4);
+	home_page_api(5);
+
+	$(window).scroll(function(){
+		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
+		if (scrollBottom<600  && query_work==0){
+			home_page_api(next_id);
+		}
+	});
+});
+
 function home_page_owl_load(type,category_id){
 	if(type=="divisioncategory"){
 		$(".owl-carousel"+category_id).owlCarousel({
@@ -334,22 +350,6 @@ function home_page_api(seq_id)
 		timeout: 60000
 	});
 }
-
-$(document).ready(function() {
-	get_top_menu_api();
-	home_page_api(1);
-	home_page_api(2);
-	home_page_api(3);
-	home_page_api(4);
-	home_page_api(5);
-
-	$(window).scroll(function(){
-		var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
-		if (scrollBottom<600  && query_work==0){
-			home_page_api(next_id);
-		}
-	});
-});
 
 function load_more(){
 	home_page_api(next_id);

@@ -1,5 +1,5 @@
 $(window).scroll(function(){
-	var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+	var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
 	if (scrollBottom<100){
 		load_more()
 	}

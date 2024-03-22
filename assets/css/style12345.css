@@ -1256,6 +1256,7 @@ table{
 		display:block;
 	}
 	.main_box_div {
+		padding: 0px;
 		background: none;
 		box-shadow: none;
 	}
@@ -1327,16 +1328,20 @@ table{
 		width: 92.5%;
 	}
 	.all_page_box_left_div,
-	.my_cart_box_left_div,
 	.medicine_search_box_left_div,
 	.home_page_box_left_div {
 		width: 16%;
 	}
 	.all_page_box_right_div,
-	.my_cart_box_right_div,
 	.medicine_search_box_right_div,
 	.home_page_box_right_div {
 		width: 84%;
+	}
+	.my_cart_box_left_div{
+		width: 23%;
+	}
+	.my_cart_box_right_div{
+		width: 77%;
 	}
 	.search_cart_footer_div{
 		width: 98%;
@@ -1410,7 +1415,8 @@ table{
 		width: 45px;
 	}
 	.all_divisioncategory,
-	.all_itemcategory{
+	.all_itemcategory,
+	.medicine_category_page{
 		border: none;
 	}
 	/**********************/
@@ -1445,5 +1451,20 @@ table{
 	.medicine_details_item_description2,
 	.medicine_details_item_order_quantity{
 		font-size: 13px;
+	}
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12{
+		padding-right: 5px;
+    	padding-left: 5px;
 	}
 }

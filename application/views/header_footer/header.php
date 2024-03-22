@@ -568,7 +568,7 @@ if($broadcast_status=="1"){ ?>
 <!-- ******************************************************** -->
 <span class="main_page_no_record_found text-center">
 	<h2>
-		<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="80%">
+		<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="100%">
 	</h2>
 </span>
 

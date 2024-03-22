@@ -540,7 +540,8 @@ table{
 	height: 100%;
 	display: block;
 	width: 100%;
-	background-color: var(--mainthemebtncolor);
+	color: var(--mainthemebtncolor);
+	background-color: var(--mainthemebtnbgcolor);
 }
 .owl-carousel .owl-nav button.owl-prev {
 	left: 0;

@@ -1242,6 +1242,10 @@ table{
 .home_page_mobile_footer li a{
 	color: var(--home_page_mobile_footer_color);
 }
+.footer_website_name_css,
+.footer_website_version_css{
+	color: var(--footer_website_name_color);
+}
 
 
 @media screen and (max-width: 800px){

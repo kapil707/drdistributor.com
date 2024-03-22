@@ -61,7 +61,7 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 					</li>
 					<li>
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-							<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
+							<i class="fa fa-mobile" aria-hidden="true"></i>
 							Download App
 						</a>
 					</li>
@@ -69,12 +69,12 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 			</div>
 			<div class="col-sm-12 text-center">
 				<div class="text-center" style="margin-top:20px;">
-					<img src="<?= base_url() ?>/img_v51/logo.png" class="img-fluid" width="100px;">
+					<img src="<?= base_url() ?>/img_v51/logo4.png" class="img-fluid" width="100px;">
 				</div>
-				<div class="text-center website_name_css" style="margin-top:15px;">
+				<div class="text-center footer_website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
 				</div>
-				<div class="text-center website_version_css" style="margin-top:5px;">
+				<div class="text-center footer_website_version_css" style="margin-top:5px;">
 					Website version <?= $this->Scheme_Model->get_website_data("android_versioncode") ;?>
 				</div>
 			</div>

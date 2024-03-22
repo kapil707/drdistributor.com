@@ -68,7 +68,7 @@ class Medicine_search extends CI_Controller {
         $response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $itemsxx
+            'items' => $items
         );
 
         // Send JSON response

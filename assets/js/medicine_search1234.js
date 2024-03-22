@@ -254,7 +254,7 @@ function medicine_search_api()
 					$(".search_result_div_mobile").html(something_went_wrong_function());
 					$(".top_bar_title2").html("No record found");
 				},
-				success    : function(data){
+				success : function(data){
 
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");

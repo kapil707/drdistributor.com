@@ -1,21 +1,20 @@
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.headertitle
-{
+.top_bar_title{
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".headertitle1").show();
+$(".top_bar_title1").show();
 </script>
 <?php } ?>
 <script>
-$(".headertitle").html("Upload order");
+$(".top_bar_title").html("Upload order");
 function goBack() {
 	window.location.href = "<?= base_url();?>import_order";
 }
 </script>
-<div class="container maincontainercss">
+<div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<table class="table table-striped table-bordered" aria-describedby>

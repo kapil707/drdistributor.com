@@ -34,38 +34,36 @@ function goBack() {
 					<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 					<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
 					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?> p-2">
+						<div class="row">
+							<div class="col-sm-10">
+								(<?= $j ?>)
+								
+								<?= $myname;?> : 
+								<span class="import_order_title_1 all_item_name">
+									<?= $item_name; ?>
+								</span> | 
+								
+								<span class="all_item_order_quantity">Quantity : </span>
 
-						<div class="import_order_box_left_div">
-							<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
-						</div>
+								<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
-						<div class="import_order_box_right_div">
-							<div class="row">
-								<div class="col-sm-10">
-									(<?= $j ?>)
-									
-									<?= $myname;?> : 
-									<span class="import_order_title_1 all_item_name">
-										<?= $item_name; ?>
-									</span> | 
-									
-									<span class="all_item_order_quantity">Quantity : </span>
+								<span class="cart_delete_btn_<?= $i ?>">											
+									<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+								</span>
+							</div>
+							<div class="col-sm-2 text-right">
+								<span class="all_item_mrp">MRP. : 
+									<i class="fa fa-inr" aria-hidden="true"></i>
+									<?= number_format($item_mrp,2) ?>/-
+								</span>					
+							</div>
 
-									<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
-
-									<span class="cart_delete_btn_<?= $i ?>">											
-										<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
-									</span>
+							<div class="col-sm-12 medicine_details_hr select_product_<?= $i ?>" style="display:none">
+								<div class="import_order_box_left_div">
+									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
 								</div>
-								<div class="col-sm-2 text-right">
-									<span class="all_item_mrp">MRP. : 
-										<i class="fa fa-inr" aria-hidden="true"></i>
-										<?= number_format($item_mrp,2) ?>/-
-									</span>					
-								</div>
-								<div class="col-sm-12 medicine_details_hr"></div>
 
-								<div class="col-sm-12 select_product_<?= $i ?>" style="display:none">
+								<div class="import_order_box_right_div">
 									<div class="row">
 										<div class="col-sm-8">
 											Found : 
@@ -114,12 +112,9 @@ function goBack() {
 												*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> 
 												<span class="selected_final_price_<?= $i ?>">0.00</span>/-
 											</span>
-										</div>
-
-										<div class="col-sm-12 medicine_details_hr"></div>
+										</div>							
 								
-								
-										<div class="col-sm-12">
+										<div class="col-sm-12 medicine_details_hr">
 											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
 												<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">

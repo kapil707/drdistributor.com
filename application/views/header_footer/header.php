@@ -120,7 +120,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 
 					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
-							<i class="fa fa-user" aria-hidden="true"></i>
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
 							My order
 						</a>
@@ -129,13 +128,13 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
 							<i class="fa fa-flag" aria-hidden="true"></i>
-							Invoice
+							My Invoice
 						</a>
 					</li>
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="Notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">Notification</span>
+							<span class="d-none d-lg-block">My Notification</span>
 						</a>
 					</li>
 					

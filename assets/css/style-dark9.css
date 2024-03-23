@@ -19,8 +19,8 @@
 
     /***************************************/
     
-    --item_name_color:#1084a1;
-    --item_title_color:#1084a1;
+    --item_name_color:#27ae60;
+    --item_title_color:#27ae60;
     
     --item_packing_color:#ff9800;
     --item_batch_no_color:#795548;
@@ -83,7 +83,7 @@
     --main-theme-button-disable-text-color:#ffffff;
     --main-theme-button-disable-text-color-hover:#000000;
 
-    --main-theme-box-bg-color:#383d41;
+    --main-theme-box-bg-color:#1a1a1a;
     --main-theme-box-bg-color-hover:#312e2e;
 
     --main-theme-top-icon-menu-color:#ced4da;

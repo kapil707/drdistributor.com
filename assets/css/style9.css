@@ -59,6 +59,10 @@ table{
     z-index: 13;
     top: 0px;
 }
+.modal-content {
+	color: var(--main-theme-bg-color);
+	border: 1px solid var(--main-theme-border-color);
+}
 /****************************************************/
 .main_page_loading{
 	display: none;
@@ -203,7 +207,6 @@ table{
 	color:var(--main-theme-text-color);
 	float: left;
 	width:100%;
-	/*background-color:var(--main_theme_li_bg_color);*/
 	border-radius: 5px;
 	border: 1px solid var(--main-theme-border-color);
 	background-color: var(--main-theme-box-bg-color);

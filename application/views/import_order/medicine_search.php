@@ -20,9 +20,6 @@ function goBack() {
 			<table class="table table-striped table-bordered" aria-describedby>
 				<thead>
 					<tr>
-						<th style="width:50px;" scope>
-							S.No.
-						</th>
 						<th scope>
 							Item Information
 						</th>
@@ -42,20 +39,15 @@ function goBack() {
 					$i          = $row->id; 
 					$j++?>
 					<tr class="remove_css_<?= $i ?>">
-						<td>
-							<?= $j ?>
+						<td class="import_order_td_<?= $i ?>">
 							<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
 							<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 							<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
-						</td>
-						<td class="import_order_td_<?= $i ?>">
 							<div class="row">
-								<div class="col-sm-1">
-									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
-								</div>
-								<div class="col-sm-11">
+								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-sm-7">
+											(<?= $j ?>)
 											<?= $myname;?> : 
 											<span class="import_order_title_1 medicine_cart_item_name">
 											<?= $item_name; ?> | 
@@ -78,7 +70,10 @@ function goBack() {
 										<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
 									</div>
 									<div class="row select_product_<?= $i ?>" style="display:none">
-										<div class="col-sm-8">
+										<div class="col-sm-1">
+											<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
+										</div>
+										<div class="col-sm-7">
 											DRD : 
 											<span class="all_item_name selected_item_name_<?= $i ?>"></span>
 											<span class="all_item_packing">

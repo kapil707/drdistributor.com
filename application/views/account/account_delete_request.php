@@ -61,7 +61,7 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="row">
 			<div class="col-md-3">
 			</div>
-			<div class="col-md-6 login_new_box">
+			<div class="col-md-6 main_box_div">
 				<label class="label_css">Enter username</label>
 				<div class="form-row">
 					<div class="form-group col">

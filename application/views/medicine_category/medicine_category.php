@@ -2,6 +2,11 @@
 .main_container{
 	width:80%;
 }
+@media screen and (max-width: 800px){
+	.main_container{
+		width:100%;
+	}
+}
 </style>
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
@@ -14,8 +19,8 @@ function goBack() {
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 text-right" style="display:none;">
-					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="show_sorting_div();" class="showbtn" alt>
-					<img src="<?= base_url() ?>/img_v51/sortline.png" width="25px;" onclick="hide_sorting_div();" class="showbtn1" style="display:none;" alt>
+					<img src="<?= base_url() ?>img_v51/sortline.png" width="25px;" onclick="show_sorting_div();" class="showbtn" alt>
+					<img src="<?= base_url() ?>img_v51/sortline.png" width="25px;" onclick="hide_sorting_div();" class="showbtn1" style="display:none;" alt>
 				</div>
 				<div class="col-sm-12 sorting_div text-right" style="display:none;">
 					<span class="sort_atoz" onclick="sort_atoz();">Name A to Z |</span>

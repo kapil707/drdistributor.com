@@ -51,7 +51,7 @@ function goBack() {
 						<td class="import_order_td_<?= $i ?>">
 							<div class="row">
 								<div class="col-sm-1">
-									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_<?= $i ?> medicine_cart_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
+									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
 								</div>
 								<div class="col-sm-11">
 									<div class="row">

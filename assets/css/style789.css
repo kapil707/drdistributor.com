@@ -510,8 +510,8 @@ table{
     display: block;
     width: 100%;
     border-radius: 100px;
-    color: var(--mainthemebtncolor);
-    background-color: var(--mainthemebtnbgcolor);
+    color: var(--main-theme-button-text-color);
+    background-color: var(--main-theme-button-bg-color);
     padding-left: 8px;
 }
 .jssora_arrowright {
@@ -531,8 +531,8 @@ table{
     display: block;
     width: 100%;
     border-radius: 100px;
-    color: var(--mainthemebtncolor);
-    background-color: var(--mainthemebtnbgcolor);
+    color: var(--main-theme-button-text-color);
+    background-color: var(--main-theme-button-bg-color);
     padding-left: 10px;
 }
 .img_css_for_slider {
@@ -588,7 +588,7 @@ table{
 	z-index: 1;
 	width: 40px;
 	height: 40px;
-	background-color: var(--mainthemebtnbgcolor);
+	background-color: var(--main-theme-button-bg-color);
 	border-radius: 50%;
 	position: absolute;
 	top: 50%;
@@ -601,8 +601,8 @@ table{
     display: block;
     width: 100%;
     border-radius: 100px;
-    color: var(--mainthemebtncolor);
-    background-color: var(--mainthemebtnbgcolor);
+    color: var(--main-theme-button-text-color);
+    background-color: var(--main-theme-button-bg-color);
 }
 
 .owl-carousel .owl-nav button.owl-prev {
@@ -639,7 +639,7 @@ table{
     font-size: 30px;
 	font-weight: bold;
     padding: 40px;
-    color: var(--main_theme_hearder_color) !important;
+    color: var(--main-theme-top-menu-bar-text-color) !important;
     background-image: linear-gradient(var(--main-theme-top-menu-bar-bg-color), var(--main-theme-top-menu-bar-bg1-color));
     /*border: solid 1px var(--mainthemecolor);*/
     box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
@@ -656,26 +656,26 @@ table{
     border-top-right-radius: 500px;
 }
 .home_page_heading_title span a{
-	color: var(--main_theme_hearder_color) !important;
+	color: var(--main-theme-top-menu-bar-text-color) !important;
 }
 
 .home_page_heading_title2{
-	color: var(--main_theme_hearder_color);
+	color: var(--main-theme-top-menu-bar-text-color);
     font-size: 20px;
     font-weight: bold;
 	margin-top: 15px;
 }
 .home_page_heading_title2 a{
-	color: var(--main_theme_hearder_color);
+	color: var(--main-theme-top-menu-bar-text-color);
 }
 .home_page_heading_title3{
-	color: var(--main_theme_hearder_color);
+	color: var(--main-theme-top-menu-bar-text-color);
     font-size: 20px;
     font-weight: bold;
 	margin-top: 5px;
 }
 .home_page_heading_title3 a{
-	color: var(--main_theme_hearder_color);
+	color: var(--main-theme-top-menu-bar-text-color);
 }
 
 
@@ -695,7 +695,7 @@ table{
 	border-radius: 10px;
 	padding:5px;
 	margin: 5px;
-	background-color: var(--main_theme_li2_bg_color);
+	background-color: var(--main_theme_li_bg_color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 }
@@ -707,7 +707,7 @@ table{
 	border-radius: 10px;
 	padding:5px;
 	margin: 5px;
-	background-color: var(--main_theme_li2_bg_color);
+	background-color: var(--main_theme_li_bg_color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 	overflow: hidden;
@@ -721,7 +721,7 @@ table{
 	padding:5px;
 	margin-left: 5px;
     margin-bottom: 5px;
-	background-color: var(--main_theme_li2_bg_color);
+	background-color: var(--main_theme_li_bg_color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 }

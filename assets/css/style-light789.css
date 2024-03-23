@@ -1,13 +1,4 @@
-:root{
-
-    --mainthemecolor:#27ae60;
-
-
-    --mainthemebtncolor:#fbfbfb;
-    --mainthemebtnbgcolor:#27ae60;
-    
-
-    
+:root{    
     
     --main_theme_hearder_color:#757575;
     --main_theme_hearder_color_hover:#757575;
@@ -15,37 +6,7 @@
     --main_theme_footer_bg:#f6f6f6;
     --main_theme_footer_bg1:#ffffff;
     --main_theme_footer_color:#757575;
-    
 
-
-    
-
-    
-
-
-
-
-    
-
-    --main_theme_li_color:rgb(240, 240, 240);
-    --main_theme_li_bg_color:#969a9829;
-
-    --main_theme_li2_color:rgb(240, 240, 240);
-    --main_theme_li2_bg_color:#ffffff;
-    --main_theme_li2_bg_hover_color:#27ae6029;
-
-    --main_theme_textbox_bg_color:#ffffff;
-    --main_theme_textbox_color:#6A6767;
-
-
-
-    --main_theme_text_white_color:#ffffff;
-
-    
-    --main_theme_modal_bg_color:#ffffff;
-    
-    --website_footer_bg_color:#f6f6f6;
-    --website_footer1_bg_color:#dedede;
     /************/
     --home_company_color:#30363C;
     --home_company_color_hover:#757575;
@@ -106,6 +67,7 @@
 
     --main-theme-top-menu-bar-bg-color:#ffffff;
     --main-theme-top-menu-bar-bg1-color:#ffffff;
+    --main-theme-top-menu-bar-text-color:#757575;
 
     --main-theme-border-color:#27ae60;
     --main-theme-border-color-hover:#757575;
@@ -137,4 +99,8 @@
 
     --main-theme-left-menu-bg-color:#ffffff;
     --main-theme-left-menu-bg-color1:#ffffff;
+
+    /***********************************/
+    --website_footer_bg_color:#f6f6f6;
+    --website_footer1_bg_color:#dedede;
 }

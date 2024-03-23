@@ -1,89 +1,54 @@
 :root{
-
-    --mainthemecolor:#04293A;
+    --main_theme_hearder_color:#757575;
+    --main_theme_hearder_color_hover:#757575;
     
-    --main_theme_footer_color:#04293A;
-    
-
-
-    
-    --main_theme_hearder_color:#ced4da;
-    --main_theme_hearder_color_hover:#ced4da;
-    
-    --main_theme_footer_bg:#383d41;
-    --main_theme_footer_bg1:#383d41;
-    --main_theme_footer_color:#ced4da;
-    
-    --main_theme_home_pg_menu_color:#ced4da;
-    --main_theme_home_pg_menu_color_hover:#ced4da;
-
-
-
-    
-
-    --main_theme_modal_bg_color:#000000; /* 474040 */
-
-
-
-
-    
-
-    --main_theme_li_color:#474040;
-    --main_theme_li_bg_color:#064663;
-
-
-    --main_theme_li2_color:rgb(240, 240, 240);
-    --main_theme_li2_bg_color:#27ae6000;
-    --main_theme_li2_bg_hover_color:#27ae6029;
-
-    --main_theme_textbox_bg_color:#474040;
-    --main_theme_textbox_color:#ebebeb;
-
- 
-
-    --main_theme_text_white_color:#000000;
-    
-
-
-    
+    --main_theme_footer_bg:#f6f6f6;
+    --main_theme_footer_bg1:#ffffff;
+    --main_theme_footer_color:#757575;
 
     /************/
-    --home_company_color:#ffffff;
+    --home_company_color:#30363C;
+    --home_company_color_hover:#757575;
     
-    --main_theme_left_right_btn:#000000;
-    --main_theme_left_right_btn_bg:#ffffff;
+    --main_theme_left_right_btn:#ffffff;
+    --main_theme_left_right_btn_bg:#000000;
     
 
-    --item_date_time_color:#ffffff;
-    --item_name_color:#ffffff; /*27ae60 */
-    --item_packing_color:#ffc107;
-    --item_batch_no_color:#20c997;
-    --item_margin_color:#fd7e14;
-    --item_company_color:#dc3545;
-    --item_company2_color:#6c757d;
-    --item_expiry_color:#e83e8c;
+    --home_page_mobile_footer_color:#757575;
+    --footer_website_name_color:#757575;
+
+    /***************************************/
+    
+    --item_name_color:#27ae60;
+    --item_title_color:#27ae60;
+    
+    --item_packing_color:#ff9800;
+    --item_batch_no_color:#795548;
+    --item_margin_color:#1084a1;
+    --item_company_color:#3f51b5;
+    --item_expiry_color:#981e1e;
     --item_stock_color:#1084a1;
     --item_scheme_color:#c66464;
     --item_scheme_line_color:#685c5c;
-    --item_hr_line_color:#d9d9d9;
+    --item_ptr_color:#918463;
+    --item_mrp_color:#795548;
+    --item_price_color:#000;
+    --item_total_color:#795548;
+    --item_gst_color:#965400;
+    --item_message_color:#685c5c;	
+    --item_description1_color:#685c5c;	
+    --item_description2_color:#685c5c;
+    --item_similar_items_color:#965400;    
 
-    --out_of_stock-color:#ff0a0a;
-
-    --item_ptr_color:#6c757d;
-    --item_mrp_color:#6c757d;
-    --item_price_color:#b6b2b2;
-    --item_gst_color:#c66464;
+    --item_order_quantity:#1084a1;
+    --item_date_time_color:#795548;
+    --out_of_stock-color:#ff0a0a;    
+    --item_download_color:#ff9800;
 
     --chemist_user_name_color:#27ae60;
-    --chemist_altercode_color:#795548;
-    
-    --item_description1_color:#ebebeb;	
-    --item_description2_color:#ebebeb;
-    --item_similar_items_color:#965400;
-    
+    --chemist_altercode_color:#795548;    
 
-    --item_order_quantity:#ffffff;
-    --item_order_quantity_bg:#ffffff;
+    --item_order_quantity_bg:#e8e8e8;
 
     /**************/
     --main-theme-blur-bg-color: #000000d4;
@@ -98,6 +63,7 @@
 
     --main-theme-top-menu-bar-bg-color:#383d41;
     --main-theme-top-menu-bar-bg1-color:#383d41;
+    --main-theme-top-menu-bar-text-color:#757575;
 
     --main-theme-border-color:#17a2b8;
     --main-theme-border-color-hover:#6A6767;
@@ -130,4 +96,8 @@
 
     --main-theme-left-menu-bg-color:#383d41;
     --main-theme-left-menu-bg-color1:#383d41;
+
+    /***********************************/
+    --website_footer_bg_color:#f6f6f6;
+    --website_footer1_bg_color:#dedede;
 } 

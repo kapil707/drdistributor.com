@@ -76,14 +76,14 @@
     --main-theme-textbox2-bg-color:#1a1a1a;
     --main-theme-textbox2-text-color:#ebebeb;    
 
-    --main-theme-button-bg-color:#757575; /* #27ae60; */
-    --main-theme-button-bg-color-hover:#rgba(0,0,0,.5); /* #27ae60; */
+    --main-theme-button-bg-color:#27a3ae; /* #27ae60; */
+    --main-theme-button-bg-color-hover:#225f64; /* #1b6339; */
     --main-theme-button-text-color:#ffffff;
 
-	--main-theme-button-disable-bg-color:#b2b0b0;
-	--main-theme-button-disable-bg-color-hover:#3e3e3e;
+	--main-theme-button-disable-bg-color:#757575;
+	--main-theme-button-disable-bg-color-hover:#757575;
     --main-theme-button-disable-text-color:#ffffff;
-    --main-theme-button-disable-text-color-hover:#000000;
+    --main-theme-button-disable-text-color-hover:#ffffff;
 
     --main-theme-box-bg-color:#1a1a1a;
     --main-theme-box-bg-color-hover:#312e2e;

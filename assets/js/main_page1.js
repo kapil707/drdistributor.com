@@ -370,11 +370,11 @@ function medicine_add_to_cart_api()
 						$(".medicine_details_item_order_quantity_textbox").val("");
 						$(".my_cart_api_div").html("");
 						$(".my_cart_api_div_mobile").html("");
-						$(".my_cart_api_div_inport_order").html("");
+						$(".my_cart_api_div_import_order").html("");
 						if(data.items=="") {
 							$(".my_cart_api_div").html(cart_emtpy_function());
 							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-							$(".my_cart_api_div_inport_order").html(cart_emtpy_function());
+							//$(".my_cart_api_div_import_order").html(cart_emtpy_function());
 						}
 						$.each(data.items, function(i,item){
 							if (item)
@@ -422,7 +422,7 @@ function medicine_add_to_cart_api()
 
 								$(".my_cart_api_div").append(my_cart_data);
 								$(".my_cart_api_div_mobile").append(my_cart_data);
-								$(".my_cart_api_div_inport_order").append(my_cart_data);
+								$(".my_cart_api_div_import_order").append(my_cart_data);
 							}
 						});
 						$.each(data.items_other, function(i,item){
@@ -601,18 +601,18 @@ function my_cart_api() {
 			$(".top_bar_title2").html("No record found");
 			$(".my_cart_api_div").html(something_went_wrong_function());
 			$(".my_cart_api_div_mobile").html(something_went_wrong_function());
-			$(".my_cart_api_div_inport_order").html(something_went_wrong_function());
+			$(".my_cart_api_div_import_order").html(something_went_wrong_function());
 		},
 		success: function(data){
 
 			$(".main_page_loading").hide();
 			$(".my_cart_api_div").html("");
 			$(".my_cart_api_div_mobile").html("");
-			$(".my_cart_api_div_inport_order").html("");
+			$(".my_cart_api_div_import_order").html("");
 			if(data.items=="") {
 				$(".my_cart_api_div").html(cart_emtpy_function());
 				$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-				$(".my_cart_api_div_inport_order").html(cart_emtpy_function());
+				//$(".my_cart_api_div_import_order").html(cart_emtpy_function());
 			}
 			$.each(data.items, function(i,item){
 				if (item)
@@ -666,7 +666,7 @@ function my_cart_api() {
 
 					$(".my_cart_api_div").append(my_cart_data);
 					$(".my_cart_api_div_mobile").append(my_cart_data);
-					$(".my_cart_api_div_inport_order").append(my_cart_data);
+					$(".my_cart_api_div_import_order").append(my_cart_data);
 				}
 			});
 			$.each(data.items_other, function(i,item){

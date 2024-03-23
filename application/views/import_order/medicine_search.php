@@ -148,7 +148,7 @@ function goBack() {
 		</div>
 		<div class="col-sm-12 col-12 col-padding-5 web-col-padding-5 mt-3">
 			<div class="main_box_div2">
-				<span class="my_cart_api_div_inport_order"></span>
+				<span class="my_cart_api_div_import_order"></span>
 			</div>
 		</div>		
 	</div>     

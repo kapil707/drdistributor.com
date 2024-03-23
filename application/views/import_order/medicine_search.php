@@ -127,9 +127,9 @@ function goBack() {
 										<div class="col-sm-12">
 											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
-												<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
+												<a href="javascript:change_medicine('<?= $i ?>')" class="import_order_edit_btn" title="Change medicine">
 												<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
-													Change medicine
+													Edit medicine
 												</a>
 											</span>
 											<span class="selected_suggest_<?= $i ?>" style="display:none">

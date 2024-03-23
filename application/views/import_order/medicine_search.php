@@ -154,7 +154,7 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="_row_id">
-<div class="background_blur" onclick="clear_search_icon()" style="display:none"></div>
+
 <div class="script_css"></div>
 <input type="hidden" value="<?php echo time(); ?>" class="mytime">
 <input type="hidden" value="" class="new_import_page_item_name">

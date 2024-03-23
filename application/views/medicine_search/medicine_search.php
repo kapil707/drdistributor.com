@@ -72,7 +72,6 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<div class="background_blur" onclick="clear_search_icon()" style="display:none"></div>
 <div class="menu_search_icon_box" style="display:none">
 	<div class="row">
 		<div class="col-sm-12 text-center">

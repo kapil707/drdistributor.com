@@ -588,6 +588,9 @@ if($broadcast_status=="1"){ ?>
 </div>
 
 <!-- ******************************************************** -->
+<div class="background_blur" onclick="clear_search_function()" style="display:none"></div>
+
+<!-- ******************************************************** -->
 <script>
 function get_base_url(){
 	return "<?= base_url(); ?>";

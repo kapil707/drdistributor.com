@@ -616,7 +616,7 @@ table{
     transform: translateY(-50%);
     width: 100%;
     height:.01rem;
-    background: var(--heading_home_hr_line);
+    background: var(--main-theme-hr-line-color);
 	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
     z-index: -1;
 }
@@ -904,7 +904,7 @@ table{
     padding: 5px;
     border: 0px;
     border-radius: 10px;
-	border: 1px solid var(--mainborder-color);
+	border: 1px solid var(--main-theme-border-color);
 }
 
 .favourite_medicines_box_left_div{
@@ -995,7 +995,7 @@ table{
     margin-top: -35px;
 }
 .medicine_details_hr{	
-	border-top: 1px solid var(--heading_home_hr_line);
+	border-top: 1px solid var(--main-theme-hr-line-color);
 	padding-top: 5px;
 	margin-top: 5px;
 }
@@ -1006,7 +1006,7 @@ table{
     background-size: cover;*/
     width: 100%;
 	border-radius: 10px;
-	border: 1px solid var(--mainborder-color);
+	border: 1px solid var(--main-theme-border-color);
 }
 .medicine_details_image_small{
     width: 100%;
@@ -1109,7 +1109,7 @@ table{
     padding: 5px;
     border: 0px;
     border-radius: 10px;
-	border: 1px solid var(--mainborder-color);
+	border: 1px solid var(--main-theme-border-color);
 }
 .medicine_details_item_order_quantity:focus{
 	outline: none !important;
@@ -1160,9 +1160,9 @@ table{
     width: 99%;
     margin-left: 0.5%;
     padding: 5px;
-    /* border-top: solid 1px var(--mainthemecolor); */
+    /* border: solid 1px var(--mainthemecolor); */
+    background-image: linear-gradient(var(--main-theme-top-menu-bar-bg), var(--main-theme-top-menu-bar-bg1));
     box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
-    background-image: linear-gradient(var(--main_theme_footer_bg), var(--main_theme_footer_bg1));
     border-bottom-left-radius: 500px;
     border-top-right-radius: 500px;
     border-bottom-right-radius: 125px;

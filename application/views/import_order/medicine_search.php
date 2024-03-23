@@ -55,23 +55,18 @@ function goBack() {
 								</div>
 								<div class="col-sm-11">
 									<div class="row">
-										<div class="col-sm-8">
+										<div class="col-sm-7">
 											<span style="float:left;">
 												<?= $myname;?> : 
 												<span class="import_order_title_1 medicine_cart_item_name">
 												<?= $item_name; ?>
 												</span>
-											</span>
-											<span style="float:left; margin-left:10px;margin-right:10px;" class="">
-											|
-											</span>
-											<span style="float:left;" class="cart_delete_btn_<?= $i ?>">
-											
-											<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn">
-											<i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete medicine</a>
+											</span> |
+											<span style="float:left;" class="cart_delete_btn_<?= $i ?>">											
+												<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete medicine</a>
 											</span>
 										</div>
-										<div class="col-sm-4 text-right">
+										<div class="col-sm-5 text-right">
 											<span style="float:right;">
 											<div class="import_order_mrp medicine_cart_item_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <?= number_format($item_mrp,2) ?>/-</div>
 											</span>

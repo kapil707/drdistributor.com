@@ -101,6 +101,7 @@ class MyCartModel extends CI_Model
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
+				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else{
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
@@ -108,6 +109,7 @@ class MyCartModel extends CI_Model
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
+				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}
 		}
@@ -138,7 +140,7 @@ class MyCartModel extends CI_Model
 			$item_code 			= $row->i_code;
 			$item_order_quantity= $row->quantity;
 			$item_image			= $row->image;
-			$item_name			= (ucwords(strtolower($row->item_name))) . "====" .$row->excel_number;
+			$item_name			= (ucwords(strtolower($row->item_name)));
 			$item_packing		= ($row->packing);
 			$item_expiry		= ($row->expiry);
 			$item_company		= (ucwords(strtolower($row->company_full_name)));

@@ -47,14 +47,6 @@ function goBack() {
 				<span class="my_cart_api_div"></span>
 			</div>
 		</div>
-
-		<div class="col-sm-4 col-12"></div>
-		<div class="col-sm-4 col-12 text-center">
-			<a href="<?=base_url();?>home/search_medicine" class="btn main_theme_button add_more_btn" style="margin-top:10px;display:none"> 
-				+ Add new medicine
-			</a>
-		</div>
-		<div class="col-sm-4 col-12"></div>
 	</div>
 </div>
 <div class="search_cart_footer_div">

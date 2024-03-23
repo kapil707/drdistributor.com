@@ -127,6 +127,7 @@ class MyCartModel extends CI_Model
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
+				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}
 		}	

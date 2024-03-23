@@ -46,26 +46,24 @@ function goBack() {
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="row">
-										<div class="col-sm-7">
+										<div class="col-sm-10">
 											(<?= $j ?>)
+											
 											<?= $myname;?> : 
-											<span class="import_order_title_1 medicine_cart_item_name">
-											<?= $item_name; ?> | 
+											<span class="import_order_title_1 all_item_name">
+												<?= $item_name; ?>
+											</span> | 
+											
+											<span class="all_item_order_quantity">Quantity : </span>
+
+											<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
+
 											<span class="cart_delete_btn_<?= $i ?>">											
-												<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete medicine</a>
+												<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
 										</div>
-										<div class="col-sm-5 text-right">
-											<span style="float:right;">
-											<div class="import_order_mrp medicine_cart_item_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <?= number_format($item_mrp,2) ?>/-</div>
-											</span>
-											<span style="float:right; margin-left:10px;margin-right:10px;" class="import_order_mrp">
-											|
-											</span>
-											<span style="float:right;">
-												<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
-											</span>
-											<span style="float:right;" class="all_item_order_quantity">Quantity : </span>
+										<div class="col-sm-2 text-right">
+											<div class="import_order_mrp all_item_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <?= number_format($item_mrp,2) ?>/-</div>					
 										</div>
 										<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
 									</div>

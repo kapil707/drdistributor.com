@@ -114,35 +114,35 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li class="d-none d-sm-block">
 						<a href="javascript:new_style_menu_show()" class="mobile_off">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">Account</span>
+							<span class="d-none d-md-block">Account</span>
 						</a>
 					</li>
 
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
-							<span class="d-none d-xl-block d-lg-none">My order</span>
+							<span class="d-none d-xl-block d-md-none">My order</span>
 						</a>
 					</li>					
 
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My Invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-lg-none">My Invoice</span>
+							<span class="d-none d-xl-block d-md-none">My Invoice</span>
 						</a>
 					</li>
 
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My Notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-lg-none">My Notification</span>
+							<span class="d-none d-xl-block d-md-none">My Notification</span>
 						</a>
 					</li>
 					
 					<li class="d-none d-sm-none">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-lg-none">Upload order</span>
+							<span class="d-none d-xl-block d-md-none">Upload order</span>
 						</a>
 					</li>
 

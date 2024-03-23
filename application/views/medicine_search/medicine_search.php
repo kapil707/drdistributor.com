@@ -26,7 +26,7 @@ function goBack() {
 </script>
 <div class="container-fluid main_container">
 	<div class="row">
-		<div class="col-sm-6 col-12 mobile_off">
+		<div class="col-sm-6 col-12 mobile_off d-none d-lg-block">
 			<span class="text-left">
 				<h6 class="home_page_heading_title3">Favourite medicines</h6>
 			</span>
@@ -40,11 +40,11 @@ function goBack() {
 			<a href="#" onclick="delete_all_medicine()" tabindex="-10" class="search_cart_delete_all_btn" title="Delete all medicines"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete all medicines</a>
 		</div>
 		
-		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-block web-col-padding-5">
+		<div class="col-lg-6 d-none d-lg-block web-col-padding-5">
 			<div class="main_box_div2 search_page_div_for_fix_height get_medicine_favourite_api_div"></div>
 		</div>
 		
-		<div class="col-lg-6 col-md-6 col-sm-6 d-none d-sm-block web-col-padding-5">
+		<div class="col-lg-6 col-md-12 d-none d-sm-block web-col-padding-5">
 			<div class="main_box_div2 search_page_div_for_fix_height my_cart_api_div"></div>
 		</div>
 

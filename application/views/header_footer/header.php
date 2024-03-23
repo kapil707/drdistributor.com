@@ -81,7 +81,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			
 			<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
 				<ul class="top_bar_menu">
-					<li style="background: var(--top_icon_menu_li_bg);" class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
+					<li class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
 							<i class="fa fa-mobile" aria-hidden="true"></i>
 							Download App
@@ -93,7 +93,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<span>Home</span>
 						</a>
 					</li>
-					<li class="d-none d-xl-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>medicine_search" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
 							<span>Search</span>
@@ -118,28 +118,28 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 
-					<li class="d-none d-xl-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
 							My order
 						</a>
 					</li>					
 
-					<li class="d-none d-xl-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
 							<i class="fa fa-flag" aria-hidden="true"></i>
 							My Invoice
 						</a>
 					</li>
 
-					<li class="d-none d-sm-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="Notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">My Notification</span>
 						</a>
 					</li>
 					
-					<li class="d-none d-sm-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Notification">
 							<i class="fa fa-upload" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Upload order</span>
@@ -147,7 +147,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					</li>
 
 					<?php if(!empty($_COOKIE['user_session'])){ ?>
-					<li class="d-none d-sm-block">
+					<li class="d-none d-lg-block">
 						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Logout</span>

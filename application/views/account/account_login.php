@@ -33,7 +33,8 @@ if (isset($_COOKIE["theme_type"])) {
 	<?php } ?>
 
 	<link href="<?= base_url(); ?>assets/css/style11234567.css" rel="stylesheet" type="text/css" />
-	<link rel="icon" href="<?= base_url(); ?>img_v<?= $site_v ?>/logo.png" type="image/logo" sizes="16x16">
+
+	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
@@ -45,7 +46,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="col-md-6">						
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v<?= $site_v ?>logo4.png" width="60px" alt>
+						<img src="<?= base_url() ?>img_v51/logo4.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>

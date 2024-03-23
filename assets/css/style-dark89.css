@@ -19,8 +19,8 @@
 
     /***************************************/
     
-    --item_name_color:#27ae60;
-    --item_title_color:#27ae60;
+    --item_name_color:#1084a1;
+    --item_title_color:#1084a1;
     
     --item_packing_color:#ff9800;
     --item_batch_no_color:#795548;
@@ -32,7 +32,7 @@
     --item_scheme_line_color:#685c5c;
     --item_ptr_color:#918463;
     --item_mrp_color:#795548;
-    --item_price_color:#000;
+    --item_price_color:#ffc107;
     --item_total_color:#795548;
     --item_gst_color:#965400;
     --item_message_color:#685c5c;	
@@ -63,7 +63,7 @@
 
     --main-theme-top-menu-bar-bg-color:#383d41;
     --main-theme-top-menu-bar-bg1-color:#383d41;
-    --main-theme-top-menu-bar-text-color:#757575;
+    --main-theme-top-menu-bar-text-color:#ffffff;
 
     --main-theme-border-color:#17a2b8;
     --main-theme-border-color-hover:#6A6767;
@@ -84,7 +84,7 @@
     --main-theme-button-disable-text-color-hover:#000000;
 
     --main-theme-box-bg-color:#383d41;
-    --main-theme-box-bg-color-hover:#6a6767;
+    --main-theme-box-bg-color-hover:#312e2e;
 
     --main-theme-top-icon-menu-color:#ced4da;
     --main-theme-top-icon-menu-li-bg-color:#383d41;

@@ -64,12 +64,12 @@ function goBack() {
 				</div>
 				<div class="col-sm-8 col-8 text-left">	
 					<a href="<?= base_url(); ?>import_order/downloadfile/<?php echo base64_encode($order_id); ?>">
-						<button type="submit" class="btn btn-primary mainbutton next_btn" name="submit" value="submit" style="width:35%">Download deleted items</button>
+						<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:35%">Download excel</button>
 					</a>
 				</div>
 				<div class="col-sm-4 col-4 text-right">
 					<a href="<?= base_url(); ?>my_cart">
-						<button type="submit" class="btn btn-primary mainbutton next_btn" name="submit" value="submit" style="width:20%">Next</button>
+						<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:20%">Next</button>
 					</a>
 				</div>
 			</div>

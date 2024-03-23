@@ -11,7 +11,7 @@ $(".top_bar_title1").show();
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>";
+	window.location.href = "<?= base_url();?>import_order";
 }
 </script>
 <div class="container main_container">

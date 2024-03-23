@@ -282,7 +282,7 @@ table{
     /* width: 25px; */
     float: left;
     margin-right: 7px;
-    /*background: var(--main-theme-top-icon-menu-li-bg-color);*/
+    background: var(--main-theme-top-icon-menu-li-bg-color);
     padding: 10px;
 	border-radius:5px;
 }

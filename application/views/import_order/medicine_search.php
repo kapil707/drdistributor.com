@@ -206,7 +206,7 @@ function change_order_quantity(row_id)
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});
 }
 function delete_row_medicine(row_id)
@@ -392,8 +392,7 @@ $(document).ready(function(){
 			return false;
     	}
     });
-	cart_page_load();
-	//setTimeout('cart_page_load();',100);
+	setTimeout('cart_page_load();',100);
 	
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
@@ -572,44 +571,14 @@ function medicine_search_api() {
 			});
 		}
 		else{
-			$(".clear_search_icon").hide();
-			$(".search_medicine_result").html("");
+			$(".top_bar_search_textbox_div_menu_icon").hide();
+			$(".top_bar_search_textbox_div_menu").hide();
+
+			$(".top_bar_search_textbox_div_clear_icon").hide();
+			$(".search_result_div").html("");
+			$(".search_result_div_mobile").html("");
 		}
 	}
-}
-function page_up_down_arrow(new_i)
-{
-	$('.hover_'+new_i).keypress(function (e) {
-		 if (e.which == 13) {
-			$('.get_single_medicine_info_'+new_i).click();
-		 } 						 
-	 });
-	$('.hover_'+new_i).keydown(function(event) {
-		if(event.key=="ArrowDown")
-		{
-			new_i = parseInt(new_i) + 1;
-			page_up_down_arrow(new_i);
-			$('.hover_'+new_i).attr("tabindex",-1).focus();
-			return false;
-		}
-		if(event.key=="ArrowUp")
-		{
-			if(parseInt(new_i)==1)
-			{
-				var searchInput = $('.search_textbox');
-				var strLength = searchInput.val().length * 2;
-				searchInput.focus();
-				searchInput[0].setSelectionRange(strLength, strLength);
-			}
-			else
-			{
-				new_i = parseInt(new_i) - 1;
-				page_up_down_arrow(new_i);
-				$('.hover_'+new_i).attr("tabindex",-1).focus();
-			}
-			return false;
-		}
-	});
 }
 function add_new_medicine() {
 
@@ -685,13 +654,12 @@ function add_new_row_import_order_page(item_code,item_order_quantity)
 </script>
 <script src="<?= base_url(); ?>assets/website/select_css/chosen.jquery.js" type="text/javascript"></script>
 <script src="<?= base_url(); ?>assets/website/select_css/init.js" type="text/javascript" charset="utf-8"></script>
-<?php
-foreach($result as $row)
-{ ?>
+
 <script>
 $(document).ready(function(){
+	setTimeout('cart_page_load();',100);
+	<?php foreach($result as $row) { ?>
 	setTimeout("insert_main_row_data('<?php echo $row->id ?>')",500);
+	<?php  } ?>
 });
 </script>
-<?php 
-} ?>

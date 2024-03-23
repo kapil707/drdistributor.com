@@ -33,7 +33,7 @@ function goBack() {
 					<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
 					<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 					<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
-					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?> p-1">
+					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?>">
 						<div class="row">
 							<div class="col-sm-10">
 								(<?= $j ?>)

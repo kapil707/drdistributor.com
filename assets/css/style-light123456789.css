@@ -16,8 +16,7 @@
     --main_theme_footer_bg1:#ffffff;
     --main_theme_footer_color:#757575;
     
-    --main_theme_home_menu_color:#27ae60;
-    --main_theme_home_menu_color_hover:#27ae60;
+
 
     
 
@@ -101,6 +100,8 @@
     --main-theme-bg-color:#f2f2f2;    
     --main-theme-color:#757575;
 
+    --main-theme-home-menu-color:#27ae60;
+    --main-theme-home-menu-color_hover:#27ae60;
     --main-theme-box-shadow-color:#27ae60;
 
     --main-theme-top-menu-bar-bg:#ffffff;

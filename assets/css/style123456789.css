@@ -559,11 +559,11 @@ table{
 }
 .home_page_menu_div_btn{
 	font-size: 20px;
-    color: var(--main_theme_home_menu_color);
+    color: var(--main-theme-home-menu-color);
 	font-weight: bold;
 }
 .home_page_menu_div_btn:hover{	
-    color: var(--main_theme_home_menu_color_hover);
+    color: var(--main-theme-home-menu-color_hover);
 	font-weight: bold;
 }
 

@@ -520,7 +520,7 @@ function delete_medicine(item_code)
 						{
 							if(item.status=="1")
 							{
-								my_cart_api();
+								my_cart_api("all");
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});
@@ -566,7 +566,7 @@ function delete_all_medicine()
 						{
 							if(item.status==1)
 							{
-								my_cart_api();
+								my_cart_api("all");
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});
@@ -584,7 +584,7 @@ function delete_all_medicine()
 		}
 	});
 }
-function my_cart_api() {
+function my_cart_api(order_type) {
 
 	my_cart_api_i = 0;
 	$(".add_more_btn").hide();
@@ -595,7 +595,7 @@ function my_cart_api() {
 		type	:"POST",
 		dataType: "json",
 		cache: true,
-		data: {id:id},
+		data: {id:id,order_type:order_type},
 		error: function(){
 			$(".main_page_loading").hide();
 			$(".top_bar_title2").html("No record found");

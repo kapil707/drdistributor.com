@@ -62,10 +62,11 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		$order_type = $_POST["order_type"];
 		$items = $items_other = "";
 		if(!empty($user_altercode))
 		{
-			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,$order_type);
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 			$items_total = $result["items_total"];

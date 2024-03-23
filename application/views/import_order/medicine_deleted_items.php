@@ -76,31 +76,3 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<script>
-function medicine_cart_list()
-{
-	user_altercode = "<?=$chemist_id?>";
-	$.ajax({
-		url: "<?php echo base_url(); ?>Chemist_json/my_cart_api",
-		type:"POST",
-		cache: true,
-		data: {user_altercode:user_altercode},
-		error: function(){
-		},
-		success: function(data){
-			$.each(data.items, function(i,item){
-				if (item)
-				{
-					// just cart reaload hear
-				}
-			});
-		},
-		timeout: 10000
-	});
-}
-function page_load()// just cart reaload hear
-{
-	medicine_cart_list();// just cart reaload hear
-}
-setTimeout('page_load();',500);// just cart reaload hear
-</script>

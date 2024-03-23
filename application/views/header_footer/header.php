@@ -118,10 +118,11 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 
-					<li class="d-none d-sm-block">
+					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<i class="fa fa-newspaper-o" aria-hidden="true"></i> My order
+							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
+							My order
 						</a>
 					</li>					
 

@@ -121,7 +121,7 @@ class My_order extends CI_Controller {
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $itemsss,
+            'items' => $items,
             'get_record' => $get_record
         );
 

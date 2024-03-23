@@ -76,7 +76,7 @@ class My_cart extends CI_Controller {
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items' => $items,
+            'items' => $itemsxxx,
             'items_other' => $items_other
         );
 

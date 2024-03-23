@@ -330,8 +330,6 @@ function clear_search_function() {
 	$(".my_cart_api_div_mobile").hide();
 
 	/**************************************** */
-	$(".top_bar_search_div").show();
-	$(".top_bar_search_textbox_div").hide();
 		
 	i = $("._row_id").val();
 	$(".item_qty_"+i).focus();

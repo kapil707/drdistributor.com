@@ -743,7 +743,11 @@ table{
 .home_page_item_company:hover{
 	color:var(--home_company_color_hover);
 }
-
+.all_item_hr{
+    border-top: 1px solid var(--heading_home_hr_line);
+    padding-top: 2px;
+    margin-top: 2px;
+}
 .all_item_image{
     width: 100%;
     border-radius: 10px;
@@ -912,12 +916,12 @@ table{
 	padding:5px;
 }
 .import_order_box_left_div{
-	width:10%;
+	width:7%;
 	float:left;
 	padding:5px;
 }
 .import_order_box_right_div{
-	width:90%;
+	width:93%;
 	float:left;	
 	padding:5px;
 }

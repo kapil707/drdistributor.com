@@ -625,6 +625,12 @@ function my_cart_api(order_type) {
 			$(".my_cart_api_div").html(something_went_wrong_function());
 			$(".my_cart_api_div_mobile").html(something_went_wrong_function());
 			$(".my_cart_api_div_import_order").html(something_went_wrong_function());
+
+			/**********only for cart page********** */
+			if(get_page_name=="my_cart"){				
+				$(".main_page_something_went_wrong").show();
+			}
+			/************************************* */
 		},
 		success: function(data){
 
@@ -640,7 +646,8 @@ function my_cart_api(order_type) {
 				/**********only for cart page********** */
 				if(get_page_name=="my_cart"){
 					$(".main_page_cart_emtpy").show()
-				}		
+				}
+				/************************************* */
 			}else{
 				/**********only for cart page********** */
 				if(get_page_name=="my_cart"){

@@ -38,14 +38,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<?php vp_seo(); ?>
 	
 	<?php if($theme_type=="lite") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-light0123456.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-light01234567.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-dark0123456.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-dark01234567.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style0123456.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style01234567.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
@@ -228,17 +228,15 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			<div class="col-sm-2 col-2 text-left">
 				<i class="fa fa-times left_menu_bar_cancel_icon" aria-hidden="true" onclick="new_style_menu_hide()"></i>
 			</div>
-			<div class="col-sm-12 col-12">
-				<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Select theme</div>
-				<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="margin-top:10px;">
-					<option value="lite" <?php if($theme_type=="lite") { echo "selected"; } ?>>Lite</option>
-					<option value="dark" <?php if($theme_type=="dark") { echo "selected"; } ?>>Dark</option>
-				</select>
-			</div>
 		</div>
 	</div>
 	<div class="left_menu_bar_div2 text-center">
-		<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Account</div>
+		<h2 class="text-left">Select theme</h2>
+		<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="margin-top:10px;">
+			<option value="lite" <?php if($theme_type=="lite") { echo "selected"; } ?>>Lite</option>
+			<option value="dark" <?php if($theme_type=="dark") { echo "selected"; } ?>>Dark</option>
+		</select>
+		<h2 class="text-left">Account</h2>
 		<ul>
 			<li>
 				<a href="<?= base_url() ?>account" title="Account">
@@ -273,8 +271,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			{
 				$user_type = $_COOKIE['user_type'];
 				?>
-			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Server Report</div>
-
+			<h2 class="text-left">Server Report</h2>
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
 					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
@@ -310,7 +307,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</a>
 			</li>
 			<?php } }?>
-			<div class="text-left" style="margin-left: 10px;margin-top: 10px;border-bottom: 1px solid var(--main_theme_border_color);font-size: 20px;">Others</div>
+			<h2 class="text-left">Others</h2>
 			<li>
 				<a href="tel:+919899133989" title="Contact us">
 					<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us

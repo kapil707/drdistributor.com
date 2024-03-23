@@ -429,8 +429,14 @@ table{
 	margin: 0px 0;
     overflow-y: scroll;
     /* height: inherit; */
-    color:var(--main_theme_hearder_color);
+    color:var(--main-theme-top-icon-menu-color);
     /* height: 485px; */
+}
+.left_menu_bar_div2 h2{
+	margin-left: 10px;
+	margin-top: 10px;
+	border-bottom: 1px solid var(--main-theme-border-color);
+	font-size: 20px;
 }
 .left_menu_bar_div2 ul li {
     list-style: none;

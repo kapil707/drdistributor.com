@@ -36,7 +36,7 @@ wow.init();
 		</div>
 	</div>
 </div>
-<div class="website_footer mobile_off" style="background-image: linear-gradient(#f6f6f6, #f1f1f1);">
+<div class="website_footer mobile_off">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">

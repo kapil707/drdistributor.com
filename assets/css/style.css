@@ -55,6 +55,7 @@ table{
     left: 20px;
     top: 12px;
     font-size: 18px;
+	color: var(--main-theme-icon-color);
 }
 /******important css delete mar karna kabhi be*******/
 .background_blur{
@@ -1217,7 +1218,7 @@ table{
 	margin-bottom:-100px;
 }
 .website_footer {
-	background-color:var(--website_footer1_bg_color);
+	background-color:var(--website_footer_bg_color);
 	margin-top:50px;
 	padding-top:25px;
 	padding-bottom:100px;

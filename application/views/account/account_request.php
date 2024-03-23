@@ -24,14 +24,14 @@ if (isset($_COOKIE["theme_type"])) {
 	<script src="<?= base_url(); ?>assets/website/js/bigSlide.js"></script> 
 
 	<?php if($theme_type=="lite") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-light11234567.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-light.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-dark11234567.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style11234567.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16">
 	

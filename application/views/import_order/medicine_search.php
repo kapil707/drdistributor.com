@@ -392,7 +392,7 @@ $(document).ready(function(){
 			return false;
     	}
     });
-	//setTimeout('cart_page_load();',100);
+	setTimeout('cart_page_load();',100);
 	
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
@@ -657,7 +657,6 @@ function add_new_row_import_order_page(item_code,item_order_quantity)
 
 <script>
 $(document).ready(function(){
-	setTimeout('cart_page_load();',100);
 	<?php foreach($result as $row) { ?>
 	setTimeout("insert_main_row_data('<?php echo $row->id ?>')",500);
 	<?php  } ?>

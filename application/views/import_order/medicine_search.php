@@ -222,7 +222,7 @@ function delete_row_medicine(row_id)
 			$.ajax({
 				type       : "POST",
 				data       : {row_id:row_id,} ,
-				url        : get_base_url()"import_order/delete_row_medicine",
+				url        : get_base_url() + "import_order/delete_row_medicine",
 				cache	   : false,
 				error: function(){
 					swal("Medicine not deleted");

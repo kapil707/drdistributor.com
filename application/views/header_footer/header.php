@@ -592,6 +592,9 @@ if($broadcast_status=="1"){ ?>
 			<h2>
 				<img src="<?php echo base_url(); ?>img_v51/cart_empty.png" width="100%">
 			</h2>
+			<a href="<?=base_url();?>home/search_medicine" class="btn main_theme_button add_more_btn" style="margin-top:10px;"> 
+				+ Add new medicine
+			</a>
 		</div>
 		<div class="col-sm-4"></div>
 	</div>

@@ -38,14 +38,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<?php vp_seo(); ?>
 	
 	<?php if($theme_type=="lite") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-light01234567.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-light012345678.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-dark01234567.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-dark012345678.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style01234567.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style012345678.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
@@ -240,29 +240,29 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<ul>
 			<li>
 				<a href="<?= base_url() ?>account" title="Account">
-					<i class="fa fa-user left_menu_icon" aria-hidden="true"></i> Account
+					<i class="fa fa-user" aria-hidden="true"></i> Account
 				</a>
 			</li>
 			<li>
 				<a href="<?= base_url() ?>update_account" title="Update account">
-					<i class="fa fa-pencil-square left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-pencil-square" aria-hidden="true"></i>
 					Update account
 				</a>
 			</li>
 			<li>
 				<a href="<?= base_url() ?>update_image" title="Update image">
-					<i class="fa fa-camera left_menu_icon" aria-hidden="true"></i> Update image
+					<i class="fa fa-camera" aria-hidden="true"></i> Update image
 				</a>
 			</li>
 			<li>
 				<a href="<?= base_url() ?>update_password" title="Update password">
-				<i class="fa fa-key left_menu_icon" aria-hidden="true"></i>
+				<i class="fa fa-key" aria-hidden="true"></i>
 				Update password
 				</a>
 			</li>
 			<li class="mobile_off">
 				<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
-					<i class="fa fa-thumbs-up left_menu_icon" aria-hidden="true"></i> Update suggest medicine
+					<i class="fa fa-thumbs-up" aria-hidden="true"></i> Update suggest medicine
 				</a>
 			</li>
 			<?php
@@ -310,43 +310,43 @@ if (!isset($_COOKIE["user_cart_total"])) {
 			<h2 class="text-left">Others</h2>
 			<li>
 				<a href="tel:+919899133989" title="Contact us">
-					<i class="fa fa-phone-square left_menu_icon" aria-hidden="true"></i> Contact us
+					<i class="fa fa-phone-square" aria-hidden="true"></i> Contact us
 				</a>
 			</li>
 			<li title="Email">
 				<a href="mailto:vipul@drdindia.com" title="Email">
-					<i class="fa fa-envelope left_menu_icon" aria-hidden="true"></i> Email
+					<i class="fa fa-envelope" aria-hidden="true"></i> Email
 				</a>
 			</li>
 			<li title="Privacy policy">
 				<a href="<?= base_url();?>privacy_policy" title="Privacy policy">
-					<i class="fa fa-book left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-book" aria-hidden="true"></i>
 					Privacy policy
 				</a>
 			</li>
 			<li title="Share App">
 				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
-					<i class="fa fa-share-alt-square left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-share-alt-square" aria-hidden="true"></i>
 					Share App
 				</a>
 			</li>
 			<li title="Download App">
 				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-					<i class="fa fa-mobile left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-mobile" aria-hidden="true"></i>
 					Download App
 				</a>
 			</li>
 			<?php if(!empty($_COOKIE['user_session'])){ ?>
 			<li title="Logout">
 				<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
-					<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
 					Logout
 				</a>
 			</li>
 			<?php } else { ?>
 			<li title="Login">
 				<a href="<?= base_url('login')?>" title="Login">
-					<i class="fa fa-sign-out left_menu_icon" aria-hidden="true"></i>
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
 					Login
 				</a>
 			</li>

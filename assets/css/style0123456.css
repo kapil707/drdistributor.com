@@ -52,7 +52,7 @@ table{
 }
 /******important css delete mar karna kabhi be*******/
 .background_blur{
-	background: #3e2e2e94;
+	background:var(--main-theme-blur-bg-color);
     position: fixed;
     width: 100%;
     height: 100%;

@@ -86,12 +86,13 @@
     --item_order_quantity_bg:#ffffff;
 
     /**************/
+    --main-theme-blur-bg-color: #000000d4;
     --main-theme-a-text-color:#757575;
-    --main-theme-hr-line-color:#27ae60;
+    --main-theme-hr-line-color:#17a2b8;
     --main-theme-bg-color:#1a1a1a;    
     --main-theme-color:#757575;
 
-    --main-theme-box-shadow-color:#27ae60;
+    --main-theme-box-shadow-color:#17a2b8;
 
     --main-theme-top-menu-bar-bg:#383d41;
     --main-theme-top-menu-bar-bg1:#383d41;

@@ -520,7 +520,11 @@ function delete_medicine(item_code)
 						{
 							if(item.status=="1")
 							{
-								my_cart_api("all");
+								if(get_page_name=="all"){
+									my_cart_api("all");
+								}else{
+									my_cart_api("notall");
+								}
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});
@@ -566,7 +570,11 @@ function delete_all_medicine()
 						{
 							if(item.status==1)
 							{
-								my_cart_api("all");
+								if(get_page_name=="all"){
+									my_cart_api("all");
+								}else{
+									my_cart_api("notall");
+								}
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});

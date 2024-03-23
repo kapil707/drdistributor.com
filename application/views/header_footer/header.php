@@ -603,6 +603,7 @@ function get_user_altercode(){
 	<?php } ?>
 }
 var default_img = "<?= base_url(); ?>uploads/default_img.webp";
+var get_page_name = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>

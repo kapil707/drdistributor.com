@@ -172,6 +172,7 @@ function goBack() {
 <input type="hidden" value="" class="new_import_page_item_name">
 <input type="hidden" value="" class="new_import_page_item_mrp">
 <script>
+get_page_name = "import_order";// change value taki cart pur load na ho 
 function insert_main_row_data(row_id) {
 	item_name = $(".your_item_name_"+row_id).val();
 	item_mrp  = $(".your_item_mrp_"+row_id).val();

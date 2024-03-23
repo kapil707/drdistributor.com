@@ -29,24 +29,24 @@
     --item_expiry_color:#981e1e;
     --item_stock_color:#1084a1;
     --item_scheme_color:#c66464;
-    --item_scheme_line_color:#685c5c;
+    --item_scheme_line_color:#ced4da;
     --item_ptr_color:#918463;
     --item_mrp_color:#795548;
     --item_price_color:#ffc107;
     --item_total_color:#795548;
-    --item_gst_color:#965400;
-    --item_message_color:#685c5c;	
-    --item_description1_color:#685c5c;	
-    --item_description2_color:#685c5c;
-    --item_similar_items_color:#965400;    
+    --item_gst_color:#ced4da;
+    --item_message_color:#ced4da;	
+    --item_description1_color:#ced4da;	
+    --item_description2_color:#ced4da;
+    --item_similar_items_color:#ced4da;    
 
     --item_order_quantity:#1084a1;
-    --item_date_time_color:#795548;
+    --item_date_time_color:#adb5bd;
     --out_of_stock-color:#ff0a0a;    
     --item_download_color:#ff9800;
 
     --chemist_user_name_color:#27ae60;
-    --chemist_altercode_color:#795548;    
+    --chemist_altercode_color:#adb5bd;    
 
     --item_order_quantity_bg:#e8e8e8;
 

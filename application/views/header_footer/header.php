@@ -483,7 +483,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 									</div>
 
 									<div class="col-sm-4 col-4">
-										<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Order quantity" min="1" max="1000" maxlength="4" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
+										<input type="number" class="medicine_details_item_order_quantity_textbox input_type_text2" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Order quantity" min="1" max="1000" maxlength="4" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
 										<input type="hidden" class="medicine_details_item_order_quantity_hidden">
 									</div>
 

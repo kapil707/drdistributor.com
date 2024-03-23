@@ -59,6 +59,9 @@ table{
     z-index: 13;
     top: 0px;
 }
+.modal-title{
+	color:var(--main-theme-text-color) !important;
+}
 .modal-content {
 	background-color: var(--main-theme-bg-color) !important;
 	border: 1px solid var(--main-theme-border-color) !important;
@@ -1011,7 +1014,7 @@ table{
 .medicine_details_item_date_time{
 	color:var(--item_date_time_color);
 	font-size: 16px;
-    margin-top: -35px;
+    margin-top: -40px;
 }
 .medicine_details_hr{	
 	border-top: 1px solid var(--main-theme-hr-line-color);
@@ -1128,7 +1131,6 @@ table{
     padding: 5px;
     border: 0px;
     border-radius: 10px;
-	border: 1px solid var(--main-theme-border-color);
 }
 .medicine_details_item_order_quantity:focus{
 	outline: none !important;

@@ -354,10 +354,16 @@ function medicine_add_to_cart_api()
 			{
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();
+
+				if(get_page_name=="all"){
+					order_type = "all";
+				}else{
+					order_type = "notall";
+				}
 				
 				$.ajax({
 					type       : "POST",
-					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
+					data       : {item_code:item_code,item_order_quantity:item_order_quantity,order_type:order_type},
 					url        : get_base_url() + "my_cart/medicine_add_to_cart_api",
 					cache	   : true,
 					error: function(){

@@ -139,7 +139,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						</a>
 					</li>
 					
-					<li class="d-none d-lg-block">
+					<li class="d-none d-lg-block d-sm-none">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Notification">
 							<i class="fa fa-upload" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Upload order</span>
@@ -147,7 +147,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					</li>
 
 					<?php if(!empty($_COOKIE['user_session'])){ ?>
-					<li class="d-none d-lg-block">
+					<li class="d-none d-sm-block">
 						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">Logout</span>

@@ -1,18 +1,13 @@
 :root{
-    --mainthemebgcolor:#f2f2f2;    
-    --mainthemetextcolor:#000000;
+
     --mainthemecolor:#27ae60;
     --mainborder-color:#27ae60;
 
     --mainthemebtncolor:#fbfbfb;
     --mainthemebtnbgcolor:#27ae60;
     
-    --main_theme_top_menu_bar_bg:#ffffff;
-    --main_theme_top_menu_bar_bg1:#ffffff;
+
     
-    --top_icon_menu_li_bg:#e9ecef;
-    --top_icon_menu_li_bg_hover:#ebebeb;
-    --top_icon_menu_color:#757575;
     
     --main_theme_hearder_color:#757575;
     --main_theme_hearder_color_hover:#757575;
@@ -24,25 +19,17 @@
     --main_theme_home_menu_color:#27ae60;
     --main_theme_home_menu_color_hover:#27ae60;
 
-    --heading_home_hr_line:#27ae60;
-    --main_theme_box_shadow:#27ae60;
     
-    --main_theme_border_color:#27ae60;
-    --main_theme_border_hover_color:#757575;
 
-    --main_theme_white_background_color:#ffffff;
-    --main_theme_left_menu_bg_color:#f6f6f6;
-    --main_theme_left_menu_bg_color1:#ffffff;
-
-    --main_theme_textbox_background_color:#ffffff;
-    --main_theme_textbox_text_color:#6A6767;
     
-    --main_theme_scrollbar_color:#757575;
+
+
+
+
     
 
     --main_theme_li_color:rgb(240, 240, 240);
     --main_theme_li_bg_color:#969a9829;
-    --main_theme_li_bg_hover_color:#d2d3d4;
 
     --main_theme_li2_color:rgb(240, 240, 240);
     --main_theme_li2_bg_color:#ffffff;
@@ -51,17 +38,12 @@
     --main_theme_textbox_bg_color:#ffffff;
     --main_theme_textbox_color:#6A6767;
 
-    --main_theme_textbox2_bg_color:#ffffff;
-    --main_theme_textbox2_color:#6A6767;
+
 
     --main_theme_text_white_color:#ffffff;
-    --main_theme_text_black_color:#757575;
 
     
     --main_theme_modal_bg_color:#ffffff;
-
-    --mainbutton-color:#27a3ae; /* #27ae60; */
-    --mainbuttonhover-color:#225f64; /* #1b6339; */
     
     --website_footer_bg_color:#f6f6f6;
     --website_footer1_bg_color:#dedede;
@@ -72,7 +54,6 @@
     --main_theme_left_right_btn:#ffffff;
     --main_theme_left_right_btn_bg:#000000;
     
-    --main_theme_search_icon_color:#6a6767;
 
     --home_page_mobile_footer_color:#757575;
     --footer_website_name_color:#757575;
@@ -110,4 +91,49 @@
 
     --item_order_quantity_bg:#e8e8e8;
     
+
+
+
+    /**************/
+    --main-theme-a-text-color:#757575;
+    --main-theme-hr-line-color:#27ae60;
+    --main-theme-bg-color:#f2f2f2;    
+    --main-theme-color:#757575;
+
+    --main-theme-box-shadow-color:#27ae60;
+
+    --main-theme-top-menu-bar-bg:#ffffff;
+    --main-theme-top-menu-bar-bg1:#ffffff;
+
+    --main-theme-border-color:#27ae60;
+    --main-theme-border-color-hover:#757575;
+
+    --main-theme-textbox-bg-color:#ffffff;
+    --main-theme-textbox-text-color:#6A6767;
+
+    --main-theme-textbox2-bg-color:#ffffff;
+    --main-theme-textbox2-text-color:#6A6767;
+
+    --main-theme-button-bg-color:#27a3ae; /* #27ae60; */
+    --main-theme-button-bg-color-hover:#225f64; /* #1b6339; */
+    --main-theme-button-text-color:#ffffff;
+
+    --main-theme-button-disable-bg-color:#b2b0b0;
+	--main-theme-button-disable-bg-color-hover:#928d8d;
+    --main-theme-button-disable-text-color:#ffffff;
+    --main-theme-button-disable-text-color-hover:#000000;
+
+    --main-theme-box-bg-color:#ffffff;
+    --main-theme-box-bg-color-hover:#d2d3d4;
+
+    --main-theme-top-icon-menu-color:#757575;
+    --main-theme-top_icon-menu-li-bg-color:#e9ecef;
+    --main-theme-top_icon-menu-li-bg-color-hover:#ebebeb;
+
+    --main-theme-search-icon-color:#6a6767;
+    
+    --main-theme-scrollbar-color:#757575;
+
+    --main-theme-left-menu-bg-color:#f6f6f6;
+    --main-theme-left-menu-bg-color1:#ffffff;
 }

@@ -53,7 +53,7 @@ function goBack() {
 							<div class="col-sm-2 text-right">
 								<div class="import_order_mrp all_item_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <?= number_format($item_mrp,2) ?>/-</div>					
 							</div>
-							<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
+							<div class="col-sm-12 medicine_details_hr"></div>
 						</div>
 						<div class="row select_product_<?= $i ?>" style="display:none">
 							<div class="col-sm-1">
@@ -62,33 +62,52 @@ function goBack() {
 							<div class="col-sm-11">
 								<div class="row">
 									<div class="col-sm-8">
-										DRD : 
+										Found : 
 										<span class="all_item_name selected_item_name_<?= $i ?>"></span>
+
 										<span class="all_item_packing">
-										(<span class="selected_packing_<?= $i ?>"></span> Packing) </span> - <span class="all_item_expiry expiry_css_<?= $i ?>"> Expiry : <span class="selected_expiry_<?= $i ?>"></span></span>
+											(<span class="selected_packing_<?= $i ?>"></span> Packing) 
+										</span> - 
+
+										<span class="all_item_expiry expiry_css_<?= $i ?>"> 
+											Expiry : <span class="selected_expiry_<?= $i ?>"></span>
+										</span>
 									</div>
 									<div class="col-sm-4 text-right">
-										<span class="all_item_stock">
-										Stock : <span class="selected_batchqty_<?= $i ?>"></span></span> | 
+										<span class="all_item_ptr">
+											PTR : <i class="fa fa-inr" aria-hidden="true"></i> 
+											<span class="selected_sale_rate_<?= $i ?>">0.00</span>/-
+										</span> | 
+
 										<span class="all_item_mrp">
-										MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_<?= $i ?>">0.00</span>/- </span>
-									</div>	
-									<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
+											MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_<?= $i ?>">0.00</span>/- 
+										</span>
+									</div>
+
+									<div class="col-sm-12 medicine_details_hr"></div>
+
 									<div class="col-sm-7">
 										<span class="all_item_company">
-										By : <span class="selected_company_full_name_<?= $i ?>"></span></span> 
-										|  <span class="all_item_batch_no"> Batch no : <span class="selected_batch_no_<?= $i ?>"></span></span>
+											By : <span class="selected_company_full_name_<?= $i ?>"></span>
+										</span> |  
+
+										<span class="all_item_batch_no"> Batch no : 
+											<span class="selected_batch_no_<?= $i ?>"></span>
+										</span>
+
 										<span class="select_product_<?= $i ?> selected_scheme_span_<?= $i ?>"> | 
 											<span class="all_item_scheme selected_scheme_<?= $i ?>"></span>
 										</span>
 									</div>
 									<div class="col-sm-5 text-right">
-										<span class="all_item_ptr">
-										PTR : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_sale_rate_<?= $i ?>">0.00</span>/-</span> | 
+										<span class="all_item_stock">
+										Stock : <span class="selected_batchqty_<?= $i ?>"></span></span> | 
 										<span class="all_item_price">
 										~ Landing price : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_final_price_<?= $i ?>">0.00</span>/-</span>
 									</div>
-									<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
+									
+									<div class="col-sm-12 medicine_details_hr"></div>
+									
 									<div class="col-sm-12">
 										<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 										<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">

@@ -98,6 +98,7 @@ table{
 	background-image: linear-gradient(var(--main-theme-top-menu-bar-bg-color), var(--main-theme-top-menu-bar-bg1-color));
 }
 /****************************************************/
+.main_page_cart_emtpy,
 .main_page_something_went_wrong,
 .main_page_no_record_found{
 	display: none;

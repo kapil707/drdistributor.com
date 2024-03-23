@@ -585,6 +585,19 @@ if($broadcast_status=="1"){ ?>
 </div>
 
 <!-- ******************************************************** -->
+<div class="main_page_cart_emtpy text-center">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<h2>
+				<img src="<?php echo base_url(); ?>img_v51/cart_empty.png" width="100%">
+			</h2>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+</div>
+
+<!-- ******************************************************** -->
 <div class="background_blur" onclick="clear_search_function()" style="display:none"></div>
 
 <!-- ******************************************************** -->
@@ -600,8 +613,9 @@ function get_user_altercode(){
 	<?php } ?>
 }
 var default_img = "<?= base_url(); ?>uploads/default_img.webp";
-var get_page_name = "all";
+var get_page_name = "";
+var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>

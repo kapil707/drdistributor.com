@@ -24,7 +24,7 @@ function something_went_wrong_function(){
 	return '<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>';
 }
 function cart_emtpy_function(){
-	return '<h2><center><img src="'+get_base_url()+'img_v51/cartempty.png" width="80%"></center></h2>';
+	return '<h2><center><img src="'+get_base_url()+'img_v51/cart_empty.png" width="80%"></center></h2>';
 }
 
 function logout_function(){
@@ -355,10 +355,10 @@ function medicine_add_to_cart_api()
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();
 
-				if(get_page_name=="all"){
-					order_type = "all";
-				}else{
+				if(get_page_name=="import_oreder"){
 					order_type = "notall";
+				}else{
+					order_type = "all";
 				}
 				
 				$.ajax({
@@ -526,10 +526,10 @@ function delete_medicine(item_code)
 						{
 							if(item.status=="1")
 							{
-								if(get_page_name=="all"){
-									my_cart_api("all");
+								if(get_page_name=="import_oreder"){
+									order_type = "notall";
 								}else{
-									my_cart_api("notall");
+									order_type = "all";
 								}
 								swal("Medicine deleted successfully", {
 									icon: "success",
@@ -576,10 +576,10 @@ function delete_all_medicine()
 						{
 							if(item.status==1)
 							{
-								if(get_page_name=="all"){
-									my_cart_api("all");
+								if(get_page_name=="import_oreder"){
+									order_type = "notall";
 								}else{
-									my_cart_api("notall");
+									order_type = "all";
 								}
 								swal("Medicines deleted successfully", {
 									icon: "success",
@@ -600,9 +600,16 @@ function delete_all_medicine()
 }
 function my_cart_api(order_type) {
 
-	my_cart_api_i = 0;
-	$(".add_more_btn").hide();
 	$(".top_bar_title2").html("Loading....");
+	
+	/**********only for cart page********** */
+	$(".main_page_cart_emtpy").hide()
+	if(get_page_name=="my_cart"){
+		$(".main_container").hide()
+		$(".search_cart_footer_div").hide()
+	}
+	/************************************* */
+
 	id = "";
 	$.ajax({
 		url: get_base_url() +"my_cart/my_cart_api",
@@ -626,17 +633,23 @@ function my_cart_api(order_type) {
 			if(data.items=="") {
 				$(".my_cart_api_div").html(cart_emtpy_function());
 				$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-				//$(".my_cart_api_div_import_order").html(cart_emtpy_function());
+				//$(".my_cart_api_div_import_order").html(cart_emtpy_function());	
+				
+				/**********only for cart page********** */
+				if(get_page_name=="my_cart"){
+					$(".main_page_cart_emtpy").show()
+				}		
+			}else{
+				/**********only for cart page********** */
+				if(get_page_name=="my_cart"){
+					$(".main_container").show()
+					$(".search_cart_footer_div").show()
+				}
+				/************************************* */
 			}
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-					my_cart_api_i = parseInt(my_cart_api_i) + 1;
-					$(".add_more_btn").hide();
-					if(parseInt(my_cart_api_i)<=4){
-						$(".add_more_btn").show();
-					}
-
 					item_code			= item.item_code;
 					item_image			= item.item_image;
 					item_name 			= item.item_name;

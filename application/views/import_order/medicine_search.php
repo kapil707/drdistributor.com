@@ -219,90 +219,6 @@ function change_order_quantity(row_id) {
 		timeout: 60000
 	});
 }
-function delete_row_medicine(row_id) {
-	swal({
-		title: "Are you sure to delete medicine?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) {
-			$.ajax({
-				type       : "POST",
-				data       : {row_id:row_id,} ,
-				url        : get_base_url() + "import_order/delete_row_medicine",
-				cache	   : false,
-				error: function(){
-					swal("Medicine not deleted");
-				},
-				success    : function(data){
-					$.each(data.items, function(i,item){	
-						if (item)
-						{
-							if(item.status=="1")
-							{
-								$(".remove_css_"+row_id).hide();
-								$(".remove_css_"+row_id).html('');
-								swal("Medicine deleted successfully", {
-									icon: "success",
-								});
-							}
-							else{
-								swal("Medicine not deleted");
-							}
-						} 
-					});
-				},
-				timeout: 60000
-			});
-		} else {
-			swal("Medicine not deleted");
-		}
-	});
-}
-function delete_suggested_medicine(row_id) {
-	swal({
-		title: "Are you sure to delete suggested medicine?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) {
-			$.ajax({
-				url: get_base_url() + "import_order/delete_suggested_medicine",
-				type:"POST",
-				/*dataType: 'html',*/
-				data: {row_id:row_id,user_altercode:'<?= $chemist_id ?>'},
-				error: function(){
-					swal("Suggested medicine not deleted");
-				},
-				success: function(data){
-					$.each(data.items, function(i,item){	
-						if (item)
-						{
-							if(item.status=="1")
-							{
-								swal("Suggested Medicine deleted successfully", {
-									icon: "success",
-								});
-								$('.selected_suggest_'+row_id).hide();
-								insert_main_row_data(row_id)
-							}
-							else{
-								swal("Suggested medicine not deleted");
-							}
-						} 
-					});
-				},
-				timeout: 60000
-			});
-		} else {
-			swal("Suggested medicine not deleted");
-		}
-	});
-}
 /*************************************/
 function add_new_medicine() {
 
@@ -638,6 +554,92 @@ function change_medicine_2(item_code)
 	else{
 		get_single_medicine_info(item_code);
 	}
+}
+/******************************************** */
+
+function delete_row_medicine(row_id) {
+	swal({
+		title: "Are you sure to delete medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) {
+			$.ajax({
+				type       : "POST",
+				data       : {row_id:row_id,} ,
+				url        : get_base_url() + "import_order/delete_row_medicine",
+				cache	   : false,
+				error: function(){
+					swal("Medicine not deleted");
+				},
+				success    : function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								$(".remove_css_"+row_id).hide();
+								$(".remove_css_"+row_id).html('');
+								swal("Medicine deleted successfully", {
+									icon: "success",
+								});
+							}
+							else{
+								swal("Medicine not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 60000
+			});
+		} else {
+			swal("Medicine not deleted");
+		}
+	});
+}
+function delete_suggested_medicine(row_id) {
+	swal({
+		title: "Are you sure to delete suggested medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) {
+			$.ajax({
+				url: get_base_url() + "import_order/delete_suggested_medicine",
+				type:"POST",
+				/*dataType: 'html',*/
+				data: {row_id:row_id,user_altercode:'<?= $chemist_id ?>'},
+				error: function(){
+					swal("Suggested medicine not deleted");
+				},
+				success: function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								swal("Suggested Medicine deleted successfully", {
+									icon: "success",
+								});
+								$('.selected_suggest_'+row_id).hide();
+								insert_main_row_data(row_id)
+							}
+							else{
+								swal("Suggested medicine not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 60000
+			});
+		} else {
+			swal("Suggested medicine not deleted");
+		}
+	});
 }
 </script>
 <script src="<?= base_url(); ?>assets/website/select_css/chosen.jquery.js" type="text/javascript"></script>

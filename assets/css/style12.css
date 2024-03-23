@@ -911,6 +911,16 @@ table{
 	float:left;	
 	padding:5px;
 }
+.import_order_box_left_div{
+	width:10%;
+	float:left;
+	padding:5px;
+}
+.import_order_box_right_div{
+	width:90%;
+	float:left;	
+	padding:5px;
+}
 
 .medicine_search_box_left_div{
 	width:13%;

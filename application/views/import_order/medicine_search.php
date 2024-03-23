@@ -328,6 +328,10 @@ function clear_search_function() {
 	$(".top_bar_search_textbox_div_clear_icon").hide();	
 
 	$(".my_cart_api_div_mobile").hide();
+
+	/**************************************** */
+	$(".top_bar_search_div").show();
+	$(".top_bar_search_textbox_div").hide();
 		
 	i = $("._row_id").val();
 	$(".item_qty_"+i).focus();
@@ -616,12 +620,16 @@ function page_up_down_arrow(new_i)
 		}
 	});
 }
-function add_new_medicine()
-{
-	clear_search_icon();
-	$(".select_medicine").focus();
-	$(".background_blur").show();
-	$(".clear_search_icon").show();
+function add_new_medicine() {
+
+	clear_search_function();
+
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+
+	$('.medicine_search_textbox').val("");
+	$('.medicine_search_textbox').show();
+	$('.medicine_search_textbox').focus();
 }
 function change_medicine_2(item_code)
 {	

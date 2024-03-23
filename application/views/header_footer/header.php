@@ -38,14 +38,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<?php vp_seo(); ?>
 	
 	<?php if($theme_type=="lite") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-light3456789.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-light456789.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
-		<link href="<?= base_url(); ?>assets/css/style-dark3456789.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-dark456789.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style3456789.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style456789.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 

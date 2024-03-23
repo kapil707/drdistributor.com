@@ -104,8 +104,8 @@
     --main-theme-home-menu-color_hover:#27ae60;
     --main-theme-box-shadow-color:#27ae60;
 
-    --main-theme-top-menu-bar-bg:#ffffff;
-    --main-theme-top-menu-bar-bg1:#ffffff;
+    --main-theme-top-menu-bar-bg-color:#ffffff;
+    --main-theme-top-menu-bar-bg1-color:#ffffff;
 
     --main-theme-border-color:#27ae60;
     --main-theme-border-color-hover:#757575;
@@ -132,10 +132,10 @@
     --main-theme-top-icon-menu-li-bg-color:#ffffff;
     --main-theme-top-icon-menu-li-bg-color-hover:#ebebeb;
 
-    --main-theme-search-icon-color:#6a6767;
+    --main-theme-icon-color:#6a6767;
     
     --main-theme-scrollbar-color:#757575;
 
-    --main-theme-left-menu-bg-color:#f6f6f6;
+    --main-theme-left-menu-bg-color:#ffffff;
     --main-theme-left-menu-bg-color1:#ffffff;
 }

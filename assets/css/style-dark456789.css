@@ -96,8 +96,8 @@
     --main-theme-home-menu-color_hover:#17a2b8;
     --main-theme-box-shadow-color:#17a2b8;
 
-    --main-theme-top-menu-bar-bg:#383d41;
-    --main-theme-top-menu-bar-bg1:#383d41;
+    --main-theme-top-menu-bar-bg-color:#383d41;
+    --main-theme-top-menu-bar-bg1-color:#383d41;
 
     --main-theme-border-color:#17a2b8;
     --main-theme-border-color-hover:#6A6767;
@@ -124,7 +124,7 @@
     --main-theme-top-icon-menu-li-bg-color:#383d41;
     --main-theme-top-icon-menu-li-bg-color-hover:#6a6767;
 
-    --main-theme-search-icon-color:#ced4da;
+    --main-theme-icon-color:#ced4da;
 
     --main-theme-scrollbar-color:#757575;
 

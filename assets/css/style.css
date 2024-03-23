@@ -1596,7 +1596,7 @@ table{
 	}
 }
 /* Custom styles for screens wider than 1300px */
-@media (min-width: 1300px) {
+@media (min-width: 1616px) {
 	.d-xxl-block {
 		display: block !important;
 	}

@@ -390,15 +390,6 @@ class Import_order extends CI_Controller {
 		
 		error_reporting(0);
 
-		$headername	= strtoupper($_GET['headername']);
-		$itemname 	= strtoupper($_GET['itemname']);
-		
-		$itemqty 	= strtoupper($_GET['itemqty']);
-		$itemqty    = str_replace(",","",$itemqty);
-		$itemqty    = str_replace(".","",$itemqty);
-		$itemmrp 	= strtoupper($_GET['itemmrp']);
-		$itemmrp    = str_replace(",","",$itemmrp);
-		$itemmrp    = str_replace(".","",$itemmrp);
 		$user_type		= $_COOKIE['user_type'];
 		$user_altercode	= $_COOKIE['user_altercode'];
 		$user_password	= $_COOKIE['user_password'];
@@ -410,6 +401,17 @@ class Import_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+
+		$headername	= strtoupper($_POST['headername']);
+		$itemname 	= strtoupper($_POST['itemname']);
+		
+		$itemqty 	= strtoupper($_POST['itemqty']);
+		$itemqty    = str_replace(",","",$itemqty);
+		$itemqty    = str_replace(".","",$itemqty);
+		$itemmrp 	= strtoupper($_POST['itemmrp']);
+		$itemmrp    = str_replace(",","",$itemmrp);
+		$itemmrp    = str_replace(".","",$itemmrp);
+		
 		$date = date('Y-m-d');
 		$time = date("H:i",time());
 		

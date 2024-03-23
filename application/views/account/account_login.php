@@ -1,5 +1,4 @@
 <?php
-$site_v = 51;
 $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];
@@ -35,6 +34,7 @@ if (isset($_COOKIE["theme_type"])) {
 	<link href="<?= base_url(); ?>assets/css/style11234567.css" rel="stylesheet" type="text/css" />
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16">
+	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 

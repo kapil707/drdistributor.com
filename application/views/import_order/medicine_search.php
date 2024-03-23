@@ -58,12 +58,12 @@ function goBack() {
 						</div>
 						<div class="col-sm-12 medicine_details_hr"></div>
 						
-						<div class="col-sm-12 select_product_<?= $i ?>" style="display:none">
-							<div class="row">
-								<div class="col-sm-1">
+						<div class="row">
+							<div class="col-sm-12 select_product_<?= $i ?>" style="display:none">
+								<div class="my_cart_box_left_div">
 									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
 								</div>
-								<div class="col-sm-11">
+								<div class="my_cart_box_right_div">
 									<div class="row">
 										<div class="col-sm-8">
 											Found : 
@@ -113,23 +113,24 @@ function goBack() {
 												<span class="selected_final_price_<?= $i ?>">0.00</span>/-
 											</span>
 										</div>
+
+										<div class="col-sm-12 medicine_details_hr"></div>
+								
+								
+										<div class="col-sm-12">
+											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
+											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
+												<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
+												<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
+													Change medicine
+												</a>
+											</span>
+											<span class="selected_suggest_<?= $i ?>" style="display:none">
+											|
+												<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+											</span>
+										</div>
 									</div>
-								</div>
-
-								<div class="col-sm-12 medicine_details_hr"></div>
-
-								<div class="col-sm-12">
-									<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
-									<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
-										<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
-										<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
-											Change medicine
-										</a>
-									</span>
-									<span class="selected_suggest_<?= $i ?>" style="display:none">
-									|
-										<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
-									</span>
 								</div>
 							</div>
 						</div>

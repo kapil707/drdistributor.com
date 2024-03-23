@@ -136,7 +136,7 @@ class MyCartModel extends CI_Model
 			$item_code 			= $row->i_code;
 			$item_order_quantity= $row->quantity;
 			$item_image			= $row->image;
-			$item_name			= (ucwords(strtolower($row->item_name)));
+			$item_name			= (ucwords(strtolower($row->item_name))) . "====" .$row->excel_number;
 			$item_packing		= ($row->packing);
 			$item_expiry		= ($row->expiry);
 			$item_company		= (ucwords(strtolower($row->company_full_name)));

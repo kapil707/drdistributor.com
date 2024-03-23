@@ -60,7 +60,7 @@ table{
     top: 0px;
 }
 .modal-content {
-	color: var(--main-theme-bg-color) !important;
+	background-color: var(--main-theme-bg-color) !important;
 	border: 1px solid var(--main-theme-border-color) !important;
 }
 /****************************************************/

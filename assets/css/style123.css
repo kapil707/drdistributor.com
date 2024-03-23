@@ -894,6 +894,19 @@ table{
     font-size: 13px;
 }
 
+.import_order_delete_btn{
+	margin-top: 7px;
+    margin-bottom: 2px;
+	font-size:15px;
+	color:#c45353;
+}
+.import_order_edit_btn{
+	margin-top: 7px;
+    margin-bottom: 2px;
+	font-size:15px;
+	color:#c45353;
+}
+
 .favourite_medicines_box_left_div{
 	width:6%;
 	float:left;

@@ -47,7 +47,7 @@ function goBack() {
 							<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 							<span class="cart_delete_btn_<?= $i ?>">											
-								<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="all_item_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+								<a href="javascript:void(0)" onclick="delete_row_medicine('<?= $i; ?>')" title="Delete medicine" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 							</span>
 						</div>
 						<div class="col-sm-2 text-right">
@@ -123,7 +123,7 @@ function goBack() {
 										</span>
 										<span class="selected_suggest_<?= $i ?>" style="display:none">
 										|
-											<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="all_item_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+											<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 										</span>
 									</div>
 								</div>

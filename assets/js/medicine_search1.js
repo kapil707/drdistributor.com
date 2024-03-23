@@ -33,7 +33,7 @@ function clear_search_function() {
 
 	$(".top_bar_search_textbox_div_clear_icon").hide();	
 	
-	$(".my_cart_api_div_mobile").hide();
+	$(".my_cart_api_div_mobile").show();
 }
 
 $(document).ready(function(){	

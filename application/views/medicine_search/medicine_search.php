@@ -21,7 +21,7 @@ $(".top_bar_title1").show();
 <script>
 $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>home";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
 <div class="container-fluid main_container">
@@ -100,4 +100,4 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/medicine_search.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/medicine_search1.js"></script>

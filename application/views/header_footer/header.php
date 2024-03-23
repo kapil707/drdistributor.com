@@ -117,6 +117,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<span class="d-none d-lg-block">Account</span>
 						</a>
 					</li>
+
+					<li class="d-none d-sm-block">
+						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-newspaper-o" aria-hidden="true"></i> My order
+						</a>
+					</li>					
+
 					<li class="d-none d-xl-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="Notification">
 							<i class="fa fa-flag" aria-hidden="true"></i>

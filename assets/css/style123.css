@@ -921,9 +921,10 @@ table{
 	padding:5px;
 }
 .import_order_box_right_div{
-	width:93%;
-	float:left;	
-	padding:5px;
+	width: 92%;
+    float: left;
+    padding: 5px;
+    margin-left: 1%;
 }
 
 .medicine_search_box_left_div{

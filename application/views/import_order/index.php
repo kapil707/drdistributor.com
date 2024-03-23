@@ -18,7 +18,7 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12 main_box_div">
 			<div class="form-group mt-2">
-				<label for="file">Upload excel file</label>
+				<label for="file" class="label_css">Upload excel file</label>
 				<div class="row">
 					<div class="col-sm-8 col-11">
 						<input id="sortpicture" type="file" name="sortpic" class="input_type_text2 login_textbox" onchange="sortpicture_change()" />

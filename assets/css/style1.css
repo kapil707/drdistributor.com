@@ -49,7 +49,11 @@ table{
 .mobile_show{
 	display:none;
 }
-
+.label_css{
+	color:#757575;
+	font-size: 14px;
+	font-weight:bold;
+}
 /******important css delete mar karna kabhi be*******/
 .background_blur{
 	background: #3e2e2e94;
@@ -718,13 +722,13 @@ table{
 .medicine_category_page .all_item_featured_img{
     position: absolute;
 	left: 10px;
-    width: 60px;
+    width: 60px !important;
     border-top-left-radius: 10px;
 }
 .medicine_category_page .all_item_out_of_stock_img{
 	position: absolute;
 	left: 10px;
-    width: 60px;
+    width: 60px !important;
     border-top-left-radius: 10px;
 }
 
@@ -754,7 +758,7 @@ table{
 .all_item_featured_img,
 .all_item_out_of_stock_img {
 	position: absolute;
-    width: 60px;
+    width: 60px  !important;
     border-top-left-radius: 10px;
 }
 .all_item_name{
@@ -1485,7 +1489,7 @@ table{
 	}
 	.all_item_featured_img,
 	.all_item_out_of_stock_img{
-		width: 45px;
+		width: 45px  !important;
 	}
 	.all_divisioncategory,
 	.all_itemcategory,

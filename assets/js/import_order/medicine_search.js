@@ -440,7 +440,7 @@ function delete_suggested_medicine(row_id) {
 				url: get_base_url() + "import_order/delete_suggested_medicine",
 				type:"POST",
 				/*dataType: 'html',*/
-				data: {row_id:row_id,user_altercode:'<?= $chemist_id ?>'},
+				data: {row_id:row_id,user_altercode:get_user_altercode()},
 				error: function(){
 					swal("Suggested medicine not deleted");
 				},

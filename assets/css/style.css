@@ -1595,3 +1595,9 @@ table{
     	padding-left: 5px !important;
 	}
 }
+/* Custom styles for screens wider than 1300px */
+@media (min-width: 1300px) {
+	.d-xxl-block {
+		display: block !important;
+	}
+}

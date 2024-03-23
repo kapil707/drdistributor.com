@@ -45,7 +45,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style00.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
@@ -114,35 +114,35 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li class="d-none d-sm-block">
 						<a href="javascript:new_style_menu_show()" class="mobile_off">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="d-none d-md-block">Account</span>
+							<span class="d-none d-xxl-block">Account</span>
 						</a>
 					</li>
 
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
-							<span class="d-none d-xl-block d-md-none">My order</span>
+							<span class="d-none d-xxl-block">My order</span>
 						</a>
 					</li>					
 
 					<li class="d-none d-sm-block">
-						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My Invoice">
+						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-md-none">My Invoice</span>
+							<span class="d-none d-xxl-block">My invoice</span>
 						</a>
 					</li>
 
 					<li class="d-none d-sm-block">
-						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My Notification">
+						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-md-none">My Notification</span>
+							<span class="d-none d-xxl-block">My notification</span>
 						</a>
 					</li>
 					
 					<li class="d-none d-sm-none">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span class="d-none d-xl-block d-md-none">Upload order</span>
+							<span class="d-none d-xxl-block">Upload order</span>
 						</a>
 					</li>
 
@@ -150,7 +150,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 					<li class="d-none d-sm-block">
 						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>
-							<span class="d-none d-lg-block">Logout</span>
+							<span class="d-none d-xxl-block">Logout</span>
 						</a>
 					</li>
 					<?php } else { ?>

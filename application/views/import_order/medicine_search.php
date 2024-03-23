@@ -33,7 +33,7 @@ function goBack() {
 					<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
 					<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 					<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
-					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?>">
+					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?> p-1">
 						<div class="row">
 							<div class="col-sm-10">
 								(<?= $j ?>)
@@ -58,7 +58,11 @@ function goBack() {
 								</span>					
 							</div>
 
-							<div class="col-sm-12 all_item_hr select_product_<?= $i ?>" style="display:none">
+							<div class="col-sm-12">
+								<div class="all_item_hr"></div>
+							</div>
+
+							<div class="col-sm-12 select_product_<?= $i ?>" style="display:none">
 								<div class="import_order_box_left_div">
 									<img src="<?=base_url(); ?>img_v51/logo2.png" width="60px;" class="image_css_<?= $i ?> all_item_image" alt="" onerror="this.src='<?= base_url(); ?>/uploads/default_img.jpg'">
 								</div>
@@ -88,7 +92,9 @@ function goBack() {
 											</span>
 										</div>
 
-										<div class="col-sm-12 all_item_hr"></div>
+										<div class="col-sm-12">
+											<div class="all_item_hr"></div>
+										</div>
 
 										<div class="col-sm-7">
 											<span class="all_item_company">
@@ -112,9 +118,13 @@ function goBack() {
 												*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> 
 												<span class="selected_final_price_<?= $i ?>">0.00</span>/-
 											</span>
-										</div>							
+										</div>
+
+										<div class="col-sm-12">
+											<div class="all_item_hr"></div>
+										</div>
 								
-										<div class="col-sm-12 all_item_hr">
+										<div class="col-sm-12">
 											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
 												<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">

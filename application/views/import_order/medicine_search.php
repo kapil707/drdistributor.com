@@ -33,7 +33,7 @@ function goBack() {
 					<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
 					<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
 					<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
-					<div class="row main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?>">
+					<div class="row main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?> p-2">
 						<div class="col-sm-10">
 							(<?= $j ?>)
 							
@@ -113,23 +113,23 @@ function goBack() {
 												<span class="selected_final_price_<?= $i ?>">0.00</span>/-
 											</span>
 										</div>
-										
-										<div class="col-sm-12 medicine_details_hr"></div>
-
-										<div class="col-sm-12">
-											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
-											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
-												<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
-												<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
-													Change medicine
-												</a>
-											</span>
-											<span class="selected_suggest_<?= $i ?>" style="display:none">
-											|
-												<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggested medicine</a>
-											</span>
-										</div>
 									</div>
+								</div>
+
+								<div class="col-sm-12 medicine_details_hr"></div>
+
+								<div class="col-sm-12">
+									<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
+									<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
+										<a href="javascript:change_medicine('<?= $i ?>')" class="all_item_edit_btn" title="Change medicine">
+										<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
+											Change medicine
+										</a>
+									</span>
+									<span class="selected_suggest_<?= $i ?>" style="display:none">
+									|
+										<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested medicine" class="search_cart_delete_all_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+									</span>
 								</div>
 							</div>
 						</div>

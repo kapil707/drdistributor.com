@@ -392,7 +392,7 @@ $(document).ready(function(){
 			return false;
     	}
     });
-	setTimeout('cart_page_load();',100);
+	//setTimeout('cart_page_load();',100);
 	
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;

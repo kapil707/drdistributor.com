@@ -169,8 +169,8 @@ table{
 }
 
 .main_theme_button_disable{
-	background-color: var(--main-theme-button-disable-bg-color-color);
-	border-color: var(--main-theme-button-disable-bg-color-color);
+	background-color: var(--main-theme-button-disable-bg-color);
+	border-color: var(--main-theme-button-disable-bg-color);
 	color: var(--main-theme-button-disable-text-color);
 	border-radius: 10px;
 	width:100%;
@@ -325,6 +325,7 @@ table{
     font-weight: bold;
 	margin-left: 28px;
 }
+.modal_cancel_btn,
 .left_menu_bar_cancel_icon{
     color: var(--main-theme-icon-color) !important;
     font-size: 25px;

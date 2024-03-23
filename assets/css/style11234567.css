@@ -1131,6 +1131,7 @@ table{
     padding: 5px;
     border: 0px;
     border-radius: 10px;
+	border: 1px solid var(--main-theme-border-color);
 }
 .medicine_details_item_order_quantity:focus{
 	outline: none !important;

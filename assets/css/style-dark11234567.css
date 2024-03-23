@@ -33,7 +33,7 @@
     --item_ptr_color:#918463;
     --item_mrp_color:#795548;
     --item_price_color:#ffc107;
-    --item_total_color:#795548;
+    --item_total_color:#d9e10f;
     --item_gst_color:#ced4da;
     --item_message_color:#ced4da;	
     --item_description1_color:#ced4da;	
@@ -57,7 +57,7 @@
     --main-theme-a-text-color:#ffffff;
     --main-theme-hr-line-color:#17a2b8;
     --main-theme-bg-color:#1a1a1a;    
-    --main-theme-color:#ffffff;
+    --main-theme-text-color:#ffffff;
 
     --main-theme-home-menu-color:#17a2b8;
     --main-theme-home-menu-color_hover:#17a2b8;

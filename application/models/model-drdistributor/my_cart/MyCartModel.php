@@ -217,7 +217,8 @@ class MyCartModel extends CI_Model
 			$temp_rec = $user_type."_".$user_altercode;
 		}
 		
-		/**************************************************************** */
+		/**************************************************************** *
+		 * off kar diya yha 2024-03-23 ko
 		if(empty($excel_number)){
 			$excel_number = 1;
 			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();

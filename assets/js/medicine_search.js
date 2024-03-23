@@ -168,18 +168,13 @@ function get_medicine_favourite() {
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});
-}
-
-function current_order_ref(){
-	my_cart_api();
 }
 
 function menu_search_function() {
 	$(".top_bar_search_textbox_div_menu").show();
 }
-
 
 function cart_empty_btn() {
 	swal("Your cart is empty");

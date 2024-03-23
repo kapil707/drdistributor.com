@@ -370,6 +370,7 @@ function medicine_add_to_cart_api()
 						$(".medicine_details_item_order_quantity_textbox").val("");
 						$(".my_cart_api_div").html("");
 						$(".my_cart_api_div_mobile").html("");
+						$(".my_cart_api_div_inport_order").html("");
 						if(data.items=="") {
 							$(".my_cart_api_div").html(cart_emtpy_function());
 							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
@@ -420,6 +421,7 @@ function medicine_add_to_cart_api()
 
 								$(".my_cart_api_div").append(my_cart_data);
 								$(".my_cart_api_div_mobile").append(my_cart_data);
+								$(".my_cart_api_div_inport_order").append(my_cart_data);
 							}
 						});
 						$.each(data.items_other, function(i,item){

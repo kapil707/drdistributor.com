@@ -307,7 +307,7 @@ function change_medicine(row_id) {
 	$("._row_id").val(row_id);
 	item_name = $(".your_item_name_"+row_id).val();
 	setTimeout($('.medicine_search_textbox').val(item_name),500);
-	setTimeout(search_medicine(),1000);
+	setTimeout(medicine_search_api(),700);
 }
 function clear_search_function() {
 

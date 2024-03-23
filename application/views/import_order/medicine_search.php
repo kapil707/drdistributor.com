@@ -79,11 +79,9 @@ function goBack() {
 											|
 											</span>
 											<span style="float:right;">
-												<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="form-control new_quantity item_qty_<?= $i ?>" style="width: 50px;height: 30px;font-size: 12px;padding: 3px;" onchange="change_order_quantity('<?= $i; ?>')" min="1" max="1000" />
+												<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="item_qty_<?= $i ?> medicine_details_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 											</span>
-											<span style="float:right;margin-right:5px;" class="all_item_order_quantity">
-											Quantity : 
-											</span>
+											<span style="float:right;" class="all_item_order_quantity">Quantity : </span>
 										</div>
 										<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div>
 									</div>

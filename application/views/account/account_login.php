@@ -61,15 +61,15 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="row">
 			<div class="col-md-3">
 			</div>
-			<div class="col-md-6 login_new_box">
-				<label>Enter username</label>
+			<div class="col-md-6 main_box_div">
+				<label class="label_css">Enter username</label>
 				<div class="form-row">
 					<div class="form-group col">
 						<i class="fa fa-user login_pg_icon" aria-hidden="true"></i>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter username" required="" name="user_name1" id="user_name1" title="Enter username">
 					</div>
 				</div>
-				<label>Enter password</label>
+				<label class="label_css">Enter password</label>
 				<div class="form-row">			
 					<div class="form-group col">
 						<i class="fa fa-key login_pg_icon" aria-hidden="true"></i>
@@ -93,8 +93,8 @@ if (isset($_COOKIE["theme_type"])) {
 					</div>
 				</div>
 				<div class="text-center mt-2">
-					<input type="submit" value="Login" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
-					<input type="submit" value="Login" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
+					<input type="submit" value="Login" class="main_theme_button" name="Submit" onclick="submitbtn()" id="submitbtn">
+					<input type="submit" value="Login" class="main_theme_button_disable" id="submitbtn_disable" style="display:none">
 				</div>
 				<div class="text-center mt-4">
 					Don't have an account? 

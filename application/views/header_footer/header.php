@@ -587,13 +587,13 @@ if($broadcast_status=="1"){ ?>
 <!-- ******************************************************** -->
 <div class="main_page_cart_emtpy text-center">
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
 			<h2>
 				<img src="<?php echo base_url(); ?>img_v51/cart_empty.png" width="100%">
 			</h2>
 		</div>
-		<div class="col-sm-3"></div>
+		<div class="col-sm-4"></div>
 	</div>
 </div>
 

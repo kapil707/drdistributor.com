@@ -127,8 +127,8 @@ function goBack() {
 										<div class="col-sm-12">
 											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
 											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
-												<a href="javascript:change_medicine('<?= $i ?>')" class="import_order_edit_btn" title="Change medicine">
-												<img src="<?= base_url(); ?>img_v51/edit_icon.png" width="18px;" alt="Change Medicine">
+												<a href="javascript:change_medicine('<?= $i ?>')" class="import_order_edit_btn" title="Edit medicine">
+													<i class="fa fa-pencil" aria-hidden="true"></i>
 													Edit medicine
 												</a>
 											</span>
@@ -304,13 +304,25 @@ function delete_suggested_medicine(row_id) {
 	});
 }
 /*************************************/
-function change_medicine(row_id) {
+function add_new_medicine() {
+
+	clear_search_function();
+
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
 
 	$('.medicine_search_textbox').val("");
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
-	
-	$(".background_blur").show();
+}
+function change_medicine(row_id) {
+
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+
+	$('.medicine_search_textbox').val("");
+	$('.medicine_search_textbox').show();
+	$('.medicine_search_textbox').focus();
 
 	$("._row_id").val(row_id);
 	item_name = $(".your_item_name_"+row_id).val();
@@ -588,17 +600,7 @@ function medicine_search_api() {
 		}
 	}
 }
-function add_new_medicine() {
 
-	clear_search_function();
-
-	$(".top_bar_search_div").hide();
-	$(".top_bar_search_textbox_div").show();
-
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
-}
 function change_medicine_2(item_code)
 {	
 	row_id = $("._row_id").val();

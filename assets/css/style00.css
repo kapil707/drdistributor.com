@@ -713,7 +713,7 @@ table{
 	border-radius: 10px;
 	padding:5px;
 	margin: 5px;
-	background-color: var(--main_theme_li_bg_color);
+	background-color: var(--main-theme-box-bg-color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 }
@@ -725,7 +725,7 @@ table{
 	border-radius: 10px;
 	padding:5px;
 	margin: 5px;
-	background-color: var(--main_theme_li_bg_color);
+	background-color: var(--main-theme-box-bg-color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 	overflow: hidden;
@@ -739,7 +739,7 @@ table{
 	padding:5px;
 	margin-left: 5px;
     margin-bottom: 5px;
-	background-color: var(--main_theme_li_bg_color);
+	background-color: var(--main-theme-box-bg-color);
 	border: 1px solid var(--main-theme-border-color);
     /*box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);*/
 }

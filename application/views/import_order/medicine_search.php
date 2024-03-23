@@ -338,14 +338,6 @@ function clear_search_function() {
 }
 
 function cart_page_load(){
-
-	$(".top_bar_search_div").hide();
-	$(".top_bar_search_textbox_div").show();
-
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
-
 	my_cart_api();
 }
 

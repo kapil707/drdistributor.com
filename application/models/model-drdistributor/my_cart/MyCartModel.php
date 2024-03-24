@@ -220,6 +220,11 @@ class MyCartModel extends CI_Model
 		{
 			$temp_rec = $user_type."_".$user_altercode;
 		}
+
+		/**********1000 say jada ki value add he nahi hoya ge cart me */
+		if($item_order_quantity>=1000){
+			$item_order_quantity = 1000;
+		}
 		
 		/**************************************************************** *
 		 * off kar diya yha 2024-03-23 ko
@@ -230,6 +235,7 @@ class MyCartModel extends CI_Model
 				$excel_number = $row->excel_number + 1;
 			}
 		}
+		
 
 		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);

@@ -217,7 +217,6 @@ function import_oreder_medicine_delete_suggested(myid) {
 								swal("Suggested Medicine deleted successfully", {
 									icon: "success",
 								});
-								$('.selected_suggest_'+row_id).hide();
 								import_order_medicine_details(myid)
 							}
 							else{

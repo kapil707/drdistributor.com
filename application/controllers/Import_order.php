@@ -594,6 +594,8 @@ class Import_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+
+		/******************************************/
 		
 		$row = $this->db->query("select * from drd_import_file where id='$excel_number'")->row();
 		$order_id			= $row->order_id;
@@ -633,29 +635,35 @@ class Import_order extends CI_Controller {
 		$this->db->limit(1);
 		$this->db->order_by('item_name','asc');
 		$row = $this->db->get("tbl_medicine")->row();
-		$item_image = base_url()."uploads/default_img.jpg";
 		/******************************************/
 		
-		$item_name = $item_packing = $item_batchqty = $item_scheme = $item_company = $selected_batch_no = $item_expiry = "";
-		$item_stock = $item_mrp = $item_ptr = $item_price = 0;
-		$item_code = "";
+		$item_code = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
+		$item_stock = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
 		if(!empty($row)) {
+
+			$item_code			=	$row->i_code;
+			$item_name			=	ucwords(strtolower($row->item_name));
+			$item_packing		=	$row->packing;
+			$item_scheme		=	$row->salescm1."+".$row->salescm2;
+			$item_company		=  	ucwords(strtolower($row->company_name));
+			$item_quantity		=	$row->batchqty;
+			$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
+			$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
+			$item_price			=	sprintf('%0.2f',round($row->final_price,2));
+			$item_margin 		=   round($row->margin);
+			$item_featured 		= 	$row->featured;
+
+			$misc_settings =	$row->misc_settings;
+			$item_stock = "";
+			if($misc_settings=="#NRX" && $item_quantity>=10){
+				$item_stock = "Available";
+			}
+			
+			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
 				$item_image = constant('img_url_site').$row->image1;
 			}
-
-			$item_name = ucwords(strtolower($row->item_name));
-			$item_packing = $row->packing;
-			$item_expiry = $row->expiry;
-			$item_company = ucwords(strtolower($row->company_full_name));
-			$item_batch_no = $row->batch_no;
-			$item_stock = $row->batchqty;
-			$item_scheme = $row->salescm1."+".$row->salescm2;
-			
-			$item_ptr = number_format($row->ptr,2);
-			$item_mrp = number_format($row->sale_rate,2);
-			$item_price = number_format($row->final_price,2);
 			
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
@@ -664,7 +672,6 @@ class Import_order extends CI_Controller {
 			}
 			/******************************************/
 		}
-		$item_message = $item_background = "";
 		if($type_==1)
 		{
 			$item_message = "Find medicine (By DRD server) |";
@@ -705,17 +712,24 @@ class Import_order extends CI_Controller {
 			'item_message'=>$item_message,
 			'item_background'=>$item_background,
 			'item_suggest_altercode'=>$item_suggest_altercode,
-			'item_name' => $item_name,
+			
+
+			'item_code' => $item_code,
 			'item_image' => $item_image,
+			'item_name' => $item_name,
 			'item_packing' => $item_packing,
-			'item_batch_no' => $item_batch_no,
-			'item_expiry' => $item_expiry,
 			'item_scheme' => $item_scheme,
-			'item_stock' => $item_stock,
 			'item_company' => $item_company,
+			'item_quantity' => $item_quantity,
+			'item_stock' => $item_stock,
 			'item_ptr' => $item_ptr,
 			'item_mrp' => $item_mrp,
 			'item_price' => $item_price,
+			'item_margin' => $item_margin,
+			'item_featured' => $item_featured,
+			
+			'item_batch_no' => $item_batch_no,
+			'item_expiry' => $item_expiry,
 		);
 		$jsonArray[] = $dt;
 

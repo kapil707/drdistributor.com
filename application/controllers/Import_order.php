@@ -579,16 +579,15 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 	
-	public function insert_main_row_data()
-	{		
+	public function get_check_medicine_details_api() {	
+
 		$excel_number	= $_POST["row_id"];
 		
 		$user_type 		= $_COOKIE['user_type'];
 		$user_altercode = $_COOKIE['user_altercode'];
 		$user_password	= $_COOKIE['user_password'];
 		
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$chemist_id 	= $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE['chemist_id'];
@@ -759,7 +758,17 @@ class Import_order extends CI_Controller {
 			</script>
 			<?php
 		}
-		?>
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'excel_number' => $excel_number,
+			'item_name' => $selected_item_name
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+		/*?>
 		<script> 
 		$('.item_qty_<?= $excel_number ?>').focus();		
 		$('.chosen-select_<?= $excel_number ?>').chosen({width: "100%"});
@@ -777,7 +786,7 @@ class Import_order extends CI_Controller {
 		$('.selected_final_price_<?= $excel_number ?>').html('<?php echo $selected_price; ?>');
 		$('.selected_company_full_name_<?= $excel_number ?>').html('<?php echo $selected_company_full_name; ?>');
 		</script>
-		<?php
+		<?php*/
 	}
 	
 	public function expiry_check($expiry)

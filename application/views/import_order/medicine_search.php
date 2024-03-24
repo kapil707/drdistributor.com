@@ -179,9 +179,31 @@ order_type = "notall";// change value taki cart pur load na ho
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>
-	setTimeout("insert_main_row_data('<?php echo $row->id ?>')",500);
+	//setTimeout("insert_main_row_data('<?php echo $row->id ?>')",500);
+	setTimeout("get_check_medicine_details('<?php echo $row->id ?>')",500);
 	<?php  } ?>
 });
+
+function get_check_medicine_details(row_id) {
+	item_name 	= $(".your_item_name_"+row_id).val();
+	item_mrp  	= $(".your_item_mrp_"+row_id).val();
+	item_qty  	= $(".your_item_qty_"+row_id).val();
+	mytime 		= $(".mytime").val();
+	$.ajax({
+		type       : "POST",
+		data       : {row_id:row_id} ,
+		url        : get_base_url() + "import_order/get_check_medicine_details_api",
+		cache	   : false,
+		error: function(){
+			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
+		},
+		success    : function(data){
+			console.log(data);
+			//$(".insert_main_row_data_"+row_id).html(data);
+		}
+	});
+}
+
 var js_i = "";
 var js_j = "";
 function add_new_row_import_order_page(item_code,item_order_quantity) {

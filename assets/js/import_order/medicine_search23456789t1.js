@@ -144,10 +144,52 @@ function import_order_medicine_change(myid) {
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
+	hidden_seleted_div_id = myid;
 	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
 }
+
+/************************************* */
+function import_order_medicine_change_api(item_code){	
+
+	myid = hidden_seleted_div_id;
+	if(myid!="")
+	{
+		$.ajax({
+			url: get_base_url() + "import_order/import_order_medicine_change_api",
+			type:"POST",
+			/*dataType: 'html',*/
+			data: {item_code:item_code,myid:myid},
+			error: function(){
+				swal("Medicine not changed");
+			},
+			success: function(data){
+					$.each(data.items, function(i,item){	
+					if (item)
+					{
+						if(item.status=="1")
+						{
+							swal("Medicine changed successfully", {
+								icon: "success",
+							});
+							$("._row_id").val('');
+							get_check_medicine_details(row_id)
+						}
+						else{
+							swal("Medicine not changed");
+						}
+					} 
+				});
+			},
+			timeout: 60000
+		});
+	}
+	else{
+		get_single_medicine_info(item_code);
+	}
+}
+
 function delete_suggested_medicine(row_id) {
 	swal({
 		title: "Are you sure to delete suggested medicine?",
@@ -193,9 +235,7 @@ function delete_suggested_medicine(row_id) {
 
 /*************************************/
 function add_new_medicine() {
-
 	clear_search_function();
-
 	$('.medicine_search_textbox').focus();
 }
 function clear_search_function() {
@@ -471,44 +511,5 @@ function medicine_search_api() {
 			$(".search_result_div").html("");
 			$(".search_result_div_mobile").html("");
 		}
-	}
-}
-
-function change_medicine_2(item_code)
-{	
-	row_id = $("._row_id").val();
-	if(row_id!="")
-	{
-		$.ajax({
-			url: get_base_url() + "import_order/change_medicine_2",
-			type:"POST",
-			/*dataType: 'html',*/
-			data: {item_code:item_code,row_id:row_id},
-			error: function(){
-				swal("Medicine not changed");
-			},
-			success: function(data){
-					$.each(data.items, function(i,item){	
-					if (item)
-					{
-						if(item.status=="1")
-						{
-							swal("Medicine changed successfully", {
-								icon: "success",
-							});
-							$("._row_id").val('');
-							get_check_medicine_details(row_id)
-						}
-						else{
-							swal("Medicine not changed");
-						}
-					} 
-				});
-			},
-			timeout: 60000
-		});
-	}
-	else{
-		get_single_medicine_info(item_code);
 	}
 }

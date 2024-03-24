@@ -830,17 +830,17 @@ class Import_order extends CI_Controller {
 	}
 	
 	/*21-01-2020*/
-	public function change_medicine_2()
-	{
+	public function import_order_medicine_change_api(){
+
 		$item_code		= ($_POST["item_code"]);	
-		$row_id			= ($_POST["row_id"]);
+		$myid			= ($_POST["myid"]);
 		$status = 0;
-		if(!empty($item_code) && !empty($row_id)){
+		if(!empty($item_code) && !empty($myid)){
 			$row = $this->db->query("select item_name from tbl_medicine where i_code='$item_code'")->row();
 			$item_name = $row->item_name;
-			$row1 = $this->db->query("select item_name from drd_import_file where id='$row_id'")->row();
+			$row1 = $this->db->query("select item_name from drd_import_file where id='$myid'")->row();
 			$your_item_name = $row1->item_name;
-			$this->db->query("delete from drd_temp_rec where excel_number='$row_id'");
+			$this->db->query("delete from drd_temp_rec where excel_number='$myid'");
 			
 			$this->db->query("delete from drd_import_orders_suggest where your_item_name='$your_item_name'");
 			$user_altercode	= $_COOKIE["user_altercode"];

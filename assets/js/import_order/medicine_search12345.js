@@ -32,7 +32,7 @@ function get_check_medicine_details(row_id) {
 
 					$('.item_qty_'+excel_number).focus()
 					$('.select_product_'+excel_number).show()
-					$('remove_css_'+excel_number).css("background-color",background_color);
+					$('.remove_css_'+excel_number).css("background-color",background_color);
 
 					$('.selected_msg_'+excel_number).html(message);
 

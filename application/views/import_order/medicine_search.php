@@ -64,9 +64,9 @@ function goBack() {
 							<div class="col-sm-12 import_order_main_<?= $myid ?>" style="display:none">
 								<div class="import_order_box_left_div">
 
-									<img src="<?=base_url(); ?>img_v51/featured_img.png" class="all_item_featured_img import_order_item_featured_<?= $myid ?>">
+									<img src="<?=base_url(); ?>img_v51/featured_img.png" class="all_item_featured_img import_order_item_featured_<?= $myid ?>" style="display:none">
 
-									<img src="<?=base_url(); ?>img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img import_order_item_out_of_stock_<?= $myid ?>">
+									<img src="<?=base_url(); ?>img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img import_order_item_out_of_stock_<?= $myid ?>" style="display:none">
 
 									<img src="<?=base_url(); ?>img_v51/logo4.png" width="60px;" class="all_item_image import_order_item_image_<?= $myid ?>" alt="">
 
@@ -172,7 +172,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/js/import_order/medicine_search.js"></script>
+<script src="<?= base_url(); ?>assets/js/import_order/medicine_search11.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

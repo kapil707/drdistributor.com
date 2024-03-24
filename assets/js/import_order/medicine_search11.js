@@ -30,6 +30,7 @@ function import_order_medicine_details(myid) {
 					item_ptr = item.item_ptr;
 					item_mrp = item.item_mrp;
 					item_price = item.item_price;
+					item_featured = item.item_featured;
 
 					$('.import_order_quantity_textbox_'+excel_number).focus();
 
@@ -54,6 +55,21 @@ function import_order_medicine_details(myid) {
 					$('.import_order_item_scheme_div_'+excel_number).hide()
 					if(item_scheme!="0+0"){
 						$('.import_order_item_scheme_div_'+excel_number).show()
+					}
+
+					$('.import_order_item_featured_'+excel_number).hide();
+					if(item_quantity=="0"){
+						$('.import_order_item_out_of_stock_'+excel_number).show();
+					}
+
+					$('.import_order_item_featured_'+excel_number).hide();
+					if(item_featured=="1"){
+						$('.import_order_item_featured_'+excel_number).show();
+					}
+
+					$('.import_order_item_featured_'+excel_number).hide();
+					if(item_featured=="1"){
+						$('.import_order_item_featured_'+excel_number).show();
 					}
 					
 					$('.import_order_item_suggested_'+excel_number).hide();

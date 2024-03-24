@@ -776,9 +776,12 @@ class Import_order extends CI_Controller {
 	
 	public function import_oreder_medicine_quantity_change_api() {
 		$myid 		= $_POST["myid"];
-		$quantity	= $_POST["quantity"];
+		$import_order_quantity	= $_POST["import_order_quantity"];
 		
-		$status = $this->db->query("update drd_import_file set quantity='$quantity' where id='$myid'");
+		$status = 0;
+		if(!empty($import_order_quantity)){
+			$status = $this->db->query("update drd_import_file set quantity='$import_order_quantity' where id='$myid'");
+		}
 
 		$jsonArray = array();
 		$dt = array(

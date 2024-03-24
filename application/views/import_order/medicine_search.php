@@ -63,7 +63,13 @@ function goBack() {
 
 							<div class="col-sm-12 import_order_main_<?= $myid ?>" style="display:none">
 								<div class="import_order_box_left_div">
-									<img src="<?=base_url(); ?>img_v51/logo4.png" width="60px;" class="all_item_image import_order_item_name_<?= $myid ?>" alt="" >
+
+									<img src="<?=base_url(); ?>img_v51/featured_img.png" class="all_item_featured_img import_order_item_featured_<?= $myid ?>">
+
+									<img src="<?=base_url(); ?>img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img import_order_item_out_of_stock_<?= $myid ?>">
+
+									<img src="<?=base_url(); ?>img_v51/logo4.png" width="60px;" class="all_item_image import_order_item_image_<?= $myid ?>" alt="">
+
 								</div>
 
 								<div class="import_order_box_right_div">

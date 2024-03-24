@@ -644,7 +644,7 @@ class Import_order extends CI_Controller {
 		/******************************************/
 		
 		$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
-		$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = "0";
+		$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
 		$item_image = base_url()."uploads/default_img.webp";
 
 		if(!empty($row)) {

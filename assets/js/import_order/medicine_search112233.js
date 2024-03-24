@@ -25,6 +25,7 @@ function import_order_medicine_details(myid) {
 					item_batch_no = item.item_batch_no;
 					item_expiry = item.item_expiry;
 					item_scheme = item.item_scheme;
+					item_quantity = item.item_quantity;
 					item_stock = item.item_stock;
 					item_company = item.item_company;
 					item_ptr = item.item_ptr;

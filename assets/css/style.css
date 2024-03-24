@@ -763,7 +763,7 @@ table{
 .import_order_item_featured_img,
 .import_order_item_out_of_stock_img{
 	position: absolute;
-	left: 10px;
+	left: 20px;
     width: 45px !important;
     border-top-left-radius: 10px;
 }

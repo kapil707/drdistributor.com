@@ -33,7 +33,7 @@ function get_check_medicine_details(myid) {
 
 					$('.import_order_item_order_quantity_textbox_'+excel_number).focus();
 
-					$('.import_order_main_div_'+excel_number).css("background-color",background_color);
+					$('.import_order_main_div_'+excel_number).css("background-color",item_background);
 					$('.import_order_main_'+excel_number).show();
 
 					$('.import_order_item_message_'+excel_number).html(item_message);

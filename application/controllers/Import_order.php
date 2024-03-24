@@ -666,40 +666,40 @@ class Import_order extends CI_Controller {
 			}
 			/******************************************/
 		}
-		?>
+		/*?>
 		<script>
 		$('.selected_SearchAnotherMedicine_<?= $excel_number ?>').show();
 		$('.select_product_<?= $excel_number ?>').show();
 		</script>
-		<?php 
+		<?php */
 		$selected_msg = "";
 		if($type_==1)
 		{
 			$selected_msg = "Find medicine (By DRD server) |";
-			?>
+			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
 				background:#13ffb33b !important;
 			}
 			</style>
-			<?php
+			<?php*/
 		}
 		if($type_==0)
 		{
 			$selected_msg = "Find medicine but difference name or mrp. (By DRD server) | ";
-			?>
+			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
 				background:#1713ff2e !important;
 			}
 			</style>
-			<?php
+			<?php*/
 		}
 		
 		if($selected_item_name=="")
 		{
 			$selected_msg = "<span style=color:red>(Not found any medicine)</span> | ";
-			?>
+			/*?>
 			<script>
 			$('.select_product_<?= $excel_number ?>').hide();
 			//$('.selected_SearchAnotherMedicine_<?= $excel_number ?>').show();
@@ -709,25 +709,25 @@ class Import_order extends CI_Controller {
 				background:#ffe494 !important;
 			}
 			</style>
-			<?php
+			<?php*/
 		}		
 		
 		if($selected_batchqty==0)
 		{
 			$selected_msg.= "<span style=color:red>Out of stock</span> | ";
-			?>
+			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
 				background:#ffe494 !important;
 			}
 			</style>
-			<?php
+			<?php*/
 		}
 		
 		if($suggest==1)
 		{
 			$selected_msg = "Related results found (Suggest set by $suggest_altercode) | ";
-			?>
+			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
 				background:#97dcd6 !important;
@@ -736,27 +736,27 @@ class Import_order extends CI_Controller {
 			<script>
 				$('.selected_suggest_<?= $excel_number ?>').show();
 			</script>
-			<?php
+			<?php*/
 			
 			if($selected_batchqty==0)
 			{
 				$selected_msg.= " <span style=color:red>Out of stock</span> | ";
-				?>
+				/*?>
 				<style>
 				.remove_css_<?= $excel_number ?>{
 					background:#ffe494 !important;
 				}
 				</style>
-				<?php
+				<?php*/
 			}
 		}
 		if($selected_scheme=="0+0")
 		{
-			?>
+			/*?>
 			<script>
 			$('.selected_scheme_span_<?= $excel_number ?>').hide();
 			</script>
-			<?php
+			<?php*/
 		}
 		$response = array(
             'success' => "1",

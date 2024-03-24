@@ -1,9 +1,9 @@
 
-function get_check_medicine_details(myid) {
+function import_order_medicine_details(myid) {
 	$.ajax({
 		type       : "POST",
 		data       : {myid:myid} ,
-		url        : get_base_url() + "import_order/get_check_medicine_details_api",
+		url        : get_base_url() + "import_order/import_order_medicine_details_api",
 		cache	   : false,
 		error: function(){
 			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
@@ -31,7 +31,7 @@ function get_check_medicine_details(myid) {
 					item_mrp = item.item_mrp;
 					item_price = item.item_price;
 
-					$('.import_order_item_order_quantity_textbox_'+excel_number).focus();
+					$('.import_order_quantity_textbox_'+excel_number).focus();
 
 					$('.import_order_main_div_'+excel_number).css("background-color",item_background);
 					$('.import_order_main_'+excel_number).show();

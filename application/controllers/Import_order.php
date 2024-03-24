@@ -579,7 +579,7 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 	
-	public function get_check_medicine_details_api() {	
+	public function import_order_medicine_details_api() {	
 
 		$excel_number	= $_POST["myid"];
 		

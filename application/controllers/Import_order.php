@@ -774,12 +774,11 @@ class Import_order extends CI_Controller {
 		return $status;
 	}
 	
-	public function change_order_quantity()
-	{
-		$row_id 		= $_POST["row_id"];
-		$quantity		= $_POST["quantity"];
+	public function import_oreder_medicine_quantity_change_api() {
+		$myid 		= $_POST["myid"];
+		$quantity	= $_POST["quantity"];
 		
-		$status = $this->db->query("update drd_import_file set quantity='$quantity' where id='$row_id'");
+		$status = $this->db->query("update drd_import_file set quantity='$quantity' where id='$myid'");
 
 		$jsonArray = array();
 		$dt = array(

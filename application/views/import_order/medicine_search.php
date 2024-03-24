@@ -41,7 +41,7 @@ function goBack() {
 								
 								<span class="all_item_order_quantity">Quantity : </span>
 
-								<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_item_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
+								<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_item_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('<?= $myid ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 								<span>											
 									<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
@@ -164,7 +164,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/js/import_order/medicine_search12345678.js"></script>
+<script src="<?= base_url(); ?>assets/js/import_order/medicine_search123456789.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

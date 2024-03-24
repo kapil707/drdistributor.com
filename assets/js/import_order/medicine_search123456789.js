@@ -79,12 +79,12 @@ function medicine_change_btn(row_id) {
 	setTimeout($('.medicine_search_textbox').val(item_name),500);
 	setTimeout(medicine_search_api(),700);
 }
-function change_order_quantity(row_id) {
-	quantity  = $(".item_qty_"+row_id).val();
+function import_oreder_medicine_quantity_change(myid) {
+	import_order_item_order_quantity_textbox  = $(".import_order_item_order_quantity_textbox_"+row_id).val();
 	$.ajax({
 		type       : "POST",
-		data       :  {row_id:row_id,quantity:quantity} ,
-		url        : get_base_url() +  "import_order/change_order_quantity",
+		data       :  {myid:myid,quantity:import_order_item_order_quantity_textbox} ,
+		url        : get_base_url() +  "import_order/import_oreder_medicine_quantity_change_api",
 		cache	   : false,
 		error: function(){
 			swal("Quantity not updated");

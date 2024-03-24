@@ -125,15 +125,15 @@ function goBack() {
 										</div>
 								
 										<div class="col-sm-12">
-											<span class="cart_description1 selected_msg_<?= $i ?>"> Loading.... </span>
-											<span class="selected_SearchAnotherMedicine_<?= $i ?>" style="display:none">
+											<span class="cart_description1 selected_msg_<?= $i ?>"> 
+											</span>
+											<span class="selected_SearchAnotherMedicine_<?= $i ?>">
 												<a href="javascript:change_medicine('<?= $i ?>')" class="import_order_edit_btn" title="Change medicine">
 													<i class="fa fa-pencil" aria-hidden="true"></i>
 													Change medicine
 												</a>
 											</span>
 											<span class="selected_suggest_<?= $i ?>" style="display:none">
-											|
 												<a href="javascript:delete_suggested_medicine('<?= $i ?>')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 											</span>
 										</div>

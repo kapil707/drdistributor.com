@@ -758,10 +758,8 @@ class Import_order extends CI_Controller {
 			</script>
 			<?php*/
 		}
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'excel_number' => $excel_number,
+		$dt = array(
+			'excel_number' => $excel_number,
 			'item_name' => $selected_item_name,
 			'item_image' => $image1,
 			'item_packing' => $selected_packing,
@@ -773,6 +771,13 @@ class Import_order extends CI_Controller {
 			'item_ptr' => $selected_ptr,
 			'item_mrp' => $selected_mrp,
 			'item_price' => $selected_price,
+		);
+		$jsonArray[] = $dt;
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items'=> $jsonArray
         );
 
         // Send JSON response

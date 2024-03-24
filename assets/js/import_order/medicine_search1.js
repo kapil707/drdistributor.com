@@ -437,7 +437,7 @@ function delete_suggested_medicine(row_id) {
 									icon: "success",
 								});
 								$('.selected_suggest_'+row_id).hide();
-								insert_main_row_data(row_id)
+								get_check_medicine_details(row_id)
 							}
 							else{
 								swal("Suggested medicine not deleted");

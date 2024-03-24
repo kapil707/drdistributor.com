@@ -762,7 +762,17 @@ class Import_order extends CI_Controller {
             'success' => "1",
             'message' => 'Data load successfully',
             'excel_number' => $excel_number,
-			'item_name' => $selected_item_name
+			'item_name' => $selected_item_name,
+			'item_image' => $image1,
+			'item_packing' => $selected_packing,
+			'item_batch_no' => $selected_batch_no,
+			'item_expiry' => $selected_expiry,
+			'item_scheme' => $selected_scheme,
+			'item_batchqty' => $selected_batchqty,
+			'item_company_full_name' => $selected_company_full_name,
+			'item_ptr' => $selected_ptr,
+			'item_mrp' => $selected_mrp,
+			'item_price' => $selected_price,
         );
 
         // Send JSON response

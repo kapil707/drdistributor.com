@@ -168,7 +168,7 @@ order_type = "notall";// change value taki cart pur load na ho
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>
-	//setTimeout("insert_main_row_data('<?php echo $row->id ?>')",500);
+		console.log("working");
 	setTimeout("get_check_medicine_details('<?php echo $row->id ?>')",500);
 	<?php  } ?>
 });

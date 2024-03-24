@@ -799,14 +799,13 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function delete_row_medicine()
-	{
+	public function import_oreder_medicine_delete_api() {
 		$status = 0;
-		$row_id	= $_POST["row_id"];
-		if(!empty($row_id))
+		$myid	= $_POST["myid"];
+		if(!empty($myid))
 		{
-			$this->db->query("update drd_import_file set status=0 where id='$row_id'");
-			$this->db->query("delete from drd_temp_rec where excel_number='$row_id'");
+			$this->db->query("update drd_import_file set status=0 where id='$myid'");
+			$this->db->query("delete from drd_temp_rec where excel_number='$myid'");
 			$status = 1;
 		}
 

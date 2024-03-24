@@ -44,7 +44,7 @@ function goBack() {
 								<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_item_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="change_order_quantity('<?= $i; ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 								<span>											
-									<a href="javascript:void(0)" onclick="medicine_delete_btn('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+									<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 								</span>
 							</div>
 							<div class="col-sm-2 text-right">
@@ -61,7 +61,7 @@ function goBack() {
 
 							<div class="col-sm-12 import_order_main_<?= $myid ?>" style="display:none">
 								<div class="import_order_box_left_div">
-									<img src="<?=base_url(); ?>img_v51/logo4.png" width="60px;" class="image_css_<?= $myid ?> all_item_image" alt="" >
+									<img src="<?=base_url(); ?>img_v51/logo4.png" width="60px;" class="all_item_image import_order_item_name_<?= $myid ?>" alt="" >
 								</div>
 
 								<div class="import_order_box_right_div">
@@ -164,7 +164,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/js/import_order/medicine_search1234567.js"></script>
+<script src="<?= base_url(); ?>assets/js/import_order/medicine_search12345678.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

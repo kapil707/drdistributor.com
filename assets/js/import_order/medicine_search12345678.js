@@ -108,7 +108,7 @@ function change_order_quantity(row_id) {
 		timeout: 60000
 	});
 }
-function delete_row_medicine(row_id) {
+function import_oreder_medicine_delete(myid) {
 	swal({
 		title: "Are you sure to delete medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -119,8 +119,8 @@ function delete_row_medicine(row_id) {
 		if (result) {
 			$.ajax({
 				type       : "POST",
-				data       : {row_id:row_id,} ,
-				url        : get_base_url() + "import_order/delete_row_medicine",
+				data       : {myid:myid,} ,
+				url        : get_base_url() + "import_order/import_oreder_medicine_delete_api",
 				cache	   : false,
 				error: function(){
 					swal("Medicine not deleted");
@@ -131,8 +131,8 @@ function delete_row_medicine(row_id) {
 						{
 							if(item.status=="1")
 							{
-								$(".remove_css_"+row_id).hide();
-								$(".remove_css_"+row_id).html('');
+								$(".import_order_main_div_"+myid).hide();
+								$(".import_order_main_div_"+myid).html('');
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});

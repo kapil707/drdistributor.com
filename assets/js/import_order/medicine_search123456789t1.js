@@ -95,9 +95,8 @@ function import_oreder_medicine_quantity_change(myid) {
 				{
 					if(item.status=="1")
 					{
-						$(".your_item_qty_"+row_id).val(quantity);
 						swal("Quantity updated successfully");
-						get_check_medicine_details(row_id)
+						get_check_medicine_details(myid)
 					}
 					else{
 						swal("Quantity not updated");

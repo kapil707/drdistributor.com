@@ -664,6 +664,9 @@ class Import_order extends CI_Controller {
 			{
 				$item_image = constant('img_url_site').$row->image1;
 			}
+
+			$item_batch_no = $row->batch_no;
+			$item_expiry =	$row->expiry;
 			
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
@@ -780,6 +783,9 @@ class Import_order extends CI_Controller {
 		
 		$status = 0;
 		if(!empty($import_order_quantity)){
+			if($import_order_quantity>=1000){
+				$import_order_quantity = 1000;
+			}
 			$status = $this->db->query("update drd_import_file set quantity='$import_order_quantity' where id='$myid'");
 		}
 

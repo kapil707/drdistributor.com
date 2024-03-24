@@ -216,6 +216,7 @@ function get_check_medicine_details(row_id) {
 					item_mrp = item.item_mrp;
 					item_price = item.item_price;
 
+					$(".item_qty_"+excel_number).focus()
 					$(".select_product_"+excel_number).show()
 
 					$(".selected_item_name_"+excel_number).html(item_name)

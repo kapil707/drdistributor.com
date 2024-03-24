@@ -201,10 +201,10 @@ function import_oreder_medicine_delete_suggested(myid) {
 	}).then(function(result) {
 		if (result) {
 			$.ajax({
-				url: get_base_url() + "import_order/delete_suggested_medicine",
+				url: get_base_url() + "import_order/import_oreder_medicine_delete_suggested_api",
 				type:"POST",
 				/*dataType: 'html',*/
-				data: {row_id:row_id,user_altercode:get_user_altercode()},
+				data: {myid:myid,user_altercode:get_user_altercode()},
 				error: function(){
 					swal("Suggested medicine not deleted");
 				},

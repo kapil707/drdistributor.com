@@ -875,13 +875,13 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function delete_suggested_medicine()
+	public function import_oreder_medicine_delete_suggested_api()
 	{
 		$user_type 		= $_COOKIE['user_type'];
 		$user_altercode	= $_REQUEST["user_altercode"];
-		$row_id 		= ($_REQUEST["row_id"]);
+		$myid 			= ($_REQUEST["myid"]);
 		$status 		= 0;
-		$row = $this->db->query("select item_name from drd_import_file where id='$row_id'")->row();
+		$row = $this->db->query("select item_name from drd_import_file where id='$myid'")->row();
 		if(!empty($row->item_name))
 		{
 			$row1 = $this->db->query("select i_code from drd_import_orders_suggest where your_item_name='$row->item_name'")->row();

@@ -30,9 +30,6 @@ function goBack() {
 					$i          = $row->id; 
 					$j++;
 					?>
-					<input type="hidden" value="<?= $item_name ?>" class="your_item_name_<?= $i ?>">
-					<input type="hidden" value="<?= $item_mrp ?>" class="your_item_mrp_<?= $i ?>">
-					<input type="hidden" value="<?= $item_qty ?>" class="your_item_qty_<?= $i ?>">
 					<div class="main_box_div_data remove_css_<?= $i ?> import_order_td_<?= $i ?> p-1">
 						<div class="row">
 							<div class="col-sm-10">
@@ -164,11 +161,6 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="_row_id">
-
-<div class="script_css"></div>
-<input type="hidden" value="<?php echo time(); ?>" class="mytime">
-<input type="hidden" value="" class="new_import_page_item_name">
-<input type="hidden" value="" class="new_import_page_item_mrp">
 <script>
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
@@ -181,89 +173,4 @@ $(document).ready(function(){
 	setTimeout("get_check_medicine_details('<?php echo $row->id ?>')",500);
 	<?php  } ?>
 });
-
-function get_check_medicine_details(row_id) {
-	item_name 	= $(".your_item_name_"+row_id).val();
-	item_mrp  	= $(".your_item_mrp_"+row_id).val();
-	item_qty  	= $(".your_item_qty_"+row_id).val();
-	mytime 		= $(".mytime").val();
-	$.ajax({
-		type       : "POST",
-		data       : {row_id:row_id} ,
-		url        : get_base_url() + "import_order/get_check_medicine_details_api",
-		cache	   : false,
-		error: function(){
-			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
-		},
-		success    : function(data){
-			console.log(data);
-			//$(".insert_main_row_data_"+row_id).html(data);
-			$.each(data.items, function(i,item){
-				if (item)
-				{
-					excel_number = item.excel_number;
-					message 	= item.message;
-					suggest_altercode = item.suggest_altercode;
-					item_name = item.item_name;
-					item_image = item.item_image;
-					item_packing = item.item_packing;
-					item_batch_no = item.item_batch_no;
-					item_expiry = item.item_expiry;
-					item_scheme = item.item_scheme;
-					item_batchqty = item.item_batchqty;
-					item_company_full_name = item.item_company_full_name;
-					item_ptr = item.item_ptr;
-					item_mrp = item.item_mrp;
-					item_price = item.item_price;
-
-					$('.item_qty_'+excel_number).focus()
-					$('.select_product_'+excel_number).show()
-
-					$('.selected_msg_'+excel_number).html(message);
-
-					$('.selected_item_name_'+excel_number).html(item_name)
-					$('.image_css_'+excel_number).attr("src",item_image);
-					$('.selected_packing_'+excel_number).html(item_packing);
-					$('.selected_batch_no_'+excel_number).html(item_batch_no);
-					$('.selected_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');
-					$('.selected_scheme_'+excel_number).html('Scheme : '+item_scheme);
-					$('.selected_batchqty_'+excel_number).html(item_batchqty);
-					$('.selected_company_full_name_'+excel_number).html(item_company_full_name);
-
-					$('.selected_sale_rate_'+excel_number).html(item_ptr);
-					$('.selected_mrp_'+excel_number).html(item_mrp);
-					$('.selected_final_price_'+excel_number).html(item_price);	
-					
-					$('.selected_suggest_'+excel_number).hide();
-					if(suggest_altercode!=""){
-						$('.selected_suggest_'+excel_number).show();
-					}				
-				}
-			});
-		}
-	});
-}
-
-var js_i = "";
-var js_j = "";
-function add_new_row_import_order_page(item_code,item_order_quantity) {
-	if(js_i=="")
-	{
-		js_i = parseInt("<?= $i; ?>");
-		js_j = parseInt("<?= $j; ?>");
-	}
-	
-	js_i++;
-	js_j++;
-	
-	js1 = "javascript:change_medicine('"+js_i+"')";
-	js2 = "javascript:delete_suggested_medicine('"+js_i+"')";
-	item_image = $(".medicine_details_all_data_"+item_code).attr("item_image")
-	item_name = $(".medicine_details_all_data_"+item_code).attr("item_name")
-	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
-
-	$(".tbody_row").append('<tr class="remove_css_'+js_i+'"><td>'+js_j+'<input type="hidden" value="'+item_name+'" class="your_item_name_'+js_i+'"><input type="hidden" value="'+item_mrp+'" class="your_item_mrp_'+js_i+'"><input type="hidden" value="'+item_order_quantity+'" class="your_item_qty_'+js_i+'"></td><td class="import_order_td_'+js_i+'"><div class="row"><div class="col-sm-1"><img src="'+get_base_url()+'img_v51/logo2.png" width="60px;" style="margin-top: 5px;" class="image_css_'+js_i+'" alt=""></div><div class="col-sm-11"><div class="row"><div class="col-sm-8"><span style="float:left;"><?= $myname;?> : <span class="import_order_title_1"> '+item_name+'</span> </span> <span style="float:left; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:left;"><a href="javascript:void(0)" onclick="delete_row_medicine('+js_i+')" title="Delete medicine" class="cart_delete_btn"> <img src="'+get_base_url()+'img_v51/delete_icon.png" width="18px;" alt="Delete medicine"> Delete medicine</a> </span> </div> <div class="col-sm-4 text-right"> <span style="float:right;"> <div class="import_order_mrp">MRP. : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/-</div> </span> <span style="float:right; margin-left:10px;margin-right:10px;" class="import_order_mrp"> | </span> <span style="float:right;"> <input type="number" name="item_qty[]" value="'+item_order_quantity+'" class="form-control item_qty_'+js_i+'" style="width: 50px;height: 30px;font-size: 12px;padding: 3px;" onchange="change_order_quantity('+js_i+')" min="1" max="1000" /> </span> <span style="float:right;margin-right:5px;" class="cart_order_qty1"> Quantity : </span> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> </div> <div class="row select_product_'+js_i+'" style="display:none"> <div class="col-sm-8"> DRD :  <span class="import_order_title selected_item_name_'+js_i+'"></span> <span class="import_order_packing"> (<span class="selected_packing_'+js_i+'"></span> Packing) </span> - <span class="import_order_expiry expiry_css_'+js_i+'"> Expiry : <span class="selected_expiry_'+js_i+'"></span></span> </div> <div class="col-sm-4 text-right"> <span class="import_order_stock"> Stock : <span class="selected_batchqty_'+js_i+'"></span></span> | <span class="import_order_mrp"> MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_mrp_'+js_i+'">0.00</span>/- </span> </div>	<div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-7"> <span class="import_order_company"> By : <span class="selected_company_full_name_'+js_i+'"></span></span> |  <span class="import_order_batch_no"> Batch No : <span class="selected_batch_no_'+js_i+'"></span></span> <span class="select_product_'+js_i+' selected_scheme_span_'+js_i+'"> |  <span class="import_order_scheme selected_scheme_'+js_i+'"></span> </span> </div> <div class="col-sm-5 text-right"> <span class="import_order_ptr"> PTR : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_sale_rate_'+js_i+'">0.00</span>/-</span> | <span class="import_order_landing_price"> ~ Landing price : <i class="fa fa-inr" aria-hidden="true"></i> <span class="selected_final_price_'+js_i+'">0.00</span>/-</span> </div> </div> </div> <div class="col-sm-12" style=" border-top-style: solid;border-top-color: #dee2e6;border-top-width: 1px;"></div> <div class="col-sm-12"> <span class="selected_msg_'+js_i+'"> Loading.... </span> <span class="selected_SearchAnotherMedicine_'+js_i+'" style="display:none">  | <a href="'+js1+'" class="cart_delete_btn" title="Change medicine"> <img src="'+get_base_url()+'img_v51/edit_icon.png" width="18px;" alt="Change medicine"> Change medicine </a> </span> <span class="selected_suggest_'+js_i+'" style="display:none"> | <a href="'+js2+'" title="Delete Suggest Medicine" class="cart_delete_btn"><img src="'+get_base_url()+'img_v51/delete_icon.png" width="18px;" alt="Delete Suggest Medicine">Delete Suggest Medicine</a> </span> </div> </div> <span class="insert_main_row_data_'+js_i+'"></span> </td> </tr>');
-
-	setTimeout("insert_main_row_data('"+js_i+"')",1000);
-}
 </script>

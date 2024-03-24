@@ -672,10 +672,11 @@ class Import_order extends CI_Controller {
 		$('.select_product_<?= $excel_number ?>').show();
 		</script>
 		<?php */
-		$selected_msg = "";
+		$selected_msg = $background_color = "";
 		if($type_==1)
 		{
 			$selected_msg = "Find medicine (By DRD server) |";
+			$background_color = "#13ffb33b";
 			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
@@ -687,6 +688,7 @@ class Import_order extends CI_Controller {
 		if($type_==0)
 		{
 			$selected_msg = "Find medicine but difference name or mrp. (By DRD server) | ";
+			$background_color = "#1713ff2e";
 			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
@@ -699,6 +701,7 @@ class Import_order extends CI_Controller {
 		if($selected_item_name=="")
 		{
 			$selected_msg = "<span style=color:red>(Not found any medicine)</span> | ";
+			$background_color = "#ffe494";
 			/*?>
 			<script>
 			$('.select_product_<?= $excel_number ?>').hide();
@@ -715,6 +718,7 @@ class Import_order extends CI_Controller {
 		if($selected_batchqty==0)
 		{
 			$selected_msg.= "<span style=color:red>Out of stock</span> | ";
+			$background_color = "#ffe494";
 			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
@@ -727,6 +731,7 @@ class Import_order extends CI_Controller {
 		if($suggest==1)
 		{
 			$selected_msg = "Related results found (Suggest set by $suggest_altercode) | ";
+			$background_color = "#97dcd6";
 			/*?>
 			<style>
 			.remove_css_<?= $excel_number ?>{
@@ -741,6 +746,7 @@ class Import_order extends CI_Controller {
 			if($selected_batchqty==0)
 			{
 				$selected_msg.= " <span style=color:red>Out of stock</span> | ";
+				$background_color = "#ffe494";
 				/*?>
 				<style>
 				.remove_css_<?= $excel_number ?>{
@@ -750,18 +756,12 @@ class Import_order extends CI_Controller {
 				<?php*/
 			}
 		}
-		if($selected_scheme=="0+0")
-		{
-			/*?>
-			<script>
-			$('.selected_scheme_span_<?= $excel_number ?>').hide();
-			</script>
-			<?php*/
-		}
+
 		$dt = array(
 			'excel_number' => $excel_number,
 			'message'=>$selected_msg,
 			'suggest_altercode'=>$suggest_altercode,
+			'background_color'=>$background_color,
 			'item_name' => $selected_item_name,
 			'item_image' => $image1,
 			'item_packing' => $selected_packing,

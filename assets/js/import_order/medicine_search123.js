@@ -1,4 +1,64 @@
 
+function get_check_medicine_details(row_id) {
+	$.ajax({
+		type       : "POST",
+		data       : {row_id:row_id} ,
+		url        : get_base_url() + "import_order/get_check_medicine_details_api",
+		cache	   : false,
+		error: function(){
+			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
+		},
+		success    : function(data){
+			console.log(data);
+			//$(".insert_main_row_data_"+row_id).html(data);
+			$.each(data.items, function(i,item){
+				if (item)
+				{
+					excel_number = item.excel_number;
+					message 	= item.message;
+					suggest_altercode = item.suggest_altercode;
+					background_color = item.background_color;
+					item_name = item.item_name;
+					item_image = item.item_image;
+					item_packing = item.item_packing;
+					item_batch_no = item.item_batch_no;
+					item_expiry = item.item_expiry;
+					item_scheme = item.item_scheme;
+					item_batchqty = item.item_batchqty;
+					item_company_full_name = item.item_company_full_name;
+					item_ptr = item.item_ptr;
+					item_mrp = item.item_mrp;
+					item_price = item.item_price;
+
+					$('.item_qty_'+excel_number).focus()
+					$('.select_product_'+excel_number).show()
+					$('remove_css_'+excel_number).css("background-color",background_color);
+
+					$('.selected_msg_'+excel_number).html(message);
+
+					$('.selected_item_name_'+excel_number).html(item_name)
+					$('.image_css_'+excel_number).attr("src",item_image);
+					$('.selected_packing_'+excel_number).html(item_packing);
+					$('.selected_batch_no_'+excel_number).html(item_batch_no);
+					$('.selected_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');
+					$('.selected_scheme_'+excel_number).html('Scheme : '+item_scheme);
+					$('.selected_batchqty_'+excel_number).html(item_batchqty);
+					$('.selected_company_full_name_'+excel_number).html(item_company_full_name);
+
+					$('.selected_sale_rate_'+excel_number).html(item_ptr);
+					$('.selected_mrp_'+excel_number).html(item_mrp);
+					$('.selected_final_price_'+excel_number).html(item_price);	
+					
+					$('.selected_suggest_'+excel_number).hide();
+					if(suggest_altercode!=""){
+						$('.selected_suggest_'+excel_number).show();
+					}				
+				}
+			});
+		}
+	});
+}
+
 function change_order_quantity(row_id) {
 	quantity  = $(".item_qty_"+row_id).val();
 	$.ajax({
@@ -17,7 +77,7 @@ function change_order_quantity(row_id) {
 					{
 						$(".your_item_qty_"+row_id).val(quantity);
 						swal("Quantity updated successfully");
-						setTimeout(insert_main_row_data(row_id),500);
+						get_check_medicine_details(row_id)
 					}
 					else{
 						swal("Quantity not updated");
@@ -28,6 +88,91 @@ function change_order_quantity(row_id) {
 		timeout: 60000
 	});
 }
+function delete_row_medicine(row_id) {
+	swal({
+		title: "Are you sure to delete medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) {
+			$.ajax({
+				type       : "POST",
+				data       : {row_id:row_id,} ,
+				url        : get_base_url() + "import_order/delete_row_medicine",
+				cache	   : false,
+				error: function(){
+					swal("Medicine not deleted");
+				},
+				success    : function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								$(".remove_css_"+row_id).hide();
+								$(".remove_css_"+row_id).html('');
+								swal("Medicine deleted successfully", {
+									icon: "success",
+								});
+							}
+							else{
+								swal("Medicine not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 60000
+			});
+		} else {
+			swal("Medicine not deleted");
+		}
+	});
+}
+function delete_suggested_medicine(row_id) {
+	swal({
+		title: "Are you sure to delete suggested medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) {
+			$.ajax({
+				url: get_base_url() + "import_order/delete_suggested_medicine",
+				type:"POST",
+				/*dataType: 'html',*/
+				data: {row_id:row_id,user_altercode:get_user_altercode()},
+				error: function(){
+					swal("Suggested medicine not deleted");
+				},
+				success: function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								swal("Suggested Medicine deleted successfully", {
+									icon: "success",
+								});
+								$('.selected_suggest_'+row_id).hide();
+								get_check_medicine_details(row_id)
+							}
+							else{
+								swal("Suggested medicine not deleted");
+							}
+						} 
+					});
+				},
+				timeout: 60000
+			});
+		} else {
+			swal("Suggested medicine not deleted");
+		}
+	});
+}
+
 /*************************************/
 function add_new_medicine() {
 
@@ -365,90 +510,4 @@ function change_medicine_2(item_code)
 	else{
 		get_single_medicine_info(item_code);
 	}
-}
-/******************************************** */
-
-function delete_row_medicine(row_id) {
-	swal({
-		title: "Are you sure to delete medicine?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) {
-			$.ajax({
-				type       : "POST",
-				data       : {row_id:row_id,} ,
-				url        : get_base_url() + "import_order/delete_row_medicine",
-				cache	   : false,
-				error: function(){
-					swal("Medicine not deleted");
-				},
-				success    : function(data){
-					$.each(data.items, function(i,item){	
-						if (item)
-						{
-							if(item.status=="1")
-							{
-								$(".remove_css_"+row_id).hide();
-								$(".remove_css_"+row_id).html('');
-								swal("Medicine deleted successfully", {
-									icon: "success",
-								});
-							}
-							else{
-								swal("Medicine not deleted");
-							}
-						} 
-					});
-				},
-				timeout: 60000
-			});
-		} else {
-			swal("Medicine not deleted");
-		}
-	});
-}
-function delete_suggested_medicine(row_id) {
-	swal({
-		title: "Are you sure to delete suggested medicine?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) {
-			$.ajax({
-				url: get_base_url() + "import_order/delete_suggested_medicine",
-				type:"POST",
-				/*dataType: 'html',*/
-				data: {row_id:row_id,user_altercode:get_user_altercode()},
-				error: function(){
-					swal("Suggested medicine not deleted");
-				},
-				success: function(data){
-					$.each(data.items, function(i,item){	
-						if (item)
-						{
-							if(item.status=="1")
-							{
-								swal("Suggested Medicine deleted successfully", {
-									icon: "success",
-								});
-								$('.selected_suggest_'+row_id).hide();
-								get_check_medicine_details(row_id)
-							}
-							else{
-								swal("Suggested medicine not deleted");
-							}
-						} 
-					});
-				},
-				timeout: 60000
-			});
-		} else {
-			swal("Suggested medicine not deleted");
-		}
-	});
 }

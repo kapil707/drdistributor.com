@@ -643,7 +643,7 @@ class Import_order extends CI_Controller {
 		$row = $this->db->get("tbl_medicine")->row();
 		/******************************************/
 		
-		$item_code = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
+		$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
 		$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
 		if(!empty($row)) {
 

@@ -142,8 +142,6 @@ function goBack() {
 							</div>
 						</div>
 					</div>
-					<?php /***main result show hear*/ ?>
-					<span class="insert_main_row_data_<?= $i ?>"></span>
 					<?php
 					$lastcount++;
 				}
@@ -205,6 +203,7 @@ function get_check_medicine_details(row_id) {
 				{
 					excel_number = item.excel_number;
 					message 	= item.message;
+					suggest_altercode = item.suggest_altercode;
 					item_name = item.item_name;
 					item_image = item.item_image;
 					item_packing = item.item_packing;
@@ -231,10 +230,14 @@ function get_check_medicine_details(row_id) {
 					$('.selected_batchqty_'+excel_number).html(item_batchqty);
 					$('.selected_company_full_name_'+excel_number).html(item_company_full_name);
 
-
 					$('.selected_sale_rate_'+excel_number).html(item_ptr);
 					$('.selected_mrp_'+excel_number).html(item_mrp);
-					$('.selected_final_price_'+excel_number).html(item_price);					
+					$('.selected_final_price_'+excel_number).html(item_price);	
+					
+					$('.selected_suggest_'+excel_number).hide();
+					if(suggest_altercode!=""){
+						$('.selected_suggest_'+excel_number).show();
+					}				
 				}
 			});
 		}

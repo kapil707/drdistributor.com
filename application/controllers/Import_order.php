@@ -601,7 +601,7 @@ class Import_order extends CI_Controller {
 		$order_item_name	= $this->clean1($row->item_name);
 		
 		/******************************************/
-		$suggest_i_code = "";
+		$suggest_i_code = $suggest_altercode = "";
 		$suggest = 0;
 		$row_s = $this->db->query("select * from drd_import_orders_suggest where your_item_name='$order_item_name' order by id desc")->row();
 		if(!empty($row_s->id))
@@ -761,6 +761,7 @@ class Import_order extends CI_Controller {
 		$dt = array(
 			'excel_number' => $excel_number,
 			'message'=>$selected_msg,
+			'suggest_altercode'=>$suggest_altercode,
 			'item_name' => $selected_item_name,
 			'item_image' => $image1,
 			'item_packing' => $selected_packing,

@@ -581,7 +581,7 @@ class Import_order extends CI_Controller {
 	
 	public function get_check_medicine_details_api() {	
 
-		$excel_number	= $_POST["row_id"];
+		$excel_number	= $_POST["myid"];
 		
 		$user_type 		= $_COOKIE['user_type'];
 		$user_altercode = $_COOKIE['user_altercode'];
@@ -594,6 +594,7 @@ class Import_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		
 		$row = $this->db->query("select * from drd_import_file where id='$excel_number'")->row();
 		$order_id			= $row->order_id;
 		$order_quantity		= $row->quantity;
@@ -601,15 +602,14 @@ class Import_order extends CI_Controller {
 		$order_item_name	= $this->clean1($row->item_name);
 		
 		/******************************************/
-		$suggest_i_code = $suggest_altercode = "";
+		$suggest_i_code = $item_suggest_altercode = "";
 		$suggest = 0;
 		$row_s = $this->db->query("select * from drd_import_orders_suggest where your_item_name='$order_item_name' order by id desc")->row();
-		if(!empty($row_s->id))
-		{
+		if(!empty($row_s->id)) {
 			$suggest = 1;
 			$order_item_name	= $row_s->item_name;
 			$suggest_i_code 	= $row_s->i_code;
-			$suggest_altercode 	= $row_s->user_altercode;
+			$item_suggest_altercode 	= $row_s->user_altercode;
 		}
 		$type_ = 1;
 		if(!empty($suggest_i_code))
@@ -627,37 +627,35 @@ class Import_order extends CI_Controller {
 			$where = array('i_code'=>$i_code);
 		}
 		
+		/*****************************************/
 		$this->db->select("*");
 		$this->db->where($where);
 		$this->db->limit(1);
 		$this->db->order_by('item_name','asc');
 		$row = $this->db->get("tbl_medicine")->row();
-		$image1 = constant('img_url_site')."uploads/default_img.jpg";
+		$item_image = base_url()."uploads/default_img.jpg";
+		/******************************************/
 		
-		$selected_item_name = $selected_packing = $selected_batchqty = $selected_scheme = $selected_company_full_name = $selected_batch_no = $selected_expiry = "";
-		$selected_batchqty = $selected_mrp = $selected_ptr = $selected_price = 0;
+		$item_name = $item_packing = $item_batchqty = $item_scheme = $item_company = $selected_batch_no = $item_expiry = "";
+		$item_stock = $item_mrp = $item_ptr = $item_price = 0;
 		$item_code = "";
-		$return_status = 0;
 		if(!empty($row)) {
 			if(!empty($row->image1))
 			{
-				$image1 = constant('img_url_site').$row->image1;
+				$item_image = constant('img_url_site').$row->image1;
 			}
-			$selected_mrp	=	$row->mrp;
-			$selected_ptr	=	$row->sale_rate;
-			$selected_price	=	$row->final_price;
+
+			$item_name = ucwords(strtolower($row->item_name));
+			$item_packing = $row->packing;
+			$item_expiry = $row->expiry;
+			$item_company = ucwords(strtolower($row->company_full_name));
+			$item_batch_no = $row->batch_no;
+			$item_stock = $row->batchqty;
+			$item_scheme = $row->salescm1."+".$row->salescm2;
 			
-			$selected_item_name = ucwords(strtolower($row->item_name));
-			$selected_packing = $row->packing;
-			$selected_expiry = $row->expiry;
-			$selected_company_full_name = ucwords(strtolower($row->company_full_name));
-			$selected_batch_no = $row->batch_no;
-			$selected_batchqty = $row->batchqty;
-			$selected_scheme = $row->salescm1."+".$row->salescm2;
-			
-			$selected_mrp = number_format($selected_mrp,2);
-			$selected_ptr = number_format($selected_ptr,2);
-			$selected_price = number_format($selected_price,2);
+			$item_ptr = number_format($row->ptr,2);
+			$item_mrp = number_format($row->sale_rate,2);
+			$item_price = number_format($row->final_price,2);
 			
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
@@ -666,113 +664,58 @@ class Import_order extends CI_Controller {
 			}
 			/******************************************/
 		}
-		/*?>
-		<script>
-		$('.selected_SearchAnotherMedicine_<?= $excel_number ?>').show();
-		$('.select_product_<?= $excel_number ?>').show();
-		</script>
-		<?php */
-		$selected_msg = $background_color = "";
+		$item_message = $item_background = "";
 		if($type_==1)
 		{
-			$selected_msg = "Find medicine (By DRD server) |";
-			$background_color = "#13ffb33b";
-			/*?>
-			<style>
-			.remove_css_<?= $excel_number ?>{
-				background:#13ffb33b !important;
-			}
-			</style>
-			<?php*/
+			$item_message = "Find medicine (By DRD server) |";
+			$item_background = "#13ffb33b";
 		}
 		if($type_==0)
 		{
-			$selected_msg = "Find medicine but difference name or mrp. (By DRD server) | ";
-			$background_color = "#1713ff2e";
-			/*?>
-			<style>
-			.remove_css_<?= $excel_number ?>{
-				background:#1713ff2e !important;
-			}
-			</style>
-			<?php*/
+			$item_message = "Find medicine but difference name or mrp. (By DRD server) | ";
+			$item_background = "#1713ff2e";
 		}
 		
-		if($selected_item_name=="")
+		if(empty($item_name))
 		{
-			$selected_msg = "<span style=color:red>(Not found any medicine)</span> | ";
-			$background_color = "#ffe494";
-			/*?>
-			<script>
-			$('.select_product_<?= $excel_number ?>').hide();
-			//$('.selected_SearchAnotherMedicine_<?= $excel_number ?>').show();
-			</script>
-			<style>
-			.remove_css_<?= $excel_number ?>{
-				background:#ffe494 !important;
-			}
-			</style>
-			<?php*/
+			$item_message = "<span style=color:red>(Not found any medicine)</span> | ";
+			$item_background = "#ffe494";
 		}		
 		
-		if($selected_batchqty==0)
+		if($item_stock==0)
 		{
-			$selected_msg.= "<span style=color:red>Out of stock</span> | ";
-			$background_color = "#ffe494";
-			/*?>
-			<style>
-			.remove_css_<?= $excel_number ?>{
-				background:#ffe494 !important;
-			}
-			</style>
-			<?php*/
+			$item_message.= "<span style=color:red>Out of stock</span> | ";
+			$item_background = "#ffe494";
 		}
 		
 		if($suggest==1)
 		{
-			$selected_msg = "Related results found (Suggest set by $suggest_altercode) | ";
-			$background_color = "#97dcd6";
-			/*?>
-			<style>
-			.remove_css_<?= $excel_number ?>{
-				background:#97dcd6 !important;
-			}
-			</style>
-			<script>
-				$('.selected_suggest_<?= $excel_number ?>').show();
-			</script>
-			<?php*/
+			$item_message = "Related results found (Suggest set by $item_suggest_altercode) | ";
+			$item_background = "#97dcd6";
 			
-			if($selected_batchqty==0)
+			if($item_stock==0)
 			{
-				$selected_msg.= " <span style=color:red>Out of stock</span> | ";
-				$background_color = "#ffe494";
-				/*?>
-				<style>
-				.remove_css_<?= $excel_number ?>{
-					background:#ffe494 !important;
-				}
-				</style>
-				<?php*/
+				$item_message.= " <span style=color:red>Out of stock</span> | ";
+				$item_background = "#ffe494";
 			}
 		}
 
 		$dt = array(
 			'excel_number' => $excel_number,
-			'message'=>$selected_msg,
-			'suggest_altercode'=>$suggest_altercode,
-			'background_color'=>$background_color,
-			'item_name' => $selected_item_name,
-			'item_image' => $image1,
-			'item_packing' => $selected_packing,
-			'item_batch_no' => $selected_batch_no,
-			'item_expiry' => $selected_expiry,
-			'item_scheme' => $selected_scheme,
-			'item_batchqty' => $selected_batchqty,
-			'item_company_full_name' => $selected_company_full_name,
-			'item_ptr' => $selected_ptr,
-			'item_mrp' => $selected_mrp,
-			'item_price' => $selected_price,
+			'item_message'=>$item_message,
+			'item_background'=>$item_background,
+			'item_suggest_altercode'=>$item_suggest_altercode,
+			'item_name' => $item_name,
+			'item_image' => $item_image,
+			'item_packing' => $item_packing,
+			'item_batch_no' => $item_batch_no,
+			'item_expiry' => $item_expiry,
+			'item_scheme' => $item_scheme,
+			'item_stock' => $item_stock,
+			'item_company' => $item_company,
+			'item_ptr' => $item_ptr,
+			'item_mrp' => $item_mrp,
+			'item_price' => $item_price,
 		);
 		$jsonArray[] = $dt;
 
@@ -785,25 +728,6 @@ class Import_order extends CI_Controller {
         // Send JSON response
         header('Content-Type: application/json');
         echo json_encode($response);
-		/*?>
-		<script> 
-		$('.item_qty_<?= $excel_number ?>').focus();		
-		$('.chosen-select_<?= $excel_number ?>').chosen({width: "100%"});
-		
-		$('.selected_msg_<?= $excel_number ?>').html('<?php echo $selected_msg; ?>');
-		$('.selected_item_name_<?= $excel_number ?>').html('<?php echo $selected_item_name; ?>');
-		$('.image_css_<?= $excel_number ?>').attr("src","<?php echo $image1 ?>");
-		$('.selected_packing_<?= $excel_number ?>').html('<?php echo $selected_packing ?>');
-		$('.selected_mrp_<?= $excel_number ?>').html('<?php echo $selected_mrp; ?>');
-		$('.selected_scheme_<?= $excel_number ?>').html('Scheme : <?php echo $selected_scheme; ?>');
-		$('.selected_expiry_<?= $excel_number ?>').html('<b><?php echo $selected_expiry ?></b>');
-		$('.selected_sale_rate_<?= $excel_number ?>').html('<?php echo $selected_ptr ?>');
-		$('.selected_batchqty_<?= $excel_number ?>').html('<?php echo $selected_batchqty ?>');
-		$('.selected_batch_no_<?= $excel_number ?>').html('<?php echo $selected_batch_no ?>');
-		$('.selected_final_price_<?= $excel_number ?>').html('<?php echo $selected_price; ?>');
-		$('.selected_company_full_name_<?= $excel_number ?>').html('<?php echo $selected_company_full_name; ?>');
-		</script>
-		<?php*/
 	}
 	
 	public function expiry_check($expiry)

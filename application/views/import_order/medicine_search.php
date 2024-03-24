@@ -204,8 +204,33 @@ function get_check_medicine_details(row_id) {
 				if (item)
 				{
 					excel_number = item.excel_number;
+					item_name = item.item_name;
+					item_image = item.item_image;
+					item_packing = item.item_packing;
+					item_batch_no = item.item_batch_no;
+					item_expiry = item.item_expiry;
+					item_scheme = item.item_scheme;
+					item_batchqty = item.item_batchqty;
+					item_company_full_name = item.item_company_full_name;
+					item_ptr = item.item_ptr;
+					item_mrp = item.item_mrp;
+					item_price = item.item_price;
 
 					$(".select_product_"+excel_number).show()
+
+					$(".selected_item_name_"+excel_number).html(item_name)
+					$(".image_css_"+excel_number).attr("src",item_image);
+					$('.selected_packing_'+excel_number).html(item_packing);
+					$('.selected_batch_no_'+excel_number).html(item_batch_no);
+					$('.selected_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');
+					$('.selected_scheme_'+excel_number).html('Scheme : '+item_scheme);
+					$('.selected_batchqty_'+excel_number).html(item_batchqty);
+					$('.selected_company_full_name_'+excel_number).html(item_company_full_name);
+
+
+					$('.selected_sale_rate_'+excel_number).html(item_ptr);
+					$('.selected_mrp_'+excel_number).html(item_mrp);
+					$('.selected_final_price_'+excel_number).html(item_price);					
 				}
 			});
 		}

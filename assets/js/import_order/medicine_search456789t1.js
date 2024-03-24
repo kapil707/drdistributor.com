@@ -65,6 +65,7 @@ function import_order_medicine_details(myid) {
 		}
 	});
 }
+
 function import_oreder_medicine_quantity_change(myid) {
 	import_order_quantity_textbox = $(".import_order_quantity_textbox_"+myid).val();
 	$.ajax({
@@ -82,7 +83,7 @@ function import_oreder_medicine_quantity_change(myid) {
 					if(item.status=="1")
 					{
 						swal("Quantity updated successfully");
-						get_check_medicine_details(myid)
+						import_order_medicine_details(myid)
 					}
 					else{
 						swal("Quantity not updated");
@@ -93,6 +94,7 @@ function import_oreder_medicine_quantity_change(myid) {
 		timeout: 60000
 	});
 }
+
 function import_oreder_medicine_delete(myid) {
 	swal({
 		title: "Are you sure to delete medicine?",
@@ -135,6 +137,7 @@ function import_oreder_medicine_delete(myid) {
 		}
 	});
 }
+/************************************* */
 function import_order_medicine_change(myid) {
 
 	$(".top_bar_search_div").hide();
@@ -150,12 +153,10 @@ function import_order_medicine_change(myid) {
 	setTimeout(medicine_search_api(),700);
 }
 
-/************************************* */
 function import_order_medicine_change_api(item_code){	
 
 	myid = hidden_seleted_div_id;
-	if(myid!="")
-	{
+	if(myid!=""){
 		$.ajax({
 			url: get_base_url() + "import_order/import_order_medicine_change_api",
 			type:"POST",
@@ -173,8 +174,8 @@ function import_order_medicine_change_api(item_code){
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
-							$("._row_id").val('');
-							get_check_medicine_details(row_id)
+							hidden_seleted_div_id = "";
+							import_order_medicine_details(myid)
 						}
 						else{
 							swal("Medicine not changed");
@@ -186,11 +187,11 @@ function import_order_medicine_change_api(item_code){
 		});
 	}
 	else{
-		get_single_medicine_info(item_code);
+		get_single_medicine_info(item_code); // yha popup modal open karta ha fir user add to cart kar skta ha 
 	}
 }
-
-function delete_suggested_medicine(row_id) {
+/************************************* */
+function import_oreder_medicine_delete_suggested(myid) {
 	swal({
 		title: "Are you sure to delete suggested medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -217,7 +218,7 @@ function delete_suggested_medicine(row_id) {
 									icon: "success",
 								});
 								$('.selected_suggest_'+row_id).hide();
-								get_check_medicine_details(row_id)
+								import_order_medicine_details(myid)
 							}
 							else{
 								swal("Suggested medicine not deleted");
@@ -261,7 +262,8 @@ function clear_search_function() {
 	/**************************************** */
 }
 
-function cart_page_load(){
+/************************************* */
+function import_order_page_load(){
 	my_cart_api("notall"); // yha excel order ko chhod kar baki sabhi order show karay ga
 
 	$(".top_bar_search_div").hide();
@@ -325,7 +327,7 @@ $(document).ready(function(){
 			return false;
     	}
     });
-	setTimeout('cart_page_load();',100);
+	setTimeout('import_order_page_load();',100);
 	
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
@@ -484,7 +486,7 @@ function medicine_search_api() {
 							rete_div =  '<span class="all_item_ptr" title="PTR : '+item_ptr+'">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </span> | <span class="all_item_mrp" title="MRP : '+item_mrp+'">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </span> | <span class="all_item_price" title="*Approximate ~ '+item_price+'">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </span>';
 
 							/*************************************************************** */
-							onlcick_event = 'onclick=change_medicine_2("'+item_code+'"),clear_search_function()';
+							onlcick_event = 'onclick=import_order_medicine_change_api("'+item_code+'"),clear_search_function()';
 							/*************************************************************** */
 							var serach_data = '<div class="main_box_div_data hover_'+new_i+' medicine_details_funcation_'+new_i+'" '+onlcick_event+' item_code="'+item_code+'"><div class="medicine_search_box_left_div">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="medicine_search_box_right_div"><div class="all_item_name">'+item_name+'<span class="all_item_packing mobile_off"> ('+item_packing+' Packing)</span></div><div class="all_item_packing mobile_show">'+item_packing+' Packing</div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span>| <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div>'+item_quantity_div+'</div><div class="mobile_off">'+rete_div+'</div></div><div class="medicine_search_full_width mobile_show" style="margin-left:5px;">'+rete_div+'</div><div class="medicine_search_full_width all_item_description1">'+item_description1+'</div><div class="medicine_search_full_width medicine_cart_item_similar_items"><a href="'+get_base_url()+'medicine_category/medicine_similar/'+item_code+'">'+similar_items+'</a></div></div>'+div_all_data;
 

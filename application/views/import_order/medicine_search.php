@@ -132,8 +132,8 @@ function goBack() {
 													Change medicine
 												</a>
 											</span>
-											<span class="import_order_item_suggested_<?= $myid ?>" style="display:none">
-												<a href="javascript:medicine_suggested_delete('<?= $myid ?>')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+											<span class="import_order_item_suggested_<?= $myid ?>" style="display:none"> | 
+												<a href="javascript:import_oreder_medicine_delete_suggested('<?= $myid ?>')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 											</span>
 										</div>
 									</div>
@@ -170,7 +170,7 @@ order_type = "notall";// change value taki cart pur load na ho
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>
-	setTimeout("get_check_medicine_details('<?php echo $row->id ?>')",500);
+	setTimeout("import_order_medicine_details('<?php echo $row->id ?>')",500);
 	<?php  } ?>
 });
 </script>

@@ -672,36 +672,32 @@ class Import_order extends CI_Controller {
 			}
 			/******************************************/
 		}
-		if($type_==1)
-		{
+
+		if($type_==1){
 			$item_message = "Find medicine (By DRD server) |";
 			$item_background = "#13ffb33b";
 		}
-		if($type_==0)
-		{
+
+		if($type_==0){
 			$item_message = "Find medicine but difference name or mrp. (By DRD server) | ";
 			$item_background = "#1713ff2e";
 		}
 		
-		if(empty($item_name))
-		{
+		if(empty($item_name)){
 			$item_message = "<span style=color:red>(Not found any medicine)</span> | ";
 			$item_background = "#ffe494";
 		}		
 		
-		if($item_stock==0)
-		{
+		if($item_quantity==0){
 			$item_message.= "<span style=color:red>Out of stock</span> | ";
 			$item_background = "#ffe494";
 		}
 		
-		if($suggest==1)
-		{
+		if($suggest==1){
 			$item_message = "Related results found (Suggest set by $item_suggest_altercode) | ";
 			$item_background = "#97dcd6";
 			
-			if($item_stock==0)
-			{
+			if($item_quantity==0){
 				$item_message.= " <span style=color:red>Out of stock</span> | ";
 				$item_background = "#ffe494";
 			}
@@ -711,8 +707,7 @@ class Import_order extends CI_Controller {
 			'excel_number' => $excel_number,
 			'item_message'=>$item_message,
 			'item_background'=>$item_background,
-			'item_suggest_altercode'=>$item_suggest_altercode,
-			
+			'item_suggest_altercode'=>$item_suggest_altercode,			
 
 			'item_code' => $item_code,
 			'item_image' => $item_image,

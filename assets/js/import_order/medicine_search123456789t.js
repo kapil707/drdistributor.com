@@ -80,10 +80,10 @@ function medicine_change_btn(row_id) {
 	setTimeout(medicine_search_api(),700);
 }
 function import_oreder_medicine_quantity_change(myid) {
-	import_order_item_order_quantity_textbox  = $(".import_order_item_order_quantity_textbox_"+row_id).val();
+	import_order_quantity_textbox = $(".import_order_quantity_textbox_"+myid).val();
 	$.ajax({
 		type       : "POST",
-		data       :  {myid:myid,quantity:import_order_item_order_quantity_textbox} ,
+		data       :  {myid:myid,import_order_quantity:import_order_quantity_textbox} ,
 		url        : get_base_url() +  "import_order/import_oreder_medicine_quantity_change_api",
 		cache	   : false,
 		error: function(){

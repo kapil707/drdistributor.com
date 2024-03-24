@@ -200,6 +200,14 @@ function get_check_medicine_details(row_id) {
 		success    : function(data){
 			console.log(data);
 			//$(".insert_main_row_data_"+row_id).html(data);
+			$.each(data.items, function(i,item){
+				if (item)
+				{
+					excel_number = item.excel_number;
+
+					$(".select_product_"+excel_number).show()
+				}
+			});
 		}
 	});
 }

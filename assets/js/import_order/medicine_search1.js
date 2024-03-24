@@ -347,11 +347,11 @@ function change_medicine_2(item_code)
 					{
 						if(item.status=="1")
 						{
-							setTimeout(insert_main_row_data(row_id),200);
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
 							$("._row_id").val('');
+							get_check_medicine_details(row_id)
 						}
 						else{
 							swal("Medicine not changed");

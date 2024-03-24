@@ -86,6 +86,36 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 	</div>
 </div>
 
+<!-- ******************************************************** -->
+<?php
+$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
+if($broadcast_status=="1"){ ?>
+	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
+	<div class="modal modaloff" id="myModal_broadcast">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title broadcast_title">
+						<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body broadcast_message">
+					<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	setTimeout(function() {
+		$('.myModal_broadcast').click();
+	}, 3000);
+	</script>
+	<?php
+}
+?>
+
 <script src="<?= base_url(); ?>assets/website/js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">

@@ -60,7 +60,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 <div class="top_bar">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
+			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-6 col-6" style="display: flex;">
 				<div class="" style="float:left;">
 					<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
 						<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
@@ -79,7 +79,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 				</div>
 			</div>
 			
-			<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-6 col-6">
+			<div class="col-xl-10 col-lg-10 col-md-8 col-sm-8 col-xs-6 col-6">
 				<ul class="top_bar_menu">
 					<li class="d-none d-xl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
@@ -539,35 +539,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 		</div>
 	</div>
 </div>
-<!-- ******************************************************** -->
-<?php
-$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
-if($broadcast_status=="1"){ ?>
-	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
-	<div class="modal modaloff" id="myModal_broadcast">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title broadcast_title">
-						<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				</div>
-				<div class="modal-body broadcast_message">
-					<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
-	setTimeout(function() {
-		$('.myModal_broadcast').click();
-	}, 3000);
-	</script>
-	<?php
-}
-?>
 <!-- ******************************************************** -->
 <span class="main_page_loading text-center">
 	<h2>

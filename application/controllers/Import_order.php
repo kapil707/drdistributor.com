@@ -760,6 +760,7 @@ class Import_order extends CI_Controller {
 		}
 		$dt = array(
 			'excel_number' => $excel_number,
+			'message'=>$selected_msg,
 			'item_name' => $selected_item_name,
 			'item_image' => $image1,
 			'item_packing' => $selected_packing,

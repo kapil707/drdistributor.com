@@ -204,6 +204,7 @@ function get_check_medicine_details(row_id) {
 				if (item)
 				{
 					excel_number = item.excel_number;
+					message 	= item.message;
 					item_name = item.item_name;
 					item_image = item.item_image;
 					item_packing = item.item_packing;
@@ -216,11 +217,13 @@ function get_check_medicine_details(row_id) {
 					item_mrp = item.item_mrp;
 					item_price = item.item_price;
 
-					$(".item_qty_"+excel_number).focus()
-					$(".select_product_"+excel_number).show()
+					$('.item_qty_'+excel_number).focus()
+					$('.select_product_'+excel_number).show()
 
-					$(".selected_item_name_"+excel_number).html(item_name)
-					$(".image_css_"+excel_number).attr("src",item_image);
+					$('.selected_msg_'+excel_number).html(message);
+
+					$('.selected_item_name_'+excel_number).html(item_name)
+					$('.image_css_'+excel_number).attr("src",item_image);
 					$('.selected_packing_'+excel_number).html(item_packing);
 					$('.selected_batch_no_'+excel_number).html(item_batch_no);
 					$('.selected_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');

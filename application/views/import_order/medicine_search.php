@@ -13,7 +13,7 @@ $(".top_bar_title").html("<?= $main_page_title ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>import_order";
 }
-</script>
+</script> 
 <div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">

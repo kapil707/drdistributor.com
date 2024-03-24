@@ -746,6 +746,7 @@ table{
 .medicine_category_page:hover {
     background: var(--main-theme-box-bg-color-hover);
 }
+
 .medicine_category_page .all_item_featured_img{
     position: absolute;
 	left: 10px;
@@ -756,6 +757,14 @@ table{
 	position: absolute;
 	left: 10px;
     width: 60px !important;
+    border-top-left-radius: 10px;
+}
+
+.import_oreder_item_featured_img,
+.import_oreder_item_out_of_stock_img{
+	position: absolute;
+	left: 10px;
+    width: 45px !important;
     border-top-left-radius: 10px;
 }
 

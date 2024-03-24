@@ -65,20 +65,6 @@ function get_check_medicine_details(myid) {
 		}
 	});
 }
-function medicine_change_btn(row_id) {
-
-	$(".top_bar_search_div").hide();
-	$(".top_bar_search_textbox_div").show();
-
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
-
-	$("._row_id").val(row_id);
-	item_name = $(".your_item_name_"+row_id).val();
-	setTimeout($('.medicine_search_textbox').val(item_name),500);
-	setTimeout(medicine_search_api(),700);
-}
 function import_oreder_medicine_quantity_change(myid) {
 	import_order_quantity_textbox = $(".import_order_quantity_textbox_"+myid).val();
 	$.ajax({
@@ -148,6 +134,19 @@ function import_oreder_medicine_delete(myid) {
 			swal("Medicine not deleted");
 		}
 	});
+}
+function import_order_medicine_change(myid) {
+
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+
+	$('.medicine_search_textbox').val("");
+	$('.medicine_search_textbox').show();
+	$('.medicine_search_textbox').focus();
+
+	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
+	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
+	setTimeout(medicine_search_api(),700);
 }
 function delete_suggested_medicine(row_id) {
 	swal({
@@ -220,9 +219,6 @@ function clear_search_function() {
 	$(".my_cart_api_div_mobile").hide();
 
 	/**************************************** */
-		
-	i = $("._row_id").val();
-	$(".item_qty_"+i).focus();
 }
 
 function cart_page_load(){

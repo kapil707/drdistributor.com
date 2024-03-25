@@ -30,8 +30,9 @@ function call_page(get_record)
 			cache	   : false,
 			error: function(){
 				$(".top_bar_title2").html("No record found");
+				$(".main_container").hide();
 				$(".main_page_loading").hide();
-				$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+				$(".main_page_something_went_wrong").show();
 			},
 			success    : function(data){
 
@@ -41,13 +42,16 @@ function call_page(get_record)
 					if(no_record_found=="0")
 					{
 						$(".top_bar_title2").html("No record found");
-						$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+						$(".main_container").hide();
+						$(".main_page_no_record_found").show();
 					}
 				}
+
 				title 	= data.title;
 				if(title!=""){
 					$(".top_bar_title").html(title);
 				}
+				
 				get_record 	= data.get_record;
 				$(".get_record").val(get_record);
 				$.each(data.items, function(i,item){

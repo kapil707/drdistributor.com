@@ -54,6 +54,7 @@ class Home extends CI_Controller {
 		$this->load->view('test/test');
 	}
 
+	/*******************api start*********************/
 	public function get_top_menu_api(){
 		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
 
@@ -71,8 +72,7 @@ class Home extends CI_Controller {
 		echo json_encode($response); 
 	}
 
-	public function home_page_api()
-	{
+	public function home_page_api()	{
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
@@ -82,7 +82,8 @@ class Home extends CI_Controller {
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 
 		$get_record	 	= "0";//$_REQUEST["get_record"];
-		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = $user_nrx = "";
+		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
+		$user_nrx = "no";
 		if(!empty($_COOKIE["user_type"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];
@@ -199,4 +200,3 @@ class Home extends CI_Controller {
 		echo json_encode($response); 
 	}
 }
-?>

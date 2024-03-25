@@ -11,11 +11,18 @@ class MedicineCategoryModel extends CI_Model
 		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 	
-	public function medicine_category_api($session_yes_no="",$itemcat="",$get_record="")
+	public function medicine_category_api($session_yes_no="",$user_nrx="",$itemcat="",$get_record="")
 	{
 		$jsonArray = array();
 		$title = "";
 
+		/******************************* */
+		if($user_nrx=="yes"){
+		}else{
+			$where="misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		/******************************* */
 		$this->db->where('itemcat',$itemcat);
 		$this->db->where('status','1');
 		$this->db->order_by('featured','desc');
@@ -160,14 +167,21 @@ class MedicineCategoryModel extends CI_Model
 		return $return;
 	}
 
-	public function featured_brand_api($session_yes_no="",$compcode="",$division="",$get_record="")
+	public function featured_brand_api($session_yes_no="",$user_nrx="",$compcode="",$division="",$get_record="")
 	{
 		$jsonArray = array();
 		$title = "";
 
+		/******************************* */
+		if($user_nrx=="yes"){
+		}else{
+			$where="misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		/******************************* */
+
 		$this->db->where('compcode',$compcode);
-		if($division!="")
-		{
+		if(!empty($division)){
 			$this->db->where('division',$division);
 		}
 		//$this->db->where('status','1'); // chnage by 2023-10-03

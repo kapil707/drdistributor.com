@@ -161,8 +161,8 @@ class Category extends CI_Controller {
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$user_nrx		= $_COOKIE["user_nrx"];
+		$chemist_id 	= $salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
@@ -182,7 +182,7 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$item_code,$get_record);
+				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -190,7 +190,7 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -205,7 +205,7 @@ class Category extends CI_Controller {
 				/*****************************/
 
 				$category_id = $item_code;
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

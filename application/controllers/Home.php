@@ -98,7 +98,6 @@ class Home extends CI_Controller {
 			$session_yes_no = "yes";
 			if($user_type=="sales") {
 				$chemist_id 	= $_COOKIE["chemist_id"];
-				$user_nrx		= $_COOKIE["user_nrx"]; // sale ke time yha change ho jata ha 
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;
 			}

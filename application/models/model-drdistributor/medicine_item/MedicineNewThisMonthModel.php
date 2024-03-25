@@ -15,7 +15,7 @@ class MedicineNewThisMonthModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_new_this_month_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_new_this_month_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 		$time  = time();
@@ -23,6 +23,13 @@ class MedicineNewThisMonthModel extends CI_Model
 		
 		$this->db->select("i_code,item_name,packing,salescm1,salescm2,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 		$this->db->where('item_date>=',$date);
+		/************************************ */
+		if($user_nrx=="yes"){
+		}else{
+			$where="misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		/************************************ */
 		if($show_out_of_stock==0){
 			$this->db->where('batchqty !=', 0);
 		}

@@ -15,7 +15,7 @@ class MedicineTopSearchModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
@@ -24,7 +24,14 @@ class MedicineTopSearchModel extends CI_Model
 		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
 		$this->db->where('t1.user_type', $user_type);
 		$this->db->where('t1.user_altercode', $user_altercode);
-		$this->db->where('salesman_id', $salesman_id);
+		$this->db->where('t1.salesman_id', $salesman_id);
+		/************************************ */
+		if($user_nrx=="yes"){
+		}else{
+			$where="t2.misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		/************************************ */
 		if($show_out_of_stock==0){
 			$this->db->where('t2.batchqty !=', 0);
 		}

@@ -82,11 +82,12 @@ class Home extends CI_Controller {
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 
 		$get_record	 	= "0";//$_REQUEST["get_record"];
-		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
+		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = $user_nrx = "";
 		if(!empty($_COOKIE["user_type"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];
 			$user_password	= $_COOKIE["user_password"];
+			$user_nrx		= $_COOKIE["user_nrx"];
 			$chemist_id 	= "";
 			$salesman_id = "";
 		}
@@ -96,6 +97,7 @@ class Home extends CI_Controller {
 			$session_yes_no = "yes";
 			if($user_type=="sales") {
 				$chemist_id 	= $_COOKIE["chemist_id"];
+				$user_nrx		= $_COOKIE["user_nrx"]; // sale ke time yha change ho jata ha 
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;
 			}
@@ -142,7 +144,7 @@ class Home extends CI_Controller {
 			}
 			
 			if($row->type=="itemcategory"){
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}

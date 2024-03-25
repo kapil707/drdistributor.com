@@ -15,7 +15,7 @@ class MedicineSchemeNewModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_scheme_now_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_scheme_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 		$db2 = $this->load->database('default2', TRUE);
@@ -24,6 +24,14 @@ class MedicineSchemeNewModel extends CI_Model
 		$db2->from('tbl_medicine_compare_final AS t1');
 		$db2->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		$db2->where('t1.type=', 'margin');
+		/************************************ */
+		if($user_nrx=="yes"){
+		}else{
+			$where="misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		/************************************ */
+		//$this->db->where("batchqty!=0");
 		if($show_out_of_stock==0){
 			$db2->where('t2.batchqty !=', 0);
 		}

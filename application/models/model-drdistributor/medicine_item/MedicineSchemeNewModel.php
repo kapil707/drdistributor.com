@@ -27,7 +27,7 @@ class MedicineSchemeNewModel extends CI_Model
 		/************************************ */
 		if($user_nrx=="yes"){
 		}else{
-			$where="misc_settings!='#NRX'";
+			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */

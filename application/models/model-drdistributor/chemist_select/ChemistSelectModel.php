@@ -72,7 +72,7 @@ class ChemistSelectModel extends CI_Model
 			}
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
 			
-			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
+			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
 			$chemist_image = base_url()."img_v51/logo.png";
@@ -81,7 +81,14 @@ class ChemistSelectModel extends CI_Model
 				$chemist_image = base_url()."user_profile/".$row1->image;
 			}
 
+			$narcolicence		= 	$row->narcolicence;
+			$user_nrx = "no";
+			if($narcolicence=="."){
+				$user_nrx = "yes";
+			}
+
 			$dt = array(
+				'user_nrx' => $user_nrx,
 				'chemist_altercode' => $chemist_altercode,
 				'chemist_name' => $chemist_name,
 				'chemist_image' => $chemist_image,

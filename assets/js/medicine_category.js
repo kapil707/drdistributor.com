@@ -109,7 +109,7 @@ function call_page(get_record)
 					}
 				});
 			},
-			timeout: 10000
+			timeout: 60000
 		});
 	}
 }

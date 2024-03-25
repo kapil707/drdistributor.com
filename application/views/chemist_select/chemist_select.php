@@ -16,4 +16,4 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<script src="<?= base_url(); ?>assets/js/chemist_search1.js"></script>
+<script src="<?= base_url(); ?>assets/js/chemist_search12.js"></script>

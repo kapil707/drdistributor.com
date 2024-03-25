@@ -94,7 +94,7 @@ class MedicineDetailsModel extends CI_Model
 			{
 				if($item_quantity>=10){
 					$item_stock = "Available";
-					$item_quantity = 1000; // yha validate kar ke liya ha taki maray pass kitni davi ha oss ko pata na chalay
+					//$item_quantity = 1000; // yha validate kar ke liya ha taki maray pass kitni davi ha oss ko pata na chalay
 				}
 			}
 

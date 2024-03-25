@@ -242,9 +242,15 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_margin").html(item_margin+'% Margin*')
 	$(".medicine_details_item_expiry").html("Expiry : "+item_expiry)
 	$(".medicine_details_item_company").html("By "+item_company)
-	$(".medicine_details_item_stock").html("Stock : " +item_quantity)
 	$(".medicine_details_item_scheme").html("Scheme : " +item_scheme)
 
+	/**************************************** */
+	$(".medicine_details_item_stock").html("Stock : " +item_quantity)
+	if(item_stock!=0){
+		$(".medicine_details_item_stock").html("Stock : "+item_stock);
+	}
+	/**************************************** */
+	
 	$(".medicine_details_item_description1").hide()
 	if(item_description1!=""){
 		$(".medicine_details_item_description1").show()

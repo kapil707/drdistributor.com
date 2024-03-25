@@ -28,7 +28,7 @@ class MedicineSchemeNewModel extends CI_Model
 		if($user_nrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
-			$this->db->where($where);
+			$db2->where($where);
 		}
 		/************************************ */
 		//$this->db->where("batchqty!=0");

@@ -323,6 +323,7 @@ class Api45 extends CI_Controller {
 			$user_type 		= $_POST["user_type"];
 			$user_altercode	= $_POST["user_altercode"];
 			$user_password	= $_POST["user_password"];
+			$user_nrx		= $_POST["user_nrx"];
 			$chemist_id		= $_POST["chemist_id"];
 
 			$salesman_id 	= "";
@@ -374,7 +375,7 @@ class Api45 extends CI_Controller {
 				}
 				
 				if($row->type=="itemcategory"){
-					$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
+					$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
 					$title  = $result["title"];
 					$items = $result["items"];
 				}
@@ -1088,6 +1089,7 @@ class Api45 extends CI_Controller {
 		$user_type 		= $_POST["user_type"];
 		$user_altercode = $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
+		$user_nrx		= $_POST["user_nrx"];
 		$chemist_id 	= $_POST["chemist_id"];
 		$salesman_id 	= "";
 		if($user_type=="sales")
@@ -1129,7 +1131,7 @@ class Api45 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

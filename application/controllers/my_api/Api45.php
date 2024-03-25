@@ -1159,7 +1159,7 @@ class Api45 extends CI_Controller {
 	/******************salesman ke liya ha sirf************************ */
 
 	public function select_chemist_api(){
-		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
+		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 
 		$items = "";
 		if(!empty($_POST)){
@@ -1177,7 +1177,7 @@ class Api45 extends CI_Controller {
 			}*/
 			if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
 			{
-				$result = $this->SelectChemistModel->select_chemist_api($keyword);
+				$result = $this->ChemistSelectModel->chemist_search_api($keyword);
 				$items = $result["items"];
 			}
 		}
@@ -1194,7 +1194,7 @@ class Api45 extends CI_Controller {
 	}
 
 	public function salesman_my_cart_api(){
-		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
+		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 	
 		$items = "";
 		if(!empty($_POST)){
@@ -1205,7 +1205,7 @@ class Api45 extends CI_Controller {
 		
 			if(!empty($user_type) && !empty($user_altercode))
 			{
-				$result = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
+				$result = $this->ChemistSelectModel->salesman_my_cart_api($user_type,$user_altercode);
 				$items = $result["items"];
 			}
 		}

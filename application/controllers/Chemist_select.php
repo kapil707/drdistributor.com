@@ -82,7 +82,7 @@ class chemist_select extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function chemist_session_add($chemist_id="")
+	public function chemist_session_add($chemist_id="",$user_nrx="")
 	{
 		if(!empty($_COOKIE["user_type"]))
 		{
@@ -90,6 +90,7 @@ class chemist_select extends CI_Controller {
 			if($user_type=="sales")
 			{
 				setcookie("chemist_id", $chemist_id, time() + (86400 * 30), "/");
+				setcookie("user_nrx", $user_nrx, time() + (86400 * 30), "/");
 				redirect(base_url()."home");
 			}
 		}	

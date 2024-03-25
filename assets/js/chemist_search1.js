@@ -70,15 +70,20 @@ $(document).ready(function() {
 function search_chemist()
 {
 	new_i = 0;
+
 	$(".top_bar_search_textbox_div_clear_icon").show();
+
 	var keyword = $(".chemist_search_textbox").val();
 	if(keyword!="")
 	{
 		if(keyword.length>1)
 		{
 			$(".background_blur").show();
+			$(".top_bar_title2").html("Loading....");
+
 			$(".search_result_div").show();
-			$(".search_result_div").html('<div class="row p-2" style="background:white;"><div class="col-sm-12 text-center"><h2><img src="'+get_base_url()+'img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2></div></div>');
+			$(".search_result_div").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
+
 			$.ajax({
 				type       : "POST",
 				dataType   : "json",
@@ -86,25 +91,28 @@ function search_chemist()
 				url        : get_base_url()+"chemist_select/chemist_search_api",
 				cache	   : false,
 				error: function(){
-					$(".search_result_div").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+					$(".search_result_div").html(something_went_wrong_function());
+					$(".search_result_div_mobile").html(something_went_wrong_function());
+					$(".top_bar_title2").html("No record found");
 				},
 				success    : function(data){
-					if(data.items=="")
-					{
-						$(".search_result_div").html('<h2><center><img src="'+get_base_url()+'img_v51/no_record_found.png" width="100%"></center></h2>');
-					}
-					else
-					{
-						$(".search_result_div").html("");
+					
+					$(".search_result_div").html("");
+					$(".search_result_div_mobile").html("");
+					if(data.items==""){
+						$(".top_bar_title2").html("No record found");
+						$(".search_result_div").html(no_record_found_function());
+						$(".search_result_div_mobile").html(no_record_found_function());
 					}
 					$.each(data.items, function(i,item){	
 						if (item){
+							user_nrx			= item.user_nrx;
 							chemist_altercode	= item.chemist_altercode;
 							new_i				= item.count;
 							
 							//new_i = parseInt(new_i) + 1;
 							
-							a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
+							a_ = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
 							csshover1 = 'hover_'+new_i;
 							chemist_message = "";
 							if(item.user_cart!="0")
@@ -112,7 +120,12 @@ function search_chemist()
 								chemist_message = '<div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
 							}
 							
-							$(".search_result_div").append('<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>');
+							var serach_data = '<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>';
+
+							$(".search_result_div").append(serach_data);
+							$(".search_result_div_mobile").append(serach_data);
+
+							$(".top_bar_title2").html("Found result ("+new_i+")");
 						}
 					});					
 				}
@@ -120,13 +133,18 @@ function search_chemist()
 		}
 	}
 	else{
+		
+		$(".top_bar_search_textbox_div_menu_icon").hide();
+		$(".top_bar_search_textbox_div_menu").hide();
+
 		$(".top_bar_search_textbox_div_clear_icon").hide();
 		$(".search_result_div").html("");
+		$(".search_result_div_mobile").html("");
 	}
 }
-function chemist_session_add(chemist_id)
+function chemist_session_add(chemist_id,user_nrx)
 {	
-	window.location.href = get_base_url()+"chemist_select/chemist_session_add/"+chemist_id
+	window.location.href = get_base_url()+"chemist_select/chemist_session_add/"+chemist_id+"/"+user_nrx
 }
 function page_up_down_arrow(new_i)
 {
@@ -171,9 +189,17 @@ function call_page_by_last_id()
 	call_page(lastid1)
 }
 var no_record_found = 0;
+var new_i = 0;
 function call_page(lastid1)
 {
-	$(".main_page_loading").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+	/*********************************** */
+	$(".top_bar_title2").html("Loading....");
+	$(".main_container").show();
+	$(".main_page_loading").show();
+	$(".main_page_no_record_found").hide();
+	$(".main_page_something_went_wrong").hide();
+	/*********************************** */
+
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
@@ -181,39 +207,40 @@ function call_page(lastid1)
 		url        : get_base_url()+"chemist_select/salesman_my_cart_api",
 		cache	   : false,
 		error: function(){
-			$(".main_page_loading").html("");
-			$(".main_page_data").html('<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>');
+			$(".top_bar_title2").html("No record found");
+			$(".main_container").hide();
+			$(".main_page_loading").hide();
+			$(".main_page_something_went_wrong").show();
 		},
 		success    : function(data){
+			
+			$(".main_page_loading").hide();
 			if(data.items=="")
 			{
 				if(no_record_found=="0")
 				{
-					$(".main_page_loading").html("");
-					$(".main_page_data").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+					$(".top_bar_title2").html("No record found");
+					$(".main_container").hide();
+					$(".main_page_no_record_found").show();
 				}
-				else
-				{
-					$(".main_page_loading").html("");
-					$(".main_page_data").html("");
-				}
-			}
-			else
-			{
-				$(".main_page_loading").html("");
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
-					chemist_altercode = item.chemist_altercode
-					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'")';
+					user_nrx 			= item.user_nrx;
+					chemist_altercode 	= item.chemist_altercode;
+
+					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
 					
 					$(".main_page_data").append('<div class="main_box_div_data" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div><div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');	
 
 					no_record_found = 1;
+					
 					$(".main_page_data").show();
+					new_i = parseInt(new_i) + 1;
+					$(".top_bar_title2").html("Found result ("+new_i+")");
 				}
 			});
 		},
-		timeout: 10000
+		timeout: 60000
 	});	
 }

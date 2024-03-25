@@ -21,8 +21,15 @@ function call_page(get_record)
 	if(query_work=="0")
 	{
 		query_work = 1;
+
+		/*********************************** */
 		$(".top_bar_title2").html("Loading....");
+		$(".main_container").show();
 		$(".main_page_loading").show();
+		$(".main_page_no_record_found").hide();
+		$(".main_page_something_went_wrong").hide();
+		/*********************************** */
+
 		$.ajax({
 			type       : "POST",
 			data       : {item_page_type:item_page_type,item_code:item_code_pg,item_division:item_division,get_record:get_record} ,

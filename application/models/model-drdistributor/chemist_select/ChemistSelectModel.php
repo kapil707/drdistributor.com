@@ -10,6 +10,7 @@ class ChemistSelectModel extends CI_Model
 	{		
 		$jsonArray = array();
 
+		$user_nrx = "no";
 		$result = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
 		$count = $user_cart = $user_cart_total = 0;
 		foreach ($result as $row)
@@ -21,6 +22,10 @@ class ChemistSelectModel extends CI_Model
 			{
 				$chemist_name		=	ucwords(strtolower($row->name));
 				$chemist_altercode	=	$row->altercode;
+				$narcolicence		= 	$row->narcolicence;
+				if($narcolicence=="."){
+					$user_nrx = "yes";
+				}
 				/*$user_cart 		 = $row->user_cart;
 				$user_cart_total = $row->user_cart_total;*/
 				$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
@@ -32,6 +37,7 @@ class ChemistSelectModel extends CI_Model
 				$count++;	
 				
 				$dt = array(
+					'user_nrx' => $user_nrx,
 					'chemist_altercode' => $chemist_altercode,
 					'chemist_name' => $chemist_name,
 					'chemist_image' => $chemist_image,

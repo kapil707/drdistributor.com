@@ -1,20 +1,31 @@
+<style>
+.menubtn1
+{
+	display:none;
+}
+.headertitle
+{
+    margin-top: 5px;
+}
+</style>
 <?php if(!empty($chemist_id)){ ?>
 <style>
-.top_bar_title{
+.headertitle
+{
 	margin-top: -5px;
 }
 </style>
 <script>
-$(".top_bar_title1").show();
+$(".headertitle1").show();
 </script>
 <?php } ?>
 <script>
-$(".top_bar_title").html("<?= $main_page_title ?>");
+$(".headertitle").html("Suggest medicine");
 function goBack() {
 	window.location.href = "<?= base_url();?>import_order";
 }
 </script>
-<div class="container main_container">
+<div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<table class="table table-striped table-bordered" aria-describedby>
@@ -42,11 +53,9 @@ function goBack() {
 					?>
 					<tr class="selected_suggest_<?= $row->id ?>">
 						<td><?= $lastcount++?></td>
-						<td class="all_item_name"><?= ucwords(strtolower($row->your_item_name))?></td>
-						<td class="all_item_name"><?= ucwords(strtolower($row->item_name))?></td>
-						<td class="">
-							<a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine" class="all_item_delete_btn"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i> Delete suggest medicine</a>
-						</td>
+						<td><?= ucwords(strtolower($row->your_item_name))?></td>
+						<td><?= ucwords(strtolower($row->item_name))?></td>
+						<td><a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i></a></td>
 					</tr>
 					<?php
 				}

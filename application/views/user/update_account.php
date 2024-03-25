@@ -1,23 +1,37 @@
+<style>
+.menubtn1
+{
+	display:none;
+}
+@media screen and (max-width: 767px) {
+	.website_menu,.current_order_search_page1,.select_chemist,.homebtn_div
+	{
+		display: none ;
+	}
+}
+</style>
 <script>
-$(".top_bar_title").html("<?= $main_page_title ?>");
+$(".headertitle").html("Update account");
 function goBack() {
 	window.location.href = "<?= base_url();?>account";
 }
 </script>
-<div class="container main_container">
+<div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-2"></div>
-		<div class="col-sm-8 col-12">
-			<div class="row main_box_div p-2">
-				<div class="col-sm-12">
-					<div class="main_box_div_data">
-						<div class="all_page_box_left_div">
-							<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror="setDefaultImage(this);">
-						</div>
-						<div class="all_page_box_right_div text-left">
-							<span class="all_item_name"><?= $_COOKIE['user_fname'] ?></span><br>
-							<span class="all_item_packing">Code :
-							<?php echo $_COOKIE['user_altercode'] ?></span>
+		<div class="col-sm-8 col-12 website_box_part">
+			<div class="row">
+				<div class="col-sm-12 mt-2">
+					<div class="main_theme_li_bg p-2">
+						<div class="row">
+							<div class="col-sm-2 col-2">
+								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
+							</div>
+							<div class="col-sm-10 col-10 text-left">
+								<span class="chemist_user_name"><?= $_COOKIE['user_fname'] ?></span><br>
+								<span class="chemist_altercode">Code :
+								<?php echo $_COOKIE['user_altercode'] ?></span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -46,13 +60,12 @@ function goBack() {
 					<span class="main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
 				<div class="col-sm-12 mb-2">
-					<input type="submit" value="Update account" class="main_theme_button" name="Submit" onclick="submitbtn()" id="submitbtn">
-					<input type="submit" value="Update account" class="main_theme_button_disable" id="submitbtn_disable" style="display:none">
+					<input type="submit" value="Update account" class="mainbutton" name="Submit" onclick="submitbtn()" id="submitbtn">
+					<input type="submit" value="Update account" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 main_box_div load_page mt-2 p-2 mb-2" style="display:none;">
-				</div>				
+			<div class="main_theme_li_bg load_page mt-2 p-2 mb-2" style="display:none;">
+				
 			</div>
 		</div>
 	</div>
@@ -72,19 +85,19 @@ function call_page(lastid1)
 	new_i = 0;
 	id = "";
 	$(".load_more").hide();
-	$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+	$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 	$.ajax({
 		type       : "POST",
 		data       :  {id:id} ,
 		url        : "<?php echo base_url(); ?>User/get_new_user_account_api",
 		cache	   : false,
 		error: function(){
-			$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
+			$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".load_page").html('<h2><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h2>');
+				$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 			}
 			else
 			{
@@ -93,7 +106,11 @@ function call_page(lastid1)
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
-					$(".load_page").append('<div class="row"><div class="col-sm-12 col-12"><h5>Last update request</h5></div><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div></div>');
+					$(".load_page").append('<div class="row"><div class="col-sm-12 col-12"><h5>Last update request</h5></div></div>');
+					
+					$(".load_page").append('<div class="row"><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div></div>');
+					$(".load_page").append('<div class="row"><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div></div>');
+					$(".load_page").append('<div class="row"><div class="col-sm-12"><img class="img-circle" src="<?= base_url() ?>/img_v51/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div></div>');
 				}
 			});
 		},

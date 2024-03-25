@@ -6,34 +6,52 @@ class Home extends CI_Controller {
 		// Load model
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
+
+		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
+		$this->load->model("model-drdistributor/slider_model/SliderModel");
+		//$this->load->model("MenuModel");
+		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
+
+		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
+		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 	}
 	
 	public function index(){	
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check();
-
-		$data["main_page_title"] = "Home";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		
+		if(!empty($_COOKIE['user_type']))
+		{
+			$user_type = $_COOKIE['user_type'];
+			$chemist_id = "";
+			if($user_type=="sales")
+			{
+				if(!empty($_COOKIE['chemist_id'])){
+					$chemist_id = $_COOKIE['chemist_id'];
+					$data["session_user_fname"]     = "Code : ".$chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'></a>";
+				}
+			}
+		}
+		
+		$data["main_page_title"] = "Home";
 		
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id = $salesman_id = "";
+		$chemist_id 	= "";
+		$salesman_id = "";
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
-		}
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -41,22 +59,19 @@ class Home extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
+
+		/*$tbl_home = $this->db->query("select * from tbl_home where status=1 order by seq_id asc")->result();
+		$data["tbl_home"] = $tbl_home; */
 		
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('home_page/home_page', $data);
+		$this->load->view('home/home/home', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function test(){	
-		$this->load->view('test/test');
-	}
-
-	/*******************api start*********************/
 	public function get_top_menu_api(){
-		$this->load->model("model-drdistributor/top_menu/TopMenuModel");
+		$items = "";
 
 		$result = $this->TopMenuModel->get_top_menu_api();
 		$items = $result["items"];
@@ -72,23 +87,14 @@ class Home extends CI_Controller {
 		echo json_encode($response); 
 	}
 
-	public function home_page_api()	{
-		$this->load->model("model-drdistributor/slider_model/SliderModel");
-		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
-		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
-
-		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
-
+	public function home_page_api()
+	{
 		$get_record	 	= "0";//$_REQUEST["get_record"];
 		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
-		$user_nrx = "no";
 		if(!empty($_COOKIE["user_type"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];
 			$user_password	= $_COOKIE["user_password"];
-			$user_nrx		= $_COOKIE["user_nrx"];
 			$chemist_id 	= "";
 			$salesman_id = "";
 		}
@@ -144,7 +150,7 @@ class Home extends CI_Controller {
 			}
 			
 			if($row->type=="itemcategory"){
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}
@@ -199,3 +205,4 @@ class Home extends CI_Controller {
 		echo json_encode($response); 
 	}
 }
+?>

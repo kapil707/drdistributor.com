@@ -12,45 +12,37 @@ class My_cart extends CI_Controller {
 	}
 
 	public function index(){
-
-		$data["main_page_title"] = "My order";
-
+		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
-		
+		$data["chemist_id"] = $_COOKIE['user_altercode'];
+
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id = $salesman_id = "";
+		$chemist_id 	= "";
+		$salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
 
 		/********************************************************** */
-		$page_name = "my_cart";
+		$page_name = "my_order";
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 		
+		$data["main_page_title"] = "My order";
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_cart/my_cart', $data);
 	}
 
-	/*******************api start*********************/
 	public function my_cart_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
@@ -62,11 +54,10 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$order_type = $_POST["order_type"];
 		$items = $items_other = "";
 		if(!empty($user_altercode))
 		{
-			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,$order_type);
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 			$items_total = $result["items_total"];
@@ -104,7 +95,6 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$order_type = $_POST["order_type"];
 		if(!empty($user_type) && !empty($user_altercode)){
 			$excel_number = "";		
 			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
@@ -113,7 +103,7 @@ class My_cart extends CI_Controller {
 
 		if(!empty($user_altercode))
 		{
-			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,$order_type);
+			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 			$items_total = $result["items_total"];
@@ -205,7 +195,7 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}	
-		$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"pc_mobile",$remarks);
+		$result = $this->MyCartModel->place_order_api("pc_mobile",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
 		$status = $result["status"];
 		$status_message = $result["status_message"];
 		if($status=="1"){

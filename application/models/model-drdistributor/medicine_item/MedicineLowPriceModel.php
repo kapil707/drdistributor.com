@@ -15,7 +15,7 @@ class MedicineLowPriceModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_low_price_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_low_price_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$db2 = $this->load->database('default2', TRUE);
 		
@@ -41,14 +41,7 @@ class MedicineLowPriceModel extends CI_Model
 		{
 			$this->db->select("i_code,item_name,packing,salescm1,salescm2,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 			$this->db->where($sameid);
-			/************************************ */
-			if($user_nrx=="yes"){
-			}else{
-				$where="misc_settings!='#NRX'";
-				$this->db->where($where);
-			}
-			/************************************ */
-			//$this->db->where("batchqty!=0");
+			$this->db->where("batchqty!=0");
 			if($show_out_of_stock==0){
 				$this->db->where('batchqty !=', 0);
 			}
@@ -81,11 +74,12 @@ class MedicineLowPriceModel extends CI_Model
 					$item_stock = "Available";
 				}
 				
-				$item_image = base_url()."uploads/default_img.webp";
+				$item_image = constant('img_url_site')."uploads/default_img.jpg";
 				if(!empty($row->image1))
 				{
 					$item_image = constant('img_url_site').$row->image1;
 				}
+				$item_image 		= htmlentities($item_image);
 				
 				if($session_yes_no=="no"){
 					$item_mrp 		= "xx.xx";

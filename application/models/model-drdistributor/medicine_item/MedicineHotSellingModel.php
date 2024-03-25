@@ -15,20 +15,13 @@ class MedicineHotSellingModel extends CI_Model
 		return $row->name;
 	}
 	
-	public function get_medicine_hot_selling_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_hot_selling_api($session_yes_no,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
 		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$this->db->from('tbl_hot_selling AS t1');
 		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
-		/************************************ */
-		if($user_nrx=="yes"){
-		}else{
-			$where="t2.misc_settings!='#NRX'";
-			$this->db->where($where);
-		}
-		/************************************ */
 		if($show_out_of_stock==0){
 			$this->db->where('t2.batchqty !=', 0);
 		}
@@ -61,11 +54,12 @@ class MedicineHotSellingModel extends CI_Model
 				$item_stock = "Available";
 			}
 			
-			$item_image = base_url()."uploads/default_img.webp";
+			$item_image = constant('img_url_site')."uploads/default_img.jpg";
 			if(!empty($row->image1))
 			{
 				$item_image = constant('img_url_site').$row->image1;
 			}
+			$item_image 		= htmlentities($item_image);
 			
 			if($session_yes_no=="no"){
 				$item_mrp 		= "xx.xx";

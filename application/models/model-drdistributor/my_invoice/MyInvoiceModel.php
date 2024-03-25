@@ -121,9 +121,10 @@ class MyInvoiceModel extends CI_Model
 		}
 		//$jsonString = json_encode($jsonArray);
 		
-		$return["items"] = $jsonArray;
-		$return["get_record"] = $get_record;		
-		return $return;
+		$return_value["items"] = $jsonArray;
+		$return_value["get_record"] = $get_record;
+		
+		return $return_value;
 	}
 
 	public function get_my_invoice_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="")
@@ -270,12 +271,12 @@ class MyInvoiceModel extends CI_Model
 		// $jsonString2 = json_encode($jsonArray2);
 		
 
-		$return["items"] 		= $jsonArray;
-		$return["items_edit"] 	= $jsonArray1;
-		$return["items_delete"] = $jsonArray2;
-		$return["download_url"] = $download_url;
-		$return["title"] 		= $title;
-		return $return;
+		$return_value["items"] 			= $jsonArray;
+		$return_value["items_edit"] 	= $jsonArray1;
+		$return_value["items_delete"] 	= $jsonArray2;
+		$return_value["download_url"] 	= $download_url;
+		$return_value["title"] 			= $title;
+		return $return_value;
 	}
 	
 	public function invoice_excel_file($gstvno,$download_type)

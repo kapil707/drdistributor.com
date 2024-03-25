@@ -111,9 +111,7 @@ class MyNotificationModel extends CI_Model
 			
 			$item_image = $user_image;
 
-			$item_message = str_replace("\\/", "", $item_message);
-			$item_message = str_replace("\\n/", "<br>", $item_message);
-			$item_message = $this->convertUrlsToLinks($item_message);
+			$item_message = str_replace("\\n", "<br>", $item_message);
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -134,12 +132,5 @@ class MyNotificationModel extends CI_Model
 		$return["items"] 	= $jsonArray;
 		$return["title"] 	= $title;
 		return $return;
-	}
-	function convertUrlsToLinks($text) {
-		return preg_replace(
-			"/\b(((https?|ftp|file):\/\/|www\.)[^\s]+)/i",
-			"<a href=\"$1\" target=\"_blank\">$1</a>",
-			$text
-		);
 	}
 }

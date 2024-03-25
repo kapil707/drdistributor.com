@@ -5,37 +5,32 @@ class My_order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->login_check("my_order");
 
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 	}
 
 	public function index(){
-
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_order");
 		
-		$data["main_page_title"] = "My Order";
-
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
 		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		$data["chemist_id"] = $_COOKIE['user_altercode'];
 		
+		$data["main_page_title"] = "My Order";
+
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];
 
-		$chemist_id = $salesman_id = "";
+		$chemist_id 	= "";
+		$salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id	= $_COOKIE["chemist_id"];
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
-		}
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -46,57 +41,10 @@ class My_order extends CI_Controller {
 		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
-		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_order/my_order', $data);
-		$this->load->view('header_footer/footer', $data);
-	}
-
-	public function my_order_details($item_id=""){
-
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_order");
-		
-		$data["main_page_title"] = "My order details";
-
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
-		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
-		
-		/********************************************************** */
-		$page_name = "my_order_details";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
-
-		$data["item_id"] = $item_id;
-
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('my_order/my_order_details', $data);
-		$this->load->view('header_footer/footer', $data);
+		$this->load->view('my_order/my_order', $data);
 	}
 
-	/*******************api start*********************/
 	public function my_order_api(){
 		$get_record	 	= $_REQUEST["get_record"];
 		$user_type 		= $_COOKIE["user_type"];
@@ -129,6 +77,42 @@ class My_order extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
+
+	public function my_order_details($item_id=""){
+
+		$data["session_user_image"] 	= $_COOKIE['user_image'];
+		$data["session_user_fname"]     = $_COOKIE['user_fname'];
+		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
+		$data["chemist_id"] = $_COOKIE['user_altercode'];
+		
+		$data["main_page_title"] = "My order details";
+		
+		$data["item_id"] = $item_id;
+
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales")
+		{
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		/********************************************************** */
+		$page_name = "my_order_details";
+		$browser_type = "Web";
+		$browser = "";
+
+		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		/********************************************************** */
+
+		$this->load->view('header_footer/header', $data);		
+		$this->load->view('my_order/my_order_details', $data);
+	}
+
 	
 	public function my_order_details_api(){
 		$item_id		= $_REQUEST['item_id'];
@@ -143,12 +127,11 @@ class My_order extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = $download_url = $title = "";
+		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
 			$title  = $result["title"];
 			$items  = $result["items"];
-			$download_url  = $result["download_url"];
 		}	
 		
 		$response = array(
@@ -156,41 +139,6 @@ class My_order extends CI_Controller {
             'message' => 'Data load successfully',
             'title' => $title,
 			'items' => $items,
-			'download_url' => $download_url,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
-	public function my_order_details_main_api(){
-		$item_id		= $_REQUEST['item_id'];
-		$user_type 		= "chemist";
-		$user_altercode = $_REQUEST['user_altercode'];
-		$user_password	= "";
-		$chemist_id 	= "";
-		$salesman_id = "";
-		/*if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}*/
-		$items = $download_url = $title = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
-			$title  = $result["title"];
-			$items  = $result["items"];
-			$download_url  = $result["download_url"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'title' => $title,
-			'items' => $items,
-			'download_url' => $download_url,
         );
 
         // Send JSON response
@@ -198,3 +146,4 @@ class My_order extends CI_Controller {
         echo json_encode($response);
 	}
 }
+?>

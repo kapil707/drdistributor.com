@@ -19,16 +19,13 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 	
-	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$selesman_id='',$device_type="website")
+	public function get_total_price_of_order($user_type='',$chemist_id='',$user_password='',$selesman_id='',$device_type="website")
 	{
-		$chemist_id = $user_altercode;
-		
 		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
 		if($user_type=="sales")
 		{
 			$this->db->where('selesman_id',$selesman_id);
 		}
-		$this->db->where('user_type',$user_type);
 		$this->db->where('temp_rec',$temp_rec);
 		$this->db->where('chemist_id',$chemist_id);
 		$this->db->where('status','0');
@@ -97,19 +94,17 @@ class MyCartModel extends CI_Model
 		{
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else{
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}
 		}
@@ -118,19 +113,17 @@ class MyCartModel extends CI_Model
 			$selesman_id 	= "";
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0');
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
+				$where = array('temp_rec'=>$temp_rec,'chemist_id'=>$user_altercode,'status'=>'0','order_type'=>$order_type);
 				$this->db->select("*");
 				$this->db->where($where);
 				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
 			}
 		}	
@@ -202,16 +195,11 @@ class MyCartModel extends CI_Model
 
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
-		/**************************************************************** */
-		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
+		$where = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
-		/**************************************************************** */
-
 		$time = time();
 		$date = date("Y-m-d",$time);
 		$datetime = date("d-M-y H:i",$time);
-
-		/**************************************************************** */
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
@@ -220,24 +208,15 @@ class MyCartModel extends CI_Model
 		{
 			$temp_rec = $user_type."_".$user_altercode;
 		}
-
-		/**********1000 say jada ki value add he nahi hoya ge cart me */
-		if($item_order_quantity>=1000){
-			$item_order_quantity = 1000;
-		}
-		
-		/**************************************************************** *
-		 * off kar diya yha 2024-03-23 ko
-		if(empty($excel_number)){
-			$excel_number = 1;
-			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
-			if(!empty($row->excel_number)){
-				$excel_number = $row->excel_number + 1;
+		if($excel_number==0 || $excel_number=="0" || $excel_number==""){
+			$row2 = $this->db->query("select excel_number from drd_temp_rec where chemist_id='$user_altercode' and selesman_id='$salesman_id' and user_type='$user_type' and status=0 order by id desc")->row();
+			if(!empty($row2->excel_number)){
+				$excel_number = $row2->excel_number + 1;
+			}
+			if($excel_number==0){
+				$excel_number = 1;
 			}
 		}
-		
-
-		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -278,14 +257,14 @@ class MyCartModel extends CI_Model
 				'filename'=>"",
 				'your_item_name'=>"",
 				'join_temp'=>"",
-				'order_id'=>"",);
-
+				'order_id'=>"",
+				);
 			$this->insert_fun("drd_temp_rec",$dt);
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{
 			$status = "0";
-			$status_message = "Medicine added fail";
+			$status_message = "Medicine added error";
 		}
 		$return["status"] = $status;
 		$return["status_message"] = $status_message;
@@ -340,10 +319,8 @@ class MyCartModel extends CI_Model
 		return $order_id;
 	}
 
-	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
+	public function place_order_api($order_type='',$remarks='',$selesman_id='',$chemist_id='',$user_type='',$user_password='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
-		$chemist_id = $user_altercode;
-		
 		$return["status"] = "0";
 		$return["status_message"] = "<font color='red'>Sorry your order has been failed please try again.</font>";
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
@@ -369,36 +346,35 @@ class MyCartModel extends CI_Model
 			$time = date("H:i",time());
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
-			
-			$this->db->distinct("i_code");
-			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
+
 			if($user_type=="sales")
 			{
 				$this->db->where('selesman_id',$selesman_id);
 			}
-			$this->db->where('user_type',$user_type);
 			$this->db->where('temp_rec',$temp_rec);
 			$this->db->where('chemist_id',$chemist_id);
 			$this->db->where('status','0');
-			$this->db->order_by('i_code','desc');	
+			$this->db->order_by('id','desc');	
 			$query = $this->db->get("drd_temp_rec")->result();
-						
+			
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;
-			$i_code = "";
-			$temp_rec_new = $order_id."_".$temp_rec;
+			$i_code = $item_qty ="";
 			foreach($query as $row)
 			{
-				$i_code		= 	$row->i_code;
-				$quantity 	= 	$row->quantity;
-				$item_name 	=  	$row->item_name;
-				$sale_rate 	=  	$row->sale_rate;
-				$item_code 	=  	$row->item_code; // its real id
-				$item_image	=  	$row->image;				
+				$i_code		= $row->i_code;
+				$item_qty	= $row->quantity;
+				$quantity 	= $item_qty;
+				$item_name 	=  $row->item_name;
+				$sale_rate 	=  $row->sale_rate;
+				$item_code 	=  $row->item_code; // its real id
+				$item_image	=  $row->image;				
 				
-				$total = $total + ($sale_rate * $quantity);				
+				$total = $total + ($sale_rate * $quantity);
 				
-				if(!empty($item_name)){
+				$temp_rec_new = $order_id."_".$temp_rec;
+				
+				if($item_name!=""){
 					$dt = array(
 						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,
@@ -517,16 +493,14 @@ class MyCartModel extends CI_Model
 		if($remarks){
 			$remarks = "<br>Remarks : ".$remarks;
 		}
-
 		$default_place_order_text = $this->Scheme_Model->get_website_data("default_place_order_text");
-
 		$whatsapp_footer_text = $this->Scheme_Model->get_website_data("whatsapp_footer_text");
-		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/download_order/".$acm_altercode."/".$order_id." ".$whatsapp_footer_text;
-
+		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>Download excel file </b><br><br>https://www.drdistributor.com/user/download_order/".$order_id."/".$acm_altercode." ".$whatsapp_footer_text;	
 		$email_footer_text = $this->Scheme_Model->get_website_data("email_footer_text");
-		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/download_order/".$acm_altercode."/".$order_id." ".$email_footer_text."<br><br>".$html_table_formet_dt;			
+		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>Download excel file</b> <br><br>https://www.drdistributor.com/user/download_order/".$order_id."/".$acm_altercode." ".$email_footer_text."<br><br>".$html_table_formet_dt;	
+		
 			
-		/************************************************/
+		/*************27-11-19***********************/
 		$q_altercode 	= $acm_altercode;
 		$q_title 		= "New Order - $order_id";
 		$q_message		= $txt_msg;

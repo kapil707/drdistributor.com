@@ -1,23 +1,37 @@
+<style>
+.menubtn1
+{
+	display:none;
+}
+@media screen and (max-width: 767px) {
+	.website_menu,.current_order_search_page1,.select_chemist,.homebtn_div
+	{
+		display: none ;
+	}
+}
+</style>
 <script>
-$(".top_bar_title").html("<?= $main_page_title ?>");
+$(".headertitle").html("Update password");
 function goBack() {
 	window.location.href = "<?= base_url();?>account";
 }
 </script>
-<div class="container main_container">
+<div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-2"></div>
-		<div class="col-sm-8 col-12">
-			<div class="row main_box_div p-2">
-				<div class="col-sm-12">
-					<div class="main_box_div_data">
-						<div class="all_page_box_left_div">
-							<img src="<?= $_COOKIE['user_image'] ?>" class="all_item_image" onerror="setDefaultImage(this);">
-						</div>
-						<div class="all_page_box_right_div text-left">
-							<span class="all_item_name"><?= $_COOKIE['user_fname'] ?></span><br>
-							<span class="all_item_packing">Code :
-							<?php echo $_COOKIE['user_altercode'] ?></span>
+		<div class="col-sm-8 col-12 website_box_part">
+			<div class="row">
+				<div class="col-sm-12 mt-2">
+					<div class="main_theme_li_bg p-2">
+						<div class="row">
+							<div class="col-sm-2 col-2">
+								<img src="<?= $_COOKIE['user_image'] ?>" class="medicine_cart_item_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
+							</div>
+							<div class="col-sm-10 col-10 text-left">
+								<span class="chemist_user_name"><?= $_COOKIE['user_fname'] ?></span><br>
+								<span class="chemist_altercode">Code :
+								<?php echo $_COOKIE['user_altercode'] ?></span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -58,8 +72,8 @@ function goBack() {
 					<span class="text-center main_theme_gray_text submit_div" style="margin-top:10px;">&nbsp;</span>
 				</div>
 				<div class="col-sm-12 mb-2">
-					<input type="submit" value="Update password" class="main_theme_button" onclick="submitbtn()" id="submitbtn" style="display:none">
-					<input type="submit" value="Update password" class="main_theme_button_disable" id="submitbtn_disable">
+					<input type="submit" value="Update password" class="mainbutton" onclick="submitbtn()" id="submitbtn">
+					<input type="submit" value="Update password" class="mainbutton_disable" id="submitbtn_disable" style="display:none">
 				</div>
 			</div> 
 		</div>

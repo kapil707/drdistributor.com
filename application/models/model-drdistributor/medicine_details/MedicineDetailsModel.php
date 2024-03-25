@@ -15,7 +15,7 @@ class MedicineDetailsModel extends CI_Model
 	{
 		$jsonArray = array();
 		$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
-
+		$items = "";
 		$item_date_time = date('d-M h:i A');
 		
 		$db_medicine = $this->db_medicine;
@@ -51,20 +51,28 @@ class MedicineDetailsModel extends CI_Model
 				$item_discount = "4.5";
 			}
 			$item_description1 = (trim($row->title2));
-			$item_description2 = (trim($row->description));			
-
-			$item_image  = $item_image2 = $item_image3 = $item_image4 = base_url()."uploads/default_img.webp";
+			$item_description2 = (trim($row->description));
+			
 			$img_url_site = constant('img_url_site');
-			if(!empty($row->image1)){
+
+			$item_image  = $img_url_site."uploads/default_img.jpg";
+			$item_image2 = $img_url_site."uploads/default_img.jpg";
+			$item_image3 = $img_url_site."uploads/default_img.jpg";
+			$item_image4 = $img_url_site."uploads/default_img.jpg";
+			if(!empty($row->image1))
+			{
 				$item_image = $img_url_site.$row->image1;
 			}
-			if(!empty($row->image2)){
+			if(!empty($row->image2))
+			{
 				$item_image2 = $img_url_site.$row->image2;
 			}
-			if(!empty($row->image3)){
+			if(!empty($row->image3))
+			{
 				$item_image3 = $img_url_site.$row->image3;
 			}
-			if(!empty($row->image4)){
+			if(!empty($row->image4))
+			{
 				$item_image4 = $img_url_site.$row->image4;
 			}
 			/*******************************************************
@@ -88,27 +96,23 @@ class MedicineDetailsModel extends CI_Model
 			{
 				$items1 = ',"items1":""';
 			}
-
 			$item_stock = "";
 			if($misc_settings=="#NRX")
 			{
 				if($item_quantity>=10){
 					$item_stock = "Available";
-					$item_quantity = 1000; // yha validate kar ke liya ha taki maray pass kitni davi ha oss ko pata na chalay
 				}
 			}
-
-			/************************************************************************************* */
 			$item_order_quantity = "";
 			$where1 = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
-			$this->db->select("quantity");
+			//$this->db->select(*);
 			$this->db->where($where1);
 			$row1 = $this->db->get("drd_temp_rec")->row();
-			if(!empty($row1->quantity)){
+			if(!empty($row1->id))
+			{
 				$item_order_quantity = $row1->quantity;
 			}
-			
-			/************************************************************************************* */
+
 			$dt = array(
 				'item_date_time' => $item_date_time,
 				'item_code' => $item_code,

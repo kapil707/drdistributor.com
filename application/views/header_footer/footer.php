@@ -36,7 +36,7 @@ wow.init();
 		</div>
 	</div>
 </div>
-<div class="website_footer mobile_off">
+<div class="website_footer mobile_off" style="background-image: linear-gradient(#f6f6f6, #f1f1f1);">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
@@ -106,31 +106,38 @@ wow.init();
 </div>
 
 <div class="fix_footer mobile_show">
-	<div class="mobile_footer_css_left text-center">
-		<a href="<?= base_url(); ?>account">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok text-center">
+		<a href="<?= base_url('account')?>">
 			<i class="fa fa-user" aria-hidden="true"></i>
-			<div>Account</div>
+			<div style="font-size: 11px;">Account</div>
 		</a>
-		<a href="<?= base_url(); ?>track_order">
+	</div>
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_left text-center">
+		<a href="<?= base_url('track_order')?>">
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
-			<div>Track</div>
+			<div style="font-size: 11px;">Track</div>
 		</a>
 	</div>
 	
-	<div class="mobile_footer_css_center text-center">
-		<a href="<?= base_url(); ?>medicine_search">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_center text-center">
+		<a href="<?= base_url('search_medicine')?>" alt>
 			<i class="fa fa-plus" aria-hidden="true"></i>
 		</a>
 	</div>
 	
-	<div class="mobile_footer_css_right text-center">
-		<a href="<?= base_url(); ?>my_notification">
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok_right text-center">
+		<a href="<?= base_url('my_notification')?>">
 			<i class="fa fa-bell main_icon1" aria-hidden="true"></i>
-			<div>Notification</div>
+			<div style="font-size: 11px;" class="mobile_off">Notifications <span class="notificationdiv"></span></div>
+			<div style="font-size: 11px;" class="mobile_show">Notifications <span class="notificationdiv"></span></div>
 		</a>
-		<a href="<?= base_url();?>">
+	</div>
+	
+	<div class="mobile_footer div_width_20par text_cut_or_dot mobile_footer_css_ok text-center"
+	style="margin-right: -15px;">
+		<a href="<?= base_url();?>/home">
 			<i class="fa fa-refresh" aria-hidden="true"></i>
-			<div>Reload</div>
+			<div style="font-size: 11px;">Reload</div>
 		</a>
 	</div>
 </div>

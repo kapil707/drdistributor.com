@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class ChemistSelectModel extends CI_Model  
+class SelectChemistModel extends CI_Model  
 {
 	public function __construct(){
 		parent::__construct();
 	}
 	
-	public function chemist_search_api($keyword="")
+	public function select_chemist_api($keyword="")
 	{		
 		$jsonArray = array();
 
-		$result = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
+		$result = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
 		$count = $user_cart = $user_cart_total = 0;
 		foreach ($result as $row)
 		{
@@ -21,11 +21,6 @@ class ChemistSelectModel extends CI_Model
 			{
 				$chemist_name		=	ucwords(strtolower($row->name));
 				$chemist_altercode	=	$row->altercode;
-				$narcolicence		= 	$row->narcolicence;
-				$user_nrx = "no";
-				if($narcolicence=="."){
-					$user_nrx = "yes";
-				}
 				/*$user_cart 		 = $row->user_cart;
 				$user_cart_total = $row->user_cart_total;*/
 				$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
@@ -37,7 +32,6 @@ class ChemistSelectModel extends CI_Model
 				$count++;	
 				
 				$dt = array(
-					'user_nrx' => $user_nrx,
 					'chemist_altercode' => $chemist_altercode,
 					'chemist_name' => $chemist_name,
 					'chemist_image' => $chemist_image,
@@ -72,7 +66,7 @@ class ChemistSelectModel extends CI_Model
 			}
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
 			
-			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
+			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
 			$chemist_image = base_url()."img_v51/logo.png";
@@ -81,14 +75,7 @@ class ChemistSelectModel extends CI_Model
 				$chemist_image = base_url()."user_profile/".$row1->image;
 			}
 
-			$narcolicence		= 	$row1->narcolicence;
-			$user_nrx = "no";
-			if($narcolicence=="."){
-				$user_nrx = "yes";
-			}
-
 			$dt = array(
-				'user_nrx' => $user_nrx,
 				'chemist_altercode' => $chemist_altercode,
 				'chemist_name' => $chemist_name,
 				'chemist_image' => $chemist_image,

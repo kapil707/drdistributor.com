@@ -85,8 +85,6 @@ class AccountModel extends CI_Model
 						$user_code	 	= 	$query->code;
 						$user_altercode	= 	$query->altercode;
 						$narcolicence	= 	$query->narcolicence;
-
-						$user_nrx = "no";
 						if($narcolicence=="."){
 							$user_nrx = "yes";
 						}

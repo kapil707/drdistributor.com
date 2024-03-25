@@ -1,20 +1,28 @@
 <style>
-.main_container{
-	margin-bottom:100px;
+.menubtn1
+{
+	display:none;
+}
+.headertitle
+{
+    margin-top: 5px !important;
+}
+@media screen and (max-width: 767px) {
+	.homebtn_div
+	{
+		display:none;
+	}
 }
 </style>
 <script>
-$(".top_bar_title").html("<?= $main_page_title ?>");
-function goBack() {
-	window.location.href = "<?= base_url();?>";
-}
+$(".headertitle").html("Privacy policy");
 </script>
-<div class="container main_container">
+<div class="container maincontainercss">
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">
-					<div class="main_box_div p-2">
+					<div class="website_box_part p-2">
 						<?= $this->Scheme_Model->get_website_data("privacy_policy") ;?>
 					</div>
 				</div>

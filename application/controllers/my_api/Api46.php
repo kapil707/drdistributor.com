@@ -322,7 +322,6 @@ class Api46 extends CI_Controller {
 			$user_type 		= $_POST["user_type"];
 			$user_altercode	= $_POST["user_altercode"];
 			$user_password	= $_POST["user_password"];
-			$user_nrx		= $_POST["user_nrx"];
 			$chemist_id		= $_POST["chemist_id"];
 
 			$salesman_id 	= "";
@@ -374,7 +373,7 @@ class Api46 extends CI_Controller {
 				}
 				
 				if($row->type=="itemcategory"){
-					$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
+					$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id);
 					$title  = $result["title"];
 					$items = $result["items"];
 				}
@@ -879,7 +878,7 @@ class Api46 extends CI_Controller {
 		$device_id		= $_POST["device_id"];
 		
 		if(!empty($api_key) &&!empty($user_type) &&!empty($user_altercode) &&!empty($user_password)){
-			$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"Android",$remarks);
+			$result = $this->MyCartModel->place_order_api("Android",$remarks,$salesman_id,$user_altercode,$user_type,$user_password);
 			$status = $result["status"];
 			$status_message = $result["status_message"];
 		}
@@ -1088,7 +1087,6 @@ class Api46 extends CI_Controller {
 		$user_type 		= $_POST["user_type"];
 		$user_altercode = $_POST["user_altercode"];
 		$user_password	= $_POST["user_password"];
-		$user_nrx		= $_POST["user_nrx"];
 		$chemist_id 	= $_POST["chemist_id"];
 		$salesman_id 	= "";
 		if($user_type=="sales")
@@ -1130,7 +1128,7 @@ class Api46 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -1158,7 +1156,7 @@ class Api46 extends CI_Controller {
 	/******************salesman ke liya ha sirf************************ */
 
 	public function select_chemist_api(){
-		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
+		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
 
 		$items = "";
 		if(!empty($_POST)){
@@ -1176,7 +1174,7 @@ class Api46 extends CI_Controller {
 			}*/
 			if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
 			{
-				$result = $this->ChemistSelectModel->chemist_search_api($keyword);
+				$result = $this->SelectChemistModel->select_chemist_api($keyword);
 				$items = $result["items"];
 			}
 		}
@@ -1193,7 +1191,7 @@ class Api46 extends CI_Controller {
 	}
 
 	public function salesman_my_cart_api(){
-		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
+		$this->load->model("model-drdistributor/select_chemist/SelectChemistModel");
 	
 		$items = "";
 		if(!empty($_POST)){
@@ -1204,7 +1202,7 @@ class Api46 extends CI_Controller {
 		
 			if(!empty($user_type) && !empty($user_altercode))
 			{
-				$result = $this->ChemistSelectModel->salesman_my_cart_api($user_type,$user_altercode);
+				$result = $this->SelectChemistModel->salesman_my_cart_api($user_type,$user_altercode);
 				$items = $result["items"];
 			}
 		}

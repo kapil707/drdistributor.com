@@ -13,7 +13,6 @@ class Medicine_details extends CI_Controller {
 		$this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 	}
 	
-	/*******************api start*********************/
 	public function medicine_details_api()
 	{
 		$item_code		= $_REQUEST["item_code"];

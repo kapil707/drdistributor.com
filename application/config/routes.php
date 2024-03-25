@@ -67,6 +67,7 @@ $route['user/termsofservice'] = 'main/terms_of_services';
 $route['termsofservice']='main/terms_of_services';
 $route['terms_of_services']='main/terms_of_services';
 
+
 $route['chemist/android/Api_mobile30/insert_temp_order/(:any)'] = 'android/Api_mobile30/insert_temp_order/$1';
 $route['chemist/android/Api_mobile30/get_online_cart/(:any)'] = 'android/Api_mobile30/get_online_cart/$1';
 $route['chemist/android/Api_mobile30/get_online_cart2/(:any)'] = 'android/Api_mobile30/get_online_cart2/$1';
@@ -75,9 +76,12 @@ $route['chemist/android/Api_mobile30/deleteall_temp_order/(:any)'] = 'android/Ap
 $route['chemist/android/Api_mobile30/save_order_to_server/(:any)'] = 'android/Api_mobile30/save_order_to_server/$1';
 
 
+$route['invoice/(:any)/(:any)'] = 'invoice/index/$1/$2';
+$route['invoice_download/(:any)/(:any)'] = 'invoice/invoice_download/$1/$2';
 $route['all_invoice'] = 'User/local_server_all_invoice';
 $route['pickedby'] = 'User/local_server_pickedby';
 $route['deliverby'] = 'User/local_server_deliverby';
+
 
 $route['home']='Home/index';
 
@@ -94,14 +98,7 @@ $route['track_order']='home/track_order';
 
 $route['my_order']='my_order/index';
 $route['my_order_details/(:any)']='my_order/my_order_details/$1';
-$route['user/download_order/(:any)/(:any)'] = 'main/download_order_old/$1/$2';
-$route['order_download/(:any)/(:any)'] = 'main/order_download/$1/$2';
-$route['order/(:any)/(:any)'] = 'main/view_order/$1/$2';
-$route['view_order/(:any)/(:any)'] = 'main/view_order/$1/$2';
-
-$route['invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
-$route['view_invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
-$route['invoice_download/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
+$route['user/download_order/(:any)/(:any)'] = 'main/download_order/$1/$2';
 
 $route['my_invoice']='my_invoice/index';
 $route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';
@@ -129,8 +126,8 @@ $route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 
-$route['select_chemist'] = 'Chemist_select/index';
-$route['home/select_chemist'] = 'Chemist_select/index';
+$route['select_chemist'] = 'Select_chemist/index';
+$route['home/select_chemist'] = 'Select_chemist/index';
 
 $route['404_override'] = 'errors/custom_404';
 $route['translate_uri_dashes'] = FALSE;

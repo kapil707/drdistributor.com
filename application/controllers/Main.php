@@ -20,7 +20,6 @@ class Main extends CI_Controller {
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
-		$data["session_delivering_to"] = "Guest";
 		$data["chemist_id"] = "";
 		if(!empty($_COOKIE["user_altercode"])){
 			redirect(base_url()."home");
@@ -37,7 +36,7 @@ class Main extends CI_Controller {
 		/**********************************************************/
 		
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('home_page/home_page', $data);
+		$this->load->view('home/home/home', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 
@@ -76,7 +75,7 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function download_order_old($order_id,$chemist_id)
+	public function download_order($order_id,$chemist_id)
 	{
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
@@ -96,104 +95,6 @@ class Main extends CI_Controller {
 		}
 		else{
 			echo "error";
-		}
-	}
-	
-	/***************invoice part********************** */	
-	public function view_order($chemist_id='',$order_id=''){
-		
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = $chemist_id;
-		$data["session_user_altercode"] = $chemist_id;
-		$data["session_delivering_to"]  = $chemist_id;
-		$data["chemist_id"] = "";
-		
-		$data["item_id"] = "";
-		$data["user_altercode"] = "";
-		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id,);
-		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
-		$row   = $query->row();
-		$query = $query->result();
-		if(!empty($row->id)){
-			$data["item_id"] 		= $order_id;
-			$data["user_altercode"] = $chemist_id;
-		}
-
-		$data["main_page_title"] = $order_id;	
-		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_order/my_order_details_main', $data);	
-		$this->load->view('header_footer/footer', $data);	
-	}
-
-	public function order_download($chemist_id='',$order_id=''){
-
-		$this->load->model("model-drdistributor/my_order/MyOrderModel");
-
-		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id);
-		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
-		$row   = $query->row();
-		$query = $query->result();
-		if(!empty($row->id)){
-
-			$where 			= array('altercode'=>$row->chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
-			$acm_altercode 	= $users->altercode;
-			$acm_name		= ucwords(strtolower($users->name));		
-			$chemist_excle 	= "$acm_name ($acm_altercode)";
-			$this->MyOrderModel->order_excel_file($query,$chemist_excle,"direct_download");
-		}
-		else{
-			echo "error";
-		}
-	}
-
-	/***************invoice part********************** */	
-	public function view_invoice($chemist_id='',$invoice_id=''){
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = $chemist_id;
-		$data["session_user_altercode"] = $chemist_id;
-		$data["session_delivering_to"]  = $chemist_id;
-		
-		$data["item_id"] = "";
-		$data["user_altercode"] = "";
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
-		if(!empty($row->id)){
-			$data["item_id"] 		= $row->id;
-			$data["user_altercode"] = $chemist_id;
-		}
-		
-		$data["main_page_title"] = $invoice_id;	
-		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_invoice/my_invoice_details_main', $data);		
-	}
-	
-	public function invoice_download($chemist_id='',$invoice_id='')
-	{
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
-		if(!empty($row->id)){
-			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
-		}else{
-			$data["session_user_image"] = base_url()."img_v51/logo2.png";
-			$data["session_user_fname"]     = "Guest";
-			$data["session_user_altercode"] = "xxxxxx";
-			
-			$data["item_id"] 		= "";
-			$data["user_altercode"] = "";
-			
-			$data["main_page_title"] = "";
-			$this->load->view('home/header_footer/header', $data);
-			$this->load->view('main_page/invoice', $data);
-			$this->load->view('header_footer/footer', $data);
 		}
 	}
 }

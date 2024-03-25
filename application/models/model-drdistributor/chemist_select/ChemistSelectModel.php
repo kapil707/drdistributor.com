@@ -81,7 +81,7 @@ class ChemistSelectModel extends CI_Model
 				$chemist_image = base_url()."user_profile/".$row1->image;
 			}
 
-			$narcolicence		= 	$row->narcolicence;
+			$narcolicence		= 	$row1->narcolicence;
 			$user_nrx = "no";
 			if($narcolicence=="."){
 				$user_nrx = "yes";

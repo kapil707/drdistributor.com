@@ -523,23 +523,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	</div>
 </div>
 <!-- ******************************************************** -->
-<a href="#" data-toggle="modal" data-target="#myModal_loading" style="text-decoration: none;" class="myModal_loading"></a>
-<div class="modal modaloff" id="myModal_loading">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title MedicineDetailscssmod">Medicine details</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span></button>
-			</div>
-			<div class="modal-body">
-				<div class="MedicineDetailsData"></div>				
-				<div class="MedicineSmilerProduct"></div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- ******************************************************** -->
 <span class="main_page_loading text-center">
 	<h2>
 		<img src="<?php echo base_url(); ?>img_v51/loading.gif" width="100px">

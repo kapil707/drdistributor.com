@@ -99,7 +99,8 @@ if($broadcast_status=="0"){ ?>
 						<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
+						<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
+					</button>
 				</div>
 				<div class="modal-body broadcast_message">
 					<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>

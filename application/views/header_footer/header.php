@@ -1,5 +1,4 @@
 <?php 
-$website_version = "2.0";
 $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];

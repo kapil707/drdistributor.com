@@ -5,3 +5,5 @@ uploads_sales/
 user_newsession/
 user_profile/
 vendor/
+
+/.htaccess

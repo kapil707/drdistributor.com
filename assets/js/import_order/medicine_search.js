@@ -9,8 +9,6 @@ function import_order_medicine_details(myid) {
 			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
 		},
 		success    : function(data){
-			console.log(data);
-			//$(".insert_main_row_data_"+row_id).html(data);
 			$.each(data.items, function(i,item){
 				if (item)
 				{
@@ -423,7 +421,6 @@ function medicine_search_api() {
             }
 			if($(".checkbox_out_of_stock").prop("checked") == true){
                 checkbox_out_of_stock_val = 1;
-				//console.log(checkbox_out_of_stock_val)
             }
 			
 			$(".background_blur").show();

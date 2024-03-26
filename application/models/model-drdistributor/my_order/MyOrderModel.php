@@ -11,7 +11,7 @@ class MyOrderModel extends CI_Model
 		$user_image = base_url()."user_profile/$row->image";
 		if(empty($row->image))
 		{
-			$user_image = base_url()."img_v51/logo.png";
+			$user_image = base_url()."img_v51/logo4.png";
 		}
 		return $user_image;
 	}

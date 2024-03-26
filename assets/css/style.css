@@ -73,8 +73,16 @@ table{
 	color:var(--main-theme-text-color) !important;
 }
 .swal-title,
-.modal-title{
+.swal-text,
+.modal-title,
+.modal-body{
 	color:var(--main-theme-text-color) !important;
+}
+.swal-icon--success:after, .swal-icon--success:before{
+	background: none !important;
+}
+.swal-icon--success__hide-corners{
+	background: none !important;
 }
 /****************************************************/
 .main_page_loading{

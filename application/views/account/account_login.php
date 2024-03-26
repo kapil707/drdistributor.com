@@ -68,10 +68,6 @@
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
 				</div>
 				<div class="text-center website_version_css" style="margin-top:5px;">
-					<?php 
-					$CI = & get_instance(); 
-					$website_version = $CI->load->vars("website_version");
-					?>
 					Website version <?= $website_version;?>
 				</div>
 			</div>

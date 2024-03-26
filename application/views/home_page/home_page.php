@@ -89,7 +89,7 @@ $error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
 <!-- ******************************************************** -->
 <?php
 $broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
-if($broadcast_status=="1"){ ?>
+if($broadcast_status=="0"){ ?>
 	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 	<div class="modal modaloff" id="myModal_broadcast">
 		<div class="modal-dialog">

@@ -8,12 +8,14 @@ class Account extends CI_Controller {
 	public function account_request() {
 		//error_reporting(0);
 		$data["main_page_title"] = "Request for login credentials";
+		$this->load->view('header_footer/header', $data);
 	    $this->load->view('account/account_request', $data);
 	}
 
 	public function account_delete_request() {
 		//error_reporting(0);
 		$data["main_page_title"] = "Request for account delete";
+		$this->load->view('header_footer/header', $data);
 	    $this->load->view('account/account_delete_request', $data);
 	}
 	
@@ -23,6 +25,7 @@ class Account extends CI_Controller {
 			redirect('home');
 		}
 		$data["main_page_title"] = "Login";
+		$this->load->view('header_footer/header', $data);
 	    $this->load->view('account/account_login', $data);
 	}
 	

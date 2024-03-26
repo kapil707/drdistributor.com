@@ -48,7 +48,7 @@ wow.init();
 						<strong><?= $this->Scheme_Model->get_website_data("title2") ;?></strong>
 					</div>
 					<div class="text-center" style="margin-top:5px;">
-						Website version <?= $this->Scheme_Model->get_website_data("android_versioncode") ;?>
+						Website version <?= $website_version;?>
 					</div>
 				</div>
 			</div>

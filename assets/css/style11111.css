@@ -1381,9 +1381,10 @@ table{
 }
 .home_page_mobile_footer li{
 	margin-top: 10px;
-    background: var(--main-theme-home-mobile-footer-bg-color);
     border-radius: 10px;
     padding: 7px;
+    background: var(--main-theme-home-mobile-footer-bg-color);
+	border: 1px solid var(--main-theme-border-color);
 	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
 }
 .home_page_mobile_footer li a{

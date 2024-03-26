@@ -1378,12 +1378,12 @@ table{
 }
 .home_page_mobile_footer li{
 	margin-top: 10px;
-    background: white;
+    background: var(--main-theme-home-mobile-footer-bg-color);
     border-radius: 10px;
     padding: 7px;
 }
 .home_page_mobile_footer li a{
-	color: var(--home_page_mobile_footer_color);
+	color: var(--main-theme-home-mobile-footer-text-color);
 }
 .footer_website_name_css,
 .footer_website_version_css{
@@ -1572,7 +1572,8 @@ table{
 	.all_divisioncategory,
 	.all_itemcategory,
 	.medicine_category_page{
-		border: none;
+		/*border: none;*/
+		box-shadow: 0px 0px 1px 0px var(--main-theme-box-shadow-color);
 	}
 	/**********************/
 	.medicine_details_image_small {

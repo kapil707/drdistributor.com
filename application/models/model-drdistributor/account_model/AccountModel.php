@@ -153,7 +153,7 @@ class AccountModel extends CI_Model
 
 		if($status==1 && $type=="website"){
 			$this->insert_website_session($user_session,$user_fname,$user_code,$user_altercode,$user_type,$user_password,$user_image,$user_nrx);
-		}
+		} 
 
 		$dt = array(
 			'user_session' => $user_session,

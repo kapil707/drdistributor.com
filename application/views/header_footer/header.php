@@ -231,7 +231,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	<div class="left_menu_bar_div1">
 		<div class="row">
 			<div class="col-sm-2 col-4">
-				<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo.png">
+				<img src="<?= $session_user_image ?>" alt="<?= $session_user_fname ?>" title="<?= $session_user_fname ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo4.png">
 			</div>
 			<div class="col-sm-8 col-6">
 				<div class="left_menu_bar_accoun_chemist_name">

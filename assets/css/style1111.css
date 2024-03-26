@@ -1336,7 +1336,7 @@ table{
 	background: var(--main-theme-home-mobile-footer-bg-color)  !important;
 	border-top-right-radius: 50px;
 	color: var(--main-theme-home-mobile-footer-text-color)  !important;
-	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
+	box-shadow: 0px 0px 1px 0px var(--main-theme-box-shadow-color);
 }
 .mobile_footer_css_left a{
 	margin-top: 10px;
@@ -1356,7 +1356,7 @@ table{
     float: left;
     padding: 5%;
     color: var(--main-theme-home-mobile-footer-text-color) !important;
-    box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
+    box-shadow: 0px 0px 1px 0px var(--main-theme-box-shadow-color);
 }
 .mobile_footer_css_center a{
     font-size: 13px;
@@ -1384,6 +1384,7 @@ table{
     background: var(--main-theme-home-mobile-footer-bg-color);
     border-radius: 10px;
     padding: 7px;
+	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
 }
 .home_page_mobile_footer li a{
 	color: var(--main-theme-home-mobile-footer-text-color);
@@ -1572,6 +1573,7 @@ table{
 	.all_item_out_of_stock_img{
 		width: 45px  !important;
 	}
+	.home_page_mobile_footer li,
 	.all_divisioncategory,
 	.all_itemcategory,
 	.medicine_category_page{

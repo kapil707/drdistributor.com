@@ -3,9 +3,6 @@
     --main_theme_hearder_color:#757575;
     --main_theme_hearder_color_hover:#757575;
     
-    --main_theme_footer_bg:#f6f6f6;
-    --main_theme_footer_bg1:#ffffff;
-    --main_theme_footer_color:#757575;
 
     /************/
     --home_company_color:#30363C;
@@ -103,4 +100,7 @@
     /***********************************/
     --website_footer_bg_color:#f6f6f6;
     --website_footer1_bg_color:#dedede;
+
+    --main-theme-home-mobile-footer-bg-color:#f6f6f6;
+    --main-theme-home-mobile-footer-text-color:#757575;
 }

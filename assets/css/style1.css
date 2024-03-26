@@ -1330,9 +1330,9 @@ table{
 .mobile_footer_css_left {
 	width:40%;
 	float: left;
-	background: var(--main_theme_footer_bg)  !important;
+	background: var(--main-theme-home-mobile-footer-bg-color)  !important;
 	border-top-right-radius: 50px;
-	color: var(--main_theme_footer_color)  !important;
+	color: var(--main-theme-home-mobile-footer-text-color)  !important;
 	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
 }
 .mobile_footer_css_left a{
@@ -1345,14 +1345,14 @@ table{
     color: var(--main-theme-top-icon-menu-color);
 }
 .mobile_footer_css_center {
-	background: var(--main_theme_footer_bg) !important;
+	background: var(--main-theme-home-mobile-footer-bg-color) !important;
     border-radius: 50px;
     margin-left: 2%;
     margin-right: 2%;
     width: 16%;
     float: left;
     padding: 5%;
-    color: var(--main_theme_footer_color) !important;
+    color: var(--main-theme-home-mobile-footer-text-color) !important;
     box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
 }
 .mobile_footer_css_center a{
@@ -1362,9 +1362,9 @@ table{
 .mobile_footer_css_right {
 	width:40%;
 	float: left;
-	background: var(--main_theme_footer_bg) !important;
+	background: var(--main-theme-home-mobile-footer-bg-color) !important;
 	border-top-left-radius: 50px;
-	color: var(--main_theme_footer_color)  !important;
+	color: var(--main-theme-home-mobile-footer-text-color)  !important;
 	box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
 }
 .mobile_footer_css_right a{

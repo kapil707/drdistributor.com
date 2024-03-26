@@ -9,6 +9,9 @@ html::-webkit-scrollbar-track{
 html::-webkit-scrollbar-thumb{
     background:var(--main-theme-scrollbar-color);
 }*/
+pre{
+	color:var(--main-theme-text-color) !important;
+}
 a{
 	color:var(--main-theme-a-text-color);
 }

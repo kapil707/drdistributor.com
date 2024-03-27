@@ -783,7 +783,7 @@ table{
 }
 
 .home_page_item_company{
-	color:var(--home_company_color_hover);
+	color:var(--home_company_color);
     font-size: 18px;
 	text-overflow: ellipsis;
     white-space: nowrap;

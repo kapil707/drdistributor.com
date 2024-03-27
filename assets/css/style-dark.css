@@ -3,14 +3,12 @@
     --main_theme_hearder_color_hover:#757575;
 
     /************/
-    --home_company_color:#30363C;
-    --home_company_color_hover:#757575;
+    --home_company_color:#ffffff;
+    --home_company_color_hover:#17a2b8;
     
     --main_theme_left_right_btn:#ffffff;
     --main_theme_left_right_btn_bg:#000000;
     
-
-    --home_page_mobile_footer_color:#757575;
     --footer_website_name_color:#757575;
 
     /***************************************/
@@ -82,11 +80,11 @@
     --main-theme-button-disable-text-color-hover:#ffffff;
 
     --main-theme-box-bg-color:#373d40;
-    --main-theme-box-bg-color-hover:#6a6767;
+    --main-theme-box-bg-color-hover:#6A6767;
 
     --main-theme-top-icon-menu-color:#ced4da;
     --main-theme-top-icon-menu-li-bg-color:#383d41;
-    --main-theme-top-icon-menu-li-bg-color-hover:#6a6767;
+    --main-theme-top-icon-menu-li-bg-color-hover:#6A6767;
 
     --main-theme-icon-color:#ced4da;
 

@@ -99,6 +99,14 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<span>Search</span>
 						</a>
 					</li>
+
+					<li class="d-none d-md-block">
+						<a href="javascript:new_style_menu_show()" class="mobile_off">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<span class="d-none d-xxl-block">Account</span>
+						</a>
+					</li>
+					
 					<li class="mobile_show">
 						<a href="#" onclick="delete_all_medicine()" title="delete all" class="top_bar_menu_delete_all_btn" style="display: none;">
 							<i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -109,12 +117,6 @@ if (!isset($_COOKIE["user_cart_total"])) {
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">My cart&nbsp;</span>
 							(<span class="top_bar_menu_cart_span"><?= $_COOKIE["user_cart_total"]; ?></span>)
-						</a>
-					</li>
-					<li class="d-none d-md-block">
-						<a href="javascript:new_style_menu_show()" class="mobile_off">
-							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="d-none d-xxl-block">Account</span>
 						</a>
 					</li>
 

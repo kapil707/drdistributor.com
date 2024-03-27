@@ -433,24 +433,15 @@ function medicine_add_to_cart_api()
 					cache	   : true,
 					error: function(){
 						swal("error add to cart")
-						$(".main_page_loading").hide();
 					},
 					success    : function(data){
 						
-						$(".main_page_loading").hide();
 						$(".medicine_details_item_order_quantity_textbox").val("");
-						$(".my_cart_api_div").html("");
-						$(".my_cart_api_div_mobile").html("");
-						$(".my_cart_api_div_import_order").html("");
-						if(data.items=="") {
-							$(".my_cart_api_div").html(cart_emtpy_function());
-							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-							//$(".my_cart_api_div_import_order").html(cart_emtpy_function());
-						}
-						
-						/***************************** */
-						get_my_cart_total_api();
-						/***************************** */
+						if(data.items=="") {							
+							/***************************** */
+							get_my_cart_total_api();
+							/***************************** */
+						}						
 					},
 					timeout: 60000
 				});

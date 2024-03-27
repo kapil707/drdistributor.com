@@ -49,7 +49,7 @@ function goBack() {
 		</div>
 	</div>
 </div>
-<div class="search_cart_footer_div">
+<div class="search_cart_footer_div" style="display:none;">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center">	

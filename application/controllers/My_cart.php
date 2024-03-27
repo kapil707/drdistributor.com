@@ -131,26 +131,21 @@ class My_cart extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$order_type = $_POST["order_type"];
+		
+		$status = $status_message = "";
 		if(!empty($user_type) && !empty($user_altercode)){
 			$excel_number = "";		
-			$status = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
-			/*****************************************************/
-		}
-
-		if(!empty($user_altercode))
-		{
-			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,$order_type);
-			$items = $result["items"];
-			$items_other = $result["items_other"];
-			$items_total = $result["items_total"];
+			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			
+			$status = $result["status"];
+			$status_message = $result["status_message"];
 		}
 		
 		$response = array(
             'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-            'items_other' => $items_other
+            'message' => 'Data add successfully',
+            'status'=>$status,
+			'status_message'=>$status_message,
         );
 
         // Send JSON response

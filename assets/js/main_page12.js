@@ -79,6 +79,13 @@ function gosearchpage()
 }
 
 $(document).ready(function(){
+
+	$('.medicine_details_item_order_quantity_textbox').keypress(function (e) {
+		if (e.which == 13) {
+			medicine_add_to_cart_api();
+		} 
+	});
+
 	get_my_cart_total_api();
 });
 function get_my_cart_total_api(){
@@ -361,18 +368,6 @@ function medicine_details_api_data(item_code)
 	$(".medicine_details_item_order_quantity_textbox").focus()
 }
 
-
-$(document).ready(function(){
-	//setTimeout('count_temp_rec();',500);
-	//setTimeout('check_login_function();',6000);
-
-	$('.medicine_details_item_order_quantity_textbox').keypress(function (e) {
-		if (e.which == 13) {
-			medicine_add_to_cart_api();
-		} 
-	});
-});
-
 function change_item_order_quantity(){
 
 	$(".add_to_cart_error_message").html('');
@@ -452,6 +447,11 @@ function medicine_add_to_cart_api()
 							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
 							//$(".my_cart_api_div_import_order").html(cart_emtpy_function());
 						}
+						
+						/***************************** */
+						get_my_cart_total_api();
+						/***************************** */
+
 						$.each(data.items, function(i,item){
 							if (item)
 							{

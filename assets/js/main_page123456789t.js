@@ -597,10 +597,6 @@ function my_cart_api(order_type) {
 	
 	/**********only for cart page********** */
 	$(".main_page_cart_emtpy").hide()
-	if(get_page_name=="my_cart"){
-		$(".main_container").hide()
-		$(".search_cart_footer_div").hide()
-	}
 	/************************************* */
 
 	id = "";
@@ -622,6 +618,10 @@ function my_cart_api(order_type) {
 				$(".main_page_something_went_wrong").show();
 			}
 			/************************************* */
+			if(get_page_name=="my_cart"){
+				$(".main_container").hide()
+				$(".search_cart_footer_div").hide()
+			}
 		},
 		success: function(data){
 

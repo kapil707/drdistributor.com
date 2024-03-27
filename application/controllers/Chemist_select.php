@@ -41,7 +41,7 @@ class chemist_select extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
 		/********************************************************** */

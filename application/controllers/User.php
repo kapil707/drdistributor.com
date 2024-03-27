@@ -35,10 +35,6 @@ class User extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
 
 		/********************************************************** */
 		$page_name = "account";
@@ -73,10 +69,6 @@ class User extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
 
 		/********************************************************** */
 		$page_name = "change_account";
@@ -117,10 +109,6 @@ class User extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
 
 		/********************************************************** */
 		$page_name = "change_image";
@@ -156,10 +144,6 @@ class User extends CI_Controller {
 			$user_altercode = $chemist_id;
 		}
 		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist'> <img src='".base_url()."/img_v51/edit_icon.png' width='12px;' style='margin-top: 2px;margin-bottom: 2px;'> Edit chemist</a>";
-		}
 
 		/********************************************************** */
 		$page_name = "change_password";

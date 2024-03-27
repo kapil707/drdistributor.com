@@ -957,7 +957,7 @@ table{
 }
 .all_chemist_edit_btn{
 	color: var(--main-theme-icon-color) !important;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .import_order_delete_btn{

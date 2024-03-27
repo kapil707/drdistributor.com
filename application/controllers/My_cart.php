@@ -51,6 +51,35 @@ class My_cart extends CI_Controller {
 	}
 
 	/*******************api start*********************/
+	public function my_cart_total_api(){
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+		$user_password	= $_COOKIE["user_password"];
+		$chemist_id 	= "";
+		$salesman_id = "";
+		if($user_type=="sales"){
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+
+		$items = "";
+		if(!empty($user_altercode))
+		{
+			$result = $this->MyCartModel->my_cart_total_api($user_type,$user_altercode,$user_password,$salesman_id);
+			$items = $result["items"];
+		}
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
 	public function my_cart_api(){
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];

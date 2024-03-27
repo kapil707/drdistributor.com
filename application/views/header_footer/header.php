@@ -67,7 +67,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 				<div class="" style="float:left; margin-left:5px;width: inherit;">
 					<h1 class="pro-link top_bar_title">
-						Delivering to
+						Loading....
 					</h1>
 					<div class="pro-link top_bar_title1">
 						Code : <?= $session_delivering_to ?>

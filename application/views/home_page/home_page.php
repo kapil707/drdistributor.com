@@ -18,14 +18,9 @@
     padding-bottom: 100px;
 }
 </style>
-<?php
-$ua = strtolower($_SERVER["HTTP_USER_AGENT"]);
-$isMob = is_numeric(strpos($ua, "mobile"));
-
-$default_img = base_url()."/uploads/default_img.jpg";
-$error_img ="onerror=this.src=".base_url()."/uploads/default_img.jpg";
-
-?>
+<script>
+$(".top_bar_title").html("Delivering to");
+</script>
 <div class="container-fluid main_container">
 	<div class="row home_page_slider1_data"></div>
 	<div class="row home_page_divisioncategory1_data"></div>

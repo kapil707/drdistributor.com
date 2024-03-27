@@ -281,81 +281,84 @@ var query_work = 0;
 var next_id = "";
 function home_page_api(seq_id)
 {
-	$(".main_page_loading1").show();
+	if(query_work==0)
+	{
+		$(".main_page_loading1").show();
 
-	query_work = 1;
-	//alert(id);
-	$.ajax({
-		type       : "POST",
-		dataType   : "json",
-		data       :  {seq_id:seq_id} ,
-		url        : get_base_url() + "home/home_page_api",
-		cache	   : true,
-		error: function(){
-			$(".main_page_loading1").hide();
-		},
-		success : function(data){
-			$(".main_page_loading1").hide();
-			if(data!="")
-			{
-				query_work = 0;
-				$.each(data.get_result, function(i,row){
-					//alert(row.myid);
-					$(".main_loading_css").hide();	
-					items = row.items;
-					title = row.title;
+		query_work = 1;
+		//alert(id);
+		$.ajax({
+			type       : "POST",
+			dataType   : "json",
+			data       :  {seq_id:seq_id} ,
+			url        : get_base_url() + "home/home_page_api",
+			cache	   : true,
+			error: function(){
+				$(".main_page_loading1").hide();
+			},
+			success : function(data){
+				$(".main_page_loading1").hide();
+				if(data!="")
+				{
+					query_work = 0;
+					$.each(data.get_result, function(i,row){
+						//alert(row.myid);
+						$(".main_loading_css").hide();	
+						items = row.items;
+						title = row.title;
 
-					category_id = row.category_id;
-					page_type = row.page_type;
+						category_id = row.category_id;
+						page_type = row.page_type;
 
-					next_id = row.next_id;
+						next_id = row.next_id;
 
-					if(page_type=="invoice") {
-						dt_result = home_page_invoice(category_id,items,title);
-						$(".home_page_invoice_notification_data").append(dt_result);
-					}
-
-					if(page_type=="notification") {
-						dt_result = home_page_notification(category_id,items,title);
-						$(".home_page_invoice_notification_data").append(dt_result);
-					}
-					
-					if(page_type=="menu") {
-						dt_result = home_page_menu(category_id,items,title);
-						$(".home_page_menu_data").html(dt_result);
-					}
-					
-					if(page_type=="slider") {
-						dt_result = home_page_slider(category_id,items,title);
-						if(category_id=="1"){
-							$(".home_page_slider1_data").html(dt_result);
-							jssor_1_slider_init();
+						if(page_type=="invoice") {
+							dt_result = home_page_invoice(category_id,items,title);
+							$(".home_page_invoice_notification_data").append(dt_result);
 						}
-						if(category_id=="2"){
+
+						if(page_type=="notification") {
+							dt_result = home_page_notification(category_id,items,title);
+							$(".home_page_invoice_notification_data").append(dt_result);
+						}
+						
+						if(page_type=="menu") {
+							dt_result = home_page_menu(category_id,items,title);
+							$(".home_page_menu_data").html(dt_result);
+						}
+						
+						if(page_type=="slider") {
+							dt_result = home_page_slider(category_id,items,title);
+							if(category_id=="1"){
+								$(".home_page_slider1_data").html(dt_result);
+								jssor_1_slider_init();
+							}
+							if(category_id=="2"){
+								$(".home_page_all_data").append(dt_result);
+								jssor_2_slider_init();
+							}
+						}
+						if(page_type=="divisioncategory") {
+							dt_result = home_page_divisioncategory(category_id,items,title);
+							if(category_id=="1"){
+								$(".home_page_divisioncategory1_data").append(dt_result);
+							}else{
+								$(".home_page_all_data").append(dt_result);
+							}
+							home_page_owl_load("divisioncategory",category_id);
+						}
+						
+						if(page_type=="itemcategory") {
+							dt_result = home_page_itemcategory(category_id,items,title);
 							$(".home_page_all_data").append(dt_result);
-							jssor_2_slider_init();
+							home_page_owl_load("itemcategory",category_id);
 						}
-					}
-					if(page_type=="divisioncategory") {
-						dt_result = home_page_divisioncategory(category_id,items,title);
-						if(category_id=="1"){
-							$(".home_page_divisioncategory1_data").append(dt_result);
-						}else{
-							$(".home_page_all_data").append(dt_result);
-						}
-						home_page_owl_load("divisioncategory",category_id);
-					}
-					
-					if(page_type=="itemcategory") {
-						dt_result = home_page_itemcategory(category_id,items,title);
-						$(".home_page_all_data").append(dt_result);
-						home_page_owl_load("itemcategory",category_id);
-					}
-				});
-			}
-		},
-		timeout: 60000
-	});
+					});
+				}
+			},
+			timeout: 60000
+		});
+	}
 }
 
 function load_more(){

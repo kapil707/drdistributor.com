@@ -134,7 +134,7 @@ function goBack() {
 					</select>
 				</div>
 				<div class="form-group">
-					<textarea class="" id="remarks" rows="5" placeholder="Enter a remark" style="border-style: solid !important;border-color: #e0e0e0 !important;border-width: 1px !important;border-radius:10px;width: 100%;padding:10px;"></textarea>
+					<textarea class="" id="remarks" rows="5" placeholder="Enter a remark" class="input_type_text2"></textarea>
 				</div>
 			</div>
 			<!-- Modal footer -->

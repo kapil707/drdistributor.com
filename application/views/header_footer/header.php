@@ -254,7 +254,8 @@ if (isset($_COOKIE["theme_type"])) {
 		<ul>
 			<li>
 				<a href="<?= base_url() ?>account" title="Account">
-					<i class="fa fa-user" aria-hidden="true"></i> Account
+					<i class="fa fa-user" aria-hidden="true"></i> 
+					Account
 				</a>
 			</li>
 			<li>
@@ -265,18 +266,20 @@ if (isset($_COOKIE["theme_type"])) {
 			</li>
 			<li>
 				<a href="<?= base_url() ?>update_image" title="Update image">
-					<i class="fa fa-camera" aria-hidden="true"></i> Update image
+					<i class="fa fa-camera" aria-hidden="true"></i> 
+					Update image
 				</a>
 			</li>
 			<li>
 				<a href="<?= base_url() ?>update_password" title="Update password">
 				<i class="fa fa-key" aria-hidden="true"></i>
-				Update password
+					Update password
 				</a>
 			</li>
 			<li class="mobile_off">
 				<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
-					<i class="fa fa-thumbs-up" aria-hidden="true"></i> Update suggest medicine
+					<i class="fa fa-thumbs-up" aria-hidden="true"></i> 
+					Update suggest medicine
 				</a>
 			</li>
 			<?php

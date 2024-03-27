@@ -78,6 +78,24 @@ function gosearchpage()
 	window.location.href = get_base_url() + "medicine_search";
 }
 
+$(document).ready(function(){
+	get_my_cart_total_api();
+});
+function get_my_cart_total_api(){
+	id = "";
+	$.ajax({
+		type       : "POST",
+		data       : {id:id},
+		url        : get_base_url() + "my_cart/my_cart_total_api",
+		cache	   : true,
+		error: function(){
+		},
+		success    : function(data){
+			console.log(data);
+		}
+	});
+}
+
 function get_single_medicine_info(item_code)
 {
 	var session_user_altercode = get_user_altercode();

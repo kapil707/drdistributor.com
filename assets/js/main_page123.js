@@ -554,7 +554,11 @@ function delete_medicine(item_code)
 								}else{
 									order_type = "all";
 								}
+								/***************************** */
+								get_my_cart_total_api();
+								/***************************** */
 								my_cart_api(order_type);
+								/***************************** */
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});
@@ -605,7 +609,11 @@ function delete_all_medicine()
 								}else{
 									order_type = "all";
 								}
+								/***************************** */
+								get_my_cart_total_api();
+								/***************************** */
 								my_cart_api(order_type);
+								/***************************** */
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});

@@ -656,7 +656,7 @@ function my_cart_api(order_type) {
 					item_packing 		= item.item_packing;
 					item_expiry 		= item.item_expiry;
 					item_company 		= item.item_company;
-					//item_quantity 		= item.item_quantity;
+					//item_quantity 	= item.item_quantity;
 					//item_stock 		= item.item_stock;
 					item_ptr 			= item.item_ptr;
 					item_mrp 			= item.item_mrp;

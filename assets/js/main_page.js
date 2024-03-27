@@ -103,7 +103,7 @@ $(document).ready(function(){
 function get_my_cart_total_api(){
 
 	/******************************** */
-	setTimeout('medicine_search_api();',60000);
+	setTimeout('get_my_cart_total_api();',45000);
 	/******************************** */
 	id = "";
 	$.ajax({

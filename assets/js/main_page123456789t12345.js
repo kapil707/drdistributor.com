@@ -82,7 +82,16 @@ $(document).ready(function(){
 
 	$('.medicine_details_item_order_quantity_textbox').keypress(function (e) {
 		if (e.which == 13) {
-			medicine_add_to_cart_api();
+
+			item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
+			$(".add_to_cart_error_message").html('');
+			if(item_order_quantity==""){
+				$(".add_to_cart_error_message").html('Enter quantity');
+				$(".medicine_details_item_order_quantity_textbox").focus();
+				
+			}else{
+				medicine_add_to_cart_api();
+			}
 		} 
 	});
 
@@ -90,6 +99,7 @@ $(document).ready(function(){
 	get_my_cart_total_api();
 	/******************************** */
 });
+
 function get_my_cart_total_api(){
 
 	/******************************** */

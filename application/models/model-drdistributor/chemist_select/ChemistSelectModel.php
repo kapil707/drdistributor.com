@@ -29,7 +29,7 @@ class ChemistSelectModel extends CI_Model
 				/*$user_cart 		 = $row->user_cart;
 				$user_cart_total = $row->user_cart_total;*/
 				$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
-				$chemist_image = base_url()."img_v51/logo.png";
+				$chemist_image = base_url()."img_v51/logo4.png";
 				if(!empty($row->image))
 				{
 					$chemist_image = base_url()."user_profile/".$row->image;

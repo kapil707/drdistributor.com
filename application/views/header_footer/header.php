@@ -3,10 +3,6 @@ $theme_type = "lite";
 if (isset($_COOKIE["theme_type"])) {
 	$theme_type = $_COOKIE["theme_type"];
 }
-if (!isset($_COOKIE["user_cart_total"])) {
-	setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
-	$_COOKIE["user_cart_total"] = 0;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +112,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="My cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">My cart&nbsp;</span>
-							(<span class="top_bar_menu_cart_span"><?= $_COOKIE["user_cart_total"]; ?></span>)
+							(<span class="top_bar_menu_cart_span"></span>)
 						</a>
 					</li>
 
@@ -593,4 +589,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page12.js"></script>

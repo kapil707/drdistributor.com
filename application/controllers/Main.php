@@ -25,7 +25,6 @@ class Main extends CI_Controller {
 		if(!empty($_COOKIE["user_altercode"])){
 			redirect(base_url()."home");
 		} else {
-			setcookie("user_cart_total", "0", time() + (86400 * 30), "/");
 			setcookie("user_type", "", time() + (86400 * 30), "/");
 			setcookie("user_altercode", "", time() + (86400 * 30), "/");
 			setcookie("user_password", "", time() + (86400 * 30), "/");

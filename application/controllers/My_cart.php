@@ -98,7 +98,6 @@ class My_cart extends CI_Controller {
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 			$items_total = $result["items_total"];
-			setcookie("user_cart_total", $items_total, time() + (86400 * 30), "/");
 		}
 		
 		$response = array(
@@ -145,7 +144,6 @@ class My_cart extends CI_Controller {
 			$items = $result["items"];
 			$items_other = $result["items_other"];
 			$items_total = $result["items_total"];
-			setcookie("user_cart_total", $items_total, time() + (86400 * 30), "/");
 		}
 		
 		$response = array(
@@ -236,10 +234,6 @@ class My_cart extends CI_Controller {
 		$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"pc_mobile",$remarks);
 		$status = $result["status"];
 		$status_message = $result["status_message"];
-		if($status=="1"){
-			$user_cart_total = 0;
-			setcookie("user_cart_total", $user_cart_total, time() + (86400 * 30), "/");
-		}
 
 		$jsonArray = array();
 		$dt = array(

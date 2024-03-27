@@ -17,10 +17,9 @@
 		</div>
 	</div>
 	<div class="container-fluid" style="margin-top:50px;">
-		<div class="row" style="margin-top:30px;">
-			<div class="col-md-3"> 
-			</div>
-			<div class="col-md-6 main_box_div">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 main_box_div p-5">
 				<label class="label_css">Enter chemist code</label>
 				<div class="form-row">
 					<div class="form-group col">

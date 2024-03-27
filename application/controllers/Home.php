@@ -151,11 +151,11 @@ class Home extends CI_Controller {
 
 			$page_type = $row->type;
 			$next_id = $row->seq_id + 1;
-		}
 
-		if($next_id<=5){
-			$next_id = 6;
-		}
+			if($next_id<=5){
+				$next_id = 6;
+			}
+		}		
 
 		$response = array(
 			'success' => "1",

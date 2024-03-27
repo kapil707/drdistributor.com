@@ -23,6 +23,7 @@ class MyCartModel extends CI_Model
 	{
 		$chemist_id = $user_altercode;
 		
+		$this->db->select('quantity,sale_rate');
 		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
 		if($user_type=="sales")
 		{
@@ -34,10 +35,11 @@ class MyCartModel extends CI_Model
 		$this->db->where('status','0');
 		$this->db->order_by('id','desc');	
 		$query = $this->db->get("drd_temp_rec")->result();
-		$order_price = 0;
+		$items_total = $items_price = 0;
 		foreach($query as $row)
 		{
-			$order_price = $order_price + ($row->quantity * $row->sale_rate);
+			$items_total++;
+			$items_price = $items_price + ($row->quantity * $row->sale_rate);
 		}
 		$row = $this->db->query("select tbl_acm_other.password,tbl_acm_other.block,tbl_acm_other.status,tbl_acm_other.order_limit,tbl_acm_other.website_limit,tbl_acm_other.android_limit from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$chemist_id' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 		
@@ -55,16 +57,18 @@ class MyCartModel extends CI_Model
 				}
 			}
 		}
-		
+
+		$return["items_total"] = $items_total;
+		$return["items_price"] = $items_price;
 		$return["status"] = 1; // ek honay par he place hoga order
 		$return["status_message"] = "";
 		if(!empty($row)){
 			if($user_type=="chemist")
 			{
 				$return["status_message"] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
-				$order_price      = round($order_price);
+				$items_price      = round($items_price);
 				$user_order_limit = round($user_order_limit);
-				if($order_price<=$user_order_limit)
+				if($items_price<=$user_order_limit)
 				{
 					$return["status"] = 0;
 				}
@@ -85,6 +89,32 @@ class MyCartModel extends CI_Model
 			$return["status"] = 0;
 			$return["status_message"] = "<font color='red'>Can't Place Order, Please Re-Login with your New Password.</font>";
 		}	
+		return $return;
+	}
+
+	public function my_cart_total_api($user_type="",$user_altercode="",$user_password="",$selesman_id="")
+	{
+		/*********************************************************** */
+    	//iss query say button visble or disble hota ha plceorder ka
+    	$get_total_price_of_order = $this->get_total_price_of_order($user_type,$user_altercode,$user_password,$selesman_id);
+
+    	$status  = $get_total_price_of_order["status"];
+    	$status_message = "<center>".$get_total_price_of_order["status_message"]."</center>";
+		$items_total  = $get_total_price_of_order["items_total"];
+		$items_price  = $get_total_price_of_order["items_price"];
+    	$items_price = sprintf('%0.2f',round($items_price,2));
+    	/*********************************************************** */
+
+    	$dt = array(
+			'items_total' => $items_total,
+			'items_price' => $items_price,
+			'status' => $status,
+			'status_message' => $status_message,
+		);
+		$jsonArray[] = $dt;
+		
+		$return["items"] 		= $jsonArray;
+		$return["items_total"] 	= $items_total;
 		return $return;
 	}
 	

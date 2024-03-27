@@ -23,7 +23,7 @@ class MedicineSchemeNewModel extends CI_Model
 		$db2->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$db2->from('tbl_medicine_compare_final AS t1');
 		$db2->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
-		$db2->where('t1.type=', 'margin');
+		$db2->where('t1.type=', 'scheme');
 		/************************************ */
 		if($user_nrx=="yes"){
 		}else{

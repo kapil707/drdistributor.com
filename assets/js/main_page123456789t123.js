@@ -656,16 +656,16 @@ function my_cart_api(order_type) {
 					item_packing 		= item.item_packing;
 					item_expiry 		= item.item_expiry;
 					item_company 		= item.item_company;
-					//item_quantity 	= item.item_quantity;
-					//item_stock 		= item.item_stock;
-					item_ptr 			= item.item_ptr;
-					item_mrp 			= item.item_mrp;
+					item_quantity 		= "";//item.item_quantity;
+					item_stock 			= "";//item.item_stock;
+					item_ptr 			= "";//item.item_ptr;
+					item_mrp 			= "";//item.item_mrp;
 					item_price 			= item.item_price;
 					item_scheme 		= item.item_scheme;
 					item_margin 		= item.item_margin;
 					item_featured 		= item.item_featured;
-					item_description1 	= item.item_description1;
-					similar_items 		= item.similar_items;
+					item_description1 	= "";//item.item_description1;
+					similar_items 		= "";//item.similar_items;
 					//new add for last order qty
 					item_order_quantity = item.item_order_quantity;
 

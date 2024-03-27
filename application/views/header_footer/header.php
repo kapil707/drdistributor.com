@@ -589,4 +589,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page123456789.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page123456789t.js"></script>

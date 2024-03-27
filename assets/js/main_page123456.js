@@ -437,11 +437,9 @@ function medicine_add_to_cart_api()
 					success    : function(data){
 						
 						$(".medicine_details_item_order_quantity_textbox").val("");
-						if(data.items=="") {							
-							/***************************** */
-							get_my_cart_total_api();
-							/***************************** */
-						}						
+						/***************************** */
+						get_my_cart_total_api();
+						/***************************** */					
 					},
 					timeout: 60000
 				});

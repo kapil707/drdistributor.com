@@ -411,8 +411,9 @@ function medicine_add_to_cart_api()
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();
 
+	$(".add_to_cart_error_message").html('');
 	if(item_order_quantity==""){
-		swal("Enter quantity");
+		$(".add_to_cart_error_message").html('Enter quantity');
 		$(".medicine_details_item_order_quantity_textbox").focus();
 	}
 	else

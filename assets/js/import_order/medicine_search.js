@@ -1,5 +1,8 @@
 
 function import_order_medicine_details(myid) {
+	/******************************** */
+	get_my_cart_total_api();
+	/******************************** */
 	$.ajax({
 		type       : "POST",
 		data       : {myid:myid} ,

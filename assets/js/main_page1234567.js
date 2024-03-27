@@ -86,9 +86,15 @@ $(document).ready(function(){
 		} 
 	});
 
+	/******************************** */
 	get_my_cart_total_api();
+	/******************************** */
 });
 function get_my_cart_total_api(){
+
+	/******************************** */
+	setTimeout('medicine_search_api();',60000);
+	/******************************** */
 	id = "";
 	$.ajax({
 		type       : "POST",

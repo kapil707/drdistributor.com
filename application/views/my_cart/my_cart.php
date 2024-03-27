@@ -31,7 +31,7 @@ function goBack() {
 	window.location.href = "<?= base_url();?>search_medicine";
 }
 </script>
-<div class="container-fluid main_container">
+<div class="container-fluid main_container" style="display:none;">
 	<div class="row">
 		<div class="col-sm-6 col-6 mobile_off">
 			<h6 class="home_page_heading_title3">

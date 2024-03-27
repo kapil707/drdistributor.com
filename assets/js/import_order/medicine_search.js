@@ -1,8 +1,5 @@
 
 function import_order_medicine_details(myid) {
-	/******************************** */
-	get_my_cart_total_api();
-	/******************************** */
 	$.ajax({
 		type       : "POST",
 		data       : {myid:myid} ,
@@ -15,6 +12,10 @@ function import_order_medicine_details(myid) {
 			$.each(data.items, function(i,item){
 				if (item)
 				{
+					/******************************** */
+					get_my_cart_total_api();
+					/******************************** */
+					
 					excel_number = item.excel_number;
 					item_message 	= item.item_message;
 					item_background = item.item_background;

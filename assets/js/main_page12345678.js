@@ -443,9 +443,25 @@ function medicine_add_to_cart_api()
 					success    : function(data){
 						
 						$(".medicine_details_item_order_quantity_textbox").val("");
+
 						/***************************** */
 						get_my_cart_total_api();
-						/***************************** */					
+						/***************************** */
+
+						$.each(data.items, function(i,item){	
+							if (item)
+							{
+								if(item.status=="1")
+								{
+									var rate_div = "";
+									var my_cart_data = '<div class="main_box_div_data"><div class="my_cart_box_left_div"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></a></div><div class="my_cart_box_right_div"><div class="all_item_name" title="'+item_name+'" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span> | <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show pl-2">'+rate_div+'</span></div>';
+
+									$(".my_cart_api_div").append(my_cart_data);
+									$(".my_cart_api_div_mobile").append(my_cart_data);
+									$(".my_cart_api_div_import_order").append(my_cart_data);
+								}
+							}
+						});
 					},
 					timeout: 60000
 				});

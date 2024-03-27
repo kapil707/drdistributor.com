@@ -140,12 +140,17 @@ class My_cart extends CI_Controller {
 			$status = $result["status"];
 			$status_message = $result["status_message"];
 		}
+
+		$dt = array(
+			'status' => $status,
+			'status_message' => $status_message,
+		);
+		$items[] = $dt;
 		
 		$response = array(
             'success' => "1",
             'message' => 'Data add successfully',
-            'status'=>$status,
-			'status_message'=>$status_message,
+            'items'=>$items,
         );
 
         // Send JSON response

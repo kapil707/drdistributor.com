@@ -112,7 +112,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="My cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<span class="d-none d-lg-block">My cart&nbsp;</span>
-							(<span class="top_bar_menu_cart_span"></span>)
+							(<span class="top_bar_menu_cart_span">0</span>)
 						</a>
 					</li>
 
@@ -589,4 +589,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1234567.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page12345678.js"></script>

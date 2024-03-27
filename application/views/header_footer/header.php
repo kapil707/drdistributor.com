@@ -248,7 +248,7 @@ if (!isset($_COOKIE["user_cart_total"])) {
 	</div>
 	<div class="left_menu_bar_div2 text-center">
 		<h2 class="text-left">Select theme</h2>
-		<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="margin-top:10px;">
+		<select class="input_type_text2 theme_set_css" onchange="theme_set()" style="width:96%;">
 			<option value="lite" <?php if($theme_type=="lite") { echo "selected"; } ?>>Lite</option>
 			<option value="dark" <?php if($theme_type=="dark") { echo "selected"; } ?>>Dark</option>
 		</select>

@@ -120,7 +120,7 @@ function search_chemist()
 								chemist_message = '<div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
 							}
 							
-							var serach_data = '<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>';
+							var serach_data = '<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_chemist_name">'+item.chemist_name+'</div><div class="all_chemist_altercode"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>';
 
 							$(".search_result_div").append(serach_data);
 							$(".search_result_div_mobile").append(serach_data);
@@ -231,11 +231,10 @@ function call_page(lastid1)
 
 					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
 					
-					$(".main_page_data").append('<div class="main_box_div_data" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_item_name">'+item.chemist_name+'</div><div class="all_item_packing"> Code : '+item.chemist_altercode+'</div><div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');	
+					$(".main_page_data").append('<div class="main_box_div_data" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_chemist_name">'+item.chemist_name+'</div><div class="all_chemist_altercode"> Code : '+item.chemist_altercode+'</div><div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>');	
 
 					no_record_found = 1;
 					
-					$(".main_page_data").show();
 					new_i = parseInt(new_i) + 1;
 					$(".top_bar_title2").html("Found result ("+new_i+")");
 				}

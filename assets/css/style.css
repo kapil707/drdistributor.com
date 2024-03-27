@@ -450,9 +450,11 @@ table{
 	word-wrap: break-word;
 	font-size: 18px;
 	font-weight: bold;
+	color: var(--chemist-name-color);
 }
 .left_menu_bar_accoun_chemist_code{
 	font-size: 16px;
+	color: var(--chemist-altercode-color);
 }
 .left_menu_bar_div1{
     padding: 10px;
@@ -939,6 +941,22 @@ table{
 .all_item_description1{
 	color:var(--item_description1_color);
     font-size: 13px;
+}
+.all_chemist_name{
+	font-size:15px;
+	font-weight:bold;
+	line-height: 18px;
+	color: var(--chemist-name-color);
+}
+.all_chemist_altercode{
+	font-size:13px;
+	font-weight:bold;
+	line-height: 15px;
+	color: var(--chemist-altercode-color);
+}
+.all_chemist_edit_btn{
+	color: var(--main-theme-icon-color) !important;
+    font-size: 25px;
 }
 
 .import_order_delete_btn{

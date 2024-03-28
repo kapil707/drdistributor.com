@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	get_top_menu_api();
-	home_page_api(1);
-	home_page_api(2);
-	home_page_api(3);
-	home_page_api(4);
-	home_page_api(5);
+	home_page_api(1,1);
+	home_page_api(2,1);
+	home_page_api(3,1);
+	home_page_api(4,1);
+	home_page_api(5,1);
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -279,9 +279,9 @@ var my_invoice_no_record_found = 0;
 var local_myid = '';
 var query_work = 0;
 var next_id = "";
-function home_page_api(seq_id)
+function home_page_api(seq_id,isdefault="0")
 {
-	if(query_work==0)
+	if(query_work==0 || isdefault=="1")
 	{
 		$(".main_page_loading1").show();
 

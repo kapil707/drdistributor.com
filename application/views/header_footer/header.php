@@ -77,10 +77,10 @@ if (isset($_COOKIE["theme_type"])) {
 			
 			<div class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-6 col-6 web-col-padding-5">
 				<ul class="top_bar_menu">
-					<li class="d-none d-xxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
+					<li class="d-none d-xxl-block wow pulse animated google_play" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-							<i class="fa fa-google-play" aria-hidden="true"></i>
-							Download App
+							<img src="https://www.drdistributors.co.in/drd-live/img_v51/playstrore.png" alt="Google Play" style="width:35px;">
+							Google Play
 						</a>
 					</li>
 					<li class="d-none d-sm-block">

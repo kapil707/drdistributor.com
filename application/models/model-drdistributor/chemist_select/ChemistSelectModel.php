@@ -75,7 +75,7 @@ class ChemistSelectModel extends CI_Model
 			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
-			$chemist_image = base_url()."img_v51/logo.png";
+			$chemist_image = base_url()."img_v51/logo4.png";
 			if(!empty($row1->image))
 			{
 				$chemist_image = base_url()."user_profile/".$row1->image;

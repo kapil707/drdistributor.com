@@ -89,10 +89,10 @@ if (isset($_COOKIE["theme_type"])) {
 							<span class="d-none d-lg-block">Home</span>
 						</a>
 					</li>
-					<li class="d-none d-lg-block">
+					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>medicine_search" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
-							<span>Search</span>
+							<span class="d-none d-lg-block">Search</span>
 						</a>
 					</li>
 

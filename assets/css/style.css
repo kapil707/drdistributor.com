@@ -1650,7 +1650,7 @@ table{
 		display: block !important;
 	}
 }
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 	.d-xxxl-block {
 		display: block !important;
 	}

@@ -111,7 +111,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="My cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							<span class="d-none d-xxl-block">My cart&nbsp;</span>
+							<span class="d-none d-xl-block">Cart&nbsp;</span>
 							(<span class="top_bar_menu_cart_span">0</span>)
 						</a>
 					</li>
@@ -119,7 +119,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
-							<span class="d-none d-xl-block">Order</span>
+							<span>Order</span>
 						</a>
 					</li>					
 

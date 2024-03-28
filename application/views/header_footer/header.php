@@ -89,17 +89,17 @@ if (isset($_COOKIE["theme_type"])) {
 							<span class="d-none d-xl-block">Home</span>
 						</a>
 					</li>
-					<li class="d-none d-lg-block">
+					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>medicine_search" title="Search medicine / company">
 							<i class="fa fa-search" aria-hidden="true"></i>
 							<span class="d-none d-xl-block">Search</span>
 						</a>
 					</li>
 
-					<li class="d-none d-xxl-block">
+					<li class="d-none d-sm-block">
 						<a href="javascript:new_style_menu_show()" class="mobile_off">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span>Account</span>
+							<span class="d-none d-xl-block">Account</span>
 						</a>
 					</li>
 					

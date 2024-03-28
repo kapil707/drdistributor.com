@@ -106,6 +106,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li>
 						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="My cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span class="d-none d-xl-block">Cart&nbsp;</span>
 							(<span class="top_bar_menu_cart_span">0</span>)
 						</a>
@@ -114,6 +115,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
+							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span>Order</span>
 						</a>
 					</li>					
@@ -121,6 +123,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
+							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span>Invoice</span>
 						</a>
 					</li>
@@ -128,6 +131,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
+							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span class="d-none d-xl-block">Notification</span>
 						</a>
 					</li>
@@ -136,6 +140,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
 							<span>Upload</span>
+							<span class="d-none d-xxxl-block">Order</span>
 						</a>
 					</li>
 

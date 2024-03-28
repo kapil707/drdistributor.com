@@ -94,10 +94,15 @@ $(document).ready(function(){
 			}
 		} 
 	});
-
-	/******************************** */
-	get_my_cart_total_api();
-	/******************************** */
+	
+	var session_user_altercode = get_user_altercode();
+	if(session_user_altercode=="" || session_user_altercode==null)
+	{
+	}else{
+		/******************************** */
+		get_my_cart_total_api();
+		/******************************** */
+	}
 });
 
 function get_my_cart_total_api(){

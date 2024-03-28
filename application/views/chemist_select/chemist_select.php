@@ -15,8 +15,8 @@ function goBack() {
 		</div>
 		<div class="col-12 col-padding-5 mobile_show">
 			<div class="search_result_div_mobile"></div>
-			<div class="my_cart_api_div_mobile"></div>
+			<div class="main_page_data_mobile"></div>
 		</div>
 	</div>     
 </div>
-<script src="<?= base_url(); ?>assets/js/chemist_search1.js"></script>
+<script src="<?= base_url(); ?>assets/js/chemist_search12.js"></script>

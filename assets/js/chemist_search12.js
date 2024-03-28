@@ -25,7 +25,7 @@ function clear_search_function() {
 
 	$(".top_bar_search_textbox_div_clear_icon").hide();	
 	
-	$(".my_cart_api_div_mobile").show();
+	$(".main_page_data_mobile").show();
 }
 $(document).ready(function() {
 	$(".chemist_search_textbox").keyup(function(e){
@@ -95,6 +95,8 @@ $(document).ready(function() {
 function search_chemist()
 {
 	new_i = 0;
+
+	$(".main_page_data_mobile").hide();
 
 	$(".top_bar_search_textbox_div_clear_icon").show();
 

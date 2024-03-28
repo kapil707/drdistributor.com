@@ -130,10 +130,10 @@ if (isset($_COOKIE["theme_type"])) {
 						</a>
 					</li>
 
-					<li class="d-none d-lg-block">
+					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span>Notification</span>
+							<span class="d-none d-xl-block">Notification</span>
 						</a>
 					</li>
 					

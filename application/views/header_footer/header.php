@@ -116,28 +116,28 @@ if (isset($_COOKIE["theme_type"])) {
 						</a>
 					</li>
 
-					<li class="d-none d-md-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
 							<span>Order</span>
 						</a>
 					</li>					
 
-					<li class="d-none d-md-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
 							<span>Invoice</span>
 						</a>
 					</li>
 
-					<li class="d-none d-md-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
 							<span>Notification</span>
 						</a>
 					</li>
 					
-					<li class="d-none d-md-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
 							<span>Upload</span>
@@ -148,14 +148,14 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-md-block">
 						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>
-							<span class="d-none d-md-block">Logout</span>
+							<span>Logout</span>
 						</a>
 					</li>
 					<?php } else { ?>
-						<li class="d-none d-md-block">
+					<li class="d-none d-md-block">
 						<a href="<?php echo base_url(); ?>login" title="Login">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>
-							<span class="d-none d-md-block">Login</span>
+							<span>Login</span>
 						</a>
 					</li>
 					<?php } ?>

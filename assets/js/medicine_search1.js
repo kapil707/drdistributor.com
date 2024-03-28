@@ -49,6 +49,11 @@ $(document).ready(function(){
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
 				}
+				if(keyword.length>2)
+				{
+					//medicine_search_api();
+					setTimeout('medicine_search_api();',500);
+				}
 			}
 			else{
 				clear_search_function();

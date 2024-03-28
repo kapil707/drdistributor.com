@@ -1,17 +1,31 @@
 function page_load() {
+
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
-	$(".chemist_search_textbox").val("");
+
+	$('.chemist_search_textbox').val("");
 	$('.chemist_search_textbox').show();
 	$('.chemist_search_textbox').focus();
 }
 function clear_search_function() {
+
+	$(".background_blur").hide();
+
 	$(".search_result_div").html("");
-	$(".search_result_div").hide();	
+	$(".search_result_div").hide();
+	
+	$(".search_result_div_mobile").html("");
+	$(".search_result_div_mobile").hide();	
+
 	$(".chemist_search_textbox").val("");
 	$('.chemist_search_textbox').focus();
-	$(".top_bar_search_textbox_div_clear_icon").hide();
-	$(".background_blur").hide();
+
+	$(".top_bar_search_textbox_div_menu_icon").hide();
+	$(".top_bar_search_textbox_div_menu").hide();
+
+	$(".top_bar_search_textbox_div_clear_icon").hide();	
+	
+	$(".my_cart_api_div_mobile").show();
 }
 $(document).ready(function() {
 	$(".chemist_search_textbox").keyup(function(e){
@@ -24,6 +38,12 @@ $(document).ready(function() {
 				{
 					$('.chemist_search_textbox').focus();
 					$(".search_result_div").html("");
+					$(".search_result_div_mobile").html("");
+				}
+				if(keyword.length>2)
+				{
+					//search_chemist();
+					setTimeout('search_chemist();',500);
 				}
 			}
 			else{
@@ -39,8 +59,13 @@ $(document).ready(function() {
 			{
 				$('.chemist_search_textbox').focus();
 				$(".search_result_div").html("");
+				$(".search_result_div_mobile").html("");
 			}
-			search_chemist()
+			if(keyword.length>2)
+			{
+				//search_chemist();
+				setTimeout('search_chemist();',500);
+			}
 		}
 		else{
 			clear_search_function();
@@ -83,6 +108,9 @@ function search_chemist()
 
 			$(".search_result_div").show();
 			$(".search_result_div").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
+
+			$(".search_result_div_mobile").show();
+			$(".search_result_div_mobile").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
 
 			$.ajax({
 				type       : "POST",

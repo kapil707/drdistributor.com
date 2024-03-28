@@ -19,4 +19,4 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<script src="<?= base_url(); ?>assets/js/chemist_search12.js"></script>
+<script src="<?= base_url(); ?>assets/js/chemist_search123.js"></script>

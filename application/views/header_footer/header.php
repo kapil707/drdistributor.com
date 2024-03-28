@@ -56,7 +56,7 @@ if (isset($_COOKIE["theme_type"])) {
 <div class="top_bar">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6" style="display: flex;">
+			<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 web-col-padding-5" style="display: flex;">
 				<div class="" style="float:left;">
 					<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
 						<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
@@ -75,7 +75,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</div>
 			</div>
 			
-			<div class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-6 col-6">
+			<div class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-6 col-6 web-col-padding-5">
 				<ul class="top_bar_menu">
 					<li class="d-none d-xxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">

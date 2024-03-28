@@ -83,10 +83,10 @@ if (isset($_COOKIE["theme_type"])) {
 							Download App
 						</a>
 					</li>
-					<li class="d-none d-lg-block">
+					<li class="d-none d-sm-block">
 						<a href="<?= base_url() ?>" title="Home">
 							<i class="fa fa-home" aria-hidden="true"></i>
-							<span>Home</span>
+							<span class="d-none d-lg-block">Home</span>
 						</a>
 					</li>
 					<li class="d-none d-lg-block">
@@ -126,21 +126,21 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">Invoice</span>
+							<span>Invoice</span>
 						</a>
 					</li>
 
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">Notification</span>
+							<span>Notification</span>
 						</a>
 					</li>
 					
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">Upload</span>
+							<span>Upload</span>
 						</a>
 					</li>
 

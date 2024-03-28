@@ -79,7 +79,7 @@ if (isset($_COOKIE["theme_type"])) {
 				<ul class="top_bar_menu">
 					<li class="d-none d-xxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-							<i class="fab fa-google-play"></i>
+							<i class="fa fa-google-play"></i>
 							Download App
 						</a>
 					</li>

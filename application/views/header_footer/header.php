@@ -83,7 +83,7 @@ if (isset($_COOKIE["theme_type"])) {
 							Download App
 						</a>
 					</li>
-					<li class="d-none d-xl-block">
+					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>" title="Home">
 							<i class="fa fa-home" aria-hidden="true"></i>
 							<span>Home</span>
@@ -99,7 +99,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-md-block">
 						<a href="javascript:new_style_menu_show()" class="mobile_off">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="d-none d-xxl-block">Account</span>
+							<span class="">Account</span>
 						</a>
 					</li>
 					

@@ -206,7 +206,7 @@ if (isset($_COOKIE["theme_type"])) {
 									<label>Company : <input type="checkbox" class="menu_search_icon_checkbox checkbox_company" onchange="medicine_search_api()" checked></label>
 								</div>
 								<div class="col-sm-8">
-									Result Show : 
+									Result Show :  
 								</div>
 								<div class="col-sm-4">
 									<select class="medicine_total_rec" onchange="medicine_search_api()">

@@ -94,6 +94,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-sm-block">
 						<a href="javascript:new_style_menu_show()" class="mobile_off">
 							<i class="fa fa-user" aria-hidden="true"></i>
+							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span class="d-none d-xl-block">Account</span>
 						</a>
 					</li>

@@ -119,28 +119,28 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
-							<span class="d-none d-xl-block">My order</span>
+							<span class="d-none d-xl-block">Order</span>
 						</a>
 					</li>					
 
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">My invoice</span>
+							<span class="d-none d-xl-block">Invoice</span>
 						</a>
 					</li>
 
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">My notification</span>
+							<span class="d-none d-xl-block">Notification</span>
 						</a>
 					</li>
 					
 					<li class="d-none d-md-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span class="d-none d-xl-block">Upload order</span>
+							<span class="d-none d-xl-block">Upload</span>
 						</a>
 					</li>
 

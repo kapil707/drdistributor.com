@@ -38,6 +38,7 @@ function clear_search_function() {
 
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){
+		if(e.keyCode == 8){}
 		var keyword = $(".medicine_search_textbox").val();
 		if(keyword!="")
 		{

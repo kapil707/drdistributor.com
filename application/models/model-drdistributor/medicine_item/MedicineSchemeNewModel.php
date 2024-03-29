@@ -48,7 +48,7 @@ class MedicineSchemeNewModel extends CI_Model
 			}else{
 				$where="misc_settings!='#NRX'";
 				$this->db->where($where);
-			}
+			} 
 			/************************************ */
 			$this->db->where("salescm1!=0");
 			$this->db->where("salescm2!=0");

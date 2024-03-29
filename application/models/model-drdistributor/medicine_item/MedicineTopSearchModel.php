@@ -26,6 +26,8 @@ class MedicineTopSearchModel extends CI_Model
 		$this->db->where('t1.user_altercode', $user_altercode);
 		$this->db->where('t1.salesman_id', $salesman_id);
 		/************************************ */
+		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$this->db->where($where);
 		if($user_nrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";

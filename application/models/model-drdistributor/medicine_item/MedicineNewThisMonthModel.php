@@ -24,6 +24,8 @@ class MedicineNewThisMonthModel extends CI_Model
 		$this->db->select("i_code,item_name,packing,salescm1,salescm2,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
 		$this->db->where('item_date>=',$date);
 		/************************************ */
+		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
+		$this->db->where($where);
 		if($user_nrx=="yes"){
 		}else{
 			$where="misc_settings!='#NRX'";

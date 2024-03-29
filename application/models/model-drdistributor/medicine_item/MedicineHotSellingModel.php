@@ -23,6 +23,8 @@ class MedicineHotSellingModel extends CI_Model
 		$this->db->from('tbl_hot_selling AS t1');
 		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
 		/************************************ */
+		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$this->db->where($where);
 		if($user_nrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";

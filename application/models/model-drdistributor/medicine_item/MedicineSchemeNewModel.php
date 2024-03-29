@@ -25,8 +25,8 @@ class MedicineSchemeNewModel extends CI_Model
 		$db2->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		$db2->where('t1.type=', 'scheme');
 		/************************************ */
-		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
-		$this->db->where($where);
+		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$db2->where($where);
 		if($user_nrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";

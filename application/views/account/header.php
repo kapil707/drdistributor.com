@@ -13,7 +13,6 @@ if (isset($_COOKIE["theme_type"])) {
       <?= $this->Scheme_Model->get_website_data("title") ;?> || <?= $main_page_title;?>
     </title>
     <!-- Stylesheets -->
-	<meta name="theme-color" content="#27ae60">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link href="https://fonts.googleapis.com/css?family=Cabin:700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,10 +23,12 @@ if (isset($_COOKIE["theme_type"])) {
 	<script src="<?= base_url(); ?>assets/website/js/bigSlide.js"></script> 
 
 	<?php if($theme_type=="lite") { ?>
+		<meta name="theme-color" content="#27ae60">
 		<link href="<?= base_url(); ?>assets/css/style-light.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
+		<meta name="theme-color" content="#373d40">
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 

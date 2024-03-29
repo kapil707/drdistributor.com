@@ -16,7 +16,6 @@ if (isset($_COOKIE["theme_type"])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="canonical" href="https://www.drdistributor.com/" />
 
-	<meta name="theme-color" content="#27ae60">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -34,10 +33,12 @@ if (isset($_COOKIE["theme_type"])) {
 	<?php vp_seo(); ?>
 	
 	<?php if($theme_type=="lite") { ?>
+		<meta name="theme-color" content="#27ae60">
 		<link href="<?= base_url(); ?>assets/css/style-light.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
+		<meta name="theme-color" content="#373d40">
 		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 

@@ -50,6 +50,9 @@ class MedicineSchemeNewModel extends CI_Model
 				$this->db->where($where);
 			}
 			/************************************ */
+			$this->db->where("salescm1!=0");
+			$this->db->where("salescm2!=0");
+			/************************************ */
 			//$this->db->where("batchqty!=0");
 			if($show_out_of_stock==0){
 				$this->db->where('batchqty !=', 0);

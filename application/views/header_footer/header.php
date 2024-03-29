@@ -39,7 +39,7 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<?php if($theme_type=="dark") { ?>
 		<meta name="theme-color" content="#373d40">
-		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/css/style-dark1.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />

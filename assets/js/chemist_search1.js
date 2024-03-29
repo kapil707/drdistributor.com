@@ -29,29 +29,7 @@ function clear_search_function() {
 }
 $(document).ready(function() {
 	$(".chemist_search_textbox").keyup(function(e){
-		if(e.keyCode == 8)
-		{
-			var keyword = $(".chemist_search_textbox").val();
-			if(keyword!="")
-			{
-				if(keyword.length<3)
-				{
-					$('.chemist_search_textbox').focus();
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-				}
-				if(keyword.length>2)
-				{
-					//search_chemist();
-					setTimeout('search_chemist();',500);
-				}
-			}
-			else{
-				clear_search_function();
-			}
-		}
-	})
-	$(".chemist_search_textbox").keypress(function() { 
+		if(e.keyCode == 8){}
 		var keyword = $(".chemist_search_textbox").val();
 		if(keyword!="")
 		{
@@ -70,6 +48,8 @@ $(document).ready(function() {
 		else{
 			clear_search_function();
 		}
+	})
+	$(".chemist_search_textbox").keypress(function() { 
 	});
 	$(".chemist_search_textbox").change(function() { 
 	});
@@ -103,7 +83,7 @@ function search_chemist()
 	var keyword = $(".chemist_search_textbox").val();
 	if(keyword!="")
 	{
-		if(keyword.length>1)
+		if(keyword.length>2)
 		{
 			$(".background_blur").show();
 			$(".top_bar_title2").html("Loading....");

@@ -38,32 +38,7 @@ function clear_search_function() {
 
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){
-		if(e.keyCode == 8)
-		{
-			var keyword = $(".medicine_search_textbox").val();
-			if(keyword!="")
-			{
-				if(keyword.length<3)
-				{
-					$('.medicine_search_textbox').focus();
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-				}
-				if(keyword.length>2)
-				{
-					//medicine_search_api();
-					setTimeout('medicine_search_api();',500);
-				}
-				console.log(keyword.length);
-			}
-			else{
-				clear_search_function();
-			}
-		}
-	})  
-	$(".medicine_search_textbox").keypress(function() { 
 		var keyword = $(".medicine_search_textbox").val();
-		//$('.headertitle').html(keyword)
 		if(keyword!="")
 		{
 			if(keyword.length<3)
@@ -77,6 +52,28 @@ $(document).ready(function(){
 				//medicine_search_api();
 				setTimeout('medicine_search_api();',500);
 			}
+			console.log("keyup"+keyword.length);
+		}
+		else{
+			clear_search_function();
+		}		
+	})  
+	$(".medicine_search_textbox").keypress(function() { 
+		var keyword = $(".medicine_search_textbox").val();
+		if(keyword!="")
+		{
+			if(keyword.length<3)
+			{
+				$('.medicine_search_textbox').focus();
+				$(".search_result_div").html("");
+				$(".search_result_div_mobile").html("");
+			}
+			if(keyword.length>2)
+			{
+				//medicine_search_api();
+				setTimeout('medicine_search_api();',500);
+			}
+			console.log("keypress"+keyword.length);
 		}
 		else{
 			clear_search_function();

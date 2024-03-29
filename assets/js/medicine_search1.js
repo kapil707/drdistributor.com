@@ -54,6 +54,7 @@ $(document).ready(function(){
 					//medicine_search_api();
 					setTimeout('medicine_search_api();',500);
 				}
+				console.log(keyword.length);
 			}
 			else{
 				clear_search_function();
@@ -205,7 +206,7 @@ function medicine_search_api() {
 		{
 			keyword = "k1k2k12k";
 		}
-		if(keyword.length>1)
+		if(keyword.length>2)
 		{
 			total_rec 				= $(".medicine_total_rec").val();
 			checkbox_medicine 		= $(".checkbox_medicine").val();

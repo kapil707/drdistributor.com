@@ -417,7 +417,7 @@ class Api01 extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$items = "";
+		$items = $items_other = "";
 		if(!empty($api_key) && !empty($user_type) && !empty($user_altercode)) {
 
 			$result = $this->MyCartModel->my_cart_api($user_type,$user_altercode,$user_password,$salesman_id,"all");

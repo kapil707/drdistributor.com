@@ -551,10 +551,10 @@ class MyCartModel extends CI_Model
 		$default_place_order_text = $this->Scheme_Model->get_website_data("default_place_order_text");
 
 		$whatsapp_footer_text = $this->Scheme_Model->get_website_data("whatsapp_footer_text");
-		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/download_order/".$acm_altercode."/".$order_id." ".$whatsapp_footer_text;
+		$txt_msg = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $whatsapp_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/order_download/".$acm_altercode."/".$order_id." ".$whatsapp_footer_text;
 
 		$email_footer_text = $this->Scheme_Model->get_website_data("email_footer_text");
-		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/download_order/".$acm_altercode."/".$order_id." ".$email_footer_text."<br><br>".$html_table_formet_dt;			
+		$txt_msg_email = "Hello $acm_name ($acm_altercode)<br><br>".$default_place_order_text."<br><br>Order No. : $order_id<br>Total Rs. : $total_rs/- $remarks $email_table_formet_dt <br><br><b>You can check your order by clicking on </b><br><br>https://www.drdistributor.com/view_order/".$acm_altercode."/".$order_id." <br><br><b>You can download your order by clicking on</b> <br><br>https://www.drdistributor.com/order_download/".$acm_altercode."/".$order_id." ".$email_footer_text."<br><br>".$html_table_formet_dt;			
 			
 		/************************************************/
 		$q_altercode 	= $acm_altercode;

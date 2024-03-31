@@ -35,26 +35,31 @@ function goBack() {
 								<div class="import_order_box_left_div">
 									(<?= $i ?>) <?= $myname;?> :
 								</div>
-								<div class="import_order_box_right_div"> 
-									<span class="import_order_title_1 all_item_name">
-										<?= $item_name; ?>
-									</span> | 
-									
-									<span class="all_item_order_quantity">Quantity : </span>
+								<div class="import_order_box_right_div">
+									<div class="row">
+										<div class="col-sm-9">	
+											<span class="import_order_title_1 all_item_name">
+												<?= $item_name; ?>
+											</span> | 
+											
+											<span class="all_item_order_quantity">Quantity : </span>
 
-									<input type="hidden" name="" value="<?= $item_name; ?>" class="import_order_hidden_item_name_<?= $myid ?>" />
+											<input type="hidden" name="" value="<?= $item_name; ?>" class="import_order_hidden_item_name_<?= $myid ?>" />
 
-									<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('<?= $myid ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
+											<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('<?= $myid ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
-									<span>											
-										<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
-									</span>
-									
-									<span class="all_item_mrp">
-										MRP. : 
-										<i class="fa fa-inr" aria-hidden="true"></i>
-										<?= number_format($item_mrp,2) ?>/-
-									</span>
+											<span>				
+												<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+											</span>
+										</div>
+										<div class="col-sm-3 text-right">
+											<span class="all_item_mrp">
+												MRP. : 
+												<i class="fa fa-inr" aria-hidden="true"></i>
+												<?= number_format($item_mrp,2) ?>/-
+											</span>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-sm-12">
@@ -102,7 +107,7 @@ function goBack() {
 
 										<div class="col-sm-7">
 											<span class="all_item_company">
-												By : <span class="import_order_item_compney_<?= $myid ?>"></span>
+												By : <span class="import_order_item_company_<?= $myid ?>"></span>
 											</span> |  
 
 											<span class="all_item_batch_no"> Batch no : 

@@ -32,10 +32,10 @@ function goBack() {
 					<div class="main_box_div_data import_order_main_div_<?= $myid ?> p-1">
 						<div class="row">
 							<div class="col-sm-12">
-								<div class="import_order_box_left_div web-col-padding-5">
+								<div class="import_order_box_left_div web-col-padding-0">
 									(<?= $i ?>) <?= $myname;?> :
 								</div>
-								<div class="import_order_box_right_div web-col-padding-5">
+								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">
 										<div class="col-sm-9">	
 											<span class="import_order_title_1 all_item_name">
@@ -67,7 +67,7 @@ function goBack() {
 							</div>
 
 							<div class="col-sm-12 import_order_main_<?= $myid ?>" style="display:none">
-								<div class="import_order_box_left_div web-col-padding-5">
+								<div class="import_order_box_left_div web-col-padding-0">
 
 									<img src="<?=base_url(); ?>img_v51/featured_img.png" class="import_order_item_featured_img import_order_item_featured_<?= $myid ?>" style="display:none">
 
@@ -77,7 +77,7 @@ function goBack() {
 
 								</div>
 
-								<div class="import_order_box_right_div web-col-padding-5">
+								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">
 										<div class="col-sm-8">
 											<span class="all_item_name import_order_item_name_<?= $myid ?>"></span>
@@ -164,7 +164,7 @@ function goBack() {
 				<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:20%">Next</button>
 			</a>
 		</div>
-		<div class="col-sm-12 col-12 col-padding-5 web-col-padding-5 mt-3">
+		<div class="col-sm-12 col-12 col-padding-5 web-col-padding-0 mt-3">
 			<div class="main_box_div2">
 				<span class="my_cart_api_div_import_order"></span>
 			</div>

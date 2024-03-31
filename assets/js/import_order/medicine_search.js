@@ -48,7 +48,14 @@ function import_order_medicine_details(myid) {
 					$('.import_order_item_batch_no_'+excel_number).html(item_batch_no);
 					$('.import_order_item_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');
 					$('.import_order_item_scheme_'+excel_number).html('Scheme : '+item_scheme);
-					$('.import_order_item_stock_'+excel_number).html(item_stock);
+
+					item_quantity_div = item_quantity;
+					if(item_stock!="")
+					{
+						item_quantity_div = item_stock;
+					}
+
+					$('.import_order_item_stock_'+excel_number).html(item_quantity_div);
 					$('.import_order_item_company_'+excel_number).html(item_company);
 
 					$('.import_order_item_ptr_'+excel_number).html(item_ptr);

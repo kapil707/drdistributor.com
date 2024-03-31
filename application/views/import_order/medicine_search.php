@@ -31,9 +31,11 @@ function goBack() {
 					?>
 					<div class="main_box_div_data import_order_main_div_<?= $myid ?> p-1">
 						<div class="row">
-							<div class="col-sm-10">
-								(<?= $i ?>)
-								
+							<div class="col-sm-12">
+								<div class="import_order_box_left_div">
+									(<?= $i ?>)
+								</div>
+								<div class="import_order_box_right_div">
 								<?= $myname;?> : 
 								<span class="import_order_title_1 all_item_name">
 									<?= $item_name; ?>
@@ -48,8 +50,7 @@ function goBack() {
 								<span>											
 									<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 								</span>
-							</div>
-							<div class="col-sm-2 text-right">
+								
 								<span class="all_item_mrp">
 									MRP. : 
 									<i class="fa fa-inr" aria-hidden="true"></i>

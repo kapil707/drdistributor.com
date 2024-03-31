@@ -33,10 +33,9 @@ function goBack() {
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="import_order_box_left_div">
-									(<?= $i ?>)
+									(<?= $i ?>) <?= $myname;?> :
 								</div>
-								<div class="import_order_box_right_div">
-									<?= $myname;?> : 
+								<div class="import_order_box_right_div"> 
 									<span class="import_order_title_1 all_item_name">
 										<?= $item_name; ?>
 									</span> | 

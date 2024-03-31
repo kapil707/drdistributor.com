@@ -75,7 +75,6 @@ function goBack() {
 								<div class="import_order_box_right_div">
 									<div class="row">
 										<div class="col-sm-8">
-											Found : 
 											<span class="all_item_name import_order_item_name_<?= $myid ?>"></span>
 
 											<span class="all_item_packing">

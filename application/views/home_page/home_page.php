@@ -2,6 +2,9 @@
 .top_bar_logo{
 	display: inline !important;
 }
+.top_bar_title2{
+	display: none !important;
+}
 .top_bar_back_btn{
 	display: none !important;
 }

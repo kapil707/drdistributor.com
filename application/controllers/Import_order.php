@@ -38,7 +38,7 @@ class Import_order extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -89,7 +89,7 @@ class Import_order extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -133,7 +133,7 @@ class Import_order extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
 		/********************************************************** */
@@ -184,7 +184,7 @@ class Import_order extends CI_Controller {
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
 		/********************************************************** */

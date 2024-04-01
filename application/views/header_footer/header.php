@@ -141,7 +141,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span>Upload</span>
+							<span>Upload </span>
 							<span class="d-none d-xxxl-block">Order</span>
 						</a>
 					</li>

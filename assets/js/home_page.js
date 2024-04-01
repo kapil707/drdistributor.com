@@ -300,12 +300,15 @@ function home_page_api(seq_id,isdefault="0")
 				$(".main_page_loading1").hide();
 				if(data!="")
 				{
-					query_work = 0;
 					$.each(data.get_result, function(i,row){
 						//alert(row.myid);
 						$(".main_loading_css").hide();	
 						items = row.items;
 						title = row.title;
+
+						if(items!=''){
+							query_work = 0;
+						}
 
 						category_id = row.category_id;
 						page_type = row.page_type;

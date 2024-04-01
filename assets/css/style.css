@@ -331,6 +331,9 @@ table{
 	margin-top: -4px;
     margin-right: 5px;
 }
+.top_bar_google_play_btn{
+	display: none;
+}
 
 .top_bar_search_div{
 	margin-top: 5px;

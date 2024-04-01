@@ -8,6 +8,9 @@
 .top_bar_back_btn{
 	display: none !important;
 }
+.top_bar_google_play_btn{
+	display: inline !important;
+}
 .top_bar_title{
 	margin-top: 0px;
 	font-size:18px;

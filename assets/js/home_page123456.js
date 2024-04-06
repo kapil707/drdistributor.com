@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	get_top_menu_api();
-	home_page_main_api();
+	home_page_api(1,1);
+	home_page_api(2,1);
+	home_page_api(4,1);
+	home_page_api(5,1);
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -272,7 +275,7 @@ function home_page_notification(category_id,items,title){
 /*************************************** */
 function home_page_main_api()
 {
-	if(query_work==0)
+	if(query_work==0 || isdefault=="1")
 	{
 		$(".main_page_loading1").show();
 
@@ -289,72 +292,8 @@ function home_page_main_api()
 				$(".main_page_loading1").hide();
 			},
 			success : function(data){
-				
-				$(".main_page_loading1").hide();
-				if(data!="")
-				{
-					$.each(data.get_result, function(i,row1){
-						$.each(row1.items, function(i,row){
-							console.log(row.category_id)
-							$(".main_loading_css").hide();	
-							items = row.items;
-							title = row.title;
-
-							if(items!=''){
-								query_work = 0;
-							}
-
-							category_id = row.category_id;
-							page_type = row.page_type;
-
-							next_id = row.next_id;
-
-							if(page_type=="invoice") {
-								dt_result = home_page_invoice(category_id,items,title);
-								$(".home_page_invoice_notification_data").append(dt_result);
-							}
-
-							if(page_type=="notification") {
-								dt_result = home_page_notification(category_id,items,title);
-								$(".home_page_invoice_notification_data").append(dt_result);
-							}
-							
-							if(page_type=="menu") {
-								dt_result = home_page_menu(category_id,items,title);
-								$(".home_page_menu_data").html(dt_result);
-							}
-							
-							if(page_type=="slider") {
-								dt_result = home_page_slider(category_id,items,title);
-								if(category_id=="1"){
-									$(".home_page_slider1_data").html(dt_result);
-									jssor_1_slider_init();
-								}
-								if(category_id=="2"){
-									$(".home_page_all_data").append(dt_result);
-									jssor_2_slider_init();
-								}
-							}
-							if(page_type=="divisioncategory") {
-								dt_result = home_page_divisioncategory(category_id,items,title);
-								if(category_id=="1"){
-									$(".home_page_divisioncategory1_data").append(dt_result);
-								}else{
-									$(".home_page_all_data").append(dt_result);
-								}
-								home_page_owl_load("divisioncategory",category_id);
-							}
-							
-							if(page_type=="itemcategory") {
-								dt_result = home_page_itemcategory(category_id,items,title);
-								$(".home_page_all_data").append(dt_result);
-								home_page_owl_load("itemcategory",category_id);
-							}
-						});
-					});
-				}
-			},
-			timeout: 60000
+				console.log(data);
+			}
 		});
 	}
 }

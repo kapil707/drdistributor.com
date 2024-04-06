@@ -556,8 +556,7 @@ function modal_item_image_change(_id)
 	$('.easyzoom').easyZoom();
 }
 
-function delete_medicine(item_code)
-{
+function delete_medicine(item_code) {
 	swal({
 		title: "Are you sure to delete medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -587,13 +586,13 @@ function delete_medicine(item_code)
 								get_my_cart_total_api();
 								/***************************** */
 								
-								swal("Medicine deleted successfully", {
-									icon: "success",
-								});
+								// swal("Medicine deleted successfully", {
+								// 	icon: "success",
+								// });
 								$(".item_focues"+item_code).html('')
 							}
 							else{
-								swal("Medicine not deleted");
+								//swal("Medicine not deleted");
 							}
 						} 
 					});
@@ -601,7 +600,7 @@ function delete_medicine(item_code)
 				timeout: 60000
 			});
 		} else {
-			swal("Medicine not deleted");
+			//swal("Medicine not deleted");
 		}
 	});
 }
@@ -640,12 +639,12 @@ function delete_all_medicine()
 								get_my_cart_total_api();
 								/***************************** */
 								
-								swal("Medicines deleted successfully", {
+								/*swal("Medicines deleted successfully", {
 									icon: "success",
-								});
+								});*/
 							}
 							else{
-								swal("Medicines not deleted");
+								//swal("Medicines not deleted");
 							}
 						} 
 					});
@@ -653,7 +652,7 @@ function delete_all_medicine()
 				timeout: 60000
 			});
 		} else {
-			swal("Medicines not deleted");
+			//swal("Medicines not deleted");
 		}
 	});
 }

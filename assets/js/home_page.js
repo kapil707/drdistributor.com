@@ -1,10 +1,6 @@
 $(document).ready(function() {
 	get_top_menu_api();
-	home_page_api(1,1);
-	home_page_api(2,1);
-	home_page_api(3,1);
-	home_page_api(4,1);
-	home_page_api(5,1);
+	home_page_main_api();
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -274,6 +270,29 @@ function home_page_notification(category_id,items,title){
 }
 
 /*************************************** */
+function home_page_api(seq_id,isdefault="0")
+{
+	if(query_work==0 || isdefault=="1")
+	{
+		$(".main_page_loading1").show();
+
+		query_work = 1;
+		//alert(id);
+		$.ajax({
+			type       : "POST",
+			dataType   : "json",
+			data       :  {seq_id:seq_id} ,
+			url        : get_base_url() + "home/home_page_api",
+			cache	   : true,
+			error: function(){
+				$(".main_page_loading1").hide();
+			},
+			success : function(data){
+				console.log(data);
+			}
+		});
+	}
+}
 var my_notification_no_record_found = 0;
 var my_invoice_no_record_found = 0;
 var local_myid = '';

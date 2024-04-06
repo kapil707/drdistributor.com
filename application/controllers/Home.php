@@ -148,14 +148,8 @@ class Home extends CI_Controller {
 			}
 
 			$page_type = $row->type;
-			$next_id = $row->seq_id + 1;
-
-			if($next_id<=5){
-				$next_id = 6;
-			}
-
+			$next_id = 6;
 			
-
 			$dt = array(
 				'category_id' => $category_id,
 				'page_type' => $page_type,

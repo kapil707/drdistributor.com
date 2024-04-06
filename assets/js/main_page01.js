@@ -139,7 +139,11 @@ function get_my_cart_total_api(){
 					if(items_total==0)
 					{
 						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							
+							/**********only for cart page********** */
+							$(".my_cart_api_div").html(cart_emtpy_function());
+							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
+							$(".my_cart_api_div_import_order").html("");
+							/************************************* */
 						}
 
 						$(".top_bar_title2").html("Your cart is empty");
@@ -499,10 +503,7 @@ function medicine_add_to_cart_api()
 						/***************************** */
 						get_my_cart_total_api();
 						/***************************** */
-						/***************************** */
-						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							//my_cart_api(order_type);
-						}
+						
 						/***************************** */
 						$.each(data.items, function(i,item){	
 							if (item)
@@ -563,16 +564,10 @@ function delete_medicine(item_code)
 						{
 							if(item.status=="1")
 							{
-								if(get_page_name=="import_oreder"){
-									order_type = "notall";
-								}else{
-									order_type = "all";
-								}
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */
-								//my_cart_api(order_type);
-								/***************************** */
+								
 								swal("Medicine deleted successfully", {
 									icon: "success",
 								});
@@ -635,8 +630,7 @@ function delete_all_medicine()
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */
-								//my_cart_api(order_type);
-								/***************************** */
+								
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});

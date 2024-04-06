@@ -272,7 +272,7 @@ function home_page_notification(category_id,items,title){
 /*************************************** */
 function home_page_main_api()
 {
-	if(query_work==0 || isdefault=="1")
+	if(query_work==0)
 	{
 		$(".main_page_loading1").show();
 
@@ -295,7 +295,7 @@ function home_page_main_api()
 				{
 					$.each(data.get_result, function(i,row1){
 						$.each(row1.items, function(i,row){
-							//alert(row.myid);
+							console.log(row.category_id)
 							$(".main_loading_css").hide();	
 							items = row.items;
 							title = row.title;

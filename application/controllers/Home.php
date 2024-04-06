@@ -104,7 +104,7 @@ class Home extends CI_Controller {
 		}
 		
 		$items = $title = $category_id = $page_type = $next_id = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in (1,2) ")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in (1,2,4,5) ")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			

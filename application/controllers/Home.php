@@ -103,8 +103,6 @@ class Home extends CI_Controller {
 			}
 		}
 		
-		$seq_id = $_POST["seq_id"];
-		
 		$items = $title = $category_id = $page_type = $next_id = "";
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id>='5' ")->result();
 		foreach($tbl_home as $row){
@@ -155,16 +153,22 @@ class Home extends CI_Controller {
 			if($next_id<=5){
 				$next_id = 6;
 			}
+
+			
+
+			$dt = array(
+				'category_id' => $category_id,
+				'page_type' => $page_type,
+				'next_id' => $next_id,
+				'items' => $items,
+			);
+			$items_new[] = $dt;
 		}		
 
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
-			'title' => $title,
-			'category_id' => $category_id,
-			'page_type' => $page_type,
-			'next_id' => $next_id,
-			'items' => $items,
+			'items' => $items_new,
 		);
 		
 		/****************************************************** */

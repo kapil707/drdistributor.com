@@ -138,13 +138,14 @@ function get_my_cart_total_api(){
 					$(".top_bar_menu_delete_all_btn").show();
 					if(items_total==0)
 					{
-						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							/**********only for cart page********** */
-							$(".my_cart_api_div").html(cart_emtpy_function());
-							$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-							$(".my_cart_api_div_import_order").html("");
-							/************************************* */
+						/**********only for cart page********** */
+						if(get_page_name=="my_cart"){
+							$(".main_page_cart_emtpy").show();
+		
+							$(".main_container").hide()
+							$(".search_cart_footer_div").hide()
 						}
+						/************************************* */
 
 						$(".top_bar_title2").html("Your cart is empty");
 
@@ -158,6 +159,15 @@ function get_my_cart_total_api(){
 					}
 					if(items_total!=0)
 					{
+						/**********only for cart page********** */
+						if(get_page_name=="my_cart"){
+							$(".main_page_cart_emtpy").hide();
+
+							$(".main_container").show()
+							$(".search_cart_footer_div").show()
+						}
+						/************************************* */
+
 						$(".search_cart_footer_div_add_to_cart").show();
 						if(status==1)
 						{
@@ -598,15 +608,6 @@ function delete_all_medicine()
 	}).then(function(result) {
 		if (result) 
 		{
-			/**********only for cart page********** */
-			if(get_page_name=="my_cart"){
-				$(".main_page_cart_emtpy").show()
-			}
-			$(".my_cart_api_div").html(cart_emtpy_function());
-			$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-			$(".my_cart_api_div_import_order").html("");
-			/************************************* */
-
 			id = "";
 			$.ajax({                          
 				url:  get_base_url() +"my_cart/medicine_delete_all_api",
@@ -622,11 +623,6 @@ function delete_all_medicine()
 						{
 							if(item.status==1)
 							{
-								if(get_page_name=="import_oreder"){
-									order_type = "notall";
-								}else{
-									order_type = "all";
-								}
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */
@@ -650,10 +646,6 @@ function delete_all_medicine()
 }
 function my_cart_api(order_type) {
 
-	/**********only for cart page********** */
-	$(".main_page_cart_emtpy").hide()
-	/************************************* */
-
 	id = "";
 	$.ajax({
 		url: get_base_url() +"my_cart/my_cart_api",
@@ -663,16 +655,11 @@ function my_cart_api(order_type) {
 		data: {id:id,order_type:order_type},
 		error: function(){
 			$(".main_page_loading").hide();
-			$(".my_cart_api_div").html(something_went_wrong_function());
-			$(".my_cart_api_div_mobile").html(something_went_wrong_function());
-			$(".my_cart_api_div_import_order").html(something_went_wrong_function());
 
 			/**********only for cart page********** */
 			if(get_page_name=="my_cart"){				
 				$(".main_page_something_went_wrong").show();
-			}
-			/************************************* */
-			if(get_page_name=="my_cart"){
+
 				$(".main_container").hide()
 				$(".search_cart_footer_div").hide()
 			}
@@ -681,19 +668,19 @@ function my_cart_api(order_type) {
 		success: function(data){
 
 			$(".main_page_loading").hide();
-			$(".my_cart_api_div").html("");
-			$(".my_cart_api_div_mobile").html("");
-			$(".my_cart_api_div_import_order").html("");
 			if(data.items=="") {				
 				/**********only for cart page********** */
 				if(get_page_name=="my_cart"){
 					$(".main_page_cart_emtpy").show();
+
 					$(".main_container").hide()
 					$(".search_cart_footer_div").hide()
 				}
 			}else{
 				/**********only for cart page********** */
 				if(get_page_name=="my_cart"){
+					$(".main_page_cart_emtpy").hide();
+
 					$(".main_container").show()
 					$(".search_cart_footer_div").show()
 				}

@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	get_top_menu_api();
 	home_page_main_api();
-	home_page_api(1,1);
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();

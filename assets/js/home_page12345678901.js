@@ -6,6 +6,7 @@ var next_id = "";
 
 $(document).ready(function() {
 	home_page_menu();
+	get_top_menu_api();
 	home_page_main_api();
 
 	$(window).scroll(function(){
@@ -85,8 +86,33 @@ function home_page_menu(){
 	$(".home_page_menu_data").html(myval);
 }
 
-function home_page_main_api()
-{
+function get_top_menu_api(){
+	myid = '';
+	$.ajax({
+		type       : "POST",
+		dataType   : "json",
+		data       :  {myid:myid} ,
+		url        : get_base_url() + "home/get_top_menu_api",
+		cache	   : true,
+		success : function(data){
+			if(data!="") {
+				$(".top_bar_menu2").show();
+				$.each(data.items, function(i,item){
+					if (item){
+						item_code	 	= item.item_code;
+						item_company	= item.item_company;
+						item_image	 	= item.item_image;
+						item_url	 	= get_base_url() + "category/"+item.item_url;
+
+						$(".top_bar_menu2_ul").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
+					}
+				});
+			}
+		}
+	});
+}
+
+function home_page_main_api(){
 	if(query_work==0)
 	{
 		$(".main_page_loading1").show();
@@ -111,8 +137,7 @@ function home_page_main_api()
 	}
 }
 
-function home_page_api(seq_id)
-{
+function home_page_api(seq_id){
 	if(query_work==0)
 	{
 		$(".main_page_loading1").show();
@@ -265,32 +290,6 @@ function home_page_owl_load(type,category_id){
 			}
 		});
 	}
-}
-
-function get_top_menu_api(){
-	myid = '';
-	$.ajax({
-		type       : "POST",
-		dataType   : "json",
-		data       :  {myid:myid} ,
-		url        : get_base_url() + "home/get_top_menu_api",
-		cache	   : true,
-		success : function(data){
-			if(data!="") {
-				$(".top_bar_menu2").show();
-				$.each(data.items, function(i,item){
-					if (item){
-						item_code	 	= item.item_code;
-						item_company	= item.item_company;
-						item_image	 	= item.item_image;
-						item_url	 	= get_base_url() + "category/"+item.item_url;
-
-						$(".top_bar_menu2_ul").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
-					}
-				});
-			}
-		}
-	});
 }
 
 function home_page_slider(category_id,items,title){

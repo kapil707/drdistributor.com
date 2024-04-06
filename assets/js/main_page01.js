@@ -136,20 +136,10 @@ function get_my_cart_total_api(){
 		
 					$(".top_bar_menu_cart_span").html(items_total);
 					$(".top_bar_menu_delete_all_btn").show();
-					if(items_total==1)
-					{
-						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							/***************************** */
-							my_cart_api("all");
-							/***************************** */
-						}
-					}
 					if(items_total==0)
 					{
 						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							/***************************** */
-							my_cart_api("all");
-							/***************************** */
+							
 						}
 
 						$(".top_bar_title2").html("Your cart is empty");

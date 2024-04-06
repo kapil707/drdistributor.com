@@ -684,17 +684,10 @@ function my_cart_api(order_type) {
 			$(".my_cart_api_div").html("");
 			$(".my_cart_api_div_mobile").html("");
 			$(".my_cart_api_div_import_order").html("");
-			if(data.items=="") {
-				$(".my_cart_api_div").html(cart_emtpy_function());
-				$(".my_cart_api_div_mobile").html(cart_emtpy_function());
-				//$(".my_cart_api_div_import_order").html(cart_emtpy_function());	
-				
+			if(data.items=="") {				
 				/**********only for cart page********** */
 				if(get_page_name=="my_cart"){
-					$(".main_page_cart_emtpy").show()
-				}
-				/************************************* */
-				if(get_page_name=="my_cart"){
+					$(".main_page_cart_emtpy").show();
 					$(".main_container").hide()
 					$(".search_cart_footer_div").hide()
 				}

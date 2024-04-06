@@ -474,6 +474,7 @@ function medicine_add_to_cart_api()
 								if(item.status=="1")
 								{
 									if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
+										
 										div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='' item_stock='' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"' item_order_quantity='"+item_order_quantity+"'></span>";
 
 										item_id 			= item.item_id;
@@ -496,9 +497,9 @@ function medicine_add_to_cart_api()
 										
 										var my_cart_data = '<div class="main_box_div_data"><div class="my_cart_box_left_div"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></a></div><div class="my_cart_box_right_div"><div class="all_item_name" title="'+item_name+'" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span> | <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show pl-2">'+rate_div+'</span></div>'+div_all_data;
 
-										$(".my_cart_api_div").append(my_cart_data);
-										$(".my_cart_api_div_mobile").append(my_cart_data);
-										$(".my_cart_api_div_import_order").append(my_cart_data);
+										$(".my_cart_api_div").prepend(my_cart_data);
+										$(".my_cart_api_div_mobile").prepend(my_cart_data);
+										$(".my_cart_api_div_import_order").prepend(my_cart_data);
 									}
 								}
 							}

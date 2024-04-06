@@ -23,24 +23,18 @@ class MyCartModel extends CI_Model
 	{
 		$chemist_id = $user_altercode;
 		
-		$this->db->select('quantity,sale_rate');
-		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
+		$items_total = $items_price = 0;
 		if($user_type=="sales")
 		{
-			$this->db->where('selesman_id',$selesman_id);
+			$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `drd_temp_rec` WHERE `chemist_id`='$chemist_id' and status=0 and user_type='$user_type' and selesman_id='$selesman_id'")->row();
+		}else{
+			$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `drd_temp_rec` WHERE `chemist_id`='$chemist_id' and status=0 and user_type='$user_type' ")->row();
 		}
-		$this->db->where('user_type',$user_type);
-		$this->db->where('temp_rec',$temp_rec);
-		$this->db->where('chemist_id',$chemist_id);
-		$this->db->where('status','0');
-		$this->db->order_by('id','desc');	
-		$query = $this->db->get("drd_temp_rec")->result();
-		$items_total = $items_price = 0;
-		foreach($query as $row)
-		{
-			$items_total++;
-			$items_price = $items_price + ($row->quantity * $row->sale_rate);
+		if(!empty($row)){
+			$items_total = $row->items_total;
+			$items_price = $row->items_price;
 		}
+
 		$row = $this->db->query("select tbl_acm_other.password,tbl_acm_other.block,tbl_acm_other.status,tbl_acm_other.order_limit,tbl_acm_other.website_limit,tbl_acm_other.android_limit from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$chemist_id' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
 		
 		$user_order_limit = "5000";

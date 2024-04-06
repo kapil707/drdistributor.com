@@ -1,11 +1,13 @@
 $(document).ready(function() {
 	home_page_menu();
-	get_top_menu_api();
+
+	home_page_api_call();
+
+	/*get_top_menu_api();
 	home_page_api(1,1);
 	home_page_api(2,1);
-	home_page_api(3,1);
 	home_page_api(4,1);
-	home_page_api(5,1);
+	home_page_api(5,1);*/
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -320,9 +322,9 @@ function home_page_notification(category_id,items,title){
 }
 
 /*************************************** */
-function home_page_main_api()
+function home_page_api_call()
 {
-	if(query_work==0 || isdefault=="1")
+	if(query_work==0)
 	{
 		$(".main_page_loading1").show();
 
@@ -333,7 +335,7 @@ function home_page_main_api()
 			type       : "POST",
 			dataType   : "json",
 			data       :  {id:id} ,
-			url        : get_base_url() + "home/home_page_main_api",
+			url        : get_base_url() + "home/home_page_api_call",
 			cache	   : true,
 			error: function(){
 				$(".main_page_loading1").hide();

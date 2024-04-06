@@ -1,4 +1,75 @@
 
+$(document).ready(function(){
+	$(".medicine_search_textbox").keyup(function(e){
+		if(e.keyCode == 8)
+		{
+			var keyword = $(".medicine_search_textbox").val();
+			if(keyword!="")
+			{
+				if(keyword.length<3)
+				{
+					$('.medicine_search_textbox').focus();
+					$(".search_result_div").html("");
+					$(".search_result_div_mobile").html("");
+				}
+			}
+			else{
+				clear_search_function();
+			}
+		}
+	})  
+	$(".medicine_search_textbox").keypress(function() { 
+		var keyword = $(".medicine_search_textbox").val();
+		//$('.headertitle').html(keyword)
+		if(keyword!="")
+		{
+			if(keyword.length<3)
+			{
+				$('.medicine_search_textbox').focus();
+				$(".search_result_div").html("");
+				$(".search_result_div_mobile").html("");
+			}
+			if(keyword.length>2)
+			{
+				//medicine_search_api();
+				setTimeout('medicine_search_api();',500);
+			}
+		}
+		else{
+			clear_search_function();
+		}
+	});
+	$(".medicine_search_textbox").change(function() { 
+	});
+	$(".medicine_search_textbox").on("search", function() { 
+	});
+	
+    $(".medicine_search_textbox").keydown(function(event) {
+    	if(event.key=="ArrowDown")
+    	{
+			page_up_down_arrow("1");
+    		$('.hover_1').attr("tabindex",-1).focus();
+			return false;
+    	}
+    });
+	setTimeout('import_order_page_load();',100);
+	setTimeout('get_my_cart_total_api_import_oreder();',500);
+	
+	document.onkeydown = function(evt) {
+		evt = evt || window.event;
+		if (evt.keyCode == 27) {
+			clear_search_function();
+		}
+	};
+});
+
+function get_my_cart_total_api_import_oreder(){
+
+	get_my_cart_total_api();
+	/******************************** */
+	setTimeout('get_my_cart_total_api_import_oreder();',5000);
+	/******************************** */
+}
 function import_order_medicine_details(myid) {
 	$.ajax({
 		type       : "POST",
@@ -11,11 +82,7 @@ function import_order_medicine_details(myid) {
 		success    : function(data){
 			$.each(data.items, function(i,item){
 				if (item)
-				{
-					/******************************** */
-					get_my_cart_total_api();
-					/******************************** */
-					
+				{					
 					excel_number = item.excel_number;
 					item_message 	= item.item_message;
 					item_background = item.item_background;
@@ -298,69 +365,6 @@ function import_order_page_load(){
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 }
-
-$(document).ready(function(){
-	$(".medicine_search_textbox").keyup(function(e){
-		if(e.keyCode == 8)
-		{
-			var keyword = $(".medicine_search_textbox").val();
-			if(keyword!="")
-			{
-				if(keyword.length<3)
-				{
-					$('.medicine_search_textbox').focus();
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-				}
-			}
-			else{
-				clear_search_function();
-			}
-		}
-	})  
-	$(".medicine_search_textbox").keypress(function() { 
-		var keyword = $(".medicine_search_textbox").val();
-		//$('.headertitle').html(keyword)
-		if(keyword!="")
-		{
-			if(keyword.length<3)
-			{
-				$('.medicine_search_textbox').focus();
-				$(".search_result_div").html("");
-				$(".search_result_div_mobile").html("");
-			}
-			if(keyword.length>2)
-			{
-				//medicine_search_api();
-				setTimeout('medicine_search_api();',500);
-			}
-		}
-		else{
-			clear_search_function();
-		}
-	});
-	$(".medicine_search_textbox").change(function() { 
-	});
-	$(".medicine_search_textbox").on("search", function() { 
-	});
-	
-    $(".medicine_search_textbox").keydown(function(event) {
-    	if(event.key=="ArrowDown")
-    	{
-			page_up_down_arrow("1");
-    		$('.hover_1').attr("tabindex",-1).focus();
-			return false;
-    	}
-    });
-	setTimeout('import_order_page_load();',100);
-	
-	document.onkeydown = function(evt) {
-		evt = evt || window.event;
-		if (evt.keyCode == 27) {
-			clear_search_function();
-		}
-	};
-});
 
 function page_up_down_arrow(new_i)
 {

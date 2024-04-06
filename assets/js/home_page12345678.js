@@ -346,10 +346,10 @@ function home_page_api_call()
 		});
 	}
 }
-function get_my_home_response(item){
+function get_my_home_response(items){
 
-	console.log(item);
-	$.each(item, function(i,row){
+	console.log(items);
+	$.each(items, function(i,row){
 		
 		$(".main_loading_css").hide();	
 		items = row.items;

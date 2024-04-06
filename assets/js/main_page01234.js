@@ -635,6 +635,9 @@ function delete_all_medicine()
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */
+								$(".my_cart_api_div").html('');
+								$(".my_cart_api_div_mobile").html('');
+								$(".my_cart_api_div_import_order").html('');
 								
 								swal("Medicines deleted successfully", {
 									icon: "success",

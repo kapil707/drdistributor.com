@@ -270,19 +270,20 @@ function home_page_notification(category_id,items,title){
 }
 
 /*************************************** */
-function home_page_api(seq_id,isdefault="0")
+function home_page_main_api()
 {
 	if(query_work==0 || isdefault=="1")
 	{
 		$(".main_page_loading1").show();
 
+		id = 0;
 		query_work = 1;
 		//alert(id);
 		$.ajax({
 			type       : "POST",
 			dataType   : "json",
-			data       :  {seq_id:seq_id} ,
-			url        : get_base_url() + "home/home_page_api",
+			data       :  {id:id} ,
+			url        : get_base_url() + "home/home_page_main_api",
 			cache	   : true,
 			error: function(){
 				$(".main_page_loading1").hide();

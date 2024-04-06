@@ -428,7 +428,6 @@ function medicine_add_to_cart_api()
 
 	$("#my_cart_main_id_"+item_code).html('');
 
-
 	$(".add_to_cart_error_message").html('');
 	if(item_order_quantity==""){
 		$(".add_to_cart_error_message").html('Enter quantity');

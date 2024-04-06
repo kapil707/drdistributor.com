@@ -182,5 +182,5 @@ $(document).ready(function(){
 	<?php foreach($result as $row) { ?>
 	setTimeout("import_order_medicine_details('<?php echo $row->id ?>')",500);
 	<?php  } ?>
-});
+}); 
 </script>

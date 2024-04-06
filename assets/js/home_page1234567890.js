@@ -60,7 +60,7 @@ function home_page_api(seq_id)
 				$(".main_page_loading1").hide();
 			},
 			success : function(data){
-				get_my_home_response(items);
+				get_my_home_response(data.items);
 			},
 			timeout: 60000
 		});

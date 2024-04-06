@@ -603,4 +603,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js/main_page1234567890.js"></script>
+<script src="<?= base_url(); ?>assets/js/main_page.js"></script>

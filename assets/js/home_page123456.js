@@ -348,7 +348,7 @@ function home_page_api_call()
 }
 function get_my_home_response(item){
 
-	$.each(data.item, function(i,row){
+	$.each(item, function(i,row){
 		
 		$(".main_loading_css").hide();	
 		items = row.items;

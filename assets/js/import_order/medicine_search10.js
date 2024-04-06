@@ -53,7 +53,7 @@ $(document).ready(function(){
     	}
     });
 	setTimeout('import_order_page_load();',100);
-	setTimeout('get_my_cart_total_api_import_oreder();',500);
+	setTimeout('get_my_cart_total_api();',5000);
 	
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
@@ -63,13 +63,6 @@ $(document).ready(function(){
 	};
 });
 
-function get_my_cart_total_api_import_oreder(){
-
-	get_my_cart_total_api();
-	/******************************** */
-	setTimeout('get_my_cart_total_api_import_oreder();',5000);
-	/******************************** */
-}
 function import_order_medicine_details(myid) {
 	$.ajax({
 		type       : "POST",

@@ -465,7 +465,7 @@ function medicine_add_to_cart_api()
 						/***************************** */
 						/***************************** */
 						if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-							my_cart_api(order_type);
+							//my_cart_api(order_type);
 						}
 						/***************************** */
 						$.each(data.items, function(i,item){	

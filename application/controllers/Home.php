@@ -72,7 +72,7 @@ class Home extends CI_Controller {
 		echo json_encode($response); 
 	}
 
-	public function home_page_api_call(){
+	public function home_page_main_api(){
 		$this->load->model("model-drdistributor/slider_model/SliderModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
@@ -102,9 +102,11 @@ class Home extends CI_Controller {
 				$user_altercode = $chemist_id;
 			}
 		}
+
+		$seq_id = $_POST["seq_id"];
 		
 		$items = $title = $category_id = $page_type = $next_id = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in (1,2,4,5) ")->result();
+		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in ($seq_id) ")->result();
 		foreach($tbl_home as $row){
 			$category_id = $row->category_id;
 			
@@ -149,7 +151,11 @@ class Home extends CI_Controller {
 
 			$page_type = $row->type;
 
-			$next_id = 6;
+			$next_id = $row->seq_id + 1;
+
+			if($next_id<=5){
+				$next_id = 6;
+			}
 			$dt = array(
 				'title' => $title,
 				'category_id' => $category_id,
@@ -172,109 +178,6 @@ class Home extends CI_Controller {
 		// Send JSON response
 		header('Content-Type: application/json');
 		echo json_encode($response); 
-	}
-
-	public function home_page_api()	{
-		$this->load->model("model-drdistributor/slider_model/SliderModel");
-		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
-		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
-
-		$this->load->model("model-drdistributor/home_menu/HomeMenuModel");
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
-
-		$get_record	 	= "0";//$_REQUEST["get_record"];
-		$user_type 		= $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
-		$user_nrx = "no";
-		if(!empty($_COOKIE["user_type"])){
-			$user_type 		= $_COOKIE["user_type"];
-			$user_altercode = $_COOKIE["user_altercode"];
-			$user_password	= $_COOKIE["user_password"];
-			$user_nrx		= $_COOKIE["user_nrx"];
-			$chemist_id 	= "";
-			$salesman_id = "";
-		}
-
-		$session_yes_no = "no";
-		if(!empty($user_altercode)){
-			$session_yes_no = "yes";
-			if($user_type=="sales") {
-				$chemist_id 	= $_COOKIE["chemist_id"];
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-		}
-		
-		$seq_id = $_POST["seq_id"];
-		
-		$items = $title = $category_id = $page_type = $next_id = "";
-		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$seq_id' ")->result();
-		foreach($tbl_home as $row){
-			$category_id = $row->category_id;
-			
-			if($row->type=="slider"){
-			    $result = $this->SliderModel->slider($row->category_id);
-		        $items = $result["items"];
-				$title  = 'slider';
-			}
-			
-			if($row->type=="menu"){
-				$result = $this->HomeMenuModel->get_menu_api();
-		        $items = $result["items"];
-				$title  = 'menu';				
-			}
-
-			if(!empty($user_type) && !empty($user_altercode) && $row->type=="notification") {
-
-				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$items    = $result["items"];
-				$title  = 'notification';
-			}
-
-			if(!empty($user_type) && !empty($user_altercode) && $row->type=="invoice") {
-
-				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
-				$items    = $result["items"];
-				$title  = 'invoice';
-			}
-			
-			if($row->type=="divisioncategory"){
-			    $result = $this->MedicineDivisionModel->medicine_division($category_id);
-				
-				$title  = $result["title"];
-		        $items = $result["items"];
-			}
-			
-			if($row->type=="itemcategory"){
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
-				$title  = $result["title"];
-				$items = $result["items"];
-			}
-
-			$page_type = $row->type;
-			$next_id = $row->seq_id + 1;
-
-			if($next_id<=5){
-				$next_id = 6;
-			}
-		}		
-
-		$response = array(
-			'success' => "1",
-			'message' => 'Data load successfully',
-			'title' => $title,
-			'category_id' => $category_id,
-			'page_type' => $page_type,
-			'next_id' => $next_id,
-			'items' => $items,
-		);
-		
-		/****************************************************** */
-		//$response = '{"get_result":['.$response.']}'; 
-	
-		// Send JSON response
-		header('Content-Type: application/json');
-		echo '{"get_result":['.json_encode($response).']}'; 
 	}
 
 	public function theme_set_api()

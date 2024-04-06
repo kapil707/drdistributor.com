@@ -141,8 +141,8 @@ if (isset($_COOKIE["theme_type"])) {
 					<li class="d-none d-lg-block">
 						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
-							<span>Upload </span>
-							<span class="d-none d-xxxl-block">Order</span>
+							<span>Upload</span>
+							<span class="d-none d-xxxl-block">&nbsp;Order</span>
 						</a>
 					</li>
 
@@ -167,12 +167,14 @@ if (isset($_COOKIE["theme_type"])) {
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
 				<div class="row">
 					<div class="col-lg-3 col-md-1 col-sm-12 col-xs-12 col-12 mobile_off">
-						<div class="d-none d-xxxl-block wow pulse animated top_bar_google_play_btn" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
-							<div class="google_play" style="width: 134px;float: right;">
-								<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-									<img src="https://www.drdistributors.co.in/drd-live/img_v51/playstrore.png" alt="Google Play" style="width:20px;">
-									Google Play
-								</a>
+						<div class="top_bar_google_play_btn">
+							<div class="d-none d-xxxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
+								<div class="google_play" style="width: 134px;float: right;">
+									<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+										<img src="https://www.drdistributors.co.in/drd-live/img_v51/playstrore.png" alt="Google Play" style="width:20px;">
+										Google Play
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>

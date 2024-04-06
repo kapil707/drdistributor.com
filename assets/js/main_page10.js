@@ -73,8 +73,8 @@ function callandroidfun(funtype,id,compname,image,division) {
 		window.location.href = get_base_url() + 'category/featured_brand/'+id+'/'+division;
 	}
 }
-function gosearchpage()
-{
+
+function gosearchpage() {
 	window.location.href = get_base_url() + "medicine_search";
 }
 
@@ -617,6 +617,10 @@ function delete_all_medicine()
 	}).then(function(result) {
 		if (result) 
 		{
+			$(".my_cart_api_div").html('');
+			$(".my_cart_api_div_mobile").html('');
+			$(".my_cart_api_div_import_order").html('');
+
 			id = "";
 			$.ajax({                          
 				url:  get_base_url() +"my_cart/medicine_delete_all_api",
@@ -635,9 +639,6 @@ function delete_all_medicine()
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */
-								$(".my_cart_api_div").html('');
-								$(".my_cart_api_div_mobile").html('');
-								$(".my_cart_api_div_import_order").html('');
 								
 								swal("Medicines deleted successfully", {
 									icon: "success",

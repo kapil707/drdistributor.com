@@ -22,7 +22,7 @@ function home_page_main_api()
 	{
 		$(".main_page_loading1").show();
 
-		seq_id = "1,2,3,4";
+		seq_id = "1,2,4,5";
 		query_work = 1;
 		//alert(id);
 		$.ajax({

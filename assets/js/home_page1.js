@@ -1,7 +1,9 @@
 $(document).ready(function() {
+	home_page_menu();
 	get_top_menu_api();
 	home_page_api(1,1);
 	home_page_api(2,1);
+	home_page_api(3,1);
 	home_page_api(4,1);
 	home_page_api(5,1);
 
@@ -131,9 +133,16 @@ function home_page_slider(category_id,items,title){
 	return myval;
 }
 
-function home_page_menu(category_id,items,title){
+function home_page_menu(){
+
+	var myArray = [
+		{ "id" : "1", "firstName" : "Hardik", "lastName" : "Savani" },
+		{ "id" : "2", "firstName" : "Vimal", "lastName" : "Kashiyani" },
+		{ "id" : "3", "firstName" : "Harshad", "lastName" : "Pathak" },
+		{ "id" : "4", "firstName" : "Harsukh", "lastName" : "Makawana" }
+	];
 	var mydata = '';
-	$.each(items, function(i,item){
+	$.each(myArray, function(i,item){
 		if (item){
 			
 			menu_id 	= item.menu_id;

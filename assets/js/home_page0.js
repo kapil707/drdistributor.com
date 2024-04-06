@@ -7,12 +7,12 @@ var next_id = "";
 $(document).ready(function() {
 	home_page_menu();
 	get_top_menu_api();
-	home_page_main_api();
+	home_page_main_api("1,2,4,5");
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
 		if (scrollBottom<600  && query_work==0){
-			home_page_api(next_id);
+			home_page_main_api(next_id);
 		}
 	});
 });
@@ -112,32 +112,7 @@ function get_top_menu_api(){
 	});
 }
 
-function home_page_main_api(){
-	if(query_work==0)
-	{
-		$(".main_page_loading1").show();
-
-		seq_id = "1,2,4,5";
-		query_work = 1;
-		//alert(id);
-		$.ajax({
-			type       : "POST",
-			dataType   : "json",
-			data       :  {seq_id:seq_id} ,
-			url        : get_base_url() + "home/home_page_main_api",
-			cache	   : true,
-			error: function(){
-				$(".main_page_loading1").hide();
-			},
-			success : function(data){
-				get_my_home_response(data.items);
-			},
-			timeout: 60000
-		});
-	}
-}
-
-function home_page_api(seq_id){
+function home_page_main_api(seq_id){
 	if(query_work==0)
 	{
 		$(".main_page_loading1").show();

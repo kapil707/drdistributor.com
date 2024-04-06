@@ -45,10 +45,12 @@ function goBack() {
 		</div>
 		
 		<div class="col-lg-6 col-md-12 d-none d-sm-block web-col-padding-5">
+			<div class="medicine_search_page_cart_emtpy"></div>
 			<div class="main_box_div2 search_page_div_for_fix_height my_cart_api_div"></div>
 		</div>
 
 		<div class="col-12 col-padding-5 mobile_show">
+			<div class="medicine_search_page_cart_emtpy"></div>
 			<div class="search_result_div_mobile"></div>
 			<div class="my_cart_api_div_mobile"></div>
 		</div>

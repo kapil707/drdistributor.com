@@ -138,6 +138,11 @@ function get_my_cart_total_api(){
 					$(".top_bar_menu_delete_all_btn").show();
 					if(items_total==0)
 					{
+						/**********only for search page********** */
+						if(get_page_name=="medicine_search"){
+							$(".medicine_search_page_cart_emtpy").show()
+							$(".medicine_search_page_cart_emtpy").html(cart_emtpy_function())
+						}
 						/**********only for cart page********** */
 						if(get_page_name=="my_cart"){
 							$(".main_page_cart_emtpy").show();
@@ -159,6 +164,10 @@ function get_my_cart_total_api(){
 					}
 					if(items_total!=0)
 					{
+						/**********only for search page********** */
+						if(get_page_name=="medicine_search"){
+							$(".medicine_search_page_cart_emtpy").hide()
+						}
 						/**********only for cart page********** */
 						if(get_page_name=="my_cart"){
 							$(".main_page_cart_emtpy").hide();

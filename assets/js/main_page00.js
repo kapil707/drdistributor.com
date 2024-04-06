@@ -476,6 +476,7 @@ function medicine_add_to_cart_api()
 
 					item_id 			= "0";
 					item_quantity_price = parseFloat(item_order_quantity) * parseFloat(item_price);
+					item_quantity_price = item_quantity_price.toFixed(2)
 					item_datetime 		= "Just now";
 					item_modalnumber 	= "PC / Laptop";
 

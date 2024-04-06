@@ -136,10 +136,48 @@ function home_page_slider(category_id,items,title){
 function home_page_menu(){
 
 	var myArray = [
-		{ "id" : "1", "firstName" : "Hardik", "lastName" : "Savani" },
-		{ "id" : "2", "firstName" : "Vimal", "lastName" : "Kashiyani" },
-		{ "id" : "3", "firstName" : "Harshad", "lastName" : "Pathak" },
-		{ "id" : "4", "firstName" : "Harsukh", "lastName" : "Makawana" }
+		{
+			"menu_id": "1",
+			"menu_name": "New Order",
+			"menu_image": get_base_url() + "img_v51/homebtn1.png",
+			"menu_url": "medicine_search"
+		},
+		{
+			"menu_id": "2",
+			"menu_name": "My Cart",
+			"menu_image": get_base_url() + "img_v51/homebtn2.png",
+			"menu_url": "my_cart"
+		},
+		{
+			"menu_id": "3",
+			"menu_name": "My Order",
+			"menu_image": get_base_url() + "img_v51/homebtn3.png",
+			"menu_url": "my_order"
+		},
+		{
+			"menu_id": "4",
+			"menu_name": "My Invoice",
+			"menu_image": get_base_url() + "img_v51/homebtn4.png",
+			"menu_url": "my_invoice"
+		},
+		{
+			"menu_id": "5",
+			"menu_name": "Track Order",
+			"menu_image": get_base_url() + "img_v51/homebtn5.png",
+			"menu_url": "track_order"
+		},
+		{
+			"menu_id": "6",
+			"menu_name": "Upload Order",
+			"menu_image": get_base_url() + "img_v51/homebtn6.png",
+			"menu_url": "import_order"
+		},
+		{
+			"menu_id": "7",
+			"menu_name": "Notification",
+			"menu_image": get_base_url() + "img_v51/homebtn7.png",
+			"menu_url": "my_notification"
+		}
 	];
 	var mydata = '';
 	$.each(myArray, function(i,item){

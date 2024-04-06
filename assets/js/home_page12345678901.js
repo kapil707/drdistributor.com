@@ -16,6 +16,75 @@ $(document).ready(function() {
 	});
 });
 
+function home_page_menu(){
+
+	var myArray = [
+		{
+			"menu_id": "1",
+			"menu_name": "New Order",
+			"menu_image": get_base_url() + "img_v51/homebtn1.png",
+			"menu_url": "medicine_search"
+		},
+		{
+			"menu_id": "2",
+			"menu_name": "My Cart",
+			"menu_image": get_base_url() + "img_v51/homebtn2.png",
+			"menu_url": "my_cart"
+		},
+		{
+			"menu_id": "3",
+			"menu_name": "My Order",
+			"menu_image": get_base_url() + "img_v51/homebtn3.png",
+			"menu_url": "my_order"
+		},
+		{
+			"menu_id": "4",
+			"menu_name": "My Invoice",
+			"menu_image": get_base_url() + "img_v51/homebtn4.png",
+			"menu_url": "my_invoice"
+		},
+		{
+			"menu_id": "5",
+			"menu_name": "Track Order",
+			"menu_image": get_base_url() + "img_v51/homebtn5.png",
+			"menu_url": "track_order"
+		},
+		{
+			"menu_id": "6",
+			"menu_name": "Upload Order",
+			"menu_image": get_base_url() + "img_v51/homebtn6.png",
+			"menu_url": "import_order"
+		},
+		{
+			"menu_id": "7",
+			"menu_name": "Notification",
+			"menu_image": get_base_url() + "img_v51/homebtn7.png",
+			"menu_url": "my_notification"
+		}
+	];
+	var mydata = '';
+	$.each(myArray, function(i,item){
+		if (item){
+			
+			menu_id 	= item.menu_id;
+			menu_name 	= item.menu_name;
+			menu_image 	= item.menu_image;
+			menu_url 	= get_base_url() + item.menu_url;
+			
+			mobile_off_cls = "";
+			if(menu_id==6){
+				mobile_off_cls = "mobile_off";
+			}
+
+			mydata+='<div class="home_page_menu_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_page_menu_div_btn">'+menu_name+'</div></div></a></div>';
+		}
+	});
+	
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5">'+mydata+'</div>';	
+	//return myval;
+	$(".home_page_menu_data").html(myval);
+}
+
 function home_page_main_api()
 {
 	if(query_work==0)
@@ -247,73 +316,6 @@ function home_page_slider(category_id,items,title){
 	return myval;
 }
 
-function home_page_menu(){
-
-	var myArray = [
-		{
-			"menu_id": "1",
-			"menu_name": "New Order",
-			"menu_image": get_base_url() + "img_v51/homebtn1.png",
-			"menu_url": "medicine_search"
-		},
-		{
-			"menu_id": "2",
-			"menu_name": "My Cart",
-			"menu_image": get_base_url() + "img_v51/homebtn2.png",
-			"menu_url": "my_cart"
-		},
-		{
-			"menu_id": "3",
-			"menu_name": "My Order",
-			"menu_image": get_base_url() + "img_v51/homebtn3.png",
-			"menu_url": "my_order"
-		},
-		{
-			"menu_id": "4",
-			"menu_name": "My Invoice",
-			"menu_image": get_base_url() + "img_v51/homebtn4.png",
-			"menu_url": "my_invoice"
-		},
-		{
-			"menu_id": "5",
-			"menu_name": "Track Order",
-			"menu_image": get_base_url() + "img_v51/homebtn5.png",
-			"menu_url": "track_order"
-		},
-		{
-			"menu_id": "6",
-			"menu_name": "Upload Order",
-			"menu_image": get_base_url() + "img_v51/homebtn6.png",
-			"menu_url": "import_order"
-		},
-		{
-			"menu_id": "7",
-			"menu_name": "Notification",
-			"menu_image": get_base_url() + "img_v51/homebtn7.png",
-			"menu_url": "my_notification"
-		}
-	];
-	var mydata = '';
-	$.each(myArray, function(i,item){
-		if (item){
-			
-			menu_id 	= item.menu_id;
-			menu_name 	= item.menu_name;
-			menu_image 	= item.menu_image;
-			menu_url 	= get_base_url() + item.menu_url;
-			
-			mobile_off_cls = "";
-			if(menu_id==6){
-				mobile_off_cls = "mobile_off";
-			}
-
-			mydata+='<div class="home_page_menu_div wow fadeInDown animated '+mobile_off_cls+'" data-wow-duration="0.1s" data-wow-delay="0.2s"><a href="'+menu_url+'" style="color:black"><div class="text-center"><img src="'+menu_image+'" class="img-fluid img-responsive" alt><div class="home_page_menu_div_btn">'+menu_name+'</div></div></a></div>';
-		}
-	});
-	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5">'+mydata+'</div>';	
-	return myval;
-}
 
 function home_page_divisioncategory(category_id,items,title){
 	var mydata = '';

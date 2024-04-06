@@ -341,7 +341,7 @@ function home_page_api_call()
 				$(".main_page_loading1").hide();
 			},
 			success : function(data){
-				get_my_home_response(data.item);
+				get_my_home_response(data.items);
 			}
 		});
 	}

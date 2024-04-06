@@ -108,7 +108,7 @@ $(document).ready(function(){
 function get_my_cart_total_api(){
 
 	/******************************** */
-	setTimeout('get_my_cart_total_api();',45000);
+	setTimeout('get_my_cart_total_api();',120000);
 	/******************************** */
 	id = "";
 	$.ajax({
@@ -136,8 +136,28 @@ function get_my_cart_total_api(){
 		
 					$(".top_bar_menu_cart_span").html(items_total);
 					$(".top_bar_menu_delete_all_btn").show();
+					if(items_total==1)
+					{
+						if(get_page_name=="import_oreder"){
+							order_type = "notall";
+						}else{
+							order_type = "all";
+						}
+						/***************************** */
+						my_cart_api(order_type);
+						/***************************** */
+					}
 					if(items_total==0)
 					{
+						if(get_page_name=="import_oreder"){
+							order_type = "notall";
+						}else{
+							order_type = "all";
+						}
+						/***************************** */
+						my_cart_api(order_type);
+						/***************************** */
+
 						$(".top_bar_title2").html("Your cart is empty");
 
 						$(".search_cart_footer_div_cart_empty").show();
@@ -649,7 +669,8 @@ function delete_all_medicine()
 		}
 	});
 }
-function my_cart_api(order_type) {	
+function my_cart_api(order_type) {
+
 	/**********only for cart page********** */
 	$(".main_page_cart_emtpy").hide()
 	/************************************* */

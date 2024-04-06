@@ -587,6 +587,15 @@ function delete_medicine(item_code)
 
 function delete_all_medicine()
 {
+	/**********only for cart page********** */
+	if(get_page_name=="my_cart"){
+		$(".main_page_cart_emtpy").show()
+	}
+	$(".my_cart_api_div").html("");
+	$(".my_cart_api_div_mobile").html("");
+	$(".my_cart_api_div_import_order").html("");
+	/************************************* */
+	
 	swal({
 		title: "Are you sure to delete all medicines?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -621,15 +630,6 @@ function delete_all_medicine()
 								/***************************** */
 								//my_cart_api(order_type);
 								/***************************** */
-
-								/**********only for cart page********** */
-								if(get_page_name=="my_cart"){
-									$(".main_page_cart_emtpy").show()
-								}
-								$(".my_cart_api_div").html("");
-								$(".my_cart_api_div_mobile").html("");
-								$(".my_cart_api_div_import_order").html("");
-								/************************************* */
 								swal("Medicines deleted successfully", {
 									icon: "success",
 								});

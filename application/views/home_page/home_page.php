@@ -31,7 +31,9 @@ $(".top_bar_title").html("Delivering to");
 	<div class="row home_page_slider1_data"></div>
 	<div class="row home_page_divisioncategory1_data"></div>
 	<div class="row home_page_menu_data"></div>
+	<?php if(!empty($_COOKIE["user_altercode"])){ ?>
 	<div class="row home_page_invoice_notification_data"></div>
+	<?php } ?>
 	<div class="row home_page_all_data"></div>
 
 	<div class="row">

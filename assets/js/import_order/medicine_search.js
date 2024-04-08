@@ -63,7 +63,7 @@ $(document).ready(function(){
 	};
 });
 
-function import_order_medicine_details(myid) {
+function import_order_medicine_details(myid){
 	$.ajax({
 		type       : "POST",
 		data       : {myid:myid} ,

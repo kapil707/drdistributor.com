@@ -31,7 +31,7 @@ class My_notification extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$data["chemist_id"] = $chemist_id;ð
+		$data["chemist_id"] = $chemist_id;
 
 		/********************************************************** */
 		$page_name = "my_notification";

@@ -4,7 +4,7 @@ class Scheme_Model extends CI_Model
 {	
 	function website_version(){
 		return "3.0";
-	} 
+	}
 	function select_all_result($tbl,$where,$orderby='',$asc_desc='')
 	{
 		if($where!="")

@@ -57,10 +57,9 @@ function place_order_complete()
 					status_message = (item.status_message);
 					if(status=="0" || status=="1")
 					{
-						$(".place_order_div").hide();
-						$(".main_container").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn main_theme_button' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
+						$(".place_order_div").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn main_theme_button' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
 				    }
-					/******************************** */
+					/******************************** *
 					get_my_cart_total_api();
 					/******************************** */
 				}

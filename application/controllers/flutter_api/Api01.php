@@ -384,17 +384,22 @@ class Api01 extends CI_Controller {
 				if($next_id<=5){
 					$next_id = 6;
 				}
+
+				$dt = array(
+					'title' => $title,
+					'category_id' => $category_id,
+					'page_type' => $page_type,
+					'next_id' => $next_id,
+					'items' => $items,
+				);
+				$myitems[] = $dt;
 			}
 		}
 
 		$response = array(
 			'success' => "1",
 			'message' => 'Data load successfully',
-			'title' => $title,
-			'category_id' => $category_id,
-			'page_type' => $page_type,
-			'next_id' => $next_id,
-			'items' => $items,
+			'items' => $myitems,
 		);
 
         // Send JSON response

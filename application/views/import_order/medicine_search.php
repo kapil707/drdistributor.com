@@ -176,7 +176,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/js/import_order/medicine_search10.js"></script>
+<script src="<?= base_url(); ?>assets/js/import_order/medicine_search.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

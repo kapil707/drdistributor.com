@@ -129,6 +129,7 @@ function home_page_main_api(seq_id){
 				$(".main_page_loading1").hide();
 			},
 			success : function(data){
+				$(".main_loading_css").hide();
 				get_my_home_response(data.items);
 			},
 			timeout: 60000
@@ -141,7 +142,6 @@ function get_my_home_response(items){
 	console.log(items);
 	$.each(items, function(i,row){
 		
-		$(".main_loading_css").hide();	
 		items = row.items;
 		title = row.title;
 

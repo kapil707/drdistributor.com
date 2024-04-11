@@ -139,7 +139,6 @@ function home_page_main_api(seq_id){
 
 function get_my_home_response(items){
 
-	console.log(items);
 	$.each(items, function(i,row){
 		
 		items = row.items;

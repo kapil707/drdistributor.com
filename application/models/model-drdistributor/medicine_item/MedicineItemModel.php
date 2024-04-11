@@ -35,7 +35,7 @@ class MedicineItemModel extends CI_Model
 		}
 		if($category_id=="5" && $session_yes_no=="no"){
 			// jab session na milay to yha chalta ha 
-			$return["items"] = "[]";
+			$return["items"] = array();
 			$return["title"] = 'Search';
 			return $return;
 		}

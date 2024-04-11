@@ -145,10 +145,10 @@ function get_my_home_response(items){
 		items = row.items;
 		title = row.title;
 
-		if(items!=''){
+		/*if(items!=''){
 			query_work = 0;
-		}
-
+		}*/
+		query_work = 0;
 		category_id = row.category_id;
 		page_type = row.page_type;
 

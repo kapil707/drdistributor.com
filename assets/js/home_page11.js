@@ -190,7 +190,7 @@ function get_my_home_response(items){
 			home_page_owl_load("divisioncategory",category_id);
 		}
 		
-		if(page_type=="itemcategory" && items!="") {
+		if(page_type=="itemcategory" && items.length === 0) {
 			dt_result = home_page_itemcategory(category_id,items,title);
 			$(".home_page_all_data").append(dt_result);
 			home_page_owl_load("itemcategory",category_id);

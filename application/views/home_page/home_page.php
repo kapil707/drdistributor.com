@@ -1,6 +1,6 @@
 <style>
 .top_bar_logo{
-	display: inline !important;
+	display: inline !important; 
 }
 .top_bar_title2{
 	display: none !important;

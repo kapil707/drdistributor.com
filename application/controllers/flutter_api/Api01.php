@@ -259,8 +259,6 @@ class Api01 extends CI_Controller {
 			'under_construction' => $under_construction,
 			'under_construction_message' => $under_construction_message,
 			'rating_bar_page' => $rating_bar_page,
-			'user_cart_items' => $user_cart_items,
-			'user_cart_items_other' => $user_cart_items_other,
 		);
 		$jsonArray[] = $dt;
 		$items = $jsonArray;
@@ -269,6 +267,8 @@ class Api01 extends CI_Controller {
 			'success' => "1",
 			'message' => 'Data load successfully',
 			'items' => $items,
+			'user_cart_items' => $user_cart_items,
+			'user_cart_items_other' => $user_cart_items_other,
 		);
 
 		// Send JSON response

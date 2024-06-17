@@ -52,8 +52,8 @@ function goBack() {
 						</a>
 					</div>
 					
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
-					<img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/featured_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_featured_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
+					<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" width="100" style="position: absolute;margin-top:10px;display:none;left: 15px;" alt="zoom" class="medicine_details_out_of_stock_img" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change1" onclick="modal_item_image_change(1)" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
 					<img src="<?= base_url(); ?>/uploads/default_img.jpg" width="20%" style="float: left;margin-top:10px;cursor: pointer;margin-right: 6.6%;" class="medicine_details_image_small modal_item_image_change2" onclick="modal_item_image_change(2)" alt="zoom" onerror=this.src='<?= base_url(); ?>/uploads/default_img.jpg'>
@@ -176,15 +176,15 @@ function call_page(get_record)
 	{
 		query_work = 1;
 		$(".load_more").hide();
-		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 		$.ajax({
 			type       : "POST",
-			data       :  {item_code:'<?= $item_code; ?>',user_type:'<?= $user_type; ?>',user_altercode:'<?= $user_altercode; ?>',user_password:'<?= $user_password; ?>',chemist_id:'<?= $chemist_id; ?>'} ,
-			url        : "<?= constant('img_url_site');?>web_api/api01/get_medicine_use/",
+			data       :  {item_code:'<?= $item_code; ?>'} ,
+			url        : "<?= base_url();?>medicine_details/medicine_details_api",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");
-				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v<?= constant('site_v') ?>/something_went_wrong.png" width="100%"></h1>');
+				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
 			},
 			success    : function(data){
 				if(data.get_result=="")
@@ -192,7 +192,7 @@ function call_page(get_record)
 					if(no_record_found=="0")
 					{
 						$(".load_page_loading").html("");
-						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v<?= constant('site_v') ?>/no_record_found.png" width="100%"></center></h1>');
+						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
 					}
 					else
 					{
@@ -274,7 +274,7 @@ function call_page(get_record)
 							}
 							
 							if(file_type=="video"){
-								video = '<video width="100%" height="250" controls="" poster="<?php echo base_url(); ?>img_v<?= constant('site_v') ?>/default-video-thumbnail.jpg"><source src="'+file+'" type="video/mp4">Your browser does not support the video tag.</video>';
+								video = '<video width="100%" height="250" controls="" poster="<?php echo base_url(); ?>img_v51/default-video-thumbnail.jpg"><source src="'+file+'" type="video/mp4">Your browser does not support the video tag.</video>';
 							}
 							
 							if(image!=""){

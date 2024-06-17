@@ -180,7 +180,7 @@ function call_page(get_record)
 		$.ajax({
 			type       : "POST",
 			data       :  {item_code:'<?= $item_code; ?>'} ,
-			url        : "<?= base_url();?>medicine_details/medicine_details_api",
+			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use/",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");

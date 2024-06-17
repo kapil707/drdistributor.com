@@ -40,6 +40,20 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
+	public function medicine_use() {
+
+		$data["main_page_title"] = "Home";
+		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_fname"]     = "Guest";
+		$data["session_user_altercode"] = "xxxxxx";
+		$data["chemist_id"] = "";
+		$data["main_page_title"] = "How to Use";
+
+		$this->load->view('header_footer/header', $data);
+	    $this->load->view('medicine_use/medicine_use', $data);
+		$this->load->view('header_footer/footer', $data);
+	}
+
 	public function terms_of_services() {
 
 		$data["main_page_title"] = "Home";
@@ -47,7 +61,7 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
-		$data["main_page_title"] = "Request for account delete";
+		$data["main_page_title"] = "Terms Of Services";
 
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('terms_of_services/terms_of_services', $data);

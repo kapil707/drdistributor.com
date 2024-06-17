@@ -40,7 +40,7 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function medicine_use() {
+	public function medicine_use($item_code) {
 
 		$data["main_page_title"] = "Home";
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
@@ -49,6 +49,8 @@ class Main extends CI_Controller {
 		$data["session_delivering_to"]  = "";
 		$data["chemist_id"] = "";
 		$data["main_page_title"] = "How to Use";
+
+		$data['item_code'] = $item_code;
 
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('medicine_use/medicine_use', $data);

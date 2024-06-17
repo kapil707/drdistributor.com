@@ -38,7 +38,7 @@
 <script>
 $(".headertitle").html("Loading....");
 function goBack() {
-	window.location.href = "<?= base_url();?>home";
+	window.location.href = "<?= base_url();?>";
 }
 </script>
 <div class="container maincontainercss">

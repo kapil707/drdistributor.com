@@ -46,6 +46,7 @@ class Main extends CI_Controller {
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
+		$data["session_delivering_to"]  = "";
 		$data["chemist_id"] = "";
 		$data["main_page_title"] = "How to Use";
 
@@ -61,6 +62,7 @@ class Main extends CI_Controller {
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["chemist_id"] = "";
+		$data["session_delivering_to"]  = "";
 		$data["main_page_title"] = "Terms Of Services";
 
 		$this->load->view('header_footer/header', $data);

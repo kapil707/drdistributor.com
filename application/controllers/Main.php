@@ -45,10 +45,18 @@ class Main extends CI_Controller {
 
 		$item_code		= $_REQUEST["item_code"];
 		$user_type 		= "Chmiest";
-		$user_altercode = "XX-Guest";
+		$user_altercode = "Guest";
 		$user_password	= "";
 		$chemist_id 	= "";
 		$salesman_id = "";
+		if(!empty($_COOKIE["user_type"])){
+			$user_type 		= $_COOKIE["user_type"];
+			$user_altercode = $_COOKIE["user_altercode"];
+			$user_password	= $_COOKIE["user_password"];
+			$user_nrx		= $_COOKIE["user_nrx"];
+			$chemist_id 	= "";
+			$salesman_id = "";
+		}
 		if($user_type=="sales")
 		{
 			$chemist_id 	= $_COOKIE["chemist_id"];

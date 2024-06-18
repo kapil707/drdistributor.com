@@ -159,4 +159,4 @@ function goBack() {
 <script>
 item_code = '<?= $item_code; ?>';
 </script>
-<script src="<?= base_url(); ?>assets/js/medicine_use1.js"></script>
+<script src="<?= base_url(); ?>assets/js/medicine_use.js"></script>

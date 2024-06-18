@@ -89,8 +89,9 @@ $route['home/medicine_search']='medicine_search/index';
 $route['my_cart']='my_cart/index';
 $route['home/my_cart']='my_cart/index';
 
-
 $route['track_order']='home/track_order';
+
+$route['medicine_use/(:any)']='medicine_use/index/$1';
 
 $route['my_order']='my_order/index';
 $route['my_order_details/(:any)']='my_order/my_order_details/$1';

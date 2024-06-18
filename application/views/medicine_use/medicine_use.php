@@ -230,7 +230,7 @@ function call_page2()
 	$.ajax({
 		type       : "POST",
 		data       :  {item_code:'<?= $item_code; ?>'} ,
-		url        : "<?php echo base_url(); ?>main/medicine_use_api",
+		url        : "<?php echo base_url(); ?>medicine_use/medicine_use_api",
 		cache	   : false,
 		error: function(){
 			$(".load_page_loading").html("");

@@ -36,7 +36,7 @@
 }
 </style>
 <script>
-$(".headertitle").html("Loading....");
+$(".top_bar_title").html("Loading....");
 function goBack() {
 	window.location.href = "<?= base_url();?>";
 }
@@ -238,7 +238,7 @@ function call_page2()
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){
-				$(".headertitle").html(item.item_name);						
+				$(".top_bar_title").html(item.item_name);						
 				
 				$(".medicine_details_item_name").html(item.item_name);
 				$(".medicine_details_item_packing").html("Packing : "+item.item_packing)

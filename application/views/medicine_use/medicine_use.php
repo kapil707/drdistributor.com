@@ -261,7 +261,7 @@ function call_page(get_record)
 					$(".medicine_details_image").attr("src",item.item_image)
 					$(".medicine_details_image_small").attr("src",item.item_image)
 				});*/
-				$.each(row.medicine_use, function(i,item){
+				$.each(data.medicine_use, function(i,item){
 					if (item){
 						file			= item.file;
 						file_type		= item.file_type;

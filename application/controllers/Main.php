@@ -42,11 +42,11 @@ class Main extends CI_Controller {
 
 	public function medicine_use_api(){
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
-		
+
 		$item_code		= $_REQUEST["item_code"];
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= "Chmiest";
+		$user_altercode = "XX-Guest";
+		$user_password	= "";
 		$chemist_id 	= "";
 		$salesman_id = "";
 		if($user_type=="sales")

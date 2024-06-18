@@ -173,6 +173,7 @@ function load_more()
 {
 	get_record=$(".get_record").val();
 	call_page(get_record)
+	call_page2(get_record)
 }
 var query_work = 0;
 var no_record_found = 0;
@@ -186,7 +187,7 @@ function call_page(get_record)
 		$.ajax({
 			type       : "POST",
 			data       :  {item_code:'<?= $item_code; ?>'} ,
-			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use/",
+			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use",
 			cache	   : false,
 			error: function(){
 				$(".load_page_loading").html("");
@@ -292,6 +293,101 @@ function call_page(get_record)
 						no_record_found = 1;
 						$(".load_more").show();
 					}
+				});
+			},
+			timeout: 10000
+		});
+	}
+}
+function call_page2(get_record)
+{
+	if(query_work=="0")
+	{
+		query_work = 1;
+		$(".load_more").hide();
+		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
+		$.ajax({
+			type       : "POST",
+			data       :  {item_code:'<?= $item_code; ?>'} ,
+			url        : "<?php echo base_urlo(); ?>main/medicine_use_api",
+			cache	   : false,
+			error: function(){
+				$(".load_page_loading").html("");
+				$(".load_page").html('<h1><img src="<?= base_url(); ?>img_v51/something_went_wrong.png" width="100%"></h1>');
+			},
+			success    : function(data){
+				if(data.get_result=="")
+				{
+					if(no_record_found=="0")
+					{
+						$(".load_page_loading").html("");
+						$(".load_page").html('<h1><center><img src="<?= base_url(); ?>/img_v51/no_record_found.png" width="100%"></center></h1>');
+					}
+					else
+					{
+						$(".load_page_loading").html("");
+						//$(".load_page").html("");
+					}
+				}
+				else
+				{
+					$(".load_page_loading").html("");
+				}
+				$.each(data.medicine_details, function(i,item){
+					$(".headertitle").html(item.item_name);						
+					
+					$(".medicine_details_item_name").html(item.item_name);
+					$(".medicine_details_item_packing").html("Packing : "+item.item_packing)
+					$(".medicine_details_item_batch_no").html("Batch no : "+item.item_batch_no)
+					$(".medicine_details_item_margin").html(item.item_margin+'% Margin')
+					$(".medicine_details_item_expiry").html("Expiry : "+item.item_expiry)
+					$(".medicine_details_item_company").html("By "+item.item_company)
+					$(".medicine_details_item_stock").html("Stock : " +item.item_quantity)
+					$(".medicine_details_item_scheme").html("Scheme : " +item.item_scheme)
+					$(".medicine_details_item_description1").html(item.item_description1)
+					$(".medicine_details_item_description1").show()
+					
+					if(item.item_description1=="")
+					{
+						$(".medicine_details_item_description1").hide()
+					}
+					$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_ptr + "/-")
+					$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_mrp + "/-")
+					$(".medicine_details_item_gst").html("GST : "+item.item_gst +"%")
+					$(".medicine_details_item_price").html('*Approximate Value ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
+					$(".medicine_details_item_scheme_line").show()
+					$(".medicine_details_item_scheme").show()
+					if(item.item_scheme=="0+0")
+					{
+						$(".medicine_details_out_of_stock_img").hide()
+						$(".medicine_details_item_scheme_line").hide()
+						$(".medicine_details_item_scheme").hide()
+					}
+					if(item.item_featured=="1" && item.item_quantity!="0"){
+						$(".medicine_details_featured_img").show()
+					}
+					if(parseInt(item.item_quantity)==0){
+						
+						$(".medicine_details_item_add_to_cart_btn_disable").show()
+						$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
+						$(".medicine_details_out_of_stock_img").show()
+						$(".medicine_details_item_scheme").hide()
+						$(".medicine_details_item_scheme_line").hide()
+					}else{
+						$(".medicine_details_item_add_to_cart_btn").show()
+					}
+					if(item.item_stock!="")
+					{
+						$(".medicine_details_item_stock").html(item.item_stock)
+					}
+					$(".medicine_details_item_quantity").val(item.item_quantity)
+					if(item.item_order_quantity){
+						$(".medicine_details_item_order_quantity_textbox").val(item.item_order_quantity)
+					}
+					$(".medicine_details_item_order_quantity_textbox").focus()
+					
+					$(".medicine_details_image").attr("src",item.item_image)
+					$(".medicine_details_image_small").attr("src",item.item_image)
 				});
 			},
 			timeout: 10000

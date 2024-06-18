@@ -109,6 +109,14 @@ class MedicineDetailsModel extends CI_Model
 			}
 			
 			/************************************************************************************* */
+
+			if($user_altercode=="XX-Guest"){
+				$item_mrp 		= "xx.xx";
+				$item_ptr 		= "xx.xx";
+				$item_price		= "xx.xx";
+				$item_margin 	= "xx";
+			}
+
 			$dt = array(
 				'item_date_time' => $item_date_time,
 				'item_code' => $item_code,

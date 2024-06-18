@@ -644,8 +644,8 @@ class MyCartModel extends CI_Model
 			$row1 = $this->db->query("select * from tbl_medicine_use where i_code='$row->i_code'")->row();
 			if(!empty($row1)){
 				$t++;
-				$view = "<b>How to use this medicine : </b><a href='".base_url()."home/medicine_use/".$row1->i_code."'>View</a>";
-				$tbl_w.= $t.". ".$row->item_name."<br>".base_url()."home/medicine_use/".$row1->i_code."<br>";
+				$view = "<b>How to use this medicine : </b><a href='".base_url()."medicine_use/".$row1->i_code."'>View</a>";
+				$tbl_w.= $t.". ".$row->item_name."<br>".base_url()."medicine_use/".$row1->i_code."<br>";
 				
 				$tbl_html.= "<br><br><hr><h2><center>How to use this medicine :<b>".$row->item_name."</b></center></h2><br>";
 				// for email html

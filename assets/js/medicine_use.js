@@ -12,11 +12,9 @@ function call_page()
 	if(query_work=="0")
 	{
 		query_work = 1;
-		$(".load_more").hide();
-		$(".load_page_loading").html('<h1><center><img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px"></center></h1><h1><center>Loading....</center></h1>');
 		$.ajax({
 			type       : "POST",
-			data       :  {item_code:'<?= $item_code; ?>'} ,
+			data       :  {item_code:item_code} ,
 			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use",
 			cache	   : false,
 			error: function(){
@@ -60,7 +58,7 @@ function call_page2()
 {
 	$.ajax({
 		type       : "POST",
-		data       :  {item_code:'<?= $item_code; ?>'} ,
+		data       :  {item_code:item_code} ,
 		url        : get_base_url()+"Medicine_use/medicine_use_api",
 		cache	   : false,
 		error: function(){

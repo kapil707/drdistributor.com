@@ -173,7 +173,6 @@ function load_more()
 {
 	get_record=$(".get_record").val();
 	call_page(get_record)
-	call_page2(get_record)
 }
 var query_work = 0;
 var no_record_found = 0;
@@ -241,8 +240,9 @@ function call_page(get_record)
 			timeout: 10000
 		});
 	}
+	call_page2()
 }
-function call_page2(get_record)
+function call_page2()
 {
 	if(query_work=="0")
 	{

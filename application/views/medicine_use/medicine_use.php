@@ -206,9 +206,8 @@ function call_page(get_record)
 				}
 				console.log(data.items);
 				$.each(data.result, function(i,row){
-					$.each(row.medicine_details, function(i,item){
-						$(".headertitle").html(item.item_name);
-						
+					/*$.each(row.medicine_details, function(i,item){
+						$(".headertitle").html(item.item_name);						
 						
 						$(".medicine_details_item_name").html(item.item_name);
 						$(".medicine_details_item_packing").html("Packing : "+item.item_packing)
@@ -262,7 +261,7 @@ function call_page(get_record)
 						
 						$(".medicine_details_image").attr("src",item.item_image)
 						$(".medicine_details_image_small").attr("src",item.item_image)
-					});
+					});*/
 					$.each(row.medicine_use, function(i,item){
 						if (item){
 							file			= item.file;

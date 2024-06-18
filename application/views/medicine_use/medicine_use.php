@@ -204,7 +204,7 @@ function call_page(get_record)
 				{
 					$(".load_page_loading").html("");
 				}
-				console.log(data.items);
+				//console.log(data.items);
 				/*$.each(row.medicine_details, function(i,item){
 					$(".headertitle").html(item.item_name);						
 					

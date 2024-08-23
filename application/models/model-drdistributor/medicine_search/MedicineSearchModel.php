@@ -13,7 +13,7 @@ class MedicineSearchModel extends CI_Model
 
 	public function medicine_search_api($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
 	{
-		$db_medicine1 = $db_medicine2 = $db_medicine3 = $db_medicine4 = $db_medicine5 = $db_medicine6 = $this->db;
+		$db_medicine1 = $db_medicine2 = $db_medicine3 = $db_medicine4 = $db_medicine5 = $db_medicine6 = $this->dbs;
 		
 		$jsonArray = array();
 		$query1 = $query2 = $query3 = $query4 = $query5 = $query6 = array(); 

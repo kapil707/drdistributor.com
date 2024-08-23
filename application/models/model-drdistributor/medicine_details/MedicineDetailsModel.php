@@ -8,7 +8,7 @@ class MedicineDetailsModel extends CI_Model
 		parent::__construct();
 
 		// Load model
-		$this->db_medicine = $this->load->database('default2', TRUE);
+		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 
 	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)
@@ -18,12 +18,13 @@ class MedicineDetailsModel extends CI_Model
 
 		$item_date_time = date('d-M h:i A');
 		
-		$db_medicine = $this->db_medicine;
+		//$db_medicine = $this->db_medicine;
+		$db_medicine = $this->db;
 		$db_medicine->select("*");
 		$where = array('i_code'=>$item_code);
 		$db_medicine->where($where);
 		$db_medicine->limit(1);
-		$row = $db_medicine->get("tbl_medicine")->row();
+		$row = $db_medicine->get("tbl_medicine_new")->row();
 		if(!empty($row->id))
 		{
 			$item_code			=	$row->i_code;
@@ -178,7 +179,7 @@ class MedicineDetailsModel extends CI_Model
 		$date = date('Y-m-d');
 		$time = date("H:i",time());
 		$where = array('i_code'=>$item_code);
-		$row = $this->Scheme_Model->select_row("tbl_medicine",$where);
+		$row = $this->Scheme_Model->select_row("tbl_medicine_new",$where);
 		if(!empty($row->item_name))
 		{
 			$item_name 	= $row->item_name;

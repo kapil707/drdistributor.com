@@ -8,6 +8,7 @@ class MedicineSearchModel extends CI_Model
 		parent::__construct();
 
 		// Load model
+		
 		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 

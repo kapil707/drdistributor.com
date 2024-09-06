@@ -64,7 +64,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
 
-			$query1 = $db_medicine1->get("tbl_medicine_new as m")->result();
+			$query1 = $db_medicine1->get("tbl_medicine as m")->result();
 			foreach($query1 as $row){
 				$sameid[] = $row->id;
 			}
@@ -101,7 +101,7 @@ class MedicineSearchModel extends CI_Model
 				}
 				$db_medicine2->order_by('m.batchqty desc','m.item_name asc');
 
-				$query2 = $db_medicine2->get("tbl_medicine_new as m")->result();
+				$query2 = $db_medicine2->get("tbl_medicine as m")->result();
 				foreach($query2 as $row){
 					$sameid[] = $row->id;
 				}
@@ -140,7 +140,7 @@ class MedicineSearchModel extends CI_Model
 				}
 				$db_medicine3->order_by('m.batchqty desc','m.item_name asc');
 
-				$query3 = $db_medicine3->get("tbl_medicine_new as m")->result();
+				$query3 = $db_medicine3->get("tbl_medicine as m")->result();
 				foreach($query3 as $row){
 					$sameid[] = $row->id;
 				}
@@ -179,7 +179,7 @@ class MedicineSearchModel extends CI_Model
 				}
 				$db_medicine4->order_by('m.batchqty desc','m.item_name asc');
 
-				$query4 = $db_medicine4->get("tbl_medicine_new as m")->result();
+				$query4 = $db_medicine4->get("tbl_medicine as m")->result();
 				foreach($query4 as $row){
 					$sameid[] = $row->id;
 				}
@@ -217,7 +217,7 @@ class MedicineSearchModel extends CI_Model
 				}
 				$db_medicine5->order_by('m.batchqty desc','m.item_name asc');
 
-				$query5 = $db_medicine5->get("tbl_medicine_new as m")->result();
+				$query5 = $db_medicine5->get("tbl_medicine as m")->result();
 				foreach($query5 as $row){
 					$sameid[] = $row->id;
 				}
@@ -256,7 +256,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
-			$query6 = $db_medicine6->get("tbl_medicine_new as m")->result();
+			$query6 = $db_medicine6->get("tbl_medicine as m")->result();
 			foreach($query6 as $row){
 				$sameid[] = $row->id;
 			}
@@ -317,7 +317,7 @@ class MedicineSearchModel extends CI_Model
 					}
 					$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
-					$query6 = $db_medicine6->get("tbl_medicine_new as m")->result();
+					$query6 = $db_medicine6->get("tbl_medicine as m")->result();
 					/***********************************************************/
 					foreach ($query6 as $row)
 					{

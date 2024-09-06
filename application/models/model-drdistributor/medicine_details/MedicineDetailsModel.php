@@ -24,7 +24,7 @@ class MedicineDetailsModel extends CI_Model
 		$where = array('i_code'=>$item_code);
 		$db_medicine->where($where);
 		$db_medicine->limit(1);
-		$row = $db_medicine->get("tbl_medicine_new")->row();
+		$row = $db_medicine->get("tbl_medicine")->row();
 		if(!empty($row->id))
 		{
 			$item_code			=	$row->i_code;
@@ -179,7 +179,7 @@ class MedicineDetailsModel extends CI_Model
 		$date = date('Y-m-d');
 		$time = date("H:i",time());
 		$where = array('i_code'=>$item_code);
-		$row = $this->Scheme_Model->select_row("tbl_medicine_new",$where);
+		$row = $this->Scheme_Model->select_row("tbl_medicine",$where);
 		if(!empty($row->item_name))
 		{
 			$item_name 	= $row->item_name;

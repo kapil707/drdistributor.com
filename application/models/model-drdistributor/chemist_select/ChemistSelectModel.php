@@ -10,7 +10,7 @@ class ChemistSelectModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$result = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
+		$result = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_acm_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_acm_other on tbl_chemist.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
 		$count = $user_cart = $user_cart_total = 0;
 		foreach ($result as $row)
 		{
@@ -72,7 +72,7 @@ class ChemistSelectModel extends CI_Model
 			}
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
 			
-			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,tbl_acm.narcolicence from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
+			$row1 = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_acm_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_acm_other on tbl_chemist.code=tbl_acm_other.code where tbl_chemist.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
 			$chemist_image = base_url()."img_v51/logo4.png";

@@ -199,7 +199,7 @@ class Import_order extends CI_Controller {
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		if($user_type=="chemist")
 		{
-			$users = $this->db->query("select * from tbl_acm where altercode='$chemist_id' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$chemist_id' ")->row();
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= $users->name;
 			$acm_email 		= $users->email;
@@ -211,7 +211,7 @@ class Import_order extends CI_Controller {
 		if($user_type=="sales")
 		{
 			//jab sale man say login hota ha to
-			$users = $this->db->query("select * from tbl_acm where altercode='$user_altercode' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' ")->row();
 			$user_session	= $users->id;
 			$acm_altercode 	= $users->altercode;
 			$acm_name 		= $users->name;

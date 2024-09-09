@@ -197,7 +197,7 @@ class Api_mobile45 extends CI_Controller {
 			
 			if($user_type=="chemist")
 			{
-				$this->db->query("update tbl_acm_other set image='$img_name' where code='$user_code'");
+				$this->db->query("update tbl_chemist_other set image='$img_name' where code='$user_code'");
 			}
 			
 			echo base_url().$user_profile;

@@ -43,7 +43,7 @@ class Chemist_Model extends CI_Model
 	{
 		$items = "";		
 		$status1 = "0";
-		$query = $this->db->query("select * from tbl_acm where altercode='$chemist_code' and slcd='CL' limit 1")->row();
+		$query = $this->db->query("select * from tbl_chemist where altercode='$chemist_code' and slcd='CL' limit 1")->row();
 		if (empty($query->id))
 		{
 			$status = "User account doesn't exist.";
@@ -51,7 +51,7 @@ class Chemist_Model extends CI_Model
 		else
 		{
 			$code = $query->code;
-			$row1 = $this->db->query("select * from tbl_acm_other where code='$code'")->row();
+			$row1 = $this->db->query("select * from tbl_chemist_other where code='$code'")->row();
 			if(empty($row1->id))
 			{
 				$new_request = 1;
@@ -64,7 +64,7 @@ class Chemist_Model extends CI_Model
 				'user_phone'=>$phone_number,
 				'download_status'=>0,
 				);
-				$this->Scheme_Model->insert_fun("tbl_acm_other",$dt);
+				$this->Scheme_Model->insert_fun("tbl_chemist_other",$dt);
 				$subject = "Request for New Account";
 				$message = "Request for New Account <br><br>Chemist Code : $chemist_code <br><br>Phone Number : $phone_number";
 				$email_function = "new_account";
@@ -109,7 +109,7 @@ if ($items != '') {
 	}
 	public function otp($altercode,$otp_sms)
 	{
-		$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+		$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 		if($query->altercode)
 		{
 			$w_number 		= "+91".$query->mobile;//$c_cust_mobile;
@@ -170,7 +170,7 @@ if ($items != '') {
 		if(!empty($user_name1) && !empty($password1))
 		{
 			$user_password = md5($password1);			
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name1' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_name1' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -313,7 +313,7 @@ if ($items != '') {
 		$items = "";
 		if($user_type=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
 				$id			= ($row->id);
@@ -324,7 +324,7 @@ if ($items != '') {
 				$address 	= ($row->address);
 				$gstno 		= ($row->gstno);				
 				$where= array('code'=>$row->code);
-				$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
+				$row1 = $this->Scheme_Model->select_row("tbl_chemist_other",$where);
 				$user_profile = constant('user_profile')."user_profile/$row1->image";
 				if(empty($row1->image))
 				{
@@ -380,11 +380,11 @@ if ($items != '') {
 		$items = "";
 		if($user_type=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
 			if($row->id!="")
 			{
 				$id			= ($row->id);
-				$row1 = $this->db->query("select * from tbl_acm_other where code='$row->code'")->row();
+				$row1 = $this->db->query("select * from tbl_chemist_other where code='$row->code'")->row();
 				$user_phone		= ($row1->user_phone);
 				$user_email		= ($row1->user_email);
 				$user_address	= ($row1->user_address);
@@ -416,11 +416,11 @@ if ($items != '') {
 		$status = $status1 = "";
 		if($user_type=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_acm where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
 			if($row->id!="")
 			{
 				$code = ($row->code);
-				$this->db->query("update tbl_acm_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where code='$code'");
+				$this->db->query("update tbl_chemist_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where code='$code'");
 				$status = "Request has been sent. Your account will update soon.";
 				$status1 = "1";
 			}
@@ -461,7 +461,7 @@ if ($items != '') {
 		$status1 = "0";
 		if($user_type=="chemist")
 		{
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if ($query->id!="")
 			{
 				if ($query->password == $user_password && $query->block=="0" && $query->status=="1")
@@ -499,14 +499,14 @@ if ($items != '') {
 		$status1 = "0";
 		if($user_type=="chemist")
 		{
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if ($query->id!="")
 			{
 				if ($query->password == $user_password && $query->block=="0" && $query->status=="1")
 				{
 					$code = $query->code;
 					$new_password = md5($new_password);
-					$this->db->query("update tbl_acm_other set password='$new_password',download_status=0 where code='$code'");
+					$this->db->query("update tbl_chemist_other set password='$new_password',download_status=0 where code='$code'");
 					$status = "Updated successfully";
 					$status1 = "1";
 				}
@@ -1745,7 +1745,7 @@ if ($items != '') {
 		$items = "";
 		$this->db->where("(name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL'");
 		$this->db->limit(100);
-		$query= $this->db->get("tbl_acm")->result();		
+		$query= $this->db->get("tbl_chemist")->result();		
 		foreach ($query as $row)
 		{
 			if(substr($row->name,0,1)==".")
@@ -1758,7 +1758,7 @@ if ($items != '') {
 				$chemist_id	=	$row->altercode;
 				$code		=	$row->code;
 				$where1 = array('code'=>$row->code);
-				$row1   = $this->Scheme_Model->select_row("tbl_acm_other",$where1);
+				$row1   = $this->Scheme_Model->select_row("tbl_chemist_other",$where1);
 				$user_image = constant('img_url_site')."img_v".constant('site_v')."/logo.png";
 				if(!empty($row1->image))
 				{
@@ -1779,8 +1779,8 @@ if ($items != '') {
 		$items = "";
 		$salesman_id 	= $user_altercode;
 		$count = 0;
-		//"select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image,(select count(id) as user_cart from drd_temp_rec where user_type='sales' and selesman_id='$salesman_id' and chemist_id=tbl_acm.altercode and status=0) as user_cart,(select sum(quantity*sale_rate) as user_cart_total from drd_temp_rec where user_type='sales' and selesman_id='$salesman_id' and chemist_id=tbl_acm.altercode and status=0) as user_cart_total from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50"
-		$result = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
+		//"select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image,(select count(id) as user_cart from drd_temp_rec where user_type='sales' and selesman_id='$salesman_id' and chemist_id=tbl_chemist.altercode and status=0) as user_cart,(select sum(quantity*sale_rate) as user_cart_total from drd_temp_rec where user_type='sales' and selesman_id='$salesman_id' and chemist_id=tbl_chemist.altercode and status=0) as user_cart_total from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50"
+		$result = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
 		$user_cart = $user_cart_total = 0;
 		foreach ($result as $row)
 		{
@@ -1922,7 +1922,7 @@ if ($items != '') {
 			}
 			$item_date_time	= $row->date." ".$row->time;			
 			$item_id = $order_id;
-			$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$row->chemist_id' and tbl_acm.code = tbl_acm_other.code")->row();
+			$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$row->chemist_id' and tbl_chemist.code = tbl_chemist_other.code")->row();
 			$user_image = constant('main_site')."user_profile/$row1->image";
 			if(empty($row1->image))
 			{
@@ -1944,7 +1944,7 @@ if ($items != ''){
 	{
 		$items = "";
 		/************************************** */
-		$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+		$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = constant('main_site')."user_profile/$row1->image";
 		if(empty($row1->image))
 		{
@@ -2061,7 +2061,7 @@ if ($items != '') {
 			$this->db->query("update tbl_broadcast set status='1' where id='$broadcastid'");
 		}
 		/*****************check block or not*******************
-		$query = $this->db->query("select tbl_acm.id,tbl_acm_other.block,tbl_acm_other.status from tbl_acm,tbl_acm_other where altercode='$chemist_id' and tbl_acm.code = tbl_acm_other.code")->row();
+		$query = $this->db->query("select tbl_chemist.id,tbl_chemist_other.block,tbl_chemist_other.status from tbl_chemist,tbl_chemist_other where altercode='$chemist_id' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		if ($query->id!="")
 		{
 			$status = "1";
@@ -2102,7 +2102,7 @@ if ($items != '') {
 			$item_message	=   str_replace("<br>"," ",$item_message);
 			$item_date_time = 	$row->date." ".$row->time;
 			$item_message	= 	substr($item_message, 0, 50)."....";
-			$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$row->chemist_id' and tbl_acm.code = tbl_acm_other.code")->row();
+			$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$row->chemist_id' and tbl_chemist.code = tbl_chemist_other.code")->row();
 			$user_image = constant('main_site')."user_profile/$row1->image";
 			if(empty($row1->image))
 			{
@@ -2122,7 +2122,7 @@ if ($items != '') {
 	{
 		$items = "";	
 		/************************************** */
-		$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+		$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = constant('main_site')."user_profile/$row1->image";
 		if(empty($row1->image))
 		{
@@ -2207,7 +2207,7 @@ if ($items != '') {
 			{
 				$item_fun_name = "my_invoice";
 			}
-			$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$row->chemist_id' and tbl_acm.code = tbl_acm_other.code")->row();
+			$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$row->chemist_id' and tbl_chemist.code = tbl_chemist_other.code")->row();
 			$user_image = constant('main_site')."user_profile/$row1->image";
 			if(empty($row1->image))
 			{
@@ -4269,7 +4269,7 @@ if ($items != '') {
 			$item_date_time 	= date("d-M-y",strtotime($row->date));
 			$out_for_delivery 	= $row->out_for_delivery;
 			$delete_status		= $row->delete_status;
-			$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$row->altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+			$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$row->altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 			$user_image = constant('main_site')."user_profile/$row1->image";
 			if(empty($row1->image))
 			{
@@ -4292,7 +4292,7 @@ if ($items != ''){
 	{
 		$items = "";
 		/************************************** */
-		$row1 = $this->db->query("SELECT tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+		$row1 = $this->db->query("SELECT tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = constant('main_site')."user_profile/$row1->image";
 		if(empty($row1->image))
 		{
@@ -4717,7 +4717,7 @@ if ($items != ''){
 		if($user_type=="sales")
 		{
 			$where = array('altercode'=>$user_altercode,);
-			$qr = $this->Scheme_Model->select_row("tbl_acm",$where);
+			$qr = $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$title 			= ucwords(strtolower($qr->name));
 			$chemist_name 	= "$title - ($user_altercode)";	
 			$where = array('customer_code'=>$salesman_id,);
@@ -4728,7 +4728,7 @@ if ($items != ''){
 		if($user_type=="chemist")
 		{			
 			$where = array('altercode'=>$user_altercode,);
-			$qr = $this->Scheme_Model->select_row("tbl_acm",$where);
+			$qr = $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$title 			= ucwords(strtolower($qr->name));
 			$chemist_name 	= "$title - ($qr->altercode)";
 		}

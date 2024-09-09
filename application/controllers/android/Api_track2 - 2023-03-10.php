@@ -253,7 +253,7 @@ if ($items != '') {
 		$submit1 = sha1($submit1);
 		if($submit==$submit1)
 		{
-			$result = $this->db->query("SELECT DISTINCT tbl_deliverby.`chemist_id`,tbl_acm.name,tbl_invoice.amt,tbl_invoice.gstvno FROM tbl_deliverby,tbl_master,tbl_acm,tbl_invoice WHERE tbl_master.id='$user_session' and tbl_deliverby.deliverby_altercode = tbl_master.altercode and tbl_master.slcd='SM' and tbl_deliverby.chemist_id = tbl_acm.altercode and tbl_invoice.gstvno = tbl_deliverby.gstvno and tbl_deliverby.status=0")->result();
+			$result = $this->db->query("SELECT DISTINCT tbl_deliverby.`chemist_id`,tbl_chemist.name,tbl_invoice.amt,tbl_invoice.gstvno FROM tbl_deliverby,tbl_master,tbl_chemist,tbl_invoice WHERE tbl_master.id='$user_session' and tbl_deliverby.deliverby_altercode = tbl_master.altercode and tbl_master.slcd='SM' and tbl_deliverby.chemist_id = tbl_chemist.altercode and tbl_invoice.gstvno = tbl_deliverby.gstvno and tbl_deliverby.status=0")->result();
 			foreach($result as $row)
 			{
 				$chemist_id = 	$row->chemist_id;

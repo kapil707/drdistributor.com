@@ -10,7 +10,7 @@ class Query_Model extends CI_Model
     {
         $this->db->select('t1.id,t1.user_type,t1.time,t1.logout,t1.clear_database,t1.broadcast,t1.versioncode,t1.chemist_id,t2.name');
         $this->db->from('tbl_android_device_id as t1');
-        $this->db->join('tbl_acm as t2', 't1.chemist_id = t2.altercode', 'left');
+        $this->db->join('tbl_chemist as t2', 't1.chemist_id = t2.altercode', 'left');
         $this->db->order_by("t1.time", "desc");
         $query = $this->db->get();
         return $query->result();

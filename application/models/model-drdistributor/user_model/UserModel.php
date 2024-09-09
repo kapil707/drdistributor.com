@@ -22,7 +22,7 @@ class UserModel extends CI_Model
 				$user_address 	= ($row->address);
 				$user_gstno 	= ($row->gstno);				
 				$where= array('code'=>$row->code);
-				$row1 = $this->Scheme_Model->select_row("tbl_acm_other",$where);
+				$row1 = $this->Scheme_Model->select_row("tbl_chemist_other",$where);
 				$user_image = base_url()."user_profile/$row1->image";
 				if(empty($row1->image))
 				{
@@ -90,7 +90,7 @@ class UserModel extends CI_Model
 			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
-				$row1 = $this->db->query("select * from tbl_acm_other where code='$row->code'")->row();
+				$row1 = $this->db->query("select * from tbl_chemist_other where code='$row->code'")->row();
 				$user_phone		= ($row1->user_phone);
 				$user_email		= ($row1->user_email);
 				$user_address	= ($row1->user_address);
@@ -133,7 +133,7 @@ class UserModel extends CI_Model
 			if(!empty($row->id))
 			{
 				$code = ($row->code);
-				$this->db->query("update tbl_acm_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where code='$code'");
+				$this->db->query("update tbl_chemist_other set user_phone='$user_phone',user_email='$user_email',user_address='$user_address',user_update='1' where code='$code'");
 				$status_message = "Request has been sent. Your account will update soon.";
 				$status = "1";
 			}
@@ -179,14 +179,14 @@ class UserModel extends CI_Model
 		$status = "0";
 		if($user_type=="chemist")
 		{
-			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if(!empty($query->id))
 			{
 				if ($query->password == $user_password && $query->block=="0" && $query->status=="1")
 				{
 					$code = $query->code;
 					$new_password = md5($new_password);
-					$this->db->query("update tbl_acm_other set password='$new_password',download_status=0 where code='$code'");
+					$this->db->query("update tbl_chemist_other set password='$new_password',download_status=0 where code='$code'");
 					$status_message = "Password updated successfully";
 					$status = "1";
 				}
@@ -271,7 +271,7 @@ class UserModel extends CI_Model
 			{
 				$row = $this->db->query("select code from tbl_chemist where altercode='$user_altercode'")->row();
 				
-				$this->db->query("update tbl_acm_other set image='$user_image' where code='$row->code'");
+				$this->db->query("update tbl_chemist_other set image='$user_image' where code='$row->code'");
 			}
 			$status = 1;
 			$status_message = "Uploaded successfully.";

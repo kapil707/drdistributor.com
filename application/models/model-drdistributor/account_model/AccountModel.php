@@ -37,7 +37,7 @@ class AccountModel extends CI_Model
 		$user_nrx 	= "no";
 		$user_image = base_url()."img_v51/logo.png";
 
-		$query = $this->db->query("select tbl_chemist.id,tbl_chemist.narcolicence,tbl_acm_other.image,tbl_acm_other.status,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
+		$query = $this->db->query("select tbl_chemist.id,tbl_chemist.narcolicence,tbl_chemist_other.image,tbl_chemist_other.status,tbl_chemist_other.block,tbl_chemist_other.image,tbl_chemist_other.delete_request,tbl_chemist_other.delete_request_date from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 		if(!empty($query->id)){
 			$narcolicence = $query->narcolicence;
 			if($narcolicence=="."){
@@ -73,7 +73,7 @@ class AccountModel extends CI_Model
 		if(!empty($user_name) && !empty($user_password))
 		{
 			$user_password = md5($user_password);			
-			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image,tbl_chemist_other.delete_request,tbl_chemist_other.delete_request_date from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -211,7 +211,7 @@ class AccountModel extends CI_Model
 		else
 		{
 			$code = $query->code;
-			$row1 = $this->db->query("select * from tbl_acm_other where code='$code'")->row();
+			$row1 = $this->db->query("select * from tbl_chemist_other where code='$code'")->row();
 			if(empty($row1->id))
 			{
 				$new_request = 1;
@@ -224,7 +224,7 @@ class AccountModel extends CI_Model
 					'user_phone'=>$phone_number,
 					'download_status'=>0,
 				);
-				$this->Scheme_Model->insert_fun("tbl_acm_other",$dt);
+				$this->Scheme_Model->insert_fun("tbl_chemist_other",$dt);
 				$subject = "Request for New Account";
 				$message = "Request for New Account <br><br>Chemist Code : $user_name <br><br>Phone Number : $phone_number";
 				$email_function = "new_account";
@@ -278,7 +278,7 @@ class AccountModel extends CI_Model
 		if(!empty($user_name) && !empty($user_password))
 		{
 			$user_password = md5($user_password);			
-			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image,tbl_chemist_other.delete_request,tbl_chemist_other.delete_request_date from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password)
@@ -288,7 +288,7 @@ class AccountModel extends CI_Model
 						/**************************************/
 						$date = date('Y-m-d');
 						$delete_request_date = date('Y-m-d', strtotime($date. ' + 7 day'));
-						$this->db->query("update tbl_acm_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
+						$this->db->query("update tbl_chemist_other set block=1,status=0,delete_request=1,delete_request_date='$delete_request_date' where code='$query->code'");
 						/**************************************/
 
 						$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";

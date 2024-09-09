@@ -197,7 +197,7 @@ EOD;
 			}
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
 			
-			$row1 = $this->db->query("select tbl_acm.name,tbl_acm.altercode,tbl_acm_other.image from tbl_acm left JOIN tbl_acm_other on tbl_acm.code=tbl_acm_other.code where tbl_acm.altercode='$chemist_id'")->row();
+			$row1 = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id'")->row();
 			$chemist_name  		= htmlentities(ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
 			$chemist_image = base_url()."img_v".constant('site_v')."/logo.png";
@@ -241,7 +241,7 @@ if ($items != '') {
 		{
 			$order_price = $order_price + ($row->quantity * $row->sale_rate);
 		}
-		$row = $this->db->query("select tbl_acm_other.password,tbl_acm_other.block,tbl_acm_other.status,tbl_acm_other.order_limit,tbl_acm_other.website_limit,tbl_acm_other.android_limit from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$chemist_id' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+		$row = $this->db->query("select tbl_chemist_other.password,tbl_chemist_other.block,tbl_chemist_other.status,tbl_chemist_other.order_limit,tbl_chemist_other.website_limit,tbl_chemist_other.android_limit from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 		
 		$user_order_limit = "5000";
 		if($device_type=="website")
@@ -413,7 +413,7 @@ if ($items != '') {
 		if($user_type=="chemist")
 		{			
 			$where 			= array('altercode'=>$chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= ucwords(strtolower($users->name));
 			$acm_email 		= $users->email;
@@ -426,7 +426,7 @@ if ($items != '') {
 		{
 			//jab sale man say login hota ha to
 			$where 			= array('altercode'=>$chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$user_session	= $users->id;
 			$acm_altercode 	= $users->altercode;
 			$acm_name 		= ucwords(strtolower($users->name));

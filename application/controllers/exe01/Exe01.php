@@ -191,31 +191,31 @@ INSERT INTO tbl_order (online_id,order_id,item_code,quantity,chemist_id,user_typ
 		foreach($items as $ks)
 		{
 			$qry = base64_decode($ks["qry"]);
-			$this->db->query("insert into tbl_acm_essol (code,altercode,groupcode,name,type,trimname,address,address1,address2,address3,telephone,telephone1,mobile,email,gstno,status,statecode,invexport,slcd,narcolicence) values ".$qry);
+			$this->db->query("insert into tbl_chemist_essol (code,altercode,groupcode,name,type,trimname,address,address1,address2,address3,telephone,telephone1,mobile,email,gstno,status,statecode,invexport,slcd,narcolicence) values ".$qry);
 			echo $ks["thisid"];
 		}
 	}
 	public function chemist_copy_table($total="")
 	{
-		$r1 = $this->db->query("SELECT count(id) as total FROM `tbl_acm_essol`")->row();
+		$r1 = $this->db->query("SELECT count(id) as total FROM `tbl_chemist_essol`")->row();
 		if($r1->total==$total)
 		{
 			//error_reporting(0);
-			$this->db->query("DROP TABLE tbl_acm");
-			$this->db->query("CREATE TABLE tbl_acm LIKE tbl_acm_essol");
-			$this->db->query("INSERT tbl_acm SELECT * FROM tbl_acm_essol");
-			$this->db->query("TRUNCATE TABLE tbl_acm_essol");
+			$this->db->query("DROP TABLE tbl_chemist");
+			$this->db->query("CREATE TABLE tbl_chemist LIKE tbl_chemist_essol");
+			$this->db->query("INSERT tbl_chemist SELECT * FROM tbl_chemist_essol");
+			$this->db->query("TRUNCATE TABLE tbl_chemist_essol");
 			echo "ok";
 			
-			$this->db->query("update tbl_acm_other set block='0'");
-			$result = $this->db->query("select * from tbl_acm where status='*'")->result();
+			$this->db->query("update tbl_chemist_other set block='0'");
+			$result = $this->db->query("select * from tbl_chemist where status='*'")->result();
 			foreach($result as $row)
 			{
 				$code = $row->code;
 				$chemist_id = $row->altercode;
 				if($row->status=="*")
 				{
-					$this->db->query("update tbl_acm_other set block='1' where code='$code'");
+					$this->db->query("update tbl_chemist_other set block='1' where code='$code'");
 					$this->db->query("update tbl_android_device_id  set logout='1' where user_type='chemist' and chemist_id='$chemist_id'");
 				}
 			}
@@ -224,7 +224,7 @@ INSERT INTO tbl_order (online_id,order_id,item_code,quantity,chemist_id,user_typ
 	public function chemist_reset()
 	{
 		//error_reporting(0);
-		$this->db->query("TRUNCATE TABLE tbl_acm_essol");
+		$this->db->query("TRUNCATE TABLE tbl_chemist_essol");
 		echo "ok";
 	}
 	/*****************************************************/
@@ -431,21 +431,21 @@ INSERT INTO tbl_order (online_id,order_id,item_code,quantity,chemist_id,user_typ
 	public function download_acm_rec_from_server()
 	{
 		//error_reporting(0);
-		$row = $this->db->query("select * from tbl_acm_other where download_status='1' order by id asc limit 1")->row();			
+		$row = $this->db->query("select * from tbl_chemist_other where download_status='1' order by id asc limit 1")->row();			
 		if(!empty($row->id))
 		{
-			echo "INSERT INTO tbl_acm_other (code,status,exp_date,updated_at,password_change,password,broadcast,block,image,user_phone,user_email,user_address,user_update,order_limit,new_request) VALUES ('$row->code','$row->status','$row->exp_date','$row->updated_at','$row->password_change','$row->password','$row->broadcast','$row->block','$row->image','$row->user_phone','$row->user_email','$row->user_address','$row->user_update','$row->order_limit','$row->new_request')";
+			echo "INSERT INTO tbl_chemist_other (code,status,exp_date,updated_at,password_change,password,broadcast,block,image,user_phone,user_email,user_address,user_update,order_limit,new_request) VALUES ('$row->code','$row->status','$row->exp_date','$row->updated_at','$row->password_change','$row->password','$row->broadcast','$row->block','$row->image','$row->user_phone','$row->user_email','$row->user_address','$row->user_update','$row->order_limit','$row->new_request')";
 
-			$this->db->query("update tbl_acm_other set download_status='0' where id='$row->id'");
+			$this->db->query("update tbl_chemist_other set download_status='0' where id='$row->id'");
 		}
 
-		$row = $this->db->query("select * from tbl_acm_other where download_status='2' order by id asc limit 1")->row();			
+		$row = $this->db->query("select * from tbl_chemist_other where download_status='2' order by id asc limit 1")->row();			
 		if(!empty($row->id))
 		{
 
-			echo "update tbl_acm_other set status='$row->status',exp_date='$row->exp_date',updated_at='$row->updated_at',password_change='$row->password_change',password='$row->password',broadcast='$row->broadcast',block='$row->block',image='$row->image',user_phone='$row->user_phone',user_email='$row->user_email',user_address='$row->user_address',user_update='$row->user_update',order_limit='$row->order_limit',new_request='$row->new_request' where code='$row->code'";
+			echo "update tbl_chemist_other set status='$row->status',exp_date='$row->exp_date',updated_at='$row->updated_at',password_change='$row->password_change',password='$row->password',broadcast='$row->broadcast',block='$row->block',image='$row->image',user_phone='$row->user_phone',user_email='$row->user_email',user_address='$row->user_address',user_update='$row->user_update',order_limit='$row->order_limit',new_request='$row->new_request' where code='$row->code'";
 
-			$this->db->query("update tbl_acm_other set download_status='0' where id='$row->id'");
+			$this->db->query("update tbl_chemist_other set download_status='0' where id='$row->id'");
 		}
 	}
 
@@ -470,7 +470,7 @@ INSERT INTO tbl_order (online_id,order_id,item_code,quantity,chemist_id,user_typ
 
 	public function download_lowstock_server()
 	{
-		$row = $this->db->query("SELECT tbl_low_stock_alert.id,tbl_low_stock_alert.date,tbl_low_stock_alert.time,tbl_acm.code,tbl_low_stock_alert.i_code FROM tbl_low_stock_alert,tbl_acm where tbl_acm.altercode=tbl_low_stock_alert.chemist_id and tbl_low_stock_alert.user_type='chemist' and tbl_low_stock_alert.status=0 limit 1")->row();
+		$row = $this->db->query("SELECT tbl_low_stock_alert.id,tbl_low_stock_alert.date,tbl_low_stock_alert.time,tbl_chemist.code,tbl_low_stock_alert.i_code FROM tbl_low_stock_alert,tbl_chemist where tbl_chemist.altercode=tbl_low_stock_alert.chemist_id and tbl_low_stock_alert.user_type='chemist' and tbl_low_stock_alert.status=0 limit 1")->row();
 		if(!empty($row->id))
 		{			
 			$slcd  = "CL";

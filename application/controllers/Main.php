@@ -88,7 +88,7 @@ class Main extends CI_Controller {
 		if($row->id!="")
 		{
 			$where 			= array('altercode'=>$row->chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= ucwords(strtolower($users->name));		
 			$chemist_excle 	= "$acm_name ($acm_altercode)";
@@ -138,7 +138,7 @@ class Main extends CI_Controller {
 		if(!empty($row->id)){
 
 			$where 			= array('altercode'=>$row->chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= ucwords(strtolower($users->name));		
 			$chemist_excle 	= "$acm_name ($acm_altercode)";

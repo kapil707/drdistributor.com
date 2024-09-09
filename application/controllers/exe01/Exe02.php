@@ -99,7 +99,7 @@ class Exe02 extends CI_Controller
 					$total_line++;
 					$chemist_id = $row->chemist_id;
 				}
-				$row2 = $this->db->query("SELECT code,slcd FROM `tbl_acm` WHERE `altercode`='" . $chemist_id . "'")->row();
+				$row2 = $this->db->query("SELECT code,slcd FROM `tbl_chemist` WHERE `altercode`='" . $chemist_id . "'")->row();
 				if (!empty($row2->code)) {
 					$acno = $row2->code;
 					$slcd = $row2->slcd;
@@ -124,7 +124,7 @@ class Exe02 extends CI_Controller
 			}
 		}
 		if (empty($items)) {
-			$result = $this->db->query("select * from tbl_acm_other where download_status=0 limit 100")->result();
+			$result = $this->db->query("select * from tbl_chemist_other where download_status=0 limit 100")->result();
 			foreach ($result as $row) {
 				$code 			= $row->code;
 				$status 		= $row->status;
@@ -144,7 +144,7 @@ class Exe02 extends CI_Controller
 	
 				$items .= '{"query_type":"acm_other","code":"'.$code.'","status":"'.$status.'","exp_date":"'.$exp_date.'","password":"'.$password.'","broadcast":"'.$broadcast.'","block":"'.$block.'","image":"'.$image.'","user_phone":"'.$user_phone.'","user_email":"'.$user_email.'","user_address":"'.$user_address.'","user_update":"'.$user_update.'","order_limit":"'.$order_limit.'","new_request":"'.$new_request.'","website_limit":"'.$website_limit.'","android_limit":"'.$android_limit.'"},';
 	
-				$qry.= "update tbl_acm_other set download_status=1 where id='$row->id';";				
+				$qry.= "update tbl_chemist_other set download_status=1 where id='$row->id';";				
 			}
 		}
 		if (empty($items)) {
@@ -409,7 +409,7 @@ class Exe02 extends CI_Controller
 				$slcd 		= $row["slcd"];
 								
 				
-				$sql = "insert into tbl_acm_test (code,altercode,groupcode,name,type,trimname,address,address1,address2,address3,telephone,telephone1,mobile,email,gstno,status,statecode,invexport,slcd) values ('$code','$altercode','$groupcode','$name','$type','$trimname','$address','$address1','$address2','$address3','$telephone','$telephone1','$mobile','$email','$gstno','$status','$statecode','$invexport','$slcd')";
+				$sql = "insert into tbl_chemist_test (code,altercode,groupcode,name,type,trimname,address,address1,address2,address3,telephone,telephone1,mobile,email,gstno,status,statecode,invexport,slcd) values ('$code','$altercode','$groupcode','$name','$type','$trimname','$address','$address1','$address2','$address3','$telephone','$telephone1','$mobile','$email','$gstno','$status','$statecode','$invexport','$slcd')";
 				$this->db->query("$sql");
 				
 				$isdone="yes";
@@ -442,7 +442,7 @@ class Exe02 extends CI_Controller
 				$date 			= $row->date;
 				$time 			= $row->time;
 			}
-			$row1 = $this->db->query("SELECT code,slcd FROM `tbl_acm` WHERE `altercode`='" . $chemist_id . "'")->row();
+			$row1 = $this->db->query("SELECT code,slcd FROM `tbl_chemist` WHERE `altercode`='" . $chemist_id . "'")->row();
 			if (!empty($row1->code)) {
 				$acno = $row1->code;
 				$slcd = $row1->slcd;

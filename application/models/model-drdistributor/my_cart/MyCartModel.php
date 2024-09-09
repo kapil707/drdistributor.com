@@ -35,7 +35,7 @@ class MyCartModel extends CI_Model
 			$items_price = $row->items_price;
 		}
 
-		$row = $this->db->query("select tbl_acm_other.password,tbl_acm_other.block,tbl_acm_other.status,tbl_acm_other.order_limit,tbl_acm_other.website_limit,tbl_acm_other.android_limit from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$chemist_id' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+		$row = $this->db->query("select tbl_chemist_other.password,tbl_chemist_other.block,tbl_chemist_other.status,tbl_chemist_other.order_limit,tbl_chemist_other.website_limit,tbl_chemist_other.android_limit from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 		
 		$user_order_limit = "5000";
 		if(!empty($row)){
@@ -488,7 +488,7 @@ class MyCartModel extends CI_Model
 		if($user_type=="chemist")
 		{			
 			$where 			= array('altercode'=>$chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= ucwords(strtolower($users->name));
 			$acm_email 		= $users->email;
@@ -501,7 +501,7 @@ class MyCartModel extends CI_Model
 		{
 			//jab sale man say login hota ha to
 			$where 			= array('altercode'=>$chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_acm",$where);
+			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
 			$user_session	= $users->id;
 			$acm_altercode 	= $users->altercode;
 			$acm_name 		= ucwords(strtolower($users->name));

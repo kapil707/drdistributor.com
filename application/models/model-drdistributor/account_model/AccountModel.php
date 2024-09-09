@@ -37,7 +37,7 @@ class AccountModel extends CI_Model
 		$user_nrx 	= "no";
 		$user_image = base_url()."img_v51/logo.png";
 
-		$query = $this->db->query("select tbl_acm.id,tbl_acm.narcolicence,tbl_acm_other.image,tbl_acm_other.status,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_altercode' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+		$query = $this->db->query("select tbl_chemist.id,tbl_chemist.narcolicence,tbl_acm_other.image,tbl_acm_other.status,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
 		if(!empty($query->id)){
 			$narcolicence = $query->narcolicence;
 			if($narcolicence=="."){
@@ -73,7 +73,7 @@ class AccountModel extends CI_Model
 		if(!empty($user_name) && !empty($user_password))
 		{
 			$user_password = md5($user_password);			
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password || $user_password==md5($defaultpassword))
@@ -203,7 +203,7 @@ class AccountModel extends CI_Model
 	public function get_create_new_api($user_name,$phone_number)
 	{		
 		$status = "0";
-		$query = $this->db->query("select * from tbl_acm where altercode='$user_name' and slcd='CL' limit 1")->row();
+		$query = $this->db->query("select * from tbl_chemist where altercode='$user_name' and slcd='CL' limit 1")->row();
 		if (empty($query->id))
 		{
 			$status_message = "User account doesn't exist.";
@@ -278,7 +278,7 @@ class AccountModel extends CI_Model
 		if(!empty($user_name) && !empty($user_password))
 		{
 			$user_password = md5($user_password);			
-			$query = $this->db->query("select tbl_acm.id,tbl_acm.code,tbl_acm.altercode,tbl_acm.narcolicence,tbl_acm.name,tbl_acm.address,tbl_acm.mobile,tbl_acm.invexport,tbl_acm.email,tbl_acm.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_acm left join tbl_acm_other on tbl_acm.code = tbl_acm_other.code where tbl_acm.altercode='$user_name' and tbl_acm.code=tbl_acm_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.narcolicence,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_acm_other.status,tbl_acm_other.password as password,tbl_acm_other.exp_date,tbl_acm_other.block,tbl_acm_other.image,tbl_acm_other.delete_request,tbl_acm_other.delete_request_date from tbl_chemist left join tbl_acm_other on tbl_chemist.code = tbl_acm_other.code where tbl_chemist.altercode='$user_name' and tbl_chemist.code=tbl_acm_other.code limit 1")->row();
 			if (!empty($query->id))
 			{
 				if ($query->password == $user_password)

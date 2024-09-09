@@ -7,7 +7,7 @@ class MyNotificationModel extends CI_Model
 	}
 	
 	public function get_chemist_photo($user_altercode){
-		$row = $this->db->query("SELECT tbl_acm_other.image from tbl_acm,tbl_acm_other where tbl_acm.altercode='$user_altercode' and tbl_acm.code = tbl_acm_other.code")->row();
+		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = base_url()."user_profile/$row->image";
 		if(empty($row->image))
 		{

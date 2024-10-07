@@ -37,7 +37,7 @@ class MyOrderModel extends CI_Model
 			}
 			else
 			{
-				$item_title = "Generated / Order no. ".$row->gstvno;
+				$item_title = "Generated / Order no. ".$row->order_id ." / Gstvno no. ".$row->gstvno;
 			}
 			$item_date_time	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));		
 			$item_id = $order_id;

@@ -94,7 +94,7 @@ class MyOrderModel extends CI_Model
 			}
 			else
 			{
-				$title = "Generated / Order no. ".$row->gstvno;
+				$item_title = "Generated / Order no. ".$row->order_id ." / Gstvno no. ".$row->gstvno;
 			}
 
 			$download_url = base_url()."order_download/".$user_altercode."/".$row->order_id;

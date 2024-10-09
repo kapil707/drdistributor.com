@@ -83,11 +83,14 @@ class MyInvoiceModel extends CI_Model
 
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
+
+		$date = date("YMd");
+
 		/************************************** */
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
-		$where = array('chemist_id'=>$user_altercode);
+		$where = array('chemist_id'=>$user_altercode,'vdt'=>'<=2024-09-30');
 		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)

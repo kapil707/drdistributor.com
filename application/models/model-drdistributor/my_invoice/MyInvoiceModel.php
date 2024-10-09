@@ -66,6 +66,24 @@ class MyInvoiceModel extends CI_Model
 		}
 		return $db_invoice->get($tbl);	
 	}
+
+	function select_fun_limit2($tbl,$where,$get_limit='',$order_by='')
+	{
+		$db_invoice = $this->load->database('default', TRUE);
+		if(!empty($where))
+		{
+			$db_invoice->where($where);
+		}
+		if(!empty($order_by))
+		{
+			$db_invoice->order_by($order_by[0],$order_by[1]);
+		}
+		if(!empty($get_limit))
+		{
+			$db_invoice->limit($get_limit[0],$get_limit[1]);
+		}
+		return $db_invoice->get($tbl);	
+	}
 	
 	/********************************************************/
 	public function get_chemist_photo($user_altercode){
@@ -84,10 +102,7 @@ class MyInvoiceModel extends CI_Model
 
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
-
-		$date = date("YMd"); 
-
-		/************************************** */
+		/************************************** *
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
@@ -122,8 +137,44 @@ class MyInvoiceModel extends CI_Model
 
 			// Add the data to the JSON array
 			$jsonArray[] = $dt;
-		}
+		}*/
 		//$jsonString = json_encode($jsonArray);
+		/**************************************************** */
+		$order_by = array('id','desc');
+		//$get_limit = array('12',$get_record);
+		$get_limit = array($limit,$get_record);
+		$where = array('chemist_id'=>$user_altercode);
+		$query = $this->select_fun_limit1("tbl_invoice",$where,$get_limit,$order_by);
+		$query = $query->result();
+		foreach($query as $row)
+		{
+			$get_record++;
+			$item_id			= $row->id;
+			$item_title 		= $row->gstvno;
+			$item_total 		= number_format($row->amt,2);
+			$item_date_time 	= date("d-M-y",strtotime($row->date));
+			$out_for_delivery 	= "";//$row->out_for_delivery;
+			$delete_status		= "";//$row->delete_status;
+
+			$item_message   = $item_total;
+
+			$gstvno = $row->gstvno;
+			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
+			
+			$dt = array(
+				'item_id' => $item_id,
+				'item_title' => $item_title,
+				'item_message' => $item_message,
+				'item_date_time' => $item_date_time,
+				'item_image' => $item_image,
+				'out_for_delivery' => $out_for_delivery,
+				'delete_status' => $delete_status,
+				'download_url' => $download_url
+			);
+
+			// Add the data to the JSON array
+			$jsonArray[] = $dt;
+		}
 		
 		$return["items"] = $jsonArray;
 		$return["get_record"] = $get_record;		

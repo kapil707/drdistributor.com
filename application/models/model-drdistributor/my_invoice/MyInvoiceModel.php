@@ -55,6 +55,7 @@ class MyInvoiceModel extends CI_Model
 		{
 			$db_invoice->where($where);
 		}
+		$db_invoice->where('vdt <=', '2024-09-30');
 		if(!empty($order_by))
 		{
 			$db_invoice->order_by($order_by[0],$order_by[1]);
@@ -90,7 +91,7 @@ class MyInvoiceModel extends CI_Model
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
-		$where = array('chemist_ids'=>$user_altercode,'vdt <=', '2024-09-30');
+		$where = array('chemist_ids'=>$user_altercode);
 		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)

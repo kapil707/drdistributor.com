@@ -191,7 +191,7 @@ class MyInvoiceModel extends CI_Model
 		$download_url = "";
 		
 		$where = array('gstvno'=>$item_id,'chemist_id'=>$user_altercode);
-		$query = $this->select_fun("tbl_invoice_news",$where);
+		$query = $this->select_fun("tbl_invoice_new",$where);
 		$row = $query->row();
 		if(!empty($row->id))
 		{

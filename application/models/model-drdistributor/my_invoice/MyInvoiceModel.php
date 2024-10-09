@@ -84,7 +84,7 @@ class MyInvoiceModel extends CI_Model
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
 
-		$date = date("YMd");
+		$date = date("YMd"); 
 
 		/************************************** */
 		$order_by = array('id','desc');

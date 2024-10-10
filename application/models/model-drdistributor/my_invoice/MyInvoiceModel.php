@@ -433,12 +433,12 @@ class MyInvoiceModel extends CI_Model
 		
 		/**********************************************/
 		$where = array('gstvno'=>$gstvno);
-		$query = $this->select_fun("tbl_invoice_new",$where);
+		$query = $this->select_fun("tbl_invoice",$where);
 		$row   = $query->row();
 		$chemist_name = $row->chemist_name;
 		/**********************************************/
 		
-		$where = array('vdt'=>$row->vdt,'vno'=>$row->vno);
+		$where = array('date'=>$row->date,'vno'=>$row->vno);
 		$query = $this->select_fun("tbl_invoice_item",$where);
 		$result = $query->result();
 		$rowCount = 2;
@@ -446,12 +446,12 @@ class MyInvoiceModel extends CI_Model
 		foreach($result as $row)
 		{
 			$fileok=1;
-			$vdt = strtotime($row->vdt);
-			$vdt = date('d/m/Y',$vdt);
+			$date = strtotime($row->date);
+			$date = date('d/m/Y',$date);
 			
 			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$chemist_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$gstvno);
-			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$vdt);
+			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$date);
 			$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,$row->company_full_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,$row->itemc);
 			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,(int)$row->item_code);

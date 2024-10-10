@@ -1,91 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MyInvoiceModel extends CI_Model  
-{
-	function select_fun($tbl,$where)
-	{
-		$db_invoice = $this->load->database('default', TRUE);
-		if($where!="")
-		{
-			$db_invoice->where($where);
-		}
-		return $db_invoice->get($tbl);	
-	}
-	function insert_fun($tbl,$dt)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->insert($tbl,$dt))
-		{
-			return $db_invoice->insert_id();
-		}
-		else
-		{
-			return false;
-		}
-	}
-	function edit_fun($tbl,$dt,$where)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->update($tbl,$dt,$where))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	function delete_fun($tbl,$where)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->delete($tbl,$where))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+{	
+	public function __construct(){
+		parent::__construct();
 	}
 	
-	function select_fun_limit($tbl,$where,$get_limit='',$order_by='')
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if(!empty($where))
-		{
-			$db_invoice->where($where);
-		}
-		$db_invoice->where('vdt <=', '2024-09-30');
-		if(!empty($order_by))
-		{
-			$db_invoice->order_by($order_by[0],$order_by[1]);
-		}
-		if(!empty($get_limit))
-		{
-			$db_invoice->limit($get_limit[0],$get_limit[1]);
-		}
-		return $db_invoice->get($tbl);	
-	}
-
-	function select_fun_limit2($tbl,$where,$get_limit='',$order_by='')
-	{
-		$db_invoice = $this->load->database('default', TRUE);
-		if(!empty($where))
-		{
-			$db_invoice->where($where);
-		}
-		if(!empty($order_by))
-		{
-			$db_invoice->order_by($order_by[0],$order_by[1]);
-		}
-		if(!empty($get_limit))
-		{
-			$db_invoice->limit($get_limit[0],$get_limit[1]);
-		}
-		return $db_invoice->get($tbl);	
-	}
-	
-	/********************************************************/
 	public function get_chemist_photo($user_altercode){
 		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = base_url()."user_profile/$row->image";
@@ -95,6 +15,7 @@ class MyInvoiceModel extends CI_Model
 		}
 		return $user_image;
 	}
+	
 	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12")	{
 		$jsonArray = array();
 
@@ -102,49 +23,12 @@ class MyInvoiceModel extends CI_Model
 
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
-		/************************************** *
-		$order_by = array('id','desc');
-		//$get_limit = array('12',$get_record);
-		$get_limit = array($limit,$get_record);
-		$where = array('chemist_id'=>$user_altercode);
-		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
-		$query = $query->result();
-		foreach($query as $row)
-		{
-			$get_record++;
-			$item_id			= $row->id;
-			$item_title 		= $row->gstvno;
-			$item_total 		= number_format($row->amt,2);
-			$item_date_time 	= date("d-M-y",strtotime($row->vdt));
-			$out_for_delivery 	= "";//$row->out_for_delivery;
-			$delete_status		= "";//$row->delete_status;
-
-			$item_message   = $item_total;
-
-			$gstvno = $row->gstvno;
-			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
-			
-			$dt = array(
-				'item_id' => $item_id,
-				'item_title' => $item_title,
-				'item_message' => $item_message,
-				'item_date_time' => $item_date_time,
-				'item_image' => $item_image,
-				'out_for_delivery' => $out_for_delivery,
-				'delete_status' => $delete_status,
-				'download_url' => $download_url
-			);
-
-			// Add the data to the JSON array
-			$jsonArray[] = $dt;
-		}*/
-		//$jsonString = json_encode($jsonArray);
 		/**************************************************** */
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
 		$where = array('chemist_id'=>$user_altercode);
-		$query = $this->select_fun_limit2("tbl_invoice",$where,$get_limit,$order_by);
+		$query = $this->Scheme_Model->select_fun_limit("tbl_invoice",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)
 		{

@@ -88,4 +88,22 @@ class Scheme_Model extends CI_Model
 		}
 		return base64_decode($query->mydata);
 	}
+
+	function select_fun_limit($tbl,$where,$get_limit='',$order_by='')
+	{
+		if(!empty($where))
+		{
+			$this->db->where($where);
+		}
+		$this->db->where('vdt <=', '2024-09-30');
+		if(!empty($order_by))
+		{
+			$this->db->order_by($order_by[0],$order_by[1]);
+		}
+		if(!empty($get_limit))
+		{
+			$this->db->limit($get_limit[0],$get_limit[1]);
+		}
+		return $this->db->get($tbl);	
+	}
 }  

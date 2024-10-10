@@ -161,8 +161,7 @@ class Main extends CI_Controller {
 		$data["item_id"] = "";
 		$data["user_altercode"] = "";
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$query = $this->MyInvoiceModel->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
+		$row = $this->Scheme_Model->select_row("tbl_invoice",$where);
 		if(!empty($row->id)){
 			$data["item_id"] 		= $row->id;
 			$data["user_altercode"] = $chemist_id;
@@ -179,7 +178,6 @@ class Main extends CI_Controller {
 
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
 		$row = $this->Scheme_Model->select_row("tbl_invoice",$where);
-		//$row   = $query->row();
 		if(!empty($row->id)){
 			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
 		}else{

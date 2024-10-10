@@ -220,7 +220,7 @@ class MyInvoiceModel extends CI_Model
 			
 			$i_code 		= $row->itemc;
 			$item_quantity 	= $row->qty;
-			$item_code 		= $row->item_code; //yha sahi ha
+			$item_code 		= $row->itemc; //yha sahi ha
 
 			$item_price = sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row->sale_rate,2));

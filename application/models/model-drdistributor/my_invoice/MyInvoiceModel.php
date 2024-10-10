@@ -483,12 +483,6 @@ class MyInvoiceModel extends CI_Model
 			$objPHPExcel->getActiveSheet()->SetCellValue('AF'.$rowCount,"0");
 			$objPHPExcel->getActiveSheet()->SetCellValue('AG'.$rowCount,$row->chemist_id);
 			
-			
-			$item_name  = $row->item_name;
-			$qty  		= $row->qty;
-			$batch  	= $row->batch;
-			$expiry  	= $row->expiry;
-			
 			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':AG'.$rowCount)->applyFromArray($BStyle);
 			$rowCount++;
 		}

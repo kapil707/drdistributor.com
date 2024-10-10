@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Scheme_Model extends CI_Model  
 {	
 	function website_version(){
-		return "Main";
+		return "6.0";
 	}
 	function select_all_result($tbl,$where,$orderby='',$asc_desc='')
 	{
@@ -87,5 +87,22 @@ class Scheme_Model extends CI_Model
 			$query->mydata = base64_encode("");
 		}
 		return base64_decode($query->mydata);
+	}
+
+	function select_fun_limit($tbl,$where,$get_limit='',$order_by='')
+	{
+		if(!empty($where))
+		{
+			$this->db->where($where);
+		}
+		if(!empty($order_by))
+		{
+			$this->db->order_by($order_by[0],$order_by[1]);
+		}
+		if(!empty($get_limit))
+		{
+			$this->db->limit($get_limit[0],$get_limit[1]);
+		}
+		return $this->db->get($tbl);	
 	}
 }  

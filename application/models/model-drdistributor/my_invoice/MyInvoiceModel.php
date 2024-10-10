@@ -262,6 +262,7 @@ class MyInvoiceModel extends CI_Model
 				$jsonArray[] = $dt;
 			}
 			
+			/*
 			// edit or delete
 			$where = array('vdt'=>$vdt,'vno'=>$vno);
 			$query = $this->select_fun("tbl_invoice_item_delete",$where);
@@ -317,7 +318,7 @@ class MyInvoiceModel extends CI_Model
 					// Add the data to the JSON array
 					$jsonArray2[] = $dt;
 				}
-			}
+			}*/
 		}
 
 		// $jsonString  = json_encode($jsonArray);

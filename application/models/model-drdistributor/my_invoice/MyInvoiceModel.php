@@ -4,7 +4,7 @@ class MyInvoiceModel extends CI_Model
 {
 	function select_fun($tbl,$where)
 	{
-		$db_invoice = $this->load->database('default3', TRUE);
+		$db_invoice = $this->load->database('default', TRUE);
 		if($where!="")
 		{
 			$db_invoice->where($where);
@@ -149,7 +149,7 @@ class MyInvoiceModel extends CI_Model
 		foreach($query as $row)
 		{
 			$get_record++;
-			$item_id			= $row->gstvno;
+			$item_id			= $row->id;
 			$item_title 		= $row->gstvno;
 			$item_total 		= number_format($row->amt,2);
 			$item_date_time 	= date("d-M-y",strtotime($row->date));
@@ -190,8 +190,8 @@ class MyInvoiceModel extends CI_Model
 		$title = "";
 		$download_url = "";
 		
-		$where = array('gstvno'=>$item_id,'chemist_id'=>$user_altercode);
-		$query = $this->select_fun("tbl_invoice_new",$where);
+		$where = array('id'=>$item_id,'chemist_id'=>$user_altercode);
+		$query = $this->select_fun("tbl_invoice",$where);
 		$row = $query->row();
 		if(!empty($row->id))
 		{

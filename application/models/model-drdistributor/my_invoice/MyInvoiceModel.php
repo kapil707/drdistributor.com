@@ -432,14 +432,14 @@ class MyInvoiceModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getStyle('A1:AG1')->applyFromArray($BStyle);
 		
 		/**********************************************/
-		$where = array('gstvno'=>$gstvno);
-		$query = $this->select_fun("tbl_invoice",$where);
-		$row   = $query->row();
-		$chemist_name = $row->chemist_name;
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_invoice_item.*');
+        $this->db->from('tbl_invoice_item');
+        $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
+        $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
+        $this->db->join('tbl_medicine', 'tbl_medicine.i_code = tbl_invoice_item.itemc', 'left');
+        $this->db->where('tbl_invoice.gstvno', $gstvno);
+		$query = $this->db->get();
 		/**********************************************/
-		
-		$where = array('date'=>$row->date,'vno'=>$row->vno);
-		$query = $this->select_fun("tbl_invoice_item",$where);
 		$result = $query->result();
 		$rowCount = 2;
 		$fileok=0;
@@ -449,7 +449,7 @@ class MyInvoiceModel extends CI_Model
 			$date = strtotime($row->date);
 			$date = date('d/m/Y',$date);
 			
-			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$chemist_name);
+			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$row->chemist_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$gstvno);
 			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$date);
 			$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,$row->company_full_name);

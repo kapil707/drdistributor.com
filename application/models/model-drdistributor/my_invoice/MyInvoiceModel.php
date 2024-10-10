@@ -191,7 +191,7 @@ class MyInvoiceModel extends CI_Model
 		$download_url = "";
 
 		/**********************************************/
-		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice_item.*');
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing, tbl_medicine.expiry, tbl_medicine.batch_no, tbl_medicine.sale_rate, tbl_medicine.salescm1, tbl_medicine.salescm2, tbl_medicine.featured, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice.amt, tbl_invoice_item.*');
         $this->db->from('tbl_invoice_item');
         $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
         $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');

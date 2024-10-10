@@ -432,7 +432,7 @@ class MyInvoiceModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getStyle('A1:AG1')->applyFromArray($BStyle);
 		
 		/**********************************************/
-		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_invoice_item.*');
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name,tbl_medicine.item_code,tbl_medicine.packing,tbl_medicine.batch_no, tbl_invoice_item.*');
         $this->db->from('tbl_invoice_item');
         $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
         $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
@@ -457,7 +457,7 @@ class MyInvoiceModel extends CI_Model
 			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,(int)$row->item_code);
 			$objPHPExcel->getActiveSheet()->SetCellValue('G'.$rowCount,$row->item_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('H'.$rowCount,$row->packing);
-			$objPHPExcel->getActiveSheet()->SetCellValue('I'.$rowCount,$row->batch);
+			$objPHPExcel->getActiveSheet()->SetCellValue('I'.$rowCount,$row->batch_no);
 			$objPHPExcel->getActiveSheet()->SetCellValue('J'.$rowCount,$row->expiry);
 			$objPHPExcel->getActiveSheet()->SetCellValue('K'.$rowCount,$row->qty);
 			$objPHPExcel->getActiveSheet()->SetCellValue('L'.$rowCount,$row->fqty);

@@ -95,7 +95,6 @@ class Scheme_Model extends CI_Model
 		{
 			$this->db->where($where);
 		}
-		$this->db->where('vdt <=', '2024-09-30');
 		if(!empty($order_by))
 		{
 			$this->db->order_by($order_by[0],$order_by[1]);

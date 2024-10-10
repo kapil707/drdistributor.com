@@ -432,7 +432,7 @@ class MyInvoiceModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getStyle('A1:AG1')->applyFromArray($BStyle);
 		
 		/**********************************************/
-		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name,tbl_medicine.item_code,tbl_medicine.packing,tbl_medicine.batch_no, tbl_invoice_item.*');
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice_item.*');
         $this->db->from('tbl_invoice_item');
         $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
         $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');

@@ -204,14 +204,14 @@ class MyInvoiceModel extends CI_Model
 			$folder_dt 	= $row->date;
 			
 			$vdt		= $row->vdt;
-			$vno		= $row->vno;
+			$date		= $row->date;
 
 			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
 			
 			/*$name = substr($row->name,0,19);
 			$file_name = "_D.R.DISTRIBUTORS PVT_".$name.".xls";*/
 			
-			$where = array('vdt'=>$vdt,'vno'=>$vno);
+			$where = array('date'=>$date,'vno'=>$vno);
 			$query = $this->select_fun("tbl_invoice_item",$where);
 			$result = $query->result();
 			foreach($result as $row1){

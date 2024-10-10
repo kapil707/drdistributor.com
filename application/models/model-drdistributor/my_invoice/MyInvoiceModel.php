@@ -203,7 +203,7 @@ class MyInvoiceModel extends CI_Model
 			$total 		= number_format($row->amt,2);
 			$folder_dt 	= $row->date;
 			
-			$vdt		= $row->vdt;
+			$vno		= $row->vno;
 			$date		= $row->date;
 
 			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;

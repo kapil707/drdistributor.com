@@ -189,12 +189,20 @@ class MyInvoiceModel extends CI_Model
 		
 		$title = "";
 		$download_url = "";
-		
-		$where = array('id'=>$item_id,'chemist_id'=>$user_altercode);
-		$query = $this->select_fun("tbl_invoice",$where);
-		$row = $query->row();
-		if(!empty($row->id))
-		{
+
+		/**********************************************/
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice_item.*');
+        $this->db->from('tbl_invoice_item');
+        $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
+        $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
+        $this->db->join('tbl_medicine', 'tbl_medicine.i_code = tbl_invoice_item.itemc', 'left');
+        $this->db->where('tbl_invoice.id', $item_id);
+		$this->db->where('tbl_invoice.chemist_id', $user_altercode);
+		$query = $this->db->get();
+		/**********************************************/
+		$result = $query->result();		
+		foreach($result as $row){
+
 			$inv_type 	= "insert";
 			$id			= $row->id;
 			$gstvno 	= $row->gstvno;
@@ -208,59 +216,49 @@ class MyInvoiceModel extends CI_Model
 
 			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
 			
-			/*$name = substr($row->name,0,19);
-			$file_name = "_D.R.DISTRIBUTORS PVT_".$name.".xls";*/
+			$status = "Generated";
 			
-			$where = array('date'=>$date,'vno'=>$vno);
-			$query = $this->select_fun("tbl_invoice_item",$where);
-			$result = $query->result();
-			foreach($result as $row1){
-				$status = "Generated";
+			$i_code 		= $row->itemc;
+			$item_quantity 	= $row->qty;
+			$item_code 		= $row->item_code; //yha sahi ha
+
+			$item_price = sprintf('%0.2f',round($row->sale_rate,2));
+			$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row->sale_rate,2));
+			$item_date_time 	= date("d-M-y",strtotime($date_time));
+			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 				
-				$i_code 		= $row1->itemc;
-				$item_quantity 	= $row1->qty;
-				
-				$row2 = $this->db->query("select * from tbl_medicine where i_code='$i_code'")->row();
+			$item_name 		= (ucwords(strtolower($row->item_name)));
+			$item_packing 	= ($row->packing);
+			$item_expiry 	= ($row->expiry);
+			$item_company 	= (ucwords(strtolower($row->company_full_name)));
+			$item_scheme 	= $row->salescm1."+".$row->salescm2;
+			$item_featured 	= $row->featured;
 
-				$item_code 		= $row1->itemc; //yha sahi ha
-
-				$item_price = sprintf('%0.2f',round($row2->sale_rate,2));
-				$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row2->sale_rate,2));
-				$item_date_time 	= date("d-M-y",strtotime($date_time));
-				$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
-					
-				$item_name 		= (ucwords(strtolower($row2->item_name)));
-				$item_packing 	= ($row2->packing);
-				$item_expiry 	= ($row2->expiry);
-				$item_company 	= (ucwords(strtolower($row2->company_full_name)));
-				$item_scheme 	= $row2->salescm1."+".$row2->salescm2;
-				$item_featured 	= $row2->featured;
-
-				$item_image		= constant('img_url_site').$row2->image1;
-				if(empty($row2->image1))
-				{
-					$item_image = base_url()."uploads/default_img.jpg";
-				}
-				
-				$dt = array(
-					'item_code' => $item_code,
-					'item_image' => $item_image,
-					'item_name' => $item_name,
-					'item_packing' => $item_packing,
-					'item_expiry' => $item_expiry,
-					'item_company' => $item_company,
-					'item_scheme' => $item_scheme,
-					'item_featured' => $item_featured,
-					'item_price' => $item_price,
-					'item_quantity' => $item_quantity,
-					'item_quantity_price' => $item_quantity_price,
-					'item_date_time' => $item_date_time,
-					'item_modalnumber' => $item_modalnumber,
-				);
-
-				// Add the data to the JSON array
-				$jsonArray[] = $dt;
+			$item_image		= constant('img_url_site').$row->image1;
+			if(empty($row->image1))
+			{
+				$item_image = base_url()."uploads/default_img.jpg";
 			}
+			
+			$dt = array(
+				'item_code' => $item_code,
+				'item_image' => $item_image,
+				'item_name' => $item_name,
+				'item_packing' => $item_packing,
+				'item_expiry' => $item_expiry,
+				'item_company' => $item_company,
+				'item_scheme' => $item_scheme,
+				'item_featured' => $item_featured,
+				'item_price' => $item_price,
+				'item_quantity' => $item_quantity,
+				'item_quantity_price' => $item_quantity_price,
+				'item_date_time' => $item_date_time,
+				'item_modalnumber' => $item_modalnumber,
+			);
+
+			// Add the data to the JSON array
+			$jsonArray[] = $dt;
+		}
 			
 			/*
 			// edit or delete
@@ -319,7 +317,7 @@ class MyInvoiceModel extends CI_Model
 					$jsonArray2[] = $dt;
 				}
 			}*/
-		}
+		
 
 		// $jsonString  = json_encode($jsonArray);
 		// $jsonString1 = json_encode($jsonArray1);
@@ -432,7 +430,7 @@ class MyInvoiceModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getStyle('A1:AG1')->applyFromArray($BStyle);
 		
 		/**********************************************/
-		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice_item.*');
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice_item.*');
         $this->db->from('tbl_invoice_item');
         $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
         $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
@@ -448,6 +446,7 @@ class MyInvoiceModel extends CI_Model
 			$fileok=1;
 			$date = strtotime($row->date);
 			$date = date('d/m/Y',$date);
+			$gstvno = $row->gstvno;
 			
 			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$row->chemist_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$gstvno);

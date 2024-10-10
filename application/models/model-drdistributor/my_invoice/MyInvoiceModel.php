@@ -1,72 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MyInvoiceModel extends CI_Model  
-{
-	function select_fun($tbl,$where)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($where!="")
-		{
-			$db_invoice->where($where);
-		}
-		return $db_invoice->get($tbl);	
-	}
-	function insert_fun($tbl,$dt)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->insert($tbl,$dt))
-		{
-			return $db_invoice->insert_id();
-		}
-		else
-		{
-			return false;
-		}
-	}
-	function edit_fun($tbl,$dt,$where)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->update($tbl,$dt,$where))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	function delete_fun($tbl,$where)
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if($db_invoice->delete($tbl,$where))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+{	
+	public function __construct(){
+		parent::__construct();
 	}
 	
-	function select_fun_limit($tbl,$where,$get_limit='',$order_by='')
-	{
-		$db_invoice = $this->load->database('default3', TRUE);
-		if(!empty($where))
-		{
-			$db_invoice->where($where);
-		}
-		if(!empty($order_by))
-		{
-			$db_invoice->order_by($order_by[0],$order_by[1]);
-		}
-		if(!empty($get_limit))
-		{
-			$db_invoice->limit($get_limit[0],$get_limit[1]);
-		}
-		return $db_invoice->get($tbl);	
-	}
-	
-	/********************************************************/
 	public function get_chemist_photo($user_altercode){
 		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
 		$user_image = base_url()."user_profile/$row->image";
@@ -76,6 +15,7 @@ class MyInvoiceModel extends CI_Model
 		}
 		return $user_image;
 	}
+	
 	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12")	{
 		$jsonArray = array();
 
@@ -83,12 +23,12 @@ class MyInvoiceModel extends CI_Model
 
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
-		/************************************** */
+		/**************************************************** */
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
 		$where = array('chemist_id'=>$user_altercode);
-		$query = $this->select_fun_limit("tbl_invoice_new",$where,$get_limit,$order_by);
+		$query = $this->Scheme_Model->select_fun_limit("tbl_invoice",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)
 		{
@@ -96,7 +36,7 @@ class MyInvoiceModel extends CI_Model
 			$item_id			= $row->id;
 			$item_title 		= $row->gstvno;
 			$item_total 		= number_format($row->amt,2);
-			$item_date_time 	= date("d-M-y",strtotime($row->vdt));
+			$item_date_time 	= date("d-M-y",strtotime($row->date));
 			$out_for_delivery 	= "";//$row->out_for_delivery;
 			$delete_status		= "";//$row->delete_status;
 
@@ -119,7 +59,6 @@ class MyInvoiceModel extends CI_Model
 			// Add the data to the JSON array
 			$jsonArray[] = $dt;
 		}
-		//$jsonString = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
 		$return["get_record"] = $get_record;		
@@ -134,12 +73,20 @@ class MyInvoiceModel extends CI_Model
 		
 		$title = "";
 		$download_url = "";
-		
-		$where = array('id'=>$item_id,'chemist_id'=>$user_altercode);
-		$query = $this->select_fun("tbl_invoice_new",$where);
-		$row = $query->row();
-		if(!empty($row->id))
-		{
+
+		/**********************************************/
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing, tbl_medicine.expiry, tbl_medicine.batch_no, tbl_medicine.sale_rate, tbl_medicine.salescm1, tbl_medicine.salescm2, tbl_medicine.featured, tbl_medicine.image1, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice.amt, tbl_invoice_item.*');
+        $this->db->from('tbl_invoice_item');
+        $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
+        $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
+        $this->db->join('tbl_medicine', 'tbl_medicine.i_code = tbl_invoice_item.itemc', 'left');
+        $this->db->where('tbl_invoice.id', $item_id);
+		$this->db->where('tbl_invoice.chemist_id', $user_altercode);
+		$query = $this->db->get();
+		/**********************************************/
+		$result = $query->result();		
+		foreach($result as $row){
+
 			$inv_type 	= "insert";
 			$id			= $row->id;
 			$gstvno 	= $row->gstvno;
@@ -148,65 +95,56 @@ class MyInvoiceModel extends CI_Model
 			$total 		= number_format($row->amt,2);
 			$folder_dt 	= $row->date;
 			
-			$vdt		= $row->vdt;
 			$vno		= $row->vno;
+			$date		= $row->date;
 
 			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
 			
-			/*$name = substr($row->name,0,19);
-			$file_name = "_D.R.DISTRIBUTORS PVT_".$name.".xls";*/
+			$status = "Generated";
 			
-			$where = array('vdt'=>$vdt,'vno'=>$vno);
-			$query = $this->select_fun("tbl_invoice_item",$where);
-			$result = $query->result();
-			foreach($result as $row1){
-				$status = "Generated";
+			$i_code 		= $row->itemc;
+			$item_quantity 	= $row->qty;
+			$item_code 		= $row->itemc; //yha sahi ha
+
+			$item_price = sprintf('%0.2f',round($row->sale_rate,2));
+			$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row->sale_rate,2));
+			$item_date_time 	= date("d-M-y",strtotime($date_time));
+			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 				
-				$item_code 		= $row1->item_code;
-				$item_quantity 	= $row1->qty;
-				
-				$row2 = $this->db->query("select * from tbl_medicine where item_code='$item_code'")->row();
+			$item_name 		= (ucwords(strtolower($row->item_name)));
+			$item_packing 	= ($row->packing);
+			$item_expiry 	= ($row->expiry);
+			$item_company 	= (ucwords(strtolower($row->company_full_name)));
+			$item_scheme 	= $row->salescm1."+".$row->salescm2;
+			$item_featured 	= $row->featured;
 
-				$item_code 		= $row1->itemc; //yha sahi ha
-
-				$item_price = sprintf('%0.2f',round($row2->sale_rate,2));
-				$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row2->sale_rate,2));
-				$item_date_time 	= date("d-M-y",strtotime($date_time));
-				$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
-					
-				$item_name 		= (ucwords(strtolower($row2->item_name)));
-				$item_packing 	= ($row2->packing);
-				$item_expiry 	= ($row2->expiry);
-				$item_company 	= (ucwords(strtolower($row2->company_full_name)));
-				$item_scheme 	= $row2->salescm1."+".$row2->salescm2;
-				$item_featured 	= $row2->featured;
-
-				$item_image		= constant('img_url_site').$row2->image1;
-				if(empty($row2->image1))
-				{
-					$item_image = base_url()."uploads/default_img.jpg";
-				}
-				
-				$dt = array(
-					'item_code' => $item_code,
-					'item_image' => $item_image,
-					'item_name' => $item_name,
-					'item_packing' => $item_packing,
-					'item_expiry' => $item_expiry,
-					'item_company' => $item_company,
-					'item_scheme' => $item_scheme,
-					'item_featured' => $item_featured,
-					'item_price' => $item_price,
-					'item_quantity' => $item_quantity,
-					'item_quantity_price' => $item_quantity_price,
-					'item_date_time' => $item_date_time,
-					'item_modalnumber' => $item_modalnumber,
-				);
-
-				// Add the data to the JSON array
-				$jsonArray[] = $dt;
+			$item_image		= constant('img_url_site').$row->image1;
+			if(empty($row->image1))
+			{
+				$item_image = base_url()."uploads/default_img.jpg";
 			}
 			
+			$dt = array(
+				'item_code' => $item_code,
+				'item_image' => $item_image,
+				'item_name' => $item_name,
+				'item_packing' => $item_packing,
+				'item_expiry' => $item_expiry,
+				'item_company' => $item_company,
+				'item_scheme' => $item_scheme,
+				'item_featured' => $item_featured,
+				'item_price' => $item_price,
+				'item_quantity' => $item_quantity,
+				'item_quantity_price' => $item_quantity_price,
+				'item_date_time' => $item_date_time,
+				'item_modalnumber' => $item_modalnumber,
+			);
+
+			// Add the data to the JSON array
+			$jsonArray[] = $dt;
+		}
+			
+			/*
 			// edit or delete
 			$where = array('vdt'=>$vdt,'vno'=>$vno);
 			$query = $this->select_fun("tbl_invoice_item_delete",$where);
@@ -262,8 +200,8 @@ class MyInvoiceModel extends CI_Model
 					// Add the data to the JSON array
 					$jsonArray2[] = $dt;
 				}
-			}
-		}
+			}*/
+		
 
 		// $jsonString  = json_encode($jsonArray);
 		// $jsonString1 = json_encode($jsonArray1);
@@ -376,32 +314,33 @@ class MyInvoiceModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getStyle('A1:AG1')->applyFromArray($BStyle);
 		
 		/**********************************************/
-		$where = array('gstvno'=>$gstvno);
-		$query = $this->select_fun("tbl_invoice_new",$where);
-		$row   = $query->row();
-		$chemist_name = $row->chemist_name;
+		$this->db->select('tbl_chemist.name as chemist_name, tbl_medicine.item_name, tbl_medicine.item_code, tbl_medicine.packing,tbl_medicine.batch_no, tbl_medicine.company_full_name, tbl_invoice.chemist_id, tbl_invoice.gstvno, tbl_invoice_item.*');
+        $this->db->from('tbl_invoice_item');
+        $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
+        $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
+        $this->db->join('tbl_medicine', 'tbl_medicine.i_code = tbl_invoice_item.itemc', 'left');
+        $this->db->where('tbl_invoice.gstvno', $gstvno);
+		$query = $this->db->get();
 		/**********************************************/
-		
-		$where = array('vdt'=>$row->vdt,'vno'=>$row->vno);
-		$query = $this->select_fun("tbl_invoice_item",$where);
 		$result = $query->result();
 		$rowCount = 2;
 		$fileok=0;
 		foreach($result as $row)
 		{
 			$fileok=1;
-			$vdt = strtotime($row->vdt);
-			$vdt = date('d/m/Y',$vdt);
+			$date = strtotime($row->date);
+			$date = date('d/m/Y',$date);
+			$gstvno = $row->gstvno;
 			
-			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$chemist_name);
+			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$row->chemist_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$gstvno);
-			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$vdt);
+			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$date);
 			$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,$row->company_full_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,$row->itemc);
 			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,(int)$row->item_code);
 			$objPHPExcel->getActiveSheet()->SetCellValue('G'.$rowCount,$row->item_name);
 			$objPHPExcel->getActiveSheet()->SetCellValue('H'.$rowCount,$row->packing);
-			$objPHPExcel->getActiveSheet()->SetCellValue('I'.$rowCount,$row->batch);
+			$objPHPExcel->getActiveSheet()->SetCellValue('I'.$rowCount,$row->batch_no);
 			$objPHPExcel->getActiveSheet()->SetCellValue('J'.$rowCount,$row->expiry);
 			$objPHPExcel->getActiveSheet()->SetCellValue('K'.$rowCount,$row->qty);
 			$objPHPExcel->getActiveSheet()->SetCellValue('L'.$rowCount,$row->fqty);
@@ -425,13 +364,7 @@ class MyInvoiceModel extends CI_Model
 			$objPHPExcel->getActiveSheet()->SetCellValue('AD'.$rowCount,$row->psrlno);
 			$objPHPExcel->getActiveSheet()->SetCellValue('AE'.$rowCount,"0");
 			$objPHPExcel->getActiveSheet()->SetCellValue('AF'.$rowCount,"0");
-			$objPHPExcel->getActiveSheet()->SetCellValue('AG'.$rowCount,$chemist_id);
-			
-			
-			$item_name  = $row->item_name;
-			$qty  		= $row->qty;
-			$batch  	= $row->batch;
-			$expiry  	= $row->expiry;
+			$objPHPExcel->getActiveSheet()->SetCellValue('AG'.$rowCount,$row->chemist_id);
 			
 			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':AG'.$rowCount)->applyFromArray($BStyle);
 			$rowCount++;

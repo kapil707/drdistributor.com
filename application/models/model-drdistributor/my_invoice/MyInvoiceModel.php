@@ -217,10 +217,10 @@ class MyInvoiceModel extends CI_Model
 			foreach($result as $row1){
 				$status = "Generated";
 				
-				$item_code 		= $row1->item_code;
+				$i_code 		= $row1->itemc;
 				$item_quantity 	= $row1->qty;
 				
-				$row2 = $this->db->query("select * from tbl_medicine where item_code='$item_code'")->row();
+				$row2 = $this->db->query("select * from tbl_medicine where i_code='$i_code'")->row();
 
 				$item_code 		= $row1->itemc; //yha sahi ha
 

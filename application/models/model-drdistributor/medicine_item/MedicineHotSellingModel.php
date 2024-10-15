@@ -21,7 +21,7 @@ class MedicineHotSellingModel extends CI_Model
 
 		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$this->db->from('tbl_hot_selling AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
+		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);

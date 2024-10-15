@@ -12,7 +12,7 @@ class MedicineLowPriceModel extends CI_Model
 		$row = $this->db->get("tbl_item_category")->row();
 		return $row->name;
 	}
-	//batchqty
+
 	public function get_medicine_available_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();

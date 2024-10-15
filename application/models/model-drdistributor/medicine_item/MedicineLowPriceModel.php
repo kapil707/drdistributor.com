@@ -13,7 +13,7 @@ class MedicineLowPriceModel extends CI_Model
 		return $row->name;
 	}
 
-	public function get_medicine_available_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_low_price_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 

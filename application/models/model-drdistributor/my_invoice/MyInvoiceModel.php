@@ -145,7 +145,7 @@ class MyInvoiceModel extends CI_Model
 		}
 			
 		// edit or delete
-		$where = array('vdt'=>$vdt,'vno'=>$vno);
+		$where = array('date'=>$date,'vno'=>$vno);
 		$query = $this->Scheme_Model->select_all_result("tbl_invoice_item_delete",$where);
 		$result = $query->result();
 		foreach($result as $row1){

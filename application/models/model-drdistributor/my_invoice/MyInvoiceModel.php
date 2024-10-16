@@ -145,7 +145,7 @@ class MyInvoiceModel extends CI_Model
 		}
 	
 		// URL to the JSON file (replace with the actual URL)
-        $jsonUrl = 'https://www.drdweb.com/invoice_files/'.$date.'/'.$vdt.'.json'; 
+        $jsonUrl = 'https://www.drdweb.com/invoice_files/'.$date.'/'.$vno.'.json'; 
         // Fetch the JSON data from the URL
         $jsonContent = file_get_contents($jsonUrl);
         // Check if the data was successfully fetched

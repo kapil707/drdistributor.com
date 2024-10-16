@@ -143,7 +143,71 @@ class MyInvoiceModel extends CI_Model
 			// Add the data to the JSON array
 			$jsonArray[] = $dt;
 		}
-			
+	
+		// URL to the JSON file (replace with the actual URL)
+        $jsonUrl = 'https://www.drdweb.com/invoice_files/'.$date.'/'.$vdt.'.json'; 
+        // Fetch the JSON data from the URL
+        $jsonContent = file_get_contents($jsonUrl);
+        // Check if the data was successfully fetched
+        if ($jsonContent === false) {
+            
+        }else{
+       	 	$dataArray = json_decode($jsonContent, true);  
+
+			// Check if the decoding was successful
+			if (json_last_error() === JSON_ERROR_NONE) {
+				// Loop through the array and extract 'itemc' values
+				foreach ($dataArray as $item) {
+					$item_code = $item['itemc'];
+
+					$row2 = $this->db->query("select * from tbl_medicine where i_code='$item_code'")->row();
+
+					$item_price = sprintf('%0.2f',round($row2->sale_rate,2));
+					$item_quantity_price= sprintf('%0.2f',round($item_quantity * $row2->sale_rate,2));
+					$item_date_time 	= date("d-M-y",strtotime($date_time));
+					$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
+						
+					$item_name 		= htmlentities(ucwords(strtolower($row2->item_name)));
+					$item_packing 	= htmlentities($row2->packing);
+					$item_expiry 	= htmlentities($row2->expiry);
+					$item_company 	= htmlentities(ucwords(strtolower($row2->company_full_name)));
+					$item_scheme 	= $row2->salescm1."+".$row2->salescm2;
+					$item_featured 	= $row2->featured;
+
+					$item_image		= constant('img_url_site').$row2->image1;
+					if(empty($row2->image1))
+					{
+						$item_image = base_url()."uploads/default_img.jpg";
+					}
+					
+					$item_description1 = $row1->remarks;
+					
+					$dt = array(
+						'item_code' => $item_code,
+						'item_image' => $item_image,
+						'item_name' => $item_name,
+						'item_packing' => $item_packing,
+						'item_expiry' => $item_expiry,
+						'item_company' => $item_company,
+						'item_scheme' => $item_scheme,
+						'item_featured' => $item_featured,
+						'item_price' => $item_price,
+						'item_quantity' => $item_quantity,
+						'item_quantity_price' => $item_quantity_price,
+						'item_date_time' => $item_date_time,
+						'item_modalnumber' => $item_modalnumber,
+						'item_description1' => $item_description1,
+					);
+
+					$jsonArray1[] = $dt;
+					$jsonArray2[] = $dt;
+				}
+			} else {
+				
+			}
+		}
+		
+		/*
 		// edit or delete
 		$where = array('date'=>$date,'vno'=>$vno);
 		$result = $this->Scheme_Model->select_all_result("tbl_invoice_item_delete",$where);
@@ -191,22 +255,15 @@ class MyInvoiceModel extends CI_Model
 				'item_description1' => $item_description1,
 			);
 
-			$jsonArray1[] = $dt;
-			$jsonArray2[] = $dt;
-			/*if($row1->type=="edit")
+			if($row1->type=="edit")
 			{
 				// Add the data to the JSON array
 				$jsonArray1[] = $dt;
 			}else{
 				// Add the data to the JSON array
 				$jsonArray2[] = $dt;
-			}*/
-		}
-		
-
-		// $jsonString  = json_encode($jsonArray);
-		// $jsonString1 = json_encode($jsonArray1);
-		// $jsonString2 = json_encode($jsonArray2);
+			}
+		}*/
 		
 
 		$return["items"] 		= $jsonArray;

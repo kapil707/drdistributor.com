@@ -175,6 +175,7 @@ class MyInvoiceModel extends CI_Model
 			// Loop through the array and extract 'itemc' values
 			foreach ($dataArray as $item) {
 				$item_code = $item['itemc'];
+				$item_description1 = $item['remarks'];
 
 				$row2 = $this->db->query("select * from tbl_medicine where i_code='$item_code'")->row();
 
@@ -195,8 +196,6 @@ class MyInvoiceModel extends CI_Model
 				{
 					$item_image = base_url()."uploads/default_img.jpg";
 				}
-				
-				$item_description1 = $row1->remarks;
 				
 				$dt = array(
 					'item_code' => $item_code,

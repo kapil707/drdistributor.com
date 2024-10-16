@@ -145,7 +145,7 @@ class MyInvoiceModel extends CI_Model
 		}
 	
 		// URL to the JSON file (replace with the actual URL)
-        $jsonUrl = 'https://www.drdweb.com/invoice_files/'.$date.'/'.$vno.'.json'; 
+        $jsonUrl = 'https://www.drdweb.co.in/invoice_files/'.$date.'/'.$vno.'.json'; 
 		// Initialize cURL session
 		$ch = curl_init();
 

@@ -176,6 +176,7 @@ class MyInvoiceModel extends CI_Model
 			foreach ($dataArray as $item) {
 				$item_code = $item['itemc'];
 				$item_description1 = $item['remarks'];
+				$item_type = $item['descp'];
 
 				$row2 = $this->db->query("select * from tbl_medicine where i_code='$item_code'")->row();
 
@@ -214,8 +215,13 @@ class MyInvoiceModel extends CI_Model
 					'item_description1' => $item_description1,
 				);
 
-				$jsonArray1[] = $dt;
-				$jsonArray2[] = $dt;
+				if($item_type=="QTY.CHANGE"){
+					// Add the data to the JSON array
+					$jsonArray1[] = $dt;
+				}else{
+					// Add the data to the JSON array
+					$jsonArray2[] = $dt;
+				}
 			}
 		}
 		

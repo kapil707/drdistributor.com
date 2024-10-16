@@ -191,14 +191,16 @@ class MyInvoiceModel extends CI_Model
 				'item_description1' => $item_description1,
 			);
 
-			if($row1->type=="edit")
+			$jsonArray1[] = $dt;
+			$jsonArray2[] = $dt;
+			/*if($row1->type=="edit")
 			{
 				// Add the data to the JSON array
 				$jsonArray1[] = $dt;
 			}else{
 				// Add the data to the JSON array
 				$jsonArray2[] = $dt;
-			}
+			}*/
 		}
 		
 

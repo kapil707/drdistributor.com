@@ -148,7 +148,7 @@ class MyCartModel extends CI_Model
 				$this->db->join("tbl_medicine", "tbl_medicine.i_code = drd_temp_rec.i_code", "left");
 				$this->db->where($where);
 				$this->db->order_by('excel_number', 'asc');
-				$this->db->order_by('time', 'desc');
+				$this->db->order_by('drd_temp_rec.time', 'desc');
 				$query = $this->db->get()->result();
 
 			}else {

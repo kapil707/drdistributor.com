@@ -6,9 +6,7 @@ class MedicineCategoryModel extends CI_Model
 	public function __construct(){
 
 		parent::__construct();
-
 		// Load model
-		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 	
 	public function medicine_category_api($session_yes_no="",$user_nrx="",$itemcat="",$get_record="")

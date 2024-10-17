@@ -485,4 +485,4 @@ class MyInvoiceModel extends CI_Model
 			}
 		}
 	}
-}
+}  

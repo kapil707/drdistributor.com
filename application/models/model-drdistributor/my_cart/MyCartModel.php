@@ -250,7 +250,7 @@ class MyCartModel extends CI_Model
 			$item_order_quantity = 1000;
 		}
 		
-		/***************************************************************/
+		/***************************************************************
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -260,57 +260,55 @@ class MyCartModel extends CI_Model
 			{
 				$image1 = constant('img_url_site').$row1->image1;
 			}
+		}*/
+		
+		$image1 = "";
+		$item_name = "";//$row1->item_name;
+		$packing = "";//$row1->packing;
+		$expiry = "";//$row1->expiry;
+		$margin = "";//$row1->margin;
+		$featured = "";//$row1->featured;
+		$company_full_name = "";//$row1->company_full_name;
+		$final_price = "";//$row1->final_price;
+		$salescm = ""; //$row1->salescm1."+".$row1->salescm2;
 
-			$image1 = "";
-			$item_name = "";//$row1->item_name;
-			$packing = "";//$row1->packing;
-			$expiry = "";//$row1->expiry;
-			$margin = "";//$row1->margin;
-			$featured = "";//$row1->featured;
-			$company_full_name = "";//$row1->company_full_name;
-			$final_price = "";//$row1->final_price;
-			$salescm = ""; //$row1->salescm1."+".$row1->salescm2;
+		$dt = array(
+			'i_code'=>$item_code,
+			'item_code'=>0,
+			'quantity'=>$item_order_quantity,				
+			'item_name'=>$item_name,
+			'packing'=>$packing,
+			'expiry'=>$expiry,
+			'margin'=>$margin,
+			'featured'=>$featured,
+			'company_full_name'=>$company_full_name,
+			'sale_rate'=>$final_price,
+			'scheme'=>$salescm,
+			'image'=>$image1,
+			'chemist_id'=>$user_altercode,
+			'selesman_id'=>$salesman_id,
+			'user_type'=>$user_type,
+			'date'=>$date,
+			'time'=>$time,
+			'datetime'=>$datetime,
+			'temp_rec'=>$temp_rec,
+			'order_type'=>$order_type,
+			'mobilenumber'=>$mobilenumber,
+			'modalnumber'=>$modalnumber,
+			'device_id'=>$device_id,
+			'excel_number'=>$excel_number,
+			'status'=>0,
+			'json_id'=>0,
+			'excel_temp_id'=>0,
+			'filename'=>"",
+			'your_item_name'=>"",
+			'join_temp'=>"",
+			'order_id'=>"",);
 
-			$dt = array(
-				'i_code'=>$item_code,
-				'item_code'=>$row1->item_code,
-				'quantity'=>$item_order_quantity,				
-				'item_name'=>$item_name,
-				'packing'=>$packing,
-				'expiry'=>$expiry,
-				'margin'=>$margin,
-				'featured'=>$featured,
-				'company_full_name'=>$company_full_name,
-				'sale_rate'=>$final_price,
-				'scheme'=>$salescm,
-				'image'=>$image1,
-				'chemist_id'=>$user_altercode,
-				'selesman_id'=>$salesman_id,
-				'user_type'=>$user_type,
-				'date'=>$date,
-				'time'=>$time,
-				'datetime'=>$datetime,
-				'temp_rec'=>$temp_rec,
-				'order_type'=>$order_type,
-				'mobilenumber'=>$mobilenumber,
-				'modalnumber'=>$modalnumber,
-				'device_id'=>$device_id,
-				'excel_number'=>$excel_number,
-				'status'=>0,
-				'json_id'=>0,
-				'excel_temp_id'=>0,
-				'filename'=>"",
-				'your_item_name'=>"",
-				'join_temp'=>"",
-				'order_id'=>"",);
+		$this->insert_fun("drd_temp_rec",$dt);
+		$status = "1";
+		$status_message = "Medicine added successfully";
 
-			$this->insert_fun("drd_temp_rec",$dt);
-			$status = "1";
-			$status_message = "Medicine added successfully";
-		}else{
-			$status = "0";
-			$status_message = "Medicine added fail";
-		}
 		$return["status"] = $status;
 		$return["status_message"] = $status_message;
 		return $return;

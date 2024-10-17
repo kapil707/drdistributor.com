@@ -142,14 +142,12 @@ class MyCartModel extends CI_Model
 			$selesman_id 	= "";
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'drd_temp_rec.status'=>'0');
-				$this->db->select("drd_temp_rec.id,drd_temp_rec.i_code, drd_temp_rec.quantity,drd_temp_rec.datetime,drd_temp_rec.modalnumber,tbl_medicine.item_name,tbl_medicine.packing,tbl_medicine.expiry,tbl_medicine.company_full_name,tbl_medicine.margin,tbl_medicine.featured,tbl_medicine.final_price,tbl_medicine.salescm1,tbl_medicine.salescm2,tbl_medicine.image1");
-				$this->db->from("drd_temp_rec");
-				$this->db->join("tbl_medicine", "tbl_medicine.i_code = drd_temp_rec.i_code", "left");
+				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0');
+				$this->db->select("*");
 				$this->db->where($where);
-				$this->db->order_by('excel_number', 'asc');
-				$this->db->order_by('drd_temp_rec.time', 'desc');
-				$query = $this->db->get()->result();
+				$this->db->order_by('excel_number','asc');
+				$this->db->order_by('time','desc');
+				$query = $this->db->get("drd_temp_rec")->result();
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
@@ -162,27 +160,19 @@ class MyCartModel extends CI_Model
 		}	
         foreach($query as $row)
 		{
-			$salescm = $row->salescm1."+".$row->salescm2;
-
-			$image1 = constant('img_url_site')."uploads/default_img.jpg";
-			if(!empty($row->image1))
-			{
-				$image1 = constant('img_url_site').$row->image1;
-			}
-
 			$item_id			= $row->id;
 			$item_code 			= $row->i_code;
 			$item_order_quantity= $row->quantity;
-			$item_image			= $image1;
+			$item_image			= $row->image;
 			$item_name			= (ucwords(strtolower($row->item_name)));
 			$item_packing		= ($row->packing);
 			$item_expiry		= ($row->expiry);
 			$item_company		= (ucwords(strtolower($row->company_full_name)));
-			$item_scheme		= $salescm;
+			$item_scheme		= $row->scheme;
 			
 			$item_margin 		= round($row->margin);
 			$item_featured 		= $row->featured;
-			$item_price			= sprintf('%0.2f',round($row->final_price,2));
+			$item_price			= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_order_quantity,2));
 			$item_date_time		= $row->datetime;
 			$item_modalnumber	= ($row->modalnumber);
@@ -260,7 +250,18 @@ class MyCartModel extends CI_Model
 			$item_order_quantity = 1000;
 		}
 		
-		/***************************************************************
+		/**************************************************************** *
+		 * off kar diya yha 2024-03-23 ko
+		if(empty($excel_number)){
+			$excel_number = 1;
+			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
+			if(!empty($row->excel_number)){
+				$excel_number = $row->excel_number + 1;
+			}
+		}
+		
+
+		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -270,55 +271,46 @@ class MyCartModel extends CI_Model
 			{
 				$image1 = constant('img_url_site').$row1->image1;
 			}
-		}*/
-		
-		$image1 = "";
-		$item_name = "";//$row1->item_name;
-		$packing = "";//$row1->packing;
-		$expiry = "";//$row1->expiry;
-		$margin = "";//$row1->margin;
-		$featured = "";//$row1->featured;
-		$company_full_name = "";//$row1->company_full_name;
-		$final_price = "";//$row1->final_price;
-		$salescm = ""; //$row1->salescm1."+".$row1->salescm2;
+			$dt = array(
+				'i_code'=>$item_code,
+				'item_code'=>$row1->item_code,
+				'quantity'=>$item_order_quantity,				
+				'item_name'=>$row1->item_name,
+				'packing'=>$row1->packing,
+				'expiry'=>$row1->expiry,
+				'margin'=>$row1->margin,
+				'featured'=>$row1->featured,
+				'company_full_name'=>$row1->company_full_name,
+				'sale_rate'=>$row1->final_price,
+				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'image'=>$image1,
+				'chemist_id'=>$user_altercode,
+				'selesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'date'=>$date,
+				'time'=>$time,
+				'datetime'=>$datetime,
+				'temp_rec'=>$temp_rec,
+				'order_type'=>$order_type,
+				'mobilenumber'=>$mobilenumber,
+				'modalnumber'=>$modalnumber,
+				'device_id'=>$device_id,
+				'excel_number'=>$excel_number,
+				'status'=>0,
+				'json_id'=>0,
+				'excel_temp_id'=>0,
+				'filename'=>"",
+				'your_item_name'=>"",
+				'join_temp'=>"",
+				'order_id'=>"",);
 
-		$dt = array(
-			'i_code'=>$item_code,
-			'item_code'=>0,
-			'quantity'=>$item_order_quantity,				
-			'item_name'=>$item_name,
-			'packing'=>$packing,
-			'expiry'=>$expiry,
-			'margin'=>$margin,
-			'featured'=>$featured,
-			'company_full_name'=>$company_full_name,
-			'sale_rate'=>$final_price,
-			'scheme'=>$salescm,
-			'image'=>$image1,
-			'chemist_id'=>$user_altercode,
-			'selesman_id'=>$salesman_id,
-			'user_type'=>$user_type,
-			'date'=>$date,
-			'time'=>$time,
-			'datetime'=>$datetime,
-			'temp_rec'=>$temp_rec,
-			'order_type'=>$order_type,
-			'mobilenumber'=>$mobilenumber,
-			'modalnumber'=>$modalnumber,
-			'device_id'=>$device_id,
-			'excel_number'=>$excel_number,
-			'status'=>0,
-			'json_id'=>0,
-			'excel_temp_id'=>0,
-			'filename'=>"",
-			'your_item_name'=>"",
-			'join_temp'=>"",
-			'order_id'=>"",);
-
-		$this->insert_fun("drd_temp_rec",$dt);
-		$status = "1";
-		$status_message = "Medicine added successfully";
-
+			$this->insert_fun("drd_temp_rec",$dt);
+			$status = "1";
+			$status_message = "Medicine added successfully";
+		}else{
+			$status = "0";
+			$status_message = "Medicine added fail";
+		}
 		$return["status"] = $status;
 		$return["status_message"] = $status_message;
 		return $return;

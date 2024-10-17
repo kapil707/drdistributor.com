@@ -143,14 +143,13 @@ class MyCartModel extends CI_Model
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'drd_temp_rec.status'=>'0');
-				$this->db->select("drd_temp_rec.i_code, drd_temp_rec.quantity,drd_temp_rec.datetime,tbl_medicine.item_name");
+				$this->db->select("drd_temp_rec.id,drd_temp_rec.i_code, drd_temp_rec.quantity,drd_temp_rec.datetime,drd_temp_rec.modalnumber,tbl_medicine.item_name,tbl_medicine.packing,tbl_medicine.expiry,tbl_medicine.company_full_name,tbl_medicine.margin,tbl_medicine.featured,tbl_medicine.final_price,tbl_medicine.salescm1,tbl_medicine.salescm2,tbl_medicine.image1");
 				$this->db->from("drd_temp_rec");
 				$this->db->join("tbl_medicine", "tbl_medicine.i_code = drd_temp_rec.i_code", "left");
 				$this->db->where($where);
 				$this->db->order_by('excel_number', 'asc');
 				$this->db->order_by('drd_temp_rec.time', 'desc');
 				$query = $this->db->get()->result();
-
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
@@ -163,15 +162,23 @@ class MyCartModel extends CI_Model
 		}	
         foreach($query as $row)
 		{
+			$salescm = $row->salescm1."+".$row->salescm2;
+
+			$image1 = constant('img_url_site')."uploads/default_img.jpg";
+			if(!empty($row->image1))
+			{
+				$image1 = constant('img_url_site').$row->image1;
+			}
+
 			$item_id			= $row->id;
 			$item_code 			= $row->i_code;
 			$item_order_quantity= $row->quantity;
-			$item_image			= $row->image;
+			$item_image			= $image1;
 			$item_name			= (ucwords(strtolower($row->item_name)));
 			$item_packing		= ($row->packing);
 			$item_expiry		= ($row->expiry);
 			$item_company		= (ucwords(strtolower($row->company_full_name)));
-			$item_scheme		= $row->scheme;
+			$item_scheme		= $salescm;
 			
 			$item_margin 		= round($row->margin);
 			$item_featured 		= $row->featured;

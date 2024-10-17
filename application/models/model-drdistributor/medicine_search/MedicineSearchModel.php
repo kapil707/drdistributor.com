@@ -6,9 +6,7 @@ class MedicineSearchModel extends CI_Model
 	public function __construct(){
 
 		parent::__construct();
-
 		// Load model
-		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 
 	public function medicine_search_api($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")

@@ -6,9 +6,7 @@ class MedicineDetailsModel extends CI_Model
 	public function __construct(){
 
 		parent::__construct();
-
 		// Load model
-		//$this->db_medicine = $this->load->database('default2', TRUE);
 	}
 
 	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)

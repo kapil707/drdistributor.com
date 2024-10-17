@@ -250,18 +250,7 @@ class MyCartModel extends CI_Model
 			$item_order_quantity = 1000;
 		}
 		
-		/**************************************************************** *
-		 * off kar diya yha 2024-03-23 ko
-		if(empty($excel_number)){
-			$excel_number = 1;
-			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
-			if(!empty($row->excel_number)){
-				$excel_number = $row->excel_number + 1;
-			}
-		}
-		
-
-		/**************************************************************** */
+		/***************************************************************/
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -271,18 +260,29 @@ class MyCartModel extends CI_Model
 			{
 				$image1 = constant('img_url_site').$row1->image1;
 			}
+
+			$image1 = "";
+			$item_name = "";//$row1->item_name;
+			$packing = "";//$row1->packing;
+			$expiry = "";//$row1->expiry;
+			$margin = "";//$row1->margin;
+			$featured = "";//$row1->featured;
+			$company_full_name = "";//$row1->company_full_name;
+			$final_price = "";//$row1->final_price;
+			$salescm = ""; //$row1->salescm1."+".$row1->salescm2;
+
 			$dt = array(
 				'i_code'=>$item_code,
 				'item_code'=>$row1->item_code,
 				'quantity'=>$item_order_quantity,				
-				'item_name'=>$row1->item_name,
-				'packing'=>$row1->packing,
-				'expiry'=>$row1->expiry,
-				'margin'=>$row1->margin,
-				'featured'=>$row1->featured,
-				'company_full_name'=>$row1->company_full_name,
-				'sale_rate'=>$row1->final_price,
-				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'item_name'=>$item_name,
+				'packing'=>$packing,
+				'expiry'=>$expiry,
+				'margin'=>$margin,
+				'featured'=>$featured,
+				'company_full_name'=>$company_full_name,
+				'sale_rate'=>$final_price,
+				'scheme'=>$salescm,
 				'image'=>$image1,
 				'chemist_id'=>$user_altercode,
 				'selesman_id'=>$salesman_id,

@@ -143,11 +143,14 @@ class MyCartModel extends CI_Model
 			if($order_type=="all"){
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0');
-				$this->db->select("*");
+				$this->db->select("drd_temp_rec.i_code, drd_temp_rec.quantity,drd_temp_rec.datetime,tbl_medicine.item_name");
+				$this->db->from("drd_temp_rec");
+				$this->db->join("tbl_medicine", "tbl_medicine.i_code = drd_temp_rec.i_code", "left");
 				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
-				$query = $this->db->get("drd_temp_rec")->result();
+				$this->db->order_by('excel_number', 'asc');
+				$this->db->order_by('time', 'desc');
+				$query = $this->db->get()->result();
+
 			}else {
 				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
 				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');

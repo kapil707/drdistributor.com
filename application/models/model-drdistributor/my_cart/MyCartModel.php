@@ -314,7 +314,6 @@ class MyCartModel extends CI_Model
 				'date'=>$date,
 				'time'=>$time,
 				'datetime'=>$datetime,
-				'temp_rec'=>$temp_rec,
 				'order_type'=>$order_type,
 				'mobilenumber'=>$mobilenumber,
 				'modalnumber'=>$modalnumber,

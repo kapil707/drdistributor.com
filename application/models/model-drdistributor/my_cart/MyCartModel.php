@@ -247,7 +247,7 @@ class MyCartModel extends CI_Model
 			$excel_number = $this->get_short_order($user_type,$user_altercode,$salesman_id);
 		}
 
-		/******************************************************** */
+		/******************************************************** *
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			

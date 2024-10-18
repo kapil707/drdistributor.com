@@ -227,7 +227,11 @@ class MyCartModel extends CI_Model
 	public function get_short_order($user_type,$user_altercode,$salesman_id)
 	{
 		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0")->row();
-		return $q->short_order;
+		if(empty($q)){
+			return 1;
+		}else{
+			return $q->short_order;
+		}
 	}
 
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")

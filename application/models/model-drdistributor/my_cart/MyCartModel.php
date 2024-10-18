@@ -247,7 +247,7 @@ class MyCartModel extends CI_Model
 			$excel_number = $this->get_short_order($user_type,$user_altercode,$salesman_id);
 		}
 
-		/******************************************************** *
+		/******************************************************** */
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
@@ -261,7 +261,6 @@ class MyCartModel extends CI_Model
 		if($item_order_quantity>=1000){
 			$item_order_quantity = 1000;
 		}
-
 		/********************************************************* */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);

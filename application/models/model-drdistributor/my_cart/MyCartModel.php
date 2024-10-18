@@ -397,7 +397,7 @@ class MyCartModel extends CI_Model
 
 	public function tbl_order_id()
 	{
-		$q = $this->db->query("select order_id + 1 from tbl_order_id")->row();
+		$q = $this->db->query("select order_id + 1 as order_id from tbl_order_id")->row();
 		return $q->order_id;
 	}
 

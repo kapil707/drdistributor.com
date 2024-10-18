@@ -401,7 +401,7 @@ class MyCartModel extends CI_Model
 		return $q->order_id;
 	}
 
-	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
+	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks="",$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
 		$chemist_id = $user_altercode;
 		

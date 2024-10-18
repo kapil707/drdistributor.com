@@ -224,6 +224,12 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 
+	public function get_short_order($user_type,$user_altercode,$salesman_id)
+	{
+		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0")->row();
+		return $q->short_order;
+	}
+
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
 		//ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (chemist_id, selesman_id,user_type,i_code);
@@ -237,7 +243,11 @@ class MyCartModel extends CI_Model
 		$date = date("Y-m-d",$time);
 		$datetime = date("d-M-y H:i",$time);
 
-		/**************************************************************** */
+		if($excel_number==0){
+			$excel_number = $this->get_short_order($user_type,$user_altercode,$salesman_id);
+		}
+
+		/******************************************************** */
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			

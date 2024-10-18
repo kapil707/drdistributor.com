@@ -249,19 +249,8 @@ class MyCartModel extends CI_Model
 		if($item_order_quantity>=1000){
 			$item_order_quantity = 1000;
 		}
-		
-		/**************************************************************** *
-		 * off kar diya yha 2024-03-23 ko
-		if(empty($excel_number)){
-			$excel_number = 1;
-			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
-			if(!empty($row->excel_number)){
-				$excel_number = $row->excel_number + 1;
-			}
-		}
-		
 
-		/**************************************************************** */
+		/********************************************************* */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -305,6 +294,36 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",);
 
 			$this->insert_fun("drd_temp_rec",$dt);
+
+			$dt1 = array(
+				'i_code'=>$item_code,
+				'item_code'=>$row1->item_code,
+				'quantity'=>$item_order_quantity,				
+				'item_name'=>$row1->item_name,
+				'packing'=>$row1->packing,
+				'expiry'=>$row1->expiry,
+				'margin'=>$row1->margin,
+				'featured'=>$row1->featured,
+				'company_full_name'=>$row1->company_full_name,
+				'sale_rate'=>$row1->final_price,
+				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'image'=>$image1,
+				'chemist_id'=>$user_altercode,
+				'selesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'date'=>$date,
+				'time'=>$time,
+				'datetime'=>$datetime,
+				'temp_rec'=>$temp_rec,
+				'order_type'=>$order_type,
+				'mobilenumber'=>$mobilenumber,
+				'modalnumber'=>$modalnumber,
+				'device_id'=>$device_id,
+				'short_order'=>$excel_number,
+				'status'=>0,
+				'order_id'=>"",);
+			
+			$this->insert_fun("tbl_cart",$dt1);
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{

@@ -391,6 +391,7 @@ class MyCartModel extends CI_Model
 			/*------------------------------------------------*/
 			$date = date('Y-m-d');
 			$time = date("H:i",time());
+			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
 			
@@ -449,6 +450,7 @@ class MyCartModel extends CI_Model
 						'modalnumber'=>$modalnumber,
 						'device_id'=>$device_id,
 						'image'=>$item_image,
+						'download_time'=>$download_time,
 					);
 					$query = $this->insert_fun("tbl_order",$dt);	
 				}

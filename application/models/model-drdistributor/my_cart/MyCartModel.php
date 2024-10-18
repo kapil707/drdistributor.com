@@ -226,10 +226,12 @@ class MyCartModel extends CI_Model
 
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
-		/**************************************************************** */
+		//ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (chemist_id, selesman_id,user_type,i_code);
+		/******************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
-		/**************************************************************** */
+		$this->db->delete("tbl_cart", $where);
+		/******************************************************** */
 
 		$time = time();
 		$date = date("Y-m-d",$time);

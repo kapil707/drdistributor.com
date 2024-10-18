@@ -434,6 +434,10 @@ class MyCartModel extends CI_Model
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
 
+			if(empty($remarks)){
+				$remarks = "";
+			}
+
 			$dt1 = array(
 				'order_id'=>$order_id,
 				'chemist_id'=>$chemist_id,

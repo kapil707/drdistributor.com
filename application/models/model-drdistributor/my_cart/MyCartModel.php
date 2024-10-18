@@ -358,10 +358,8 @@ class MyCartModel extends CI_Model
 
 	public function tbl_order_id()
 	{
-		$q = $this->db->query("select order_id from tbl_order_id where id='1'")->row();
-		$order_id = $q->order_id + 1;
-		$this->db->query("update tbl_order_id set order_id='$order_id' where id='1'");
-		return $order_id;
+		$q = $this->db->query("select order_id + 1 from tbl_order_id")->row();
+		return $q->order_id;
 	}
 
 	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
@@ -457,6 +455,9 @@ class MyCartModel extends CI_Model
 			}
 			if(!empty($query))
 			{
+				/******************************** */
+				$this->db->query("update tbl_order_id set order_id='$order_id'");
+				/******************************** */
 				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
 				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 				

@@ -224,18 +224,34 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 
+	public function get_short_order($user_type,$user_altercode,$salesman_id)
+	{
+		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0")->row();
+		if(empty($q)){
+			return 1;
+		}else{
+			return $q->short_order;
+		}
+	}
+
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
-		/**************************************************************** */
+		//ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (chemist_id, selesman_id,user_type,i_code);
+		/******************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
-		/**************************************************************** */
+		$this->db->delete("tbl_cart", $where);
+		/******************************************************** */
 
 		$time = time();
 		$date = date("Y-m-d",$time);
 		$datetime = date("d-M-y H:i",$time);
 
-		/**************************************************************** */
+		if($excel_number==0){
+			$excel_number = $this->get_short_order($user_type,$user_altercode,$salesman_id);
+		}
+
+		/******************************************************** */
 		if($user_type=="sales")
 		{
 			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
@@ -249,19 +265,7 @@ class MyCartModel extends CI_Model
 		if($item_order_quantity>=1000){
 			$item_order_quantity = 1000;
 		}
-		
-		/**************************************************************** *
-		 * off kar diya yha 2024-03-23 ko
-		if(empty($excel_number)){
-			$excel_number = 1;
-			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
-			if(!empty($row->excel_number)){
-				$excel_number = $row->excel_number + 1;
-			}
-		}
-		
-
-		/**************************************************************** */
+		/********************************************************* */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
@@ -305,6 +309,35 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",);
 
 			$this->insert_fun("drd_temp_rec",$dt);
+
+			$dt1 = array(
+				'i_code'=>$item_code,
+				'item_code'=>$row1->item_code,
+				'quantity'=>$item_order_quantity,				
+				'item_name'=>$row1->item_name,
+				'packing'=>$row1->packing,
+				'expiry'=>$row1->expiry,
+				'margin'=>$row1->margin,
+				'featured'=>$row1->featured,
+				'company_full_name'=>$row1->company_full_name,
+				'sale_rate'=>$row1->final_price,
+				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'image'=>$image1,
+				'chemist_id'=>$user_altercode,
+				'selesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'date'=>$date,
+				'time'=>$time,
+				'datetime'=>$datetime,
+				'order_type'=>$order_type,
+				'mobilenumber'=>$mobilenumber,
+				'modalnumber'=>$modalnumber,
+				'device_id'=>$device_id,
+				'short_order'=>$excel_number,
+				'status'=>0,
+				'order_id'=>"",);
+			
+			$this->insert_fun("tbl_cart",$dt1);
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{
@@ -358,10 +391,8 @@ class MyCartModel extends CI_Model
 
 	public function tbl_order_id()
 	{
-		$q = $this->db->query("select order_id from tbl_order_id where id='1'")->row();
-		$order_id = $q->order_id + 1;
-		$this->db->query("update tbl_order_id set order_id='$order_id' where id='1'");
-		return $order_id;
+		$q = $this->db->query("select order_id + 1 from tbl_order_id")->row();
+		return $q->order_id;
 	}
 
 	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
@@ -457,6 +488,9 @@ class MyCartModel extends CI_Model
 			}
 			if(!empty($query))
 			{
+				/******************************** */
+				$this->db->query("update tbl_order_id set order_id='$order_id'");
+				/******************************** */
 				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
 				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 				

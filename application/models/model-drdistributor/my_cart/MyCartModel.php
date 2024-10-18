@@ -352,6 +352,8 @@ class MyCartModel extends CI_Model
 	public function medicine_delete_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
 		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
+
+		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 		
 		if(empty($result)){
 			$status = "0";

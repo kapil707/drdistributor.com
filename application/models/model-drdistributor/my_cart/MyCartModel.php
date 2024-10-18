@@ -226,7 +226,7 @@ class MyCartModel extends CI_Model
 
 	public function get_short_order($user_type,$user_altercode,$salesman_id)
 	{
-		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0")->row();
+		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0")->row();
 		if(empty($q)){
 			return 1;
 		}else{
@@ -324,7 +324,7 @@ class MyCartModel extends CI_Model
 				'scheme'=>$row1->salescm1."+".$row1->salescm2,
 				'image'=>$image1,
 				'chemist_id'=>$user_altercode,
-				'selesman_id'=>$salesman_id,
+				'salesman_id'=>$salesman_id,
 				'user_type'=>$user_type,
 				'date'=>$date,
 				'time'=>$time,
@@ -353,7 +353,7 @@ class MyCartModel extends CI_Model
 	{
 		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 
-		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
+		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 		
 		if(empty($result)){
 			$status = "0";
@@ -375,7 +375,7 @@ class MyCartModel extends CI_Model
 	{
 		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");
 
-		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");
+		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status='0'");
 		
 		if(empty($result)){
 			$status = "0";
@@ -426,9 +426,26 @@ class MyCartModel extends CI_Model
 			/*------------------------------------------------*/
 			$date = date('Y-m-d');
 			$time = date("H:i",time());
+			$time1 = time();
+			$datetime = date("d-M-y H:i",$time1);
 			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
+
+			$dt1 = array(
+				'order_id'=>$order_id,
+				'chemist_id'=>$chemist_id,
+				'salesman_id'=>$selesman_id,
+				'user_type'=>$user_type,
+				'order_type'=>$order_type,
+				'remarks'=>$remarks,
+				'date'=>$date,
+				'time'=>$time1,
+				'datetime'=>$datetime,
+				'download_time'=>$download_time,);
+			$this->insert_fun("tbl_cart_order",$dt1);
+			
+			/************************************************* */
 			
 			$this->db->distinct("i_code");
 			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
@@ -487,7 +504,7 @@ class MyCartModel extends CI_Model
 						'image'=>$item_image,
 						'download_time'=>$download_time,
 					);
-					$query = $this->insert_fun("tbl_order",$dt);	
+					$query = $this->insert_fun("tbl_order",$dt);
 				}
 			}
 			if(!empty($query))
@@ -497,6 +514,8 @@ class MyCartModel extends CI_Model
 				/******************************** */
 				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
 				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
+
+				$this->db->query("update tbl_cart set status='1',order_id='$order_id' where status='0' and chemist_id='$chemist_id' and salesman_id='$selesman_id'");
 				
 				$place_order_message = $this->Scheme_Model->get_website_data("place_order_message");
 				$return["status_message"] = "<font color='#28a745'>Your Order No. : ".$order_id."</font>".$place_order_message;

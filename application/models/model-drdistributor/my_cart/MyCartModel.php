@@ -441,6 +441,7 @@ class MyCartModel extends CI_Model
 				'user_type'=>$user_type,
 				'order_type'=>$order_type,
 				'remarks'=>$remarks,
+				'total'=>0,
 				'date'=>$date,
 				'time'=>$time1,
 				'datetime'=>$datetime,

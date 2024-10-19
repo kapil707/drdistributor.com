@@ -437,8 +437,7 @@ class MyCartModel extends CI_Model
 			/*------------------------------------------------*/
 			$date = date('Y-m-d');
 			$time = date("H:i",time());
-			$time1 = time();
-			$datetime = date("d-M-y H:i",$time1);
+			$timestamp = date("d-M-y H:i",time());
 			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
@@ -453,7 +452,7 @@ class MyCartModel extends CI_Model
 				$total = $row_total->total;
 			}
 			$dt1 = array(
-				'order_id'=>$order_id,
+				'id'=>$order_id,
 				'chemist_id'=>$chemist_id,
 				'salesman_id'=>$selesman_id,
 				'user_type'=>$user_type,
@@ -461,13 +460,13 @@ class MyCartModel extends CI_Model
 				'remarks'=>$remarks,
 				'total'=>$total,
 				'date'=>$date,
-				'time'=>$time1,
-				'datetime'=>$datetime,
+				'time'=>$time,
+				'datetime'=>$timestamp,
 				'download_time'=>$download_time,
 				'gstvno'=>0);
-			$this->insert_fun("tbl_cart_order",$dt1);
+			$query = $this->insert_fun("tbl_cart_order",$dt1);
 			
-			/************************************************* */
+			/************************************************* *
 			
 			$this->db->distinct("i_code");
 			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
@@ -528,14 +527,14 @@ class MyCartModel extends CI_Model
 					);
 					$query = $this->insert_fun("tbl_order",$dt);
 				}
-			}
+			}*/
 			if(!empty($query))
 			{
 				/******************************** */
 				$this->db->query("update tbl_order_id set order_id='$order_id'");
 				/******************************** */
-				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
-				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
+				//$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
+				//$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 
 				$this->db->query("update tbl_cart set status='1',order_id='$order_id' where status='0' and chemist_id='$chemist_id' and salesman_id='$selesman_id' and user_type='$user_type'");
 				

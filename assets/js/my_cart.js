@@ -46,7 +46,7 @@ function place_order_complete()
 		url        : get_base_url() +"my_cart/place_order_api",
 		cache	   : true,
 		error: function(){
-			//window.location.href = get_base_url() + "my_cart";
+			window.location.href = get_base_url() + "my_cart";
 			//count_temp_rec();
 		},
 		success    : function(data){

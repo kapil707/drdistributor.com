@@ -447,7 +447,7 @@ class MyCartModel extends CI_Model
 			}
 
 			$total = 0;
-			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='chemist_id' and salesman_id='$selesman_id' and user_type='$user_type' and status=0")->row();
+			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$selesman_id' and user_type='$user_type' and status=0")->row();
 			if(!empty($row_total)){
 				$total = $row_total->total;
 			}

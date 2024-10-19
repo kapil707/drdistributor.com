@@ -462,7 +462,8 @@ class MyCartModel extends CI_Model
 				'date'=>$date,
 				'time'=>$time1,
 				'datetime'=>$datetime,
-				'download_time'=>$download_time);
+				'download_time'=>$download_time,
+				'gstvno'=>0);
 			$this->insert_fun("tbl_cart_order",$dt1);
 			
 			/************************************************* */

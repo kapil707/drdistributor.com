@@ -438,6 +438,11 @@ class MyCartModel extends CI_Model
 				$remarks = "";
 			}
 
+			$total = 0;
+			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='v153' and status=0")->row();
+			if(!empty($row_total)){
+				$total = round($row_total->total,2);
+			}
 			$dt1 = array(
 				'order_id'=>$order_id,
 				'chemist_id'=>$chemist_id,
@@ -445,7 +450,7 @@ class MyCartModel extends CI_Model
 				'user_type'=>$user_type,
 				'order_type'=>$order_type,
 				'remarks'=>$remarks,
-				'total'=>0,
+				'total'=>$total,
 				'date'=>$date,
 				'time'=>$time1,
 				'datetime'=>$datetime,

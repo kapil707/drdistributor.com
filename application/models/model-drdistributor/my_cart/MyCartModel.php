@@ -161,8 +161,8 @@ class MyCartModel extends CI_Model
 				$this->db->order_by('excel_number','asc');
 				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
-			}
-		}*/
+			}*/
+		}
 		$where = array('user_type'=>$user_type,'salesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
 		$this->db->select("*");
 		$this->db->where($where);

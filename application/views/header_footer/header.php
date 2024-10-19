@@ -494,7 +494,7 @@ if (isset($_COOKIE["theme_type"])) {
 							<div class="col-sm-8 col-8 text-right">
 								<span class="medicine_details_item_price" title="*Approximate ~"></span>
 							</div>
-							<div class="col-sm-12 col-12 text-left medicine_details_hr medicine_details_item_description1">
+							<div class="col-sm-12 col-12 text-left medicine_details_hr">
 								*The information given on this page is based on historical data and estimates . Please refer to the final invoice for the exact value. E&OE.
 							</div>
 

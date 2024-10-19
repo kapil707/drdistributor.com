@@ -439,7 +439,7 @@ class MyCartModel extends CI_Model
 			}
 
 			$total = 0;
-			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='v153' and status=0")->row();
+			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='chemist_id' and salesman_id='$selesman_id' and user_type='$user_type' and status=0")->row();
 			if(!empty($row_total)){
 				$total = round($row_total->total,2);
 			}
@@ -454,7 +454,7 @@ class MyCartModel extends CI_Model
 				'date'=>$date,
 				'time'=>$time1,
 				'datetime'=>$datetime,
-				'download_time'=>$download_time,);
+				'download_time'=>$download_time);
 			$this->insert_fun("tbl_cart_order",$dt1);
 			
 			/************************************************* */

@@ -41,7 +41,7 @@ class MyOrderModel extends CI_Model
 			{
 				$item_title = "Generated / Order no. ".$row->order_id ." / Gstvno no. ".$row->gstvno;
 			}
-			$item_date_time	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",($row->time));		
+			$item_date_time	= date("d-M-y @ h:i a",($row->time));		
 			$item_id = $order_id;
 			$item_message  = $item_total;
 			$item_image = $user_image;

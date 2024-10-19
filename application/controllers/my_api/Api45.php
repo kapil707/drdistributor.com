@@ -221,7 +221,7 @@ class Api45 extends CI_Controller {
 			}		
 			
 			/*****************update ke liya code*********************/
-			$force_update 			= 1;//$this->Scheme_Model->get_website_data("force_update");
+			$force_update 			= "1";//$this->Scheme_Model->get_website_data("force_update");
 			$force_update_title 	= $this->Scheme_Model->get_website_data("force_update_title");
 			$force_update_message	= $this->Scheme_Model->get_website_data("force_update_message");	
 

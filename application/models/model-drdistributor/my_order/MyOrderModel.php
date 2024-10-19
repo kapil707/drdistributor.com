@@ -21,11 +21,13 @@ class MyOrderModel extends CI_Model
 		
 		$user_image = $this->get_chemist_photo($user_altercode);
 
-		$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
+		/*$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		if($user_type=="sales")
 		{
 			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' and selesman_id='$salesman_id' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
-		}
+		}*/
+
+		$query = $this->db->query("SELECT order_id,total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' and selesman_id='$salesman_id' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		foreach($query as $row)
 		{
 			$get_record++;

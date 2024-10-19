@@ -136,9 +136,7 @@ class MyCartModel extends CI_Model
 				$this->db->order_by('excel_number','asc');
 				$this->db->order_by('time','desc');
 				$query = $this->db->get("drd_temp_rec")->result();
-			}*/
-		
-			
+			}*/		
 		}
 		else
 		{
@@ -451,7 +449,7 @@ class MyCartModel extends CI_Model
 			$total = 0;
 			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='chemist_id' and salesman_id='$selesman_id' and user_type='$user_type' and status=0")->row();
 			if(!empty($row_total)){
-				$total = round($row_total->total,2);
+				$total = $row_total->total;
 			}
 			$dt1 = array(
 				'order_id'=>$order_id,

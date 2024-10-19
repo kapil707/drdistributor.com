@@ -245,9 +245,9 @@ class MyCartModel extends CI_Model
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
 		//ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (order_id,chemist_id, salesman_id,user_type,i_code,status);
-		/******************************************************** */
+		/******************************************************** *
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
-		$this->db->delete("drd_temp_rec", $where);
+		$this->db->delete("drd_temp_rec", $where);*/
 
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("tbl_cart", $where);
@@ -318,7 +318,7 @@ class MyCartModel extends CI_Model
 				'join_temp'=>"",
 				'order_id'=>"",);
 
-			$this->insert_fun("drd_temp_rec",$dt);
+			//$this->insert_fun("drd_temp_rec",$dt);
 
 			$dt1 = array(
 				'i_code'=>$item_code,
@@ -361,7 +361,7 @@ class MyCartModel extends CI_Model
 
 	public function medicine_delete_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
-		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
+		//$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 
 		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status='0' and i_code='$item_code'");
 		
@@ -383,7 +383,7 @@ class MyCartModel extends CI_Model
 
 	public function medicine_delete_all_api($user_type="",$user_altercode="",$salesman_id="")
 	{
-		$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");
+		//$result = $this->db->query("delete from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status='0'");
 
 		$result = $this->db->query("delete from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status='0'");
 		

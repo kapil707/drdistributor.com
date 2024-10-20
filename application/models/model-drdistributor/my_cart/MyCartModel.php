@@ -229,11 +229,16 @@ class MyCartModel extends CI_Model
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
+
+		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
+		$this->db->delete("tbl_cart", $where);
 		/**************************************************************** */
 
 		$time = time();
 		$date = date("Y-m-d",$time);
+		$time1 = date("H:i",$time);
 		$datetime = date("d-M-y H:i",$time);
+		$timestamp = time();
 
 		/**************************************************************** */
 		if($user_type=="sales")
@@ -305,6 +310,36 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",);
 
 			$this->insert_fun("drd_temp_rec",$dt);
+			
+
+			$dt1 = array(
+				'i_code'=>$item_code,
+				'item_code'=>$row1->item_code,
+				'quantity'=>$item_order_quantity,				
+				'item_name'=>$row1->item_name,
+				'packing'=>$row1->packing,
+				'expiry'=>$row1->expiry,
+				'margin'=>$row1->margin,
+				'featured'=>$row1->featured,
+				'company_full_name'=>$row1->company_full_name,
+				'sale_rate'=>$row1->final_price,
+				'scheme'=>$row1->salescm1."+".$row1->salescm2,
+				'image'=>$image1,
+				'chemist_id'=>$user_altercode,
+				'salesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'date'=>$date,
+				'time'=>$time,
+				'timestamp'=>$timestamp,
+				'order_type'=>$order_type,
+				'mobilenumber'=>$mobilenumber,
+				'modalnumber'=>$modalnumber,
+				'device_id'=>$device_id,
+				'short_order'=>$excel_number,
+				'status'=>0,
+				'order_id'=>"",);
+			
+			$this->insert_fun("tbl_cart",$dt1);
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{

@@ -11,3 +11,5 @@ delete FROM `tbl_cart_order` WHERE `id`='628163' and chemist_id='V16';
 ALTER TABLE tbl_cart_order
 MODIFY COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
 
+ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (order_id,chemist_id, salesman_id,user_type,i_code,status);
+

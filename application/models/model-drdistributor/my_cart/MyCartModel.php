@@ -363,12 +363,12 @@ class MyCartModel extends CI_Model
 	{
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','i_code'=>$item_code);
-		$this->delete_fun("drd_temp_rec", $where);
+		$result = $this->delete_fun("drd_temp_rec", $where);
 		/**************************************************************** */
 
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0','i_code'=>$item_code);
-		$this->delete_fun("tbl_cart", $where);
+		$result = $this->delete_fun("tbl_cart", $where);
 		/**************************************************************** */
 		
 		if(empty($result)){
@@ -391,12 +391,12 @@ class MyCartModel extends CI_Model
 	{
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0');
-		$this->delete_fun("drd_temp_rec", $where);
+		$result = $this->delete_fun("drd_temp_rec", $where);
 		/**************************************************************** */
 
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
-		$this->delete_fun("tbl_cart", $where);
+		$result = $this->delete_fun("tbl_cart", $where);
 		/**************************************************************** */
 		
 		if(empty($result)){

@@ -546,8 +546,9 @@ class MyCartModel extends CI_Model
 				/**************************************** */
 
 				/**************************************** */
+				$order_id_1 = $query;
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
-				$dt = array('status'=>'1','order_id'=>$order_id);
+				$dt = array('status'=>'1','order_id'=>$order_id_1);
 				$this->update_fun("tbl_cart",$dt,$where);
 				/**************************************** */
 				

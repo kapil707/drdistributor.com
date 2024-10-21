@@ -452,8 +452,30 @@ class MyCartModel extends CI_Model
 			$time = date("H:i",time());
 			$timestamp = time();
 			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
-			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
+
+
+			/********************************************************************************** */
+			$total = 0;
+			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
+			if(!empty($row_total)){
+				$total = $row_total->total;
+			}
+			$dt1 = array(
+				'chemist_id'=>$chemist_id,
+				'salesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'order_type'=>$order_type,
+				'remarks'=>$remarks,
+				'total'=>$total,
+				'date'=>$date,
+				'time'=>$time,
+				'timestamp'=>$timestamp,
+				'download_time'=>$download_time,
+				'gstvno'=>0);
+			$query = $this->insert_fun("tbl_cart_order",$dt1);
+			$order_id_1 = $query;
+			/********************************************************************************** */
 			
 			$this->db->distinct("i_code");
 			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
@@ -471,7 +493,7 @@ class MyCartModel extends CI_Model
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$salesman_id;
 			$i_code = "";
-			$temp_rec_new = $order_id."_".$temp_rec;
+			$temp_rec_new = $order_id_1."_".$temp_rec;
 			foreach($query as $row)
 			{
 				$i_code		= 	$row->i_code;
@@ -515,29 +537,8 @@ class MyCartModel extends CI_Model
 					$query = $this->insert_fun("tbl_order",$dt);
 				}
 			}
-			/********************************************************************************** */
-			$total = 0;
-			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
-			if(!empty($row_total)){
-				$total = $row_total->total;
-			}
-			$dt1 = array(
-				'id'=>$order_id,
-				'chemist_id'=>$chemist_id,
-				'salesman_id'=>$salesman_id,
-				'user_type'=>$user_type,
-				'order_type'=>$order_type,
-				'remarks'=>$remarks,
-				'total'=>$total,
-				'date'=>$date,
-				'time'=>$time,
-				'timestamp'=>$timestamp,
-				'download_time'=>$download_time,
-				'gstvno'=>0);
-			$query = $this->insert_fun("tbl_cart_order",$dt1);
 			if(!empty($query))
 			{
-				$order_id_1 = $query;
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
 				$dt = array('status'=>'1','order_id'=>$order_id_1);

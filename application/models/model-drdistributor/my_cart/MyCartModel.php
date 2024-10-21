@@ -23,9 +23,8 @@ class MyCartModel extends CI_Model
 	{		
 		$chemist_id = $user_altercode;
 		$items_total = $items_price = 0;
-		if($user_type=="sales")
+		if($user_type!="sales")
 		{
-		}else{
 			$salesman_id = "";
 		}
 		$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
@@ -115,10 +114,7 @@ class MyCartModel extends CI_Model
 	    $jsonArray = $jsonArray1 = array();
 	    
 		$items_total = $items_price = 0;
-		if($user_type=="sales")
-		{			
-		}
-		else
+		if($user_type!="sales")
 		{
 			$selesman_id 	= "";
 		}
@@ -144,7 +140,6 @@ class MyCartModel extends CI_Model
 				ELSE NULL 
 			END
 		", 'ASC', false);
-
 		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{

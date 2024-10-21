@@ -340,7 +340,12 @@ class MyCartModel extends CI_Model
 					$this->insert_fun("tbl_cart",$dt1);
 				}else{
 					//sirf qunatity update hoti ha
-					$dt2 = array('quantity'=>$item_order_quantity,);
+					$dt2 = array(
+						'quantity'=>$item_order_quantity,
+						'date'=>$date,
+						'time'=>$time1,
+						'timestamp'=>$timestamp,
+						'order_type'=>$order_type,);
 					$this->update_fun("tbl_cart",$dt2,$where);
 				}
 			$status = "1";

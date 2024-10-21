@@ -308,6 +308,7 @@ class MyCartModel extends CI_Model
 			
 
 			$dt1 = array(
+				'order_id'=>"",
 				'i_code'=>$item_code,
 				'item_code'=>$row1->item_code,
 				'quantity'=>$item_order_quantity,				
@@ -324,15 +325,14 @@ class MyCartModel extends CI_Model
 				'salesman_id'=>$salesman_id,
 				'user_type'=>$user_type,
 				'date'=>$date,
-				'time'=>$time,
+				'time'=>$time1,
 				'timestamp'=>$timestamp,
 				'order_type'=>$order_type,
 				'mobilenumber'=>$mobilenumber,
 				'modalnumber'=>$modalnumber,
 				'device_id'=>$device_id,
 				'short_order'=>$short_order,
-				'status'=>0,
-				'order_id'=>"",);
+				'status'=>0,);
 			
 			$this->insert_fun("tbl_cart",$dt1);
 			$status = "1";

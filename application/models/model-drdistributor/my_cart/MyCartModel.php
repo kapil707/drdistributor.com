@@ -119,45 +119,17 @@ class MyCartModel extends CI_Model
 		$items_total = $items_price = 0;
 		if($user_type=="sales")
 		{
-			if($order_type=="all"){
-				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
-				$this->db->select("*");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
-				$query = $this->db->get("drd_temp_rec")->result();
-			}else{
-				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'selesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
-				$this->db->select("*");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
-				$query = $this->db->get("drd_temp_rec")->result();
-			}
+			
 		}
 		else
 		{
 			$selesman_id 	= "";
-			if($order_type=="all"){
-				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0');
-				$this->db->select("*");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
-				$query = $this->db->get("drd_temp_rec")->result();
-			}else {
-				$temp_rec = $this->get_temp_rec($user_type,$user_altercode,$selesman_id);
-				$where = array('temp_rec'=>$temp_rec,'user_type'=>$user_type,'chemist_id'=>$user_altercode,'status'=>'0','excel_number'=>'0');
-				$this->db->select("*");
-				$this->db->where($where);
-				$this->db->order_by('excel_number','asc');
-				$this->db->order_by('time','desc');
-				$query = $this->db->get("drd_temp_rec")->result();
-			}
-		}	
+		}
+		$where = array('user_type'=>$user_type,'salesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
+		$this->db->select("*");
+		$this->db->where($where);
+		$this->db->order_by('short_order','asc');
+		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{
 			$item_id			= $row->id;

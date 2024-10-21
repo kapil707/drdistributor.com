@@ -531,7 +531,7 @@ class MyCartModel extends CI_Model
 				'total'=>$total,
 				'date'=>$date,
 				'time'=>$time,
-				'datetime'=>$timestamp,
+				'timestamp'=>$timestamp,
 				'download_time'=>$download_time,
 				'gstvno'=>0);
 			$query = $this->insert_fun("tbl_cart_order",$dt1);

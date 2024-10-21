@@ -122,10 +122,17 @@ class MyCartModel extends CI_Model
 		{
 			$selesman_id 	= "";
 		}
-		$where = array('user_type'=>$user_type,'salesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
+		$where = array('chemist_id' => $user_altercode,'salesman_id' => $selesman_id,'user_type' => $user_type,	'status' => '0');
 		$this->db->select("*");
 		$this->db->where($where);
-		$this->db->order_by('short_order','asc');
+		$this->db->order_by("
+			CASE 
+				WHEN order_type = 'pc_mobile' THEN 1 
+				WHEN order_type = 'excelFile' THEN 2 
+				ELSE 3 
+			END
+		", null, false);
+		$this->db->order_by('short_order', 'asc');
 		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{

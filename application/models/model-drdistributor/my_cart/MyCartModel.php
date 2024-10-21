@@ -423,7 +423,7 @@ class MyCartModel extends CI_Model
 		return $order_id;
 	}
 
-	public function place_order_api($user_type='',$user_altercode='',$user_password='',$selesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
+	public function place_order_api($user_type='',$user_altercode='',$user_password='',$salesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
 		$chemist_id = $user_altercode;
 		
@@ -436,10 +436,10 @@ class MyCartModel extends CI_Model
 		}
 		
 		$get_total_price_of_order["status"] = 1;
-		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$selesman_id);
+		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$salesman_id);
 		if($user_type=="chemist")
 		{
-			$get_total_price_of_order = $this->get_total_price_of_order($user_type,$chemist_id,$user_password,$selesman_id);
+			$get_total_price_of_order = $this->get_total_price_of_order($user_type,$chemist_id,$user_password,$salesman_id);
 		}
 		if($get_total_price_of_order["status"]=="0")
 		{
@@ -450,6 +450,7 @@ class MyCartModel extends CI_Model
 			/*------------------------------------------------*/
 			$date = date('Y-m-d');
 			$time = date("H:i",time());
+			$timestamp = time();
 			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
 			$order_id 	= $this->tbl_order_id();
 			/*------------------------------------------------*/
@@ -458,7 +459,7 @@ class MyCartModel extends CI_Model
 			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
 			if($user_type=="sales")
 			{
-				$this->db->where('selesman_id',$selesman_id);
+				$this->db->where('selesman_id',$salesman_id);
 			}
 			$this->db->where('user_type',$user_type);
 			$this->db->where('temp_rec',$temp_rec);
@@ -468,7 +469,7 @@ class MyCartModel extends CI_Model
 			$query = $this->db->get("drd_temp_rec")->result();
 						
 			$total = 0;
-			$join_temp = time()."_".$user_type."_".$chemist_id."_".$selesman_id;
+			$join_temp = time()."_".$user_type."_".$chemist_id."_".$salesman_id;
 			$i_code = "";
 			$temp_rec_new = $order_id."_".$temp_rec;
 			foreach($query as $row)
@@ -486,7 +487,7 @@ class MyCartModel extends CI_Model
 					$dt = array(
 						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,
-						'selesman_id'=>$selesman_id,
+						'selesman_id'=>$salesman_id,
 						'user_type'=>$user_type,
 						'order_type'=>$order_type,
 						'remarks'=>$remarks,
@@ -511,15 +512,44 @@ class MyCartModel extends CI_Model
 						'image'=>$item_image,
 						'download_time'=>$download_time,
 					);
-					$query = $this->insert_fun("tbl_order",$dt);	
+					$query = $this->insert_fun("tbl_order",$dt);
 				}
 			}
+			/********************************************************************************** */
+			$total = 0;
+			$row_total = $this->db->query("SELECT sum(sale_rate*quantity) as total FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
+			if(!empty($row_total)){
+				$total = $row_total->total;
+			}
+			$dt1 = array(
+				'id'=>$order_id,
+				'chemist_id'=>$chemist_id,
+				'salesman_id'=>$salesman_id,
+				'user_type'=>$user_type,
+				'order_type'=>$order_type,
+				'remarks'=>$remarks,
+				'total'=>$total,
+				'date'=>$date,
+				'time'=>$time,
+				'datetime'=>$timestamp,
+				'download_time'=>$download_time,
+				'gstvno'=>0);
+			$query = $this->insert_fun("tbl_cart_order",$dt1);
 			if(!empty($query))
 			{
 				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
-				$this->db->query("update drd_temp_rec set status='1',order_id='$order_id' where temp_rec='$temp_rec' and status='0' and chemist_id='$chemist_id' and selesman_id='$selesman_id'");
 
-				$this->db->query("update tbl_cart set status='1',order_id='$order_id' where status='0' and chemist_id='$chemist_id' and salesman_id='$selesman_id' and user_type='$user_type'");
+				/**************************************** */
+				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
+				$dt = array('status'=>'1','order_id'=>$order_id);
+				$this->update_fun("drd_temp_rec",$dt,$where);
+				/**************************************** */
+
+				/**************************************** */
+				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
+				$dt = array('status'=>'1','order_id'=>$order_id);
+				$this->update_fun("tbl_cart",$dt,$where);
+				/**************************************** */
 				
 				$place_order_message = $this->Scheme_Model->get_website_data("place_order_message");
 				$return["status_message"] = "<font color='#28a745'>Your Order No. : ".$order_id."</font>".$place_order_message;

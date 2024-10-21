@@ -474,7 +474,7 @@ class MyCartModel extends CI_Model
 				'download_time'=>$download_time,
 				'gstvno'=>0);
 			$query = $this->insert_fun("tbl_cart_order",$dt1);
-			$order_id_1 = $query;
+			$order_id = $query;
 			/********************************************************************************** */
 			
 			$this->db->distinct("i_code");
@@ -493,7 +493,7 @@ class MyCartModel extends CI_Model
 			$total = 0;
 			$join_temp = time()."_".$user_type."_".$chemist_id."_".$salesman_id;
 			$i_code = "";
-			$temp_rec_new = $order_id_1."_".$temp_rec;
+			$temp_rec_new = $order_id."_".$temp_rec;
 			foreach($query as $row)
 			{
 				$i_code		= 	$row->i_code;
@@ -507,7 +507,7 @@ class MyCartModel extends CI_Model
 				
 				if(!empty($item_name)){
 					$dt = array(
-						'order_id'=>$order_id_1,
+						'order_id'=>$order_id,
 						'chemist_id'=>$chemist_id,
 						'selesman_id'=>$salesman_id,
 						'user_type'=>$user_type,
@@ -541,13 +541,13 @@ class MyCartModel extends CI_Model
 			{
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
-				$dt = array('status'=>'1','order_id'=>$order_id_1);
+				$dt = array('status'=>'1','order_id'=>$order_id);
 				$this->update_fun("drd_temp_rec",$dt,$where);
 				/**************************************** */
 
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
-				$dt = array('status'=>'1','order_id'=>$order_id_1,);
+				$dt = array('status'=>'1','order_id'=>$order_id,);
 				$this->update_fun("tbl_cart",$dt,$where);
 				/**************************************** */
 				

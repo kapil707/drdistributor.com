@@ -31,8 +31,8 @@ class MyCartModel extends CI_Model
 		}
 		$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
 		if(!empty($row)){
-			$items_total = $row->items_total."xx";
-			$items_price = $row->items_price;
+			$items_total = $row->items_total;
+			$items_price = $row->items_price."xx";
 		}
 
 		$row = $this->db->query("select tbl_chemist_other.password,tbl_chemist_other.block,tbl_chemist_other.status,tbl_chemist_other.order_limit,tbl_chemist_other.website_limit,tbl_chemist_other.android_limit from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();

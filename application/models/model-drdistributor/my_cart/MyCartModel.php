@@ -143,7 +143,7 @@ class MyCartModel extends CI_Model
 			$item_featured 		= $row->featured;
 			$item_price			= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_order_quantity,2));
-			$item_date_time		= date("d-M-y @ h:i a",$row->timestamp);
+			$item_date_time		= date("d-M-y @ h:i A",$row->timestamp);
 			$item_modalnumber	= ($row->modalnumber);
 			
 			$items_total++;
@@ -195,11 +195,11 @@ class MyCartModel extends CI_Model
 
 	public function get_short_order($user_type,$user_altercode,$salesman_id)
 	{
-		$q = $this->db->query("select short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0")->row();
+		$q = $this->db->query("select count(short_order) as total from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0")->row();
 		if(empty($q)){
 			return 1;
 		}else{
-			return $q->short_order + 1;
+			return $q->total + 1;
 		}
 	}
 

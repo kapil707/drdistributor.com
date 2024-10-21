@@ -537,16 +537,17 @@ class MyCartModel extends CI_Model
 			$query = $this->insert_fun("tbl_cart_order",$dt1);
 			if(!empty($query))
 			{
-				$this->save_order_to_server_again($temp_rec_new,$order_id,$order_type);
+				$order_id_1 = $query;
+
+				$this->save_order_to_server_again($temp_rec_new,$order_id_1,$order_type);
 
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
-				$dt = array('status'=>'1','order_id'=>$order_id);
+				$dt = array('status'=>'1','order_id'=>$order_id_1);
 				$this->update_fun("drd_temp_rec",$dt,$where);
 				/**************************************** */
 
 				/**************************************** */
-				$order_id_1 = $query;
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
 				$dt = array('status'=>'1','order_id'=>$order_id_1,);
 				$this->update_fun("tbl_cart",$dt,$where);

@@ -129,6 +129,7 @@ class MyCartModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where($where);
 		$this->db->order_by('short_order','asc');
+		$this->db->order_by('time','asc');
 		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{

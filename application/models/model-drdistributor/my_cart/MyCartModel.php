@@ -20,12 +20,11 @@ class MyCartModel extends CI_Model
 	}
 	
 	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$salesman_id='',$device_type="website")
-	{
-		$chemist_id = $user_altercode;
-		
+	{		
 		$items_total = $items_price = 0;
 		if($user_type=="sales")
 		{
+			$chemist_id = $user_altercode;
 		}else{
 			$salesman_id = "";
 		}

@@ -196,11 +196,11 @@ class MyCartModel extends CI_Model
 
 	public function get_short_order($user_type,$user_altercode,$salesman_id)
 	{
-		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0 order by short_order desc")->row();
+		$q = $this->db->query("select short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0 order by short_order desc")->row();
 		if(empty($q)){
 			return 1;
 		}else{
-			return $q->short_order;
+			return $q->short_order + 1;
 		}
 	}
 

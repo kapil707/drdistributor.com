@@ -130,7 +130,7 @@ class MyCartModel extends CI_Model
 				WHEN order_type = 'pc_mobile' THEN 1 
 				WHEN order_type = 'excelFile' THEN 2 
 				ELSE 3 
-			END
+			END DESC
 		", null, false);
 		$this->db->order_by('short_order', 'asc');
 		$query = $this->db->get("tbl_cart")->result();

@@ -116,8 +116,7 @@ class MyCartModel extends CI_Model
 	    
 		$items_total = $items_price = 0;
 		if($user_type=="sales")
-		{
-			
+		{			
 		}
 		else
 		{
@@ -126,7 +125,7 @@ class MyCartModel extends CI_Model
 		$where = array('user_type'=>$user_type,'salesman_id'=>$selesman_id,'chemist_id'=>$user_altercode,'status'=>'0');
 		$this->db->select("*");
 		$this->db->where($where);
-		$this->db->order_by('short_order','asc');
+		$this->db->order_by('timestamp','asc');
 		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{

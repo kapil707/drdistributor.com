@@ -146,7 +146,7 @@ class MyCartModel extends CI_Model
 			$item_featured 		= $row->featured;
 			$item_price			= sprintf('%0.2f',round($row->sale_rate,2));
 			$item_quantity_price= sprintf('%0.2f',round($item_price*$item_order_quantity,2));
-			$item_date_time		= $row->datetime;
+			$item_date_time		= date("d-M-y @ h:i a",$row->timestamp);
 			$item_modalnumber	= ($row->modalnumber);
 			
 			$items_total++;

@@ -222,9 +222,6 @@ class MyCartModel extends CI_Model
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 		$this->db->delete("drd_temp_rec", $where);
-
-		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
-		$this->db->delete("tbl_cart", $where);
 		/**************************************************************** */
 
 		$time = time();
@@ -311,7 +308,7 @@ class MyCartModel extends CI_Model
 				'order_id'=>"",
 				'i_code'=>$item_code,
 				'item_code'=>$row1->item_code,
-				'quantity'=>$item_order_quantity,				
+				'quantity'=>$item_order_quantity,
 				'item_name'=>$row1->item_name,
 				'packing'=>$row1->packing,
 				'expiry'=>$row1->expiry,
@@ -334,7 +331,18 @@ class MyCartModel extends CI_Model
 				'short_order'=>$short_order,
 				'status'=>0,);
 			
-			$this->insert_fun("tbl_cart",$dt1);
+				//insert or update check hear for cart
+				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
+				$this->db->select("id");
+				$this->db->where($where);
+				$row1 = $this->db->get("tbl_cart")->row();		
+				if(empty($row1)){
+					$this->insert_fun("tbl_cart",$dt1);
+				}else{
+					//sirf qunatity update hoti ha
+					$dt2 = array('quantity'=>$item_order_quantity,);
+					$this->update_fun("tbl_cart",$dt2,$where);
+				}
 			$status = "1";
 			$status_message = "Medicine added successfully";
 		}else{
@@ -718,6 +726,18 @@ class MyCartModel extends CI_Model
 		if($this->db->insert($tbl,$dt))
 		{
 			return $this->db->insert_id();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function update_fun($tbl,$dt,$where)
+	{
+		if($this->db->update($tbl,$dt,$where))
+		{
+			return true;
 		}
 		else
 		{

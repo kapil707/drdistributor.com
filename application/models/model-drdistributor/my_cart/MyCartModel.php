@@ -19,17 +19,17 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 	
-	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$selesman_id='',$device_type="website")
+	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$salesman_id='',$device_type="website")
 	{
 		$chemist_id = $user_altercode;
 		
 		$items_total = $items_price = 0;
 		if($user_type=="sales")
 		{
-			$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `drd_temp_rec` WHERE `chemist_id`='$chemist_id' and status=0 and user_type='$user_type' and selesman_id='$selesman_id'")->row();
 		}else{
-			$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `drd_temp_rec` WHERE `chemist_id`='$chemist_id' and status=0 and user_type='$user_type' ")->row();
+			$salesman_id = "";
 		}
+		$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
 		if(!empty($row)){
 			$items_total = $row->items_total;
 			$items_price = $row->items_price;
@@ -129,7 +129,6 @@ class MyCartModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where($where);
 		$this->db->order_by('short_order','asc');
-		$this->db->order_by('time','asc');
 		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{

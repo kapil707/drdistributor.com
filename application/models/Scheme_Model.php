@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Scheme_Model extends CI_Model  
 {	
 	function website_version(){
-		return "9.0";
+		return "9.0"; 
 	}
 	function select_all_result($tbl,$where,$orderby='',$asc_desc='')
 	{

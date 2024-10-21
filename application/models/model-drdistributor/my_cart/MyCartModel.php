@@ -507,7 +507,7 @@ class MyCartModel extends CI_Model
 				
 				if(!empty($item_name)){
 					$dt = array(
-						'order_id'=>$order_id,
+						'order_id'=>$order_id_1,
 						'chemist_id'=>$chemist_id,
 						'selesman_id'=>$salesman_id,
 						'user_type'=>$user_type,

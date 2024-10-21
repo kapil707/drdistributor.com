@@ -58,7 +58,7 @@ class MyCartModel extends CI_Model
 		if(!empty($row)){
 			if($user_type=="chemist")
 			{
-				$return["status_message"] = "<font color='red'>Minimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
+				$return["status_message"] = "<font color='red'>xxxMinimum value to place order is of <i class='fa fa-inr'></i> ". number_format($user_order_limit)."/-</font>";
 				$items_price      = round($items_price);
 				$user_order_limit = round($user_order_limit);
 				if($items_price<=$user_order_limit)

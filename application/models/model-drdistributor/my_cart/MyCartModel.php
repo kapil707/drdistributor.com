@@ -602,7 +602,6 @@ class MyCartModel extends CI_Model
 		
 		return $x;
 	}
-
 	function insert_fun($tbl,$dt)
 	{
 		if($this->db->insert($tbl,$dt))

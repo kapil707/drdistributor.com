@@ -224,6 +224,16 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 
+	public function get_short_order($user_type,$user_altercode,$salesman_id)
+	{
+		$q = $this->db->query("select short_order + 1 as short_order from tbl_cart where user_type='$user_type' and chemist_id='$user_altercode' and salesman_id='$salesman_id' and status=0")->row();
+		if(empty($q)){
+			return 1;
+		}else{
+			return $q->short_order;
+		}
+	}
+
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number="0")
 	{
 		/**************************************************************** */
@@ -249,6 +259,8 @@ class MyCartModel extends CI_Model
 		{
 			$temp_rec = $user_type."_".$user_altercode;
 		}
+
+		$short_order = $this->get_short_order($user_type,$user_altercode,$salesman_id);
 
 		/**********1000 say jada ki value add he nahi hoya ge cart me */
 		if($item_order_quantity>=1000){
@@ -335,7 +347,7 @@ class MyCartModel extends CI_Model
 				'mobilenumber'=>$mobilenumber,
 				'modalnumber'=>$modalnumber,
 				'device_id'=>$device_id,
-				'short_order'=>$excel_number,
+				'short_order'=>$short_order,
 				'status'=>0,
 				'order_id'=>"",);
 			

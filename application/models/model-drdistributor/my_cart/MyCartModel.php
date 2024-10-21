@@ -561,47 +561,6 @@ class MyCartModel extends CI_Model
 		}
 	}
 
-	public function whatsapp_email_how_to_use_dt($query){
-		
-		$tbl = $tbl_w = $tbl_html = "";
-		$i = $t = 0;
-		foreach($query as $row)
-		{
-			$i++;
-			$view = "";
-			$row1 = $this->db->query("select * from tbl_medicine_use where i_code='$row->i_code'")->row();
-			if(!empty($row1)){
-				$t++;
-				$view = "<b>How to use this medicine : </b><a href='".base_url()."medicine_use/".$row1->i_code."'>View</a>";
-				$tbl_w.= $t.". ".$row->item_name."<br>".base_url()."medicine_use/".$row1->i_code."<br>";
-				
-				$tbl_html.= "<br><br><hr><h2><center>How to use this medicine :<b>".$row->item_name."</b></center></h2><br>";
-				// for email html
-				$result2 = $this->db->query("select * from tbl_medicine_use_child where item_code='$row1->i_code' order by file_type asc")->result();
-				foreach($result2 as $row2){
-					if($row2->file_type=="image"){
-						$tbl_html.= "<img src='".constant('img_url_site').$row2->file."' width='250px' style='object-fit: contain;height: 200px;margin-right:15px;margin-bottom:15px;border-radius:10px;'>";
-					}
-					if($row2->file_type=="video"){ 
-						$tbl_html.= "<a href='".constant('img_url_site').$row2->file."'><img src='https://www.drdistributor.com/img_v51/default-video-thumbnail.jpg' width='250px' style='object-fit: contain;height: 200px;margin-right:15px;margin-bottom:15px;border-radius:10px;'></a>";
-					}
-				}
-			}
-			
-			$tbl.= "<tr><td>".$i."</td><td>".$row->item_code."</td><td>".$row->item_name." ".$view."</td><td>".$row->quantity."</td><td>".$row->sale_rate."</td><td>".$row->sale_rate * $row->quantity."</td></tr>";
-		}
-		
-		$tbl = "<br><br><table width='100%' border='1'><tr><th>SrNo.</th><th>Item Code</th><th>Item Name</th><th>Item quantity</th><th>Price</th><th>Total</th></tr> ".$tbl."</table>";
-		if($tbl_w){
-			$tbl_w = "<br><br><b>How to use this medicine</b><br><br>".$tbl_w;
-		}
-		
-		$x[0] = $tbl_w;
-		$x[1] = $tbl;
-		$x[2] = $tbl_html;
-		
-		return $x;
-	}
 	function insert_fun($tbl,$dt)
 	{
 		if($this->db->insert($tbl,$dt))

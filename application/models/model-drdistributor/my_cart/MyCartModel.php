@@ -538,9 +538,6 @@ class MyCartModel extends CI_Model
 			if(!empty($query))
 			{
 				$order_id_1 = $query;
-
-				$this->save_order_to_server_again($temp_rec_new,$order_id_1,$order_type);
-
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
 				$dt = array('status'=>'1','order_id'=>$order_id_1);

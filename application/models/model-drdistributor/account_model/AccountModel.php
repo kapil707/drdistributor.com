@@ -4,7 +4,10 @@ class AccountModel extends CI_Model
 {
 	public function __construct(){
 		parent::__construct();
-	}
+        $this->load->model("model-drdweb/EmailModel");
+        $this->load->model("model-drdweb/WhatsAppModel");
+        //$this->load->model("model-drdweb/NotificationModel");
+    }
     
     public function login_check($back_url='')
 	{
@@ -224,24 +227,16 @@ class AccountModel extends CI_Model
 					'user_phone'=>$phone_number,
 					'download_status'=>0,
 				);
-				$this->Scheme_Model->insert_fun("tbl_chemist_other",$dt);
+				$x = $this->Scheme_Model->insert_fun("tbl_chemist_other",$dt);
 				$subject = "Request for New Account";
 				$message = "Request for New Account <br><br>Chemist Code : $user_name <br><br>Phone Number : $phone_number";
 				$email_function = "new_account";
 				$mail_server = "";		
 				$user_email_id = "vipul@drdindia.com";
-				$date = date('Y-m-d');
-				$time = date("H:i",time());
-				$dt = array(
-					'user_email_id'=>$user_email_id,
-					'subject'=>$subject,
-					'message'=>$message,
-					'email_function'=>$email_function,
-					'mail_server'=>$mail_server,
-					'date'=>$date,
-					'time'=>$time,
-				);
-				$x = $this->Scheme_Model->insert_fun("tbl_email_send",$dt);
+				$email_other_bcc = "";
+				$file_name1 = $file_name2 = $file_name3 = "";
+				$file_name_1 = $file_name_2 = $file_name_3 = "";
+				$this->EmailModel->insert_email_message($user_email_id,$subject,$message,$file_name1,$file_name2,$file_name3,$file_name_1,$file_name_2,$file_name_3,$mail_server,$email_function,$email_other_bcc);
 				if($x){
 					$status = "1";
 					$status_message = "Thank you for submitting your request we will get in touch with you shortly.";
@@ -249,10 +244,10 @@ class AccountModel extends CI_Model
 				/******************group message******************************/
 				$group1_message 	= "Request for New Account<br><br>Chemist Code : $user_name<br><br>Phone Number : $phone_number";
 				$whatsapp_group1 = $this->Scheme_Model->get_website_data("whatsapp_group1");
-				$this->Message_Model->insert_whatsapp_group_message($whatsapp_group1,$group1_message);
+				$this->WhatsAppModel->insert_whatsapp_group_message($whatsapp_group1,$group1_message);
 				$group2_message 	= $group1_message;
 				$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-				$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
+				$this->WhatsAppModel->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
 				/**********************************************************/
 			}
 			else{
@@ -294,7 +289,7 @@ class AccountModel extends CI_Model
 						$group2_message = "Hello Team Account Delete Request<br><br>Chemist Code : ".$user_name."<br>Mobile Number : ".$phone_number."<br><br>Thanks";
 						/***************only for group message***********************/
 						$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-						$this->Message_Model->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
+						$this->WhatsAppModel->insert_whatsapp_group_message($whatsapp_group2,$group2_message);
 						/*************************************************************/
 
 						$status = "1";

@@ -4,8 +4,8 @@ class AccountModel extends CI_Model
 {
 	public function __construct(){
 		parent::__construct();
-        $this->load->model("model-drdweb/EmailModel");
-        $this->load->model("model-drdweb/WhatsAppModel");
+        $this->load->model("model-drdistributor/EmailModel");
+        $this->load->model("model-drdistributor/WhatsAppModel");
         //$this->load->model("model-drdweb/NotificationModel");
     }
     

@@ -339,10 +339,7 @@ class MedicineSearchModel extends CI_Model
 			}
 		}
 		/***********************************************************/
-		$where = $sameid_where = "";			
-		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, 
-                   m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, 
-                   m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
+		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
 		$this->db->from('tbl_medicine as m');
 		$this->db->where('status', 1);
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
@@ -370,12 +367,7 @@ class MedicineSearchModel extends CI_Model
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
-			$sameid[] = $row->id;
-			if($row->batchqty!=0 && $total_rec>$count_record){
-				$count_record++;
-				$item_count++;
-				$jsonArray[] = $this->medicine_search_row($row,$item_count);
-			}
+			$jsonArray[] = $this->medicine_search_row($row,$item_count);
 		}
 		/***********************************************************
 		$mergedArray = array_merge($jsonArray);

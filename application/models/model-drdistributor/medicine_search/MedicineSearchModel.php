@@ -340,34 +340,34 @@ class MedicineSearchModel extends CI_Model
 		}
 		/***********************************************************/
 		$where = $sameid_where = "";			
-		$db_medicine1->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");		
-		
-		//only item_name
-		$where.= "(item_name like '%$keyword_item_name%') ";
-		
-		/***********************************************************/
-		$where.= "and status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";		
-		if($user_nrx=="yes"){
-			//$where.=" ";
-		}else{
-			$where.=" and misc_settings!='#NRX' ";
-		}
-		
-		if(!empty($sameid))
-		{
-			$mylist = implode(',', $sameid); 
-			$sameid_where = " and m.id not in(".$mylist.")";
-			$db_medicine1->where($where.$sameid_where);
-		}else{
-			$db_medicine1->where($where);
-		}
-		
-		if($total_rec!="all"){
-			$db_medicine1->limit($total_rec);
-		}
-		$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
+		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, 
+                   m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, 
+                   m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
+		$this->db->from('tbl_medicine as m');
+		$this->db->where('status', 1);
+		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
+		$this->db->where('category !=', 'g');
+		$this->db->group_start(); // Start grouping for the OR conditions
+		$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
+		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
+		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
+		$this->db->group_end(); // End grouping for the OR conditions
+		$this->db->order_by("
+			CASE 
+				WHEN item_name LIKE '$keyword_item_name%' THEN 1
+				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
+				WHEN item_name LIKE '%$keyword_item_name' THEN 3
+				WHEN title LIKE '$keyword_item_name%' THEN 4
+				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
+				WHEN title LIKE '%$keyword_item_name' THEN 6
+				ELSE 7
+			END
+		", NULL, FALSE);
+		$this->db->order_by('m.batchqty', 'DESC');
+		$this->db->order_by('m.item_name', 'ASC');
+		$this->db->limit(250);
 
-		$query = $db_medicine1->get("tbl_medicine as m")->result();
+		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
 			$sameid[] = $row->id;

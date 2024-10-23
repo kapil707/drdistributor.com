@@ -343,7 +343,7 @@ class MedicineSearchModel extends CI_Model
 		$db_medicine1->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");		
 		
 		//only item_name
-		$where.= "(item_name='%$keyword_item_name%') ";
+		$where.= "(item_name like '%$keyword_item_name%') ";
 		
 		/***********************************************************/
 		$where.= "and status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";		
@@ -367,7 +367,7 @@ class MedicineSearchModel extends CI_Model
 		}
 		$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
 
-		$query = $db_medicine1->get("tbl_medicines as m")->result();
+		$query = $db_medicine1->get("tbl_medicine as m")->result();
 		foreach ($query as $row)
 		{
 			$sameid[] = $row->id;

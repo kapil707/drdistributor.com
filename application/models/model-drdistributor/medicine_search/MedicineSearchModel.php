@@ -367,7 +367,7 @@ class MedicineSearchModel extends CI_Model
 		}
 		$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
 
-		$query = $db_medicine1->get("tbl_medicine as m")->result();
+		$query = $db_medicine1->get("tbl_medicines as m")->result();
 		foreach ($query as $row)
 		{
 			$sameid[] = $row->id;
@@ -377,10 +377,10 @@ class MedicineSearchModel extends CI_Model
 				$jsonArray[] = $this->medicine_search_row($row,$item_count);
 			}
 		}
-		/***********************************************************/
+		/***********************************************************
 		$mergedArray = array_merge($jsonArray);
-		$jsonString  = ($mergedArray);
-		return $jsonString;
+		$jsonString  = ($mergedArray);*/
+		return $jsonArray;
 	}	
 	
 	public function medicine_search_row($row,$item_count)

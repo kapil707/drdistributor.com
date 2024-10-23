@@ -30,9 +30,10 @@ class MedicineSearchModel extends CI_Model
 		$keyword_array = explode (" ", $keyword); 
 		/***********************************************/	
 		
+		/*
 		if($checkbox_medicine=="1"){
 			
-			/**************item_name search part1*******************/
+			/**************item_name search part1*******************
 			$where = $sameid_where = "";
 			
 			$db_medicine1->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");		
@@ -67,7 +68,7 @@ class MedicineSearchModel extends CI_Model
 				$sameid[] = $row->id;
 			}
 			
-			/**************item_name search part2*******************/
+			/**************item_name search part2*******************
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -106,7 +107,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			
 			
-			/**************item_name search part3*******************/
+			/**************item_name search part3*******************
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -145,7 +146,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			
 			
-			/**************title search part4*******************/
+			/**************title search part4*******************
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -183,7 +184,7 @@ class MedicineSearchModel extends CI_Model
 				}
 			}
 			
-			/**************title search part4*******************/
+			/**************title search part4*******************
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -220,10 +221,10 @@ class MedicineSearchModel extends CI_Model
 					$sameid[] = $row->id;
 				}
 			}
-			/**************************************************/
+			/**************************************************
 		}
 		
-		/*******************company name say search*******************/
+		/*******************company name say search*******************
 		if(($total_rec>$count_record || $total_rec=="all") && $checkbox_company=="1") {
 			$where = $sameid_where = "";
 			
@@ -260,7 +261,7 @@ class MedicineSearchModel extends CI_Model
 			}
 		}
 		
-		/***********************************************************/
+		/***********************************************************
 		$query = array_merge($query1,$query2,$query3,$query4,$query5,$query6);
 		foreach ($query as $row)
 		{
@@ -281,7 +282,7 @@ class MedicineSearchModel extends CI_Model
 		}
 		
 		
-		/***************jab kuch be nahi milta ha to yha chalti ha*********************/
+		/***************jab kuch be nahi milta ha to yha chalti ha*********************
 		
 		if($checkbox_medicine=="1" && $count_record==0) {
 			foreach($keyword_array as $keyword_row){
@@ -316,7 +317,7 @@ class MedicineSearchModel extends CI_Model
 					$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
 					$query6 = $db_medicine6->get("tbl_medicine as m")->result();
-					/***********************************************************/
+					/***********************************************************
 					foreach ($query6 as $row)
 					{
 						$sameid[] = $row->id;
@@ -337,7 +338,45 @@ class MedicineSearchModel extends CI_Model
 				}
 			}
 		}
+		/***********************************************************/
+		$where = $sameid_where = "";			
+		$db_medicine1->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");		
 		
+		//only item_name
+		$where.= "(item_name='$keyword_item_name' or title='$keyword_title') ";
+			
+		$where.= "and status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
+		
+		if($user_nrx=="yes"){
+			//$where.=" ";
+		}else{
+			$where.=" and misc_settings!='#NRX' ";
+		}
+		
+		if(!empty($sameid))
+		{
+			$mylist = implode(',', $sameid); 
+			$sameid_where = " and m.id not in(".$mylist.")";
+			$db_medicine1->where($where.$sameid_where);
+		}else{
+			$db_medicine1->where($where);
+		}
+		
+		if($total_rec!="all"){
+			$db_medicine1->limit($total_rec);
+		}
+		$db_medicine1->order_by('m.batchqty desc','m.item_name asc');
+
+		$query = $db_medicine1->get("tbl_medicine as m")->result();
+		foreach ($query as $row)
+		{
+			$sameid[] = $row->id;
+			if($row->batchqty!=0 && $total_rec>$count_record){
+				$count_record++;
+				$item_count++;
+				$jsonArray[] = $this->medicine_search_row($row,$item_count);
+			}
+		}
 		/***********************************************************/
 		$mergedArray = array_merge($jsonArray);
 		$jsonString  = ($mergedArray);

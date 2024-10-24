@@ -46,4 +46,3 @@ if (!function_exists('log_activity')) {
         $CI->ActivityModel->insert_log($log_data);
     }
 }
-?>

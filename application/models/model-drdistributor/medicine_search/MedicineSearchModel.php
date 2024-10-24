@@ -53,17 +53,17 @@ class MedicineSearchModel extends CI_Model
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
 			$this->db->like('company_full_name', $keyword_item_name);
 		}
-		$this->db->or_like('packing', $keyword_item_name, 'both');
-		$this->db->or_like('batch_no', $keyword_item_name, 'both');
-		$this->db->or_like('title2', $keyword_item_name, 'both');
-		$this->db->or_like('description', $keyword_item_name, 'both');
-		$this->db->or_like('sale_rate', $keyword_item_name, 'both');
-		$this->db->or_like('mrp', $keyword_item_name, 'both');
-		$this->db->or_like('final_price', $keyword_item_name, 'both');
-		$this->db->or_like('costrate', $keyword_item_name, 'both');
-		$this->db->or_like('margin', $keyword_item_name, 'both');
-		$this->db->or_like('present', $keyword_item_name, 'both');
-		$this->db->or_like('discount', $keyword_item_name, 'both');
+		$this->db->or_like('packing', $keyword_item_name);
+		$this->db->or_like('batch_no', $keyword_item_name);
+		$this->db->or_like('title2', $keyword_item_name);
+		$this->db->or_like('description', $keyword_item_name);
+		$this->db->or_like('sale_rate', $keyword_item_name);
+		$this->db->or_like('mrp', $keyword_item_name);
+		$this->db->or_like('final_price', $keyword_item_name);
+		$this->db->or_like('costrate', $keyword_item_name);
+		$this->db->or_like('margin', $keyword_item_name);
+		$this->db->or_like('present', $keyword_item_name);
+		$this->db->or_like('discount', $keyword_item_name);
 		if ($checkbox_medicine == 1 || $checkbox_company == 1) {
 			foreach($keyword_array as $row_val){
 				$this->db->or_like('item_name', $row_val, 'both');

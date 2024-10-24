@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 		// Load model
 		//$this->load->model("LoginModel");
 		//$this->load->model("MedicineSearchModel");
+		log_activity();
 	}
 	
 	public function index(){	

@@ -15,6 +15,10 @@ if (!function_exists('log_activity')) {
         $http_method = $CI->input->method();
         $user_agent = $CI->input->user_agent();
 
+        // Get controller and method name
+        $controller = $CI->router->fetch_class();
+        $method = $CI->router->fetch_method();
+
         // Get query parameters or form data based on HTTP method
         $request_data = '';
         if (strtoupper($http_method) === 'GET') {
@@ -29,6 +33,8 @@ if (!function_exists('log_activity')) {
             'url' => $url,
             'http_method' => strtoupper($http_method),
             'user_agent' => $user_agent,
+            'controller' => $controller,
+            'method' => $method,
             'request_data' => $request_data,
             'user_altercode' => $user_altercode,
             'salesman_id' => $salesman_id,

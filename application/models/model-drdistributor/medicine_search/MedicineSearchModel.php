@@ -37,9 +37,13 @@ class MedicineSearchModel extends CI_Model
 			$this->db->where('misc_settings !=', '#NRX');
 		}
 		$this->db->group_start(); // Start grouping for the OR conditions
-		$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
-		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
-		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
+		if($checkbox_medicine==1){
+			$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
+			$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
+		}
+		if($checkbox_company==1){
+			$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
+		}
 		$this->db->group_end(); // End grouping for the OR conditions
 		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
 		if($checkbox_medicine==1 && $checkbox_company==1){

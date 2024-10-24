@@ -16,7 +16,20 @@ class Import_order extends CI_Controller {
 
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		/***************************log file start*************************** */
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		//logs create from hear
+		log_activity($user_altercode,$salesman_id,$user_type,"web");
+		/***************************log file end*************************** */
 	}
 	
 	public function index()
@@ -45,7 +58,7 @@ class Import_order extends CI_Controller {
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "import_order";
 		$browser_type = "Web";
 		$browser = "";
@@ -95,7 +108,7 @@ class Import_order extends CI_Controller {
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "import_order_medicine_suggest";
 		$browser_type = "Web";
 		$browser = "";
@@ -138,7 +151,7 @@ class Import_order extends CI_Controller {
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "import_order";
 		$browser_type = "Web";
 		$browser = "";
@@ -188,7 +201,7 @@ class Import_order extends CI_Controller {
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "import_order_deleted_items";
 		$browser_type = "Web";
 		$browser = "";

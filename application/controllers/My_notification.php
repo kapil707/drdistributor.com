@@ -10,7 +10,20 @@ class My_notification extends CI_Controller {
 
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
+		/***************************log file start*************************** */
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		//logs create from hear
+		log_activity($user_altercode,$salesman_id,$user_type,"web");
+		/***************************log file end*************************** */
 	}
 
 	public function index(){
@@ -35,7 +48,7 @@ class My_notification extends CI_Controller {
 		}
 		$data["chemist_id"] = $chemist_id;
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "my_notification";
 		$browser_type = "Web";
 		$browser = "";

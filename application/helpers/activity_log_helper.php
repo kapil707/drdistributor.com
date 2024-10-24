@@ -42,8 +42,7 @@ if (!function_exists('log_activity')) {
             'view_type' => $view_type,
         );
 
-        // Insert log into the database
+        // Insert log into the database 
         $CI->ActivityModel->insert_log($log_data);
     }
 }
-?>

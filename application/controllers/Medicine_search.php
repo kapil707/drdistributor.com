@@ -5,11 +5,25 @@ class Medicine_search extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-		log_activity();
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("medicine_search");
 
 		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
+
+		/***************************log file start*************************** */
+		$user_type 		= $_COOKIE["user_type"];
+		$user_altercode = $_COOKIE["user_altercode"];
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $_COOKIE["chemist_id"];
+			$salesman_id 	= $user_altercode;
+			$user_altercode = $chemist_id;
+		}
+		//logs create from hear
+		log_activity($user_altercode,$salesman_id,$user_type,"web");
+		/***************************log file end*************************** */
 	}
     
     public function index(){
@@ -38,7 +52,7 @@ class Medicine_search extends CI_Controller {
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 
-		/********************************************************** */
+		/********************************************************** *
 		$page_name = "search_medicine";
 		$browser_type = "Web";
 		$browser = "";

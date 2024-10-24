@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 if (!function_exists('log_activity')) {
-    function log_activity() {
+    function log_activity($user_altercode='',$salesman_id='',$user_type='',$view_type) {
         // Get a reference to the CodeIgniter super object
         $CI =& get_instance();
         
@@ -29,7 +29,11 @@ if (!function_exists('log_activity')) {
             'url' => $url,
             'http_method' => strtoupper($http_method),
             'user_agent' => $user_agent,
-            'request_data' => $request_data
+            'request_data' => $request_data,
+            'user_altercode' => $user_altercode,
+            'salesman_id' => $salesman_id,
+            'user_type' => $user_type,
+            'view_type' => $view_type,
         );
 
         // Insert log into the database

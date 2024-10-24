@@ -41,13 +41,13 @@ class MedicineSearchModel extends CI_Model
 
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
 			$this->db->like('item_name', $keyword_item_name, 'both');
-			$this->db->or_like('title', $keyword_item_name, 'both');
+			$this->db->or_like('title', $keyword_title, 'both');
 			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
 		}
 
 		if ($checkbox_medicine == 1 && $checkbox_company == 0) {
 			$this->db->like('item_name', $keyword_item_name, 'both');
-			$this->db->or_like('title', $keyword_item_name, 'both');
+			$this->db->or_like('title', $keyword_title, 'both');
 		}
 
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
@@ -80,8 +80,8 @@ class MedicineSearchModel extends CI_Model
 				WHEN item_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 1
 				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND item_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 2
 				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 3
-				WHEN title LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 4
-				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 5
+				WHEN title LIKE '{$this->db->escape_like_str($keyword_title)}%' THEN 4
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_title)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_title)}%' THEN 5
 				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 6
 				WHEN company_full_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 7
 				WHEN company_full_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND company_full_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 8
@@ -93,8 +93,8 @@ class MedicineSearchModel extends CI_Model
 				WHEN item_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 1
 				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND item_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 2
 				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 3
-				WHEN title LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 4
-				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 5
+				WHEN title LIKE '{$this->db->escape_like_str($keyword_title)}%' THEN 4
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_title)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_title)}%' THEN 5
 				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 6
 				ELSE 7
 			";

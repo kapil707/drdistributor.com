@@ -55,7 +55,7 @@ class MedicineSearchModel extends CI_Model
 			$this->db->like('company_full_name', $keyword_item_name);
 		}
 		foreach($keyword_array as $row_val){
-			$this->db->or_like('item_name', $row_val, 'both');
+			$this->db->or_like('item_name', $row_val);
 		}
 		$this->db->group_end();
 

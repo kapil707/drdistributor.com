@@ -9,18 +9,30 @@ if (!function_exists('log_activity')) {
         // Load the ActivityModel
         $CI->load->model("model-drdistributor/activity_model/ActivityModel");
 
+        // Load the Activity_log_model
+        $CI->load->model('Activity_log_model');
+
         // Get request information
         $ip_address = $CI->input->ip_address();
         $url = current_url();
         $http_method = $CI->input->method();
         $user_agent = $CI->input->user_agent();
 
+        // Get query parameters or form data based on HTTP method
+        $request_data = '';
+        if (strtoupper($http_method) === 'GET') {
+            $request_data = json_encode($CI->input->get());
+        } elseif (strtoupper($http_method) === 'POST') {
+            $request_data = json_encode($CI->input->post());
+        }
+
         // Prepare data to insert
         $log_data = array(
             'ip_address' => $ip_address,
             'url' => $url,
             'http_method' => strtoupper($http_method),
-            'user_agent' => $user_agent
+            'user_agent' => $user_agent,
+            'request_data' => $request_data
         );
 
         // Insert log into the database

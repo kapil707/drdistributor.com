@@ -24,7 +24,7 @@ if (!function_exists('log_activity')) {
         );
 
         // Insert log into the database
-        $CI->Activity_log_model->insert_log($log_data);
+        $CI->ActivityModel->insert_log($log_data);
     }
 }
 ?>

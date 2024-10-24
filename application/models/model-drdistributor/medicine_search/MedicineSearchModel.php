@@ -9,7 +9,7 @@ class MedicineSearchModel extends CI_Model
 		// Load model
 	}
 
-	public function medicine_search_api($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
+	public function medicine_search_api_new($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
 	{		
 		$jsonArray = array();
 		$item_count = 0;
@@ -29,27 +29,30 @@ class MedicineSearchModel extends CI_Model
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
 		$this->db->where('category !=', 'g');
 
+		//yha query jab stock 0 vali medicine nahi chiya to
 		if ($checkbox_out_of_stock == 0) {
 			$this->db->where('m.batchqty !=', '0');
 		}
 
+		//yha query nrx user ke liya
 		if ($user_nrx != "yes") {
 			$this->db->where('misc_settings !=', '#NRX');
 		}
 
 		$this->db->group_start();
-
+		//yha query medicine / company dono say search karna ha to
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
 			$this->db->like('item_name', $keyword_item_name, 'both');
 			$this->db->or_like('title', $keyword_title, 'both');
 			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
 		}
 
+		//yha query medicine say search karna ha to
 		if ($checkbox_medicine == 1 && $checkbox_company == 0) {
 			$this->db->like('item_name', $keyword_item_name, 'both');
 			$this->db->or_like('title', $keyword_title, 'both');
 		}
-
+		//yha query company say search karna ha to
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
 			$this->db->like('company_full_name', $keyword_item_name);
 		}
@@ -65,6 +68,7 @@ class MedicineSearchModel extends CI_Model
 		$this->db->or_like('present', $keyword_item_name);
 		$this->db->or_like('discount', $keyword_item_name);
 		if ($checkbox_medicine == 1 || $checkbox_company == 1) {
+			//yha query text me space ke bad valay to cut kar dayta ha or 2 or 2 say jada value say search karta ha
 			foreach($keyword_array as $row_val){
 				$this->db->or_like('item_name', $row_val);
 			}
@@ -110,7 +114,7 @@ class MedicineSearchModel extends CI_Model
 			$order_case .= "END";
 			$this->db->order_by($order_case, NULL, FALSE);
 		}
-		//$this->db->order_by('m.batchqty', 'DESC');
+		$this->db->order_by('m.batchqty', 'DESC');
 		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);
 
@@ -123,7 +127,7 @@ class MedicineSearchModel extends CI_Model
 		return $jsonArray;
 	}	
 
-	public function medicine_search_api_old($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
+	public function medicine_search_api($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
 	{
 		$db_medicine1 = $db_medicine2 = $db_medicine3 = $db_medicine4 = $db_medicine5 = $db_medicine6 = $this->db;
 		

@@ -55,7 +55,7 @@ class MedicineSearchModel extends CI_Model
 		}
 
 		if ($checkbox_medicine == 0 && $checkbox_company == 0) {
-			$this->db->like('packing', $keyword_item_name);
+			$this->db->like('packing', $keyword_item_name, 'both');
 			$this->db->or_like('batch_no', $keyword_item_name, 'both');
 			$this->db->or_like('title2', $keyword_item_name, 'both');
 			$this->db->or_like('description', $keyword_item_name, 'both');

@@ -10,6 +10,54 @@ class MedicineSearchModel extends CI_Model
 	}
 
 	public function medicine_search_api($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
+	{		
+		$jsonArray = array();
+		$item_count = 0;
+		
+		if($total_rec=="all"){
+			$total_rec = 250;
+		}
+		
+		/***********************************************/
+		$characters_to_remove = array(" ","-",".", "`", "'", "/", "(", ")", "%", ",","%20");
+		$keyword_title = str_replace($characters_to_remove, "", $keyword);
+		$keyword_item_name = $keyword;
+		$keyword_array = explode (" ", $keyword); 
+		/********************************************************* */
+		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
+		$this->db->from('tbl_medicine as m');
+		$this->db->where('status', 1);
+		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
+		$this->db->where('category !=', 'g');
+		$this->db->group_start(); // Start grouping for the OR conditions
+		$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
+		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
+		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
+		$this->db->group_end(); // End grouping for the OR conditions
+		$this->db->order_by("
+			CASE 
+				WHEN item_name LIKE '$keyword_item_name%' THEN 1
+				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
+				WHEN item_name LIKE '%$keyword_item_name' THEN 3
+				WHEN title LIKE '$keyword_item_name%' THEN 4
+				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
+				WHEN title LIKE '%$keyword_item_name' THEN 6
+				ELSE 7
+			END
+		", NULL, FALSE);
+		$this->db->order_by('m.batchqty', 'DESC');
+		$this->db->order_by('m.item_name', 'ASC');
+		$this->db->limit(250);
+
+		$query = $this->db->get()->result();
+		foreach ($query as $row)
+		{
+			$jsonArray[] = $this->medicine_search_row($row,$item_count);
+		}
+		return $jsonArray;
+	}	
+
+	public function medicine_search_api_old($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
 	{
 		$db_medicine1 = $db_medicine2 = $db_medicine3 = $db_medicine4 = $db_medicine5 = $db_medicine6 = $this->db;
 		
@@ -30,10 +78,10 @@ class MedicineSearchModel extends CI_Model
 		$keyword_array = explode (" ", $keyword); 
 		/***********************************************/	
 		
-		/*
+
 		if($checkbox_medicine=="1"){
 			
-			/**************item_name search part1*******************
+			/**************item_name search part1*******************/
 			$where = $sameid_where = "";
 			
 			$db_medicine1->select("m.id,m.i_code,m.item_name,m.packing,m.expiry,m.company_full_name,m.batchqty,m.sale_rate,m.mrp,m.final_price,m.title2,m.image1,m.salescm1,m.salescm2,m.margin,m.featured,m.misc_settings,m.itemjoinid");		
@@ -68,7 +116,7 @@ class MedicineSearchModel extends CI_Model
 				$sameid[] = $row->id;
 			}
 			
-			/**************item_name search part2*******************
+			/**************item_name search part2*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -107,7 +155,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			
 			
-			/**************item_name search part3*******************
+			/**************item_name search part3*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -146,7 +194,7 @@ class MedicineSearchModel extends CI_Model
 			}
 			
 			
-			/**************title search part4*******************
+			/**************title search part4*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -184,7 +232,7 @@ class MedicineSearchModel extends CI_Model
 				}
 			}
 			
-			/**************title search part4*******************
+			/**************title search part4*******************/
 			if(($total_rec>$count_record || $total_rec=="all")) {
 				
 				$where = $sameid_where = "";
@@ -221,10 +269,10 @@ class MedicineSearchModel extends CI_Model
 					$sameid[] = $row->id;
 				}
 			}
-			/**************************************************
+			/**************************************************/
 		}
 		
-		/*******************company name say search*******************
+		/*******************company name say search*******************/
 		if(($total_rec>$count_record || $total_rec=="all") && $checkbox_company=="1") {
 			$where = $sameid_where = "";
 			
@@ -261,7 +309,7 @@ class MedicineSearchModel extends CI_Model
 			}
 		}
 		
-		/***********************************************************
+		/***********************************************************/
 		$query = array_merge($query1,$query2,$query3,$query4,$query5,$query6);
 		foreach ($query as $row)
 		{
@@ -282,7 +330,7 @@ class MedicineSearchModel extends CI_Model
 		}
 		
 		
-		/***************jab kuch be nahi milta ha to yha chalti ha*********************
+		/***************jab kuch be nahi milta ha to yha chalti ha*********************/
 		
 		if($checkbox_medicine=="1" && $count_record==0) {
 			foreach($keyword_array as $keyword_row){
@@ -317,7 +365,7 @@ class MedicineSearchModel extends CI_Model
 					$db_medicine6->order_by('m.batchqty desc','m.item_name asc');
 
 					$query6 = $db_medicine6->get("tbl_medicine as m")->result();
-					/***********************************************************
+					/**********************************************************/
 					foreach ($query6 as $row)
 					{
 						$sameid[] = $row->id;
@@ -338,40 +386,8 @@ class MedicineSearchModel extends CI_Model
 				}
 			}
 		}
-		/***********************************************************/
-		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
-		$this->db->from('tbl_medicine as m');
-		$this->db->where('status', 1);
-		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
-		$this->db->where('category !=', 'g');
-		$this->db->group_start(); // Start grouping for the OR conditions
-		$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
-		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
-		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
-		$this->db->group_end(); // End grouping for the OR conditions
-		$this->db->order_by("
-			CASE 
-				WHEN item_name LIKE '$keyword_item_name%' THEN 1
-				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
-				WHEN item_name LIKE '%$keyword_item_name' THEN 3
-				WHEN title LIKE '$keyword_item_name%' THEN 4
-				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
-				WHEN title LIKE '%$keyword_item_name' THEN 6
-				ELSE 7
-			END
-		", NULL, FALSE);
-		$this->db->order_by('m.batchqty', 'DESC');
-		$this->db->order_by('m.item_name', 'ASC');
-		$this->db->limit(250);
-
-		$query = $this->db->get()->result();
-		foreach ($query as $row)
-		{
-			$jsonArray[] = $this->medicine_search_row($row,$item_count);
-		}
-		/***********************************************************
 		$mergedArray = array_merge($jsonArray);
-		$jsonString  = ($mergedArray);*/
+		$jsonString  = ($mergedArray);
 		return $jsonArray;
 	}	
 	

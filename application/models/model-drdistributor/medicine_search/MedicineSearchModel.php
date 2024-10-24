@@ -89,7 +89,7 @@ class MedicineSearchModel extends CI_Model
 		$this->db->order_by($order_case, NULL, FALSE);
 
 		$this->db->order_by('m.batchqty', 'DESC');
-		$this->db->order_by('m.item_name', 'ASC');
+		$this->db->order_by('m.item_namex', 'ASC');
 		$this->db->limit($total_rec);
 
 

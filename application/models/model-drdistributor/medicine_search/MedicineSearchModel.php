@@ -42,17 +42,45 @@ class MedicineSearchModel extends CI_Model
 		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
 		$this->db->group_end(); // End grouping for the OR conditions
 		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
-		$this->db->order_by("
-			CASE 
-				WHEN item_name LIKE '$keyword_item_name%' THEN 1
-				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
-				WHEN item_name LIKE '%$keyword_item_name' THEN 3
-				WHEN title LIKE '$keyword_item_name%' THEN 4
-				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
-				WHEN title LIKE '%$keyword_item_name' THEN 6
-				ELSE 7
-			END
-		", NULL, FALSE);
+		if($checkbox_medicine==1 && $checkbox_company==1){
+			$this->db->order_by("
+				CASE 
+					WHEN item_name LIKE '$keyword_item_name%' THEN 1
+					WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
+					WHEN item_name LIKE '%$keyword_item_name' THEN 3
+					WHEN title LIKE '$keyword_item_name%' THEN 4
+					WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
+					WHEN title LIKE '%$keyword_item_name' THEN 6
+					WHEN company_full_name LIKE '$keyword_item_name%' THEN 7
+					WHEN company_full_name LIKE '%$keyword_item_name%' AND company_full_name NOT LIKE '$keyword_item_name%' THEN 8
+					WHEN company_full_name LIKE '%$keyword_item_name' THEN 9
+					ELSE 10
+				END
+			", NULL, FALSE);
+		}
+		if($checkbox_medicine==1 && $checkbox_company==0){
+			$this->db->order_by("
+				CASE 
+					WHEN item_name LIKE '$keyword_item_name%' THEN 1
+					WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
+					WHEN item_name LIKE '%$keyword_item_name' THEN 3
+					WHEN title LIKE '$keyword_item_name%' THEN 4
+					WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
+					WHEN title LIKE '%$keyword_item_name' THEN 6
+					ELSE 7
+				END
+			", NULL, FALSE);
+		}
+		if($checkbox_medicine==0 && $checkbox_company==1){
+			$this->db->order_by("
+				CASE 
+					WHEN company_full_name LIKE '$keyword_item_name%' THEN 1
+					WHEN company_full_name LIKE '%$keyword_item_name%' AND company_full_name NOT LIKE '$keyword_item_name%' THEN 2
+					WHEN company_full_name LIKE '%$keyword_item_name' THEN 3
+					ELSE 4
+				END
+			", NULL, FALSE);
+		}
 		$this->db->order_by('m.batchqty', 'DESC');
 		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);

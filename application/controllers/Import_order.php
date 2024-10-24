@@ -9,6 +9,8 @@ class Import_order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
+		$this->load->model("model-drdistributor/import_order/ImportOrderModel");
+
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("import_order");
 
@@ -621,7 +623,7 @@ class Import_order extends CI_Controller {
 		}
 		else{			
 			/******************************************/
-			$items=$this->Chemist_Model->import_order_dropdownbox($order_item_name,$item_mrp);
+			$items = $this->ImportOrderModel->import_order_dropdownbox($order_item_name,$item_mrp);
 			/*****************************************/		
 			$type_ = $items["type"];
 			$i_code = $items["i_code"];

@@ -66,7 +66,7 @@ class MedicineSearchModel extends CI_Model
 		$this->db->or_like('discount', $keyword_item_name);
 		if ($checkbox_medicine == 1 || $checkbox_company == 1) {
 			foreach($keyword_array as $row_val){
-				$this->db->or_like('item_name', $row_val, 'both');
+				$this->db->or_like('item_name', $row_val);
 			}
 		}
 		$this->db->group_end();

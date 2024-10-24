@@ -30,13 +30,13 @@ class MedicineSearchModel extends CI_Model
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
 		$this->db->where('category !=', 'g');
 
-		/*if ($checkbox_out_of_stock == 0) {
+		if ($checkbox_out_of_stock == 0) {
 			$this->db->where('m.batchqty !=', '0');
-		}*/
+		}
 
-		/*if ($user_nrx != "yes") {
+		if ($user_nrx != "yes") {
 			$this->db->where('misc_settings !=', '#NRX');
-		}*/
+		}
 
 		$this->db->group_start();
 

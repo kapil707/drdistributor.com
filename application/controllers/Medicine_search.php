@@ -5,6 +5,7 @@ class Medicine_search extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
+		log_activity();
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("medicine_search");
 

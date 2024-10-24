@@ -54,6 +54,9 @@ class MedicineSearchModel extends CI_Model
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
 			$this->db->like('company_full_name', $keyword_item_name);
 		}
+		foreach($keyword_array as $row_val){
+			$this->db->or_like('item_name', $row_val, 'both');
+		}
 		$this->db->group_end();
 
 		// Sorting logic

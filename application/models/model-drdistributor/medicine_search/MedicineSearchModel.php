@@ -39,13 +39,20 @@ class MedicineSearchModel extends CI_Model
 		}*/
 
 		$this->db->group_start();
-		if ($checkbox_medicine == 1) {
+
+		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
+			$this->db->like('item_name', $keyword_item_name, 'both');
+			$this->db->or_like('title', $keyword_item_name, 'both');
+			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
+		}
+
+		if ($checkbox_medicine == 1 && $checkbox_company == 0) {
 			$this->db->like('item_name', $keyword_item_name, 'both');
 			$this->db->or_like('title', $keyword_item_name, 'both');
 		}
 
-		if ($checkbox_company == 1) {
-			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
+		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
+			$this->db->like('company_full_name', $keyword_item_name, 'both');
 		}
 		$this->db->group_end();
 

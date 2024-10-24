@@ -52,7 +52,7 @@ class MedicineSearchModel extends CI_Model
 		}
 
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
-			$this->db->like('company_full_name', $keyword_item_name, 'both');
+			$this->db->like('company_full_name', $keyword_item_name);
 		}
 		$this->db->group_end();
 

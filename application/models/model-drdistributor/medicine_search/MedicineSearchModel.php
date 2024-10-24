@@ -41,6 +41,7 @@ class MedicineSearchModel extends CI_Model
 		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
 		$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
 		$this->db->group_end(); // End grouping for the OR conditions
+		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
 		$this->db->order_by("
 			CASE 
 				WHEN item_name LIKE '$keyword_item_name%' THEN 1
@@ -52,7 +53,6 @@ class MedicineSearchModel extends CI_Model
 				ELSE 7
 			END
 		", NULL, FALSE);
-		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
 		$this->db->order_by('m.batchqty', 'DESC');
 		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);

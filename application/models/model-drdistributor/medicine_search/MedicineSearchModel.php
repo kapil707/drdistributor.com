@@ -41,18 +41,18 @@ class MedicineSearchModel extends CI_Model
 		$this->db->group_start();
 
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
-			$this->db->like('item_name', $keyword_item_name, 'both');
-			$this->db->or_like('title', $keyword_item_name, 'both');
-			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
+			$this->db->like('item_name', $keyword_item_name, 'both', FALSE);
+			$this->db->or_like('title', $keyword_item_name, 'both', FALSE);
+			$this->db->or_like('company_full_name', $keyword_item_name, 'both', FALSE);
 		}
 
 		if ($checkbox_medicine == 1 && $checkbox_company == 0) {
-			$this->db->like('item_name', $keyword_item_name, 'both');
-			$this->db->or_like('title', $keyword_item_name, 'both');
+			$this->db->like('item_name', $keyword_item_name, 'both', FALSE);
+			$this->db->or_like('title', $keyword_item_name, 'both', FALSE);
 		}
 
 		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
-			$this->db->like('company_full_name', $keyword_item_name, 'both');
+			$this->db->like('company_full_name', $keyword_item_name, 'both', FALSE);
 		}
 		$this->db->group_end();
 
@@ -95,7 +95,7 @@ class MedicineSearchModel extends CI_Model
 
 		$this->db->order_by($order_case, NULL, FALSE);
 		$this->db->order_by('m.batchqty', 'DESC');
-		$this->db->order_by('m.item_namexxx', 'ASC');
+		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);
 
 		$query = $this->db->get()->result();

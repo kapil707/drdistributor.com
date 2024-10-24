@@ -77,7 +77,6 @@ class My_order extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 

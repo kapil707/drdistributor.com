@@ -9,6 +9,8 @@ class User extends CI_Controller {
         $this->AccountModel->login_check("account");
 
 		$this->load->model("model-drdistributor/user_model/UserModel");
+		
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 	}
 	public function index(){
 		//error_reporting(0);
@@ -41,7 +43,6 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -75,7 +76,6 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -115,7 +115,6 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -150,7 +149,6 @@ class User extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 

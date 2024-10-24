@@ -5,8 +5,9 @@ class My_invoice extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
+		
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 	}
 
 	public function index(){
@@ -39,7 +40,6 @@ class My_invoice extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -78,7 +78,6 @@ class My_invoice extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 

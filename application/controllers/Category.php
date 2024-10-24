@@ -10,6 +10,7 @@ class Category extends CI_Controller {
 
 		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 	}
 
 	public function index($item_company=""){
@@ -43,7 +44,6 @@ class Category extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -93,7 +93,6 @@ class Category extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
@@ -139,7 +138,6 @@ class Category extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 

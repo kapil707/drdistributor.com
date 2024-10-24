@@ -9,9 +9,6 @@ if (!function_exists('log_activity')) {
         // Load the ActivityModel
         $CI->load->model("model-drdistributor/activity_model/ActivityModel");
 
-        // Load the Activity_log_model
-        $CI->load->model('Activity_log_model');
-
         // Get request information
         $ip_address = $CI->input->ip_address();
         $url = current_url();

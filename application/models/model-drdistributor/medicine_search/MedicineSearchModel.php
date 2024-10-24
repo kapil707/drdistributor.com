@@ -17,7 +17,7 @@ class MedicineSearchModel extends CI_Model
 		if($total_rec=="all"){
 			$total_rec = 250;
 		}
-		if ($checkbox_medicine != 0 && $checkbox_company != 0) {
+		if ($checkbox_medicine != 0 || $checkbox_company != 0) {
 			/***********************************************/
 			$characters_to_remove = array(" ","-",".", "`", "'", "/", "(", ")", "%", ",","%20");
 			$keyword_title = str_replace($characters_to_remove, "", $keyword);

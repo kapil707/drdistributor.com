@@ -52,6 +52,7 @@ class MedicineSearchModel extends CI_Model
 				ELSE 7
 			END
 		", NULL, FALSE);
+		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
 		$this->db->order_by('m.batchqty', 'DESC');
 		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);

@@ -5,8 +5,8 @@ class My_order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// Load model
-
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
+		$this->load->model("model-drdistributor/activity_model/ActivityModel");
 	}
 
 	public function index(){
@@ -39,7 +39,7 @@ class My_order extends CI_Controller {
 		$browser_type = "Web";
 		$browser = "";
 
-		$this->Chemist_Model->user_activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
+		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);

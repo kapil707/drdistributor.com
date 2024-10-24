@@ -29,68 +29,68 @@ class MedicineSearchModel extends CI_Model
 		$this->db->where('status', 1);
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
 		$this->db->where('category !=', 'g');
-		if ($checkbox_out_of_stock == 0) {
+
+		/*if ($checkbox_out_of_stock == 0) {
 			$this->db->where('m.batchqty !=', '0');
-		}
-		if ($user_nrx != "yes") {
+		}*/
+
+		/*if ($user_nrx != "yes") {
 			$this->db->where('misc_settings !=', '#NRX');
+		}*/
+
+		$this->db->group_start();
+		if ($checkbox_medicine == 1) {
+			$this->db->like('item_name', $keyword_item_name, 'both');
+			$this->db->or_like('title', $keyword_item_name, 'both');
 		}
 
-		$this->db->group_start(); // Start grouping for the OR conditions
-		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
-			$this->db->like('item_name', $keyword_item_name, 'both'); // Matches anywhere in the item_name
-			$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
-			$this->db->or_like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
+		if ($checkbox_company == 1) {
+			$this->db->or_like('company_full_name', $keyword_item_name, 'both');
 		}
-		if ($checkbox_medicine == 1 && $checkbox_company == 0) {
-			$this->db->like('item_name', $keyword_item_name, 'both'); // Matches anywhere in the item_name
-			$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
-		}
-		if ($checkbox_medicine == 0 && $checkbox_company == 1) {
-			$this->db->like('company_full_name', $keyword_item_name, 'both'); // Matches anywhere in the company name
-		}
-		$this->db->group_end(); // End grouping for the OR conditions
+		$this->db->group_end();
 
 		// Sorting logic
 		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
+
 		$order_case = "CASE ";
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {
 			$order_case .= "
-				WHEN item_name LIKE '$keyword_item_name%' THEN 1
-				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
-				WHEN item_name LIKE '%$keyword_item_name' THEN 3
-				WHEN title LIKE '$keyword_item_name%' THEN 4
-				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
-				WHEN title LIKE '%$keyword_item_name' THEN 6
-				WHEN company_full_name LIKE '$keyword_item_name%' THEN 7
-				WHEN company_full_name LIKE '%$keyword_item_name%' AND company_full_name NOT LIKE '$keyword_item_name%' THEN 8
-				WHEN company_full_name LIKE '%$keyword_item_name' THEN 9
+				WHEN item_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 1
+				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND item_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 2
+				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 3
+				WHEN title LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 4
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 5
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 6
+				WHEN company_full_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 7
+				WHEN company_full_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND company_full_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 8
+				WHEN company_full_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 9
 				ELSE 10
 			";
 		} elseif ($checkbox_medicine == 1) {
 			$order_case .= "
-				WHEN item_name LIKE '$keyword_item_name%' THEN 1
-				WHEN item_name LIKE '%$keyword_item_name%' AND item_name NOT LIKE '$keyword_item_name%' THEN 2
-				WHEN item_name LIKE '%$keyword_item_name' THEN 3
-				WHEN title LIKE '$keyword_item_name%' THEN 4
-				WHEN title LIKE '%$keyword_item_name%' AND title NOT LIKE '$keyword_item_name%' THEN 5
-				WHEN title LIKE '%$keyword_item_name' THEN 6
+				WHEN item_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 1
+				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND item_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 2
+				WHEN item_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 3
+				WHEN title LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 4
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND title NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 5
+				WHEN title LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 6
 				ELSE 7
 			";
 		} elseif ($checkbox_company == 1) {
 			$order_case .= "
-				WHEN company_full_name LIKE '$keyword_item_name%' THEN 1
-				WHEN company_full_name LIKE '%$keyword_item_name%' AND company_full_name NOT LIKE '$keyword_item_name%' THEN 2
-				WHEN company_full_name LIKE '%$keyword_item_name' THEN 3
+				WHEN company_full_name LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 1
+				WHEN company_full_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}%' AND company_full_name NOT LIKE '{$this->db->escape_like_str($keyword_item_name)}%' THEN 2
+				WHEN company_full_name LIKE '%{$this->db->escape_like_str($keyword_item_name)}' THEN 3
 				ELSE 4
 			";
 		}
 		$order_case .= "END";
-		$this->db->order_by($order_case, NULL, FALSE);
 
+		$this->db->order_by($order_case, NULL, FALSE);
 		$this->db->order_by('m.batchqty', 'DESC');
-		$this->db->order_by('m.item_namex', 'ASC');
+		$this->db->order_by('m.item_name', 'ASC');
 		$this->db->limit($total_rec);
+
 
 
 		$query = $this->db->get()->result();

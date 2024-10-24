@@ -29,6 +29,13 @@ class MedicineSearchModel extends CI_Model
 		$this->db->where('status', 1);
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
 		$this->db->where('category !=', 'g');
+		if($checkbox_out_of_stock==0){
+			$this->db->where('m.batchqty !=', '0');
+		}
+		if($user_nrx=="yes"){			
+		}else{
+			$this->db->where('misc_settings !=', '#NRX');
+		}
 		$this->db->group_start(); // Start grouping for the OR conditions
 		$this->db->like('item_name',$keyword_item_name, 'both'); // Matches anywhere in the item_name
 		$this->db->or_like('title', $keyword_item_name, 'both'); // Matches anywhere in the title
@@ -47,7 +54,7 @@ class MedicineSearchModel extends CI_Model
 		", NULL, FALSE);
 		$this->db->order_by('m.batchqty', 'DESC');
 		$this->db->order_by('m.item_name', 'ASC');
-		$this->db->limit(250);
+		$this->db->limit($total_rec);
 
 		$query = $this->db->get()->result();
 		foreach ($query as $row)

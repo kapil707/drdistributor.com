@@ -11,6 +11,7 @@ class ActivityModel extends CI_Model
     public function insert_log($data) {
         $this->db->insert('tbl_activity_logs', $data);
     }
+	
 	function activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser)
 	{
 		$date = date('Y-m-d');
@@ -27,10 +28,5 @@ class ActivityModel extends CI_Model
 			'time'=>$time,
 			'datetime'=>$timestamp,);
 		//$this->Scheme_Model->insert_fun("tbl_user_activity_log",$dt);
-	}
-
-	function activity_new($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser)
-	{
-
 	}
 }

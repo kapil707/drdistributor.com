@@ -6,8 +6,8 @@ if (!function_exists('log_activity')) {
         // Get a reference to the CodeIgniter super object
         $CI =& get_instance();
         
-        // Load the Activity_log_model
-        $CI->load->model('Activity_log_model');
+        // Load the ActivityModel
+        $CI->load->model("model-drdistributor/activity_model/ActivityModel");
 
         // Get request information
         $ip_address = $CI->input->ip_address();

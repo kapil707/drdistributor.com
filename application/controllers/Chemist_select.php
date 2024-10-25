@@ -15,20 +15,22 @@ class chemist_select extends CI_Controller {
 		}
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 
-		/***************************log file start*************************** */
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
+		/***********************log file start*************************** */
+		if(!empty($_COOKIE["user_altercode"])){
+			$user_type 		= $_COOKIE["user_type"];
+			$user_altercode = $_COOKIE["user_altercode"];
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$chemist_id = $salesman_id = "";
+			if($user_type=="sales")
+			{
+				$chemist_id 	= $_COOKIE["chemist_id"];
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			//logs create from hear
+			log_activity($user_altercode,$salesman_id,$user_type,"web");
 		}
-		//logs create from hear
-		log_activity($user_altercode,$salesman_id,$user_type,"web");
-		/***************************log file end*************************** */
+		/***********************log file end*************************** */
 	}
     
     public function index(){

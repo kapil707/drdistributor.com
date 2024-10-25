@@ -2,6 +2,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Api46 extends CI_Controller {	
 
+	public function __construct(){
+		parent::__construct();
+		/***********************log file start*************************** */
+		if(!empty($_POST["user_altercode"])){
+			$user_type 		= $_POST["user_type"];
+			$user_altercode = $_POST["user_altercode"];
+
+			$chemist_id = $salesman_id = "";
+			if($user_type=="sales")
+			{
+				$chemist_id 	= $_POST["chemist_id"];
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			//logs create from hear
+			log_activity($user_altercode,$salesman_id,$user_type,"android");
+		}
+		/***********************log file end*************************** */
+	}
 	public function get_create_new_api()
 	{
 		$this->load->model("model-drdistributor/account_model/AccountModel");

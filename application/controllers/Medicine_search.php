@@ -75,6 +75,17 @@ class Medicine_search extends CI_Controller {
 		$checkbox_company	= $_REQUEST['checkbox_company_val'];
 		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
 		$user_nrx  			= $_COOKIE["user_nrx"];
+			
+		/***************************************************** */
+		if(!empty($_COOKIE["user_altercode"])){
+			$user_type 		= $_COOKIE["user_type"];
+			$user_altercode = $_COOKIE["user_altercode"];
+		
+			$search_term = $keyword;
+
+			$this->MedicineSearchModel->log_search_activity($chemist_id, $salesman_id, $search_term, "");
+		}
+		/***************************************************** */
 
 		$items = "";
 		if(!empty($keyword)){

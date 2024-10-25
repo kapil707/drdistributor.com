@@ -66,7 +66,7 @@ class Medicine_details extends CI_Controller {
 		
 			$product_viewed = $item_code;
 
-			$this->MedicineSearchModel->log_search_activity($user_altercode, $salesman_id, "", ""); 
+			$this->MedicineSearchModel->log_search_activity($user_altercode, $salesman_id, "", $product_viewed); 
 		}
 		/***************************************************** */
         

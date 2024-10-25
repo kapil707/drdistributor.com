@@ -12,6 +12,8 @@ class Medicine_details extends CI_Controller {
 
 		$this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 
+		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
+
 		/***********************log file start*************************** */
 		if(!empty($_COOKIE["user_altercode"])){
 			$user_type 		= $_COOKIE["user_type"];

@@ -57,7 +57,7 @@ if (!function_exists('log_search_activity')) {
         // Load the ActivityModel
         $CI->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
 
-        $data = array(
+        $log_data = array(
             'chemist_id' => $chemist_id,
             'salesman_id' => $salesman_id,
             'search_term' => $search_term,

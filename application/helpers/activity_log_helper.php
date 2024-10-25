@@ -40,6 +40,9 @@ if (!function_exists('log_activity')) {
             'salesman_id' => $salesman_id,
             'user_type' => $user_type,
             'view_type' => $view_type,
+            'date' => date('Y-m-d'),
+            'time' => date('H:i:s'),
+            'timestamp' => time(),
         );
 
         // Insert log into the database

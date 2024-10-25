@@ -91,7 +91,7 @@ class Medicine_search extends CI_Controller {
 		
 			$search_term = $keyword;
 
-			$this->MedicineSearchModel->log_search_activity($user_altercode, $salesman_id, $search_term, ""); 
+			log_search_activity($user_altercode, $salesman_id, $search_term, ""); 
 		}
 		/***************************************************** */
 

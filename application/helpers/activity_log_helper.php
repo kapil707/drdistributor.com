@@ -49,3 +49,25 @@ if (!function_exists('log_activity')) {
         $CI->ActivityModel->insert_log($log_data);
     }
 }
+if (!function_exists('log_search_activity')) {
+    function log_search_activity($chemist_id, $salesman_id, $search_term="", $product_viewed="") {
+        // Get a reference to the CodeIgniter super object
+        $CI =& get_instance();
+        
+        // Load the ActivityModel
+        $CI->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
+
+        $data = array(
+            'chemist_id' => $chemist_id,
+            'salesman_id' => $salesman_id,
+            'search_term' => $search_term,
+            'product_viewed' => $product_viewed,
+            'date' => date('Y-m-d'),
+            'time' => date('H:i:s'),
+            'timestamp' => time(),
+        );
+        
+        // Insert log into the database
+        $CI->MedicineSearchModel->insert_log($log_data);
+    }
+}

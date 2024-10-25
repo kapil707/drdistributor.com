@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 if (!function_exists('log_activity')) {
-    function log_activity($user_altercode='',$salesman_id='',$user_type='',$view_type) {
+    function log_activity($chemist_id='',$salesman_id='',$user_type='',$view_type) {
         // Get a reference to the CodeIgniter super object
         $CI =& get_instance();
         
@@ -36,7 +36,7 @@ if (!function_exists('log_activity')) {
             'controller' => $controller,
             'method' => $method,
             'request_data' => $request_data,
-            'user_altercode' => $user_altercode,
+            'chemist_id' => $chemist_id,
             'salesman_id' => $salesman_id,
             'user_type' => $user_type,
             'view_type' => $view_type,

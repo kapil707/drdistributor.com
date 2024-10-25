@@ -80,10 +80,18 @@ class Medicine_search extends CI_Controller {
 		if(!empty($_COOKIE["user_altercode"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];
+
+			$chemist_id = $salesman_id = "";
+			if($user_type=="sales")
+			{
+				$chemist_id 	= $_COOKIE["chemist_id"];
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
 		
 			$search_term = $keyword;
 
-			$this->MedicineSearchModel->log_search_activity($chemist_id, $salesman_id, $search_term, ""); 
+			$this->MedicineSearchModel->log_search_activity($user_altercode, $salesman_id, $search_term, ""); 
 		}
 		/***************************************************** */
 

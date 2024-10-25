@@ -527,5 +527,19 @@ class MedicineSearchModel extends CI_Model
 		);
 		return $dt;
 	}
+
+	public function log_search_activity($chemist_id, $salesman_id, $search_term="", $product_viewed="") {
+        $data = array(
+            'chemist_id' => $chemist_id,
+            'salesman_id' => $salesman_id,
+            'search_term' => $search_term,
+            'product_viewed' => $product_viewed,
+            'date' => date('Y-m-d'),
+            'time' => date('H:i:s'),
+            'timestamp' => time(),
+        );
+
+        $this->db->insert('tbl_search_logs', $data);
+    }
 }
 

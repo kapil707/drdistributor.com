@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//ini_set('memory_limit','-1');
+ini_set('memory_limit','-1');
 class Cronjob_export extends CI_Controller 
 {
 	public function __construct(){

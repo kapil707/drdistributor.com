@@ -56,6 +56,7 @@ class Cronjob_export extends CI_Controller
 		$fp = fopen('chemist/uploads_sales/item_list.csv', 'w');
 		$fields = array('Company_Name','DIVISION','Item_Code','Item_Name','Packing','Expiry','BatchNo','SaleRate','MRP','SaleScm1','SaleScm2','BATCHQTY','GSTPER','Item_Date','Time');
 		fputcsv($fp, $fields, $delimiter);
+		$this->db->limit("100");
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach($query as $row)
 		{

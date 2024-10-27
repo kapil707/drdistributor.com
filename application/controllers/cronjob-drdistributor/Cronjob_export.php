@@ -64,8 +64,9 @@ class Cronjob_export extends CI_Controller
 		if (fputcsv($fp, $fields, $delimiter) === false) {
 			die("Unable to write column headers to file.");
 		}
-
+		$this->db->limit("1");
 		$query = $this->db->get("tbl_medicine")->result();
+		print_r($query);
 		foreach ($query as $row) {
 			$batchqty = ($row->misc_settings == "#NRX" && $row->batchqty < 10) ? $row->batchqty : "10";
 

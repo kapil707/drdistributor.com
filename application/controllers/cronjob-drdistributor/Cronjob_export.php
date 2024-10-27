@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('memory_limit','-1');
+//ini_set('memory_limit','-1');
 class Cronjob_export extends CI_Controller 
 {
 	public function __construct(){
@@ -53,28 +53,52 @@ class Cronjob_export extends CI_Controller
 	{
 		//error_reporting(0);
 		$delimiter = ",";
-		$fp = fopen('chemist/uploads_sales/item_list.csv', 'w');
-		$fields = array('Company_Name','DIVISION','Item_Code','Item_Name','Packing','Expiry','BatchNo','SaleRate','MRP','SaleScm1','SaleScm2','BATCHQTY','GSTPER','Item_Date','Time');
-		fputcsv($fp, $fields, $delimiter);
-		$this->db->limit("100");
-		$query = $this->db->get("tbl_medicine")->result();
-		foreach($query as $row)
-		{
-			if($row->misc_settings=="#NRX"){
-				$batchqty = "10";
-				if($row->batchqty<10){
-					$batchqty = $row->batchqty;
-				}
-			}else{
-				$batchqty = $row->batchqty;
-			}
-			$dt = date("d-M-Y");
-			$tt = date("H:i:s");
-			$item_date = date("d-M-Y", strtotime($row->item_date));
-			$lineData = array("$row->company_name","$row->division","$row->item_code","$row->item_name","$row->packing","$row->expiry","$row->batch_no","$row->sale_rate","$row->mrp","$row->salescm1","$row->salescm2","$batchqty","$row->gstper","$item_date","$dt","$tt");
-			fputcsv($fp, $lineData, $delimiter);
+		$filepath = 'chemist/uploads_sales/item_list.csv';
+
+		// fopen के साथ error handling
+		if (!$fp = fopen($filepath, 'w')) {
+			die("Unable to open file for writing.");
 		}
+
+		$fields = array('Company_Name', 'DIVISION', 'Item_Code', 'Item_Name', 'Packing', 'Expiry', 'BatchNo', 'SaleRate', 'MRP', 'SaleScm1', 'SaleScm2', 'BATCHQTY', 'GSTPER', 'Item_Date', 'Date', 'Time');
+		if (fputcsv($fp, $fields, $delimiter) === false) {
+			die("Unable to write column headers to file.");
+		}
+
+		$query = $this->db->get("tbl_medicine")->result();
+		foreach ($query as $row) {
+			$batchqty = ($row->misc_settings == "#NRX" && $row->batchqty < 10) ? $row->batchqty : "10";
+
+			$date = date("d-M-Y");
+			$time = date("H:i:s");
+			$item_date = date("d-M-Y", strtotime($row->item_date));
+
+			$lineData = array(
+				$row->company_name,
+				$row->division,
+				$row->item_code,
+				$row->item_name,
+				$row->packing,
+				$row->expiry,
+				$row->batch_no,
+				$row->sale_rate,
+				$row->mrp,
+				$row->salescm1,
+				$row->salescm2,
+				$batchqty,
+				$row->gstper,
+				$item_date,
+				$date,
+				$time
+			);
+
+			// डेटा को CSV में लिखें और एरर चेक करें
+			if (fputcsv($fp, $lineData, $delimiter) === false) {
+				die("Unable to write data row to file.");
+			}
+		}
+
 		fclose($fp);
-		echo "Create Excel File For Other Site Working";
+		echo "CSV file created successfully for other site.";
 	}
 }

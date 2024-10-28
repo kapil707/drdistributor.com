@@ -100,6 +100,7 @@ if($broadcast_status=="1"){
 		$q = $this->db->query("select * from tbl_broadcast where chemist_id='$session_user_altercode'")->row();
 		$broadcast_title = $q->title;
 		$broadcast_message = $q->message;
+		$broadcast_status = 1;
 	}
 }
 if($broadcast_status=="1"){ ?>

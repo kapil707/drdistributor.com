@@ -38,7 +38,7 @@ function get_broadcast_message(){
 			// Schedule the next check after 10 seconds
 			setTimeout(function() {
 				get_broadcast_message();
-			}, 10000);
+			}, 90000);
         },
         error: function(xhr, status, error) {
             console.error('AJAX Error:', error);

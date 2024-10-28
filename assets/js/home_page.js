@@ -36,7 +36,7 @@ function get_broadcast_message(){
 
 				setTimeout(function() {
 					get_broadcast_message();
-				}, 90000);
+				}, 10000);
             }
         },
         error: function(xhr, status, error) {

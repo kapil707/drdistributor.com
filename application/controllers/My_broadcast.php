@@ -44,12 +44,19 @@ class My_broadcast extends CI_Controller {
 			$result = $this->MyBroadcastModel->get_my_broadcast_api($user_type,$user_altercode,$salesman_id);
 			$items  	= $result["items"];
 		}
-
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items
-        );
+		if($items){
+			$response = array(
+				'success' => "1",
+				'message' => 'Data load successfully',
+				'items' => $items
+			);
+		}else{
+			$response = array(
+				'success' => "0",
+				'message' => 'no data found',
+				'items' => ""
+			);
+		}
 
         // Send JSON response
         header('Content-Type: application/json');

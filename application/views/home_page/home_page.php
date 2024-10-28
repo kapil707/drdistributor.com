@@ -96,7 +96,7 @@ if($broadcast_status=="1"){
 	$broadcast_title = $this->Scheme_Model->get_website_data("broadcast_title");
 	$broadcast_message = $this->Scheme_Model->get_website_data("broadcast_message");
 }else{
-	if(!emtpy($session_user_altercode)){
+	if(!empty($session_user_altercode)){
 		$q = $this->db->query("select * from tbl_broadcast where chemist_id='$session_user_altercode'")->row();
 		$broadcast_title = $q->title;
 		$broadcast_message = $q->message;

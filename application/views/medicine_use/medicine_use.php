@@ -117,17 +117,6 @@ function goBack() {
 									</div>
 									<div class="col-sm-12 col-12 medicine_details_hr">
 									</div>
-									<div class="col-sm-12 col-12" style="display:none">
-										<span class="medicine_details_item_order_quantity" style="width:50%;float:left;margin-top:5px;">Order quantity
-										</span>
-										
-										<span class="text-right" style="width:50%;float:left;margin-top:5px;">
-											<input type="number" class="medicine_details_item_order_quantity_textbox" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;float:right;" value="" title="Enter quantity" min="1" max="1000">
-											<input type="hidden" class="medicine_details_item_quantity">
-										</span>
-									</div>
-									<div class="col-sm-12 col-12 medicine_details_hr">
-									</div>
 									<div class="col-sm-6 col-12"></div>
 									<div class="col-sm-6 col-12">
 										<button type="submit" class="btn btn-primary main_theme_button" onclick="get_single_medicine_info('<?php echo $item_code ?>')" title="Add to cart">Add to cart</button>

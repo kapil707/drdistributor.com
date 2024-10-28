@@ -67,60 +67,78 @@ function call_page2()
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){
-				$(".top_bar_title").html(item.item_name);						
+				$(".top_bar_title").html(item.item_name);
 				
-				$(".medicine_details_item_name").html(item.item_name);
+				/***********************important ************************/
+				$('.medicine_details_item_code').val(item.item_code);
+				/********************************************************/
+
+				$(".medicine_details_featured_img").hide()
+				$(".medicine_details_out_of_stock_img").hide()	
+
+				$(".medicine_details_image").attr("src",item.item_image)
+				$(".medicine_details_image_small").attr("src",item.item_image)
+
+				$(".medicine_details_item_name").html(item.item_name)
 				$(".medicine_details_item_packing").html("Packing : "+item.item_packing)
 				$(".medicine_details_item_batch_no").html("Batch no : "+item.item_batch_no)
-				$(".medicine_details_item_margin").html(item.item_margin+'% Margin')
+
+				$(".medicine_details_item_margin").html(item.item_margin+'% Margin*')
 				$(".medicine_details_item_expiry").html("Expiry : "+item.item_expiry)
 				$(".medicine_details_item_company").html("By "+item.item_company)
-				$(".medicine_details_item_stock").html("Stock : " +item.item_quantity)
 				$(".medicine_details_item_scheme").html("Scheme : " +item.item_scheme)
-				$(".medicine_details_item_description1").html(item.item_description1)
-				$(".medicine_details_item_description1").show()
-				
-				if(item.item_description1=="")
-				{
-					$(".medicine_details_item_description1").hide()
+
+				/**************************************** */
+				$(".medicine_details_item_stock").html("Stock : " +item.item_quantity)
+				if(item.item_stock!=0){
+					$(".medicine_details_item_stock").html("Stock : "+item.item_stock);
 				}
+				/**************************************** */
+				
+				$(".medicine_details_item_description1").hide()
+				if(item.item_description1!=""){
+					$(".medicine_details_item_description1").show()
+					$(".medicine_details_item_description1").html(item.item_description1)
+				}
+
+				/******************************************************************* */
 				$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_ptr + "/-")
 				$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_mrp + "/-")
 				$(".medicine_details_item_gst").html("GST : "+item.item_gst +"%")
-				$(".medicine_details_item_price").html('*Approximate Value ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
+				$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
+				$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
+				/******************************************************************* */
+
 				$(".medicine_details_item_scheme_line").show()
 				$(".medicine_details_item_scheme").show()
-				if(item.item_scheme=="0+0")
-				{
+				if(item.item_scheme=="0+0"){
 					$(".medicine_details_out_of_stock_img").hide()
 					$(".medicine_details_item_scheme_line").hide()
 					$(".medicine_details_item_scheme").hide()
 				}
+
 				if(item.item_featured=="1" && item.item_quantity!="0"){
 					$(".medicine_details_featured_img").show()
 				}
+
+				/******************************************************************* */
+				$(".medicine_details_item_add_to_cart_btn").hide()
+				$(".medicine_details_item_add_to_cart_btn_disable").show()
+				$(".order_quantity_div").show()
 				if(parseInt(item.item_quantity)==0){
-					
-					$(".medicine_details_item_add_to_cart_btn_disable").show()
-					$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
+					$(".order_quantity_div").hide()		
 					$(".medicine_details_out_of_stock_img").show()
-					$(".medicine_details_item_scheme").hide()
-					$(".medicine_details_item_scheme_line").hide()
-				}else{
-					$(".medicine_details_item_add_to_cart_btn").show()
+					$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
 				}
-				if(item.item_stock!="")
-				{
-					$(".medicine_details_item_stock").html(item.item_stock)
-				}
-				$(".medicine_details_item_quantity").val(item.item_quantity)
-				if(item.item_order_quantity){
+
+				/******************************************************************* */
+				$(".medicine_details_item_order_quantity_hidden").val(item.item_quantity)
+				if(item.item_order_quantity!=""){
 					$(".medicine_details_item_order_quantity_textbox").val(item.item_order_quantity)
+					$('.medicine_details_item_add_to_cart_btn').html("Update cart");
+					$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 				}
 				$(".medicine_details_item_order_quantity_textbox").focus()
-				
-				$(".medicine_details_image").attr("src",item.item_image)
-				$(".medicine_details_image_small").attr("src",item.item_image)
 			});
 		},
 		timeout: 10000

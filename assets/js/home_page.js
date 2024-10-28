@@ -33,6 +33,10 @@ function get_broadcast_message(){
 					$('.broadcast_title').text(item.item_title);
 					$('.broadcast_message').text(item.item_message);
                 });
+
+				setTimeout(function() {
+					get_broadcast_message();
+				}, 90000);
             }
         },
         error: function(xhr, status, error) {

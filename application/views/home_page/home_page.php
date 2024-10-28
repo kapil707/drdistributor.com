@@ -98,8 +98,7 @@ $(document).ready(function() {
 });
 function get_broadcast_message(){
 	$.ajax({
-        type: "POST",
-        data: {chemist_name: chemist_name},
+        type: "GET",
         url: "<?= base_url()?>My_broadcast/my_broadcast_api",
         cache: false,
         dataType: 'json',

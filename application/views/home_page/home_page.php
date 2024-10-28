@@ -103,22 +103,16 @@ function get_broadcast_message(){
         cache: false,
         dataType: 'json',
         success: function(response) {
-			alert(response)
             if (response.success === "1") {
-                let htmlContent = '<ul>';
+				$('.myModal_broadcast').click();
                 response.items.forEach(item => {
-                    htmlContent += `<li onclick="add_chemist('${item.chemist_id}', '${item.chemist_name}')">Name: ${item.chemist_name} - (Chemist ID: ${item.chemist_id})</li>`;
+					$('.broadcast_title').text(item.item_title);
+					$('.broadcast_message').text(item.broadcast_message);
                 });
-                htmlContent += '</ul>';
-                $('.find_chemist_result').html(htmlContent);
-                currentFocus = -1; // Reset focus
-            } else {
-                $('.find_chemist_result').text("Failed to load data.");
             }
         },
         error: function(xhr, status, error) {
             console.error('AJAX Error:', error);
-            $('.find_chemist_result').text("Error loading data.");
         }
     });
 }
@@ -129,14 +123,13 @@ function get_broadcast_message(){
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title broadcast_title">
-					<?= $broadcast_title; ?>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
 				</button>
 			</div>
-			<div class="modal-body broadcast_message">
-				<pre><p><?= $broadcast_message; ?></p></pre>
+			<div class="modal-body">
+				<pre><p class="broadcast_message"></p></pre>
 			</div>
 		</div>
 	</div>

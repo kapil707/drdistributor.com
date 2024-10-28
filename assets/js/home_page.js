@@ -35,12 +35,18 @@ function get_broadcast_message(){
                 });
             }
 
+			// Schedule the next check after 10 seconds
 			setTimeout(function() {
 				get_broadcast_message();
 			}, 10000);
         },
         error: function(xhr, status, error) {
             console.error('AJAX Error:', error);
+
+            // Retry after 10 seconds in case of an error
+            setTimeout(function() {
+				get_broadcast_message();
+			}, 10000);
         }
     });
 }

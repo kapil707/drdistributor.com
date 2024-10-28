@@ -5,6 +5,9 @@ var query_work = 0;
 var next_id = "";
 
 $(document).ready(function() {
+	setTimeout(function() {
+		get_broadcast_message();
+	}, 3000);
 	home_page_menu();
 	get_top_menu_api();
 	home_page_main_api("1,2,4,5");
@@ -16,6 +19,27 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function get_broadcast_message(){
+	$.ajax({
+        type: "GET",
+        url: get_base_url() + "My_broadcast/my_broadcast_api",
+        cache: false,
+        dataType: 'json',
+        success: function(response) {
+            if (response.success === "1") {
+				$('.myModal_broadcast').click();
+                response.items.forEach(item => {
+					$('.broadcast_title').text(item.item_title);
+					$('.broadcast_message').text(item.item_message);
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+        }
+    });
+}
 
 function home_page_menu(){
 

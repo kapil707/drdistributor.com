@@ -89,34 +89,7 @@ $(".top_bar_title").html("Delivering to");
 	</div>
 </div>
 
-<!-- ******************************************************** -->
-<script>
-$(document).ready(function() {
-	setTimeout(function() {
-		get_broadcast_message();
-	}, 3000);
-});
-function get_broadcast_message(){
-	$.ajax({
-        type: "GET",
-        url: "<?= base_url()?>My_broadcast/my_broadcast_api",
-        cache: false,
-        dataType: 'json',
-        success: function(response) {
-            if (response.success === "1") {
-				$('.myModal_broadcast').click();
-                response.items.forEach(item => {
-					$('.broadcast_title').text(item.item_title);
-					$('.broadcast_message').text(item.item_message);
-                });
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error('AJAX Error:', error);
-        }
-    });
-}
-</script>
+<!-- ******************broadcast_message***************************** -->
 <a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 <div class="modal modaloff" id="myModal_broadcast">
 	<div class="modal-dialog">

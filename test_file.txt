@@ -16,3 +16,10 @@ $where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_i
 $this->db->delete("tbl_cart", $where);
 
 ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (order_id,chemist_id, salesman_id,user_type,i_code,status);
+
+
+git add "-A"
+git commit -m "add"
+
+git branch -M website-v-10
+git push -u origin website-v-10

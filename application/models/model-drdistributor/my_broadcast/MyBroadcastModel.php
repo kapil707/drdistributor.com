@@ -17,7 +17,6 @@ class MyBroadcastModel extends CI_Model
 		$query = $this->db->get("tbl_broadcast")->result();
 		foreach($query as $row)
 		{
-			$get_record++;
 			$item_id		=	$row->id;
 			$item_title		=	($row->title);
 			$item_message	=	($row->message);

@@ -90,29 +90,12 @@ $(".top_bar_title").html("Delivering to");
 </div>
 
 <!-- ******************************************************** -->
-<?php
-$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
-if($broadcast_status=="1"){
-	$broadcast_title = $this->Scheme_Model->get_website_data("broadcast_title");
-	$broadcast_message = $this->Scheme_Model->get_website_data("broadcast_message");
-}else{
-	if(!empty($session_user_altercode)){
-		$q = $this->db->query("select * from tbl_broadcast where chemist_id='$session_user_altercode'")->row();
-		$broadcast_title = $q->title;
-		$broadcast_message = $q->message;
-		$broadcast_status = 1;
-	}
-}
-if($broadcast_status=="1"){ ?>
-	<script>
-		setTimeout(function() {
-			$('.myModal_broadcast').click();
-		}, 3000);
-	</script>
-	<?php
-}
-?>
 <script>
+$(document).ready(function() {
+	setTimeout(function() {
+		get_broadcast_message();
+	}, 3000);
+});
 function get_broadcast_message(){
 	$.ajax({
         type: "POST",
@@ -121,6 +104,7 @@ function get_broadcast_message(){
         cache: false,
         dataType: 'json',
         success: function(response) {
+			alert(response)
             if (response.success === "1") {
                 let htmlContent = '<ul>';
                 response.items.forEach(item => {

@@ -40,7 +40,7 @@ class MyBroadcastModel extends CI_Model
 			$jsonArray[] = $dt;
 		}
 
-		$broadcast_status = 1;//$this->Scheme_Model->get_website_data("broadcast_status");
+		$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
 		if($broadcast_status=="1"){
 			$item_title = $this->Scheme_Model->get_website_data("broadcast_title");
 			$item_message = $this->Scheme_Model->get_website_data("broadcast_message");

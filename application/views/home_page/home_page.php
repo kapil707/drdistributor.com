@@ -91,7 +91,7 @@ $(".top_bar_title").html("Delivering to");
 
 <!-- ******************************************************** -->
 <?php
-$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
+$broadcast_status = 1;//$this->Scheme_Model->get_website_data("broadcast_status");
 if($broadcast_status=="1"){ ?>
 	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 	<div class="modal modaloff" id="myModal_broadcast">

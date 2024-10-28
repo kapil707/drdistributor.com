@@ -33,11 +33,11 @@ function get_broadcast_message(){
 					$('.broadcast_title').text(item.item_title);
 					$('.broadcast_message').text(item.item_message);
                 });
-
-				setTimeout(function() {
-					get_broadcast_message();
-				}, 10000);
             }
+
+			setTimeout(function() {
+				get_broadcast_message();
+			}, 10000);
         },
         error: function(xhr, status, error) {
             console.error('AJAX Error:', error);

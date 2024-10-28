@@ -107,7 +107,7 @@ function get_broadcast_message(){
 				$('.myModal_broadcast').click();
                 response.items.forEach(item => {
 					$('.broadcast_title').text(item.item_title);
-					$('.broadcast_message').text(item.broadcast_message);
+					$('.broadcast_message').text(item.item_message);
                 });
             }
         },

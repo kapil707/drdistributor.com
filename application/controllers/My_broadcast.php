@@ -27,7 +27,6 @@ class My_broadcast extends CI_Controller {
 
 	/*******************api start*********************/
 	public function my_broadcast_api(){
-		$get_record	 	= $_REQUEST["get_record"];
 		$user_type 		= $_COOKIE["user_type"];
 		$user_altercode = $_COOKIE["user_altercode"];
 		$user_password	= $_COOKIE["user_password"];

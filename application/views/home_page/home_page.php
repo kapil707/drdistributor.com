@@ -91,34 +91,44 @@ $(".top_bar_title").html("Delivering to");
 
 <!-- ******************************************************** -->
 <?php
-$broadcast_status = 1;//$this->Scheme_Model->get_website_data("broadcast_status");
+$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
+if($broadcast_status=="1"){
+	$broadcast_title = $this->Scheme_Model->get_website_data("broadcast_title");
+	$broadcast_message = $this->Scheme_Model->get_website_data("broadcast_message");
+}else{
+	if(!emtpy($session_user_altercode)){
+		$q = $this->db->query("select * from tbl_broadcast where chemist_id='$session_user_altercode'")->row();
+		$broadcast_title = $q->title;
+		$broadcast_message = $q->message;
+	}
+}
 if($broadcast_status=="1"){ ?>
-	<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
-	<div class="modal modaloff" id="myModal_broadcast">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title broadcast_title">
-						<?= $this->Scheme_Model->get_website_data("broadcast_title"); ?>
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
-					</button>
-				</div>
-				<div class="modal-body broadcast_message">
-					<pre><p><?= $this->Scheme_Model->get_website_data("broadcast_message"); ?></p></pre>
-				</div>
-			</div>
-		</div>
-	</div>
 	<script>
-	setTimeout(function() {
-		$('.myModal_broadcast').click();
-	}, 3000);
+		setTimeout(function() {
+			$('.myModal_broadcast').click();
+		}, 3000);
 	</script>
 	<?php
 }
 ?>
+<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
+<div class="modal modaloff" id="myModal_broadcast">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title broadcast_title">
+					<?= $broadcast_title; ?>
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
+				</button>
+			</div>
+			<div class="modal-body broadcast_message">
+				<pre><p><?= $broadcast_message; ?></p></pre>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script src="<?= base_url(); ?>assets/website/js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
 

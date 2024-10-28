@@ -52,14 +52,6 @@ class Home extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
-
-		/********************************************************** *
-		$page_name = "index";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 		
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home_page/home_page', $data);

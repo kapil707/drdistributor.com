@@ -518,7 +518,7 @@ if (isset($_COOKIE["theme_type"])) {
 									</div>
 
 									<div class="col-sm-8 col-8">
-										<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
+										<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart" style="display:none">Add to cart</button>
 
 										<button type="submit" class="btn btn-primary main_theme_button_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
 									</div>

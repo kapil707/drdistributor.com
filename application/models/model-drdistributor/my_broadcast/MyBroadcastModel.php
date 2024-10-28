@@ -39,6 +39,26 @@ class MyBroadcastModel extends CI_Model
 			);
 			$jsonArray[] = $dt;
 		}
+		
+		$broadcast_status = $this->Scheme_Model->get_website_data("broadcast_status");
+		if($broadcast_status=="1"){
+			$item_title = $this->Scheme_Model->get_website_data("broadcast_title");
+			$item_message = $this->Scheme_Model->get_website_data("broadcast_message");
+			$item_date_time = 	date("d-M-y @ h:i A", time());
+
+			$item_id = 0;
+			$item_image = "";
+
+			$dt = array(
+				'item_id' => $item_id,
+				'item_title' => $item_title,
+				'item_message' => $item_message,
+				'item_date_time' => $item_date_time,
+				'item_image' => $item_image,
+			);
+			$jsonArray[] = $dt;
+		}
+
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] 		= $jsonArray;

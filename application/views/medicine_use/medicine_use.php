@@ -129,7 +129,7 @@ function goBack() {
 									<div class="col-sm-12 col-12 medicine_details_hr">
 									</div>
 									<div class="col-sm-12 col-12">
-										<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
+										<button type="submit" class="btn btn-primary main_theme_button"  onclick="get_single_medicine_info(18582)" title="Add to cart">Add to cart</button>
 									</div>
 									<div class="col-sm-12 col-12 medicine_details_hr" style="display:none">
 									</div>

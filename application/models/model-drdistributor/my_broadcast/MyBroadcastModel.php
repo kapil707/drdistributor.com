@@ -42,7 +42,6 @@ class MyBroadcastModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] 		= $jsonArray;
-		$return["get_record"] 	= $get_record;
 		return $return;
 	}
 }

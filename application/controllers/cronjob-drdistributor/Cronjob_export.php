@@ -68,7 +68,15 @@ class Cronjob_export extends CI_Controller
 		$query = $this->db->get("tbl_medicine")->result();
 		//print_r($query);
 		foreach ($query as $row) {
-			$batchqty = ($row->misc_settings == "#NRX" && $row->batchqty < 10) ? $row->batchqty : "10";
+			
+			if($row->misc_settings=="#NRX"){
+				$batchqty = "10";
+				if($row->batchqty<10){
+					$batchqty = $row->batchqty;
+				}
+			}else{
+				$batchqty = $row->batchqty;
+			}
 
 			$date = date("d-M-Y");
 			$time = date("H:i:s");

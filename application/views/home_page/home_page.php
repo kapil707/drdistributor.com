@@ -112,6 +112,34 @@ if($broadcast_status=="1"){ ?>
 	<?php
 }
 ?>
+<script>
+function get_broadcast_message(){
+	$.ajax({
+        type: "POST",
+        data: {chemist_name: chemist_name},
+        url: "<?= base_url()?>My_broadcast/my_broadcast_api",
+        cache: false,
+        dataType: 'json',
+        success: function(response) {
+            if (response.success === "1") {
+                let htmlContent = '<ul>';
+                response.items.forEach(item => {
+                    htmlContent += `<li onclick="add_chemist('${item.chemist_id}', '${item.chemist_name}')">Name: ${item.chemist_name} - (Chemist ID: ${item.chemist_id})</li>`;
+                });
+                htmlContent += '</ul>';
+                $('.find_chemist_result').html(htmlContent);
+                currentFocus = -1; // Reset focus
+            } else {
+                $('.find_chemist_result').text("Failed to load data.");
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+            $('.find_chemist_result').text("Error loading data.");
+        }
+    });
+}
+</script>
 <a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 <div class="modal modaloff" id="myModal_broadcast">
 	<div class="modal-dialog">

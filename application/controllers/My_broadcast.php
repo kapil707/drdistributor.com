@@ -41,7 +41,7 @@ class My_broadcast extends CI_Controller {
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
-			$result = $this->MyBroadcastModel->get_my_nbroadcast_api($user_type,$user_altercode,$salesman_id);
+			$result = $this->MyBroadcastModel->get_my_broadcast_api($user_type,$user_altercode,$salesman_id);
 			$items  	= $result["items"];
 		}
 

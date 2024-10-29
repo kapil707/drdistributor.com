@@ -48,7 +48,7 @@ function goBack() {
 				<div class="col-sm-12 col-12">	
 					<div class="main_box_div p-2">
 						<div class="row">
-							<div class="col-sm-5 col-12">
+							<div class="col-sm-4 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-9">
 										<img src="<?= base_url(); ?>/img_v51/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
@@ -81,7 +81,7 @@ function goBack() {
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-7 col-12">
+							<div class="col-sm-8 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-12" style="margin-top: 5px;">
 										<span class="medicine_details_item_name"></span>

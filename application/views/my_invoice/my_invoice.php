@@ -17,4 +17,4 @@ function goBack() {
 	</div>     
 </div>
 <input type="hidden" class="get_record" value="0">
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebsiteVersion; ?>/my_invoice.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $WebsiteVersion; ?>//my_invoice.js"></script>

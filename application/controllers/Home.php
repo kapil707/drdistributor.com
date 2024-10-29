@@ -28,7 +28,10 @@ class Home extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check();
 
-		$data["main_page_title"] = "Home";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion;
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

@@ -9,7 +9,7 @@ if (isset($_COOKIE["theme_type"])) {
 <head>
 	<meta charset="utf-8">
 	<title>
-		<?= $title = $this->appconfig->siteTitle;?> || <?= $main_page_title;?>
+		<?= $title = $siteTitle; ?>
 	</title>
 	
 	<meta name="msapplication-tap-highlight" content="no" />
@@ -605,4 +605,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js-<?= $this->AppConfig->getWebsiteVersion; ?>/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $WebsiteVersion; ?>//main_page.js"></script>

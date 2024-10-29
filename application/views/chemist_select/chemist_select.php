@@ -19,4 +19,4 @@ function goBack() {
 		</div>
 	</div>     
 </div>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebsiteVersion; ?>/chemist_search.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $WebsiteVersion; ?>//chemist_search.js"></script>

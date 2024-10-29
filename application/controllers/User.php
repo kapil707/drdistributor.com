@@ -42,31 +42,25 @@ class User extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-		$data["chemist_id"] = $chemist_id;
-
-		/********************************************************** *
-		$page_name = "account";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
 		/********************************************************** */
+		$data["chemist_id"] = $chemist_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/account', $data);
@@ -79,31 +73,25 @@ class User extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
-
-		/********************************************************** */
-		$page_name = "change_account";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 
 		if($user_type=="sales")
 		{
@@ -122,31 +110,25 @@ class User extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
-
-		/********************************************************** */
-		$page_name = "change_image";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/update_image', $data);
@@ -160,31 +142,25 @@ class User extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
-
-		/********************************************************** */
-		$page_name = "change_password";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/update_password', $data);

@@ -11,7 +11,7 @@ class Import_order extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
-		
+
 		// Load model
 		$this->load->model("model-drdistributor/import_order/ImportOrderModel");
 
@@ -40,28 +40,30 @@ class Import_order extends CI_Controller {
 	
 	public function index()
 	{
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Upload order";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Upload order";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
-		$data["MainPageTitle"] = "Upload order";
 
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
@@ -86,28 +88,30 @@ class Import_order extends CI_Controller {
 	
 	public function medicine_suggest(){
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Suggest medicine";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Suggest medicine";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
-		$data["MainPageTitle"] = "Suggest medicine";
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
@@ -125,28 +129,30 @@ class Import_order extends CI_Controller {
 	
 	public function medicine_search($order_id=''){
 		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Import order";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Import order";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
-		$data["MainPageTitle"] = "Import order";
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{
@@ -171,28 +177,30 @@ class Import_order extends CI_Controller {
 	
 	public function medicine_deleted_items($order_id=''){
 	
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Deleted items";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Deleted items";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
-		$data["MainPageTitle"] = "Deleted items";
 		
-		$data["session_user_image"] 	= $_COOKIE['user_image'];
-		$data["session_user_fname"]     = $_COOKIE['user_fname'];
-		$data["session_user_altercode"] = $_COOKIE['user_altercode'];
-		$data["session_delivering_to"]  = $_COOKIE['user_altercode'];		
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{

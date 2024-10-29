@@ -40,7 +40,7 @@ class Medicine_search extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-				/********************session***************************** */
+		/********************session***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');

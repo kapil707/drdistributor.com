@@ -150,9 +150,10 @@ class User extends CI_Controller {
 	}
 	
 	public function update_password(){
-	
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Update password";
+		
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Update password";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		

@@ -71,15 +71,24 @@ class My_cart extends CI_Controller {
 	/*******************api start*********************/
 	public function my_cart_total_api(){
 		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= $salesman_id = "";
-		if($user_type=="sales"){
-			$chemist_id 	= $_COOKIE["chemist_id"];
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
+		
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
-
+		/********************************************************** */
 		$items = "";
 		if(!empty($user_altercode))
 		{
@@ -98,16 +107,24 @@ class My_cart extends CI_Controller {
         echo json_encode($response);
 	}
 	public function my_cart_api(){
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales"){
-			$chemist_id 	= $_COOKIE["chemist_id"];
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
+		
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales")
+		{
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$order_type = $_POST["order_type"];
 		$items = $items_other = "";
 		if(!empty($user_altercode))

@@ -36,7 +36,7 @@ class Account extends CI_Controller {
 	
 	public function login() {
 
-		$this->session->sess_destroy();
+		//$this->session->sess_destroy();
 		if(!empty($this->session->userdata('user_session'))){
 			redirect('home');
 		}

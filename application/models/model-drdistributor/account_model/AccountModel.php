@@ -13,9 +13,9 @@ class AccountModel extends CI_Model
 	{
         if(empty($this->session->userdata('logged_in'))){
 			if(!empty($back_url)){
-				redirect(base_url()."login?back_url=".$back_url);
+				//redirect(base_url()."login?back_url=".$back_url);
 			}else{
-				redirect(base_url()."login");
+				//redirect(base_url()."login");
 			}
 		}
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");

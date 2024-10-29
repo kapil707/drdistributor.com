@@ -47,7 +47,9 @@ function goBack() {
 			<div class="row">
 				<div class="col-sm-12 col-12">	
 					<div class="main_box_div p-2">
-						
+						<div class="row">
+							<?php include __DIR__ . '/../medicine_details/medicine_details.php'; ?>
+						</div>
 						<b>Images</b>
 						<div class="row load_page_images"></div>
 						<div class="col-sm-12 col-12 medicine_details_hr">

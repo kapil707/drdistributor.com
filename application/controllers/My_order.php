@@ -106,17 +106,24 @@ class My_order extends CI_Controller {
 	/*******************api start*********************/
 	public function my_order_api(){
 		$get_record	 	= $_REQUEST["get_record"];
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
+		
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
@@ -139,17 +146,24 @@ class My_order extends CI_Controller {
 	
 	public function my_order_details_api(){
 		$item_id		= $_REQUEST['item_id'];
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
+		/********************session***************************** */
+		$data["session_user_image"] 	= $this->session->userdata('user_image');
+		$data["session_user_fname"]     = $this->session->userdata('user_fname');
+		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
+		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
+		
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$items = $download_url = $title = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);

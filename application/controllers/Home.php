@@ -29,7 +29,7 @@ class Home extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         //$this->AccountModel->login_check();
 
-		phpinfo();
+		//phpinfo();
 		print_r($this->session->all_userdata());
 
 		

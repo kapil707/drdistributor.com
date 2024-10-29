@@ -178,28 +178,8 @@ class AccountModel extends CI_Model
 
 	public function insert_website_session($user_session='',$user_fname='',$user_code='',$user_altercode='',$user_type='',$user_password='',$user_image='',$user_nrx='') 
 	{		
-		//$session_arr = array('user_session'=>$user_session,'user_fname'=>$user_fname,'user_code'=>$user_code,'user_altercode'=>$user_altercode,'user_type'=>$user_type,'user_password'=>$user_password,'user_division'=>$user_division,'user_compcode'=>$user_compcode,'user_image'=>$user_image,'user_nrx'=>$user_nrx);
-
-		setcookie("user_session", $user_session, time() + (86400 * 30), "/");
-		setcookie("user_fname", $user_fname, time() + (86400 * 30), "/");
-		setcookie("user_code", $user_code, time() + (86400 * 30), "/");
-		setcookie("user_altercode", $user_altercode, time() + (86400 * 30), "/");
-		setcookie("user_type", $user_type, time() + (86400 * 30), "/");
-		setcookie("user_password", $user_password, time() + (86400 * 30), "/");
-		setcookie("user_image", $user_image, time() + (86400 * 30), "/");
-		setcookie("user_nrx", $user_nrx, time() + (86400 * 30), "/");
-		//$this->session->set_userdata($session_arr);
-		$login_time = time();
-		$update_time = date("YmdHi", strtotime("+15 minutes", $login_time));
-		$row = $this->db->query("select * from drd_login_time where user_altercode='$user_altercode' and user_type='$user_type'")->row();
-		if(empty($row->id))
-		{
-			$this->db->query("insert into drd_login_time set user_altercode='$user_altercode',user_type='$user_type',login_time='$login_time',update_time='$update_time'");
-		}
-		else
-		{
-			$this->db->query("update drd_login_time set login_time='$login_time',update_time='$update_time' where user_altercode='$user_altercode' and user_type='$user_type'");
-		}
+		$session_arr = array('user_session'=>$user_session,'user_fname'=>$user_fname,'user_code'=>$user_code,'user_altercode'=>$user_altercode,'user_type'=>$user_type,'user_password'=>$user_password,'user_division'=>$user_division,'user_compcode'=>$user_compcode,'user_image'=>$user_image,'user_nrx'=>$user_nrx);
+		$this->session->set_userdata($session_arr);
 		return "1";
 	}
 

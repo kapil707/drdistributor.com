@@ -269,15 +269,11 @@ class Import_order extends CI_Controller {
 		if (filter_var($user_email_id, FILTER_VALIDATE_EMAIL)) {
 		
 		}
-		else{
-			$err = $user_email_id." is Wrong Email";
-			$mobile = "";
-			$this->Message_Model->tbl_whatsapp_email_fail($mobile,$err,$acm_altercode);
-			
+		else{			
 			$user_email_id="";
 		}
 		
-		if($user_email_id!="")
+		if(!empty($user_email_id))
 		{
 			$file_name_1 = "Import-Order-Deleted-Items-Report.xls";
 			$file_name1  = $this->import_orders_delete_items($result);

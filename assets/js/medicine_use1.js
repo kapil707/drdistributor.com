@@ -102,6 +102,7 @@ function call_page2()
 				}
 
 				/******************************************************************* */
+				item_price = item.item_price;
 				$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_ptr + "/-")
 				$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_mrp + "/-")
 				$(".medicine_details_item_gst").html("GST : "+item.item_gst +"%")

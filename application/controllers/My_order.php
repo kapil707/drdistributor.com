@@ -32,9 +32,10 @@ class My_order extends CI_Controller {
 
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_order");
-		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My Order";
+
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My Order";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -74,8 +75,9 @@ class My_order extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_order");
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My order details";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My order details";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 

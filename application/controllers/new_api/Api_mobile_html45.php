@@ -21,8 +21,9 @@ class Api_mobile_html45 extends CI_Controller {
 			}
 		}
 		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Home";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		

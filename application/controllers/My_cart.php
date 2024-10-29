@@ -33,8 +33,9 @@ class My_cart extends CI_Controller {
 
 	public function index(){
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My order";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My order";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 

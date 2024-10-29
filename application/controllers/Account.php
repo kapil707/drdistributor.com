@@ -9,20 +9,24 @@ class Account extends CI_Controller {
 	}
 	public function account_request() {
 		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Request for login credentials";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Request for login credentials";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_request', $data);
 	}
 
 	public function account_delete_request() {
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Request for account delete";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Request for account delete";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_delete_request', $data);
 	}
@@ -32,10 +36,13 @@ class Account extends CI_Controller {
 		if($this->session->userdata('user_session')!=""){
 			redirect('home');
 		}
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Login";
+
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Login";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_login', $data);
 	}

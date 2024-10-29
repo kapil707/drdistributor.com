@@ -36,9 +36,10 @@ class chemist_select extends CI_Controller {
 	}
     
     public function index(){
-		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Chemist select";
+
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Chemist select";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		

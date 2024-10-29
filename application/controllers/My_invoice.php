@@ -33,8 +33,9 @@ class My_invoice extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_invoice");
 		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My invoice";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My invoice";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -74,8 +75,9 @@ class My_invoice extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_invoice");
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My invoice details";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My invoice details";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 

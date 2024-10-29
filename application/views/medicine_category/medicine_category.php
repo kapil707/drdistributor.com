@@ -9,7 +9,7 @@
 }
 </style>
 <script>
-$(".top_bar_title").html("<?= $main_page_title ?>");
+$(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
 	window.location.href = "<?= base_url();?>";
 }

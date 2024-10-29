@@ -8,8 +8,9 @@ class Medicine_use extends CI_Controller {
 	}
 	public function index($item_code) {
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "How to use";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -18,11 +19,6 @@ class Medicine_use extends CI_Controller {
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["session_delivering_to"]  = "";
 		$data["chemist_id"] = "";
-
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || How to use";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
-		/********************************************************** */
 
 		$data['item_code'] = $item_code;
 

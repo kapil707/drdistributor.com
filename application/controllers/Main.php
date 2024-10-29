@@ -21,8 +21,9 @@ class Main extends CI_Controller {
 	public function index(){
 		$this->login_check();
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Home";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -51,8 +52,9 @@ class Main extends CI_Controller {
 
 	public function terms_of_services() {
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Terms Of Services";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -62,19 +64,15 @@ class Main extends CI_Controller {
 		$data["chemist_id"] = "";
 		$data["session_delivering_to"]  = "";
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Terms Of Services";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
-		/********************************************************** */
-
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('terms_of_services/terms_of_services', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 	public function privacy_policy() {
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Privacy policy";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Privacy policy";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -140,8 +138,9 @@ class Main extends CI_Controller {
 			$data["user_altercode"] = $chemist_id;
 		}
 
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || $order_id";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "$order_id";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -191,8 +190,9 @@ class Main extends CI_Controller {
 			$data["user_altercode"] = $chemist_id;
 		}
 	
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || $invoice_id";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "$invoice_id";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -216,8 +216,9 @@ class Main extends CI_Controller {
 			$data["item_id"] 		= "";
 			$data["user_altercode"] = "";
 			
-			/********************************************************** */
-			$data["siteTitle"] = $this->appconfig->siteTitle;
+			/********************MainPageTitle***************************** */
+			$data["MainPageTitle"] = $MainPageTitle = "DRD";
+			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 			$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 			/********************************************************** */
 

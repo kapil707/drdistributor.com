@@ -32,9 +32,10 @@ class My_notification extends CI_Controller {
 	}
 
 	public function index(){
-		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My notification";
+
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My notification";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -71,8 +72,9 @@ class My_notification extends CI_Controller {
 
 	public function my_notification_details($item_id=""){
 		
-		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || My notification details";
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "My notification details";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 

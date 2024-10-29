@@ -15,7 +15,7 @@ class chemist_select extends CI_Controller {
 		}
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 
-		/***********************log file start*************************** */
+		/***********************log file start*************************** *
 		if(!empty($_COOKIE["user_altercode"])){
 			$user_type 		= $_COOKIE["user_type"];
 			$user_altercode = $_COOKIE["user_altercode"];

@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
+		$this->load->library('session');
 		
 		/***********************log file start*************************** */
 		if(!empty($_COOKIE["user_altercode"])){

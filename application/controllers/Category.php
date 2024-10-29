@@ -34,7 +34,7 @@ class Category extends CI_Controller {
 	public function index($item_company=""){
 		
 		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["siteTitle"] = $this->appconfig->siteTitle;
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
@@ -86,7 +86,7 @@ class Category extends CI_Controller {
 	public function featured_brand($item_code="",$item_division=""){
 
 		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["siteTitle"] = $this->appconfig->siteTitle;
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
@@ -134,7 +134,7 @@ class Category extends CI_Controller {
 	public function itemcategory($item_code=""){
 
 		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["siteTitle"] = $this->appconfig->siteTitle;
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 

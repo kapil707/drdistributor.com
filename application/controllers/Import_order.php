@@ -42,6 +42,7 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || Upload order";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+		$data["MainPageTitle"] = "Upload order";
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -64,14 +65,6 @@ class Import_order extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
-
-		/********************************************************** *
-		$page_name = "import_order";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 		
 		$where = array('user_altercode'=>$user_altercode);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
@@ -95,6 +88,7 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || Suggest medicine";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+		$data["MainPageTitle"] = "Suggest medicine";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -117,14 +111,6 @@ class Import_order extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
-
-		/********************************************************** *
-		$page_name = "import_order_medicine_suggest";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 		
 		$where = array('user_altercode'=>$user_altercode);
 		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
@@ -141,6 +127,7 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || Import order";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+		$data["MainPageTitle"] = "Import order";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -163,14 +150,6 @@ class Import_order extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
-
-		/********************************************************** *
-		$page_name = "import_order";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		$data["myname"] 	= $user_altercode;
@@ -194,6 +173,7 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || Deleted items";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
+		$data["MainPageTitle"] = "Deleted items";
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -216,14 +196,6 @@ class Import_order extends CI_Controller {
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
-
-		/********************************************************** *
-		$page_name = "import_order_deleted_items";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		if($user_type=="chemist")

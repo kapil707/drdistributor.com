@@ -179,7 +179,6 @@ class AccountModel extends CI_Model
 	public function insert_website_session($user_session='',$user_fname='',$user_code='',$user_altercode='',$user_type='',$user_password='',$user_image='',$user_nrx='') 
 	{		
 		$session_arr = array(
-			'logged_in'=>TRUE,
 			'user_session'=>$user_session,
 			'user_fname'=>$user_fname,
 			'user_code'=>$user_code,
@@ -189,7 +188,12 @@ class AccountModel extends CI_Model
 			'user_image'=>$user_image,
 			'user_nrx'=>$user_nrx);
 		$this->session->set_userdata($session_arr);
-		return "1";
+
+		// Retrieve and print session data immediately after setting
+		echo '<pre>';
+		print_r($this->session->all_userdata());
+		echo '</pre>';
+		//return "1";
 	}
 
 	public function get_create_new_api($user_name,$phone_number)

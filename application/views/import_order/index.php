@@ -59,4 +59,4 @@ function goBack() {
 		</div>
 	</div>  
 </div>
-<script src="<?= base_url(); ?>assets/js/import_order/index.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo website_version_code(); ?>/import_order/index.js"></script>

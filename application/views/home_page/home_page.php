@@ -88,8 +88,6 @@ $(".top_bar_title").html("Delivering to");
 		</div>
 	</div>
 </div>
-<?php echo "kapilji" ?>
-<?php echo website_version(); ?>
 <!-- ******************broadcast_message***************************** -->
 <a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 <div class="modal modaloff" id="myModal_broadcast">
@@ -115,4 +113,4 @@ $(".top_bar_title").html("Delivering to");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<script src="<?php echo base_url(); ?>/assets/js/home_page.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo website_version_code(); ?>/home_page.js"></script>

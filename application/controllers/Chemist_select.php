@@ -4,6 +4,8 @@ class chemist_select extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
 		// Load model
 		if(empty($_COOKIE["user_altercode"])){
 			redirect(base_url()."login");

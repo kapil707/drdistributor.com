@@ -4,6 +4,9 @@ class My_invoice extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+	
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 		

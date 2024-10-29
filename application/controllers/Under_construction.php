@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class under_construction extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+	
 		//error_reporting(0);
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction!="1")

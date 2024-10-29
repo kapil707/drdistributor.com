@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
 		$this->load->model("model-drdistributor/account_model/AccountModel");
 	}
 	public function account_request() {

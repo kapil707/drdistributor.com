@@ -4,8 +4,9 @@ class My_broadcast extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
 		// Load model
-
 		$this->load->model("model-drdistributor/my_broadcast/MyBroadcastModel");
 		/***********************log file start*************************** */
 		if(!empty($_COOKIE["user_altercode"])){

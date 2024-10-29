@@ -7,7 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class New_account extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		//error_reporting(0);
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+	
 		if($this->session->userdata('user_session')==""){
 			redirect(base_url()."user/login");			
 		}

@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Medicine_use extends CI_Controller {	
+class Medicine_use extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+	}
 	public function index($item_code) {
 
 		$data["main_page_title"] = "Home";

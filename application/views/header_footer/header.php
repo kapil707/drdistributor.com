@@ -605,4 +605,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js-<?php echo website_version_code(); ?>main_page.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebsiteVersion; ?>main_page.js"></script>

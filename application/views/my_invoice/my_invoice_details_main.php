@@ -33,4 +33,4 @@ function goBack() {
 var item_id = "<?php echo $item_id; ?>";
 var user_altercode = "<?php echo $user_altercode; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo website_version_code(); ?>/my_invoice_details_main.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebsiteVersion; ?>/my_invoice_details_main.js"></script>

@@ -24,4 +24,4 @@ function goBack() {
 <script>
 var item_id = "<?php echo $item_id; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo website_version_code(); ?>/my_notification_details.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebsiteVersion; ?>/my_notification_details.js"></script>

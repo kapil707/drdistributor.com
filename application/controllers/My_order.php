@@ -33,7 +33,10 @@ class My_order extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_order");
 		
-		$data["main_page_title"] = "My Order";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || My Order";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -70,8 +73,11 @@ class My_order extends CI_Controller {
 
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_order");
-		
-		$data["main_page_title"] = "My order details";
+
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || My order details";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

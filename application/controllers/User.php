@@ -33,7 +33,10 @@ class User extends CI_Controller {
 	}
 	public function account(){
 
-		$data["main_page_title"] = "Account";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Account";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -66,7 +69,10 @@ class User extends CI_Controller {
 	}
 	public function update_account(){
 
-		$data["main_page_title"] = "Update account";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Update account";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -105,7 +111,10 @@ class User extends CI_Controller {
 
 	public function update_image(){
 		
-		$data["main_page_title"] = "Update image";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Update image";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

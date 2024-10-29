@@ -31,8 +31,11 @@ class Medicine_search extends CI_Controller {
 	}
     
     public function index(){
-		
-		$data["main_page_title"] = "Search medicines";
+
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Search medicines";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

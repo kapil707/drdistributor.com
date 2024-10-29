@@ -37,7 +37,10 @@ class chemist_select extends CI_Controller {
     
     public function index(){
 		
-		$data["main_page_title"] = "Chemist select";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Chemist select";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

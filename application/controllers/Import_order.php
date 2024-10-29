@@ -38,7 +38,10 @@ class Import_order extends CI_Controller {
 	
 	public function index()
 	{
-		$data["main_page_title"] = "Upload order";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Upload order";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -88,7 +91,10 @@ class Import_order extends CI_Controller {
 	
 	public function medicine_suggest(){
 
-		$data["main_page_title"] = "Suggest medicine";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Suggest medicine";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -131,7 +137,10 @@ class Import_order extends CI_Controller {
 	
 	public function medicine_search($order_id=''){
 		
-		$data["main_page_title"] = "Import order";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Import order";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -180,8 +189,11 @@ class Import_order extends CI_Controller {
 	}
 	
 	public function medicine_deleted_items($order_id=''){
-		
-		$data["main_page_title"] = "Deleted items";
+	
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Deleted items";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

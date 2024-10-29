@@ -8,15 +8,21 @@ class Account extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
 	}
 	public function account_request() {
-		//error_reporting(0);
-		$data["main_page_title"] = "Request for login credentials";
+		
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Request for login credentials";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_request', $data);
 	}
 
 	public function account_delete_request() {
-		//error_reporting(0);
-		$data["main_page_title"] = "Request for account delete";
+
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Request for account delete";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_delete_request', $data);
 	}
@@ -26,7 +32,10 @@ class Account extends CI_Controller {
 		if($this->session->userdata('user_session')!=""){
 			redirect('home');
 		}
-		$data["main_page_title"] = "Login";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Login";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		$this->load->view('account/header', $data);
 	    $this->load->view('account/account_login', $data);
 	}

@@ -33,7 +33,10 @@ class Category extends CI_Controller {
 
 	public function index($item_company=""){
 		
-		$data["main_page_title"] = "Dr";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -82,7 +85,10 @@ class Category extends CI_Controller {
 	
 	public function featured_brand($item_code="",$item_division=""){
 
-		$data["main_page_title"] = "Dr";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -127,7 +133,10 @@ class Category extends CI_Controller {
 	
 	public function itemcategory($item_code=""){
 
-		$data["main_page_title"] = "Dr";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

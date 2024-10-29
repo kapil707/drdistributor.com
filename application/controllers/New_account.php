@@ -28,8 +28,11 @@ class New_account extends CI_Controller {
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
 		//$data["chemist_id"] = $this->session->userdata('user_altercode');
-		
-		$data["main_page_title"] = "Stock file";		
+
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Stock file";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
 		$this->load->view('new_account/file1', $data);
@@ -160,7 +163,10 @@ if ($items != '') {
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
 		
-		$data["main_page_title"] = "Credit/debit file";		
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Credit/debit file";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
 		$this->load->view('new_account/file2', $data);
@@ -225,7 +231,10 @@ if ($items != '') {
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
 		
-		$data["main_page_title"] = "Expiry file";		
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Expiry file";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
 		$this->load->view('new_account/file3', $data);
@@ -286,7 +295,10 @@ if ($items != '') {
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
 		
-		$data["main_page_title"] = "Master file";		
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Master file";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
 		$this->load->view('new_account/file_master1', $data);
@@ -346,7 +358,10 @@ if ($items != '') {
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
 		
-		$data["main_page_title"] = "Master file2";		
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Master file2";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$this->load->view('home/header', $data);
 		$this->load->view('new_account/file_master2', $data);

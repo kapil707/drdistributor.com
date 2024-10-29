@@ -33,7 +33,10 @@ class My_cart extends CI_Controller {
 
 	public function index(){
 
-		$data["main_page_title"] = "My order";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || My order";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

@@ -21,7 +21,10 @@ class Api_mobile_html45 extends CI_Controller {
 			}
 		}
 		
-		$data["main_page_title"] = "Home";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$top_flash = $this->Chemist_Model->top_flash();
 		$top_flash = json_decode("[$top_flash]", true);

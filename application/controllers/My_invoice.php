@@ -33,7 +33,10 @@ class My_invoice extends CI_Controller {
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_invoice");
 		
-		$data["main_page_title"] = "My invoice";
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || My invoice";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];
@@ -70,8 +73,11 @@ class My_invoice extends CI_Controller {
 
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("my_invoice");
-		
-		$data["main_page_title"] = "My invoice details";
+
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || My invoice details";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

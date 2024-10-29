@@ -76,7 +76,7 @@ class Medicine_search extends CI_Controller {
 		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
 		$checkbox_company	= $_REQUEST['checkbox_company_val'];
 		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
-		$user_nrx  			= $_COOKIE["user_nrx"];
+		$user_nrx  			= $this->session->userdata('user_nrx');
 			
 		/***************************************************** */
 		if(!empty($_COOKIE["user_altercode"])){

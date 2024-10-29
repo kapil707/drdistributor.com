@@ -30,17 +30,19 @@ class My_broadcast extends CI_Controller {
 
 	/*******************api start*********************/
 	public function my_broadcast_api(){
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
+		/********************session***************************** */
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
+		$user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
 		if($user_type=="sales")
 		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
+			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 

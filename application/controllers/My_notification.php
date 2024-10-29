@@ -104,11 +104,6 @@ class My_notification extends CI_Controller {
 	public function my_notification_api(){
 		$get_record	 	= $_REQUEST["get_record"];
 		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
 		$user_type 		= $this->session->userdata('user_type');
 		$user_altercode = $this->session->userdata('user_altercode');
 		$user_password	= $this->session->userdata('user_password');
@@ -144,11 +139,6 @@ class My_notification extends CI_Controller {
 	public function my_notification_details_api(){
 		$item_id		= $_REQUEST['item_id'];
 		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
 		$user_type 		= $this->session->userdata('user_type');
 		$user_altercode = $this->session->userdata('user_altercode');
 		$user_password	= $this->session->userdata('user_password');

@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'main/index';
 
-$route['loginxx'] = 'Account/login';
 $route['login'] = 'Account/login';
 $route['create_new'] = 'Account/account_request';
 $route['account_request'] = 'Account/account_request';

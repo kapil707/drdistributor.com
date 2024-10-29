@@ -188,12 +188,6 @@ class AccountModel extends CI_Model
 			'user_image'=>$user_image,
 			'user_nrx'=>$user_nrx);
 		$this->session->set_userdata($session_arr);
-
-		// Retrieve and print session data immediately after setting
-		echo '<pre>';
-		print_r($this->session->all_userdata());
-		echo '</pre>';
-		//return "1";
 	}
 
 	public function get_create_new_api($user_name,$phone_number)

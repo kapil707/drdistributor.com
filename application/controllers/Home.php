@@ -29,7 +29,7 @@ class Home extends CI_Controller {
         $this->AccountModel->login_check();
 
 		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle()." || Home";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		

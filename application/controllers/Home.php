@@ -15,6 +15,10 @@ class Home extends CI_Controller {
 			$chemist_id = $salesman_id = "";
 			if($user_type=="sales")
 			{
+				if($user_type=="sales" && empty($_COOKIE["chemist_id"]))
+				{
+					redirect(base_url()."select_chemist");
+				}
 				$chemist_id 	= $_COOKIE["chemist_id"];
 				$salesman_id 	= $user_altercode;
 				$user_altercode = $chemist_id;

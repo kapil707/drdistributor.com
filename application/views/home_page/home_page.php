@@ -89,7 +89,7 @@ $(".top_bar_title").html("Delivering to");
 	</div>
 </div>
 <?php echo "kapilji" ?>
-<?php echo $kapil; ?>
+<?php echo website_version(); ?>
 <!-- ******************broadcast_message***************************** -->
 <a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
 <div class="modal modaloff" id="myModal_broadcast">

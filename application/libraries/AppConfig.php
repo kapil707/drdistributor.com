@@ -14,3 +14,4 @@ class AppConfig {
         return $this->WebsiteVersion;
     }
 }
+

@@ -29,8 +29,8 @@ class Home extends CI_Controller {
         $this->AccountModel->login_check();
 
 		/********************************************************** */
-		$data["siteTitle"] = $this->appconfig->siteTitle." || Home";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion;
+		$data["siteTitle"] = $this->appconfig->siteTitle()." || Home";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];

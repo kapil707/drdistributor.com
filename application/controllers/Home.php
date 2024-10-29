@@ -3,9 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		// Load model
-		//$this->load->model("LoginModel");
-		//$this->load->model("MedicineSearchModel");
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
 		
 		/***********************log file start*************************** */
 		if(!empty($_COOKIE["user_altercode"])){

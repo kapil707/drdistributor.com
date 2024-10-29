@@ -9,7 +9,7 @@ if (isset($_COOKIE["theme_type"])) {
 <head>
 	<meta charset="utf-8">
 	<title>
-		<?= $title = $this->Scheme_Model->get_website_data("title") ;?> || <?= $main_page_title;?>
+		<?= $title = $this->appconfig->siteTitle;?> || <?= $main_page_title;?>
 	</title>
 	
 	<meta name="msapplication-tap-highlight" content="no" />

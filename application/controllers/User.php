@@ -110,7 +110,7 @@ class User extends CI_Controller {
 	}
 
 	public function update_image(){
-		
+
 		/********************************************************** */
 		$data["siteTitle"] = $this->appconfig->siteTitle." || Update image";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
@@ -147,8 +147,11 @@ class User extends CI_Controller {
 	}
 	
 	public function update_password(){
-		
-		$data["main_page_title"] = "Update password";
+	
+		/********************************************************** */
+		$data["siteTitle"] = $this->appconfig->siteTitle." || Update password";
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		/********************************************************** */
 		
 		$data["session_user_image"] 	= $_COOKIE['user_image'];
 		$data["session_user_fname"]     = $_COOKIE['user_fname'];

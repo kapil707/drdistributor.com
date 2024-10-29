@@ -10,7 +10,7 @@ if (isset($_COOKIE["theme_type"])) {
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      <?= $this->Scheme_Model->get_website_data("title") ;?> || <?= $main_page_title;?>
+		<?= $title = $siteTitle; ?>
     </title>
     <!-- Stylesheets -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">

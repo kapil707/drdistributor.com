@@ -422,6 +422,7 @@ function change_item_order_quantity(){
 	$(".medicine_details_item_add_to_cart_btn").hide();
 	$(".medicine_details_item_add_to_cart_btn_disable").show();
 
+	item_price = $(".medicine_details_all_data_"+item_code).attr("item_price");
 	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){
 		$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");

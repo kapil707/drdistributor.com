@@ -5,8 +5,10 @@ class Account extends CI_Controller {
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
+
 		$this->load->model("model-drdistributor/account_model/AccountModel");
 	}
+
 	public function account_request() {
 		
 		/********************MainPageTitle***************************** */
@@ -32,8 +34,9 @@ class Account extends CI_Controller {
 	}
 	
 	public function login() {
+
 		$this->session->sess_destroy();
-		if($this->session->userdata('user_session')!=""){
+		if(!empty($this->session->userdata('user_session'))){
 			redirect('home');
 		}
 

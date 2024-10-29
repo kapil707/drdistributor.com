@@ -101,14 +101,13 @@ function call_page2()
 					$(".medicine_details_item_description1").html(item.item_description1)
 				}
 
-				/******************************************************************* */
-				item_price = item.item_price;
+				/******************************************************************/
 				$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_ptr + "/-")
 				$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_mrp + "/-")
 				$(".medicine_details_item_gst").html("GST : "+item.item_gst +"%")
 				$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
 				$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item.item_price + "/-")
-				/******************************************************************* */
+				/******************************************************************/
 
 				$(".medicine_details_item_scheme_line").show()
 				$(".medicine_details_item_scheme").show()

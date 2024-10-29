@@ -35,6 +35,7 @@ class Home extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
+		/********************session***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
@@ -51,6 +52,7 @@ class Home extends CI_Controller {
 			$salesman_id 	= $user_altercode;
 			$user_altercode = $chemist_id;
 		}
+		/********************************************************** */
 		$data["chemist_id"] = $chemist_id;
 		if($user_type=="sales")
 		{

@@ -82,7 +82,7 @@ $(".top_bar_title").html("Delivering to");
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>
 				</div>
 				<div class="text-center footer_website_version_css" style="margin-top:5px;">
-					Website version <?= $this->Scheme_Model->website_version() ;?>
+					Website version <?= website_version() ;?>
 				</div>
 			</div>
 		</div>

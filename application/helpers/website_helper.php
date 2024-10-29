@@ -1,5 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$kapil = "hello";
+if ( ! function_exists('website_version'))
+{
+	function website_version(){
+		return "10.0";
+	}
+}
+if ( ! function_exists('website_version_code'))
+{
+	function website_version_code(){
+		return "10";
+	}
+}
 if ( ! function_exists('vp_seo'))
 {
 	function vp_seo(){

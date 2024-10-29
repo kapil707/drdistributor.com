@@ -6,6 +6,8 @@ class Medicine_search extends CI_Controller {
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
+		$this->load->library('session');
+		
 		// Load model
 		$this->load->model("model-drdistributor/account_model/AccountModel");
         $this->AccountModel->login_check("medicine_search");

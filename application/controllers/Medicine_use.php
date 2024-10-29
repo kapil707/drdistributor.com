@@ -5,6 +5,7 @@ class Medicine_use extends CI_Controller {
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
+		$this->load->library('session');
 	}
 	public function index($item_code) {
 

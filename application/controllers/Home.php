@@ -27,12 +27,8 @@ class Home extends CI_Controller {
 	
 	public function index(){	
 		$this->load->model("model-drdistributor/account_model/AccountModel");
-        //$this->AccountModel->login_check();
+        $this->AccountModel->login_check();
 
-		//phpinfo();
-		print_r($this->session->all_userdata());
-
-		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";

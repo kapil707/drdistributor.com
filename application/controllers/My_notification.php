@@ -58,25 +58,18 @@ class My_notification extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["session_user_image"] 	= $this->user_image;
+		$data["session_user_fname"]     = $this->user_fname;
+		$data["session_user_altercode"] = $this->user_altercode;
+		$data["session_delivering_to"]  = $this->delivering_to;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
+		if($this->user_type=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_notification/my_notification', $data);
@@ -91,25 +84,18 @@ class My_notification extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["session_user_image"] 	= $this->user_image;
+		$data["session_user_fname"]     = $this->user_fname;
+		$data["session_user_altercode"] = $this->user_altercode;
+		$data["session_delivering_to"]  = $this->delivering_to;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
+		if($this->user_type=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
 		$data["item_id"] = $item_id;
 
@@ -120,20 +106,13 @@ class My_notification extends CI_Controller {
 
 	/*******************api start*********************/
 	public function my_notification_api(){
-		$get_record	 	= $_REQUEST["get_record"];
-		/********************session***************************** */
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-		/********************************************************** */
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
+
+		$get_record	 	= $_REQUEST["get_record"];
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode)) {
 
@@ -155,20 +134,13 @@ class My_notification extends CI_Controller {
 	}
 
 	public function my_notification_details_api(){
-		$item_id		= $_REQUEST['item_id'];
-		/********************session***************************** */
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-		/********************************************************** */
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
+
+		$item_id		= $_REQUEST['item_id'];
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
 			$result = $this->MyNotificationModel->get_my_notification_details_api($user_type,$user_altercode,$salesman_id,$item_id);

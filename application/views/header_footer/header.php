@@ -593,8 +593,8 @@ function get_base_url(){
 	return "<?= base_url(); ?>";
 }
 function get_user_altercode(){
-	<?php if(!empty($_COOKIE["user_altercode"])){ ?>
-		return "<?= $_COOKIE["user_altercode"] ?>";
+	<?php if(!empty($session_user_altercode)){ ?>
+		return "<?= $session_user_altercode ?>";
 	<?php }else {?>
 		return "";
 	<?php } ?>

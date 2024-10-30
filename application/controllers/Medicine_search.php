@@ -38,7 +38,7 @@ class Medicine_search extends CI_Controller {
 		$this->user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
-		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
+		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 		{
 			$this->chemist_id 	= $this->session->userdata('chemist_id');
 			$this->salesman_id 	= $this->user_altercode;
@@ -61,7 +61,7 @@ class Medicine_search extends CI_Controller {
 		$data["session_user_fname"]     = $this->user_fname;
 		$data["session_user_altercode"] = $this->user_altercode;
 		$data["session_delivering_to"]  = $this->user_altercode;
-		
+
 		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
 		if($this->user_type=="sales")
 		{

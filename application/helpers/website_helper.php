@@ -5,7 +5,7 @@ if ( ! function_exists('LoginCheck'))
 	function LoginCheck($back_url=''){
 
 		$ci =& get_instance();
-		$ci->load->session(); 
+		$ci->load->library('session');
 
 		if(empty($ci->session->userdata('user_session'))){
 			if(!empty($back_url)){

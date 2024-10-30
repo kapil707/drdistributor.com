@@ -103,8 +103,8 @@ class chemist_select extends CI_Controller {
 		}	
 	}
 	public function salesman_my_cart_api(){
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode	= $_COOKIE["user_altercode"];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode))
 		{

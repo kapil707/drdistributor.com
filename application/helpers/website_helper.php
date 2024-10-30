@@ -43,6 +43,26 @@ if ( ! function_exists('CreateUserLog'))
 		}
 	}
 }
+if ( ! function_exists('CreateSearcLog'))
+{
+	function CreateSearcLog($search_term='',$product_viewed=''){
+		$ci =& get_instance();
+		$ci->load->library('session');
+		if(!empty($ci->session->userdata('user_session'))){
+			$user_type 		= $ci->session->userdata('user_type');
+			$user_altercode = $ci->session->userdata('user_altercode');
+			$chemist_id 	= $salesman_id = "";
+			if($user_type=="sales" && !empty($ci->session->userdata('chemist_id')))
+			{
+				$chemist_id 	= $ci->session->userdata('chemist_id');
+				$salesman_id 	= $user_altercode;
+				$user_altercode = $chemist_id;
+			}
+			//logs create from hear
+			log_search_activity($user_altercode, $salesman_id, $search_term, $product_viewed);
+		}
+	}
+}
 if ( ! function_exists('vp_seo'))
 {
 	function vp_seo(){

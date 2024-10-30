@@ -86,14 +86,7 @@ class Medicine_details extends CI_Controller {
 	}
 
     public function get_medicine_favourite_api(){
-
-		/********************PageSession*************************** */
-		$user_type 		= $this->user_type;
 		$user_altercode = $this->user_altercode;
-		$user_password	= $this->user_password;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
-		/********************************************************** */
 
 		$items = "";
 		if(!empty($user_altercode)){

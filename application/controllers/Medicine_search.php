@@ -62,7 +62,7 @@ class Medicine_search extends CI_Controller {
 		$data["session_user_image"] 	= $this->user_image;
 		$data["session_user_fname"]     = $this->user_fname;
 		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->user_altercode;
+		$data["session_delivering_to"]  = $this->delivering_to;
 
 		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
 		if($this->user_type=="sales")

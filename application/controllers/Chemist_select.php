@@ -9,14 +9,9 @@ class chemist_select extends CI_Controller {
 		$this->load->library('session');
 
 		// Load model
-		if(empty($_COOKIE["user_altercode"])){
-			redirect(base_url()."login");
-		}
-		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
-		if($under_construction=="1")
-		{
-			redirect(base_url()."under_construction");
-		}
+		$this->load->model("model-drdistributor/account_model/AccountModel");
+        $this->AccountModel->salesman_check_chemist_or_login();
+		
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 
 		/***********************log file start*************************** */

@@ -11,28 +11,34 @@ class AccountModel extends CI_Model
     
     public function login_check($back_url='')
 	{
+		$this->check_under_construction();
         if(empty($this->session->userdata('user_session'))){
 			if(!empty($back_url)){
 				redirect(base_url()."login?back_url=".$back_url);
 			}else{
 				redirect(base_url()."login");
 			}
-		}
+		}	
+	}
+	public function check_under_construction(){
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
-		if($under_construction=="1")
-		{
+		if($under_construction=="1"){
 			redirect(base_url()."under_construction");
 		}
+	}
 
-		if(!empty($this->session->userdata('user_type')))
-		{
+	public function salesman_check_chemist_or_login(){
+		$this->check_under_construction();
+		if(!empty($this->session->userdata('user_type'))){
 			$user_type = $this->session->userdata('user_type');
 			$chemist_id = $this->session->userdata('chemist_id');
 			if($user_type=="sales" && empty($chemist_id))
 			{
 				redirect(base_url()."select_chemist");
 			}
-		}	
+		}else{
+			redirect(base_url()."login");
+		}
 	}
 
 	public function check_nrx_user($user_altercode)

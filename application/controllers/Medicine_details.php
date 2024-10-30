@@ -9,7 +9,7 @@ class Medicine_details extends CI_Controller {
 		$this->load->library('session');
 		
 		/************login check************** */	
-		LoginCheckAndLog();
+		LoginCheck();
 		/************************************* */
 
 		/************log file***************** */

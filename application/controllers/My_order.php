@@ -56,7 +56,7 @@ class My_order extends CI_Controller {
 	public function my_order_details($item_id=""){
 
 		/************login check************** */
-		LoginCheckAndLog("my_order");
+		LoginCheck("my_order");
 		/************************************* */
 
 		/********************MainPageTitle***************************** */

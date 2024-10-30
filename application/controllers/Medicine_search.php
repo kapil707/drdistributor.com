@@ -9,7 +9,7 @@ class Medicine_search extends CI_Controller {
 		$this->load->library('session');
 
 		/************login check************** */	
-		LoginCheckAndLog("medicine_search");
+		LoginCheck("medicine_search");
 		/************************************* */
 
 		/************log file***************** */

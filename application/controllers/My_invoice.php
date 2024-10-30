@@ -18,7 +18,7 @@ class My_invoice extends CI_Controller {
 
 	public function index(){
 		/************login check************** */
-		LoginCheckAndLog("my_invoice");
+		LoginCheck("my_invoice");
 		/************************************* */
 
 		/********************MainPageTitle***************************** */
@@ -55,7 +55,7 @@ class My_invoice extends CI_Controller {
 	public function my_invoice_details($item_id=""){
 
 		/************login check************** */
-		LoginCheckAndLog("my_invoice");
+		LoginCheck("my_invoice");
 		/************************************* */
 
 		/********************MainPageTitle***************************** */

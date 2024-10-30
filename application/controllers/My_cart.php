@@ -9,7 +9,7 @@ class My_cart extends CI_Controller {
 		$this->load->library('session');
 
 		/************login check************** */
-		LoginCheckAndLog("my_cart");
+		LoginCheck("my_cart");
 		/************************************* */
 
 		/************log file***************** */

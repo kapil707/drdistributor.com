@@ -13,9 +13,9 @@ class Import_order extends CI_Controller {
 		$this->load->library('session');
 
 		/************login check************** */	
-		LoginCheckAndLog("import_order");
+		LoginCheck("import_order");
 		/************************************* */
-		
+
 		/************log file***************** */
 		CreateUserLog();
 		/************************************* */

@@ -9,7 +9,7 @@ class My_notification extends CI_Controller {
 		$this->load->library('session');
 
 		/************login check************** */
-		LoginCheckAndLog("my_notification");
+		LoginCheck("my_notification");
 		/************************************* */
 
 		/************log file***************** */

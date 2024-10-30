@@ -8,25 +8,7 @@ class AccountModel extends CI_Model
         $this->load->model("model-drdistributor/WhatsAppModel");
         //$this->load->model("model-drdweb/NotificationModel");
     }
-    
-    public function LoginCheck($back_url='')
-	{
-		$this->check_under_construction();
-        if(empty($this->session->userdata('user_session'))){
-			if(!empty($back_url)){
-				redirect(base_url()."login?back_url=".$back_url);
-			}else{
-				redirect(base_url()."login");
-			}
-		} else {
-			$user_type = $this->session->userdata('user_type');
-			$chemist_id = $this->session->userdata('chemist_id');
-			if($user_type=="sales" && empty($chemist_id))
-			{
-				redirect(base_url()."select_chemist");
-			}
-		}
-	}
+	
 	public function check_under_construction(){
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
 		if($under_construction=="1"){

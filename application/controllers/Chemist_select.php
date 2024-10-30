@@ -9,23 +9,6 @@ class chemist_select extends CI_Controller {
 		$this->load->library('session');
 		
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
-
-		/***********************log file start*************************** *
-		if(!empty($this->session->userdata('user_altercode'))){
-			$user_type 		= $this->session->userdata('user_type');
-			$user_altercode = $this->session->userdata('user_altercode');
-
-			$chemist_id = $salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id 	= $this->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			//logs create from hear
-			log_activity($user_altercode,$salesman_id,$user_type,"web");
-		}
-		/***********************log file end*************************** */
 	}
     
     public function index(){

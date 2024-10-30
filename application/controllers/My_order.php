@@ -7,26 +7,13 @@ class My_order extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
+
+		/************log file***************** */
+		CreateUserLog();
+		/************************************* */
 	
 		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
-		
-		/***********************log file start*************************** */
-		if(!empty($this->session->userdata('user_altercode'))){
-			$user_type 		= $this->session->userdata('user_type');
-			$user_altercode = $this->session->userdata('user_altercode');
-
-			$chemist_id = $salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id 	= $this->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			//logs create from hear
-			log_activity($user_altercode,$salesman_id,$user_type,"web");
-		}
-		/***********************log file end*************************** */
 	}
 
 	public function index(){
@@ -69,7 +56,7 @@ class My_order extends CI_Controller {
 	public function my_order_details($item_id=""){
 
 		/************login check************** */
-		LoginCheck("my_order");
+		LoginCheckAndLog("my_order");
 		/************************************* */
 
 		/********************MainPageTitle***************************** */

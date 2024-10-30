@@ -12,24 +12,12 @@ class User extends CI_Controller {
 		LoginCheck("account");
 		/************************************* */
 
-		$this->load->model("model-drdistributor/user_model/UserModel");
-		
-		/***********************log file start*************************** */
-		if(!empty($this->session->userdata('user_altercode'))){
-			$user_type 		= $this->session->userdata('user_type');
-			$user_altercode = $this->session->userdata('user_altercode');
+		/************log file***************** */
+		CreateUserLog();
+		/************************************* */
 
-			$chemist_id = $salesman_id = "";
-			if($user_type=="sales")
-			{
-				$chemist_id 	= $this->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			//logs create from hear
-			log_activity($user_altercode,$salesman_id,$user_type,"web");
-		}
-		/***********************log file end*************************** */
+		// Load model
+		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	public function index(){
 		//error_reporting(0);

@@ -6,26 +6,14 @@ class Home extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
-		
-		/***********************log file start*************************** */
-		if(!empty($this->session->userdata('user_altercode'))){
-			$user_type 		= $this->session->userdata('user_type');
-			$user_altercode = $this->session->userdata('user_altercode');
 
-			$chemist_id = $salesman_id = "";
-			if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-			{
-				$chemist_id 	= $this->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
-			//logs create from hear
-			log_activity($user_altercode,$salesman_id,$user_type,"web");
-		}
-		/***********************log file end*************************** */
+		/************log file***************** */
+		CreateUserLog();
+		/************************************* */
 	}
 	
 	public function index(){
+		
 		/************login check************** */	
 		LoginCheck();
 		/************************************* */

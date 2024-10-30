@@ -13,7 +13,7 @@ class Home extends CI_Controller {
 			$user_altercode = $this->session->userdata('user_altercode');
 
 			$chemist_id = $salesman_id = "";
-			if($user_type=="sales")
+			if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 			{
 				$chemist_id 	= $this->session->userdata('chemist_id');
 				$salesman_id 	= $user_altercode;

@@ -18,7 +18,14 @@ class AccountModel extends CI_Model
 			}else{
 				redirect(base_url()."login");
 			}
-		}	
+		} else {
+			$user_type = $this->session->userdata('user_type');
+			$chemist_id = $this->session->userdata('chemist_id');
+			if($user_type=="sales" && empty($chemist_id))
+			{
+				redirect(base_url()."select_chemist");
+			}
+		}
 	}
 	public function check_under_construction(){
 		$under_construction = $this->Scheme_Model->get_website_data("under_construction");

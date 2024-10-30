@@ -7,10 +7,6 @@ class chemist_select extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
-
-		// Load model
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->salesman_check_chemist_or_login();
 		
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 
@@ -40,7 +36,7 @@ class chemist_select extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-				/********************session***************************** */
+		/********************session***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');

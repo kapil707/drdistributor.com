@@ -10,7 +10,8 @@ class Medicine_search extends CI_Controller {
 	var $user_password = "";
 	var $chemist_id = "";
 	var $salesman_id = "";
-
+	var $user_nrx  = "";
+	
 	public function __construct(){
 		parent::__construct();
 		// Load the AppConfig library
@@ -36,13 +37,15 @@ class Medicine_search extends CI_Controller {
 		$this->user_type 		= $this->session->userdata('user_type');
 		$this->user_altercode 	= $this->session->userdata('user_altercode');
 		$this->user_password	= $this->session->userdata('user_password');
+		$this->user_nrx			= $this->session->userdata('user_nrx');
 
 		$chemist_id = $salesman_id = "";
 		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 		{
-			$this->chemist_id 	= $this->session->userdata('chemist_id');
-			$this->salesman_id 	= $this->user_altercode;
-			$this->user_altercode = $this->chemist_id;
+			$this->chemist_id 		= $this->session->userdata('chemist_id');
+			$this->salesman_id 		= $this->user_altercode;
+			$this->user_altercode 	= $this->chemist_id;
+			$this->delivering_to 	= $this->chemist_id;
 		}
 		/********************************************************** */
 	}
@@ -55,7 +58,6 @@ class Medicine_search extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		
 		/********************PageMainData************************** */
 		$data["session_user_image"] 	= $this->user_image;
 		$data["session_user_fname"]     = $this->user_fname;
@@ -81,7 +83,7 @@ class Medicine_search extends CI_Controller {
 		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
 		$checkbox_company	= $_REQUEST['checkbox_company_val'];
 		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
-		$user_nrx  			= $this->session->userdata('user_nrx');
+		$user_nrx  			= $this->user_nrx;
 
 		/******************CreateSearcLog********************* */
 		$search_term = $keyword;

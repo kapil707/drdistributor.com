@@ -70,8 +70,8 @@ class chemist_select extends CI_Controller {
 	public function chemist_search_api()
 	{
 		$items = "";
-		$user_type 		= $_COOKIE['user_type'];
-		$user_altercode	= $_COOKIE['user_altercode'];
+		$user_type 		= $this->session->userdata('user_type');
+		$user_altercode = $this->session->userdata('user_altercode');
 		$keyword 		= $_REQUEST["keyword"];
 		if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
 		{
@@ -91,13 +91,13 @@ class chemist_select extends CI_Controller {
 
 	public function chemist_session_add($chemist_id="",$user_nrx="")
 	{
-		if(!empty($_COOKIE["user_type"]))
+		if(!empty($this->session->userdata('user_altercode')))
 		{
-			$user_type = $_COOKIE["user_type"];
+			$user_type 		= $this->session->userdata('user_type');
 			if($user_type=="sales")
 			{
-				setcookie("chemist_id", $chemist_id, time() + (86400 * 30), "/");
-				setcookie("user_nrx", $user_nrx, time() + (86400 * 30), "/");
+				$this->session->set_userdata('chemist_id',$chemist_id);
+				$this->session->set_userdata('user_nrx',$user_nrx);
 				redirect(base_url()."home");
 			}
 		}	

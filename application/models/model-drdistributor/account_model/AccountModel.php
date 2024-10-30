@@ -24,10 +24,11 @@ class AccountModel extends CI_Model
 			redirect(base_url()."under_construction");
 		}
 
-		if(!empty($_COOKIE["user_type"]))
+		if(!empty($this->session->userdata('user_type')))
 		{
-			$user_type = $_COOKIE["user_type"];
-			if($user_type=="sales" && empty($_COOKIE["chemist_id"]))
+			$user_type = $this->session->userdata('user_type');
+			$chemist_id = $this->session->userdata('chemist_id');
+			if($user_type=="sales" && empty($chemist_id))
 			{
 				redirect(base_url()."select_chemist");
 			}

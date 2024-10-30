@@ -58,15 +58,7 @@ class chemist_select extends CI_Controller {
 		if($user_type=="sales")
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_item_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
-
-		/********************************************************** *
-		$page_name = "search_chemist";
-		$browser_type = "Web";
-		$browser = "";
-
-		$this->ActivityModel->activity_log($user_type,$user_altercode,$salesman_id,$page_name,$browser_type,$browser);
-		/********************************************************** */		
+		}	
 		
 		$data["chemist_id"] = $chemist_id;
 		$data["chemist_id_for_cart_total"] = $chemist_id;

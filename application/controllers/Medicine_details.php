@@ -8,8 +8,9 @@ class Medicine_details extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 		
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check();
+		/************login check************** */	
+		LoginCheck();
+		/************************************* */
 	
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 

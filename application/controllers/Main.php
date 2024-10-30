@@ -7,7 +7,8 @@ class Main extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 	}
-	public function login_check()
+
+	public function LoginCheck()
 	{
 		if($this->session->userdata('user_session')!=""){
 			redirect(base_url()."home");			
@@ -20,7 +21,7 @@ class Main extends CI_Controller {
 	}
 	
 	public function index(){
-		$this->login_check();
+		$this->LoginCheck();
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";

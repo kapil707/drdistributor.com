@@ -31,8 +31,9 @@ class My_order extends CI_Controller {
 
 	public function index(){
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_order");
+		/************login check************** */
+		LoginCheck("my_order");
+		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My Order";
@@ -67,8 +68,9 @@ class My_order extends CI_Controller {
 
 	public function my_order_details($item_id=""){
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_order");
+		/************login check************** */
+		LoginCheck("my_order");
+		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My order details";

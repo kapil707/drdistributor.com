@@ -8,8 +8,9 @@ class User extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("account");
+		/************login check************** */
+		LoginCheck("account");
+		/************************************* */
 
 		$this->load->model("model-drdistributor/user_model/UserModel");
 		

@@ -25,9 +25,10 @@ class Home extends CI_Controller {
 		/***********************log file end*************************** */
 	}
 	
-	public function index(){	
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check();
+	public function index(){
+		/************login check************** */	
+		LoginCheck();
+		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";

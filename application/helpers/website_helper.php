@@ -1,16 +1,26 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$kapil = "hello";
-if ( ! function_exists('website_version'))
+if ( ! function_exists('LoginCheck'))
 {
-	function website_version(){
-		return "10.0";
-	}
-}
-if ( ! function_exists('website_version_code'))
-{
-	function website_version_code(){
-		return "10";
+	function LoginCheck($back_url=''){
+
+		$ci =& get_instance();
+		$ci->load->session(); 
+
+		if(empty($ci->session->userdata('user_session'))){
+			if(!empty($back_url)){
+				redirect(base_url()."login?back_url=".$back_url);
+			}else{
+				redirect(base_url()."login");
+			}
+		} else {
+			$user_type = $ci->session->userdata('user_type');
+			$chemist_id = $ci->session->userdata('chemist_id');
+			if($user_type=="sales" && empty($chemist_id))
+			{
+				redirect(base_url()."select_chemist");
+			}
+		}
 	}
 }
 if ( ! function_exists('vp_seo'))

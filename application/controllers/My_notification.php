@@ -7,11 +7,12 @@ class My_notification extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
+
+		/************login check************** */
+		LoginCheck("my_notification");
+		/************************************* */
 	
 		// Load model
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_notification");
-
 		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 
 		/***********************log file start*************************** */

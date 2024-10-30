@@ -8,10 +8,11 @@ class My_cart extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
-		// Load model
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_cart");
+		/************login check************** */
+		LoginCheck("my_cart");
+		/************************************* */
 
+		// Load model
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 
 		/***********************log file start*************************** */

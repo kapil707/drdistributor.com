@@ -9,7 +9,7 @@ class AccountModel extends CI_Model
         //$this->load->model("model-drdweb/NotificationModel");
     }
     
-    public function login_check($back_url='')
+    public function LoginCheck($back_url='')
 	{
 		$this->check_under_construction();
         if(empty($this->session->userdata('user_session'))){

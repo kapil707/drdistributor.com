@@ -8,10 +8,11 @@ class Medicine_search extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
-		// Load model
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("medicine_search");
+		/************login check************** */	
+		LoginCheck("medicine_search");
+		/************************************* */
 
+		// Load model
 		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
 
 		/***********************log file start*************************** */

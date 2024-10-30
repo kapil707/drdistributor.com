@@ -30,10 +30,10 @@ class My_invoice extends CI_Controller {
 	}
 
 	public function index(){
+		/************login check************** */
+		LoginCheck("my_invoice");
+		/************************************* */
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_invoice");
-		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My invoice";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
@@ -67,8 +67,9 @@ class My_invoice extends CI_Controller {
 
 	public function my_invoice_details($item_id=""){
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("my_invoice");
+		/************login check************** */
+		LoginCheck("my_invoice");
+		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My invoice details";

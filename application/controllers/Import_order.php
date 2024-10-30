@@ -12,12 +12,13 @@ class Import_order extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
+		/************login check************** */	
+		LoginCheck("import_order");
+		/************************************* */
+
 		// Load model
 		$this->load->model("model-drdistributor/import_order/ImportOrderModel");
-
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-        $this->AccountModel->login_check("import_order");
-
+		
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 
 		/***********************log file start*************************** */

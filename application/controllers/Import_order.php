@@ -1,10 +1,15 @@
 <?php
-/*ini_set('memory_limit','-1');
-ini_set('post_max_size','100M');
-ini_set('upload_max_filesize','100M');
-ini_set('max_execution_time',36000);*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Import_order extends CI_Controller {
+
+	var $user_image = "";
+	var $user_fname = "";
+	var $delivering_to = "";
+	var $user_type = "";
+	var $user_altercode = "";
+	var $user_password = "";
+	var $chemist_id = "";
+	var $salesman_id = "";
 	
 	public function __construct(){
 		parent::__construct();
@@ -23,6 +28,24 @@ class Import_order extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/import_order/ImportOrderModel");
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
+
+		/********************session start***************************** */
+		$this->user_image 	 = $this->session->userdata('user_image');
+		$this->user_fname    = $this->session->userdata('user_fname');
+		$this->delivering_to = $this->session->userdata('user_altercode');	
+		
+		$this->user_type 		= $this->session->userdata('user_type');
+		$this->user_altercode 	= $this->session->userdata('user_altercode');
+		$this->user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
+		{
+			$this->chemist_id 	= $this->session->userdata('chemist_id');
+			$this->salesman_id 	= $this->user_altercode;
+			$this->user_altercode = $this->chemist_id;
+		}
+		/********************************************************** */
 	}
 	
 	public function index()

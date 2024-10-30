@@ -1,7 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Medicine_search extends CI_Controller {
-	
+
+	var $user_image = "";
+	var $user_fname = "";
+	var $delivering_to = "";
+	var $user_type = "";
+	var $user_altercode = "";
+	var $user_password = "";
+	var $chemist_id = "";
+	var $salesman_id = "";
+
 	public function __construct(){
 		parent::__construct();
 		// Load the AppConfig library
@@ -18,6 +27,24 @@ class Medicine_search extends CI_Controller {
 
 		// Load model
 		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
+
+		/********************session start***************************** */
+		$this->user_image 	 = $this->session->userdata('user_image');
+		$this->user_fname    = $this->session->userdata('user_fname');
+		$this->delivering_to = $this->session->userdata('user_altercode');	
+		
+		$this->user_type 		= $this->session->userdata('user_type');
+		$this->user_altercode 	= $this->session->userdata('user_altercode');
+		$this->user_password	= $this->session->userdata('user_password');
+
+		$chemist_id = $salesman_id = "";
+		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
+		{
+			$this->chemist_id 	= $this->session->userdata('chemist_id');
+			$this->salesman_id 	= $this->user_altercode;
+			$this->user_altercode = $this->chemist_id;
+		}
+		/********************************************************** */
 	}
     
     public function index(){
@@ -28,29 +55,19 @@ class Medicine_search extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
 		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
-
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
-		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
+		/********************PageMainData************************** */
+		$data["session_user_image"] 	= $this->user_image;
+		$data["session_user_fname"]     = $this->user_fname;
+		$data["session_user_altercode"] = $this->user_altercode;
+		$data["session_delivering_to"]  = $this->user_altercode;
+		
+		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
+		if($this->user_type=="sales")
 		{
 			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
+		/********************************************************** */
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_search/medicine_search', $data);
@@ -65,7 +82,7 @@ class Medicine_search extends CI_Controller {
 		$checkbox_company	= $_REQUEST['checkbox_company_val'];
 		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
 		$user_nrx  			= $this->session->userdata('user_nrx');
-		
+
 		/******************CreateSearcLog********************* */
 		$search_term = $keyword;
 		$product_viewed = "";

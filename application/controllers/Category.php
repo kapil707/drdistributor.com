@@ -28,7 +28,7 @@ class Category extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		/********************session***************************** */
+		/********************session start***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
@@ -39,7 +39,7 @@ class Category extends CI_Controller {
 		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 		{
 			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
@@ -75,7 +75,7 @@ class Category extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
-		/********************session***************************** */
+		/********************session start***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
@@ -86,7 +86,7 @@ class Category extends CI_Controller {
 		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 		{
 			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;
@@ -126,7 +126,7 @@ class Category extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		/********************session***************************** */
+		/********************session start***************************** */
 		$data["session_user_image"] 	= $this->session->userdata('user_image');
 		$data["session_user_fname"]     = $this->session->userdata('user_fname');
 		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
@@ -137,7 +137,7 @@ class Category extends CI_Controller {
 		$user_password	= $this->session->userdata('user_password');
 
 		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		if($user_type=="sales" && !empty($this->session->userdata('chemist_id')))
 		{
 			$chemist_id 	= $this->session->userdata('chemist_id');
 			$salesman_id 	= $user_altercode;

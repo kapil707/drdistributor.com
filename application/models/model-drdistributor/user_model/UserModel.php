@@ -11,6 +11,16 @@ class UserModel extends CI_Model
 		$this->user_profile_url = $this->appconfig->getUserProfileUrl();
 	} 
 
+	public function get_chemist_photo($user_altercode){
+		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
+		$user_image = $this->user_profile_url.$row->image;
+		if(empty($row->image))
+		{
+			$user_image = base_url()."img_v51/logo4.png";
+		}
+		return $user_image;
+	}
+
 	public function get_user_account_api($user_type,$user_altercode,$salesman_id)
 	{
 		$items = "";

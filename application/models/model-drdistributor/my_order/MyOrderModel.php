@@ -4,22 +4,15 @@ class MyOrderModel extends CI_Model
 {
 	public function __construct(){
 		parent::__construct();
-	}
-	
-	public function get_chemist_photo($user_altercode){
-		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
-		$user_image = base_url()."user_profile/$row->image";
-		if(empty($row->image))
-		{
-			$user_image = base_url()."img_v51/logo4.png";
-		}
-		return $user_image;
+
+		// Load model
+		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	
 	public function get_my_order_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit=12) {		
 		$jsonArray = array();
 		
-		$user_image = $this->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
 
 		$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		if($user_type=="sales")

@@ -7,16 +7,14 @@ if ( ! function_exists('LoginCheck'))
 		$ci =& get_instance();
 		$ci->load->library('session');
 
-		if(empty($ci->session->userdata('user_session'))){
+		if(empty($ci->session->userdata('UserId'))){
 			if(!empty($back_url)){
 				redirect(base_url()."login?back_url=".$back_url);
 			}else{
 				redirect(base_url()."login");
 			}
 		} else {
-			$user_type 		= $ci->session->userdata('user_type');
-			$user_altercode = $ci->session->userdata('user_altercode');
-			if($user_type=="sales" && empty($ci->session->userdata('chemist_id')))
+			if($$ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
 			{
 				redirect(base_url()."select_chemist");
 			}

@@ -2,15 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
-	var $user_nrx  = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 
 	public function __construct(){
 		parent::__construct();
@@ -23,23 +22,14 @@ class Home extends CI_Controller {
 		/************************************* */
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 	
@@ -55,26 +45,26 @@ class Home extends CI_Controller {
 		/********************************************************** */
 		
 		/********************PageMainData************************** */
-		$data["session_user_type"] 		= $this->user_type;
-		$data["session_user_image"] 	= $this->user_image;
-		$data["session_user_fname"]     = $this->user_fname;
-		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->delivering_to;
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
-		if($this->user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
 		
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home_page/home_page', $data);
 		$this->load->view('header_footer/footer', $data);
-	}
-
-	public function test(){	
-		$this->load->view('test/test');
 	}
 
 	/*******************api start*********************/
@@ -111,13 +101,12 @@ class Home extends CI_Controller {
 		$user_nrx = "no";
 
 		$session_yes_no = "no";
-		if(!empty($this->user_type)){
-			$user_type 		= $this->user_type;
-			$user_altercode = $this->user_altercode;
-			$user_password	= $this->user_password;
-			$user_nrx		= $this->user_nrx;
-			$chemist_id 	= $this->chemist_id;
-			$salesman_id 	= $this->salesman_id;
+		if(!empty($this->UserType)){
+			$user_type 		= $this->UserType;
+			$user_password	= $this->UserPassword;
+			$user_nrx		= $this->ChemistNrx;
+			$user_altercode = $this->ChemistId;
+			$salesman_id 	= $this->SalesmanId;
 			$session_yes_no = "yes";
 		}
 

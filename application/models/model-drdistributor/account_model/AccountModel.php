@@ -158,7 +158,7 @@ class AccountModel extends CI_Model
 
 		if($status==1 && $type=="website"){
 			//$this->insert_website_session($user_session,$user_fname,$user_code,$user_altercode,$user_type,$user_password,$user_image,$user_nrx);
-			$this->insert_website_session($user_type='',$user_altercode='',$user_fname='',$user_password='',$user_image='',$user_nrx='');
+			$this->insert_website_session($user_altercode='',$user_type='',$user_fname='',$user_password='',$user_image='',$user_nrx='');
 		}
 
 		$dt = array(
@@ -179,7 +179,7 @@ class AccountModel extends CI_Model
 		return $return;	
 	}
 
-	public function insert_website_session($UserType='',$UserId='',$UserFullName='',$UserPassword='',$UserImage='',$ChemistId='') 
+	public function insert_website_session($UserId='',$UserType='',$UserFullName='',$UserPassword='',$UserImage='',$ChemistNrx='') 
 	{	
 		$ChemistId 	= $UserId;
 		$SalesmanId	= "";
@@ -189,8 +189,8 @@ class AccountModel extends CI_Model
 		}
 
 		$session_arr = array(
-			'UserType'=>$UserType,
 			'UserId'=>$UserId,
+			'UserType'=>$UserType,
 			'UserFullName'=>$UserFullName,
 			'UserPassword'=>$UserPassword,
 			'UserImage'=>$UserImage,

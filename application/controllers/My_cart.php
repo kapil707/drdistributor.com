@@ -93,7 +93,7 @@ class My_cart extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
-	public function my_cart_api(){
+	public function my_cart_api() {
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
@@ -123,8 +123,8 @@ class My_cart extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function medicine_add_to_cart_api()
-	{
+	public function medicine_add_to_cart_api() {
+
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
@@ -138,7 +138,7 @@ class My_cart extends CI_Controller {
 		
 		$status = $status_message = "";
 		if(!empty($UserType) && !empty($ChemistId)){
-			
+
 			$excel_number = "";
 			$result = $this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
 			
@@ -163,15 +163,16 @@ class My_cart extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function medicine_delete_all_api(){
+	public function medicine_delete_all_api() {
 
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
-		if(!empty($user_type) && !empty($user_altercode)){
-			$result = $this->MyCartModel->medicine_delete_all_api($user_type,$user_altercode,$salesman_id);
+		if(!empty($UserType) && !empty($ChemistId)){
+
+			$result = $this->MyCartModel->medicine_delete_all_api($UserType,$ChemistId,$SalesmanId);
+
 			$items = $result["items"];
 		}
 		
@@ -186,16 +187,17 @@ class My_cart extends CI_Controller {
 		echo json_encode($response);
 	}
 
-	public function medicine_delete_api(){
+	public function medicine_delete_api() {
 
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
 		$item_code 		= $_POST['item_code'];
-		if(!empty($user_type) && !empty($user_altercode)){
-			$result = $this->MyCartModel->medicine_delete_api($user_type,$user_altercode,$salesman_id,$item_code);
+		if(!empty($UserType) && !empty($ChemistId)) {
+			
+			$result = $this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$item_code);
+
 			$items = $result["items"];
 		}
 		$response = array(
@@ -209,28 +211,28 @@ class My_cart extends CI_Controller {
 		echo json_encode($response);
 	}
 
-	public function place_order_api()
-	{
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$user_password 	= $this->user_password;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+	public function place_order_api() {
+		
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
+		$UserPassword 	= $this->UserPassword;
 
 		$items = "";
 		$remarks 		= $_REQUEST["remarks"];
+		if(!empty($UserType) && !empty($ChemistId)) {
+			$result = $this->MyCartModel->place_order_api($UserType,$ChemistId,$UserPassword,$SalesmanId,"pc_mobile",$remarks);
+			$status = $result["status"];
+			$status_message = $result["status_message"];
 
-		$result = $this->MyCartModel->place_order_api($user_type,$user_altercode,$user_password,$salesman_id,"pc_mobile",$remarks);
-		$status = $result["status"];
-		$status_message = $result["status_message"];
-
-		$jsonArray = array();
-		$dt = array(
-			'status'=>$status,
-			'status_message'=>$status_message,
-		);
-		$jsonArray[] = $dt;
-		$items = $jsonArray;
+			$jsonArray = array();
+			$dt = array(
+				'status'=>$status,
+				'status_message'=>$status_message,
+			);
+			$jsonArray[] = $dt;
+			$items = $jsonArray;
+		}
 
 		$response = array(
 			'success' => "1",

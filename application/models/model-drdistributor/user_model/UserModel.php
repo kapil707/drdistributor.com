@@ -2,8 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class UserModel extends CI_Model  
 {
+	var $user_profile_url = "";
 	public function __construct(){
 		parent::__construct();
+		$this->user_profile_url = "https://www.drdweb.co.in/user_profile/";
 	} 
 
 	public function get_user_account_api($user_type,$user_altercode,$salesman_id)
@@ -23,7 +25,7 @@ class UserModel extends CI_Model
 				$user_gstno 	= ($row->gstno);				
 				$where= array('code'=>$row->code);
 				$row1 = $this->Scheme_Model->select_row("tbl_chemist_other",$where);
-				$user_image = base_url()."user_profile/$row1->image";
+				$user_image = $this->user_profile_url.$row1->image;
 				if(empty($row1->image))
 				{
 					$user_image = base_url()."img_v51/logo.png";

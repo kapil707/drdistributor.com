@@ -594,7 +594,7 @@ function get_base_url(){
 function get_user_altercode(){
 	<?php if(!empty($ChemistId)){ ?>
 		return "<?= $ChemistId ?>";
-	<?php }else {?>
+	<?php } else {?>
 		return "";
 	<?php } ?>
 }

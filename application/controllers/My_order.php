@@ -82,19 +82,22 @@ class My_order extends CI_Controller {
 		/********************************************************** */
 
 		/********************PageMainData************************** */
-		$data["session_user_type"] 		= $this->user_type;
-		$data["session_user_image"] 	= $this->user_image;
-		$data["session_user_fname"]     = $this->user_fname;
-		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->delivering_to;
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
-		if($this->user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-
 		$data["item_id"] = $item_id;
 
 		$this->load->view('header_footer/header', $data);		
@@ -105,16 +108,15 @@ class My_order extends CI_Controller {
 	/*******************api start*********************/
 	public function my_order_api(){
 
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
 		$get_record	 	= $_REQUEST["get_record"];
 		$items = "";
-		if(!empty($user_type) && !empty($user_altercode)) {
+		if(!empty($UserType) && !empty($ChemistId)) {
 
-			$result = $this->MyOrderModel->get_my_order_api($user_type,$user_altercode,$salesman_id,$get_record);
+			$result = $this->MyOrderModel->get_my_order_api($UserType,$ChemistId,$SalesmanId,$get_record);
 			$items  	= $result["items"];
 			$get_record  = $result["get_record"];
 		}
@@ -133,15 +135,16 @@ class My_order extends CI_Controller {
 	
 	public function my_order_details_api(){
 
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
 		$item_id		= $_REQUEST['item_id'];
 		$items = $download_url = $title = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){
+
+			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
+
 			$title  = $result["title"];
 			$items  = $result["items"];
 			$download_url  = $result["download_url"];
@@ -161,6 +164,7 @@ class My_order extends CI_Controller {
 	}
 
 	public function my_order_details_main_api(){
+		
 		$item_id		= $_REQUEST['item_id'];
 		$user_type 		= "chemist";
 		$user_altercode = $_REQUEST['user_altercode'];

@@ -71,7 +71,7 @@ if (isset($_COOKIE["theme_type"])) {
 						Loading....
 					</h1>
 					<div class="pro-link top_bar_title1">
-						Code : <?= $session_delivering_to ?>
+						Code : <?= $DeliveringTo ?>
 					</div>
 				</div>
 			</div>

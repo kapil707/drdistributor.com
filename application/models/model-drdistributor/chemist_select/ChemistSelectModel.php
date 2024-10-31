@@ -2,8 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class ChemistSelectModel extends CI_Model  
 {
+	var $user_profile_url = "";
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->user_profile_url = $this->appconfig->getUserProfileUrl();
 	}
 	
 	public function chemist_search_api($keyword="")
@@ -32,7 +37,7 @@ class ChemistSelectModel extends CI_Model
 				$chemist_image = base_url()."img_v51/logo4.png";
 				if(!empty($row->image))
 				{
-					$chemist_image = base_url()."user_profile/".$row->image;
+					$chemist_image = $this->user_profile_url.$row->image;
 				}
 				$count++;	
 				

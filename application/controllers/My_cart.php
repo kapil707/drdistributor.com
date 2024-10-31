@@ -75,11 +75,12 @@ class My_cart extends CI_Controller {
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
+		$UserPassword 	= $this->UserPassword;
 		
 		$items = "";
 		if(!empty($UserType) && !empty($ChemistId))	{
 
-			$result = $this->MyCartModel->my_cart_total_api($UserType,$ChemistId,$user_password,$SalesmanId);
+			$result = $this->MyCartModel->my_cart_total_api($UserType,$ChemistId,$UserPassword,$SalesmanId);
 			$items = $result["items"];
 		}
 		

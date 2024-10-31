@@ -249,7 +249,7 @@ if (isset($_COOKIE["theme_type"])) {
 					<?= $UserFullName ?>
 				</div>
 				<div class="left_menu_bar_accoun_chemist_code">
-					Code : <?= $session_user_altercode ?>
+					Code : <?= $UserId ?>
 				</div>
 			</div>
 			<div class="col-sm-2 col-2 text-left">

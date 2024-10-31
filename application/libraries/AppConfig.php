@@ -5,7 +5,7 @@ class AppConfig {
     // Define application-wide settings
     public $siteTitle = "D R Distributors Pvt Ltd";
     public $WebsiteVersion = "10.0.0";
-    public $Weburl = "";
+    public $Weburl = "https://www.drdistributor.com/";
     public $WebJs = "10-0-0";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
 
@@ -15,6 +15,10 @@ class AppConfig {
 
     public function getWebsiteVersion() {
         return $this->WebsiteVersion;
+    }
+
+    public function getWeburl() {
+        return $this->Weburl;
     }
 
     public function getWebJs() {

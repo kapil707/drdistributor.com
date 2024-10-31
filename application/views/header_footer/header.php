@@ -14,7 +14,7 @@ if (isset($_COOKIE["theme_type"])) {
 	
 	<meta name="msapplication-tap-highlight" content="no" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="canonical" href="https://www.drdistributor.com/" />
+	<link rel="canonical" href="<?php echo $this->appconfig->getWeburl(); ?>" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -296,10 +296,9 @@ if (isset($_COOKIE["theme_type"])) {
 				</a>
 			</li>
 			<?php
-			if(!empty($_COOKIE['user_type'])){
-			if($_COOKIE['user_type']=="sales")
+			if(!empty($session_user_type)){
+			if($session_user_type=="sales")
 			{
-				$user_type = $_COOKIE['user_type'];
 				?>
 			<h2 class="text-left">Server Report</h2>
 			<li>

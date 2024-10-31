@@ -59,6 +59,7 @@ class My_cart extends CI_Controller {
 		/********************************************************** */
 
 		/********************PageMainData************************** */
+		$data["session_user_type"] 		= $this->user_type;
 		$data["session_user_image"] 	= $this->user_image;
 		$data["session_user_fname"]     = $this->user_fname;
 		$data["session_user_altercode"] = $this->user_altercode;

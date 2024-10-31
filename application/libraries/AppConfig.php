@@ -7,7 +7,7 @@ class AppConfig {
     public $WebsiteVersion = "10.0.0";
     public $Weburl = "";
     public $WebJs = "10-0-0";
-    public $userProfileUrl = "https://www.drdweb.co.in/user_profile/";
+    public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
 
     public function getSiteTitle() {
         return $this->siteTitle;

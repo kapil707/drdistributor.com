@@ -61,7 +61,7 @@ function goBack() {
 						<?= $this->Scheme_Model->get_website_data("title2") ;?>
 					</div>
 					<div class="text-center website_version_css" style="margin-top:5px;">
-						Website version <?= $WebsiteVersion;?>
+						Website version <?= $this->appconfig->getWebsiteVersion(); ?>
 					</div>
 				</div>
 			</div>

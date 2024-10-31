@@ -47,6 +47,7 @@ class chemist_select extends CI_Controller {
 		$data["MainPageTitle"] = $MainPageTitle = "Chemist select";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
+		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
 		/********************session start***************************** */

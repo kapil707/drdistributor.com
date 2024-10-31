@@ -174,4 +174,4 @@ function goBack() {
 <script>
 item_code = '<?= $item_code; ?>';
 </script>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->WebJs(); ?>/medicine_use.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/medicine_use.js"></script>

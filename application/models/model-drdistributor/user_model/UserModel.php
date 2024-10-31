@@ -8,7 +8,7 @@ class UserModel extends CI_Model
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		
-		$this->user_profile_url = $this->appconfig->getUserProfileUrl;
+		$this->user_profile_url = $this->appconfig->getUserProfileUrl();
 	} 
 
 	public function get_user_account_api($user_type,$user_altercode,$salesman_id)

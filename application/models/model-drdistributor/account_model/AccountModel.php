@@ -8,7 +8,7 @@ class AccountModel extends CI_Model
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 
-		$this->user_profile_url = $this->appconfig->getUserProfileUrl;
+		$this->user_profile_url = $this->appconfig->getUserProfileUrl();
 
         $this->load->model("model-drdistributor/EmailModel");
         $this->load->model("model-drdistributor/WhatsAppModel");

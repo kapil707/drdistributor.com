@@ -64,12 +64,10 @@ class chemist_select extends CI_Controller {
 	public function chemist_search_api() {
 
 		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
 
 		$items = "";
 		$keyword 		= $_REQUEST["keyword"];
-		if(!empty($UserType) && !empty($ChemistId) && !empty($keyword))
-		{
+		if(!empty($UserType) && !empty($keyword)) {
 			$result = $this->ChemistSelectModel->chemist_search_api($keyword);
 			$items = $result["items"];
 		}

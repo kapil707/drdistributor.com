@@ -14,7 +14,7 @@ if ( ! function_exists('LoginCheck'))
 				redirect(base_url()."login");
 			}
 		} else {
-			if($$ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
+			if($ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
 			{
 				redirect(base_url()."select_chemist");
 			}

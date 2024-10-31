@@ -65,8 +65,9 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		
-		$where = array('user_altercode'=>$this->ChemistId);
+		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+
+		$where = array('user_altercode'=>$chemist_id);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
 		$data["headername"] = $data["itemname"] = $data["itemqty"] = $data["itemmrp"] 	= "";
 		if(!empty($row->headername))
@@ -106,8 +107,9 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		
-		$where = array('user_altercode'=>$this->ChemistId);
+		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+
+		$where = array('user_altercode'=>$chemist_id);
 		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
 		$data["result"] = $result;
 
@@ -140,6 +142,7 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
+		$data["chemist_id"] = $chemist_id =$this->ChemistId;
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		$data["myname"] 	= $this->ChemistId;
@@ -181,12 +184,12 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$ChemistId = $this->ChemistId;
+		$data["chemist_id"] = $chemist_id =$this->ChemistId;
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		if($user_type=="chemist")
 		{
-			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$chemist_id' ")->row();
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= $users->name;
 			$acm_email 		= $users->email;

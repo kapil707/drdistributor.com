@@ -4,21 +4,14 @@ class MyNotificationModel extends CI_Model
 {
 	public function __construct(){
 		parent::__construct();
-	}
-	
-	public function get_chemist_photo($user_altercode){
-		$row = $this->db->query("SELECT tbl_chemist_other.image from tbl_chemist,tbl_chemist_other where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code = tbl_chemist_other.code")->row();
-		$user_image = base_url()."user_profile/$row->image";
-		if(empty($row->image))
-		{
-			$user_image = base_url()."img_v51/logo4.png";
-		}
-		return $user_image;
+
+		// Load model
+		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	
 	public function get_my_notification_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12") {
 		
-		$user_image = $this->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
 		
 		$jsonArray = array();
 		
@@ -57,7 +50,7 @@ class MyNotificationModel extends CI_Model
 	
 	public function get_my_notification_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="") {
 		
-		$user_image = $this->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
 		
 		$jsonArray = array();
 		

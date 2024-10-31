@@ -23,4 +23,4 @@ function goBack() {
 var item_id = "<?php echo $item_id; ?>";
 var user_altercode = "<?php echo $user_altercode; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $WebsiteVersion; ?>//my_order_details_main.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->WebJs(); ?>/my_order_details_main.js"></script>

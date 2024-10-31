@@ -42,7 +42,8 @@ class Main extends CI_Controller {
 		$data["UserId"] 		= "Guest";
 		$data["DeliveringTo"] 	= "Guest";
 		$data["chemist_id"] = "";
-		if(!empty($this->user_altercode)){
+		
+		if(!empty($this->UserType)){
 			redirect(base_url()."home");
 		}
 		/**********************************************************/

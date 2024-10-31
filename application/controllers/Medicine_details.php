@@ -78,7 +78,7 @@ class Medicine_details extends CI_Controller {
 		$ChemistId = $this->ChemistId;
 
 		$items = "";
-		if(!empty($user_altercode)){
+		if(!empty($ChemistId)){
 	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($ChemistId);
 		}
         $response = array(

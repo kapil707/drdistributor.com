@@ -2,14 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Import_order extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 	
 	public function __construct(){
 		parent::__construct();
@@ -30,23 +30,14 @@ class Import_order extends CI_Controller {
 		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 	
@@ -57,31 +48,25 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
 		
-		$where = array('user_altercode'=>$user_altercode);
+		$where = array('user_altercode'=>$this->ChemistId);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
 		$data["headername"] = $data["itemname"] = $data["itemqty"] = $data["itemmrp"] 	= "";
 		if(!empty($row->headername))
@@ -104,31 +89,25 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
 		
-		$where = array('user_altercode'=>$user_altercode);
+		$where = array('user_altercode'=>$this->ChemistId);
 		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
 		$data["result"] = $result;
 
@@ -144,32 +123,26 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
-		$data["myname"] 	= $user_altercode;
+		$data["myname"] 	= $this->ChemistId;
 		$where = array('order_id'=>$order_id,'status'=>'0');
 		$result = $this->Scheme_Model->select_all_result("drd_import_file",$where,"id","asc");
 		$data["result"] 	= $result;
@@ -191,34 +164,29 @@ class Import_order extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserPassword"]= $this->UserPassword;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistNrx"]	 = $this->ChemistNrx;
+		$data["ChemistId"]	 = $this->ChemistId;
+		$data["SalesmanId"]	 = $this->SalesmanId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
-		if($user_type=="sales")
-		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
+		$ChemistId = $this->ChemistId;
 
 		$data["order_id"]	= $order_id = base64_decode($order_id);
 		if($user_type=="chemist")
 		{
-			$users = $this->db->query("select * from tbl_chemist where altercode='$chemist_id' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= $users->name;
 			$acm_email 		= $users->email;

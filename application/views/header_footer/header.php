@@ -365,7 +365,7 @@ if (isset($_COOKIE["theme_type"])) {
 					Download App
 				</a>
 			</li>
-			<?php if(!empty($_COOKIE['user_session'])){ ?>
+			<?php if(!empty($session_user_type)){ ?>
 			<li title="Logout">
 				<a title="Logout" href="javascript:void(0);" onclick="logout_function()">
 					<i class="fa fa-sign-out" aria-hidden="true"></i>

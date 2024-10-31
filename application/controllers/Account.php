@@ -18,8 +18,6 @@ class Account extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
-		$this->load->model("model-drdistributor/account_model/AccountModel");
-
 		/********************session start***************************** */
 		$this->user_image 	 = $this->session->userdata('user_image');
 		$this->user_fname    = $this->session->userdata('user_fname');
@@ -39,6 +37,9 @@ class Account extends CI_Controller {
 			$this->delivering_to 	= $this->chemist_id;
 		}
 		/********************************************************** */
+		
+		// Load model
+		$this->load->model("model-drdistributor/account_model/AccountModel");
 	}
 
 	public function account_request() {

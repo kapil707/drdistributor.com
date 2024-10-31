@@ -38,21 +38,8 @@ class Main extends CI_Controller {
 		}
 		/********************************************************** */
 	}
-
-	public function LoginCheck()
-	{
-		if($this->session->userdata('user_session')!=""){
-			redirect(base_url()."home");			
-		}
-		$under_construction = $this->Scheme_Model->get_website_data("under_construction");
-		if($under_construction=="1")
-		{
-			redirect(base_url()."under_construction");
-		}
-	}
 	
 	public function index(){
-		$this->LoginCheck();
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";
@@ -92,6 +79,7 @@ class Main extends CI_Controller {
 	    $this->load->view('terms_of_services/terms_of_services', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
+
 	public function privacy_policy() {
 
 		/********************MainPageTitle***************************** */
@@ -117,8 +105,9 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function download_order_old($order_id,$chemist_id)
-	{
+	public function download_order_old($order_id,$chemist_id){
+
+		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
 		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
@@ -172,7 +161,8 @@ class Main extends CI_Controller {
 	}
 
 	public function order_download($chemist_id='',$order_id=''){
-
+		
+		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
 		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id);
@@ -196,6 +186,8 @@ class Main extends CI_Controller {
 
 	/***************invoice part********************** */	
 	public function view_invoice($chemist_id='',$invoice_id=''){
+
+		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
@@ -221,8 +213,9 @@ class Main extends CI_Controller {
 		$this->load->view('my_invoice/my_invoice_details_main', $data);		
 	}
 	
-	public function invoice_download($chemist_id='',$invoice_id='')
-	{
+	public function invoice_download($chemist_id='',$invoice_id=''){
+		
+		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);

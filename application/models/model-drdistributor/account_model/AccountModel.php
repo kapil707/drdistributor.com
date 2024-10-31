@@ -181,14 +181,14 @@ class AccountModel extends CI_Model
 	public function insert_website_session($user_session='',$user_fname='',$user_code='',$user_altercode='',$user_type='',$user_password='',$user_image='',$user_nrx='') 
 	{		
 		$session_arr = array(
-			'user_session'=>$user_session,
-			'user_fname'=>$user_fname,
-			'user_code'=>$user_code,
-			'user_altercode'=>$user_altercode,
-			'user_type'=>$user_type,
-			'user_password'=>$user_password,
-			'user_image'=>$user_image,
-			'user_nrx'=>$user_nrx);
+			'UserSession'=>$user_session,
+			'UserFname'=>$user_fname,
+			'UserCode'=>$user_code,
+			'UserAltercode'=>$user_altercode,
+			'UserType'=>$user_type,
+			'UserPassword'=>$user_password,
+			'UserImage'=>$user_image,
+			'UserNrx'=>$user_nrx);
 		$this->session->set_userdata($session_arr);
 	}
 

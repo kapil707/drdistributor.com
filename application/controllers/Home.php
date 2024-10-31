@@ -111,6 +111,7 @@ class Home extends CI_Controller {
 		$user_type = $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
 		$user_nrx = "no";
 
+		$session_yes_no = "no";
 		if(!empty($this->user_type)){
 			$user_type 		= $this->user_type;
 			$user_altercode = $this->user_altercode;
@@ -118,6 +119,7 @@ class Home extends CI_Controller {
 			$user_nrx		= $this->user_nrx;
 			$chemist_id 	= $this->chemist_id;
 			$salesman_id 	= $this->salesman_id;
+			$session_yes_no = "yes";
 		}
 
 		$seq_id = $_POST["seq_id"];

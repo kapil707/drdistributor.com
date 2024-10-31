@@ -2,15 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Medicine_details extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
-	var $user_nrx  = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 	
 	public function __construct(){
 		parent::__construct();
@@ -31,40 +30,29 @@ class Medicine_details extends CI_Controller {
 		$this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 	
 	/*******************api start*********************/
-	public function medicine_details_api()
-	{
-		$item_code		= $_REQUEST["item_code"];
+	public function medicine_details_api() {
 
-		/********************PageSession*************************** */
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$user_password	= $this->user_password;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
+
+		$item_code		= $_REQUEST["item_code"];
+		
 		/********************************************************** */
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_code)){			
-			$result = $this->MedicineDetailsModel->medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code);
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_code)) {			
+			$result = $this->MedicineDetailsModel->medicine_details_api($UserType,$ChemistId,$SalesmanId,$item_code);
 			$items = $result["items"];
 		}
 
@@ -86,11 +74,12 @@ class Medicine_details extends CI_Controller {
 	}
 
     public function get_medicine_favourite_api(){
-		$user_altercode = $this->user_altercode;
+
+		$ChemistId = $this->ChemistId;
 
 		$items = "";
 		if(!empty($user_altercode)){
-	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($user_altercode);
+	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($ChemistId);
 		}
         $response = array(
             'success' => "1",

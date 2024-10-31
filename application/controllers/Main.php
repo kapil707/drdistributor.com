@@ -60,16 +60,15 @@ class Main extends CI_Controller {
 		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
+		$data["session_user_type"]     	= "";
+		$data["session_user_image"] 	= base_url()."img_v51/logo2.png";
 		$data["session_user_fname"]     = "Guest";
 		$data["session_user_altercode"] = "xxxxxx";
-		$data["session_delivering_to"] = "Guest";
+		$data["session_delivering_to"] 	= "Guest";
 		$data["chemist_id"] = "";
 		if(!empty($user_altercode)){
 			redirect(base_url()."home");
 		}
-		/********************************************************** */
-
 		/**********************************************************/
 		
 		$this->load->view('header_footer/header', $data);		

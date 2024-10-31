@@ -55,7 +55,6 @@ class My_cart extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My order";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		/********************PageMainData************************** */

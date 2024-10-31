@@ -55,7 +55,6 @@ class Import_order extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Upload order";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		/********************session***************************** */
@@ -103,7 +102,6 @@ class Import_order extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Suggest medicine";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
 		/********************session***************************** */
@@ -144,7 +142,6 @@ class Import_order extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Import order";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
 		/********************session***************************** */
@@ -192,7 +189,6 @@ class Import_order extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Deleted items";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 		
 		/********************session***************************** */

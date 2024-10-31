@@ -55,7 +55,6 @@ class My_notification extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My notification";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		/********************PageMainData************************** */
@@ -82,7 +81,6 @@ class My_notification extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My notification details";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		/********************PageMainData************************** */

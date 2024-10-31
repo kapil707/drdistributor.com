@@ -43,7 +43,6 @@ class Medicine_use extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "How to use";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";

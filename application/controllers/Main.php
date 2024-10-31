@@ -57,7 +57,6 @@ class Main extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$data["session_user_type"]     	= "";
@@ -81,7 +80,6 @@ class Main extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Terms Of Services";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
@@ -99,7 +97,6 @@ class Main extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Privacy policy";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$data["session_user_image"] = base_url()."img_v51/logo2.png";
@@ -167,7 +164,6 @@ class Main extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$order_id";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
@@ -219,7 +215,6 @@ class Main extends CI_Controller {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$invoice_id";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 		/********************************************************** */
 
 		$this->load->view('header_footer/header', $data);
@@ -245,7 +240,6 @@ class Main extends CI_Controller {
 			/********************MainPageTitle***************************** */
 			$data["MainPageTitle"] = $MainPageTitle = "DRD";
 			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-			$data["WebsiteVersion"] = $this->appconfig->getWebsiteVersion();
 			/********************************************************** */
 
 			$this->load->view('home/header_footer/header', $data);

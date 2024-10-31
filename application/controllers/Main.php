@@ -66,7 +66,7 @@ class Main extends CI_Controller {
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["session_delivering_to"] 	= "Guest";
 		$data["chemist_id"] = "";
-		if(!empty($user_altercode)){
+		if(!empty($this->user_altercode)){
 			redirect(base_url()."home");
 		}
 		/**********************************************************/

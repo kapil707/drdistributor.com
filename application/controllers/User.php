@@ -189,17 +189,10 @@ class User extends CI_Controller {
 	/*******************api start*********************/
 	public function get_user_account_api()
 	{
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
@@ -219,18 +212,11 @@ class User extends CI_Controller {
 	}
 
 	public function get_new_user_account_api(){
-		//error_reporting(0);
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 
 		if(!empty($user_type) && !empty($user_altercode))
 		{
@@ -250,18 +236,11 @@ class User extends CI_Controller {
 	}
 
 	public function update_user_account_api(){
-		//error_reporting(0);
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 
 		$user_phone 	= $_POST['user_phone'];
 		$user_email 	= $_POST['user_email'];
@@ -284,18 +263,10 @@ class User extends CI_Controller {
 	}
 	public function update_password_api()
 	{
-		//error_reporting(0);
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 		
 		$old_password   = $_POST['old_password'];
 		$new_password   = $_POST['new_password'];
@@ -318,18 +289,10 @@ class User extends CI_Controller {
 
 	public function update_user_upload_image_api()
 	{
-		//error_reporting(0);
-		$user_type 		= $_COOKIE["user_type"];
-		$user_altercode = $_COOKIE["user_altercode"];
-		$user_password	= $_COOKIE["user_password"];
-		$chemist_id 	= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE["chemist_id"];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 		
 		$items = "";
 		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))

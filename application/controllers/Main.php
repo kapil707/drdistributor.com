@@ -65,15 +65,9 @@ class Main extends CI_Controller {
 		$data["session_user_altercode"] = "xxxxxx";
 		$data["session_delivering_to"] = "Guest";
 		$data["chemist_id"] = "";
-		if(!empty($_COOKIE["user_altercode"])){
+		if(!empty($user_altercode)){
 			redirect(base_url()."home");
-		} else {
-			setcookie("user_type", "", time() + (86400 * 30), "/");
-			setcookie("user_altercode", "", time() + (86400 * 30), "/");
-			setcookie("user_password", "", time() + (86400 * 30), "/");
-			setcookie("chemist_id", "", time() + (86400 * 30), "/");
 		}
-		
 		/********************************************************** */
 
 		/**********************************************************/

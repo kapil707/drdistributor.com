@@ -77,24 +77,10 @@ class My_cart extends CI_Controller {
 
 	/*******************api start*********************/
 	public function my_cart_total_api(){
-		$user_type 		= $_COOKIE["user_type"];
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
-
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$user_type 		= $this->user_type;
+		$user_altercode = $this->user_altercode;
+		$chemist_id 	= $this->chemist_id;
+		$salesman_id 	= $this->salesman_id;
 		/********************************************************** */
 		$items = "";
 		if(!empty($user_altercode))

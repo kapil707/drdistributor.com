@@ -61,13 +61,14 @@ class chemist_select extends CI_Controller {
 	}
 
 	/*******************api start*********************/
-	public function chemist_search_api()
-	{
+	public function chemist_search_api() {
+
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+
 		$items = "";
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
 		$keyword 		= $_REQUEST["keyword"];
-		if(!empty($user_type) && !empty($user_altercode) && !empty($keyword))
+		if(!empty($UserType) && !empty($ChemistId) && !empty($keyword))
 		{
 			$result = $this->ChemistSelectModel->chemist_search_api($keyword);
 			$items = $result["items"];
@@ -83,26 +84,26 @@ class chemist_select extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function chemist_session_add($chemist_id="",$user_nrx="")
+	public function chemist_session_add($ChemistId="",$ChemistNrx="")
 	{
-		if(!empty($this->session->userdata('user_altercode')))
+		$UserType 		= $this->UserType;
+		if(!empty($UserType))
 		{
-			$user_type 		= $this->session->userdata('user_type');
-			if($user_type=="sales")
-			{
-				$this->session->set_userdata('chemist_id',$chemist_id);
-				$this->session->set_userdata('user_nrx',$user_nrx);
+			if($UserType=="sales") {
+				$this->session->set_userdata('ChemistId',$ChemistId);
+				$this->session->set_userdata('ChemistNrx',$ChemistNrx);
 				redirect(base_url()."home");
 			}
 		}	
 	}
 	public function salesman_my_cart_api(){
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
+		
+		$UserType 		= $this->UserType;
+		$UserId 		= $this->UserId;
+
 		$items = "";
-		if(!empty($user_type) && !empty($user_altercode))
-		{
-			$result = $this->ChemistSelectModel->salesman_my_cart_api($user_type,$user_altercode);
+		if(!empty($UserType) && !empty($UserId)) {
+			$result = $this->ChemistSelectModel->salesman_my_cart_api($UserType,$UserId);
 			$items = $result["items"];
 		}
 		

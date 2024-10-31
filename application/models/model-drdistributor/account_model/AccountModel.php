@@ -7,6 +7,8 @@ class AccountModel extends CI_Model
         $this->load->model("model-drdistributor/EmailModel");
         $this->load->model("model-drdistributor/WhatsAppModel");
         //$this->load->model("model-drdweb/NotificationModel");
+
+		$user_profile_url = "https://www.drdweb.co.in/user_profile/";
     }
 	
 	public function check_under_construction(){
@@ -89,7 +91,7 @@ class AccountModel extends CI_Model
 						if($narcolicence=="."){
 							$user_nrx = "yes";
 						}
-						$user_image 	= 	base_url()."user_profile/".$query->image;
+						$user_image 	= 	$user_profile_url.$query->image;
 						if(empty($query->image))
 						{
 							$user_image = base_url()."img_v51/logo4.png";
@@ -130,7 +132,7 @@ class AccountModel extends CI_Model
 					{
 						$user_session 	= 	$query->id;
 						$user_fname		= 	ucwords(strtolower($query->customer_name));
-						$user_image 	= 	base_url()."user_profile/".$query->image;
+						$user_image 	= 	$user_profile_url.$query->image;
 						if(empty($query->image))
 						{
 							$user_image = base_url()."img_v51/logo4.png";

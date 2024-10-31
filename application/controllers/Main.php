@@ -39,7 +39,7 @@ class Main extends CI_Controller {
 		$data["UserType"]     	= "";
 		$data["UserImage"] 		= base_url()."img_v51/logo2.png";
 		$data["UserFullName"]   = "Guest";
-		$data["session_user_altercode"] = "xxxxxx";
+		$data["UserId"] 		= "Guest";
 		$data["DeliveringTo"] 	= "Guest";
 		$data["chemist_id"] = "";
 		if(!empty($this->user_altercode)){

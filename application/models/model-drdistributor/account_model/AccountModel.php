@@ -5,11 +5,14 @@ class AccountModel extends CI_Model
 	var $user_profile_url = "";
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->user_profile_url = $this->appconfig->getUserProfileUrl;
+
         $this->load->model("model-drdistributor/EmailModel");
         $this->load->model("model-drdistributor/WhatsAppModel");
         //$this->load->model("model-drdweb/NotificationModel");
-
-		$this->user_profile_url = "https://www.drdweb.co.in/user_profile/";
     }
 	
 	public function check_under_construction(){

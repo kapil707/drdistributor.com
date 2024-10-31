@@ -5,7 +5,10 @@ class UserModel extends CI_Model
 	var $user_profile_url = "";
 	public function __construct(){
 		parent::__construct();
-		$this->user_profile_url = "https://www.drdweb.co.in/user_profile/";
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+		
+		$this->user_profile_url = $this->appconfig->getUserProfileUrl;
 	} 
 
 	public function get_user_account_api($user_type,$user_altercode,$salesman_id)

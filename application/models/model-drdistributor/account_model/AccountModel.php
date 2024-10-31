@@ -157,7 +157,8 @@ class AccountModel extends CI_Model
 		}
 
 		if($status==1 && $type=="website"){
-			$this->insert_website_session($user_session,$user_fname,$user_code,$user_altercode,$user_type,$user_password,$user_image,$user_nrx);
+			//$this->insert_website_session($user_session,$user_fname,$user_code,$user_altercode,$user_type,$user_password,$user_image,$user_nrx);
+			$this->insert_website_session($user_type='',$user_altercode='',$user_fname='',$user_password='',$user_image='',$user_nrx='');
 		}
 
 		$dt = array(
@@ -178,17 +179,24 @@ class AccountModel extends CI_Model
 		return $return;	
 	}
 
-	public function insert_website_session($user_session='',$user_fname='',$user_code='',$user_altercode='',$user_type='',$user_password='',$user_image='',$user_nrx='') 
-	{		
+	public function insert_website_session($UserType='',$UserId='',$UserFullName='',$UserPassword='',$UserImage='',$ChemistId='') 
+	{	
+		$ChemistId 	= $UserId;
+		$SalesmanId	= "";
+		if($UserType=="sales"){
+			$ChemistId 	= "";
+			$SalesmanId	= $UserId;
+		}
+
 		$session_arr = array(
-			'UserSession'=>$user_session,
-			'UserFname'=>$user_fname,
-			'UserCode'=>$user_code,
-			'UserAltercode'=>$user_altercode,
-			'UserType'=>$user_type,
-			'UserPassword'=>$user_password,
-			'UserImage'=>$user_image,
-			'UserNrx'=>$user_nrx);
+			'UserType'=>$UserType,
+			'UserId'=>$UserId,
+			'UserFullName'=>$UserFullName,
+			'UserPassword'=>$UserPassword,
+			'UserImage'=>$UserImage,
+			'ChemistNrx'=>$ChemistNrx,
+			'ChemistId'=>$ChemistId,
+			'SalesmanId'=>$SalesmanId);
 		$this->session->set_userdata($session_arr);
 	}
 

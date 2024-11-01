@@ -155,7 +155,7 @@ function submitbtn()
 	$.ajax({
 		type       : "POST",
 		data       :  {old_password:old_password,new_password:new_password} ,
-		url        : "<?php echo base_url(); ?>user/update_password_api",
+		url        : get_base_url()+"user/update_password_api",
 		cache	   : false,
 		error: function(){
 			swal("Error")

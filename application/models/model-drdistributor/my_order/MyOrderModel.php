@@ -14,10 +14,10 @@ class MyOrderModel extends CI_Model
 		
 		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 
-		$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
+		$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$ChemistId' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		if($UserType=="sales")
 		{
-			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' and selesman_id='$SalesmanId' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
+			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$ChemistId' and selesman_id='$SalesmanId' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		}
 		foreach($query as $row)
 		{

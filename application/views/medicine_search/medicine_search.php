@@ -106,4 +106,4 @@ function goBack() {
 get_page_name = "medicine_search";// change value taki cart pur load na ho 
 order_type = "all";// change value taki cart pur load na ho 
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/medicine_search1.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/medicine_search12.js"></script>

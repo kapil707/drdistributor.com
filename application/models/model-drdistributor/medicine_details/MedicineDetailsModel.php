@@ -220,14 +220,14 @@ class MedicineDetailsModel extends CI_Model
 			$item_date_time 	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
 			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 			$item_name 		= (ucwords(strtolower($row->item_name)));
-			$item_packing 	= ($row->packing)."xxx1";
+			$item_packing 	= ($row->packing);
 			$item_expiry 	= ($row->expiry);
 			$item_company 	= (ucwords(strtolower($row->company_full_name)));
 			$item_scheme 	= $row->salescm1."+".$row->salescm2;
-			$item_image = constant('img_url_site')."uploads/default_img.jpg";
+			$item_image = $this->MedicineImageUrl."uploads/default_img.jpg";
 			if(!empty($row->image1))
 			{
-				$item_image = constant('img_url_site').$row->image1;
+				$item_image = $this->MedicineImageUrl.$row->image1;
 			}
 			
 			$dt = array(

@@ -162,10 +162,8 @@ class User extends CI_Controller {
 
 			$return = $this->UserModel->get_user_account_api($UserType,$ChemistId,$SalesmanId);
 			$items = $return["items"];
-
-			print_r($items);
-
-			$this->session->set_userdata('UserImage',$ChemistId);
+			// set image only for website
+			$this->session->set_userdata('UserImage',$items["user_image"]);
 		}
 
 		$response = array(

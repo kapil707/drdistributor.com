@@ -242,7 +242,7 @@ function medicine_search_api() {
 							item_image			= item.item_image;
 							item_name 			= item.item_name;
 							item_packing 		= item.item_packing;
-							item_batch_no		= "Loading...";
+							item_batch_no		= "xxxxxx";
 							item_expiry 		= item.item_expiry;
 							item_company 		= item.item_company;
 							item_quantity 		= item.item_quantity;
@@ -250,7 +250,7 @@ function medicine_search_api() {
 							item_ptr 			= item.item_ptr;
 							item_mrp 			= item.item_mrp;
 							item_price 			= item.item_price;
-							item_gst 			= "Loading...";
+							item_gst 			= "0";
 							item_scheme 		= item.item_scheme;
 							item_margin 		= item.item_margin;
 							item_featured 		= item.item_featured;

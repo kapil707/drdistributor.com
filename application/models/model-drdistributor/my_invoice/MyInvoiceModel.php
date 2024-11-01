@@ -91,7 +91,7 @@ class MyInvoiceModel extends CI_Model
 			$vno		= $row->vno;
 			$date		= $row->date;
 
-			$download_url = base_url()."id/".$user_altercode."/".$gstvno;
+			$download_url = base_url()."id/".$ChemistId."/".$gstvno;
 			
 			$status = "Generated";
 			

@@ -277,29 +277,39 @@ class UserModel extends CI_Model
 				),
 			));
 	
-			// cURL request send kar rahe hain
-			$response = curl_exec($curl);
-	
-			// Error handle kar rahe hain
-			if (curl_errno($curl)) {
-				echo 'cURL Error: ' . curl_error($curl);
-			} else {
-				echo 'Response from server: ' . $response;
-			}
-	
-			// cURL ko close karte hain
-			curl_close($curl);
+			 // cURL request send kar rahe hain
+			 $response = curl_exec($curl);
 
-			$user_image = "";
+			 $user_image = "";
+			 // Error handle kar rahe hain
+			 if (curl_errno($curl)) {
+				 echo 'cURL Error: ' . curl_error($curl);
+			 } else {
+				 // JSON response ko decode karte hain
+				 $response_data = json_decode($response, true);
+	 
+				 // `user_image` ko access karte hain
+				 if (isset($response_data['success']) && $response_data['success'] == 1) {
+					 	$user_image = $response_data['user_image'];
+						$status = 1;
+						$status_message = "Uploaded successfully.";
+					 //echo 'Uploaded Image Name: ' . $user_image;
+				 } else {
+					 //echo 'Failed to upload image: ' . $response_data['message'];
+					 	$status = 0;
+						$status_message = "Invalid file or no file uploaded.";
+				 }
+			 }
+	 
+			 // cURL ko close karte hain
+			 curl_close($curl);
 
-			if($UserType=="chemist")
-			{
+			if($UserType=="chemist" && !empty($user_image))	{
+
 				$row = $this->db->query("select code from tbl_chemist where altercode='$ChemistId'")->row();
 				
 				$this->db->query("update tbl_chemist_other set image='$user_image' where code='$row->code'");
 			}
-			$status = 1;
-			$status_message = "Uploaded successfully.";
 		} else {
 			// Invalid file or no file uploaded
 

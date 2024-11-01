@@ -51,11 +51,8 @@ class My_order extends CI_Controller {
 		$data["UserId"] 	 = $this->UserId;
 		$data["UserType"]    = $this->UserType;
 		$data["UserFullName"]= $this->UserFullName;
-		$data["UserPassword"]= $this->UserPassword;
 		$data["UserImage"] 	 = $this->UserImage;
-		$data["ChemistNrx"]	 = $this->ChemistNrx;
 		$data["ChemistId"]	 = $this->ChemistId;
-		$data["SalesmanId"]	 = $this->SalesmanId;
 
 		/******************DeliveringToData************************* */
 		$data["DeliveringTo"]= $data["ChemistId"];
@@ -85,11 +82,8 @@ class My_order extends CI_Controller {
 		$data["UserId"] 	 = $this->UserId;
 		$data["UserType"]    = $this->UserType;
 		$data["UserFullName"]= $this->UserFullName;
-		$data["UserPassword"]= $this->UserPassword;
 		$data["UserImage"] 	 = $this->UserImage;
-		$data["ChemistNrx"]	 = $this->ChemistNrx;
 		$data["ChemistId"]	 = $this->ChemistId;
-		$data["SalesmanId"]	 = $this->SalesmanId;
 
 		/******************DeliveringToData************************* */
 		$data["DeliveringTo"]= $data["ChemistId"];

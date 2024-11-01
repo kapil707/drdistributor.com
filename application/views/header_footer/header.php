@@ -146,7 +146,7 @@ if (isset($_COOKIE["theme_type"])) {
 						</a>
 					</li>
 
-					<?php if(!empty($session_user_altercode)){ ?>
+					<?php if(!empty($UserId)){ ?>
 					<li class="d-none d-md-block">
 						<a class="mobile_off" title="Logout" href="javascript:void(0);" onclick="logout_function()">
 							<i class="fa fa-sign-out" aria-hidden="true"></i>

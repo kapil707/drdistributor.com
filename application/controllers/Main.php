@@ -149,12 +149,11 @@ class Main extends CI_Controller {
 		$row   = $query->row();
 		$query = $query->result();
 		if(!empty($row->id)){
-			$data["item_id"] 		= $order_id;
-			$data["user_altercode"] = $chemist_id;
+			$data["item_id"] 		= $OrderId;
 		}
 
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "$order_id";
+		$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 

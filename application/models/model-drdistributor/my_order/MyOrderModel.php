@@ -90,7 +90,7 @@ class MyOrderModel extends CI_Model
 				$title = "Generated / Order no. ".$row->order_id ." / Gstvno no. ".$row->gstvno;
 			}
 
-			$download_url = base_url()."order_download/".$user_altercode."/".$row->order_id;
+			$download_url = base_url()."od/".$user_altercode."/".$row->order_id;
 
 			$item_code 			= $row->i_code;
 			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));

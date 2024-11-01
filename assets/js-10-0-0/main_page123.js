@@ -244,7 +244,7 @@ function medicine_details_api(item_code)
 	item_date_time = item_batch_no = item_gst = item_description2 = "";
 
 	$.ajax({
-		url: get_base_url() + "medicine_details/medicine_details_api",
+		url: get_base_url() + "medicine_details/medicine_details_apix",
 		type:"POST",
 		dataType: 'json',
 		data: {item_code:item_code},

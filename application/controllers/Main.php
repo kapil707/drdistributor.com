@@ -133,13 +133,14 @@ class Main extends CI_Controller {
 	}
 	
 	/***************invoice part********************** */	
-	public function view_order($chemist_id='',$order_id=''){
-		
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = $chemist_id;
-		$data["session_user_altercode"] = $chemist_id;
-		$data["session_delivering_to"]  = $chemist_id;
-		$data["chemist_id"] = "";
+	public function view_order($ChemistId='',$order_id=''){
+
+		$data["UserId"] 		= $ChemistId;
+		$data["UserType"]     	= "";
+		$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+		$data["UserFullName"]   = $ChemistId;
+		$data["DeliveringTo"] 	= $ChemistId;
+		$data["ChemistId"] 		= $ChemistId;
 		
 		$data["item_id"] = "";
 		$data["user_altercode"] = "";

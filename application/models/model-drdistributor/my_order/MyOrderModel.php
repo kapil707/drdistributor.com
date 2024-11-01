@@ -9,15 +9,15 @@ class MyOrderModel extends CI_Model
 		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	
-	public function get_my_order_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit=12) {		
+	public function get_my_order_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit=12) {		
 		$jsonArray = array();
 		
-		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 
 		$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
-		if($user_type=="sales")
+		if($UserType=="sales")
 		{
-			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' and selesman_id='$salesman_id' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
+			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$user_altercode' and selesman_id='$SalesmanId' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
 		}
 		foreach($query as $row)
 		{
@@ -37,7 +37,7 @@ class MyOrderModel extends CI_Model
 			$item_message  = $item_total;
 			$item_image = $user_image;
 
-			$download_url = base_url()."order_download/".$user_altercode."/".$row->order_id;
+			$download_url = base_url()."od/".$user_altercode."/".$row->order_id;
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -56,24 +56,24 @@ class MyOrderModel extends CI_Model
 		return $return;
 	}
 	
-	public function get_my_order_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="") {
+	public function get_my_order_details_api($UserType="",$ChemistId="",$SalesmanId="",$ItemId="") {
 		
 		$jsonArray = array();
 		$title = $download_url = "";
 
 		$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
-		$this->db->where('o.chemist_id',$user_altercode);
-		$this->db->where('o.order_id',$item_id);
+		$this->db->where('o.chemist_id',$ChemistId);
+		$this->db->where('o.order_id',$ItemId);
 		$this->db->order_by('o.id','desc');
 		$this->db->from('tbl_order as o');
 		$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
 		$query = $this->db->get()->result();
-		if($user_type=="sales")
+		if($UserType=="sales")
 		{
 			$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
-			$this->db->where('o.selesman_id',$salesman_id);
-			$this->db->where('o.chemist_id',$user_altercode);
-			$this->db->where('o.order_id',$item_id);
+			$this->db->where('o.selesman_id',$SalesmanId);
+			$this->db->where('o.chemist_id',$ChemistId);
+			$this->db->where('o.order_id',$ItemId);
 			$this->db->order_by('o.id','desc');
 			$this->db->from('tbl_order as o');
 			$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');

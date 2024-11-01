@@ -106,7 +106,7 @@ if (isset($_COOKIE["theme_type"])) {
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url(); ?>my_cart" class="top_menu_cart_div" title="My cart">
+						<a href="<?= base_url(); ?>mc" class="top_menu_cart_div" title="My cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span class="d-none d-xl-block">Cart&nbsp;</span>

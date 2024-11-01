@@ -317,6 +317,7 @@ function medicine_details_get(item_code)
 	item_image = $(".medicine_details_all_data_"+item_code).attr("item_image")
 	item_name = $(".medicine_details_all_data_"+item_code).attr("item_name")
 	item_packing = $(".medicine_details_all_data_"+item_code).attr("item_packing")
+	item_batch_no = $(".medicine_details_all_data_"+item_code).attr("item_batch_no")
 	item_expiry = $(".medicine_details_all_data_"+item_code).attr("item_expiry")
 	item_company = $(".medicine_details_all_data_"+item_code).attr("item_company")
 	item_quantity = $(".medicine_details_all_data_"+item_code).attr("item_quantity")
@@ -324,16 +325,15 @@ function medicine_details_get(item_code)
 	item_ptr = $(".medicine_details_all_data_"+item_code).attr("item_ptr")
 	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
 	item_price = $(".medicine_details_all_data_"+item_code).attr("item_price")
+	item_gst = $(".medicine_details_all_data_"+item_code).attr("item_gst")
 	item_scheme = $(".medicine_details_all_data_"+item_code).attr("item_scheme")
 	item_margin = $(".medicine_details_all_data_"+item_code).attr("item_margin")
 	item_featured = $(".medicine_details_all_data_"+item_code).attr("item_featured")
 	item_description1 = $(".medicine_details_all_data_"+item_code).attr("item_description1")
 	item_order_quantity = $(".medicine_details_all_data_"+item_code).attr("item_order_quantity")
 	
-	item_date_time = item_batch_no = item_gst = item_description2 = "";
+	item_date_time = item_description2 = "";
 	$(".medicine_details_item_date_time").html("Loading....")
-	$(".medicine_details_item_batch_no").html("")
-	$(".medicine_details_item_gst").html("")
 	$(".medicine_details_item_description2").html("")
 
 	medicine_details_api_data(item_code) // its on header page

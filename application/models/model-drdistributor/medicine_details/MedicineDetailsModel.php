@@ -220,7 +220,7 @@ class MedicineDetailsModel extends CI_Model
 			$item_date_time 	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
 			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
 			$item_name 		= (ucwords(strtolower($row->item_name)));
-			$item_packing 	= ($row->packing);
+			$item_packing 	= ($row->packing)."xxx1";
 			$item_expiry 	= ($row->expiry);
 			$item_company 	= (ucwords(strtolower($row->company_full_name)));
 			$item_scheme 	= $row->salescm1."+".$row->salescm2;

@@ -2,15 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Category extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
-	var $user_nrx  = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 
 	public function __construct(){
 		parent::__construct();
@@ -30,23 +29,14 @@ class Category extends CI_Controller {
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 
@@ -58,16 +48,17 @@ class Category extends CI_Controller {
 		/********************************************************** */
 
 		/********************PageMainData************************** */
-		$data["session_user_type"] 		= $this->user_type;
-		$data["session_user_image"] 	= $this->user_image;
-		$data["session_user_fname"]     = $this->user_fname;
-		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->delivering_to;
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
-		if($this->user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
 
@@ -94,16 +85,17 @@ class Category extends CI_Controller {
 		/********************************************************** */
 		
 		/********************PageMainData************************** */
-		$data["session_user_type"] 		= $this->user_type;
-		$data["session_user_image"] 	= $this->user_image;
-		$data["session_user_fname"]     = $this->user_fname;
-		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->delivering_to;
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
-		if($this->user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
 
@@ -126,16 +118,17 @@ class Category extends CI_Controller {
 		/********************************************************** */
 
 		/********************PageMainData************************** */
-		$data["session_user_type"] 		= $this->user_type;
-		$data["session_user_image"] 	= $this->user_image;
-		$data["session_user_fname"]     = $this->user_fname;
-		$data["session_user_altercode"] = $this->user_altercode;
-		$data["session_delivering_to"]  = $this->delivering_to;
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$data["chemist_id"] = $chemist_id = $this->chemist_id; 
-		if($this->user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$data["session_delivering_to"] = $chemist_id." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
 
@@ -154,13 +147,13 @@ class Category extends CI_Controller {
 	public function medicine_category_api(){
 
 		/******************************************/
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$user_password	= $this->user_password;
-		$user_nrx		= $this->user_nrx;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId		= $this->SalesmanId;
+		$ChemistNrx		= $this->ChemistNrx;
 
 		$session_yes_no = "no";
-		if(!empty($user_altercode)){
+		if(!empty($UserType)){
 			$session_yes_no = "yes";
 		}
 
@@ -168,11 +161,11 @@ class Category extends CI_Controller {
 		$item_code		= $_POST['item_code'];
 		$item_division	= $_POST['item_division'];
 		$get_record		= $_POST['get_record'];
-		if($item_page_type!="")
+		if(!empty($item_page_type))
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$get_record);
+				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$ChemistNrx,$item_code,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -180,7 +173,7 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$ChemistNrx,$item_code,$item_division,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -195,7 +188,7 @@ class Category extends CI_Controller {
 				/*****************************/
 
 				$category_id = $item_code;
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

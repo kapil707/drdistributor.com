@@ -133,7 +133,7 @@ class Main extends CI_Controller {
 	}
 	
 	/***************invoice part********************** */	
-	public function view_order($ChemistId='',$order_id=''){
+	public function view_order($ChemistId='',$OrderId=''){
 
 		$data["UserId"] 		= $ChemistId;
 		$data["UserType"]     	= "";
@@ -144,7 +144,7 @@ class Main extends CI_Controller {
 		
 		$data["item_id"] = "";
 		$data["user_altercode"] = "";
-		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id,);
+		$where = array('chemist_id'=>$ChemistId,'order_id'=>$OrderId,);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
 		$row   = $query->row();

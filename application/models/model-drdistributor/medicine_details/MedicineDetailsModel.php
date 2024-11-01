@@ -44,6 +44,9 @@ class MedicineDetailsModel extends CI_Model
 			if($item_quantity==0)
 			{
 				$this->add_stock_low($user_type,$user_altercode,$salesman_id,$item_code);
+				$item_batch_no = "xxxxxx";
+				$item_expiry= "00/00";
+				$gstper		= "0";
 			}
 			if(empty($item_discount))
 			{

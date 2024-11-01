@@ -56,15 +56,20 @@ function call_page()
 					item_date_time 		= item.item_date_time;
 					item_modalnumber 	= item.item_modalnumber;
 
+
+					item_stock			= "";
+					item_ptr			= "0.00";
+					item_mrp			= "0.00";
+					item_featured		= "0";
+					item_margin			= "0";
+
+					item_batch_no		= "xxxxxx";
+					item_expiry 		= "00/00";
+					item_gst 			= "0";
 					item_description1 	= "";
 					similar_items 		= "";
-					item_stock			= "";
-					item_ptr			= "";
-					item_mrp			= "";
-					item_featured		= "";
-					item_margin			= "";
 
-					div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></span>";
+					div_all_data = "<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"'></div>";
 					
 					item_scheme_div = "";
 					if(item_scheme!="0+0")

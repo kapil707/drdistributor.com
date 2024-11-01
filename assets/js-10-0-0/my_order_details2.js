@@ -56,7 +56,6 @@ function call_page()
 					item_date_time 		= item.item_date_time;
 					item_modalnumber 	= item.item_modalnumber;
 
-
 					item_stock			= "";
 					item_ptr			= "0.00";
 					item_mrp			= "0.00";

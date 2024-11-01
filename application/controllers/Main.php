@@ -142,14 +142,14 @@ class Main extends CI_Controller {
 		$data["DeliveringTo"] 	= $ChemistId;
 		$data["ChemistId"] 		= $ChemistId;
 		
-		$data["item_id"] = "";
+		$data["ItemId"] = "";
 		$where = array('chemist_id'=>$ChemistId,'order_id'=>$OrderId,);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
 		$row   = $query->row();
 		$query = $query->result();
 		if(!empty($row->id)){
-			$data["item_id"] 		= $OrderId;
+			$data["ItemId"] 		= $OrderId;
 		}
 
 		/********************MainPageTitle***************************** */

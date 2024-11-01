@@ -3,15 +3,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
-	var $user_nrx  = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 
 	public function __construct(){
 		parent::__construct();
@@ -31,23 +30,14 @@ class User extends CI_Controller {
 		$this->load->model("model-drdistributor/user_model/UserModel");
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 	public function index(){
@@ -61,25 +51,20 @@ class User extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/account', $data);
@@ -91,28 +76,22 @@ class User extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
-		if($user_type=="sales")
-		{
+		if($this->UserType=="sales") {
 			redirect(base_url());
 		}
 
@@ -127,25 +106,20 @@ class User extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/update_image', $data);
@@ -158,25 +132,20 @@ class User extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 		
-		/********************session***************************** */
-		$data["session_user_image"] 	= $this->session->userdata('user_image');
-		$data["session_user_fname"]     = $this->session->userdata('user_fname');
-		$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-		$data["session_delivering_to"]  = $this->session->userdata('user_altercode');	
-		
-		$user_type 		= $this->session->userdata('user_type');
-		$user_altercode = $this->session->userdata('user_altercode');
-		$user_password	= $this->session->userdata('user_password');
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
 
-		$chemist_id = $salesman_id = "";
-		if($user_type=="sales")
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
 		{
-			$chemist_id 	= $this->session->userdata('chemist_id');
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/update_password', $data);
@@ -185,14 +154,13 @@ class User extends CI_Controller {
 	/*******************api start*********************/
 	public function get_user_account_api()
 	{
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
-		if(!empty($user_type) && !empty($user_altercode))
-		{
-			$return = $this->UserModel->get_user_account_api($user_type,$user_altercode,$salesman_id);
+		if(!empty($UserType) && !empty($ChemistId)) {
+
+			$return = $this->UserModel->get_user_account_api($UserType,$ChemistId,$SalesmanId);
 			$items = $return["items"];
 		}
 
@@ -209,14 +177,13 @@ class User extends CI_Controller {
 
 	public function get_new_user_account_api(){
 
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
-		if(!empty($user_type) && !empty($user_altercode))
-		{
-			$return = $this->UserModel->get_new_user_account_api($user_type,$user_altercode,$salesman_id);
+		if(!empty($UserType) && !empty($ChemistId))	{
+
+			$return = $this->UserModel->get_new_user_account_api($UserType,$ChemistId,$SalesmanId);
 			$items = $return["items"];
 		}
 
@@ -233,17 +200,15 @@ class User extends CI_Controller {
 
 	public function update_user_account_api(){
 		
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
 
 		$user_phone 	= $_POST['user_phone'];
 		$user_email 	= $_POST['user_email'];
 		$user_address 	= $_POST['user_address'];
-		if(!empty($user_type) && !empty($user_altercode))
-		{
-			$return = $this->UserModel->update_user_account_api($user_type,$user_altercode,$user_phone,$user_email,$user_address);
+		if(!empty($UserType) && !empty($ChemistId)) {
+
+			$return = $this->UserModel->update_user_account_api($UserType,$ChemistId,$user_phone,$user_email,$user_address);
 			$items = $return["items"];
 		}
 
@@ -259,16 +224,15 @@ class User extends CI_Controller {
 	}
 	public function update_password_api()
 	{
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 		
 		$old_password   = $_POST['old_password'];
 		$new_password   = $_POST['new_password'];
-		if(!empty($user_type) && !empty($user_altercode) && !empty($old_password) && !empty($new_password))
+		if(!empty($UserType) && !empty($ChemistId) && !empty($old_password) && !empty($new_password))
 		{
-			$return = $this->UserModel->update_password_api($user_type,$user_altercode,$old_password,$new_password);
+			$return = $this->UserModel->update_password_api($UserType,$ChemistId,$old_password,$new_password);
 			$items = $return["items"];
 		}
 
@@ -285,15 +249,14 @@ class User extends CI_Controller {
 
 	public function update_user_upload_image_api()
 	{
-		$user_type 		= $this->user_type;
-		$user_altercode = $this->user_altercode;
-		$chemist_id 	= $this->chemist_id;
-		$salesman_id 	= $this->salesman_id;
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 		
 		$items = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($_FILES))
+		if(!empty($UserType) && !empty($ChemistId) && !empty($_FILES))
 		{
-			$return = $this->UserModel->update_user_upload_image_api($user_type,$user_altercode,$salesman_id,$_FILES);
+			$return = $this->UserModel->update_user_upload_image_api($UserType,$ChemistId,$SalesmanId,$_FILES);
 			$items = $return["items"];
 		}
 

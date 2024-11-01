@@ -21,12 +21,12 @@ class UserModel extends CI_Model
 		return $user_image;
 	}
 
-	public function get_user_account_api($user_type,$user_altercode,$salesman_id)
+	public function get_user_account_api($UserType='',$ChemistId='',$SalesmanId='')
 	{
 		$items = "";
-		if($user_type=="chemist")
+		if($UserType=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
 				$user_id		= ($row->id);
@@ -54,9 +54,9 @@ class UserModel extends CI_Model
 				}
 			}
 		}
-		if($user_type=="sales")
+		if($UserType=="sales")
 		{
-			$row = $this->db->query("select * from tbl_users where customer_code='$salesman_id'")->row();
+			$row = $this->db->query("select * from tbl_users where customer_code='$SalesmanId'")->row();
 			if(!empty($row->id))
 			{
 				$user_id		= ($row->id);
@@ -69,7 +69,7 @@ class UserModel extends CI_Model
 				$user_status	= "1";
 				$where= array('customer_code'=>$row->customer_code);
 				$row1 = $this->Scheme_Model->select_row("tbl_users_other",$where);
-				$user_image = base_url()."user_profile/$row1->image";
+				$user_image = $this->user_profile_url.$row1->image;
 				if(empty($row1->image))
 				{
 					$user_image = base_url()."img_v51/logo.png";
@@ -98,11 +98,11 @@ class UserModel extends CI_Model
 		return $return;
 	}
 
-	public function get_new_user_account_api($user_type,$user_altercode)
+	public function get_new_user_account_api($UserType='',$ChemistId='',$SalesmanId='')
 	{
-		if($user_type=="chemist")
+		if($UserType=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
 				$row1 = $this->db->query("select * from tbl_chemist_other where code='$row->code'")->row();
@@ -112,9 +112,9 @@ class UserModel extends CI_Model
 				$user_update	= ($row1->user_update);
 			}
 		}
-		if($user_type=="sales")
+		if($UserType=="sales")
 		{
-			$row = $this->db->query("select * from tbl_users where customer_code='$user_altercode'")->row();
+			$row = $this->db->query("select * from tbl_users where customer_code='$SalesmanId'")->row();
 			if(!empty($row->id))
 			{
 				$user_phone		= ($row->user_phone);
@@ -136,15 +136,15 @@ class UserModel extends CI_Model
 		return $return;
 	}
 
-	public function update_user_account_api($user_type,$user_altercode,$user_phone,$user_email,$user_address)
+	public function update_user_account_api($UserType='',$ChemistId='',$user_phone,$user_email,$user_address)
 	{
 		$jsonArray = array();
 		
 		$status = "0";
 		$status_message = "";
-		if($user_type=="chemist")
+		if($UserType=="chemist")
 		{
-			$row = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' and slcd='CL'")->row();
+			$row = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' and slcd='CL'")->row();
 			if(!empty($row->id))
 			{
 				$code = ($row->code);
@@ -184,7 +184,7 @@ class UserModel extends CI_Model
 		return $return;
 	}
 
-	public function update_password_api($user_type,$user_altercode,$user_password,$new_password)
+	public function update_password_api($UserType='',$ChemistId='',$user_password,$new_password)
 	{
 		$jsonArray = array();
 
@@ -192,9 +192,9 @@ class UserModel extends CI_Model
 		
 		$status_message = "Oldpassword doesn't match";
 		$status = "0";
-		if($user_type=="chemist")
+		if($UserType=="chemist")
 		{
-			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
+			$query = $this->db->query("select tbl_chemist.id,tbl_chemist.code,tbl_chemist.altercode,tbl_chemist.name,tbl_chemist.address,tbl_chemist.mobile,tbl_chemist.invexport,tbl_chemist.email,tbl_chemist.status as status1,tbl_chemist_other.status,tbl_chemist_other.password as password,tbl_chemist_other.exp_date,tbl_chemist_other.block,tbl_chemist_other.image from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$ChemistId' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 			if(!empty($query->id))
 			{
 				if ($query->password == $user_password && $query->block=="0" && $query->status=="1")
@@ -215,7 +215,7 @@ class UserModel extends CI_Model
 				$status_message = "Logic error.";
 			}
 		}
-		if($user_type=="sales")
+		if($UserType=="sales")
 		{
 			$query = $this->db->query("select u.id,u.customer_code,u.customer_name,u.cust_addr1,u.cust_mobile,u.cust_email,u.is_active,u.user_role,u.login_expiry,u.divison,u.company_name,lu.password	from tbl_users u left join tbl_users_other lu on lu.customer_code = u.customer_code where lu.customer_code='$user_altercode' limit 1")->row();
 			if(!empty($query->id))
@@ -249,42 +249,52 @@ class UserModel extends CI_Model
 		return $return;	
 	}
 
-	public function update_user_upload_image_api($user_type,$user_altercode,$salesman_id,$files)
+	public function update_user_upload_image_api($UserType='',$ChemistId='',$SalesmanId='',$files)
 	{
 		$jsonArray = array();
 
 		$user_image = "";
 		$upload_image = "user_profile";
 		if (isset($files['upload_image']) && $files['upload_image']['error'] === UPLOAD_ERR_OK) {
-			ini_set('upload_max_filesize', '10M');
-			ini_set('post_max_size', '10M');
-			ini_set('max_input_time', 300);
-			ini_set('max_execution_time', 300);
-	
-			$config['upload_path'] = $upload_image;  // Define the directory where you want to store the uploaded files.
-			$config['allowed_types'] = '*';  // You may want to restrict allowed file types.
-			$config['max_size'] = 0;  // Set to 0 to allow any size.
 
-			$new_name = time().$files["upload_image"]['name'];
-			$config['file_name'] = $new_name;
+			// Image file path and name
+			$file_path = $files['upload_image']['tmp_name'];
+			$file_name = $files['upload_image']['name'];
+			
+			// Server endpoint jahan image ko upload karna hai
+			$url = 'https://drdweb.co.in/user_profile/upload_user_profile_api';
 	
-			$this->load->library('upload', $config);
+			// cURL request setup
+			$curl = curl_init();
 	
-			if (!$this->upload->do_upload('upload_image')) {
-				$error = array('error' => $this->upload->display_errors());
-				//$this->load->view('upload_form', $error);
-				//print_r($error);
-				$status = 0;
-				$status_message = $error;
+			// cURL options set kar rahe hain
+			curl_setopt_array($curl, array(
+				CURLOPT_URL => $url,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_POST => true,
+				CURLOPT_POSTFIELDS => array(
+					'image' => new CURLFile($file_path, $_FILES['image']['type'], $file_name)
+				),
+			));
+	
+			// cURL request send kar rahe hain
+			$response = curl_exec($curl);
+	
+			// Error handle kar rahe hain
+			if (curl_errno($curl)) {
+				echo 'cURL Error: ' . curl_error($curl);
 			} else {
-				$data = $this->upload->data();
-				$user_image = ($data['file_name']);
-				//$this->load->view('upload_success', $data);
+				echo 'Response from server: ' . $response;
 			}
+	
+			// cURL ko close karte hain
+			curl_close($curl);
 
-			if($user_type=="chemist")
+			$user_image = "";
+
+			if($UserType=="chemist")
 			{
-				$row = $this->db->query("select code from tbl_chemist where altercode='$user_altercode'")->row();
+				$row = $this->db->query("select code from tbl_chemist where altercode='$ChemistId'")->row();
 				
 				$this->db->query("update tbl_chemist_other set image='$user_image' where code='$row->code'");
 			}

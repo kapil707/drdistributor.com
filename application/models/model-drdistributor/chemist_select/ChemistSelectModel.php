@@ -83,7 +83,7 @@ class ChemistSelectModel extends CI_Model
 			$chemist_image = base_url()."img_v51/logo4.png";
 			if(!empty($row1->image))
 			{
-				$chemist_image = base_url()."user_profile/".$row1->image;
+				$chemist_image = = $this->user_profile_url.$row1->image;
 			}
 
 			$narcolicence		= 	$row1->narcolicence;

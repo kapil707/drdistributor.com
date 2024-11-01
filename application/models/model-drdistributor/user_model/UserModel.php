@@ -273,7 +273,7 @@ class UserModel extends CI_Model
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_POST => true,
 				CURLOPT_POSTFIELDS => array(
-					'image' => new CURLFile($file_path, $_FILES['image']['type'], $file_name)
+					'image' => new CURLFile($file_path, $files['upload_image']['type'], $file_name)
 				),
 			));
 	

@@ -352,7 +352,7 @@ function home_page_itemcategory(category_id,items,title){
 			item_name 			= item.item_name;
 			item_packing 		= item.item_packing;
 			item_batch_no		= "xxxxxx";
-			item_expiry 		= item.item_expiry;
+			item_expiry 		= "00/00";
 			item_company 		= item.item_company;
 			item_quantity 		= item.item_quantity;
 			item_stock 			= item.item_stock;

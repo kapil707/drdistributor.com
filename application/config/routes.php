@@ -106,7 +106,9 @@ $route['ov/(:any)/(:any)'] = 'main/view_order/$1/$2';
 
 $route['invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
 $route['view_invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
+$route['iv/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
 $route['invoice_download/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
+$route['id/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
 
 $route['my_invoice']='my_invoice/index';
 $route['mi']='my_invoice/index';

@@ -123,7 +123,7 @@ if (isset($_COOKIE["theme_type"])) {
 					</li>					
 
 					<li class="d-none d-lg-block">
-						<a href="<?= base_url() ?>my_invoice" class="mobile_off" title="My invoice">
+						<a href="<?= base_url() ?>mi" class="mobile_off" title="My invoice">
 							<i class="fa fa-flag" aria-hidden="true"></i>
 							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span>Invoice</span>
@@ -131,7 +131,7 @@ if (isset($_COOKIE["theme_type"])) {
 					</li>
 
 					<li class="d-none d-sm-block">
-						<a href="<?= base_url() ?>my_notification" class="mobile_off" title="My notification">
+						<a href="<?= base_url() ?>mn" class="mobile_off" title="My notification">
 							<i class="fa fa-bell" aria-hidden="true"></i>
 							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span class="d-none d-xl-block">Notification</span>

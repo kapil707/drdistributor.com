@@ -109,7 +109,9 @@ $route['view_invoice/(:any)/(:any)'] = 'main/view_invoice/$1/$2';
 $route['invoice_download/(:any)/(:any)'] = 'main/invoice_download/$1/$2';
 
 $route['my_invoice']='my_invoice/index';
+$route['mi']='my_invoice/index';
 $route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';
+$route['mid/(:any)']='my_invoice/my_invoice_details/$1';
 
 $route['my_notification']='my_notification/index';
 $route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';

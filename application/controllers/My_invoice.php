@@ -66,7 +66,7 @@ class My_invoice extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function my_invoice_details($item_id=""){
+	public function my_invoice_details($ItemId=""){
 
 		/************login check************** */
 		LoginCheck("my_invoice");
@@ -92,7 +92,7 @@ class My_invoice extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$data["item_id"] = $item_id;
+		$data["ItemId"] = $ItemId;
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details',$data);

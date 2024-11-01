@@ -9,10 +9,10 @@ class MyInvoiceModel extends CI_Model
 		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	
-	public function get_my_invoice_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12")	{
+	public function get_my_invoice_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit="12")	{
 		$jsonArray = array();
 
-		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
@@ -20,7 +20,7 @@ class MyInvoiceModel extends CI_Model
 		$order_by = array('id','desc');
 		//$get_limit = array('12',$get_record);
 		$get_limit = array($limit,$get_record);
-		$where = array('chemist_id'=>$user_altercode);
+		$where = array('chemist_id'=>$ChemistId);
 		$query = $this->Scheme_Model->select_fun_limit("tbl_invoice",$where,$get_limit,$order_by);
 		$query = $query->result();
 		foreach($query as $row)
@@ -36,7 +36,7 @@ class MyInvoiceModel extends CI_Model
 			$item_message   = $item_total;
 
 			$gstvno = $row->gstvno;
-			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
+			$download_url = base_url()."id/".$ChemistId."/".$gstvno;
 			
 			$dt = array(
 				'item_id' => $item_id,
@@ -58,7 +58,7 @@ class MyInvoiceModel extends CI_Model
 		return $return;
 	}
 
-	public function get_my_invoice_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="")
+	public function get_my_invoice_details_api($UserType="",$ChemistId="",$SalesmanId="",$ItemId="")
 	{
 		$jsonArray = array();
 		$jsonArray1 = array();
@@ -73,8 +73,8 @@ class MyInvoiceModel extends CI_Model
         $this->db->join('tbl_invoice', 'tbl_invoice.vno = tbl_invoice_item.vno AND tbl_invoice.date = tbl_invoice_item.date', 'left');
         $this->db->join('tbl_chemist', 'tbl_chemist.altercode = tbl_invoice.chemist_id', 'left');
         $this->db->join('tbl_medicine', 'tbl_medicine.i_code = tbl_invoice_item.itemc', 'left');
-        $this->db->where('tbl_invoice.id', $item_id);
-		$this->db->where('tbl_invoice.chemist_id', $user_altercode);
+        $this->db->where('tbl_invoice.id', $ItemId);
+		$this->db->where('tbl_invoice.chemist_id', $ChemistId);
 		$query = $this->db->get();
 		/**********************************************/
 		$result = $query->result();		
@@ -91,7 +91,7 @@ class MyInvoiceModel extends CI_Model
 			$vno		= $row->vno;
 			$date		= $row->date;
 
-			$download_url = base_url()."invoice_download/".$user_altercode."/".$gstvno;
+			$download_url = base_url()."id/".$user_altercode."/".$gstvno;
 			
 			$status = "Generated";
 			

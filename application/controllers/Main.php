@@ -149,7 +149,7 @@ class Main extends CI_Controller {
 		$row   = $query->row();
 		$query = $query->result();
 		if(!empty($row->id)){
-			$data["ItemId"] 		= $OrderId;
+			$data["ItemId"] = $OrderId;
 		}
 
 		/********************MainPageTitle***************************** */

@@ -96,6 +96,7 @@ $route['medicine_use/(:any)']='medicine_use/index/$1';
 $route['my_order']='my_order/index';
 $route['mo']='my_order/index';
 $route['my_order_details/(:any)']='my_order/my_order_details/$1';
+$route['mod/(:any)']='my_order/my_order_details/$1';
 $route['user/download_order/(:any)/(:any)'] = 'main/download_order_old/$1/$2';
 $route['order_download/(:any)/(:any)'] = 'main/order_download/$1/$2';
 $route['od/(:any)/(:any)'] = 'main/order_download/$1/$2';

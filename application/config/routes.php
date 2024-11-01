@@ -87,6 +87,7 @@ $route['home/search_medicine']='medicine_search/index';
 $route['home/medicine_search']='medicine_search/index';
 
 $route['my_cart']='my_cart/index';
+$route['mc']='my_cart/index';
 $route['home/my_cart']='my_cart/index';
 
 $route['track_order']='home/track_order';

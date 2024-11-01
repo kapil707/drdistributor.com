@@ -53,7 +53,7 @@ class MedicineCategoryModel extends CI_Model
 						$item_packing	=	$row->packing;
 						$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 						$item_company 	= 	ucwords(strtolower($row->company_full_name));
-						$item_margin	=	$row->margin;
+						$item_margin	=	round($row->margin);
 						$item_quantity	=	$row->batchqty;
 						$item_featured 	= 	$row->featured;						
 						$item_mrp		=	sprintf('%0.2f',round($row->mrp,2));
@@ -114,7 +114,7 @@ class MedicineCategoryModel extends CI_Model
 					$item_packing	=	$row->packing;
 					$item_scheme	=	$row->salescm1."+".$row->salescm2;		
 					$item_company 	= 	ucwords(strtolower($row->company_full_name));
-					$item_margin	=	$row->margin;
+					$item_margin	=	round($row->margin);
 					$item_quantity	=	$row->batchqty;
 					$item_featured 	= 	$row->featured;					
 					$item_mrp		=	sprintf('%0.2f',round($row->mrp,2));
@@ -211,7 +211,7 @@ class MedicineCategoryModel extends CI_Model
 						$item_packing	=	$row->packing;	
 						$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 						$item_company 	= 	ucwords(strtolower($row->company_full_name));
-						$item_margin		=	$row->margin;
+						$item_margin	=	round($row->margin);
 						$item_quantity	=	$row->batchqty;
 						$item_featured 	= 	$row->featured;				
 						$item_mrp		=	sprintf('%0.2f',round($row->mrp,2));
@@ -273,7 +273,7 @@ class MedicineCategoryModel extends CI_Model
 					$item_packing	=	$row->packing;
 					$item_scheme	=	$row->salescm1."+".$row->salescm2;			
 					$item_company 	= 	ucwords(strtolower($row->company_full_name));
-					$item_margin		=	$row->margin;
+					$item_margin	=	round($row->margin);
 					$item_quantity	=	$row->batchqty;
 					$item_featured 	= 	$row->featured;
 					$item_mrp		=	sprintf('%0.2f',round($row->mrp,2));

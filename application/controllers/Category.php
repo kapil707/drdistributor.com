@@ -188,7 +188,7 @@ class Category extends CI_Controller {
 				/*****************************/
 
 				$category_id = $item_code;
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

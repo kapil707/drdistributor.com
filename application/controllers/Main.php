@@ -143,7 +143,6 @@ class Main extends CI_Controller {
 		$data["ChemistId"] 		= $ChemistId;
 		
 		$data["item_id"] = "";
-		$data["user_altercode"] = "";
 		$where = array('chemist_id'=>$ChemistId,'order_id'=>$OrderId,);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");

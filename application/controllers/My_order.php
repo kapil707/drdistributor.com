@@ -159,16 +159,16 @@ class My_order extends CI_Controller {
 
 	public function my_order_details_main_api(){
 		
-		$item_id		= $_REQUEST['item_id'];
-		$user_type 		= "chemist";
-		$user_altercode = $_REQUEST['user_altercode'];
-		$user_password	= "";
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$ItemId			= $_REQUEST['ItemId'];
+		$ChemistId 		= $_REQUEST['ChemistId'];
+
+		$UserType 		= "chemist";
+		$SalesmanId 	= "";
 		
 		$items = $download_url = $title = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyOrderModel->get_my_order_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
+
+			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
 			$title  = $result["title"];
 			$items  = $result["items"];
 			$download_url  = $result["download_url"];

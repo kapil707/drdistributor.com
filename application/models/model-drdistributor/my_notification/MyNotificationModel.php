@@ -9,13 +9,13 @@ class MyNotificationModel extends CI_Model
 		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
 	
-	public function get_my_notification_api($user_type="",$user_altercode="",$salesman_id="",$get_record="",$limit="12") {
+	public function get_my_notification_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit="12") {
 		
-		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 		
 		$jsonArray = array();
 		
-		$this->db->where('chemist_id',$user_altercode);
+		$this->db->where('chemist_id',$ChemistId);
 		$this->db->where('device_id','default');
 		$this->db->order_by('id','desc');
 		$this->db->limit($limit,$get_record);
@@ -48,15 +48,15 @@ class MyNotificationModel extends CI_Model
 		return $return;
 	}
 	
-	public function get_my_notification_details_api($user_type="",$user_altercode="",$salesman_id="",$item_id="") {
+	public function get_my_notification_details_api($UserType="",$ChemistId="",$SalesmanId="",$ItemId="") {
 		
-		$user_image = $this->UserModel->get_chemist_photo($user_altercode);
+		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 		
 		$jsonArray = array();
 		
-		$this->db->where('chemist_id',$user_altercode);
+		$this->db->where('chemist_id',$ChemistId);
 		$this->db->where('device_id','default');
-		$this->db->where('id',$item_id);
+		$this->db->where('id',$ItemId);
 		$this->db->order_by('id','desc');
 		$this->db->limit(8);
 		$query = $this->db->get("tbl_android_notification")->result();

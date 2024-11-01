@@ -67,7 +67,7 @@ class My_notification extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function my_notification_details($item_id=""){
+	public function my_notification_details($ItemId=""){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My notification details";
@@ -89,7 +89,7 @@ class My_notification extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$data["item_id"] = $item_id;
+		$data["ItemId"] = $ItemId;
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_notification/my_notification_details', $data);
@@ -131,11 +131,11 @@ class My_notification extends CI_Controller {
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
 
-		$item_id		= $_REQUEST['item_id'];
+		$ItemId		= $_REQUEST['ItemId'];
 		$items = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){
+		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
 			
-			$result = $this->MyNotificationModel->get_my_notification_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
+			$result = $this->MyNotificationModel->get_my_notification_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
 
 			$title  = $result["title"];
 			$items  = $result["items"];

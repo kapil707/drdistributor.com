@@ -60,7 +60,7 @@ function call_page(get_record)
 						item_date_time 		= item.item_date_time;
 						item_image 			= item.item_image;
 						
-						$(".main_page_data").append('<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="all_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="all_page_box_right_div text-left"><div class="all_item_name">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>');
+						$(".main_page_data").append('<div class="main_box_div_data"><a href="'+get_base_url()+'mnd/'+item_id+'"><div class="all_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="all_page_box_right_div text-left"><div class="all_item_name">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>');
 						
 						query_work = 0;
 						no_record_found = 1;

@@ -116,7 +116,9 @@ $route['my_invoice_details/(:any)']='my_invoice/my_invoice_details/$1';
 $route['mid/(:any)']='my_invoice/my_invoice_details/$1';
 
 $route['my_notification']='my_notification/index';
+$route['mn']='my_notification/index';
 $route['my_notification_details/(:any)']='my_notification/my_notification_details/$1';
+$route['mnd/(:any)']='my_notification/my_notification_details/$1';
 
 $route['home/account']='user/account';
 $route['home/change_account']='user/update_account';

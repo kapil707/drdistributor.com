@@ -46,8 +46,7 @@ class Main extends CI_Controller {
 
 			/******************DeliveringToData************************* */
 			$data["DeliveringTo"]= $data["ChemistId"];
-			if($this->UserType=="sales")
-			{
+			if($this->UserType=="sales") {
 				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 			}
 			/********************************************************** */

@@ -1,258 +1,187 @@
-function page_load() {
-
-	$(".top_bar_search_div").hide();
-	$(".top_bar_search_textbox_div").show();
-
-	$('.chemist_search_textbox').val("");
-	$('.chemist_search_textbox').show();
-	$('.chemist_search_textbox').focus();
-}
-function clear_search_function() {
-
-	$(".background_blur").hide();
-
-	$(".search_result_div").html("");
-	$(".search_result_div").hide();
-	
-	$(".search_result_div_mobile").html("");
-	$(".search_result_div_mobile").hide();	
-
-	$(".chemist_search_textbox").val("");
-	$('.chemist_search_textbox').focus();
-
-	$(".top_bar_search_textbox_div_menu_icon").hide();
-	$(".top_bar_search_textbox_div_menu").hide();
-
-	$(".top_bar_search_textbox_div_clear_icon").hide();	
-	
-	$(".main_page_data_mobile").show();
-}
-$(document).ready(function() {
-	$(".chemist_search_textbox").keyup(function(e){
-		if(e.keyCode == 8){}
-		var keyword = $(".chemist_search_textbox").val();
-		if(keyword!="")
-		{
-			if(keyword.length<3)
-			{
-				$('.chemist_search_textbox').focus();
-				$(".search_result_div").html("");
-				$(".search_result_div_mobile").html("");
-			}
-			if(keyword.length>2)
-			{
-				//search_chemist();
-				setTimeout('search_chemist();',500);
-			}
-		}
-		else{
-			clear_search_function();
-		}
-	})
-	$(".chemist_search_textbox").keypress(function() { 
-	});
-	$(".chemist_search_textbox").change(function() { 
-	});
-	$(".chemist_search_textbox").on("search", function() { 
-	});
-	
-    $(".chemist_search_textbox").keydown(function(event) {
-    	if(event.key=="ArrowDown")
-    	{
-			page_up_down_arrow("1");
-    		$('.hover_1').attr("tabindex",-1).focus();
-			return false;
-    	}
-    });
-	setTimeout('page_load();',100);
-	document.onkeydown = function(evt) {
-		evt = evt || window.event;
-		if (evt.keyCode == 27) {
-			clear_search_function();
-		}
-	};
-});
-function search_chemist()
+function showpassword()
 {
-	new_i = 0;
-
-	$(".main_page_data_mobile").hide();
-
-	$(".top_bar_search_textbox_div_clear_icon").show();
-
-	var keyword = $(".chemist_search_textbox").val();
-	if(keyword!="")
+	$("#eyes1").hide();
+	$("#eyes").show();
+	document.getElementById("old_password").type = 'text';
+}
+function hidepassword()
+{
+	$("#eyes1").show();
+	$("#eyes").hide();
+	document.getElementById("old_password").type = 'password';
+}
+function showpassword1()
+{
+	$("#eyes1").hide();
+	$("#eyes").show();
+	document.getElementById("new_password").type = 'text';
+}
+function hidepassword1()
+{
+	$("#eyes1").show();
+	$("#eyes").hide();
+	document.getElementById("new_password").type = 'password';
+}
+function showpassword2()
+{
+	$("#eyes1").hide();
+	$("#eyes").show();
+	document.getElementById("renew_password").type = 'text';
+}
+function hidepassword2()
+{
+	$("#eyes1").show();
+	$("#eyes").hide();
+	document.getElementById("renew_password").type = 'password';
+}
+var pass1 = 0;
+var pass2 = 0;
+var pass3 = 0;
+function check_old_password()
+{
+	pass1 = 0;
+	old_password = $("#old_password").val();
+	//$(".check_old_password_div").html("Loading....");
+	if(old_password=="")
 	{
-		if(keyword.length>2)
-		{
-			$(".background_blur").show();
-			$(".top_bar_title2").html("Loading....");
-
-			$(".search_result_div").show();
-			$(".search_result_div").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
-
-			$(".search_result_div_mobile").show();
-			$(".search_result_div_mobile").html('<div class="row"><div class="col-sm-12 text-center">'+loading_img_function()+'</div></div>');
-
-			$.ajax({
-				type       : "POST",
-				dataType   : "json",
-				data       : {keyword : keyword} ,
-				url        : get_base_url()+"chemist_select/chemist_search_api",
-				cache	   : false,
-				error: function(){
-					$(".search_result_div").html(something_went_wrong_function());
-					$(".search_result_div_mobile").html(something_went_wrong_function());
-					$(".top_bar_title2").html("No record found");
-				},
-				success    : function(data){
-					
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-					if(data.items==""){
-						$(".top_bar_title2").html("No record found");
-						$(".search_result_div").html(no_record_found_function());
-						$(".search_result_div_mobile").html(no_record_found_function());
-					}
-					$.each(data.items, function(i,item){	
-						if (item){
-							user_nrx			= item.user_nrx;
-							chemist_altercode	= item.chemist_altercode;
-							new_i				= item.count;
-							
-							//new_i = parseInt(new_i) + 1;
-							
-							a_ = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
-							csshover1 = 'hover_'+new_i;
-							chemist_message = "";
-							if(item.user_cart!="0")
-							{
-								chemist_message = '<div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
-							}
-							
-							var serach_data = '<div class="main_box_div_data '+csshover1+' select_chemist_'+new_i+'" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_chemist_name">'+item.chemist_name+'</div><div class="all_chemist_altercode"> Code : '+item.chemist_altercode+'</div>'+chemist_message+'</div>';
-
-							$(".search_result_div").append(serach_data);
-							$(".search_result_div_mobile").append(serach_data);
-
-							$(".top_bar_title2").html("Found result ("+new_i+")");
+		$(".submit_div").html("&nbsp;");
+	} else{
+		pass1 = 1;
+		submit_btn();
+		/*
+		$.ajax({
+			type       : "POST",
+			data       :  {old_password:old_password,user_type:user_type,user_altercode:user_altercode} ,
+			url        : "<?php echo base_url(); ?>Chemist_json/check_old_password_api",
+			cache	   : false,
+			success    : function(data){
+				$.each(data.items, function(i,item){	
+					if (item){
+						if(item.status1=="1")
+						{
+							$(".check_old_password_div").html("<p class='text-success'>"+item.status+"</p>");
+							pass1 = 1;
+							submit_btn();
 						}
-					});					
-				}
-			});
-		}
-	}
-	else{
-		
-		$(".top_bar_search_textbox_div_menu_icon").hide();
-		$(".top_bar_search_textbox_div_menu").hide();
-
-		$(".top_bar_search_textbox_div_clear_icon").hide();
-		$(".search_result_div").html("");
-		$(".search_result_div_mobile").html("");
+						else{
+							$(".check_old_password_div").html("<p class='text-danger'>"+item.status+"</p>");
+							pass1 = 0;
+							submit_btn();
+						}
+					}
+				});	
+			}
+		});*/
 	}
 }
-function chemist_session_add(chemist_id,user_nrx)
-{	
-	window.location.href = get_base_url()+"chemist_select/chemist_session_add/"+chemist_id+"/"+user_nrx
-}
-function page_up_down_arrow(new_i)
+function check_password1()
 {
-	$('.hover_'+new_i).keypress(function (e) {
-		 if (e.which == 13) {
-			$('.select_chemist_'+new_i).click();
-		 } 						 
-	 });
-	$('.hover_'+new_i).keydown(function(event) {
-		if(event.key=="ArrowDown")
-		{
-			new_i = parseInt(new_i) + 1;
-			page_up_down_arrow(new_i);
-			$('.hover_'+new_i).attr("tabindex",-1).focus();
-			return false;
-		}
-		if(event.key=="ArrowUp")
-		{
-			if(parseInt(new_i)==1)
-			{
-				var searchInput = $('.chemist_search_textbox');
-				var strLength = searchInput.val().length * 2;
-				searchInput.focus();
-				searchInput[0].setSelectionRange(strLength, strLength);
-			}
-			else
-			{
-				new_i = parseInt(new_i) - 1;
-				page_up_down_arrow(new_i);
-				$('.hover_'+new_i).attr("tabindex",-1).focus();
-			}
-			return false;
-		}
-	});
+	$(".check_new_password_div").html("Loading....");
+	new_password = $("#new_password").val();
+	if(new_password.length < 8)
+	{
+		swal("Password must contain 8 characters (e.g. A,a or 1,2 or !,$,@)");
+		$(".submit_div").html("<p class='text-danger'>Password must contain 8 characters (e.g. A,a or 1,2 or !,$,@)</p>");
+		pass2 = 0;
+		submit_btn();
+	}
+	else
+	{
+		$(".submit_div").html("&nbsp;");
+		pass2 = 1;
+		submit_btn();
+	}
 }
-$(document).ready(function(){
-	call_page("kapil");
-});
-function call_page_by_last_id()
+function check_password2()
 {
-	lastid1=$(".lastid1").val();
-	call_page(lastid1)
+	$(".check_renew_password_div").html("Loading....");
+	new_password = $("#new_password").val();
+	renew_password = $("#renew_password").val();
+	check_password1();
+	if(new_password!=renew_password)
+	{
+		swal("Password doesn't match");
+		$(".submit_div").html("<p class='text-danger'>Password doesn't match</p>");
+		pass3 = 0;
+		submit_btn();
+	}
+	else
+	{
+		$(".submit_div").html("<p class='text-success'>Password Matched.</p>");
+		pass3 = 1;
+		submit_btn();
+	}
 }
-var no_record_found = 0;
-var new_i = 0;
-function call_page(lastid1)
+function submit_btn()
 {
-	/*********************************** */
-	$(".top_bar_title2").html("Loading....");
-	$(".main_container").show();
-	$(".main_page_loading").show();
-	$(".main_page_no_record_found").hide();
-	$(".main_page_something_went_wrong").hide();
-	/*********************************** */
-
+	$("#submitbtn").hide()
+	$("#submitbtn_disable").show()
+	if(pass1=="1" && pass2=="1" && pass3=="1")
+	{
+		$("#submitbtn").show()
+		$("#submitbtn_disable").hide()
+	}
+}
+function submitbtn()
+{
+	old_password = $("#old_password").val();
+	new_password = $("#new_password").val();
+	renew_password = $("#renew_password").val();
+	if(old_password=="")
+	{
+		swal("Enter oldpassword")
+		$(".submit_div").html("<p class='text-danger'>Enter oldpassword</p>");
+		$('#old_password').focus();
+		return false;
+	}
+	if(new_password=="")
+	{
+		swal("Enter newpassword")
+		$(".submit_div").html("<p class='text-danger'>Enter newpassword</p>");
+		$('#new_password').focus();
+		return false;
+	}
+	if(renew_password=="")
+	{
+		swal("Enter Re-enter newpassword")
+		$(".submit_div").html("<p class='text-danger'>Enter Re-enter newpassword</p>");
+		$('#renew_password').focus();
+		return false;
+	}
+	$("#submitbtn").hide();
+	$("#submitbtn_disable").show();
+	$(".submit_div").html("Loading....");
+	
 	$.ajax({
 		type       : "POST",
-		dataType   : "json",
-		data       :  {lastid1:lastid1} ,
-		url        : get_base_url()+"chemist_select/salesman_my_cart_api",
+		data       :  {old_password:old_password,new_password:new_password} ,
+		url        : "<?php echo base_url(); ?>user/update_password_api",
 		cache	   : false,
 		error: function(){
-			$(".top_bar_title2").html("No record found");
-			$(".main_container").hide();
-			$(".main_page_loading").hide();
-			$(".main_page_something_went_wrong").show();
+			swal("Error")
+			$(".submit_div").html("<p class='text-danger'>Error</p>");
+			$("#submitbtn").show();
+			$("#submitbtn_disable").hide();
 		},
-		success    : function(data){
-			
-			$(".main_page_loading").hide();
-			if(data.items=="")
-			{
-				if(no_record_found=="0")
-				{
-					$(".top_bar_title2").html("No record found");
-					$(".main_container").hide();
-					$(".main_page_no_record_found").show();
-				}
-			}
+		success    : function(data){			
 			$.each(data.items, function(i,item){	
 				if (item){
-					user_nrx 			= item.user_nrx;
-					chemist_altercode 	= item.chemist_altercode;
-
-					a_ = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
-					
-					var main_data = '<div class="main_box_div_data" '+a_+'><div class="chemist_search_box_left_div"><img src="'+item.chemist_image+'" class="all_item_image" onerror="setDefaultImage(this);"></div><div class="chemist_search_box_right_div"><div class="all_chemist_name">'+item.chemist_name+'</div><div class="all_chemist_altercode"> Code : '+item.chemist_altercode+'</div><div class="all_item_date_time">Order '+item.user_cart+' Items | Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item.user_cart_total+'/-</div></div></div>';
-
-					$(".main_page_data").append(main_data);	
-					$(".main_page_data_mobile").append(main_data);
-
-					no_record_found = 1;
-					
-					new_i = parseInt(new_i) + 1;
-					$(".top_bar_title2").html("Found result ("+new_i+")");
+					swal(item.status_message);
+					if(item.status=="1")
+					{
+						$(".submit_div").html("<p class='text-success'>"+item.status_message+"</p>");
+						$(".check_old_password_div").html("");
+						$(".check_new_password_div").html("");
+						$(".check_renew_password_div").html("");
+						$("#old_password").val("");
+						$("#new_password").val("");
+						$("#renew_password").val("");						
+					}
+					else{
+						$(".submit_div").html("<p class='text-danger'>"+item.status_message+"</p>");
+					}
 				}
-			});
-		},
-		timeout: 60000
-	});	
+			});	
+		}
+	});
 }

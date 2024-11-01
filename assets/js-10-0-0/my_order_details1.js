@@ -64,7 +64,6 @@ function call_page()
 					item_margin			= "0";
 
 					item_batch_no		= "xxxxxx";
-					item_expiry 		= "00/00";
 					item_gst 			= "0";
 					item_description1 	= "";
 					similar_items 		= "";

@@ -115,7 +115,7 @@ if (isset($_COOKIE["theme_type"])) {
 					</li>
 
 					<li class="d-none d-lg-block">
-						<a href="<?= base_url() ?>my_order" class="mobile_off" title="My order">
+						<a href="<?= base_url() ?>mo" class="mobile_off" title="My order">
 							<i class="fa fa-newspaper-o" aria-hidden="true"></i> 
 							<span class="d-none d-xxxl-block">My&nbsp;</span>
 							<span>Order</span>

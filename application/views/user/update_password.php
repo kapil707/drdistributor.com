@@ -11,13 +11,13 @@ function goBack() {
 			<div class="row main_box_div p-2">
 				<div class="col-sm-12">
 					<div class="main_box_div_data">
-					<div class="all_page_box_left_div">
-							<img src="<?= $session_user_image ?>" class="all_item_image" onerror="setDefaultImage(this);">
+						<div class="all_page_box_left_div">
+							<img src="<?= $UserImage ?>" class="all_item_image" onerror="setDefaultImage(this);">
 						</div>
 						<div class="all_page_box_right_div text-left">
-							<span class="all_item_name"><?= $session_user_fname ?></span><br>
+							<span class="all_item_name"><?= $UserFullName ?></span><br>
 							<span class="all_item_packing">Code :
-							<?php echo $session_user_altercode ?></span>
+							<?php echo $ChemistId ?></span>
 						</div>
 					</div>
 				</div>

@@ -133,11 +133,11 @@ class My_invoice extends CI_Controller {
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
 
-		$item_id		= $_REQUEST['item_id'];
+		$ItemId		= $_REQUEST['ItemId'];
 		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){
+		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
 
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];

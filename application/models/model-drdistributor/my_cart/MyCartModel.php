@@ -2,8 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MyCartModel extends CI_Model  
 {
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
 	public function get_temp_rec($user_type='',$user_altercode='',$salesman_id='')
@@ -263,10 +268,10 @@ class MyCartModel extends CI_Model
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
 		{
-			$image1 = constant('img_url_site')."uploads/default_img.jpg";
+			$image1 = $this->MedicineImageUrl."uploads/default_img.jpg";
 			if(!empty($row1->image1))
 			{
-				$image1 = constant('img_url_site').$row1->image1;
+				$image1 = $this->MedicineImageUrl.$row1->image1;
 			}
 			$dt = array(
 				'i_code'=>$item_code,

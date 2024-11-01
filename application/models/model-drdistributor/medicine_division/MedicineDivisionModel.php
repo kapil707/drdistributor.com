@@ -2,6 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineDivisionModel extends CI_Model  
 { 
+	var $MedicineImageUrl = "";
+	public function __construct(){
+		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
+	}
+	
 	public function get_division_category_name($category_id){
 		$this->db->select("name");
 		$this->db->where('id',$category_id);
@@ -26,9 +35,9 @@ class MedicineDivisionModel extends CI_Model
 			$item_code			=	($row->compcode);
 			$item_company		=	ucwords(strtolower($row->company_full_name));
 			$item_division 		= 	"";
-			$item_image			=   constant('img_url_site')."uploads/manage_division_wise/photo/resize/".$row->image;
+			$item_image			=   $this->MedicineImageUrl."uploads/manage_division_wise/photo/resize/".$row->image;
 			if (empty($row->image)){
-				$item_image 	= constant('img_url_site')."uploads/default_img.jpg";
+				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
 			}
 			$item_image 	= htmlentities($item_image);
 			

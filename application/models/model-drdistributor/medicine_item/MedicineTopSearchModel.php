@@ -2,10 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineTopSearchModel extends CI_Model  
 {
+	var $MedicineImageUrl = "";
 	public function __construct(){
-
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
 
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
 	public function get_item_category_name($category_id){
@@ -69,7 +72,7 @@ class MedicineTopSearchModel extends CI_Model
 			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
-				$item_image = constant('img_url_site').$row->image1;
+				$item_image = $this->MedicineImageUrl.$row->image1;
 			}
 				
 			$dt = array(

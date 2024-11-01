@@ -8,6 +8,8 @@ class AppConfig {
     public $Weburl = "https://www.drdistributor.com/";
     public $WebJs = "10-0-0";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
+    public $MedicineImageUrl = "https://www.drdweb.co.in/user_profile/";
+    public $ApiUrl2 = "https://www.drdweb.co.in/";
 
     public function getSiteTitle() {
         return $this->siteTitle;
@@ -27,6 +29,14 @@ class AppConfig {
 
     public function getUserProfileUrl() {
         return $this->UserProfileUrl;
+    }
+
+    public function getMedicineImageUrl() {
+        return $this->MedicineImageUrl;
+    }
+
+    public function getApiUrl2() {
+        return $this->ApiUrl2;
     }
 }
 

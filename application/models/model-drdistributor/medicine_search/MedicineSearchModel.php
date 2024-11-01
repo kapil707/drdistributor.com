@@ -2,10 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineSearchModel extends CI_Model  
 {
-	var $db_medicine;
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
-		// Load model
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
 	public function medicine_search_api_new($keyword="",$user_nrx="",$total_rec="",$checkbox_medicine="",$checkbox_company="",$checkbox_out_of_stock="")
@@ -482,7 +485,7 @@ class MedicineSearchModel extends CI_Model
 		$item_image = base_url()."uploads/default_img.webp";
 		if(!empty($row->image1))
 		{
-			$item_image = constant('img_url_site').$row->image1;
+			$item_image = $this->MedicineImageUrl.$row->image1;
 		}
 		//$item_image = str_replace(" ","%20",$item_image);
 

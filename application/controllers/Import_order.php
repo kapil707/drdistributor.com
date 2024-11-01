@@ -11,6 +11,7 @@ class Import_order extends CI_Controller {
 	var $ChemistId 		= "";
 	var $SalesmanId 	= "";
 	
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
 		// Load the AppConfig library
@@ -39,6 +40,8 @@ class Import_order extends CI_Controller {
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
 	public function index()
@@ -648,7 +651,7 @@ class Import_order extends CI_Controller {
 			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
-				$item_image = constant('img_url_site').$row->image1;
+				$item_image = $this->MedicineImageUrl.$row->image1;
 			}
 
 			$item_batch_no = $row->batch_no;

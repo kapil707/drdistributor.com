@@ -7,6 +7,8 @@ class MyOrderModel extends CI_Model
 
 		// Load model
 		$this->load->model("model-drdistributor/user_model/UserModel");
+
+		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 	
 	public function get_my_order_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit=12) {		
@@ -92,38 +94,7 @@ class MyOrderModel extends CI_Model
 
 			$download_url = base_url()."od/".$ChemistId."/".$row->order_id;
 
-			$item_code 			= $row->i_code;
-			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));
-			$item_quantity 		= $row->quantity;
-			$item_quantity_price= sprintf('%0.2f',round($row->quantity * $row->sale_rate,2));
-			$item_date_time 	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
-			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
-			$item_name 		= (ucwords(strtolower($row->item_name)));
-			$item_packing 	= ($row->packing);
-			$item_expiry 	= ($row->expiry);
-			$item_company 	= (ucwords(strtolower($row->company_full_name)));
-			$item_scheme 	= $row->salescm1."+".$row->salescm2;
-			$item_image = constant('img_url_site')."uploads/default_img.jpg";
-			if(!empty($row->image1))
-			{
-				$item_image = constant('img_url_site').$row->image1;
-			}
-			
-			$dt = array(
-				'item_code' => $item_code,
-				'item_image' => $item_image,
-				'item_name' => $item_name,
-				'item_packing' => $item_packing,
-				'item_expiry' => $item_expiry,
-				'item_company' => $item_company,
-				'item_scheme' => $item_scheme,
-				'item_price' => $item_price,
-				'item_quantity' => $item_quantity,
-				'item_quantity_price' => $item_quantity_price,
-				'item_date_time' => $item_date_time,
-				'item_modalnumber' => $item_modalnumber,
-			);
-			$jsonArray[] = $dt;
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_details_row_dt($row);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		

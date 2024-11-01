@@ -2,11 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineDetailsModel extends CI_Model  
 {
-	var $db_medicine;
+	var $MedicineImageUrl = "";
 	public function __construct(){
 
 		parent::__construct();
-		// Load model
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
 	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)
@@ -56,7 +59,7 @@ class MedicineDetailsModel extends CI_Model
 			$item_description2 = (trim($row->description));			
 
 			$item_image  = $item_image2 = $item_image3 = $item_image4 = base_url()."uploads/default_img.webp";
-			$img_url_site = constant('img_url_site');
+			$img_url_site = $this->MedicineImageUrl;
 			if(!empty($row->image1)){
 				$item_image = $img_url_site.$row->image1;
 			}
@@ -204,6 +207,44 @@ class MedicineDetailsModel extends CI_Model
 				);
 				$query = $this->Scheme_Model->insert_fun("tbl_stock_low",$dt);
 			}
+		}
+	}
+
+	public function medicine_details_row_dt($row){
+
+		if(!empty($row)){
+			$item_code 			= $row->i_code;
+			$item_price 		= sprintf('%0.2f',round($row->sale_rate,2));
+			$item_quantity 		= $row->quantity;
+			$item_quantity_price= sprintf('%0.2f',round($row->quantity * $row->sale_rate,2));
+			$item_date_time 	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));
+			$item_modalnumber 	= "Pc / Laptop"; //$row->modalnumber;
+			$item_name 		= (ucwords(strtolower($row->item_name)));
+			$item_packing 	= ($row->packing);
+			$item_expiry 	= ($row->expiry);
+			$item_company 	= (ucwords(strtolower($row->company_full_name)));
+			$item_scheme 	= $row->salescm1."+".$row->salescm2;
+			$item_image = constant('img_url_site')."uploads/default_img.jpg";
+			if(!empty($row->image1))
+			{
+				$item_image = constant('img_url_site').$row->image1;
+			}
+			
+			$dt = array(
+				'item_code' => $item_code,
+				'item_image' => $item_image,
+				'item_name' => $item_name,
+				'item_packing' => $item_packing,
+				'item_expiry' => $item_expiry,
+				'item_company' => $item_company,
+				'item_scheme' => $item_scheme,
+				'item_price' => $item_price,
+				'item_quantity' => $item_quantity,
+				'item_quantity_price' => $item_quantity_price,
+				'item_date_time' => $item_date_time,
+				'item_modalnumber' => $item_modalnumber,
+			);
+			return $dt;
 		}
 	}
 }

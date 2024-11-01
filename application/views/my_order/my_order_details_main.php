@@ -23,4 +23,4 @@ function goBack() {
 var item_id = "<?php echo $item_id; ?>";
 var ChemistId = "<?php echo $ChemistId; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/my_order_details_main.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/my_order_details_main1.js"></script>

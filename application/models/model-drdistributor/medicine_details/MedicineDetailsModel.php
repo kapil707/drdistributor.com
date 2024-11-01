@@ -12,7 +12,7 @@ class MedicineDetailsModel extends CI_Model
 	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)
 	{
 		$jsonArray = array();
-		$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
+		//$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
 
 		$item_date_time = date('d-M h:i A');
 		
@@ -44,9 +44,9 @@ class MedicineDetailsModel extends CI_Model
 			if($item_quantity==0)
 			{
 				$this->add_stock_low($user_type,$user_altercode,$salesman_id,$item_code);
-				$item_batch_no = "xxxxxx";
-				$item_expiry= "00/00";
-				$gstper		= "0";
+				$item_batch_no 	= "xxxxxx";
+				$item_expiry	= "00/00";
+				$item_gst		= "0";
 			}
 			if(empty($item_discount))
 			{

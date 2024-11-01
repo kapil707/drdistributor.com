@@ -83,6 +83,7 @@ $route['home']='Home/index';
 
 $route['search_medicine']='medicine_search/index';
 $route['medicine_search']='medicine_search/index';
+$route['ms']='medicine_search/index';
 $route['home/search_medicine']='medicine_search/index';
 $route['home/medicine_search']='medicine_search/index';
 

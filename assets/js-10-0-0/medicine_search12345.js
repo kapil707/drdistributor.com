@@ -166,7 +166,7 @@ function cart_empty_btn() {
 }
 
 function view_cart_btn() {
-	window.location.href= get_base_url() + "my_cart";
+	window.location.href= get_base_url() + "mc";
 }
 
 function medicine_search_api() {

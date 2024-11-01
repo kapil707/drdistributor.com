@@ -14,7 +14,7 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       : {item_id:item_id,ChemistId:ChemistId},
+		data       : {ItemId:ItemId,ChemistId:ChemistId},
 		url        : get_base_url() + "my_order/my_order_details_main_api",
 		cache	   : false,
 		error: function(){

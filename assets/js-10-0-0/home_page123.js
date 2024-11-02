@@ -415,7 +415,7 @@ function home_page_invoice(CategoryId,items,title){
 				delete_status_div = '<div class="all_item_date_time">Some items have been deleted / modified in this order</div>';
 			}
 			
-			mydata+='<div class="main_box_div_data"><div class="home_page_box_left_div"><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></a></div><div class="home_page_box_right_div text-left"><div class=""><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><span class="all_item_title">'+item_title+'</span></a><span style="float: right;"><a href="'+download_url+'" class="all_item_download">Download Excel</a></span></div><a href="'+get_base_url()+'my_invoice_details/'+item_id+'"><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
+			mydata+='<div class="main_box_div_data"><div class="home_page_box_left_div"><a href="'+get_base_url()+'mid/'+item_id+'"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></a></div><div class="home_page_box_right_div text-left"><div class=""><a href="'+get_base_url()+'mid/'+item_id+'"><span class="all_item_title">'+item_title+'</span></a><span style="float: right;"><a href="'+download_url+'" class="all_item_download">Download Excel</a></span></div><a href="'+get_base_url()+'mid/'+item_id+'"><div class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_total+'/-</div><div class="all_item_date_time">Invoice Date : '+item_date_time+''+out_for_delivery+'</div>'+delete_status_div+'</div></a></div>';
 		}
 	});
 	
@@ -434,7 +434,7 @@ function home_page_notification(CategoryId,items,title){
 			item_date_time 		= item.item_date_time;
 			item_image 			= item.item_image;
 			
-			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'my_notification_details/'+item_id+'"><div class="home_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="home_page_box_right_div text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>';
+			mydata+='<div class="main_box_div_data"><a href="'+get_base_url()+'mnd/'+item_id+'"><div class="home_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class="home_page_box_right_div text-left"><div class="all_item_title">'+item_title+'</div><div class="all_item_message">'+item_message+'</div><div class="all_item_date_time">'+item_date_time+'</div></div></a></div>';
 		}
 	});
 	

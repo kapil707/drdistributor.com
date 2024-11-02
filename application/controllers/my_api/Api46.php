@@ -1133,7 +1133,7 @@ class Api46 extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$user_nrx,$item_code,$item_division,0,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

@@ -173,7 +173,7 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,0,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

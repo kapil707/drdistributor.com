@@ -392,7 +392,7 @@ class MedicineItemModel extends CI_Model
 		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
-	}
+	} 
 
 	public function page_row_dt($row,$SessionValue){
 

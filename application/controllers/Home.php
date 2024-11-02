@@ -115,7 +115,7 @@ class Home extends CI_Controller {
 			$CategoryId = $row->category_id;
 			
 			if($row->type=="slider"){
-			    $result = $this->SliderModel->slider($row->CategoryId);
+			    $result = $this->SliderModel->slider($CategoryId);
 		        $items = $result["items"];
 				$title  = 'slider';
 			}

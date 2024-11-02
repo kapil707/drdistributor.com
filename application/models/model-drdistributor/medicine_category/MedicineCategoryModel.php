@@ -11,7 +11,7 @@ class MedicineCategoryModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
-	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$get_record="",$limit="12")
+	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$get_record="",$limit="12",$order_by_type="RAND")
 	{
 		$jsonArray = array();
 		$title = "";

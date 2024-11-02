@@ -11,7 +11,7 @@ class MedicineCategoryModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
-	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$get_record="",$limit="12",$order_by_type="RAND")
+	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
 		$jsonArray = array();
 		$title = "";
@@ -26,10 +26,10 @@ class MedicineCategoryModel extends CI_Model
 			$where="misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
-		/************************************ *
+		/************************************ */
 		if($show_out_of_stock==0){
 			$this->db->where('batchqty !=', 0);
-		}*/
+		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
 			$this->db->order_by('id', "RAND()");

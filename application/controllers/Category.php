@@ -165,7 +165,7 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,$get_record);
+				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,0,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

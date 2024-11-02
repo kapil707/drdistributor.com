@@ -10,6 +10,17 @@ class MedicineCategoryModel extends CI_Model
 
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
+
+	public function get_item_category_name($code){
+		$this->db->select("menu");
+		$this->db->where('code',$code);
+		$row = $this->db->get("tbl_medicine_menu")->row();
+		if(!empty($row)){
+			return $row->menu;
+		}else{
+			return "";
+		}
+	}
 	
 	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
@@ -45,7 +56,7 @@ class MedicineCategoryModel extends CI_Model
 		}
 
 		$return["items"] = $jsonArray;
-		$return["title"] = $title;
+		$return["title"] = $this->get_item_category_name($itemcat);
 		$return["get_record"] = $get_record;
 		return $return;
 	}

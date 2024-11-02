@@ -95,6 +95,7 @@ class MedicineCategoryModel extends CI_Model
 		{
 			$get_record++;
 			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
+			$title = ucwords(strtolower($row->company_name));
 		}
 
 		$return["items"] = $jsonArray;

@@ -135,7 +135,7 @@ function get_top_menu_api(){
 						item_code	 	= item.item_code;
 						item_company	= item.item_company;
 						item_image	 	= item.item_image;
-						item_url	 	= get_base_url() + "category/"+item.item_url;
+						item_url	 	= get_base_url() + "c/"+item.item_url;
 
 						$(".top_bar_menu2_ul").append('<li><a href="'+item_url+'"><span>'+item_company+'</span></a></li>');
 					}
@@ -333,7 +333,7 @@ function home_page_divisioncategory(CategoryId,items,title){
 			item_division 	= item.item_division;
 			item_image 		= item.item_image;
 
-			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><img class="all_item_image" src="uploads/division_category_default_img.webp" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" style="display:none;"></a><a href="'+get_base_url()+'category/featured_brand/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
+			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'c/fb/'+item_code+'/'+item_division+'"><img class="all_item_image" src="uploads/division_category_default_img.webp" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" style="display:none;"></a><a href="'+get_base_url()+'c/fb/'+item_code+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
 		}
 	});
 	
@@ -387,7 +387,7 @@ function home_page_itemcategory(CategoryId,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'category/itemcategory/'+CategoryId+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'c/ic/'+CategoryId+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }

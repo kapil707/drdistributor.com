@@ -70,12 +70,12 @@ function callandroidfun(funtype,id,compname,image,division) {
 	}
 	if(funtype=="2")
 	{
-		window.location.href = get_base_url() + 'category/featured_brand/'+id+'/'+division;
+		window.location.href = get_base_url() + 'c/fb/'+id+'/'+division;
 	}
 }
 
 function gosearchpage() {
-	window.location.href = get_base_url() + "medicine_search";
+	window.location.href = get_base_url() + "ms";
 }
 
 $(document).ready(function(){

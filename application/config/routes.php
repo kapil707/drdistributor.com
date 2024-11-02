@@ -137,9 +137,12 @@ $route['update_image']='user/update_image';
 $route['update_password']='user/update_password';
 
 $route['category/(:any)'] = 'Category/index/$1';
+$route['c/(:any)'] = 'Category/index/$1';
 $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
+$route['c/ic/(:any)']= 'Category/itemcategory/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
+$route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 
 $route['select_chemist'] = 'Chemist_select/index';

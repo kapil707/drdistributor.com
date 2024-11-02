@@ -315,8 +315,6 @@ function home_page_slider(CategoryId,items,title){
 			}
 
 			mydata+='<a href="'+web_action+'"><div><img src="'+image+'" data-u="image" class="img_css_for_slider" alt=""></div></a>';
-
-			alert(itemid)
 		}
 	});
 	

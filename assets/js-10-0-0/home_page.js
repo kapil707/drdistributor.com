@@ -34,7 +34,6 @@ function get_broadcast_message(){
 					$('.broadcast_message').text(item.item_message);
                 });
             }
-
 			// Schedule the next check after 10 seconds
 			setTimeout(function() {
 				get_broadcast_message();
@@ -125,7 +124,7 @@ function get_top_menu_api(){
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {myid:myid} ,
+		data       : {myid:myid} ,
 		url        : get_base_url() + "home/get_top_menu_api",
 		cache	   : true,
 		success : function(data){
@@ -302,6 +301,7 @@ function home_page_owl_load(type,category_id){
 }
 
 function home_page_slider(category_id,items,title){
+	alert("xxx1")
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){
@@ -316,6 +316,8 @@ function home_page_slider(category_id,items,title){
 			}
 
 			mydata+='<a href="'+web_action+'"><div><img src="'+image+'" data-u="image" class="img_css_for_slider" alt=""></div></a>';
+
+			alert(itemid)
 		}
 	});
 	

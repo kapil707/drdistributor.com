@@ -45,8 +45,9 @@ class MedicineCategoryModel extends CI_Model
 		if($order_by_type=="RAND"){
 			$this->db->order_by('id', "RAND()");
 		}else{
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->where('(featured = 1 AND batchqty != 0) OR featured = 0', null, false);
 			$this->db->order_by('featured', 'DESC');
+        	$this->db->order_by('batchqty', 'DESC');
 		}
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
@@ -87,6 +88,7 @@ class MedicineCategoryModel extends CI_Model
 		if($order_by_type=="RAND"){
 			$this->db->order_by('id', "RAND()");
 		}else{
+			$this->db->where('(featured = 1 AND batchqty != 0) OR featured = 0', null, false);
 			$this->db->order_by('featured', 'DESC');
         	$this->db->order_by('batchqty', 'DESC');
 		}

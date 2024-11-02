@@ -84,6 +84,7 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('id', 'desc');
 		}
+		$this->db->limit(25);
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{
@@ -124,6 +125,7 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
+		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -148,10 +150,9 @@ class MedicineItemModel extends CI_Model
 		$this->db->from('tbl_cart as t1');
 		$this->db->join('tbl_medicine as t2', 't1.i_code = t2.i_code', 'left');
 		$this->db->where('t1.STATUS', 1);
-		$this->db->where('t1.date', '2024-11-02');
+		$this->db->where('t1.date',$date);
 		$this->db->group_by('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$this->db->having('quantity >', 1);
-		$this->db->limit(25);
 		/************************************ */
 		$where = "t2.status=1 and t2.misc_settings NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
@@ -169,7 +170,8 @@ class MedicineItemModel extends CI_Model
 			$this->db->order_by("RAND()");
 		}else{
 			$this->db->order_by('id', 'desc');
-		}
+		}		
+		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -210,6 +212,7 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
+		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -252,6 +255,7 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t1.id', 'desc');
 		}
+		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -292,6 +296,7 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
+		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{

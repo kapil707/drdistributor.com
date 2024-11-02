@@ -49,7 +49,7 @@ class MedicineCategoryModel extends CI_Model
 			$this->db->order_by('featured', 'DESC');
         	$this->db->order_by('batchqty', 'DESC');
 		}
-		$query = $this->db->get("tbl_medicine")->result();
+		$query = $this->db->get("tbl_medicinexxx")->result();
 		foreach ($query as $row)
 		{
 			$get_record++;

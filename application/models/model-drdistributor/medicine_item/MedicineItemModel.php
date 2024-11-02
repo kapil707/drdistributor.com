@@ -88,7 +88,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -128,7 +128,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -194,7 +194,7 @@ class MedicineItemModel extends CI_Model
 			foreach ($query as $row)
 			{
 				$get_record++;
-				$jsonArray[] = $this->page_row_dt($row);
+				$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 			}
 		}
 		//$jsonString  = json_encode($jsonArray);
@@ -235,7 +235,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -277,7 +277,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -317,7 +317,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -357,7 +357,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row);
+			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -412,8 +412,7 @@ class MedicineItemModel extends CI_Model
 			$query = $this->db->get("tbl_medicine")->result();
 			foreach ($query as $row)
 			{
-				$jsonArray[] = $this->page_row_dt($row);
-				$jsonArray[] = $dt;
+				$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
 			}
 		}
 		//$jsonString  = json_encode($jsonArray);
@@ -424,7 +423,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function page_row_dt($row){
+	public function page_row_dt($row,$session_yes_no){
 
 		if(!empty($row)){
 			$item_code			=	$row->i_code;

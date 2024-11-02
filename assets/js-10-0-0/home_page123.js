@@ -10,7 +10,7 @@ $(document).ready(function() {
 	}, 3000);
 	home_page_menu();
 	get_top_menu_api();
-	home_page_main_api("1");
+	home_page_main_api("1,2,4,5");
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -182,58 +182,58 @@ function get_my_home_response(items){
 			query_work = 0;
 		}*/
 		query_work = 0;
-		category_id = row.category_id;
+		CategoryId = row.CategoryId;
 		page_type = row.page_type;
 
 		next_id = row.next_id;
 
 		if(page_type=="invoice") {
-			dt_result = home_page_invoice(category_id,items,title);
+			dt_result = home_page_invoice(CategoryId,items,title);
 			$(".home_page_invoice_notification_data").append(dt_result);
 		}
 
 		if(page_type=="notification") {
-			dt_result = home_page_notification(category_id,items,title);
+			dt_result = home_page_notification(CategoryId,items,title);
 			$(".home_page_invoice_notification_data").append(dt_result);
 		}
 		
 		if(page_type=="menu") {
-			dt_result = home_page_menu(category_id,items,title);
+			dt_result = home_page_menu(CategoryId,items,title);
 			$(".home_page_menu_data").html(dt_result);
 		}
 		
 		if(page_type=="slider") {
-			dt_result = home_page_slider(category_id,items,title);
-			if(category_id=="1"){
+			dt_result = home_page_slider(CategoryId,items,title);
+			if(CategoryId=="1"){
 				$(".home_page_slider1_data").html(dt_result);
 				jssor_1_slider_init();
 			}
-			if(category_id=="2"){
+			if(CategoryId=="2"){
 				$(".home_page_all_data").append(dt_result);
 				jssor_2_slider_init();
 			}
 		}
 		if(page_type=="divisioncategory") {
-			dt_result = home_page_divisioncategory(category_id,items,title);
-			if(category_id=="1"){
+			dt_result = home_page_divisioncategory(CategoryId,items,title);
+			if(CategoryId=="1"){
 				$(".home_page_divisioncategory1_data").append(dt_result);
 			}else{
 				$(".home_page_all_data").append(dt_result);
 			}
-			home_page_owl_load("divisioncategory",category_id);
+			home_page_owl_load("divisioncategory",CategoryId);
 		}
 		
 		if(page_type=="itemcategory" && items.length != 0) {
-			dt_result = home_page_itemcategory(category_id,items,title);
+			dt_result = home_page_itemcategory(CategoryId,items,title);
 			$(".home_page_all_data").append(dt_result);
-			home_page_owl_load("itemcategory",category_id);
+			home_page_owl_load("itemcategory",CategoryId);
 		}
 	});
 }
 
-function home_page_owl_load(type,category_id){
+function home_page_owl_load(type,CategoryId){
 	if(type=="divisioncategory"){
-		$(".owl-carousel"+category_id).owlCarousel({
+		$(".owl-carousel"+CategoryId).owlCarousel({
 			items: 3, // Number of items to display
 			loop: true, // Enable loop
 			margin: 2, // Margin between items
@@ -264,7 +264,7 @@ function home_page_owl_load(type,category_id){
 			}
 		});
 	}else{
-		$(".owl-carousel"+category_id).owlCarousel({
+		$(".owl-carousel"+CategoryId).owlCarousel({
 			items: 3, // Number of items to display
 			loop: true, // Enable loop
 			margin: 2, // Margin between items
@@ -300,7 +300,7 @@ function home_page_owl_load(type,category_id){
 	}
 }
 
-function home_page_slider(category_id,items,title){
+function home_page_slider(CategoryId,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){
@@ -320,13 +320,13 @@ function home_page_slider(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div id="jssor_'+category_id+'"><div data-u="slides" class="top_flash_div">'+mydata+'</div><div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75"><div data-u="prototype" class="i" style="width:16px;height:16px;"><svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;"><circle class="b" cx="8000" cy="8000" r="5800"></circle></svg></div></div><div data-u="arrowleft" class="jssora_arrowleft" data-autocenter="2" data-scale="0.75" data-scale-left="0.75"><span><i class="fa fa-angle-left" aria-hidden="true"></i></span></div><div data-u="arrowright" class="jssora_arrowright" data-autocenter="2" data-scale="0.75" data-scale-right="0.75"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div id="jssor_'+CategoryId+'"><div data-u="slides" class="top_flash_div">'+mydata+'</div><div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75"><div data-u="prototype" class="i" style="width:16px;height:16px;"><svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;"><circle class="b" cx="8000" cy="8000" r="5800"></circle></svg></div></div><div data-u="arrowleft" class="jssora_arrowleft" data-autocenter="2" data-scale="0.75" data-scale-left="0.75"><span><i class="fa fa-angle-left" aria-hidden="true"></i></span></div><div data-u="arrowright" class="jssora_arrowright" data-autocenter="2" data-scale="0.75" data-scale-right="0.75"><span><i class="fa fa-angle-right" aria-hidden="true"></i></span></div></div></div>';
 	
 	return myval;
 }
 
 
-function home_page_divisioncategory(category_id,items,title){
+function home_page_divisioncategory(CategoryId,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){			
@@ -339,12 +339,12 @@ function home_page_divisioncategory(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }
 
-function home_page_itemcategory(category_id,items,title){
+function home_page_itemcategory(CategoryId,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){			
@@ -389,12 +389,12 @@ function home_page_itemcategory(category_id,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'category/itemcategory/'+category_id+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+category_id+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'category/itemcategory/'+CategoryId+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }
 
-function home_page_invoice(category_id,items,title){
+function home_page_invoice(CategoryId,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){
@@ -426,7 +426,7 @@ function home_page_invoice(category_id,items,title){
 	return myval;
 }
 
-function home_page_notification(category_id,items,title){
+function home_page_notification(CategoryId,items,title){
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){

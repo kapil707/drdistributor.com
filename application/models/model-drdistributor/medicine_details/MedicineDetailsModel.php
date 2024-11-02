@@ -210,6 +210,31 @@ class MedicineDetailsModel extends CI_Model
 		}
 	}
 
+	//medicine_division ke liya only
+	public function medicine_division_row_dt($row){
+	
+		if(!empty($row)){
+			
+			$item_code			=	($row->compcode);
+			$item_company		=	ucwords(strtolower($row->company_full_name));
+			$item_division 		= 	"";
+			$item_image			=   $this->MedicineImageUrl."uploads/manage_division_wise/photo/resize/".$row->image;
+			if (empty($row->image)){
+				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
+			}
+			$item_image 	= htmlentities($item_image);
+			
+			$dt = array(
+				'item_code' => $item_code,
+				'item_image' => $item_image,
+				'item_company' => $item_company,
+				'item_division' => $item_division,
+			);
+
+			return $dt;
+		}
+	}
+
 	public function medicine_details_row_dt($row){
 
 		if(!empty($row)){

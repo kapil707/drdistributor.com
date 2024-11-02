@@ -2,13 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineDivisionModel extends CI_Model  
 { 
-	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
-		// Load the AppConfig library
-        $this->load->library('AppConfig');
 
-		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
+		// Load model
+		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 	
 	public function get_division_category_name($category_id){
@@ -32,22 +30,7 @@ class MedicineDivisionModel extends CI_Model
 		$query = $this->db->get("tbl_division_wise")->result();
 		foreach ($query as $row)
 		{
-			$item_code			=	($row->compcode);
-			$item_company		=	ucwords(strtolower($row->company_full_name));
-			$item_division 		= 	"";
-			$item_image			=   $this->MedicineImageUrl."uploads/manage_division_wise/photo/resize/".$row->image;
-			if (empty($row->image)){
-				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
-			}
-			$item_image 	= htmlentities($item_image);
-			
-			$dt = array(
-				'item_code' => $item_code,
-				'item_image' => $item_image,
-				'item_company' => $item_company,
-				'item_division' => $item_division,
-			);
-			$jsonArray[] = $dt;
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);
 		}
 		
 		//$jsonString  = json_encode($jsonArray);

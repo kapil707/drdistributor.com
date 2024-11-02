@@ -94,28 +94,28 @@ class Home extends CI_Controller {
 		$myitems = array();
 
 		$get_record	 	= "0";//$_REQUEST["get_record"];
-		$user_type = $user_altercode = $user_password	= $chemist_id = $salesman_id = "";
-		$user_nrx = "no";
+		$UserType = $ChemistId = $SalesmanId = $UserPassword = "";
+		$ChemistNrx = "no";
 
-		$session_yes_no = "no";
+		$SessionValue = "no";
 		if(!empty($this->UserType)){
-			$user_type 		= $this->UserType;
-			$user_password	= $this->UserPassword;
-			$user_nrx		= $this->ChemistNrx;
-			$user_altercode = $this->ChemistId;
-			$salesman_id 	= $this->SalesmanId;
-			$session_yes_no = "yes";
+			$UserType 		= $this->UserType;
+			$ChemistId 		= $this->ChemistId;
+			$SalesmanId 	= $this->SalesmanId;
+			$UserPassword	= $this->UserPassword;
+			$ChemistNrx		= $this->ChemistNrx;
+			$SessionValue = "yes";
 		}
 
 		$seq_id = $_POST["seq_id"];
 		
-		$items = $title = $category_id = $page_type = $next_id = "";
+		$items = $title = $CategoryId = $page_type = $next_id = "";
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in ($seq_id) ")->result();
 		foreach($tbl_home as $row){
-			$category_id = $row->category_id;
+			$CategoryId = $row->category_id;
 			
 			if($row->type=="slider"){
-			    $result = $this->SliderModel->slider($row->category_id);
+			    $result = $this->SliderModel->slider($row->CategoryId);
 		        $items = $result["items"];
 				$title  = 'slider';
 			}
@@ -126,29 +126,29 @@ class Home extends CI_Controller {
 			// 	$title  = 'menu';				
 			// }
 
-			if(!empty($user_type) && !empty($user_altercode) && $row->type=="notification") {
+			if(!empty($UserType) && !empty($ChemistId) && $row->type=="notification") {
 
-				$result = $this->MyNotificationModel->get_my_notification_api($user_type,$user_altercode,$salesman_id,"0","3");
+				$result = $this->MyNotificationModel->get_my_notification_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'notification';
 			}
 
-			if(!empty($user_type) && !empty($user_altercode) && $row->type=="invoice") {
+			if(!empty($UserType) && !empty($ChemistId) && $row->type=="invoice") {
 
-				$result = $this->MyInvoiceModel->get_my_invoice_api($user_type,$user_altercode,$salesman_id,"0","3");
+				$result = $this->MyInvoiceModel->get_my_invoice_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'invoice';
 			}
 			
 			if($row->type=="divisioncategory"){
-			    $result = $this->MedicineDivisionModel->medicine_division($category_id);
+			    $result = $this->MedicineDivisionModel->medicine_division($CategoryId);
 				
 				$title  = $result["title"];
 		        $items = $result["items"];
 			}
 			
 			if($row->type=="itemcategory"){
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx);
+				$result = $this->MedicineItemModel->medicine_item($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}
@@ -162,7 +162,7 @@ class Home extends CI_Controller {
 			}
 			$dt = array(
 				'title' => $title,
-				'category_id' => $category_id,
+				'CategoryId' => $CategoryId,
 				'page_type' => $page_type,
 				'next_id' => $next_id,
 				'items' => $items,

@@ -22,43 +22,43 @@ class MedicineItemModel extends CI_Model
 		}
 	}
 	
-	public function medicine_item($session_yes_no="no",$category_id,$user_type='',$user_altercode='',$salesman_id='',$user_nrx='',$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
+	public function medicine_item($SessionValue="no",$CategoryId,$UserType='',$ChemistId='',$SalesmanId='',$ChemistNrx='',$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
-		if($category_id=="1"){
-			return $this->get_medicine_new_this_month_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="1"){
+			return $this->get_medicine_new_this_month_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
-		if($category_id=="2"){
-			return $this->get_medicine_hot_selling_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="2"){
+			return $this->get_medicine_hot_selling_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
-		if($category_id=="3"){
-			return $this->get_medicine_must_buy_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="3"){
+			return $this->get_medicine_must_buy_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}		
-		if($category_id=="4"){
-			return $this->get_medicine_available_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="4"){
+			return $this->get_medicine_available_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		/************************************ */
-		if($category_id=="5" && $session_yes_no=="yes"){
-			 return $this->get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="5" && $SessionValue=="yes"){
+			 return $this->get_medicine_top_search_api($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
-		if($category_id=="5" && $session_yes_no=="no"){
+		if($CategoryId=="5" && $SessionValue=="no"){
 			// jab session na milay to yha chalta ha 
 			$return["items"] = array();
 			$return["title"] = 'Search';
 			return $return;
 		}
 		/************************************ */
-		if($category_id=="6"){
-			return $this->get_medicine_low_price_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="6"){
+			return $this->get_medicine_low_price_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
-		if($category_id=="7"){
-			return $this->get_medicine_scheme_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		if($CategoryId=="7"){
+			return $this->get_medicine_scheme_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		
-		return $this->get_medicine_item_view_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		return $this->get_medicine_item_view_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
 	}
 
 	/****************************************** */
-	public function get_medicine_new_this_month_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_new_this_month_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 		$time  = time();
@@ -69,7 +69,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -89,7 +89,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -100,7 +100,7 @@ class MedicineItemModel extends CI_Model
 	}
 
 	/****************************************** */
-	public function get_medicine_hot_selling_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_hot_selling_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
@@ -110,7 +110,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -130,7 +130,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -140,7 +140,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_must_buy_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_must_buy_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$date = date("Y-m-d");
 		
@@ -156,7 +156,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.misc_settings NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -176,7 +176,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -186,7 +186,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_available_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_available_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -197,7 +197,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -217,7 +217,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -227,20 +227,20 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_top_search_api($session_yes_no,$category_id,$user_type,$user_altercode,$salesman_id,$user_nrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_top_search_api($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
 		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
 		$this->db->from('tbl_top_search AS t1');
 		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
-		$this->db->where('t1.user_type', $user_type);
-		$this->db->where('t1.user_altercode', $user_altercode);
-		$this->db->where('t1.salesman_id', $salesman_id);
+		$this->db->where('t1.user_type', $UserType);
+		$this->db->where('t1.user_altercode', $ChemistId);
+		$this->db->where('t1.salesman_id', $SalesmanId);
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -260,7 +260,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -270,7 +270,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_low_price_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_low_price_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -281,7 +281,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -301,7 +301,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -311,7 +311,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_scheme_now_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_scheme_now_api($SessionValue,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -322,7 +322,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -342,7 +342,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -352,7 +352,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_item_view_api($session_yes_no,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_item_view_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
@@ -365,7 +365,7 @@ class MedicineItemModel extends CI_Model
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="t2.misc_settings!='#NRX'";
 			$this->db->where($where);
@@ -384,7 +384,7 @@ class MedicineItemModel extends CI_Model
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
-			$jsonArray[] = $this->page_row_dt($row,$session_yes_no);
+			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -394,7 +394,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function page_row_dt($row,$session_yes_no){
+	public function page_row_dt($row,$SessionValue){
 
 		if(!empty($row)){
 			$item_code			=	$row->i_code;
@@ -421,7 +421,7 @@ class MedicineItemModel extends CI_Model
 				$item_image = $this->MedicineImageUrl.$row->image1;
 			}
 			
-			if($session_yes_no=="no"){
+			if($SessionValue=="no"){
 				$item_mrp 		= "xx.xx";
 				$item_ptr 		= "xx.xx";
 				$item_price		= "xx.xx";

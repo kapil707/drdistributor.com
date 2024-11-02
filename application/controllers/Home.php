@@ -127,14 +127,12 @@ class Home extends CI_Controller {
 			// }
 
 			if(!empty($UserType) && !empty($ChemistId) && $row->type=="notification") {
-
 				$result = $this->MyNotificationModel->get_my_notification_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'notification';
 			}
 
 			if(!empty($UserType) && !empty($ChemistId) && $row->type=="invoice") {
-
 				$result = $this->MyInvoiceModel->get_my_invoice_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'invoice';

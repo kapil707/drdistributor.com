@@ -10,7 +10,7 @@ $(document).ready(function() {
 	}, 3000);
 	home_page_menu();
 	get_top_menu_api();
-	home_page_main_api("1,2,4,5");
+	home_page_main_api("1");
 
 	$(window).scroll(function(){
 		var scrollBottom = $(".main_container").height() - $(window).height() - $(window).scrollTop();
@@ -301,7 +301,6 @@ function home_page_owl_load(type,category_id){
 }
 
 function home_page_slider(category_id,items,title){
-	alert("xxx1")
 	var mydata = '';
 	$.each(items, function(i,item){
 		if (item){

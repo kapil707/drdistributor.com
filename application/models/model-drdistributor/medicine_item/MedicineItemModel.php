@@ -363,7 +363,7 @@ class MedicineItemModel extends CI_Model
 		$this->db->where("t1.status=1");
 		$this->db->where("t1.category_id='$CategoryId'");
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g' xxx";
+		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{

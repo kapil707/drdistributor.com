@@ -29,7 +29,7 @@ class MedicineCategoryModel extends CI_Model
 		$this->db->order_by('batchqty','desc');
 		$this->db->order_by('item_name','asc');
 		$this->db->limit(12,$get_record);
-		$query = $this->db->get("tbl_medicine")->result();
+		$query = $this->db->get("tbl_medicinexx")->result();
 		
 		$row1 = $this->db->query("select * from tbl_medicine_menu where code='$itemcat'")->row();
 		$i = 0;

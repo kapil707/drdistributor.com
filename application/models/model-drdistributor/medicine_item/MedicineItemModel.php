@@ -25,16 +25,16 @@ class MedicineItemModel extends CI_Model
 	public function medicine_item($SessionValue="no",$CategoryId,$UserType='',$ChemistId='',$SalesmanId='',$ChemistNrx='',$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
 		if($CategoryId=="1"){
-			return $this->get_medicine_new_this_month_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_new_this_month_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		if($CategoryId=="2"){
-			return $this->get_medicine_hot_selling_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_hot_selling_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		if($CategoryId=="3"){
-			return $this->get_medicine_must_buy_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_must_buy_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}		
 		if($CategoryId=="4"){
-			return $this->get_medicine_available_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_available_now_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		/************************************ */
 		if($CategoryId=="5" && $SessionValue=="yes"){
@@ -48,17 +48,17 @@ class MedicineItemModel extends CI_Model
 		}
 		/************************************ */
 		if($CategoryId=="6"){
-			return $this->get_medicine_low_price_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_low_price_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		if($CategoryId=="7"){
-			return $this->get_medicine_scheme_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+			return $this->get_medicine_scheme_now_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		
-		return $this->get_medicine_item_view_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type);
+		return $this->get_medicine_item_view_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 	}
 
 	/****************************************** */
-	public function get_medicine_new_this_month_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_new_this_month_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 		$time  = time();
@@ -100,7 +100,7 @@ class MedicineItemModel extends CI_Model
 	}
 
 	/****************************************** */
-	public function get_medicine_hot_selling_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_hot_selling_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 
@@ -140,7 +140,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_must_buy_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_must_buy_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$date = date("Y-m-d");
 		
@@ -186,7 +186,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_available_now_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_available_now_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -270,7 +270,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_low_price_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_low_price_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -311,7 +311,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_scheme_now_api($SessionValue,$user_nrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_scheme_now_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -352,7 +352,7 @@ class MedicineItemModel extends CI_Model
 		return $return;
 	}
 
-	public function get_medicine_item_view_api($SessionValue,$ChemistNrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_item_view_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
 		$jsonArray = array();
 

@@ -31,7 +31,7 @@ $(".top_bar_title").html("Delivering to");
 	<div class="row home_page_slider1_data"></div>
 	<div class="row home_page_divisioncategory1_data"></div>
 	<div class="row home_page_menu_data"></div>
-	<?php if(!empty($_COOKIE["user_altercode"])){ ?>
+	<?php if(!empty($UserType)){ ?>
 	<div class="row home_page_invoice_notification_data"></div>
 	<?php } ?>
 	<div class="row home_page_all_data"></div>
@@ -113,4 +113,4 @@ $(".top_bar_title").html("Delivering to");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/home_page.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/home_page1.js"></script>

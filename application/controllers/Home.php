@@ -95,16 +95,14 @@ class Home extends CI_Controller {
 
 		$get_record	 	= "0";//$_REQUEST["get_record"];
 		$UserType = $ChemistId = $SalesmanId = $UserPassword = "";
-		$ChemistNrx = "no";
-
-		$SessionValue = "no";
+		$ChemistNrx = $SessionValue = "no";
 		if(!empty($this->UserType)){
 			$UserType 		= $this->UserType;
 			$ChemistId 		= $this->ChemistId;
 			$SalesmanId 	= $this->SalesmanId;
 			$UserPassword	= $this->UserPassword;
 			$ChemistNrx		= $this->ChemistNrx;
-			$SessionValue = "yes";
+			$SessionValue 	= "yes";
 		}
 
 		$seq_id = $_POST["seq_id"];
@@ -113,6 +111,7 @@ class Home extends CI_Controller {
 		$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id in ($seq_id) ")->result();
 		foreach($tbl_home as $row){
 			$CategoryId = $row->category_id;
+			$type 		= $row->type;
 			
 			if($row->type=="slider"){
 			    $result = $this->SliderModel->slider($CategoryId);
@@ -126,32 +125,32 @@ class Home extends CI_Controller {
 			// 	$title  = 'menu';				
 			// }
 
-			if(!empty($UserType) && !empty($ChemistId) && $row->type=="notification") {
+			if(!empty($UserType) && !empty($ChemistId) && $type=="notification") {
 				$result = $this->MyNotificationModel->get_my_notification_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'notification';
 			}
 
-			if(!empty($UserType) && !empty($ChemistId) && $row->type=="invoice") {
+			if(!empty($UserType) && !empty($ChemistId) && $type=="invoice") {
 				$result = $this->MyInvoiceModel->get_my_invoice_api($UserType,$ChemistId,$SalesmanId,"0","3");
 				$items    = $result["items"];
 				$title  = 'invoice';
 			}
 			
-			if($row->type=="divisioncategory"){
+			if($type=="divisioncategory"){
 			    $result = $this->MedicineDivisionModel->medicine_division($CategoryId);
 				
 				$title  = $result["title"];
 		        $items = $result["items"];
 			}
 			
-			if($row->type=="itemcategory"){
+			if($type=="itemcategory"){
 				$result = $this->MedicineItemModel->medicine_item($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx);
 				$title  = $result["title"];
 				$items = $result["items"];
 			}
 
-			$page_type = $row->type;
+			$page_type = $type;
 
 			$next_id = $row->seq_id + 1;
 

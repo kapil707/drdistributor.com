@@ -165,7 +165,13 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,0,$get_record,12,"yes");
+				/*****************************/
+				$show_out_of_stock="1";
+				$limit="12";
+				$order_by_type="id";
+				/*****************************/
+
+				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -173,7 +179,13 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,0,$get_record,12,"yes");
+				/*****************************/
+				$show_out_of_stock="1";
+				$limit="12";
+				$order_by_type="id";
+				/*****************************/
+
+				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

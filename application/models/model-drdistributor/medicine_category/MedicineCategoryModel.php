@@ -87,7 +87,8 @@ class MedicineCategoryModel extends CI_Model
 		if($order_by_type=="RAND"){
 			$this->db->order_by('id', "RAND()");
 		}else{
-			$this->db->order_by('id', 'desc');
+			$this->db->order_by('featured', 'DESC');
+        	$this->db->order_by('batchqty', 'DESC');
 		}
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)

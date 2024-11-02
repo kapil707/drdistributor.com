@@ -84,7 +84,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{
@@ -125,7 +124,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -170,8 +168,7 @@ class MedicineItemModel extends CI_Model
 			$this->db->order_by("RAND()");
 		}else{
 			$this->db->order_by('id', 'desc');
-		}		
-		$this->db->limit(25);
+		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -212,7 +209,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -255,7 +251,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t1.id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -296,7 +291,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -337,7 +331,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id', 'desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
@@ -380,7 +373,6 @@ class MedicineItemModel extends CI_Model
 		}else{
 			$this->db->order_by('t2.id','desc');
 		}
-		$this->db->limit(25);
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{

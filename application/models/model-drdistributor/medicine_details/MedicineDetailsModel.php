@@ -4,7 +4,6 @@ class MedicineDetailsModel extends CI_Model
 {
 	var $MedicineImageUrl = "";
 	public function __construct(){
-
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');

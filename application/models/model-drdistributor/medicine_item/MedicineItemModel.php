@@ -2,8 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineItemModel extends CI_Model  
 {
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
+		// Load the AppConfig library
+        $this->load->library('AppConfig');
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
 	public function get_item_category_name($category_id){

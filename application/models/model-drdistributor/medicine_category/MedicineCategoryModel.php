@@ -27,7 +27,7 @@ class MedicineCategoryModel extends CI_Model
 		$jsonArray = array();
 		$title = "";
 
-		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured, m.image1, m.misc_settings", false);
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
         $this->db->from('tbl_medicinexxx as m');
 		$this->db->where('m.itemcat',$itemcat);
 		/************************************ */
@@ -46,7 +46,7 @@ class MedicineCategoryModel extends CI_Model
 		if($order_by_type=="RAND"){
 			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('m.featured', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
         	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();

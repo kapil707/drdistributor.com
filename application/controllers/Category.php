@@ -165,7 +165,7 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,0,$get_record,12,0);
+				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,0,$get_record,12,"yes");
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -173,7 +173,7 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,0,$get_record,12,0);
+				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,0,$get_record,12,"yes");
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

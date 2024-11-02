@@ -11,9 +11,9 @@ class MedicineItemModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
-	public function get_item_category_name($category_id){
+	public function get_item_category_name($CategoryId){
 		$this->db->select("name");
-		$this->db->where('id',$category_id);
+		$this->db->where('id',$CategoryId);
 		$row = $this->db->get("tbl_item_category")->row();
 		if(!empty($row)){
 			return $row->name;
@@ -94,7 +94,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -135,7 +135,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -181,7 +181,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -222,7 +222,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -265,7 +265,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -306,12 +306,12 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
 
-	public function get_medicine_scheme_now_api($SessionValue,$user_nrx,$category_id,$show_out_of_stock,$get_record,$limit,$order_by_type)
+	public function get_medicine_scheme_now_api($SessionValue,$user_nrx,$CategoryId,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{
 		$jsonArray = array();
 
@@ -347,7 +347,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -361,7 +361,7 @@ class MedicineItemModel extends CI_Model
 		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
 		/************************************ */
 		$this->db->where("t1.status=1");
-		$this->db->where("t1.category_id='$category_id'");
+		$this->db->where("t1.CategoryId='$CategoryId'");
 		/************************************ */
 		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
 		$this->db->where($where);
@@ -389,7 +389,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($category_id);
+		$return["title"] = $this->get_item_category_name($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}

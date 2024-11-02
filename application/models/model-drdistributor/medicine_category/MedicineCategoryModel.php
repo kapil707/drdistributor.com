@@ -46,8 +46,9 @@ class MedicineCategoryModel extends CI_Model
 			$this->db->order_by('id', "RAND()");
 		}else{
 			$this->db->order_by('featured', 'asc');
+        	$this->db->order_by('batchqty', 'DESC');
 		}
-		$query = $this->db->get("tbl_medicinessss")->result();
+		$query = $this->db->get("tbl_medicine")->result();
 		foreach ($query as $row)
 		{
 			$get_record++;

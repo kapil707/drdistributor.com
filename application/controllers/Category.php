@@ -152,9 +152,9 @@ class Category extends CI_Controller {
 		$SalesmanId		= $this->SalesmanId;
 		$ChemistNrx		= $this->ChemistNrx;
 
-		$session_yes_no = "no";
+		$SessionValue = "no";
 		if(!empty($UserType)){
-			$session_yes_no = "yes";
+			$SessionValue = "yes";
 		}
 
 		$item_page_type	= $_POST["item_page_type"];
@@ -165,7 +165,7 @@ class Category extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$ChemistNrx,$item_code,$get_record);
+				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -173,7 +173,7 @@ class Category extends CI_Controller {
 
 			if($item_page_type=="featured_brand")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$ChemistNrx,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->featured_brand_api($SessionValue,$ChemistNrx,$item_code,$item_division,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -187,8 +187,8 @@ class Category extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$category_id = $item_code;
-				$result = $this->MedicineItemModel->medicine_item($session_yes_no,$category_id,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$CategoryId = $item_code;
+				$result = $this->MedicineItemModel->medicine_item($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

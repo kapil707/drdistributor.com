@@ -8,10 +8,20 @@ class MedicineFavouriteModel extends CI_Model
 
 	}
 	
-	public function get_medicine_favourite_api($user_altercode)
+	public function get_medicine_favourite_api($ChemistId)
 	{		
 		$jsonArray = array();
-		$query = $this->db->query("select DISTINCT i_code,image,item_name,quantity,COUNT(*) as ct FROM tbl_order where chemist_id='$user_altercode' and user_type='chemist' GROUP BY i_code,image,item_name,quantity HAVING COUNT(*) > 0 order by ct asc LIMIT 25")->result();
+		
+		$this->db->select('i_code, image, item_name, quantity, COUNT(*) as ct');
+        $this->db->from('tbl_order');
+        $this->db->where('chemist_id', $ChemistId);
+        $this->db->where('user_type', 'chemist');
+        $this->db->group_by('i_code, image, item_name, quantity');
+        $this->db->having('COUNT(*) >', 0);
+        $this->db->order_by('ct', 'ASC');
+        $this->db->limit(25);
+
+        $query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
 			$item_code 		= ($row->i_code);

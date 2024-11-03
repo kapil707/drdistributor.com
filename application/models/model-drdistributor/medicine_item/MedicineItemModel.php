@@ -157,7 +157,7 @@ class MedicineItemModel extends CI_Model
 		$this->db->where('tbl_cart.STATUS', 1);
 		$this->db->where('tbl_cart.date',$date);
 		/************************************ */
-		$this->db->group_by('m.i_code, m.item_name, m.image1, m.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		$this->db->group_by('m.i_code, m.item_name, m.image1, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, m.featured, m.misc_settings');
 		$this->db->having('tbl_cart.quantity >', 1);
 		/************************************ */
 		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";

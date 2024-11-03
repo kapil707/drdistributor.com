@@ -239,12 +239,11 @@ class MedicineItemModel extends CI_Model
 		$jsonArray = array();
 
 		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-		$this->db->from('tbl_top_search');
-		$this->db->join('tbl_medicine AS m', 'm.item_code = tbl_top_search.i_code', 'left');
+		$this->db->from('tbl_search_logs');
+		$this->db->join('tbl_medicine AS m', 'm.item_code = tbl_search_logs.product_viewed', 'left');
 		/*********page where******************* */
-		$this->db->where('tbl_top_search.user_type', $UserType);
-		$this->db->where('tbl_top_search.user_altercode', $ChemistId);
-		$this->db->where('tbl_top_search.salesman_id', $SalesmanId);
+		$this->db->where('tbl_search_logs.chemist_id', $ChemistId);
+		$this->db->where('tbl_search_logs.salesman_id', $SalesmanId);
 		/************************************ */
 		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);

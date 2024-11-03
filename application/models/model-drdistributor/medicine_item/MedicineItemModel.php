@@ -146,19 +146,13 @@ class MedicineItemModel extends CI_Model
 
 	public function get_medicine_must_buy_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		
-		$date = date("Y-m-d");
-		
 		$jsonArray = array();
 
-		$this->db->select("COUNT(*) as quantity,m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-		$this->db->from('tbl_cart');
-		$this->db->join('tbl_medicine as m', 'm.i_code = tbl_cart.i_code', 'left');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_medicine_compare');
+		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_medicine_compare.i_code', 'left');
 		/*********page where******************* */
-		$this->db->where('tbl_cart.STATUS', 1);
-		$this->db->where('tbl_cart.date',$date);
-		/************************************ */
-		$this->db->group_by('m.i_code, m.item_name, m.image1, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, m.featured, m.misc_settings');
-		$this->db->having('tbl_cart.quantity >', 1);
+		$this->db->where('tbl_medicine_compare.compare_type','must_buy');
 		/************************************ */
 		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);

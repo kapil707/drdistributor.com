@@ -69,7 +69,7 @@ class MedicineCategoryModel extends CI_Model
 		$title = "";
 
 		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-        $this->db->from('tbl_medicinexxx as m');
+        $this->db->from('tbl_medicinexxxs as m');
 		/*********page where******************* */
 		$this->db->where('m.compcode',$compcode);
 		if(!empty($division)){

@@ -64,28 +64,30 @@ class MedicineItemModel extends CI_Model
 		$time  = time();
 		$date = date("Y-m-d", strtotime("-30 days", $time));
 		
-		$this->db->select("i_code,item_name,packing,salescm1,salescm2,company_name,batchqty,mrp,sale_rate,final_price,margin,featured,image1,misc_settings");
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_medicine as m');
+		/*********page where******************* */
 		$this->db->where('item_date>=',$date);
 		/************************************ */
-		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('id', "RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
-		$query = $this->db->get("tbl_medicine")->result();
+		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
 			$get_record++;
@@ -104,27 +106,27 @@ class MedicineItemModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_hot_selling AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_hot_selling');
+		$this->db->join('tbl_medicine AS m', 't1.i_code = tbl_hot_selling.i_code', 'left');
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t2.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -146,31 +148,33 @@ class MedicineItemModel extends CI_Model
 		
 		$jsonArray = array();
 
-		$this->db->select('COUNT(*) as quantity, t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_cart as t1');
-		$this->db->join('tbl_medicine as t2', 't1.i_code = t2.i_code', 'left');
-		$this->db->where('t1.STATUS', 1);
-		$this->db->where('t1.date',$date);
-		$this->db->group_by('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->having('quantity >', 1);
+		$this->db->select("COUNT(*) as quantity,m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_cart');
+		$this->db->join('tbl_medicine as m', 'm.i_code = tbl_cart.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where('tbl_cart.STATUS', 1);
+		$this->db->where('tbl_cart.date',$date);
 		/************************************ */
-		$where = "t2.status=1 and t2.misc_settings NOT LIKE '%gift%' and t2.category!='g'";
+		$this->db->group_by('m.i_code, m.item_name, m.image1, m.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
+		$this->db->having('tbl_cart.quantity >', 1);
+		/************************************ */
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by("RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -190,28 +194,29 @@ class MedicineItemModel extends CI_Model
 	{
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_medicine_compare AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
-		$this->db->where('compare_type','batchqty');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_medicine_compare');
+		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_medicine_compare.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where('tbl_medicine_compare.compare_type','batchqty');
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t2.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -231,30 +236,31 @@ class MedicineItemModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_top_search AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.item_code = t2.i_code', 'left');
-		$this->db->where('t1.user_type', $UserType);
-		$this->db->where('t1.user_altercode', $ChemistId);
-		$this->db->where('t1.salesman_id', $SalesmanId);
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_top_search');
+		$this->db->join('tbl_medicine AS m', 'm.item_code = tbl_top_search.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where('tbl_top_search.user_type', $UserType);
+		$this->db->where('tbl_top_search.user_altercode', $ChemistId);
+		$this->db->where('tbl_top_search.salesman_id', $SalesmanId);
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t1.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -274,28 +280,29 @@ class MedicineItemModel extends CI_Model
 	{
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_medicine_compare AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
-		$this->db->where('compare_type','mrp');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_medicine_compare');
+		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_medicine_compare.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where('tbl_medicine_compare.compare_type','mrp');
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t2.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -315,28 +322,29 @@ class MedicineItemModel extends CI_Model
 	{
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_medicine_compare AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
-		$this->db->where('compare_type','scheme');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_medicine_compare');
+		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_medicine_compare.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where('tbl_medicine_compare.compare_type','scheme');
 		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t2.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -356,30 +364,30 @@ class MedicineItemModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$this->db->select('t2.i_code, t2.item_name, t2.image1, t2.packing, t2.salescm1, t2.salescm2, t2.company_name, t2.batchqty, t2.mrp, t2.sale_rate, t2.final_price, t2.margin, t2.featured, t2.misc_settings');
-		$this->db->from('tbl_item_wise AS t1');
-		$this->db->join('tbl_medicine AS t2', 't1.i_code = t2.i_code', 'left');
+		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
+		$this->db->from('tbl_item_wise');
+		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_item_wise.i_code', 'left');
+		/*********page where******************* */
+		$this->db->where("tbl_item_wise.status=1");
+		$this->db->where("tbl_item_wise.category_id='$CategoryId'");
 		/************************************ */
-		$this->db->where("t1.status=1");
-		$this->db->where("t1.category_id='$CategoryId'");
-		/************************************ */
-		$where = "t2.status=1 and t2.`misc_settings` NOT LIKE '%gift%' and t2.category!='g'";
+		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
 		$this->db->where($where);
 		if($ChemistNrx=="yes"){
 		}else{
-			$where="t2.misc_settings!='#NRX'";
+			$where="m.misc_settings!='#NRX'";
 			$this->db->where($where);
 		}
 		/************************************ */
 		if($show_out_of_stock==0){
-			$this->db->where('t2.batchqty !=', 0);
+			$this->db->where('m.batchqty !=', 0);
 		}
 		$this->db->limit($limit,$get_record);
 		if($order_by_type=="RAND"){
-			$this->db->order_by('t2.id',"RAND()");
+			$this->db->order_by('m.id', "RAND()");
 		}else{
-			$this->db->order_by('featured', 'DESC');
-        	$this->db->order_by('batchqty', 'DESC');
+			$this->db->order_by('featured_new', 'DESC');
+        	$this->db->order_by('m.batchqty', 'DESC');
 		}
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
@@ -407,7 +415,7 @@ class MedicineItemModel extends CI_Model
 			$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
 			$item_price			=	sprintf('%0.2f',round($row->final_price,2));
 			$item_margin 		=   round($row->margin);
-			$item_featured 		= 	$row->featured;
+			$item_featured 		= 	$row->featured_new;
 
 			$misc_settings =	$row->misc_settings;
 			$item_stock = "";

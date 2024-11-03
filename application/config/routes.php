@@ -142,6 +142,7 @@ $route['category/api/medicine_category_api'] = 'Category/medicine_category_api';
 $route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
 $route['c/ic/(:any)']= 'Category/itemcategory/$1';
 $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
+$route['c/fb/(:any)']= 'Category/featured_brand/$1';
 $route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 

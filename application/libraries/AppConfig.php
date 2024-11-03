@@ -8,7 +8,7 @@ class AppConfig {
     public $Weburl = "https://www.drdistributor.com/";
     public $WebJs = "10-0-0";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
-    public $MedicineImageUrl = "https://www.drdweb.co.in/user_profile/";
+    public $MedicineImageUrl = "https://www.drdweb.co.in/";
     public $ApiUrl2 = "https://www.drdweb.co.in/";
 
     public function getSiteTitle() {

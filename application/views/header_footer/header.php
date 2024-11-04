@@ -467,4 +467,4 @@ var order_type = "all";
 <script>
     new WOW().init();
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page1.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

@@ -766,10 +766,10 @@ function my_cart_api(order_type) {
 					item_packing 		= item.item_packing;
 					item_expiry 		= item.item_expiry;
 					item_company 		= item.item_company;
-					item_quantity 		= "";//item.item_quantity;
-					item_stock 			= "";//item.item_stock;
-					item_ptr 			= "";//item.item_ptr;
-					item_mrp 			= "";//item.item_mrp;
+					item_quantity 		= "1";//item.item_quantity;
+					item_stock 			= "Loading....";//item.item_stock;
+					item_ptr 			= "00.00";//item.item_ptr;
+					item_mrp 			= "00.00";//item.item_mrp;
 					item_price 			= item.item_price;
 					item_scheme 		= item.item_scheme;
 					item_margin 		= item.item_margin;
@@ -779,7 +779,9 @@ function my_cart_api(order_type) {
 					//new add for last order qty
 					item_order_quantity = item.item_order_quantity;
 
-					div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='' item_stock='' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"' item_order_quantity='"+item_order_quantity+"'></span>";
+					item_batch_no		= "xxxxxx";
+
+					div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='' item_stock='' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='"+similar_items+"' item_order_quantity='"+item_order_quantity+"'></span>";
 
 					item_id 			= item.item_id;
 					item_quantity_price = item.item_quantity_price;

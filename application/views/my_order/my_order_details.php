@@ -20,6 +20,6 @@ function goBack() {
 	</div>
 </div>
 <script>
-var item_id = "<?php echo $item_id; ?>";
+var ItemId = "<?php echo $ItemId; ?>";
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_order_details.js"></script>

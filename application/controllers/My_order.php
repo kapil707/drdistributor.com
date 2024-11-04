@@ -109,7 +109,6 @@ class My_order extends CI_Controller {
 		$get_record	 	= $_REQUEST["get_record"];
 		$items = "";
 		if(!empty($UserType) && !empty($ChemistId)) {
-
 			$result = $this->MyOrderModel->get_my_order_api($UserType,$ChemistId,$SalesmanId,$get_record);
 			$items  	= $result["items"];
 			$get_record  = $result["get_record"];
@@ -160,15 +159,14 @@ class My_order extends CI_Controller {
 	public function my_order_details_main_api(){
 		
 		$ItemId			= $_REQUEST['ItemId'];
-		$ChemistId 		= $_REQUEST['ChemistId'];
-
+		$OrderChemistId = $_REQUEST['OrderChemistId'];
 		$UserType 		= "chemist";
 		$SalesmanId 	= "";
 		
 		$items = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
+		if(!empty($UserType) && !empty($OrderChemistId) && !empty($ItemId)){
 
-			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
+			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$OrderChemistId,$SalesmanId,$ItemId);
 			$title  = $result["title"];
 			$items  = $result["items"];
 			$download_url  = $result["download_url"];

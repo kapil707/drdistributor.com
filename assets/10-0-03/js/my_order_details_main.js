@@ -5,7 +5,7 @@ $(document).ready(function(){
 function MainPageFuncationCall() {	
 	/*********************************** */
 	$(".top_bar_title2").html("Loading....");
-	$(".main_container").hide();
+	$(".main_container").show();
 	$(".main_page_loading").show();
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();
@@ -14,7 +14,8 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data: { item_id: item_id },
+		data       : {ItemId:ItemId,OrderChemistId:OrderChemistId},
+		url        : get_base_url() + "my_order/my_order_details_main_api",
 		url: get_base_url() + "my_order/my_order_details_api",
 		cache: false,
 		timeout: 60000,

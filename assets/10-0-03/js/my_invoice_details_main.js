@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	call_page();
+	MainPageFuncationCall();
 });
-function call_page()
+function MainPageFuncationCall()
 {
 	/*********************************** */
 	$(".top_bar_title2").html("Loading....");

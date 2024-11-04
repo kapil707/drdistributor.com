@@ -54,6 +54,15 @@ function MainPageFuncationCall(get_record) {
                     $(".main_page_no_record_found").show();
                 }
 
+                // Check if there are no new items in the response
+                if (data.items.length === 0) {
+                    if (!no_more_records_displayed) { // Ensure we only display the message once
+                        $(".main_page_data").append('<div class="no_more_records">No more records</div>');
+                        no_more_records_displayed = true; // Set flag to true so it doesn't show multiple times
+                    }
+                    return;
+                }
+
                 get_record = data.get_record;
                 $(".get_record").val(get_record);
 

@@ -252,6 +252,14 @@ function medicine_details_api(item_code)
 			
 		},
 		success: function(data){
+			if(get_page_name=="medicine_details"){
+				$(".main_page_loading").hide();
+				if(data.items=="") {
+					$(".top_bar_title2").html("No record found");
+					$(".main_container").hide();
+					$(".main_page_no_record_found").show();
+				}
+			}
 			$.each(data.items, function(i,item){	
 				if (item)
 				{

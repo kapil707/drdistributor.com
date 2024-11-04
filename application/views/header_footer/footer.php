@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/website/wow_css_js/animate.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/website/wow_css_js/animate.css">
 	
-<script src="<?= base_url(); ?>assets/website/js/blazy.min.js"></script>
-<script src="<?= base_url(); ?>assets/website/js/scripts.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/blazy.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/scripts.js"></script>
 <script>
 // LAZY LOADING IMAGES
 var bLazy = new Blazy();

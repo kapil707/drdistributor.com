@@ -18,13 +18,13 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/bootstrap.min.css">
 
-	<script src="<?= base_url(); ?>assets/website/js-10-0-0/jquery.min.js"></script>
+	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/jquery.min.js"></script>
 	
-	<script src="<?= base_url(); ?>assets/website/js-10-0-0/bootstrap.min.js"></script>
+	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/bootstrap.min.js"></script>
 	
-	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/font-awesome.min.css"> 
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/font-awesome.min.css"> 
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,24 +34,24 @@ if (isset($_COOKIE["theme_type"])) {
 	
 	<?php if($theme_type=="lite") { ?>
 		<meta name="theme-color" content="#27ae60">
-		<link href="<?= base_url(); ?>assets/css/style-light.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style-light.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
 	<?php if($theme_type=="dark") { ?>
 		<meta name="theme-color" content="#373d40">
-		<link href="<?= base_url(); ?>assets/css/style-dark.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style.css" rel="stylesheet" type="text/css" />
 
-	<link href="<?= base_url(); ?>assets/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
-	<script src="<?= base_url(); ?>assets/website/js-10-0-0/sweetalert.min.js"></script>
+	<script src="<?= base_url(); ?>assets-<?php echo $this->appconfig->getWebJs(); ?>/website/js/sweetalert.min.js"></script>
 
-	<link href="<?= base_url(); ?>assets/website/css/min.css" rel="stylesheet" type="text/css" />
-	
+	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 <div class="top_bar">
@@ -606,6 +606,6 @@ var default_img = "<?= base_url(); ?>uploads/default_img.webp";
 var get_page_name = "";
 var order_type = "all";
 </script>
-<script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
-<script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/main_page1234567890123456.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/easyzoom/easyzoom.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/wow_css_js/wow.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

@@ -118,7 +118,7 @@ class MyOrderModel extends CI_Model
 
 	public function OrderExcelFile($ItemId,$download_type)
 	{
-		//error_reporting(0);
+		error_reporting(0);
 
 		$where = array('order_id'=>$ItemId);
 		$this->db->where($where);

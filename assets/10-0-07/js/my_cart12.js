@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 function _my_cart_api(val){
 
-	my_cart_api("all");
+	my_cart_api(val);
 	/******************************** */
 	setTimeout(_my_cart_api(val),5000);
 	/******************************** */

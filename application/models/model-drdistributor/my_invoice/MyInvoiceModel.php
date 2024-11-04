@@ -8,6 +8,18 @@ class MyInvoiceModel extends CI_Model
 		// Load model
 		$this->load->model("model-drdistributor/user_model/UserModel");
 	}
+
+	public function InvoiceCheck($ChemistId,$Gstvno){
+		$this->db->select("id");
+		$this->db->where('chemist_id',$ChemistId);
+		$this->db->where('gstvno',$Gstvno);
+		$row = $this->db->get("tbl_invoice")->row();
+		if(!empty($row)){
+			return $row->id;
+		}else{
+			return "";
+		}
+	}
 	
 	public function get_my_invoice_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit="12")	{
 		$jsonArray = array();

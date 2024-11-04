@@ -118,8 +118,22 @@ class MyOrderModel extends CI_Model
 
 	public function OrderExcelFile($download_type)
 	{
-		error_reporting(0);
-		
+		//error_reporting(0);
+
+		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
+		$this->db->where($where);
+		$query = $this->db->get("tbl_order");
+		$row   = $query->row();
+		$query = $query->result();
+
+		/************************************************************* */
+		$where 			= array('altercode'=>$row->chemist_id);
+		$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
+		$acm_altercode 	= $users->altercode;
+		$acm_name		= ucwords(strtolower($users->name));		
+		$chemist_excle 	= "$acm_name ($acm_altercode)";
+		/************************************************************* */
+	
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);

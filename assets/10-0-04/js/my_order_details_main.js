@@ -14,9 +14,8 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data       : {ItemId:ItemId,OrderChemistId:OrderChemistId},
-		url        : get_base_url() + "my_order/my_order_details_main_api",
-		url: get_base_url() + "my_order/my_order_details_api",
+		data : {ItemId:ItemId,OrderChemistId:OrderChemistId},
+		url : get_base_url() + "my_order/my_order_details_main_api",
 		cache: false,
 		timeout: 60000,
 		error: function() {

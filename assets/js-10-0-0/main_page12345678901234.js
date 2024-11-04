@@ -247,7 +247,7 @@ function medicine_details_api(item_code)
 
 	if(get_page_name=="medicine_details"){
 		/*********************************** */
-		$(".top_bar_title2").html("Loading....");
+		$(".top_bar_title").html("Loading....");
 		$(".main_container").hide();
 		$(".main_page_loading").show();
 		$(".main_page_no_record_found").hide();
@@ -262,7 +262,7 @@ function medicine_details_api(item_code)
 		data: {item_code:item_code},
 		error: function(){
 			if(get_page_name=="medicine_details"){
-				$(".top_bar_title2").html("No record found");
+				$(".top_bar_title").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_loading").hide();
 				$(".main_page_something_went_wrong").show();
@@ -272,7 +272,7 @@ function medicine_details_api(item_code)
 			if(get_page_name=="medicine_details"){
 				$(".main_page_loading").hide();
 				if(data.items=="") {
-					$(".top_bar_title2").html("No record found");
+					$(".top_bar_title").html("No record found");
 					$(".main_container").hide();
 					$(".main_page_no_record_found").show();
 				}

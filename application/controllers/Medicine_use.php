@@ -38,7 +38,7 @@ class Medicine_use extends CI_Controller {
 		}
 		/********************************************************** */
 	}
-	public function index($item_code) {
+	public function index($item_code="") {
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "How to use";

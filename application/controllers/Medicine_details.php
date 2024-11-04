@@ -41,7 +41,7 @@ class Medicine_details extends CI_Controller {
 		/********************************************************** */
 	}
 
-	public function index() {
+	public function index($item_code="") {
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Medicine Details";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";

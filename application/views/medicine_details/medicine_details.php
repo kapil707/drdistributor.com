@@ -179,5 +179,5 @@ function goBack() {
 <script>
 $(document).ready(function(){
 	medicine_details_funcation('<?= $item_code; ?>');
-}
+});
 </script>

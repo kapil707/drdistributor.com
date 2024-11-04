@@ -152,6 +152,7 @@ function goBack() {
 	</div>
 </div>
 <script>
+get_page_name = "medicine_details";
 $(document).ready(function(){
 	medicine_details_funcation('<?= $item_code; ?>');
 });

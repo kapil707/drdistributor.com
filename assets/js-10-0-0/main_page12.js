@@ -506,6 +506,11 @@ function medicine_add_to_cart_api()
 					$(".my_cart_api_div_mobile").prepend(my_cart_data);
 					$(".my_cart_api_div_import_order").prepend(my_cart_data);
 				}
+
+				if(get_page_name=="medicine_details"){
+					$('.medicine_details_item_add_to_cart_btn').html("Update cart");
+					$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
+				}
 				
 				$.ajax({
 					type       : "POST",

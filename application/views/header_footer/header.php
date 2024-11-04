@@ -17,8 +17,6 @@ if (isset($_COOKIE["theme_type"])) {
 	<link rel="canonical" href="<?php echo $this->appconfig->getWeburl(); ?>" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	
-
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/bootstrap.min.css">
 
 	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/jquery.min.js"></script>

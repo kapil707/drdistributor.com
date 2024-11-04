@@ -249,7 +249,12 @@ function medicine_details_api(item_code)
 		dataType: 'json',
 		data: {item_code:item_code},
 		error: function(){
-			
+			if(get_page_name=="medicine_details"){
+				$(".top_bar_title2").html("No record found");
+				$(".main_container").hide();
+				$(".main_page_loading").hide();
+				$(".main_page_something_went_wrong").show();
+			}
 		},
 		success: function(data){
 			if(get_page_name=="medicine_details"){

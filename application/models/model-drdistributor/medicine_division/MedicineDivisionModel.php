@@ -8,6 +8,13 @@ class MedicineDivisionModel extends CI_Model
 		// Load model
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
+
+	public function get_division_category_name_id($CategoryName){
+		$this->db->select("id");
+		$this->db->where('name',$CategoryName);
+		$row = $this->db->get("tbl_division_category")->row();
+		return $row->name;
+	}
 	
 	public function get_division_category_name($category_id){
 		$this->db->select("name");

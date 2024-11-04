@@ -41,7 +41,7 @@ class UserModel extends CI_Model
 				$user_image = $this->user_profile_url.$row1->image;
 				if(empty($row1->image))
 				{
-					$user_image = base_url()."img_v51/logo.png";
+					$user_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo.png";
 				}
 				$user_status	= ($row1->status);
 				if($user_status)
@@ -72,7 +72,7 @@ class UserModel extends CI_Model
 				$user_image = $this->user_profile_url.$row1->image;
 				if(empty($row1->image))
 				{
-					$user_image = base_url()."img_v51/logo.png";
+					$user_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo.png";
 				}
 				if($user_status=="1")
 				{

@@ -124,7 +124,7 @@ function MainPageFuncationCall(get_record) {
                         $(".main_page_data").append(`
                             <div class="col-lg-2 col-sm-3 col-6 p-0 m-0 text-center">
                                 <div class="medicine_category_page text-center" title="${item_name}">
-                                    <a href="${get_base_url()}md/${item_code}">
+                                    <a href="${get_base_url()}md/${item_code}" target="_blank">
                                         ${item_other_image_div}
                                         <img class="all_item_image" src="${default_img}" alt="${item_name}">
                                         <img class="all_item_image_load" src="${item_image}" alt="${item_name}" onload="showActualImage(this)" onerror="setDefaultImage(this);">

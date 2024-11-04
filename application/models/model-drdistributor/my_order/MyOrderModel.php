@@ -190,6 +190,7 @@ class MyOrderModel extends CI_Model
 		}
 	}
 
+	//delete karna ha iss ko 
 	public function order_excel_file($query,$chemist_excle,$download_type)
 	{
 		error_reporting(0);

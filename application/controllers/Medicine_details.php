@@ -64,7 +64,7 @@ class Medicine_details extends CI_Controller {
 
 		$data['item_code'] = $item_code;
 		
-		$this->load->view('header_footer/header', $data);
+		$this->load->view('header_footer/header2', $data);
 		$this->load->view('medicine_details/medicine_details', $data);
 	}
 	

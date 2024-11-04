@@ -48,7 +48,7 @@ function goBack() {
 				<div class="col-sm-12 col-12">	
 					<div class="main_box_div p-2">
 						<div class="row">
-							<div class="col-sm-4 col-12">
+							<div class="col-sm-5 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-9">
 										<img src="<?= base_url(); ?>/img_v51/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
@@ -81,7 +81,7 @@ function goBack() {
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-8 col-12">
+							<div class="col-sm-7 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-12" style="margin-top: 5px;">
 										<span class="medicine_details_item_name"></span>
@@ -141,11 +141,24 @@ function goBack() {
 
 									<div class="col-sm-12 col-12 order_quantity_div">
 										<div class="row">
+											<div class="col-sm-5 col-4">
+												<span class="medicine_details_item_order_quantity">Order quantity
+												</span>
+											</div>
+
+											<div class="col-sm-7 col-8 text-right">
+												<span class="medicine_details_item_total"></span>
+											</div>
+
 											<div class="col-sm-4 col-4">
+												<input type="number" class="medicine_details_item_order_quantity_textbox input_type_text2" placeholder="Eg 1,2" name="quantity" required="" style="width:100px;" value="" title="Order quantity" min="1" max="1000" maxlength="4" onchange="change_item_order_quantity()" onkeyup="change_item_order_quantity()">
+												<input type="hidden" class="medicine_details_item_order_quantity_hidden">
 											</div>
 
 											<div class="col-sm-8 col-8">
-												<button type="submit" class="btn btn-primary main_theme_button"  onclick="get_single_medicine_info('<?= $item_code; ?>')" title="Add to cart">Add to cart</button>
+												<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
+
+												<button type="submit" class="btn btn-primary main_theme_button_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
 											</div>
 
 											<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>
@@ -157,14 +170,6 @@ function goBack() {
 							<div class="col-sm-12 col-12 medicine_details_hr medicine_details_item_description2">
 							</div>
 						</div>
-						<div class="col-sm-12 col-12 medicine_details_hr">
-						</div>
-						<b>Images</b>
-						<div class="row load_page_images"></div>
-						<div class="col-sm-12 col-12 medicine_details_hr">
-						</div>
-						<b>Videos</b>
-						<div class="row load_page_videos"></div>
 					</div>
 				</div>     
 			</div>

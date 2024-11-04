@@ -96,13 +96,29 @@ class Account extends CI_Controller {
 			   //@unlink($cache_path.'/'.$file);
 			}
 		}
-		closedir($handle);*/
+		closedir($handle);
 		setcookie("user_type", "", time() + (86400 * 30), "/");
 		setcookie("user_altercode", "", time() + (86400 * 30), "/");
 		setcookie("user_password", "", time() + (86400 * 30), "/");
 		setcookie("chemist_id", "", time() + (86400 * 30), "/");
 		setcookie("user_session", "", time() + (86400 * 30), "/");
-		redirect(base_url());
+		redirect(base_url());*/
+		
+		$jsonArray = array();
+		$dt = array(
+			'status'=>1,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data save successfully',
+			'items' => $items,
+		);
+
+		header('Content-Type: application/json');
+		echo json_encode($response); 
 	}
 
 	public function get_login_api(){

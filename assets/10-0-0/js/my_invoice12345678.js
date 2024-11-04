@@ -58,7 +58,7 @@ function MainPageFuncationCall(get_record) {
                 // Check if there are no new items in the response
                 if (data.items.length === 0) {
                     if (!no_more_records_displayed) { // Ensure we only display the message once
-                        $(".main_page_data").append('<div class="no_more_records">No more records</div>');
+                        $(".main_page_data").append('<div class="main_box_div_data"><div class="no_more_records">No more records</div></div>');
                         no_more_records_displayed = true; // Set flag to true so it doesn't show multiple times
                     }
                     return;

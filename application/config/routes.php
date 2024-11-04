@@ -94,6 +94,7 @@ $route['home/my_cart']='my_cart/index';
 $route['track_order']='home/track_order';
 
 $route['medicine_use/(:any)']='medicine_use/index/$1';
+$route['mu/(:any)']='medicine_use/index/$1';
 
 $route['medicine_details/(:any)']='medicine_details/index/$1';
 $route['md/(:any)']='medicine_details/index/$1';

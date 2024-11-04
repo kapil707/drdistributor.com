@@ -219,13 +219,10 @@ function get_single_medicine_info(item_code)
 function medicine_details_funcation(item_code)
 {	
 	var getUserId = get_UserId();
-	if(getUserId=="" || getUserId==null)
+	if((getUserId=="" || getUserId==null) && get_page_name!="medicine_details")
 	{
-		if(get_page_name!="medicine_details"){
-			window.location.href = get_base_url() + "home";
-		}
-	} else 
-	{		
+		window.location.href = get_base_url() + "home";
+	} else {		
 		medicine_details_get(item_code);
 		medicine_details_api(item_code);
 		//setTimeout(medicine_details_api(item_code),500);// its on header page

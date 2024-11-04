@@ -8,7 +8,7 @@ function _my_cart_api(val){
 
 	my_cart_api(val);
 	/******************************** */
-	setTimeout(_my_cart_api(val),5000);
+	setTimeout(_my_cart_api(val),10000);
 	/******************************** */
 }
 

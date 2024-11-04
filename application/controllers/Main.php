@@ -132,7 +132,7 @@ class Main extends CI_Controller {
 		}
 	}
 	
-	/***************invoice part********************** */	
+	/***************order part********************** */	
 	public function view_order($ChemistId='',$OrderId=''){
 
 		$data["UserId"] 		= $ChemistId;
@@ -192,24 +192,34 @@ class Main extends CI_Controller {
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = $chemist_id;
-		$data["session_user_altercode"] = $chemist_id;
-		$data["session_delivering_to"]  = $chemist_id;
-		
-		$data["item_id"] = "";
-		$data["user_altercode"] = "";
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$row = $this->Scheme_Model->select_row("tbl_invoice",$where);
-		if(!empty($row->id)){
-			$data["item_id"] 		= $row->id;
-			$data["user_altercode"] = $chemist_id;
-		}
-	
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$invoice_id";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
+
+		if(!empty($this->UserType)){
+			/********************PageMainData************************** */
+			$data["UserId"] 	 = $this->UserId;
+			$data["UserType"]    = $this->UserType;
+			$data["UserFullName"]= $this->UserFullName;
+			$data["UserImage"] 	 = $this->UserImage;
+			$data["ChemistId"]	 = $this->ChemistId;
+
+			/******************DeliveringToData************************* */
+			$data["DeliveringTo"]= $data["ChemistId"];
+			if($this->UserType=="sales") {
+				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			}
+			/********************************************************** */
+		}else{
+			$data["UserId"] 		= "Guest";
+			$data["UserType"]     	= "";
+			$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+			$data["UserFullName"]   = "Guest";
+			$data["DeliveringTo"] 	= "Guest";
+			$data["ChemistId"] 		= "";
+		}
+		/**********************************************************/
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details_main', $data);		

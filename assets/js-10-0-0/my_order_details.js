@@ -4,8 +4,8 @@ $(document).ready(function(){
 function call_page()
 {	
 	/*********************************** */
-	$(".top_bar_title2").html("Loading....");
-	$(".main_container").show();
+	$(".top_bar_title").html("Loading....");
+	$(".main_container").hide();
 	$(".main_page_loading").show();
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();
@@ -18,7 +18,7 @@ function call_page()
 		url        : get_base_url() + "my_order/my_order_details_api",
 		cache	   : false,
 		error: function(){
-			$(".top_bar_title2").html("No record found");
+			$(".top_bar_title").html("No record found");
 			$(".main_container").hide();
 			$(".main_page_loading").hide();
 			$(".main_page_something_went_wrong").show();
@@ -27,7 +27,7 @@ function call_page()
 			
 			$(".main_page_loading").hide();
 			if(data.items=="") {
-				$(".top_bar_title2").html("No record found");
+				$(".top_bar_title").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_no_record_found").show();
 			}
@@ -79,7 +79,7 @@ function call_page()
 					
 					$(".main_page_data").append('<div class="main_box_div_data" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;"><div class="all_page_details_page_box_left_div"><img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="all_page_details_page_box_right_div"><div class="all_item_name" title="'+item_name+'">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class="all_item_expiry">Expiry : '+item_expiry+'</div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_quantity+'" >Order quantity : '+item_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show" style="margin-left:5px;">'+rate_div+'</span>'+div_all_data+'</div>');
 
-					$(".top_bar_title2").html(item_date_time);
+					$(".top_bar_title").html(item_date_time);
 				}
 			});	
 		},

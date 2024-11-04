@@ -4,8 +4,8 @@ $(document).ready(function(){
 function call_page()
 {
 	/*********************************** */
-	$(".top_bar_title2").html("Loading....");
-	$(".main_container").show();
+	$(".top_bar_title").html("Loading....");
+	$(".main_container").hide();
 	$(".main_page_loading").show();
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();
@@ -18,7 +18,7 @@ function call_page()
 		url        : get_base_url()+"my_notification/my_notification_details_api",
 		cache	   : false,
 		error: function(){
-			$(".top_bar_title2").html("No record found");
+			$(".top_bar_title").html("No record found");
 			$(".main_container").hide();
 			$(".main_page_loading").hide();
 			$(".main_page_something_went_wrong").show();
@@ -27,7 +27,7 @@ function call_page()
 			
 			$(".main_page_loading").hide();
 			if(data.items=="") {
-				$(".top_bar_title2").html("No record found");
+				$(".top_bar_title").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_no_record_found").show();
 			}
@@ -76,7 +76,7 @@ function call_page()
 					$(".main_page_data").append('<div class="main_box_div_data"><div class="all_page_details_page_box_left_div"><img src="'+item_image+'" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image"></div><div class=all_page_details_page_box_right_div text-left"><div class="medicine_cart_item_name">'+item_title+'</div><div class="all_items_message">'+item_message+'</div><div class="medicine_cart_item_date_time">'+item_date_time+'</div><div class="medicine_cart_item_date_time">'+item_image2+'</div></div></div>');
 					
 					$(".main_page_data").show();
-					$(".top_bar_title2").html(item_date_time);
+					$(".top_bar_title").html(item_date_time);
 				}
 			});
 		},

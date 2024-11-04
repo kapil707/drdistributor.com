@@ -42,7 +42,7 @@ function place_order_complete()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       :  {remarks:remarks},
+		data       : {remarks:remarks},
 		url        : get_base_url() +"my_cart/place_order_api",
 		cache	   : true,
 		error: function(){

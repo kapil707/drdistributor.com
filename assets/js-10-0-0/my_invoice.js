@@ -23,8 +23,8 @@ function call_page(get_record)
 		query_work = 1;	
 		
 		/*********************************** */
-		$(".top_bar_title2").html("Loading....");
-		$(".main_container").show();
+		$(".top_bar_title").html("Loading....");
+		$(".main_container").hide();
 		$(".main_page_loading").show();
 		$(".main_page_no_record_found").hide();
 		$(".main_page_something_went_wrong").hide();
@@ -37,7 +37,7 @@ function call_page(get_record)
 			url        : get_base_url() + "my_invoice/my_invoice_api",
 			cache	   : false,
 			error: function(){
-				$(".top_bar_title2").html("No record found");
+				$(".top_bar_title").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_loading").hide();
 				$(".main_page_something_went_wrong").show();
@@ -46,7 +46,7 @@ function call_page(get_record)
 
 				$(".main_page_loading").hide();
 				if(data.items=="" && no_record_found=="0") {
-					$(".top_bar_title2").html("No record found");
+					$(".top_bar_title").html("No record found");
 					$(".main_container").hide();
 					$(".main_page_no_record_found").show();
 				}
@@ -80,7 +80,7 @@ function call_page(get_record)
 						no_record_found = 1;
 						
 						new_i = parseInt(new_i) + 1;
-						$(".top_bar_title2").html("Found result ("+new_i+")");
+						$(".top_bar_title").html("Found result ("+new_i+")");
 					}
 				});	
 			},

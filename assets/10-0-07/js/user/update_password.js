@@ -156,7 +156,7 @@ function submitbtn()
 		type       : "POST",
 		data       :  {old_password:old_password,new_password:new_password} ,
 		url        : get_base_url()+"user/update_password_api",
-		cache	   : false,
+		cache : true,
 		error: function(){
 			swal("Error")
 			$(".submit_div").html("<p class='text-danger'>Error</p>");

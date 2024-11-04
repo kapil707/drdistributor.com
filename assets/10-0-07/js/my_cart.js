@@ -1,8 +1,15 @@
 $(document).ready(function(){
 	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
 	$(".main_page_loading").show();
-	my_cart_api("all");
+	_my_cart_api("all");
 });
+
+function _my_cart_api(val){
+
+	/******************************** */
+	setTimeout(my_cart_api(val),50000);
+	/******************************** */
+}
 
 function slice_type_change(mtid)
 {
@@ -44,7 +51,7 @@ function place_order_complete()
 		dataType   : "json",
 		data       : {remarks:remarks},
 		url        : get_base_url() +"my_cart/place_order_api",
-		cache	   : true,
+		cache : true,
 		error: function(){
 			window.location.href = get_base_url() + "my_cart";
 			//count_temp_rec();

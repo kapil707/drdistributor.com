@@ -68,7 +68,7 @@ function import_order_medicine_details(myid){
 		type       : "POST",
 		data       : {myid:myid} ,
 		url        : get_base_url() + "import_order/import_order_medicine_details_api",
-		cache	   : false,
+		cache : true,
 		error: function(){
 			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
 		},
@@ -158,7 +158,7 @@ function import_oreder_medicine_quantity_change(myid) {
 		type       : "POST",
 		data       :  {myid:myid,import_order_quantity:import_order_quantity_textbox} ,
 		url        : get_base_url() +  "import_order/import_oreder_medicine_quantity_change_api",
-		cache	   : false,
+		cache : true,
 		error: function(){
 			swal("Quantity not updated");
 		},
@@ -194,7 +194,7 @@ function import_oreder_medicine_delete(myid) {
 				type       : "POST",
 				data       : {myid:myid,} ,
 				url        : get_base_url() + "import_order/import_oreder_medicine_delete_api",
-				cache	   : false,
+				cache : true,
 				error: function(){
 					swal("Medicine not deleted");
 				},
@@ -248,6 +248,7 @@ function import_order_medicine_change_api(item_code){
 			type:"POST",
 			/*dataType: 'html',*/
 			data: {item_code:item_code,myid:myid},
+			cache : true,
 			error: function(){
 				swal("Medicine not changed");
 			},
@@ -291,6 +292,7 @@ function import_oreder_medicine_delete_suggested(myid) {
 				type:"POST",
 				/*dataType: 'html',*/
 				data: {myid:myid},
+				cache : true,
 				error: function(){
 					swal("Suggested medicine not deleted");
 				},
@@ -444,6 +446,7 @@ function medicine_search_api() {
 				type       : "POST",
 				data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
 				url        : get_base_url() + "medicine_search/medicine_search_api",
+				cache : true,
 				error: function(){
 					$(".search_result_div").html(something_went_wrong_function());
 					$(".search_result_div_mobile").html(something_went_wrong_function());

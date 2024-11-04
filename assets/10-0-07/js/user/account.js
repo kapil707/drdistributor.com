@@ -16,7 +16,7 @@ function call_page(lastid1)
 		type       : "POST",
 		data       : {id:id} ,
 		url        : get_base_url()+"User/get_user_account_api",
-		cache	   : false,
+		cache : true,
 		error: function(){
 			$(".load_page").html('<h2><center><img src="'+get_base_url()+'img_v51/no_record_found.png" width="100%"></center></h2>');
 		},

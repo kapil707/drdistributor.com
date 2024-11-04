@@ -63,7 +63,7 @@ function upload_import_file(){
     $.ajax({
 		url: get_base_url() + "import_order/upload_import_file/",
 		/*dataType: 'text',*/
-		cache: false,
+		cache : true,
 		contentType: false,
 		processData: false,
 		data: form_data,                         

@@ -16,7 +16,7 @@ function call_page()
 			type       : "POST",
 			data       :  {item_code:item_code} ,
 			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use",
-			cache	   : false,
+			cache : true,
 			error: function(){
 				$(".load_page_loading").html("");
 				$(".load_page").html('<h1><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h1>');

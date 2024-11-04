@@ -16,7 +16,7 @@ function MainPageFuncationCall() {
 		dataType: "json",
 		data : {ItemId:ItemId,OrderChemistId:OrderChemistId},
 		url : get_base_url() + "my_order/my_order_details_main_api",
-		cache: false,
+		cache : true,
 		timeout: 60000,
 		error: function() {
 			$(".top_bar_title2").html("No record found");

@@ -99,7 +99,7 @@ function search_chemist()
 				dataType   : "json",
 				data       : {keyword : keyword} ,
 				url        : get_base_url()+"chemist_select/chemist_search_api",
-				cache	   : false,
+				cache : true,
 				error: function(){
 					$(".search_result_div").html(something_went_wrong_function());
 					$(".search_result_div_mobile").html(something_went_wrong_function());
@@ -215,7 +215,7 @@ function call_page(lastid1)
 		dataType   : "json",
 		data       :  {lastid1:lastid1} ,
 		url        : get_base_url()+"chemist_select/salesman_my_cart_api",
-		cache	   : false,
+		cache : true,
 		error: function(){
 			$(".top_bar_title2").html("No record found");
 			$(".main_container").hide();

@@ -39,7 +39,7 @@ function MainPageFuncationCall(get_record) {
             dataType: "json",
             data: { get_record: get_record },
             url: get_base_url() + "my_order/my_order_api",
-            cache: false,
+            cache : true,
             timeout: 60000,
             error: function() {
                 $(".top_bar_title2").html("No record found");

@@ -100,7 +100,7 @@ class My_cart extends CI_Controller {
 		
 		$order_type = $_POST["order_type"];
 		$items = $items_other = "";
-		if(!empty($UserType) && !empty($ChemistId))	{
+		if(!empty($UserType) && !empty($ChemistId) && !empty($order_type))	{
 
 			$result = $this->MyCartModel->my_cart_api($UserType,$ChemistId,$UserPassword,$SalesmanId,$order_type);
 

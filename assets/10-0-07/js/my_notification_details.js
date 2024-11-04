@@ -16,7 +16,7 @@ function MainPageFuncationCall() {
 		dataType: "json",
 		data: { ItemId: ItemId },
 		url: get_base_url() + "my_notification/my_notification_details_api",
-		cache: false,
+		cache : true,
 		error: function() {
 			$(".top_bar_title2").html("No record found");
 			$(".main_container").hide();

@@ -39,7 +39,7 @@ function logout_function(){
 			$.ajax({
 				type       : "GET",
 				url        : get_base_url() +"logout",
-				cache	   : true,
+				cache : true,
 				success : function(data){
 					if(data!="")
 					{
@@ -62,7 +62,7 @@ function theme_set()
 		type       : "POST",
 		data       :  { theme_set_css:theme_set_css} ,
 		url        : get_base_url() + "home/theme_set_api",
-		cache	   : true,
+		cache : true,
 		success : function(data){
 			if(data!="")
 			{
@@ -128,7 +128,7 @@ function get_my_cart_total_api(){
 		type       : "POST",
 		data       : {id:id},
 		url        : get_base_url() + "my_cart/my_cart_total_api",
-		cache	   : true,
+		cache : true,
 		error: function(){
 		},
 		success    : function(data){
@@ -270,6 +270,7 @@ function medicine_details_api(item_code)
 		type:"POST",
 		dataType: 'json',
 		data: {item_code:item_code},
+		cache : true,
 		error: function(){
 			if(get_page_name=="medicine_details"){
 				$(".top_bar_title").html("No record found");
@@ -626,6 +627,7 @@ function delete_medicine(item_code) {
 				url:  get_base_url() +"my_cart/medicine_delete_api",
 				type:"POST",
 				dataType: 'json',
+				cache : true,
 				data:{item_code: item_code},
 				error: function(){
 					swal("Medicine not deleted");
@@ -680,6 +682,7 @@ function delete_all_medicine()
 				type:"POST",
 				dataType: 'json',
 				data: {id:id},
+				cache : true,
 				error: function(){
 					swal("Medicines not deleted");
 				},
@@ -718,7 +721,7 @@ function my_cart_api(order_type) {
 		type	:"POST",
 		dataType: "json",
 		cache: true,
-		data: {id:id,order_type:order_type},
+		data: {order_type:order_type},
 		error: function(){
 			$(".main_page_loading").hide();
 

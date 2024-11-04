@@ -128,7 +128,7 @@ function get_medicine_favourite() {
 		url: get_base_url() + "medicine_details/get_medicine_favourite_api",
 		type	:"POST",
 		dataType: "json",
-		cache: true,
+		cache : true,
 		data: {id:id},
 		error: function(){
 			$(".get_medicine_favourite_api_div").html(something_went_wrong_function());
@@ -219,7 +219,7 @@ function medicine_search_api() {
 				dataType   : "json",
 				data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
 				url        : get_base_url() + "medicine_search/medicine_search_api",
-				cache	   : true,
+				cache : true,
 				error: function(){
 					$(".search_result_div").html(something_went_wrong_function());
 					$(".search_result_div_mobile").html(something_went_wrong_function());

@@ -39,7 +39,7 @@ function MainPageFuncationCall(get_record) {
             dataType: "json",
             data: { item_page_type: item_page_type, item_code: item_code_pg, item_division: item_division, get_record: get_record },
             url: get_base_url() + "category/api/medicine_category_api",
-            cache: true,
+            cache : true,
             timeout: 60000,
             error: function() {
                 $(".top_bar_title2").html("No record found");
@@ -152,4 +152,60 @@ function MainPageFuncationCall(get_record) {
             }
         });
     }
+}
+/********************************************* */
+function show_sorting_div()
+{
+	$(".showbtn").hide();	
+	$(".showbtn1").show();
+	$(".sorting_div").show();
+}
+function hide_sorting_div()
+{
+	$(".showbtn").show();	
+	$(".showbtn1").hide();
+	$(".sorting_div").hide();
+}
+
+function sort_atoz()
+{
+	$(".sort_atoz").hide();
+	$(".sort_ztoa").show();	
+	hide_sorting_div();
+	MainPageFuncationCall("sort_atoz");
+}
+function sort_ztoa()
+{	
+	$(".sort_atoz").show();
+	$(".sort_ztoa").hide();
+	hide_sorting_div();
+	MainPageFuncationCall("sort_ztoa");
+}
+function sort_price()
+{
+	$(".sort_price").hide();
+	$(".sort_price1").show();	
+	hide_sorting_div();
+	MainPageFuncationCall("sort_price");
+}
+function sort_price1()
+{	
+	$(".sort_price").show();
+	$(".sort_price1").hide();
+	hide_sorting_div();
+	MainPageFuncationCall("sort_price1");
+}
+function sort_margin()
+{
+	$(".sort_margin").hide();
+	$(".sort_margin1").show();	
+	hide_sorting_div();
+	MainPageFuncationCall("sort_margin");
+}
+function sort_margin1()
+{	
+	$(".sort_margin").show();
+	$(".sort_margin1").hide();
+	hide_sorting_div();
+	MainPageFuncationCall("sort_margin1");
 }

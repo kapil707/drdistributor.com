@@ -184,7 +184,7 @@ class Main extends CI_Controller {
 
 		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
 		if(!empty($ItemId)){
-			$this->MyOrderModel->OrderExcelFile("direct_download");
+			$this->MyOrderModel->OrderExcelFile($ItemId,"direct_download");
 		}else{
 			/********************MainPageTitle***************************** */
 			$data["MainPageTitle"] = $MainPageTitle = "$OrderId";

@@ -116,11 +116,11 @@ class MyOrderModel extends CI_Model
 		return $return;		
 	}
 
-	public function OrderExcelFile($download_type)
+	public function OrderExcelFile($ItemId,$download_type)
 	{
 		//error_reporting(0);
 
-		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
+		$where = array('order_id'=>$ItemId);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
 		$row   = $query->row();

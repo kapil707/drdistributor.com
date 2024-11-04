@@ -53,11 +53,11 @@ var bLazy = new Blazy();
 				<ul>
 				<ul class="bottom-footer-ul">
 					<li><i class="fa fa-envelope" aria-hidden="true"></i>
-					<?= $$this->appconfig->getSiteEmail(); ?></li>
+					<?= $this->appconfig->getSiteEmail(); ?></li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i>
-					<?= $$this->appconfig->getSiteMobile(); ?></li>
+					<?= $this->appconfig->getSiteMobile(); ?></li>
 					<li><i class="fa fa-whatsapp" aria-hidden="true"></i>
-					<?= $$this->appconfig->getSiteWhatsApp(); ?></li>
+					<?= $this->appconfig->getSiteWhatsApp(); ?></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">

@@ -258,7 +258,7 @@ function medicine_details_api(item_code)
 	if(get_page_name=="medicine_details"){
 		/*********************************** */
 		$(".top_bar_title").html("Loading....");
-		$(".main_container").hide();
+		$(".main_container").show();
 		$(".main_page_loading").show();
 		$(".main_page_no_record_found").hide();
 		$(".main_page_something_went_wrong").hide();

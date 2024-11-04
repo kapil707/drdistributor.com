@@ -255,6 +255,11 @@ function medicine_details_api(item_code)
 			$.each(data.items, function(i,item){	
 				if (item)
 				{
+					if(get_page_name=="medicine_details"){
+						$(".top_bar_title").html(item.item_name);
+						document.title = item.item_name;
+					}
+
 					item_date_time	= item.item_date_time;
 					$(".medicine_details_item_date_time").html("as on " + item_date_time)
 

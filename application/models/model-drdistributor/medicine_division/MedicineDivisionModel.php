@@ -13,7 +13,7 @@ class MedicineDivisionModel extends CI_Model
 		$this->db->select("id");
 		$this->db->where('name',$CategoryName);
 		$row = $this->db->get("tbl_division_category")->row();
-		return $row->name;
+		return $row->id;
 	}
 	
 	public function get_division_category_name($category_id){

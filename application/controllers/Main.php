@@ -177,27 +177,50 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);	
 	}
 
-	public function order_download($chemist_id='',$order_id=''){
+	public function order_download($OrderChemistId='',$OrderId=''){
 		
 		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
-		$where = array('chemist_id'=>$chemist_id,'order_id'=>$order_id);
-		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
-		$row   = $query->row();
-		$query = $query->result();
-		if(!empty($row->id)){
+		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
+		if(!empty($ItemId)){
+			$this->MyOrderModel->OrderExcelFile($query,$chemist_excle,"direct_download");
+		}else{
+			/********************MainPageTitle***************************** */
+			$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
+			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
+			/********************************************************** */
 
-			$where 			= array('altercode'=>$row->chemist_id);
-			$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
-			$acm_altercode 	= $users->altercode;
-			$acm_name		= ucwords(strtolower($users->name));		
-			$chemist_excle 	= "$acm_name ($acm_altercode)";
-			$this->MyOrderModel->order_excel_file($query,$chemist_excle,"direct_download");
-		}
-		else{
-			echo "error";
+			if(!empty($this->UserType)){
+				/********************PageMainData************************** */
+				$data["UserId"] 	 = $this->UserId;
+				$data["UserType"]    = $this->UserType;
+				$data["UserFullName"]= $this->UserFullName;
+				$data["UserImage"] 	 = $this->UserImage;
+				$data["ChemistId"]	 = $this->ChemistId;
+
+				/******************DeliveringToData************************* */
+				$data["DeliveringTo"]= $data["ChemistId"];
+				if($this->UserType=="sales") {
+					$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+				}
+				/********************************************************** */
+			}else{
+				$data["UserId"] 		= "Guest";
+				$data["UserType"]     	= "";
+				$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+				$data["UserFullName"]   = "Guest";
+				$data["DeliveringTo"] 	= "Guest";
+				$data["ChemistId"] 		= "";
+			}
+			/**********************************************************/
+
+			$data["OrderChemistId"] 	= $OrderChemistId;
+			$data["ItemId"] 			= $ItemId;
+
+			$this->load->view('header_footer/header', $data);
+			$this->load->view('my_order/my_order_details_main', $data);	
+			$this->load->view('header_footer/footer', $data);
 		}
 	}
 

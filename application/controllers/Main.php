@@ -222,7 +222,8 @@ class Main extends CI_Controller {
 		/**********************************************************/
 
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('my_invoice/my_invoice_details_main', $data);		
+		$this->load->view('my_invoice/my_invoice_details_main', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	public function invoice_download($chemist_id='',$invoice_id=''){

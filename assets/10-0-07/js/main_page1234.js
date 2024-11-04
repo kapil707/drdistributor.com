@@ -767,7 +767,7 @@ function my_cart_api(order_type) {
 					item_expiry 		= item.item_expiry;
 					item_company 		= item.item_company;
 					item_quantity 		= "1";//item.item_quantity;
-					item_stock 			= "Loading....";//item.item_stock;
+					item_stock 			= "Available";//item.item_stock;
 					item_ptr 			= "00.00";//item.item_ptr;
 					item_mrp 			= "00.00";//item.item_mrp;
 					item_price 			= item.item_price;

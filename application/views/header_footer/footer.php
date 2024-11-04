@@ -42,7 +42,7 @@ wow.init();
 			<div class="col-sm-4">
 				<div class="text-center footer_copy">
 					<div class="text-center" style="margin-top:15px;">
-						<img src="<?= base_url() ?>img_v51/logo4.png" class="img-fluid" style="margin-top: 5px;" alt width="100px;">
+						<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" class="img-fluid" style="margin-top: 5px;" alt width="100px;">
 					</div>
 					<div class="text-center" style="margin-top:15px;">
 						<strong><?= $this->Scheme_Model->get_website_data("title2") ;?></strong>

@@ -46,7 +46,7 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 
-	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
+	<link rel="icon" href="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
 	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/sweetalert.min.js"></script>
 
@@ -60,7 +60,7 @@ if (isset($_COOKIE["theme_type"])) {
 			<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 web-col-padding-5" style="display: flex;">
 				<div class="" style="float:left;">
 					<a href="javascript:new_style_menu_show()" class="top_bar_logo" style="color:white;" title="Drd Menu">
-						<img src="<?= base_url() ?>img_v51/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
+						<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" alt="<?= $title;?>" title="<?= $title;?>">
 					</a>
 					<a href="javascript:goBack()" class="top_bar_back_btn" title="Go Back">
 						<i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -246,7 +246,7 @@ if (isset($_COOKIE["theme_type"])) {
 	<div class="left_menu_bar_div1">
 		<div class="row">
 			<div class="col-sm-2 col-4">
-				<img src="<?= $UserImage ?>" alt="<?= $UserFullName ?>" title="<?= $UserFullName ?>" class="left_menu_bar_account_image" onerror=this.src="<?= base_url(); ?>img_v51/logo4.png">
+				<img src="<?= $UserImage ?>" alt="<?= $UserFullName ?>" title="<?= $UserFullName ?>" class="left_menu_bar_account_image" onerror=this.src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png">
 			</div>
 			<div class="col-sm-8 col-6">
 				<div class="left_menu_bar_accoun_chemist_name">

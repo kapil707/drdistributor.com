@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container">
-        <image src="<?= base_url() ?>img_v51/logo4.png" width="200px;">
+        <image src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="200px;">
         <h1>404 - Page Not Found</h1>
         <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
         <p>Please <a href="/">click here</a> to go back to the home page.</p>

@@ -34,7 +34,7 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
 
-	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16">
+	<link rel="icon" href="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" type="image/logo" sizes="16x16">
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>

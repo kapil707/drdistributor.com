@@ -34,7 +34,7 @@ class ChemistSelectModel extends CI_Model
 				/*$user_cart 		 = $row->user_cart;
 				$user_cart_total = $row->user_cart_total;*/
 				$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
-				$chemist_image = base_url()."img_v51/logo4.png";
+				$chemist_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
 				if(!empty($row->image))
 				{
 					$chemist_image = $this->user_profile_url.$row->image;
@@ -80,7 +80,7 @@ class ChemistSelectModel extends CI_Model
 			$row1 = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
-			$chemist_image = base_url()."img_v51/logo4.png";
+			$chemist_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
 			if(!empty($row1->image))
 			{
 				$chemist_image = $this->user_profile_url.$row1->image;

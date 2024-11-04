@@ -98,7 +98,7 @@ class AccountModel extends CI_Model
 						$user_image 	= 	$this->user_profile_url.$query->image;
 						if(empty($query->image))
 						{
-							$user_image = base_url()."img_v51/logo4.png";
+							$user_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
 						}
 						$user_type 		= 	"chemist";
 						$status 		= 	"1";
@@ -139,7 +139,7 @@ class AccountModel extends CI_Model
 						$user_image 	= 	$this->user_profile_url.$query->image;
 						if(empty($query->image))
 						{
-							$user_image = base_url()."img_v51/logo4.png";
+							$user_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
 						}
 						$user_code	 	= 	$query->customer_code;
 						$user_altercode	= 	$query->customer_code;

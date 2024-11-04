@@ -5,7 +5,7 @@
 				</div>
 				<div class="col-md-6">						
 					<div class="text-center">
-						<img src="<?= base_url() ?>img_v51/logo4.png" width="60px" alt>
+						<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>

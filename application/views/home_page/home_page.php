@@ -76,7 +76,7 @@ $(".top_bar_title").html("Delivering to");
 			</div>
 			<div class="col-sm-12 text-center">
 				<div class="text-center" style="margin-top:20px;">
-					<img src="<?= base_url() ?>/img_v51/logo4.png" class="img-fluid" width="100px;">
+					<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" class="img-fluid" width="100px;">
 				</div>
 				<div class="text-center footer_website_name_css" style="margin-top:15px;">
 					<?= $this->Scheme_Model->get_website_data("title2") ;?>

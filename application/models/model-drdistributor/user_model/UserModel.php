@@ -16,7 +16,7 @@ class UserModel extends CI_Model
 		$user_image = $this->user_profile_url.$row->image;
 		if(empty($row->image))
 		{
-			$user_image = base_url()."img_v51/logo4.png";
+			$user_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
 		}
 		return $user_image;
 	}

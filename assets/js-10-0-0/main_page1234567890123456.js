@@ -35,9 +35,22 @@ function logout_function(){
 		buttons: ["No", "Yes"],
 		dangerMode: true,
 	}).then(function(result) {
-		if (result) 
-		{
-			window.location.href = get_base_url() +"logout"
+		if (result) {
+			$.ajax({
+				type       : "GET",
+				url        : get_base_url() +"logout",
+				cache	   : true,
+				success : function(data){
+					if(data!="")
+					{
+						$.each(data.items, function(i,item){	
+							if (item){
+								location.reload();
+							}
+						});	
+					}
+				},
+			});
 		} 
 	});
 }

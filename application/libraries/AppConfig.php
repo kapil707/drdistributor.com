@@ -10,6 +10,9 @@ class AppConfig {
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
     public $MedicineImageUrl = "https://www.drdweb.co.in/";
     public $ApiUrl2 = "https://www.drdweb.co.in/";
+    public $SiteEmail = "vipul@drdindia.com";
+    public $SiteMobile = "+919899133989";
+    public $SiteWhatsApp = "+919899133989";
 
     public function getSiteTitle() {
         return $this->siteTitle;
@@ -37,6 +40,18 @@ class AppConfig {
 
     public function getApiUrl2() {
         return $this->ApiUrl2;
+    }
+
+    public function getSiteEmail() {
+        return $this->SiteEmail;
+    }
+
+    public function getSiteMobile() {
+        return $this->SiteMobile;
+    }
+
+    public function getSiteWhatsApp() {
+        return $this->SiteWhatsApp;
     }
 }
 

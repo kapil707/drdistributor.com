@@ -154,7 +154,7 @@ class MyOrderModel extends CI_Model
 		$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(10);
 		$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);	
 		
-		$objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray(array('font' => array('size' => 10,'bold' => true,'color' => array('rgb' => '757575'),'name'  => 'Arial')));
+		$objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray(array('font' => array('size' => 10,'bold' => true,'color' => array('rgb' => '343a40'),'name'  => 'Arial')));
 		$i = 0;
 		$rowCount = 2;
 		foreach($query as $row)
@@ -167,7 +167,7 @@ class MyOrderModel extends CI_Model
 			$objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,$row->sale_rate * $row->quantity);
 			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,$chemist_excle);
 			
-			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':F'.$rowCount)->applyFromArray(array('font' => array('size' => 10,'bold' => false,'color' => array('rgb' => '757575'),'name'  => 'Arial')));
+			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':F'.$rowCount)->applyFromArray(array('font' => array('size' => 10,'bold' => false,'color' => array('rgb' => '343a40'),'name'  => 'Arial')));
 			
 			$file_name = $row->order_id;
 			

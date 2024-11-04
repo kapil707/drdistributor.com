@@ -5,7 +5,6 @@ function call_page()
 {
 	/*********************************** */
 	$(".top_bar_title").html("Loading....");
-	$(".main_container").hide();
 	$(".main_page_loading").show();
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();

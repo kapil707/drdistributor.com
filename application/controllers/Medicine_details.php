@@ -40,6 +40,31 @@ class Medicine_details extends CI_Controller {
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
+
+	public function index() {
+		/********************MainPageTitle***************************** */
+		$data["MainPageTitle"] = $MainPageTitle = "Medicine Details";
+		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
+		/********************************************************** */
+
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
+
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
+		{
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+		}
+		/********************************************************** */
+		
+		$this->load->view('header_footer/header', $data);
+		$this->load->view('medicine_details/medicine_details', $data);
+	}
 	
 	/*******************api start*********************/
 	public function medicine_details_api() {

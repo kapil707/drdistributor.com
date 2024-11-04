@@ -95,6 +95,9 @@ $route['track_order']='home/track_order';
 
 $route['medicine_use/(:any)']='medicine_use/index/$1';
 
+$route['medicine_details/(:any)']='medicine_details/index/$1';
+$route['md/(:any)']='medicine_details/index/$1';
+
 $route['my_order']='my_order/index';
 $route['mo']='my_order/index';
 $route['my_order_details/(:any)']='my_order/my_order_details/$1';

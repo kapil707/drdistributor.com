@@ -20,4 +20,4 @@ function goBack() {
 <script>
 $(".main_page_loading").show();
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice1234567.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice12345678.js"></script>

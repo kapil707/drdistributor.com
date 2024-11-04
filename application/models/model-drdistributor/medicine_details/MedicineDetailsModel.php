@@ -11,7 +11,7 @@ class MedicineDetailsModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
-	public function medicine_details_api($user_type,$user_altercode,$salesman_id,$item_code)
+	public function medicine_details_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
 		$jsonArray = array();
 		//$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
@@ -102,17 +102,19 @@ class MedicineDetailsModel extends CI_Model
 				}
 			}
 
-			/************************************************************************************* */
+			/************************************************** */
 			$item_order_quantity = "";
-			$where1 = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
-			$this->db->select("quantity");
-			$this->db->where($where1);
-			$row1 = $this->db->get("drd_temp_rec")->row();
-			if(!empty($row1->quantity)){
-				$item_order_quantity = $row1->quantity;
+			if(!empty($user_type)) {
+				$where1 = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
+				$this->db->select("quantity");
+				$this->db->where($where1);
+				$row1 = $this->db->get("drd_temp_rec")->row();
+				if(!empty($row1->quantity)){
+					$item_order_quantity = $row1->quantity;
+				}
 			}
 			
-			/************************************************************************************* */
+			/************************************************** */
 
 			if($user_altercode=="Guest"){
 				$item_mrp 		= "xx.xx";

@@ -48,7 +48,7 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
-	<script src="<?= base_url(); ?>assets-<?php echo $this->appconfig->getWebJs(); ?>/website/js/sweetalert.min.js"></script>
+	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/sweetalert.min.js"></script>
 
 	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/min.css" rel="stylesheet" type="text/css" />
 

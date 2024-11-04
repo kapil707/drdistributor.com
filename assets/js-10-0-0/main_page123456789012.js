@@ -281,6 +281,7 @@ function medicine_details_api(item_code)
 					if(get_page_name=="medicine_details"){
 						$(".top_bar_title").html(item.item_name);
 						document.title = item.item_name;
+						$(".main_container").show();
 					}
 
 					item_date_time	= item.item_date_time;

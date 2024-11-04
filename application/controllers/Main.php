@@ -135,6 +135,9 @@ class Main extends CI_Controller {
 	/***************order part********************** */	
 	public function view_order($OrderChemistId='',$OrderId=''){
 
+		// Load model
+		$this->load->model("model-drdistributor/my_order/MyOrderModel");
+		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";

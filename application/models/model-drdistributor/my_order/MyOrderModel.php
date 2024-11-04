@@ -10,6 +10,18 @@ class MyOrderModel extends CI_Model
 
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
+
+	public function OrderCheck($ChemistId,$OrderId){
+		$this->db->select("id");
+		$this->db->where('chemist_id',$ChemistId);
+		$this->db->where('order_id',$OrderId);
+		$row = $this->db->get("tbl_order")->row();
+		if(!empty($row)){
+			return $row->id;
+		}else{
+			return "";
+		}
+	}
 	
 	public function get_my_order_api($UserType="",$ChemistId="",$SalesmanId="",$get_record="",$limit=12) {		
 		$jsonArray = array();

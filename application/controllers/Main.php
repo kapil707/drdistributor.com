@@ -164,7 +164,7 @@ class Main extends CI_Controller {
 		}
 		/**********************************************************/
 
-		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$ItemId);
+		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
 
 		$data["InvoiceChemistId"] 	= $InvoiceChemistId;
 		$data["ItemId"] 			= $ItemId;

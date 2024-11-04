@@ -137,7 +137,7 @@ class Main extends CI_Controller {
 
 		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
-		
+
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
@@ -169,7 +169,7 @@ class Main extends CI_Controller {
 
 		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
 
-		$data["InvoiceChemistId"] 	= $InvoiceChemistId;
+		$data["OrderChemistId"] 	= $OrderChemistId;
 		$data["ItemId"] 			= $ItemId;
 
 		$this->load->view('header_footer/header', $data);

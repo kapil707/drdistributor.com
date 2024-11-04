@@ -522,7 +522,9 @@ function medicine_add_to_cart_api()
 					},
 					success    : function(data){
 						
-						$(".medicine_details_item_order_quantity_textbox").val("");
+						if(get_page_name!="medicine_details"){
+							$(".medicine_details_item_order_quantity_textbox").val("");
+						}
 
 						/***************************** */
 						get_my_cart_total_api();
@@ -534,7 +536,9 @@ function medicine_add_to_cart_api()
 							{
 								if(item.status=="1")
 								{
-									
+									if(get_page_name=="medicine_details"){
+										swal("Medicine added successfully");
+									}
 								}
 							}
 						});

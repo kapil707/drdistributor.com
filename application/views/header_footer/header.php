@@ -18,11 +18,11 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/bootstrap.min.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="<?= base_url(); ?>assets/website/js-10-0-0/jquery.min.js"></script>
 	
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="<?= base_url(); ?>assets/website/js-10-0-0/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/website/css/font-awesome.min.css"> 
 	
@@ -48,10 +48,10 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<link rel="icon" href="<?= base_url(); ?>img_v51/logo4.png" type="image/logo" sizes="16x16" alt="<?= $title;?>" />
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="<?= base_url(); ?>assets/website/js-10-0-0/sweetalert.min.js"></script>
 
 	<link href="<?= base_url(); ?>assets/website/css/min.css" rel="stylesheet" type="text/css" />
-	<script src="<?= base_url(); ?>assets/website/js/min.js"></script>
+	
 </head>
 <body>
 <div class="top_bar">

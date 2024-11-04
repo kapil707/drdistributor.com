@@ -112,11 +112,7 @@ class MedicineDetailsModel extends CI_Model
 				if(!empty($row1->quantity)){
 					$item_order_quantity = $row1->quantity;
 				}
-			}
-			
-			/************************************************** */
-
-			if($user_altercode=="Guest"){
+			}else{
 				$item_mrp 		= "xx.xx";
 				$item_ptr 		= "xx.xx";
 				$item_price		= "xx.xx";

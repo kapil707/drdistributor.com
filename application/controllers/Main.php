@@ -231,15 +231,14 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function invoice_download($chemist_id='',$invoice_id=''){
+	public function invoice_download($InvoiceChemistId='',$Gstvno=''){
 		
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
-		$where = array('gstvno'=>$invoice_id,'chemist_id'=>$chemist_id);
-		$row = $this->Scheme_Model->select_row("tbl_invoice",$where);
-		if(!empty($row->id)){
-			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
+		$ItemId = $this->MyInvoiceModel->InvoiceCheck($InvoiceChemistId,$Gstvno);
+		if(!empty($ItemId)){
+			$this->MyInvoiceModel->invoice_excel_file($Gstvno,"direct_download");
 		}else{			
 			/********************MainPageTitle***************************** */
 			$data["MainPageTitle"] = $MainPageTitle = "DRD";

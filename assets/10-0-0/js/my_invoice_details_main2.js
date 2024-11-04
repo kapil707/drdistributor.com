@@ -14,7 +14,7 @@ function call_page()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       : {item_id:item_id,user_altercode:user_altercode},
+		data       : {ItemId:ItemId,InvoiceChemistId:InvoiceChemistId},
 		url        : get_base_url()+ "my_invoice/my_invoice_details_main_api",
 		cache	   : false,
 		error: function(){

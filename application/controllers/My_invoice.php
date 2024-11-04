@@ -162,16 +162,14 @@ class My_invoice extends CI_Controller {
 
 	public function my_invoice_details_main_api(){
 
-		$item_id		= $_REQUEST['item_id'];
-		$user_type 		= "chemist";
-		$user_altercode = $_REQUEST['user_altercode'];
-		$user_password	= "";
-		$chemist_id 	= "";
-		$salesman_id = "";
+		$ItemId			= $_REQUEST['ItemId'];
+		$ChemistId 		= $_REQUEST['InvoiceChemistId'];
+		$UserType 		= "chemist";
+		$SalesmanId 	= "";
 		
 		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($user_type) && !empty($user_altercode) && !empty($item_id)){			
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($user_type,$user_altercode,$salesman_id,$item_id);
+		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){			
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];

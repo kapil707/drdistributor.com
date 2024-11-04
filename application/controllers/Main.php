@@ -187,13 +187,13 @@ class Main extends CI_Controller {
 	}
 
 	/***************invoice part********************** */	
-	public function view_invoice($chemist_id='',$invoice_id=''){
+	public function view_invoice($InvoiceChemistId='',$InvoiceId=''){
 
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "$invoice_id";
+		$data["MainPageTitle"] = $MainPageTitle = "$InvoiceId";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -220,6 +220,9 @@ class Main extends CI_Controller {
 			$data["ChemistId"] 		= "";
 		}
 		/**********************************************************/
+
+		$data["InvoiceChemistId"] 	= $InvoiceChemistId;
+		$data["ItemId"] 			= $InvoiceId;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details_main', $data);

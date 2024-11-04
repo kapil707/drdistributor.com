@@ -66,6 +66,7 @@ class Medicine_details extends CI_Controller {
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_details/medicine_details', $data);
+		$this->load->view('header_footer/footer', $data);
 	}
 	
 	/*******************api start*********************/

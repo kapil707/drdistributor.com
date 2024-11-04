@@ -2,54 +2,63 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Medicine_use extends CI_Controller {
 
-	var $user_image = "";
-	var $user_fname = "";
-	var $delivering_to = "";
-	var $user_type = "";
-	var $user_altercode = "";
-	var $user_password = "";
-	var $chemist_id = "";
-	var $salesman_id = "";
-	var $user_nrx  = "";
+	var $UserId 		= "";
+	var $UserType 		= "";
+	var $UserFullName 	= "";
+	var $UserPassword 	= "";
+	var $UserImage 		= "";
+	var $ChemistNrx 	= "";
+	var $ChemistId 		= "";
+	var $SalesmanId 	= "";
 
 	public function __construct(){
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
+		
+		/************login check************** */	
+		//LoginCheck();
+		/************************************* */
+
+		/************log file***************** */
+		CreateUserLog();
+		/************************************* */
+	
+		// Load model
+		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 
 		/********************session start***************************** */
-		$this->user_image 	 = $this->session->userdata('user_image');
-		$this->user_fname    = $this->session->userdata('user_fname');
-		$this->delivering_to = $this->session->userdata('user_altercode');	
-		
-		$this->user_type 		= $this->session->userdata('user_type');
-		$this->user_altercode 	= $this->session->userdata('user_altercode');
-		$this->user_password	= $this->session->userdata('user_password');
-		$this->user_nrx			= $this->session->userdata('user_nrx');
-
-		$chemist_id = $salesman_id = "";
-		if($this->user_type=="sales" && !empty($this->session->userdata('chemist_id')))
-		{
-			$this->chemist_id 		= $this->session->userdata('chemist_id');
-			$this->salesman_id 		= $this->user_altercode;
-			$this->user_altercode 	= $this->chemist_id;
-			$this->delivering_to 	= $this->chemist_id;
-		}
+		$this->UserId		= $this->session->userdata('UserId');
+		$this->UserType    	= $this->session->userdata('UserType');
+		$this->UserFullName = $this->session->userdata('UserFullName');
+		$this->UserPassword	= $this->session->userdata('UserPassword');
+		$this->UserImage 	= $this->session->userdata('UserImage');
+		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
+		$this->ChemistId	= $this->session->userdata('ChemistId');
+		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
 	}
 	public function index($item_code="") {
-
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "How to use";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = "Guest";
-		$data["session_user_altercode"] = "xxxxxx";
-		$data["session_delivering_to"]  = "";
-		$data["chemist_id"] = "";
+		/********************PageMainData************************** */
+		$data["UserId"] 	 = $this->UserId;
+		$data["UserType"]    = $this->UserType;
+		$data["UserFullName"]= $this->UserFullName;
+		$data["UserImage"] 	 = $this->UserImage;
+		$data["ChemistId"]	 = $this->ChemistId;
+
+		/******************DeliveringToData************************* */
+		$data["DeliveringTo"]= $data["ChemistId"];
+		if($this->UserType=="sales")
+		{
+			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+		}
+		/********************************************************** */
 
 		$data['item_code'] = $item_code;
 

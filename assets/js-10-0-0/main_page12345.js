@@ -509,10 +509,10 @@ function medicine_add_to_cart_api()
 
 				if(get_page_name=="medicine_details"){
 					$('.medicine_details_item_add_to_cart_btn').hide();
-					$('.medicine_details_item_add_to_cart_btn_disable').hide();
+					$('.medicine_details_item_add_to_cart_btn_disable').show();
 
 					$('.medicine_details_item_add_to_cart_btn').html("Update cart");
-					$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
+					$('.medicine_details_item_add_to_cart_btn_disable').html("Loading....");
 				}
 				
 				$.ajax({
@@ -541,7 +541,7 @@ function medicine_add_to_cart_api()
 								{
 									if(get_page_name=="medicine_details"){
 										swal("Medicine added successfully");
-										$('.medicine_details_item_add_to_cart_btn_disable').show();
+										$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 									}
 								}
 							}

@@ -178,6 +178,6 @@ function goBack() {
 </div>
 <script>
 $(document).ready(function(){
-	medicine_details_funcation('<?= $item_code; ?>');
+	get_single_medicine_info('<?= $item_code; ?>');
 });
 </script>

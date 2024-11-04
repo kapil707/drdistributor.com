@@ -64,6 +64,7 @@ class My_cart extends CI_Controller {
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_cart/my_cart', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	/*******************api start*********************/

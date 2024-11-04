@@ -32,4 +32,4 @@ function goBack() {
 <script>
 var ItemId = "<?php echo $ItemId; ?>";
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/my_invoice_details.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice_details.js"></script>

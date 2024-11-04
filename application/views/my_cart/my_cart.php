@@ -148,4 +148,4 @@ function goBack() {
 get_page_name = "my_cart";// change value taki cart pur load na ho 
 order_type = "all";// change value taki cart pur load na ho 
 </script>
-<script src="<?php echo base_url(); ?>/assets/js-<?php echo $this->appconfig->getWebJs(); ?>/my_cart.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_cart.js"></script>

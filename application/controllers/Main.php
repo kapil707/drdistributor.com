@@ -235,18 +235,35 @@ class Main extends CI_Controller {
 		$row = $this->Scheme_Model->select_row("tbl_invoice",$where);
 		if(!empty($row->id)){
 			$this->MyInvoiceModel->invoice_excel_file($row->gstvno,"direct_download");
-		}else{
-			$data["session_user_image"] = base_url()."img_v51/logo2.png";
-			$data["session_user_fname"]     = "Guest";
-			$data["session_user_altercode"] = "xxxxxx";
-			
-			$data["item_id"] 		= "";
-			$data["user_altercode"] = "";
-			
+		}else{			
 			/********************MainPageTitle***************************** */
 			$data["MainPageTitle"] = $MainPageTitle = "DRD";
 			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 			/********************************************************** */
+
+			if(!empty($this->UserType)){
+				/********************PageMainData************************** */
+				$data["UserId"] 	 = $this->UserId;
+				$data["UserType"]    = $this->UserType;
+				$data["UserFullName"]= $this->UserFullName;
+				$data["UserImage"] 	 = $this->UserImage;
+				$data["ChemistId"]	 = $this->ChemistId;
+	
+				/******************DeliveringToData************************* */
+				$data["DeliveringTo"]= $data["ChemistId"];
+				if($this->UserType=="sales") {
+					$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+				}
+				/********************************************************** */
+			}else{
+				$data["UserId"] 		= "Guest";
+				$data["UserType"]     	= "";
+				$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+				$data["UserFullName"]   = "Guest";
+				$data["DeliveringTo"] 	= "Guest";
+				$data["ChemistId"] 		= "";
+			}
+			/**********************************************************/
 
 			$this->load->view('home/header_footer/header', $data);
 			$this->load->view('main_page/invoice', $data);

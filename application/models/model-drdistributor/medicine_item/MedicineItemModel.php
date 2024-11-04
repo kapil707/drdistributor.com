@@ -2,13 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineItemModel extends CI_Model  
 {
-	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
-		// Load the AppConfig library
-        $this->load->library('AppConfig');
 
-		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
+		// Load model
+		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 
 	public function get_item_category_name($CategoryId){
@@ -104,7 +102,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_item_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -146,7 +144,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_item_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -189,7 +187,7 @@ class MedicineItemModel extends CI_Model
 		foreach ($query as $row)
 		{
 			$get_record++;
-			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_item_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -231,7 +229,7 @@ class MedicineItemModel extends CI_Model
 		$query = $this->db->get()->result();
 		foreach ($query as $row)
 		{
-			$jsonArray[] = $this->page_row_dt($row,$SessionValue);
+			$jsonArray[] = $this->MedicineDetailsModel->medicine_item_row_dt($row,$SessionValue);
 		}
 		//$jsonString  = json_encode($jsonArray);
 		
@@ -240,58 +238,4 @@ class MedicineItemModel extends CI_Model
 		$return["get_record"] = $get_record;
 		return $return;
 	} 
-
-	public function page_row_dt($row,$SessionValue){
-
-		if(!empty($row)){
-			$item_code			=	$row->i_code;
-			$item_name			=	ucwords(strtolower($row->item_name));
-			$item_packing		=	$row->packing;
-			$item_scheme		=	$row->salescm1."+".$row->salescm2;
-			$item_company		=  	ucwords(strtolower($row->company_name));
-			$item_quantity		=	$row->batchqty;
-			$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
-			$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
-			$item_price			=	sprintf('%0.2f',round($row->final_price,2));
-			$item_margin 		=   round($row->margin);
-			$item_featured 		= 	$row->featured_new;
-
-			$misc_settings =	$row->misc_settings;
-			$item_stock = "";
-			if($misc_settings=="#NRX" && $item_quantity>=10){
-				$item_stock = "Available";
-			}
-			
-			$item_image = base_url()."uploads/default_img.webp";
-			if(!empty($row->image1))
-			{
-				$item_image = $this->MedicineImageUrl.$row->image1;
-			}
-			
-			if($SessionValue=="no"){
-				$item_mrp 		= "xx.xx";
-				$item_ptr 		= "xx.xx";
-				$item_price		= "xx.xx";
-				$item_margin 	= "xx";
-			}
-				
-			$dt = array(
-				'item_code' => $item_code,
-				'item_image' => $item_image,
-				'item_name' => $item_name,
-				'item_packing' => $item_packing,
-				'item_scheme' => $item_scheme,
-				'item_company' => $item_company,
-				'item_quantity' => $item_quantity,
-				'item_stock' => $item_stock,
-				'item_ptr' => $item_ptr,
-				'item_mrp' => $item_mrp,
-				'item_price' => $item_price,
-				'item_margin' => $item_margin,
-				'item_featured' => $item_featured,
-			);
-
-			return $dt;
-		}
-	}
 }

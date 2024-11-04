@@ -79,7 +79,6 @@ function MainPageFuncationCall(get_record) {
                         let item_image = item.item_image;
                         let item_name = item.item_name;
                         let item_packing = item.item_packing;
-                        let item_expiry = item.item_expiry || "00/00";
                         let item_company = item.item_company;
                         let item_quantity = item.item_quantity;
                         let item_stock = item.item_stock;
@@ -90,31 +89,21 @@ function MainPageFuncationCall(get_record) {
                         let item_margin = item.item_margin;
                         let item_featured = item.item_featured;
 
-                        let item_batch_no = "xxxxxx";
-                        let item_gst = "0";
-                        let item_description1 = "";
-                        let similar_items = "";
-
                         // Data to be stored for future reference
                         let div_all_data = `
                             <div class='medicine_details_all_data_${item_code}' 
                                 item_image='${item_image}' 
                                 item_name='${item_name}' 
-                                item_packing='${item_packing}' 
-                                item_batch_no='${item_batch_no}' 
-                                item_expiry='${item_expiry}' 
+                                item_packing='${item_packing}'
                                 item_company='${item_company}' 
                                 item_quantity='${item_quantity}' 
                                 item_stock='${item_stock}' 
                                 item_ptr='${item_ptr}' 
                                 item_mrp='${item_mrp}' 
                                 item_price='${item_price}' 
-                                item_gst='${item_gst}' 
                                 item_scheme='${item_scheme}' 
                                 item_margin='${item_margin}' 
-                                item_featured='${item_featured}' 
-                                item_description1='${item_description1}' 
-                                similar_items='${similar_items}'>
+                                item_featured='${item_featured}'>
                             </div>`;
 
                         // Featured image or out of stock image handling
@@ -135,7 +124,7 @@ function MainPageFuncationCall(get_record) {
                         $(".main_page_data").append(`
                             <div class="col-lg-2 col-sm-3 col-6 p-0 m-0 text-center">
                                 <div class="medicine_category_page text-center" title="${item_name}">
-                                    <a href="javascript:void(0)" onClick="medicine_details_funcation(${item_code})">
+                                    <a href="${get_base_url()}md/${item_code}">
                                         ${item_other_image_div}
                                         <img class="all_item_image" src="${default_img}" alt="${item_name}">
                                         <img class="all_item_image_load" src="${item_image}" alt="${item_name}" onload="showActualImage(this)" onerror="setDefaultImage(this);">

@@ -79,7 +79,7 @@ function call_page(get_record)
 						no_record_found = 1;
 						
 						new_i = parseInt(new_i) + 1;
-						$(".top_bar_title").html("Found result ("+new_i+")");
+						$(".top_bar_title2").html("Found result ("+new_i+")");
 					}
 				});	
 			},

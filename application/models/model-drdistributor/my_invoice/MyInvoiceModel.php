@@ -29,12 +29,12 @@ class MyInvoiceModel extends CI_Model
 		$item_image 	= $user_image;
 		$item_image 	= ($item_image);
 		/**************************************************** */
-		$order_by = array('id','desc');
-		//$get_limit = array('12',$get_record);
-		$get_limit = array($limit,$get_record);
-		$where = array('chemist_id'=>$ChemistId);
-		$query = $this->Scheme_Model->select_fun_limit("tbl_invoicex",$where,$get_limit,$order_by);
-		$query = $query->result();
+		$this->db->select("*");
+		$this->db->from('tbl_invoice');
+		$this->db->where('chemist_id',$ChemistId);
+		$this->db->limit($limit,$get_record);
+		$this->db->order_by('id','desc');
+		$query = $this->db->get()->result();
 		foreach($query as $row)
 		{
 			$get_record++;

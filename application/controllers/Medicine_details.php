@@ -79,7 +79,7 @@ class Medicine_details extends CI_Controller {
 		
 		$items = "";
 		/********************************************************** */
-		if(!empty($UserType) && !empty($ChemistId) && !empty($item_code)) {			
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_code)) {
 			$result = $this->MedicineDetailsModel->medicine_details_api($UserType,$ChemistId,$SalesmanId,$item_code);
 			$items = $result["items"];
 		} elseif(!empty($item_code)) {			

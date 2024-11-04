@@ -29,6 +29,7 @@ function MainPageFuncationCall(get_record) {
         query_work = 1;
 
         $(".top_bar_title2").html("Loading....");
+        $(".main_container").show();
         $(".main_page_loading").show();
         $(".main_page_no_record_found").hide();
         $(".main_page_something_went_wrong").hide();

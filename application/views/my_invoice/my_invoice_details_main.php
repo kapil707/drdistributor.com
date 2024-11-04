@@ -32,7 +32,6 @@ function goBack() {
 <script>
 var ItemId = "<?php echo $ItemId; ?>";
 var InvoiceChemistId = "<?php echo $InvoiceChemistId; ?>";
-$(".main_page_loading").show();
 </script>
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice_details_main23.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice_details_main.js"></script>

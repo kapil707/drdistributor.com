@@ -111,6 +111,7 @@ function goBack() {
 										*The information given on this page is based on historical data and estimates . Please refer to the final invoice for the exact value. E&OE.
 									</div>
 
+									<?php if(!empty($UserType)){ ?>
 									<div class="col-sm-12 col-12 medicine_details_hr">
 									</div>
 
@@ -139,6 +140,7 @@ function goBack() {
 											<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>
 										</div>
 									</div>
+									<?php } ?>
 								</div>
 
 							</div>

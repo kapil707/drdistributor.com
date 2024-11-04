@@ -118,107 +118,76 @@ class MyOrderModel extends CI_Model
 
 	public function OrderExcelFile($ItemId,$download_type)
 	{
-		// Check if the ItemId variable is set
-		if (!isset($ItemId)) {
-			exit("Item ID is not defined.");
-		}
+		error_reporting(0);
 
-		$where = array('order_id' => $ItemId);
+		$where = array('order_id'=>$ItemId);
 		$this->db->where($where);
 		$query = $this->db->get("tbl_order");
-
-		// Check if the query returned a row
-		if ($query->num_rows() == 0) {
-			exit("Order not found.");
-		}
-
-		$row = $query->row();
-		$orderDetails = $query->result();
+		$row   = $query->row();
+		$query = $query->result();
 
 		/************************************************************* */
-		$where = array('altercode' => $row->chemist_id);
-		$users = $this->Scheme_Model->select_row("tbl_chemist", $where);
-		$acm_altercode = $users->altercode ?? '';
-		$acm_name = ucwords(strtolower($users->name ?? ''));
-		$chemist_excel = "$acm_name ($acm_altercode)";
+		$where 			= array('altercode'=>$row->chemist_id);
+		$users 			= $this->Scheme_Model->select_row("tbl_chemist",$where);
+		$acm_altercode 	= $users->altercode;
+		$acm_name		= ucwords(strtolower($users->name));		
+		$chemist_excle 	= "$acm_name ($acm_altercode)";
 		/************************************************************* */
-
-		// Load PHPExcel library
+	
 		$this->load->library('excel');
 		$objPHPExcel = new PHPExcel();
 		$objPHPExcel->setActiveSheetIndex(0);
-
-		date_default_timezone_set('Asia/Calcutta'); // Set time zone
-
-		// Setting Excel file headers
-		$objPHPExcel->getActiveSheet()->setCellValue('A1', 'Code')
-			->setCellValue('B1', 'Name')
-			->setCellValue('C1', 'Quantity')
-			->setCellValue('D1', 'PTR')
-			->setCellValue('E1', 'Total')
-			->setCellValue('F1', 'Chemist');
-
-		// Adjust column widths
+		
+		ob_clean();		
+		date_default_timezone_set('Asia/Calcutta');
+		$objPHPExcel->setActiveSheetIndex(0)
+		->setCellValue('A1','Code')
+		->setCellValue('B1','Name')
+		->setCellValue('C1','Quantity')
+		->setCellValue('D1','PTR')
+		->setCellValue('E1','Total')
+		->setCellValue('F1','Chemist');		
 		$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(10);
 		$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(25);
 		$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
 		$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(10);
 		$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(10);
-		$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
-
-		// Style header row
-		$objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray([
-			'font' => [
-				'size' => 10,
-				'bold' => true,
-				'color' => ['rgb' => '000000'],
-				'name' => 'Arial'
-			]
-		]);
-
-		// Populate Excel rows with order data
+		$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);	
+		
+		$objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray(array('font' => array('size' => 10,'bold' => false,'color' => array('rgb' => '000000'),'name'  => 'Arial')));
+		$i = 0;
 		$rowCount = 2;
-		foreach ($orderDetails as $orderRow) {
-			$total_price = $orderRow->sale_rate * $orderRow->quantity;
-
-			$objPHPExcel->getActiveSheet()
-				->setCellValue('A' . $rowCount, $orderRow->item_code)
-				->setCellValue('B' . $rowCount, $orderRow->item_name)
-				->setCellValue('C' . $rowCount, $orderRow->quantity)
-				->setCellValue('D' . $rowCount, $orderRow->sale_rate)
-				->setCellValue('E' . $rowCount, $total_price)
-				->setCellValue('F' . $rowCount, $chemist_excel);
-
-			// Style each row
-			$objPHPExcel->getActiveSheet()->getStyle('A' . $rowCount . ':F' . $rowCount)->applyFromArray([
-				'font' => [
-					'size' => 8,
-					'bold' => false,
-					'color' => ['rgb' => '000000'],
-					'name' => 'Arial'
-				]
-			]);
-
-			// Prepare file name from the order_id
-			$file_name = $orderRow->order_id;
+		foreach($query as $row)
+		{
+			$i++;
+			$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,$row->item_code);
+			$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,$row->item_name);
+			$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,$row->quantity);
+			$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,$row->sale_rate);
+			$objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,$row->sale_rate * $row->quantity);
+			$objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,$chemist_excle);
+			
+			$objPHPExcel->getActiveSheet()->getStyle('A'.$rowCount.':F'.$rowCount)->applyFromArray(array('font' => array('size' => 8,'bold' => false,'color' => array('rgb' => '000000'),'name'  => 'Arial')));
+			
+			$file_name = $row->order_id;
+			
 			$rowCount++;
 		}
-
-		// Handle file download
-		if ($download_type == "direct_download") {
-			$file_name .= ".xls";
-			$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-
-			// Set headers for file download
-			header('Content-Type: application/vnd.ms-excel');
-			header('Content-Disposition: attachment; filename="' . $file_name . '"');
+		if($download_type=="direct_download")
+		{
+			$file_name = $file_name.".xls";
+			
+			//$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+			$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel5');
+			/*$objWriter->save('uploads_sales/kapilkifile.xls');*/
+			
+			header('Content-type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment; filename='.$file_name);
 			header('Cache-Control: max-age=0');
-
-			// Output file directly to browser
+			ob_start();
 			$objWriter->save('php://output');
-			exit;
+			$data = ob_get_contents();
 		}
-
 	}
 
 	//delete karna ha iss ko 

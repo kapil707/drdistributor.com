@@ -22,6 +22,7 @@ function LoadMore() {
 var query_work = 0;
 var no_record_found = 0;
 var new_i = 0;
+var no_more_records_displayed = false;
 
 function MainPageFuncationCall(get_record) {
     if (query_work === 0) {

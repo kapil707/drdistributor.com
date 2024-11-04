@@ -82,7 +82,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<?php if(!empty($UserType)){ ?>
 							<a href="<?= base_url() ?>" title="Home">
 						<?php } else { ?>
-							<a href="<?= base_url() ?>/home" title="Home">
+							<a href="<?= base_url() ?>home" title="Home">
 						<?php } ?>
 							<i class="fa fa-home" aria-hidden="true"></i>
 							<span class="d-none d-xl-block">Home</span>

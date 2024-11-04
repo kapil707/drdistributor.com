@@ -154,6 +154,6 @@ function goBack() {
 <script>
 get_page_name = "medicine_details";
 $(document).ready(function(){
-	get_single_medicine_info('<?= $item_code; ?>');
+	medicine_details_funcation('<?= $item_code; ?>');
 });
 </script>

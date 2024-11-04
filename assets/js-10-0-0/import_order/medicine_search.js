@@ -290,7 +290,7 @@ function import_oreder_medicine_delete_suggested(myid) {
 				url: get_base_url() + "import_order/import_oreder_medicine_delete_suggested_api",
 				type:"POST",
 				/*dataType: 'html',*/
-				data: {myid:myid,user_altercode:get_user_altercode()},
+				data: {myid:myid},
 				error: function(){
 					swal("Suggested medicine not deleted");
 				},

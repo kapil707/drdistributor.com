@@ -95,8 +95,8 @@ $(document).ready(function(){
 		} 
 	});
 	
-	var session_user_altercode = get_user_altercode();
-	if(session_user_altercode=="" || session_user_altercode==null)
+	var get_UserId = get_UserId();
+	if(get_UserId=="" || get_UserId==null)
 	{
 	}else{
 		/******************************** */
@@ -199,8 +199,8 @@ function get_my_cart_total_api(){
 
 function get_single_medicine_info(item_code)
 {
-	var session_user_altercode = get_user_altercode();
-	if(session_user_altercode=="" || session_user_altercode==null)
+	var get_UserId = get_UserId();
+	if(get_UserId=="" || get_UserId==null)
 	{
 		window.location.href = get_base_url();
 	} else 
@@ -218,8 +218,8 @@ function get_single_medicine_info(item_code)
 
 function medicine_details_funcation(item_code)
 {	
-	var session_user_altercode = get_user_altercode();
-	if(session_user_altercode=="" || session_user_altercode==null)
+	var get_UserId = get_UserId();
+	if(get_UserId=="" || get_UserId==null)
 	{
 		window.location.href = get_base_url() + "home";
 	} else 

@@ -591,9 +591,9 @@ if (isset($_COOKIE["theme_type"])) {
 function get_base_url(){
 	return "<?= base_url(); ?>";
 }
-function get_user_altercode(){
-	<?php if(!empty($ChemistId)){ ?>
-		return "<?= $ChemistId ?>";
+function get_UserId(){
+	<?php if(!empty($UserId)){ ?>
+		return "<?= $UserId ?>";
 	<?php } else {?>
 		return "";
 	<?php } ?>
@@ -604,4 +604,4 @@ var order_type = "all";
 </script>
 <script src="<?= base_url(); ?>assets/website/easyzoom/easyzoom.js"></script>
 <script src="<?= base_url(); ?>assets/website/wow_css_js/wow.js"></script>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/main_page1122.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/main_page.js"></script>

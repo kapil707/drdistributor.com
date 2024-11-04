@@ -64,6 +64,7 @@ class Medicine_search extends CI_Controller {
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_search/medicine_search', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	/*******************api start*********************/

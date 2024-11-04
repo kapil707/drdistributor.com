@@ -97,6 +97,7 @@ class My_order extends CI_Controller {
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_order/my_order_details', $data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	/*******************api start*********************/

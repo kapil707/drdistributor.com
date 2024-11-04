@@ -62,6 +62,7 @@ class Home extends CI_Controller {
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home_page/home_page', $data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	/*******************api start*********************/

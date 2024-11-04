@@ -97,6 +97,7 @@ class My_invoice extends CI_Controller {
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details',$data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	/*******************api start*********************/

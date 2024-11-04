@@ -63,6 +63,7 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('home_page/home_page', $data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	public function terms_of_services() {
@@ -203,7 +204,8 @@ class Main extends CI_Controller {
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_order/my_order_details_main', $data);	
-		$this->load->view('header_footer/footer', $data);	
+		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
 	public function order_download($OrderChemistId='',$OrderId=''){
@@ -296,6 +298,7 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details_main', $data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 	
 	public function invoice_download($InvoiceChemistId='',$Gstvno=''){

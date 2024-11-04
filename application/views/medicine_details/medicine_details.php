@@ -17,7 +17,7 @@ function goBack() {
 }
 </script>
 <div class="container main_container">
-<div class="row">
+	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
 				<div class="col-sm-12 col-12">	

@@ -110,10 +110,11 @@ class Category extends CI_Controller {
 		$this->load->view('medicine_category/medicine_category', $data);
 	}
 	
-	public function itemcategory($item_code=""){
+	public function itemcategory($CategoryName=""){
 
+		$CategoryName = str_replace("-", " ", $CategoryName);
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "DRD";
+		$data["MainPageTitle"] = $MainPageTitle = $CategoryName;
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -131,6 +132,8 @@ class Category extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
+
+		$item_code = $this->MedicineItemModel->get_item_name_id($CategoryName);
 
 		$item_page_type="itemcategory";
 		$item_division = "";

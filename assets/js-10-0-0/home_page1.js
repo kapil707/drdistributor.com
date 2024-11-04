@@ -387,9 +387,9 @@ function home_page_itemcategory(CategoryId,items,title){
 		}
 	});
 
-	Category_Name = title.replace(" ", "-");
+	CategoryName = title.replace(" ", "-");
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'c/ic/'+Category_Name+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+Category_Name+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class=""><a href="'+get_base_url()+'c/ic/'+CategoryName+'">'+title+'</a></span></div></div><div class="row"><div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryName+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }

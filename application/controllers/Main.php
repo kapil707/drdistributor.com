@@ -133,29 +133,41 @@ class Main extends CI_Controller {
 	}
 	
 	/***************order part********************** */	
-	public function view_order($ChemistId='',$OrderId=''){
-
-		$data["UserId"] 		= $ChemistId;
-		$data["UserType"]     	= "";
-		$data["UserImage"] 		= base_url()."img_v51/logo2.png";
-		$data["UserFullName"]   = $ChemistId;
-		$data["DeliveringTo"] 	= $ChemistId;
-		$data["ChemistId"] 		= $ChemistId;
-		
-		$data["ItemId"] = "";
-		$where = array('chemist_id'=>$ChemistId,'order_id'=>$OrderId,);
-		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
-		$row   = $query->row();
-		$query = $query->result();
-		if(!empty($row->id)){
-			$data["ItemId"] = $OrderId;
-		}
+	public function view_order($OrderChemistId='',$OrderId=''){
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
+
+		if(!empty($this->UserType)){
+			/********************PageMainData************************** */
+			$data["UserId"] 	 = $this->UserId;
+			$data["UserType"]    = $this->UserType;
+			$data["UserFullName"]= $this->UserFullName;
+			$data["UserImage"] 	 = $this->UserImage;
+			$data["ChemistId"]	 = $this->ChemistId;
+
+			/******************DeliveringToData************************* */
+			$data["DeliveringTo"]= $data["ChemistId"];
+			if($this->UserType=="sales") {
+				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			}
+			/********************************************************** */
+		}else{
+			$data["UserId"] 		= "Guest";
+			$data["UserType"]     	= "";
+			$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+			$data["UserFullName"]   = "Guest";
+			$data["DeliveringTo"] 	= "Guest";
+			$data["ChemistId"] 		= "";
+		}
+		/**********************************************************/
+
+		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$ItemId);
+
+		$data["InvoiceChemistId"] 	= $InvoiceChemistId;
+		$data["ItemId"] 			= $ItemId;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_order/my_order_details_main', $data);	

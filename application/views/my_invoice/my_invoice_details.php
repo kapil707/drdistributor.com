@@ -33,4 +33,4 @@ function goBack() {
 var ItemId = "<?php echo $ItemId; ?>";
 $(".main_page_loading").show();
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice2.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice_details2.js"></script>

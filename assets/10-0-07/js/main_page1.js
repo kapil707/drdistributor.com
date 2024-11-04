@@ -734,6 +734,10 @@ function my_cart_api(order_type) {
 		},
 		success: function(data){
 
+			$(".my_cart_api_div").html("");
+			$(".my_cart_api_div_mobile").html("");
+			$(".my_cart_api_div_import_order").html("");
+
 			$(".main_page_loading").hide();
 			if(data.items=="") {				
 				/**********only for cart page********** */

@@ -15,16 +15,16 @@ function new_style_menu_hide(){
 	$(".left_menu_bar").hide(500);
 }
 function loading_img_function(){
-	return '<h2><img src="'+ get_base_url()+'img_v51/loading.gif" width="100px"></h2><h2>Loading....</h2>';
+	return '<h2><img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/loading.gif" width="100px"></h2><h2>Loading....</h2>';
 }
 function no_record_found_function(){
-	return '<h2><img src="'+ get_base_url()+'img_v51/no_record_found.png" width="100%"></h2>';
+	return '<h2><img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/no_record_found.png" width="100%"></h2>';
 }
 function something_went_wrong_function(){
-	return '<h2><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h2>';
+	return '<h2><img src="'+get_base_url()+'assets/'+getWebJs()+'/images/something_went_wrong.png" width="100%"></h2>';
 }
 function cart_emtpy_function(){
-	return '<h2><center><img src="'+get_base_url()+'img_v51/cart_empty.png" width="80%"></center></h2>';
+	return '<h2><center><img src="'+get_base_url()+'assets/'+getWebJs()+'/images/cart_empty.png" width="80%"></center></h2>';
 }
 
 function logout_function(){

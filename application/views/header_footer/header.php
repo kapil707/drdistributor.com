@@ -451,6 +451,9 @@ if (isset($_COOKIE["theme_type"])) {
 function get_base_url(){
 	return "<?= base_url(); ?>";
 }
+function getWebJs(){
+	return "<?= $this->appconfig->getWebJs(); ?>";
+}
 function get_UserId(){
 	<?php if(!empty($UserId)){ ?>
 		return "<?= $UserId ?>";
@@ -467,4 +470,4 @@ var order_type = "all";
 <script>
     new WOW().init();
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page123456.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

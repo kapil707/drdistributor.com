@@ -177,6 +177,5 @@ function goBack() {
 	</div>
 </div>
 <script>
-item_code = '<?= $item_code; ?>';
+medicine_details_funcation('<?= $item_code; ?>');
 </script>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/medicine_use.js"></script>

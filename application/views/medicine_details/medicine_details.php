@@ -177,5 +177,7 @@ function goBack() {
 	</div>
 </div>
 <script>
-medicine_details_funcation('<?= $item_code; ?>');
+$(document).ready(function(){
+	medicine_details_funcation('<?= $item_code; ?>');
+}
 </script>

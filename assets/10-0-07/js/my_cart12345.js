@@ -1,16 +1,8 @@
 $(document).ready(function(){
 	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
 	$(".main_page_loading").show();
-	_my_cart_api("all");
+	my_cart_api("all");
 });
-
-function _my_cart_api(val){
-
-	my_cart_api(val);
-	/******************************** */
-	setTimeout(_my_cart_api(val),10000);
-	/******************************** */
-}
 
 function slice_type_change(mtid)
 {

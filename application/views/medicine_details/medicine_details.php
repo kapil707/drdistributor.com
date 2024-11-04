@@ -22,7 +22,7 @@ function goBack() {
 			<div class="row">
 				<div class="col-sm-12 col-12">	
 					<div class="main_box_div p-2">
-						<div class="row">
+						<div class="row medicine_details_api_data" style="display:none">
 							<div class="col-sm-5 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-9">
@@ -154,6 +154,6 @@ function goBack() {
 <script>
 get_page_name = "medicine_details";
 $(document).ready(function(){
-	medicine_details_funcation('<?= $item_code; ?>');
+	get_single_medicine_info('<?= $item_code; ?>');
 });
 </script>

@@ -207,8 +207,8 @@ function get_single_medicine_info(item_code)
 	{
 		$('.medicine_details_item_order_quantity_textbox').val('');
 		$('.myModal_medicine_details').click();
-		//$(".medicine_details_api_loading").show();
-		//$(".medicine_details_api_data").hide();
+		$(".medicine_details_api_loading").show();
+		$(".medicine_details_api_data").hide();
 		$(".medicine_details_item_description1").hide();
 		$(".medicine_details_item_description2").hide();
 

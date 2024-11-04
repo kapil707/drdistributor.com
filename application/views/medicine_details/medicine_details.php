@@ -9,31 +9,6 @@
 		display:none;
 	}
 }
-.medicine_use_div{
-	border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-    background-color: var(--main_theme_li2_bg_color);
-    border: 1px solid var(--main_theme_border_color);
-    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
-	height:210px;
-}
-.medicine_use_div img{
-	object-fit: contain;
-	height:200px;
-}
-.medicine_use_div1{
-	border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-    box-shadow: 0px 0px 5px 0px var(--main_theme_box_shadow);
-	height:265px;
-}
-.medicine_use_div1 video{
-	width:100%;
-	height:250px;
-	border-radius:10px;
-}
 </style>
 <script>
 $(".top_bar_title").html("Loading....");

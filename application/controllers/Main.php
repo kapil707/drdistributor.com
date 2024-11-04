@@ -72,11 +72,29 @@ class Main extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = "Guest";
-		$data["session_user_altercode"] = "xxxxxx";
-		$data["chemist_id"] = "";
-		$data["session_delivering_to"]  = "";
+		if(!empty($this->UserType)){
+			/********************PageMainData************************** */
+			$data["UserId"] 	 = $this->UserId;
+			$data["UserType"]    = $this->UserType;
+			$data["UserFullName"]= $this->UserFullName;
+			$data["UserImage"] 	 = $this->UserImage;
+			$data["ChemistId"]	 = $this->ChemistId;
+
+			/******************DeliveringToData************************* */
+			$data["DeliveringTo"]= $data["ChemistId"];
+			if($this->UserType=="sales") {
+				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			}
+			/********************************************************** */
+		}else{
+			$data["UserId"] 		= "Guest";
+			$data["UserType"]     	= "";
+			$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+			$data["UserFullName"]   = "Guest";
+			$data["DeliveringTo"] 	= "Guest";
+			$data["ChemistId"] 		= "";
+		}
+		/**********************************************************/
 
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('terms_of_services/terms_of_services', $data);
@@ -90,18 +108,29 @@ class Main extends CI_Controller {
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
-		$data["session_user_image"] = base_url()."img_v51/logo2.png";
-		$data["session_user_fname"]     = "Guest";
-		$data["session_user_altercode"] = "xxxxxx";
-		$data["chemist_id"] = "";
-		
-		if(!empty($this->session->userdata('user_altercode')))
-		{
-			$data["session_user_image"] 	= $this->session->userdata('user_image');
-			$data["session_user_fname"]     = $this->session->userdata('user_fname');
-			$data["session_user_altercode"] = $this->session->userdata('user_altercode');
-			$data["chemist_id"] = $this->session->userdata('user_altercode');
+		if(!empty($this->UserType)){
+			/********************PageMainData************************** */
+			$data["UserId"] 	 = $this->UserId;
+			$data["UserType"]    = $this->UserType;
+			$data["UserFullName"]= $this->UserFullName;
+			$data["UserImage"] 	 = $this->UserImage;
+			$data["ChemistId"]	 = $this->ChemistId;
+
+			/******************DeliveringToData************************* */
+			$data["DeliveringTo"]= $data["ChemistId"];
+			if($this->UserType=="sales") {
+				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
+			}
+			/********************************************************** */
+		}else{
+			$data["UserId"] 		= "Guest";
+			$data["UserType"]     	= "";
+			$data["UserImage"] 		= base_url()."img_v51/logo2.png";
+			$data["UserFullName"]   = "Guest";
+			$data["DeliveringTo"] 	= "Guest";
+			$data["ChemistId"] 		= "";
 		}
+		/**********************************************************/
 		
 		$this->load->view('header_footer/header', $data);
 	    $this->load->view('privacy_policy/privacy_policy', $data);

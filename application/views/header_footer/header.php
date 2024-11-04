@@ -393,7 +393,7 @@ if (isset($_COOKIE["theme_type"])) {
 <!-- ******************************************************** -->
 <input type="hidden" class="medicine_details_item_code">
 <div type="hidden" class="medicine_details_all_data"></div>
-<!-- ******************************************************** -->
+<!-- ******************************************************** 
 <span data-toggle="modal" data-target="#myModal_medicine_details" style="text-decoration: none;" class="myModal_medicine_details"></span>
 <div class="modal modaloff" id="myModal_medicine_details">
 	<div class="modal-dialog modal-lg">
@@ -539,7 +539,7 @@ if (isset($_COOKIE["theme_type"])) {
 		</div>
 	</div>
 </div>
-<!-- ******************************************************** -->
+******************************************************** -->
 <span class="main_page_loading text-center">
 	<h2>
 		<img src="<?php echo base_url(); ?>img_v51/loading.gif" width="100px">

@@ -27,6 +27,7 @@ function call_page()
 			
 			$(".main_page_loading").hide();
 			if(data.items=="") {
+				$(".top_bar_title").html("No record found");
 				$(".top_bar_title2").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_no_record_found").show();

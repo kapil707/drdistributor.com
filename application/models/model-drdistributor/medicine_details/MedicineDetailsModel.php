@@ -30,8 +30,8 @@ class MedicineDetailsModel extends CI_Model
 			$item_code			=	$row->i_code;
 			$item_name			=	(ucwords(strtolower($row->item_name)));
 			$item_packing		=	($row->packing);
-			$item_expiry		=	($row->expiry);
 			$item_batch_no		=	($row->batch_no);
+			$item_expiry		=	($row->expiry);
 			$item_company 		=  	ucwords(strtolower($row->company_full_name));
 			$item_quantity		=	$row->batchqty;
 			$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
@@ -113,10 +113,17 @@ class MedicineDetailsModel extends CI_Model
 					$item_order_quantity = $row1->quantity;
 				}
 			}else{
+				$item_batch_no 	= "xxxxxx";
+				$item_expiry 	= "00/00";
 				$item_mrp 		= "xx.xx";
 				$item_ptr 		= "xx.xx";
 				$item_price		= "xx.xx";
 				$item_margin 	= "xx";
+				$item_gst 		= "0";
+				if($item_quantity!=0){
+					$item_stock = "Available";
+					$item_quantity = 1;
+				}
 			}
 
 			$dt = array(

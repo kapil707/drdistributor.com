@@ -15,6 +15,7 @@ class AppConfig {
     public $SiteEmail = "vipul@drdindia.com";
     public $SiteMobile = "+919899133989";
     public $SiteWhatsApp = "+919899133989";
+    public $AppUrl = "https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en";
 
     public function getSiteTitle() {
         return $this->siteTitle;
@@ -62,6 +63,10 @@ class AppConfig {
 
     public function getSiteWhatsApp() {
         return $this->SiteWhatsApp;
+    }
+
+    public function getAppUrl() {
+        return $this->AppUrl;
     }
 }
 

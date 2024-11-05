@@ -342,12 +342,12 @@ if (isset($_COOKIE["theme_type"])) {
 			<?php } }?>
 			<h2 class="text-left">Others</h2>
 			<li>
-				<a href="tel:+919899133989" title="Contact us">
+				<a href="tel:<?php echo $this->appconfig->getSiteMobile(); ?>" title="Contact us">
 					<i class="fa fa-phone-square" aria-hidden="true"></i> Contact us
 				</a>
 			</li>
 			<li title="Email">
-				<a href="mailto:vipul@drdindia.com" title="Email">
+				<a href="mailto:<?php echo $this->appconfig->getSiteEmail(); ?>" title="Email">
 					<i class="fa fa-envelope" aria-hidden="true"></i> Email
 				</a>
 			</li>
@@ -358,13 +358,13 @@ if (isset($_COOKIE["theme_type"])) {
 				</a>
 			</li>
 			<li title="Share App">
-				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Share App">
+				<a href="<?php echo $this->appconfig->getAppUrl(); ?>" target="_black" title="Share App">
 					<i class="fa fa-share-alt-square" aria-hidden="true"></i>
 					Share App
 				</a>
 			</li>
 			<li title="Download App">
-				<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
+				<a href="<?php echo $this->appconfig->getAppUrl(); ?>" target="_black" title="Download App">
 					<i class="fa fa-mobile" aria-hidden="true"></i>
 					Download App
 				</a>

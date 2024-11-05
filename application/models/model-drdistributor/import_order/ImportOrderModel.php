@@ -323,7 +323,7 @@ class ImportOrderModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where('user_altercode',$ChemistId);
 		$this->db->order_by('your_item_name','asc');
-		return $this->db->get("drd_import_orders_suggest")->result();
+		return $this->db->get("drd_import_orders_suggests")->result();
 	}
 
 }

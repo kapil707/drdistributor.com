@@ -8,7 +8,8 @@
 						<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="60px" alt>
 					</div>
 					<h2 class="login_text_font text-center">
-					<?= $this->Scheme_Model->get_website_data("title2") ;?></h2>
+						<?= $this->appconfig->getSiteTitle2(); ?>
+					</h2>
 					<h5 class="text-right login_text_font">
 						Login
 					</h5>

@@ -336,29 +336,81 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_file")->result();
 	}
 
-	public function import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id) {
-	
-		$status = 0;
-		$this->db->select("item_name");
+	public function import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$Id) {
+		
+		$this->db->select("*");
 		$this->db->where('id',$Id);
 		$row = $this->db->get("drd_import_file")->row();
-		if(!empty($row->item_name))
-		{
-			$your_item_name = $row->item_name;
-			$this->db->select("i_code");
-			$this->db->where('your_item_name',$your_item_name);
-			$row1 = $this->db->get("drd_import_orders_suggest")->row();
-			$ItemCode = $row1->i_code;
-			/******************************************************* */
 
-			$where = array('your_item_name'=>$your_item_name);
-			$this->delete_query("drd_import_orders_suggest",$where);
-			/******************************************************* */
+		$order_id			= $row->order_id;
+		$order_quantity		= $row->quantity;
+		$item_mrp 			= $row->mrp;
+		$order_item_name	= $this->clean1($row->item_name);
 
-			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+		/******************************************/
+		$suggest_i_code = $item_suggest_altercode = "";
+		$suggest = 0;
 
-			$status = 1;
+		$this->db->select("*");
+		$this->db->where('your_item_name',$order_item_name);
+		$this->db->order_by('id','desc');
+		$row1 = $this->db->get("drd_import_orders_suggest")->row();
+		if(!empty($row1->id)) {
+			$suggest = 1;
+			$order_item_name		= $row1->item_name;
+			$suggest_i_code 		= $row1->i_code;
+			$item_suggest_altercode = $row1->user_altercode;
 		}
+		$type_ = 1;
+		if(!empty($suggest_i_code))
+		{
+			$type_ = "1";
+			$i_code = $suggest_i_code;
+			$where = array('i_code'=>$i_code);
+		}
+		else{			
+			/******************************************/
+			$items = $this->import_order_dropdownbox($order_item_name,$item_mrp);
+			/*****************************************/		
+			$type_ = $items["type"];
+			$i_code = $items["i_code"];
+			$where = array('i_code'=>$i_code);
+		}
+
+		$this->db->select("*");
+		$this->db->where($where);
+
+		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
+		$this->db->where($where);
+		
+		if($ChemistNrx=="yes"){
+		}else{
+			$where="misc_settings!='#NRX'";
+			$this->db->where($where);
+		}
+		$this->db->limit(1);
+		$this->db->order_by('item_name','asc');
+		$row2 = $this->db->get("tbl_medicine")->row();
+
+		$return["row"] = $row2;
+		$return["item_suggest_altercode"] = $item_suggest_altercode;
+		return $return;
+	}
+
+	public function import_order_medicine_quantity_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$ItemQuantity) {
+
+		return $this->db->query("update drd_import_file set quantity='$Quantity' where id='$Id'");
+	}
+
+	public function import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
+		
+		$this->db->query("update drd_import_file set status=0 where id='$Id'");
+		/******************************************************* */
+		
+		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+		/******************************************************* */
+
+		$status = 1;
 		return $status;
 	}
 
@@ -401,15 +453,29 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
-	public function import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
-		
-		$this->db->query("update drd_import_file set status=0 where id='$Id'");
-		/******************************************************* */
-		
-		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
-		/******************************************************* */
+	public function import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id) {
+	
+		$status = 0;
+		$this->db->select("item_name");
+		$this->db->where('id',$Id);
+		$row = $this->db->get("drd_import_file")->row();
+		if(!empty($row->item_name))
+		{
+			$your_item_name = $row->item_name;
+			$this->db->select("i_code");
+			$this->db->where('your_item_name',$your_item_name);
+			$row1 = $this->db->get("drd_import_orders_suggest")->row();
+			$ItemCode = $row1->i_code;
+			/******************************************************* */
 
-		$status = 1;
+			$where = array('your_item_name'=>$your_item_name);
+			$this->delete_query("drd_import_orders_suggest",$where);
+			/******************************************************* */
+
+			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+
+			$status = 1;
+		}
 		return $status;
 	}
 
@@ -435,5 +501,11 @@ class ImportOrderModel extends CI_Model
 		{
 			return false;
 		}
+	}
+
+	function clean1($string) {
+		$string = str_replace('"', "'", $string);
+		$string = str_replace('\'', '', $string);
+		return $string;
 	}
 }

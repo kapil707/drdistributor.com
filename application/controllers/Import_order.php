@@ -543,68 +543,20 @@ class Import_order extends CI_Controller {
 	
 	public function import_order_medicine_details_api() {	
 
-		$excel_number	= $_POST["myid"];
+		$Id	= $_POST["myid"];
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId		= $this->SalesmanId;
 		$ChemistNrx		= $this->ChemistNrx;
 
-		/******************************************/
-		
-		$row = $this->db->query("select * from drd_import_file where id='$excel_number'")->row();
-		$order_id			= $row->order_id;
-		$order_quantity		= $row->quantity;
-		$item_mrp 			= $row->mrp;
-		$order_item_name	= $this->clean1($row->item_name);
-		
-		/******************************************/
-		$suggest_i_code = $item_suggest_altercode = "";
-		$suggest = 0;
-		$row_s = $this->db->query("select * from drd_import_orders_suggest where your_item_name='$order_item_name' order by id desc")->row();
-		if(!empty($row_s->id)) {
-			$suggest = 1;
-			$order_item_name	= $row_s->item_name;
-			$suggest_i_code 	= $row_s->i_code;
-			$item_suggest_altercode 	= $row_s->user_altercode;
-		}
-		$type_ = 1;
-		if(!empty($suggest_i_code))
-		{
-			$type_ = "1";
-			$i_code = $suggest_i_code;
-			$where = array('i_code'=>$i_code);
-		}
-		else{			
-			/******************************************/
-			$items = $this->ImportOrderModel->import_order_dropdownbox($order_item_name,$item_mrp);
-			/*****************************************/		
-			$type_ = $items["type"];
-			$i_code = $items["i_code"];
-			$where = array('i_code'=>$i_code);
-		}
-		
-		/*****************************************/
-		$this->db->select("*");
-		$this->db->where($where);
-
-		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
-		$this->db->where($where);
-		
-		if($ChemistNrx=="yes"){
-		}else{
-			$where="misc_settings!='#NRX'";
-			$this->db->where($where);
-		}
-		$this->db->limit(1);
-		$this->db->order_by('item_name','asc');
-		$row = $this->db->get("tbl_medicine")->row();
-		/******************************************/
-		
+		$return_value = $this->ImportOrderModel->import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$Id);
+		$row = $return_value["row"];
+		$item_suggest_altercode = $return_value["item_suggest_altercode"];
+		/******************************************/		
 		$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
 		$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
 		$item_image = base_url()."uploads/default_img.webp";
-
 		if(!empty($row)) {
 
 			$item_code			=	$row->i_code;
@@ -636,8 +588,12 @@ class Import_order extends CI_Controller {
 			
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
-				$item_code = $row->i_code;
-				$this->medicine_add_to_cart_api($item_code,$order_quantity,$excel_number,$order_id,$UserType,$ChemistId,$SalesmanId);				
+				$item_code 		= $row->i_code;
+				$order_type 	= "excelFile";
+				$mobilenumber 	= "";
+				$modalnumber 	= "PC - Import Order";
+				$device_id    	= "";				
+				$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
 			}
 			/******************************************/
 		}
@@ -673,7 +629,7 @@ class Import_order extends CI_Controller {
 		}
 
 		$dt = array(
-			'excel_number' => $excel_number,
+			'excel_number' => $Id,
 			'item_message'=>$item_message,
 			'item_background'=>$item_background,
 			'item_suggest_altercode'=>$item_suggest_altercode,			
@@ -727,32 +683,22 @@ class Import_order extends CI_Controller {
 		return $r;
 	}
 	
-	public function medicine_add_to_cart_api($item_code,$item_order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id)
-	{		
-		$status = 0;
-		$order_type 	= "excelFile";
-		$mobilenumber 	= "";
-		$modalnumber 	= "PC - Import Order";
-		$device_id    	= "";
-		if($item_code!="")
-		{
-			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
-			$status = $result["status"];
-			$this->db->query("update drd_import_file set status='1' where id='$excel_number' and order_id='$order_id'");
-		}
-		return $status;
-	}
-	
-	public function import_oreder_medicine_quantity_change_api() {
-		$myid 		= $_POST["myid"];
-		$import_order_quantity	= $_POST["import_order_quantity"];
+	public function import_order_medicine_quantity_change_api() {
+
+		$Id 			= $_POST["myid"];
+		$ItemQuantity	= $_POST["quantity"];
+
+		$UserType 	= $this->UserType;
+		$ChemistId 	= $this->ChemistId;
+		$SalesmanId = $this->SalesmanId;
 		
 		$status = 0;
-		if(!empty($import_order_quantity)){
-			if($import_order_quantity>=1000){
-				$import_order_quantity = 1000;
+		if(!empty($Id) && !empty($ItemQuantity)){
+			if($ItemQuantity>=1000){
+				$ItemQuantity = 1000;
 			}
-			$status = $this->db->query("update drd_import_file set quantity='$import_order_quantity' where id='$myid'");
+
+			$status = $this->ImportOrderModel->import_order_medicine_quantity_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$ItemQuantity);
 		}
 
 		$jsonArray = array();
@@ -805,8 +751,7 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	/*21-01-2020*/
-	public function import_order_medicine_change_api(){
+	public function import_order_medicine_change_api() {
 
 		$Id					= ($_POST["myid"]);
 		$ItemCode 			= ($_POST["item_code"]);
@@ -839,8 +784,8 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function import_order_medicine_delete_suggested_api()
-	{
+	public function import_order_medicine_delete_suggested_api() {
+
 		$Id 		= ($_REQUEST["myid"]);
 
 		$UserType 	= $this->UserType;
@@ -865,25 +810,6 @@ class Import_order extends CI_Controller {
 		// Send JSON response
 		header('Content-Type: application/json');
 		echo json_encode($response);
-	}
-
-	public function delete_suggest_by_id()
-	{
-		$id = ($_REQUEST["id"]);
-		if(!empty($id)){
-			$where = array('id'=>$id);
-			$this->ImportOrderModel->delete_query("drd_import_orders_suggest",$where);
-		}
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data delete successfully',
-            'items' => $items,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }
 ?>

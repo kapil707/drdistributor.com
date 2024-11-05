@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 	$(".medicine_search_textbox").keyup(function(e){
 		if(e.keyCode == 8)
@@ -69,6 +68,7 @@ function import_order_medicine_details(myid){
 		data       : {myid:myid} ,
 		url        : get_base_url() + "import_order/import_order_medicine_details_api",
 		cache : true,
+		timeout: 60000,
 		error: function(){
 			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
 		},
@@ -154,12 +154,14 @@ function import_order_medicine_details(myid){
 	});
 }
 
-function import_oreder_medicine_quantity_change(myid) {
-	import_order_quantity_textbox = $(".import_order_quantity_textbox_"+myid).val();
+function import_order_medicine_quantity_change(myid) {
+
+	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
+	quantity = $(".import_order_quantity_textbox_"+myid).val();
 	$.ajax({
 		type       : "POST",
-		data       :  {myid:myid,import_order_quantity:import_order_quantity_textbox} ,
-		url        : get_base_url() +  "import_order/import_oreder_medicine_quantity_change_api",
+		data       :  {myid:myid,item_code:hidden_item_code,quantity:quantity,},
+		url        : get_base_url() +  "import_order/import_order_medicine_quantity_change_api",
 		cache : true,
 		error: function(){
 			swal("Quantity not updated");
@@ -171,15 +173,14 @@ function import_oreder_medicine_quantity_change(myid) {
 					if(item.status=="1")
 					{
 						swal("Quantity updated successfully");
-						import_order_medicine_details(myid)
+						//import_order_medicine_details(myid)
 					}
 					else{
 						swal("Quantity not updated");
 					}
 				}
 			});
-		},
-		timeout: 60000
+		}
 	});
 }
 
@@ -196,7 +197,7 @@ function import_order_medicine_delete(myid) {
 		if (result) {
 			$.ajax({
 				type       : "POST",
-				data       : {myid:myid,item_code:hidden_item_code,} ,
+				data       : {myid:myid,item_code:hidden_item_code,},
 				url        : get_base_url() + "import_order/import_order_medicine_delete_api",
 				cache : true,
 				error: function(){
@@ -237,7 +238,7 @@ function import_order_medicine_change(myid) {
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
-	hidden_seleted_div_id = myid;
+	hidden_myid = myid;
 	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
@@ -246,7 +247,7 @@ function import_order_medicine_change(myid) {
 function import_order_medicine_change_api(selected_item_code){	
 
 	
-	myid = hidden_seleted_div_id;
+	myid = hidden_myid;
 	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
 	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
 	if(myid!=""){
@@ -268,7 +269,7 @@ function import_order_medicine_change_api(selected_item_code){
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
-							hidden_seleted_div_id = "";
+							hidden_myid = "";
 							import_order_medicine_details(myid)
 						}
 						else{

@@ -367,17 +367,9 @@ class Import_order extends CI_Controller {
 		
 		error_reporting(0);
 
-		$user_type		= $_COOKIE['user_type'];
-		$user_altercode	= $_COOKIE['user_altercode'];
-		$user_password	= $_COOKIE['user_password'];
-		$chemist_id		= "";
-		$salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id		= $_COOKIE['chemist_id'];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$UserType	= $this->UserType;
+		$ChemistId	= $this->ChemistId;
+		$SalesmanId	= $this->SalesmanId;
 
 		$headername	= strtoupper($_POST['headername']);
 		$itemname 	= strtoupper($_POST['itemname']);
@@ -392,15 +384,15 @@ class Import_order extends CI_Controller {
 		$date = date('Y-m-d');
 		$time = date("H:i",time());
 		
-		$where = array('user_altercode'=>$user_altercode);
+		$where = array('user_altercode'=>$ChemistId);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
 		if(empty($row->id))
 		{
-			$this->db->query("insert into drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp',user_altercode='$user_altercode'");
+			$this->db->query("insert into drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp',user_altercode='$ChemistId'");
 		}
 		else
 		{
-			$this->db->query("update drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp' where user_altercode='$user_altercode'");
+			$this->db->query("update drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp' where user_altercode='$ChemistId'");
 		}
 		
 		$filename = time().$_FILES['file']['name'];
@@ -457,9 +449,9 @@ class Import_order extends CI_Controller {
 								'quantity'=>$quantity,
 								'mrp'=>$mrp,
 								'order_id'=>$order_id,
-								'user_type'=>$user_type,
-								'user_altercode'=>$user_altercode,
-								'salesman_id'=>$salesman_id,
+								'user_type'=>$UserType,
+								'user_altercode'=>$ChemistId,
+								'salesman_id'=>$SalesmanId,
 								'date'=>$date,
 								'time'=>$time,
 							);
@@ -470,10 +462,10 @@ class Import_order extends CI_Controller {
 				unlink($excelFile);
 			}
 			$order_id  = base64_encode($order_id);
-			$url = base_url()."import_order/medicine_search/$order_id";
+			$url = base_url()."io/ms/$order_id";
 		}
 		else{
-			$url = base_url()."import_order";
+			$url = base_url()."io";
 		}
 
 		$jsonArray = array();

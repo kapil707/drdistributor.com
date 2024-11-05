@@ -152,6 +152,7 @@ $route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 // import order pages
 $route['io']= 'import_order/index';
 $route['io/ums']= 'import_order/medicine_suggest';
+$route['io/ms/(:any)']= 'import_order/medicine_search/$1';
 
 $route['select_chemist'] = 'Chemist_select/index';
 $route['home/select_chemist'] = 'Chemist_select/index';

@@ -1,13 +1,3 @@
-<?php if(!empty($ChemistId)){ ?>
-<style>
-.top_bar_title{
-	margin-top: -5px;
-}
-</style>
-<script>
-$(".top_bar_title1").show();
-</script>
-<?php } ?>
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
@@ -21,11 +11,10 @@ function goBack() {
 				<label for="file" class="label_css">Upload excel file</label>
 				<div class="row">
 					<div class="col-sm-8 col-11">
-						<input id="sortpicture" type="file" name="sortpic" class="input_type_text2 login_textbox" onchange="sortpicture_change()" />
-						<input type="hidden" name="chemist_id" id="chemist_id" class="chemist_id" value="<?= $chemist_id ?>" style="padding-bottom: 36px;" />
+						<input id="import_order_file" type="file" name="import_order_file" class="input_type_text2 login_textbox" onchange="select_import_order_file()" />
 					</div>
 					<div class="col-sm-1 col-1">
-						<input id="clearfile" type="submit" name="clearfile" class="btn btn-w-m btn-danger clearfile site_round_btn31" onclick="clearfile()" style="display:none" value="Clear" style="width:20%" />
+						<input id="clear_import_order_file" type="submit" name="clear_import_order_file" class="btn btn-w-m btn-danger" onclick="clear_import_order_file()" style="display:none" value="Clear" style="width:20%" />
 					</div>
 					
 					<div class="col-sm-3 col-12 text-right">
@@ -54,9 +43,9 @@ function goBack() {
 				<input type="text" name="itemqty" class="input_type_text2 login_textbox itemqty" placeholder="Item column quantity" value="<?= $itemqty ?>" />
 			</div>
 			<div class="form-group text-center">
-				<button id="upload_import_file" onclick="upload_import_file()" class="btn btn-primary main_theme_button" style="width:20%">Upload</button>
+				<button id="btn_upload_import_file" onclick="btn_upload_import_file()" class="btn btn-primary main_theme_button" style="width:20%">Upload</button>
 			</div>					
 		</div>
 	</div>  
 </div>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/import_order/index.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/import_order/index1.js"></script>

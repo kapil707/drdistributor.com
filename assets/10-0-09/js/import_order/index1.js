@@ -1,57 +1,56 @@
-function sortpicture_change(){
-	sortpicture1 = $("#sortpicture").val();	
-	if(sortpicture1=="")
+function select_import_order_file(){
+	import_order_file = $("#import_order_file").val();	
+	if(import_order_file=="")
 	{
-		$(".clearfile").hide();
+		$("#clear_import_order_file").hide();
 	}
 	else
 	{
-		$(".clearfile").show();
+		$("#clear_import_order_file").show();
 	}
 }
-function clearfile(){
-	$("#sortpicture").val('');
-	$(".clearfile").hide();
+function clear_import_order_file(){
+	$("#import_order_file").val('');
+	$("#clear_import_order_file").hide();
 }
-function upload_import_file(){
+function btn_upload_import_file(){
 	headername 	= $(".headername").val();
 	itemname 	= $(".itemname").val();
 	itemqty 	= $(".itemqty").val();
 	itemmrp 	= $(".itemmrp").val();
-	chemist_id	= $(".chemist_id").val();
-	sortpicture1 = $("#sortpicture").val();	
-	if(sortpicture1=="")
+	import_order_file = $("#import_order_file").val();	
+	if(import_order_file=="")
 	{
-		alert("Select File")
-		$("#sortpicture").focus();
+		$("#import_order_file").focus();
+		swal("Select File")
 		return;
 	}
 	if(headername=="")
 	{
 		$(".headername").focus();
-		alert("Enter Header Row Number")
+		swal("Enter Header Row Number")
 		return;
 	}
 	if(itemname=="")
 	{
 		$(".itemname").focus();
-		alert("Enter Item Row Name")
+		swal("Enter Item Row Name")
 		return;
 	}
 	if(itemqty=="")
 	{
 		$(".itemqty").focus();
-		alert("Enter Item Row Quantity")
+		swal("Enter Item Row Quantity")
 		return;
 	}
 	if(itemmrp=="")
 	{
 		$(".itemmrp").focus();
-		alert("Enter Item Row Mrp")
+		swal("Enter Item Row Mrp")
 		return;
 	}	
 	$(".main_page_loading").show();
-	$("#upload_import_file").hide();
+	$("#btn_upload_import_file").hide();
 	var file_data = $('#sortpicture').prop('files')[0];
 	var form_data = new FormData();                  
     form_data.append('file',file_data);
@@ -66,12 +65,13 @@ function upload_import_file(){
 		cache : true,
 		contentType: false,
 		processData: false,
-		data: form_data,                         
+		data: form_data,
+		timeout: 40000,                         
 		type: 'post',
 		error: function(){
 		   	swal("Please compare the columns in the Excel file with those you have entered in the website.");
 		   	$(".main_page_loading").hide();
-			$("#upload_import_file").show();
+			$("#btn_upload_import_file").show();
 		},
 		success: function(data){
 			$.each(data.items, function(i,item){	
@@ -79,7 +79,6 @@ function upload_import_file(){
 					window.location.href = item.url;
 				} 
 			});
-		},
-		timeout: 40000
+		}
 	});
 }

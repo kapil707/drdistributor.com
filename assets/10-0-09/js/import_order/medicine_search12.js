@@ -81,6 +81,7 @@ function import_order_medicine_details(myid){
 					item_background = item.item_background;
 					item_suggest_altercode = item.item_suggest_altercode;
 
+					item_code = item.item_code;
 					item_name = item.item_name;
 					item_image = item.item_image;
 					item_packing = item.item_packing;
@@ -102,6 +103,7 @@ function import_order_medicine_details(myid){
 
 					$('.import_order_item_message_'+excel_number).html(item_message);
 					
+					$('.import_order_hidden_item_code_'+excel_number).val(item_code)
 					$('.import_order_item_name_'+excel_number).html(item_name)
 					$('.import_order_item_image_'+excel_number).attr("src",item_image);
 					$('.import_order_item_packing_'+excel_number).html(item_packing);

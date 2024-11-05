@@ -26,5 +26,6 @@ git push -u origin website-v-10
 
 
 /*******************/
-login page - 
-login page - 
+login - 
+login - 
+terms_of_services

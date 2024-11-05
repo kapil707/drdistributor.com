@@ -76,7 +76,6 @@
 	</div>
 </body>
 </html>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/account/login.js"></script>
 
 <script>
 <?php if(isset($_GET["back_url"])) { ?>
@@ -86,3 +85,5 @@
 	var back_url = "<?= base_url();?>home";
 <?php } ?>
 </script>
+
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/account/account_login.js"></script>

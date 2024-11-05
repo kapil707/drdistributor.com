@@ -776,18 +776,15 @@ class Import_order extends CI_Controller {
 	public function import_order_medicine_delete_api() {
 
 		$Id			= ($_POST["myid"]);
-		$hidden_item_code = ($_POST["hidden_item_code"]);
+		$ItemCode 	= ($_POST["item_code"]);
 
 		$UserType 	= $this->UserType;
 		$ChemistId 	= $this->ChemistId;
 		$SalesmanId = $this->SalesmanId; 
 
 		$status = 0;
-		if(!empty($myid))
-		{
-			$this->db->query("update drd_import_file set status=0 where id='$myid'");
-			$this->db->query("delete from drd_temp_rec where excel_number='$myid'");
-			$status = 1;
+		if(!empty($myid)){
+			$status = $this->ImportOrderModel->import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode);
 		}
 
 		$jsonArray = array();

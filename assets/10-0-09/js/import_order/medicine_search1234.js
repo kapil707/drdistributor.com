@@ -184,6 +184,8 @@ function import_oreder_medicine_quantity_change(myid) {
 }
 
 function import_order_medicine_delete(myid) {
+
+	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
 	swal({
 		title: "Are you sure to delete medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -194,7 +196,7 @@ function import_order_medicine_delete(myid) {
 		if (result) {
 			$.ajax({
 				type       : "POST",
-				data       : {myid:myid,} ,
+				data       : {myid:myid,item_code:hidden_item_code,} ,
 				url        : get_base_url() + "import_order/import_order_medicine_delete_api",
 				cache : true,
 				error: function(){
@@ -236,7 +238,6 @@ function import_order_medicine_change(myid) {
 	$('.medicine_search_textbox').focus();
 
 	hidden_seleted_div_id = myid;
-	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
 	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
@@ -244,8 +245,10 @@ function import_order_medicine_change(myid) {
 
 function import_order_medicine_change_api(selected_item_code){	
 
-	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
+	
 	myid = hidden_seleted_div_id;
+	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
+	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
 	if(myid!=""){
 		$.ajax({
 			url: get_base_url() + "import_order/import_order_medicine_change_api",

@@ -401,8 +401,16 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
-	public function import_order_medicine_delete_api($UserType,$ChemistId,$SalesmanId,$Id,$hidden_item_code) {
+	public function import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
 		
+		$this->db->query("update drd_import_file set status=0 where id='$Id'");
+		/******************************************************* */
+		
+		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+		/******************************************************* */
+
+		$status = 1;
+		return $status;
 	}
 
 	function insert_query($tbl,$dt)

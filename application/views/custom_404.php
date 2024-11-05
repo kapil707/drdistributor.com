@@ -36,12 +36,15 @@
 </style>
 </head>
 <body>
+    <?php
+    $CI =& get_instance();
+    ?>
     <div class="container">
-        <image src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="200px;">
+        <image src="<?php echo base_url(); ?>/assets/<?php echo $CI->appconfig->getWebJs(); ?>/images/logo4.png" width="200px;">
         <h1>404 - Page Not Found</h1>
         <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
         <p>Please <a href="/">click here</a> to go back to the home page.</p>
-        <p>D.R. Distributor Pvt. Ltd.</p>
+        <p><?php echo $CI->appconfig->getSiteTitle2(); ?></p>
     </div>
 </body>
 </html>

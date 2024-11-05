@@ -65,9 +65,9 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+		$ChemistId =$this->ChemistId;
 
-		$where = array('user_altercode'=>$chemist_id);
+		$where = array('user_altercode'=>$ChemistId);
 		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
 		$data["headername"] = $data["itemname"] = $data["itemqty"] = $data["itemmrp"] 	= "";
 		if(!empty($row->headername))

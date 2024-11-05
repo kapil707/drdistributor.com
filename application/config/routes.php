@@ -149,6 +149,9 @@ $route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2'
 $route['c/fb/(:any)']= 'Category/featured_brand/$1';
 $route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
+// import order pages
+$route['io']= 'import_order/index';
+$route['io/ums']= 'import_order/medicine_suggest';
 
 $route['select_chemist'] = 'Chemist_select/index';
 $route['home/select_chemist'] = 'Chemist_select/index';

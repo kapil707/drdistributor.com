@@ -143,7 +143,7 @@ if (isset($_COOKIE["theme_type"])) {
 					</li>
 					
 					<li class="d-none d-lg-block">
-						<a href="<?= base_url() ?>import_order" class="mobile_off" title="Upload order">
+						<a href="<?= base_url() ?>io" class="mobile_off" title="Upload order">
 							<i class="fa fa-upload" aria-hidden="true"></i>
 							<span>Upload</span>
 							<span class="d-none d-xxxl-block">&nbsp;Order</span>
@@ -294,7 +294,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</a>
 			</li>
 			<li class="mobile_off">
-				<a href="<?= base_url(); ?>import_order/medicine_suggest" title="Update suggest medicine">
+				<a href="<?= base_url(); ?>io/ums" title="Update suggest medicine">
 					<i class="fa fa-thumbs-up" aria-hidden="true"></i> 
 					Update suggest medicine
 				</a>

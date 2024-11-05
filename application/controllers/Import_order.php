@@ -773,9 +773,16 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function import_oreder_medicine_delete_api() {
+	public function import_order_medicine_delete_api() {
+
+		$Id			= ($_POST["myid"]);
+		$hidden_item_code = ($_POST["hidden_item_code"]);
+
+		$UserType 	= $this->UserType;
+		$ChemistId 	= $this->ChemistId;
+		$SalesmanId = $this->SalesmanId; 
+
 		$status = 0;
-		$myid	= $_POST["myid"];
 		if(!empty($myid))
 		{
 			$this->db->query("update drd_import_file set status=0 where id='$myid'");
@@ -804,9 +811,9 @@ class Import_order extends CI_Controller {
 	/*21-01-2020*/
 	public function import_order_medicine_change_api(){
 
-		$ItemCode	= ($_POST["item_code"]);
-		$Id			= ($_POST["myid"]);
-		$hidden_item_code = ($_POST["hidden_item_code"]);
+		$Id					= ($_POST["myid"]);
+		$ItemCode 			= ($_POST["item_code"]);
+		$SelectedItemCode	= ($_POST["selected_item_code"]);
 
 		$UserType 	= $this->UserType;
 		$ChemistId 	= $this->ChemistId;
@@ -814,7 +821,7 @@ class Import_order extends CI_Controller {
 
 		$status = 0;
 		if(!empty($ItemCode) && !empty($Id)){
-			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id,$hidden_item_code);
+			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$SelectedItemCode);
 		}
 
 		$jsonArray = array();

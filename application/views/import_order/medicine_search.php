@@ -34,14 +34,14 @@ function goBack() {
 											
 											<span class="all_item_order_quantity">Quantity : </span>
 
+											<input type="text" class="import_order_hidden_item_code_<?= $myid ?>" />
+
 											<input type="hidden" name="" value="<?= $item_name; ?>" class="import_order_hidden_item_name_<?= $myid ?>" />
-
-											<input type="hidden" class="import_order_hidden_item_code_<?= $myid ?>" />
-
+											
 											<input type="number" name="item_qty[]" value="<?= $item_qty ?>" class="import_order_quantity_textbox_<?= $myid ?> import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('<?= $myid ?>')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 											<span>				
-												<a href="javascript:void(0)" onclick="import_oreder_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+												<a href="javascript:void(0)" onclick="import_order_medicine_delete('<?= $myid ?>')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
 										</div>
 										<div class="col-sm-3 text-right">

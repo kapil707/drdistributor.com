@@ -183,7 +183,7 @@ function import_oreder_medicine_quantity_change(myid) {
 	});
 }
 
-function import_oreder_medicine_delete(myid) {
+function import_order_medicine_delete(myid) {
 	swal({
 		title: "Are you sure to delete medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -195,7 +195,7 @@ function import_oreder_medicine_delete(myid) {
 			$.ajax({
 				type       : "POST",
 				data       : {myid:myid,} ,
-				url        : get_base_url() + "import_order/import_oreder_medicine_delete_api",
+				url        : get_base_url() + "import_order/import_order_medicine_delete_api",
 				cache : true,
 				error: function(){
 					swal("Medicine not deleted");
@@ -242,7 +242,7 @@ function import_order_medicine_change(myid) {
 	setTimeout(medicine_search_api(),700);
 }
 
-function import_order_medicine_change_api(item_code){	
+function import_order_medicine_change_api(selected_item_code){	
 
 	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
 	myid = hidden_seleted_div_id;
@@ -251,7 +251,7 @@ function import_order_medicine_change_api(item_code){
 			url: get_base_url() + "import_order/import_order_medicine_change_api",
 			type:"POST",
 			/*dataType: 'html',*/
-			data: {item_code:item_code,myid:myid,hidden_item_code:hidden_item_code},
+			data: {myid:myid,item_code:hidden_item_code,selected_item_code:selected_item_code},
 			cache : true,
 			error: function(){
 				swal("Medicine not changed");

@@ -362,10 +362,10 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
-	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id,$hidden_item_code) {
+	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$SelectedItemCode) {
 
 		$this->db->select("item_name");
-		$this->db->where('i_code',$ItemCode);
+		$this->db->where('i_code',$SelectedItemCode);
 		$row = $this->db->get("tbl_medicine")->row();
 		$item_name = $row->item_name;
 		/******************************************************* */
@@ -373,15 +373,14 @@ class ImportOrderModel extends CI_Model
 		$this->db->select("item_name");
 		$this->db->where('id',$Id);
 		$row1 = $this->db->get("drd_import_file")->row();
-		$your_item_name = $row1->item_name;
-		
+		$your_item_name = $row1->item_name;		
 		/******************************************************* */
 
 		$where = array('your_item_name'=>$your_item_name);
 		$this->delete_query("drd_import_orders_suggest",$where);
 		/******************************************************* */
 		
-		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$hidden_item_code);
+		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
 		/******************************************************* */
 
 		$date = date('Y-m-d');
@@ -400,6 +399,10 @@ class ImportOrderModel extends CI_Model
 		$this->insert_query("drd_import_orders_suggest",$dt);
 		$status = 1;
 		return $status;
+	}
+
+	public function import_order_medicine_delete_api($UserType,$ChemistId,$SalesmanId,$Id,$hidden_item_code) {
+		
 	}
 
 	function insert_query($tbl,$dt)

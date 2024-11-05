@@ -104,11 +104,9 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+		$ChemistId =$this->ChemistId;
 
-		$where = array('user_altercode'=>$chemist_id);
-		$result = $this->Scheme_Model->select_all_result("drd_import_orders_suggest",$where,"your_item_name","asc");
-		$data["result"] = $result;
+		$data["result"] = $this->ImportOrderModel->get_import_orders_suggest($ChemistId);
 
 		$this->load->view('header_footer/header',$data);
 		$this->load->view('import_order/medicine_suggest', $data);

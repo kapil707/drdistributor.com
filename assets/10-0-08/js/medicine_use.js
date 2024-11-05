@@ -19,7 +19,7 @@ function call_page()
 			cache : true,
 			error: function(){
 				$(".load_page_loading").html("");
-				$(".load_page").html('<h1><img src="'+get_base_url()+'img_v51/something_went_wrong.png" width="100%"></h1>');
+				$(".load_page").html(something_went_wrong_function());
 			},
 			success    : function(data){
 				$.each(data.medicine_use, function(i,item){
@@ -33,7 +33,7 @@ function call_page()
 						}
 						
 						if(file_type=="video"){
-							video = '<video width="100%" height="250" controls="" poster="'+get_base_url()+'img_v51/default-video-thumbnail.jpg"><source src="'+file+'" type="video/mp4">Your browser does not support the video tag.</video>';
+							video = '<video width="100%" height="250" controls="" poster="'+ get_base_url()+'assets/'+getWebJs()+'/images/default-video-thumbnail.jpg"><source src="'+file+'" type="video/mp4">Your browser does not support the video tag.</video>';
 						}
 						
 						if(image!=""){

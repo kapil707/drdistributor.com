@@ -56,43 +56,43 @@ function home_page_menu(){
 		{
 			"menu_id": "1",
 			"menu_name": "New Order",
-			"menu_image": get_base_url() + "img_v51/homebtn1.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn1.png',
 			"menu_url": "medicine_search"
 		},
 		{
 			"menu_id": "2",
 			"menu_name": "My Cart",
-			"menu_image": get_base_url() + "img_v51/homebtn2.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn2.png',
 			"menu_url": "my_cart"
 		},
 		{
 			"menu_id": "3",
 			"menu_name": "My Order",
-			"menu_image": get_base_url() + "img_v51/homebtn3.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn3.png',
 			"menu_url": "my_order"
 		},
 		{
 			"menu_id": "4",
 			"menu_name": "My Invoice",
-			"menu_image": get_base_url() + "img_v51/homebtn4.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn4.png',
 			"menu_url": "my_invoice"
 		},
 		{
 			"menu_id": "5",
 			"menu_name": "Track Order",
-			"menu_image": get_base_url() + "img_v51/homebtn5.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn5.png',
 			"menu_url": "track_order"
 		},
 		{
 			"menu_id": "6",
 			"menu_name": "Upload Order",
-			"menu_image": get_base_url() + "img_v51/homebtn6.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn6.png',
 			"menu_url": "import_order"
 		},
 		{
 			"menu_id": "7",
 			"menu_name": "Notification",
-			"menu_image": get_base_url() + "img_v51/homebtn7.png",
+			"menu_image": get_base_url()+'assets/'+getWebJs()+'/images/homebtn7.png',
 			"menu_url": "my_notification"
 		}
 	];
@@ -339,7 +339,7 @@ function home_page_divisioncategory(CategoryId,items,title){
 		}
 	});
 	
-	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'img_v51/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
+	myval = '<div class="col-xs-12 col-sm-12 col-12 col-padding-5"><div class="home_page_heading"><div class="home_page_heading_title"><span class="">'+title+'</span></div></div><div class="row"><div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12 col-12 mobile_off"><img src="'+get_base_url()+'assets/'+getWebJs()+'/images/heart.png" width="100%" class=""></div><div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 col-12"><div class="owl-carousel owl-carousel'+CategoryId+'">'+mydata+'</div></div></div></div>';
 	
 	return myval;
 }
@@ -373,11 +373,11 @@ function home_page_itemcategory(CategoryId,items,title){
 
 			item_other_image_div = '';
 			if(item_featured=="1" && item_quantity!="0"){
-				item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="all_item_featured_img">';
+				item_other_image_div = '<img src="'+get_base_url()+'assets/'+getWebJs()+'/images/featured_img.png" class="all_item_featured_img">';
 			}
 
 			if(item_quantity==0) {
-				item_other_image_div = '<img src="'+get_base_url()+'img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img">';
+				item_other_image_div = '<img src="'+get_base_url()+'assets/'+getWebJs()+'/images/out_of_stock_img.png" class="all_item_out_of_stock_img">';
 			}
 
 			item_scheme_div = "";

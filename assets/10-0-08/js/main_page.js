@@ -529,7 +529,7 @@ function medicine_add_to_cart_api()
 
 					item_other_image_div = '';
 					if(item_featured=="1"){
-						item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="all_item_featured_img">';
+						item_other_image_div = '<img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/featured_img.png" class="all_item_featured_img">';
 					}
 					
 					item_scheme_div = "";
@@ -791,7 +791,7 @@ function my_cart_api(order_type) {
 
 					item_other_image_div = '';
 					if(item_featured=="1"){
-						item_other_image_div = '<img src="'+get_base_url()+'img_v51/featured_img.png" class="all_item_featured_img">';
+						item_other_image_div = '<img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/featured_img.png" class="all_item_featured_img">';
 					}
 					
 					item_scheme_div = "";

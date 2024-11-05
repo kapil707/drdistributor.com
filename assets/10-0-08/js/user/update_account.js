@@ -12,19 +12,19 @@ function call_page(lastid1)
 	new_i = 0;
 	id = "";
 	$(".load_more").hide();
-	$(".load_page").html('<h2><center><img src="'+get_base_url()+'/img_v51/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
+	$(".load_page").html('<h2><center><img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/loading.gif" width="100px"></center></h2><h2><center>Loading....</center></h2>');
 	$.ajax({
 		type       : "POST",
 		data       : {id:id} ,
 		url        : get_base_url()+"User/get_new_user_account_api",
 		cache : true,
 		error: function(){
-			$(".load_page").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+			$(".load_page").html('<h2><center><img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/no_record_found.png" width="100%"></center></h2>');
 		},
 		success    : function(data){
 			if(data.items=="")
 			{
-				$(".load_page").html('<h2><center><img src="'+get_base_url()+'/img_v51/no_record_found.png" width="100%"></center></h2>');
+				$(".load_page").html('<h2><center><img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/no_record_found.png" width="100%"></center></h2>');
 			}
 			else
 			{
@@ -33,7 +33,7 @@ function call_page(lastid1)
 			}
 			$.each(data.items, function(i,item){	
 				if (item){
-					$(".load_page").append('<div class="row"><div class="col-sm-12 col-12"><h5>Last update request</h5></div><div class="col-sm-12"><img class="img-circle" src="'+get_base_url()+'/img_v51/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div><div class="col-sm-12"><img class="img-circle" src="'+get_base_url()+'/img_v51/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div><div class="col-sm-12"><img class="img-circle" src="'+get_base_url()+'/img_v51/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div></div>');
+					$(".load_page").append('<div class="row"><div class="col-sm-12 col-12"><h5>Last update request</h5></div><div class="col-sm-12"><img class="img-circle" src="'+ get_base_url()+'assets/'+getWebJs()+'/images/phone1.png" width="25" alt="Mobile" title="Mobile"><span style="margin-left:20px;">'+item.user_phone+'</span></div><div class="col-sm-12"><img class="img-circle" src="'+ get_base_url()+'assets/'+getWebJs()+'/images/email1.png" width="25" alt="Email" title="Email"><span style="margin-left:20px;">'+item.user_email+'</span></div><div class="col-sm-12"><img class="img-circle" src="'+ get_base_url()+'assets/'+getWebJs()+'/images/map1.png" width="25" alt="Address" title="Address"><span style="margin-left:20px;">'+item.user_address+'</span></div></div>');
 				}
 			});
 		},

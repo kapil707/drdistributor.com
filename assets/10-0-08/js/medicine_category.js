@@ -109,9 +109,9 @@ function MainPageFuncationCall(get_record) {
                         // Featured image or out of stock image handling
                         let item_other_image_div = '';
                         if (item_featured == "1" && item_quantity != "0") {
-                            item_other_image_div = `<img src="${get_base_url()}img_v51/featured_img.png" class="all_item_featured_img">`;
+                            item_other_image_div = `<img src="${get_base_url()}assets/${getWebJs()}/images/featured_img.png" class="all_item_featured_img">`;
                         } else if (item_quantity == 0) {
-                            item_other_image_div = `<img src="${get_base_url()}img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img">`;
+                            item_other_image_div = `<img src="${get_base_url()}assets/${getWebJs()}/images/out_of_stock_img.png" class="all_item_out_of_stock_img">`;
                         }
 
                         // Scheme display if available

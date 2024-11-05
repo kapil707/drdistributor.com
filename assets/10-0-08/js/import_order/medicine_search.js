@@ -493,7 +493,7 @@ function medicine_search_api() {
 
 							item_other_image_div = '';
 							if(item_featured=="1" && item_quantity!="0"){
-								item_other_image_div = '<img src="'+ get_base_url()+'img_v51/featured_img.png" class="all_item_featured_img">';
+								item_other_image_div = '<img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/featured_img.png" class="all_item_featured_img">';
 							}
 
 							item_quantity_div = '<span class="all_item_stock">Stock : '+item_quantity+'</span>' + item_scheme_div;
@@ -504,7 +504,7 @@ function medicine_search_api() {
 
 							if(item_quantity=="0"){
 								item_quantity_div = '<span class="all_item_out_of_stock">Out of stock</span>';
-								item_other_image_div = '<img src="'+ get_base_url()+'img_v51/out_of_stock_img.png" class="all_item_out_of_stock_img">';
+								item_other_image_div = '<img src="'+ get_base_url()+'assets/'+getWebJs()+'/images/out_of_stock_img.png" class="all_item_out_of_stock_img">';
 							}
 							
 							rete_div =  '<span class="all_item_ptr" title="PTR : '+item_ptr+'">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </span> | <span class="all_item_mrp" title="MRP : '+item_mrp+'">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </span> | <span class="all_item_price" title="*Approximate ~ '+item_price+'">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </span>';

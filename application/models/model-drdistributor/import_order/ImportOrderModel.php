@@ -393,6 +393,7 @@ class ImportOrderModel extends CI_Model
 		$row2 = $this->db->get("tbl_medicine")->row();
 
 		$return["row"] = $row2;
+		$return["order_quantity"] = $order_quantity;
 		$return["item_suggest_altercode"] = $item_suggest_altercode;
 		return $return;
 	}

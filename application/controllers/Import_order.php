@@ -552,6 +552,7 @@ class Import_order extends CI_Controller {
 
 		$return_value = $this->ImportOrderModel->import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id);
 		$row = $return_value["row"];
+		$$order_quantity = $return_value["order_quantity"];
 		$item_suggest_altercode = $return_value["item_suggest_altercode"];
 		/******************************************/		
 		$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";

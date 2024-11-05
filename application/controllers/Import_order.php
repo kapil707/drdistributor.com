@@ -174,12 +174,12 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+		$ChemistId = $this->ChemistId;
 
-		$data["order_id"]	= $order_id = base64_decode($order_id);
-		if($user_type=="chemist")
+		$data["OrderId"]= $OrderId = base64_decode($OrderId);
+		if($this->UserType=="chemist")
 		{
-			$users = $this->db->query("select * from tbl_chemist where altercode='$chemist_id' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();
 			$acm_altercode 	= $users->altercode;
 			$acm_name		= $users->name;
 			$acm_email 		= $users->email;
@@ -188,16 +188,17 @@ class Import_order extends CI_Controller {
 			$chemist_excle 	= "$acm_name ($acm_altercode)";
 			$file_name 		= $acm_altercode;
 		}
-		if($user_type=="sales")
+		if($this->UserType=="sales")
 		{
 			//jab sale man say login hota ha to
-			$users = $this->db->query("select * from tbl_chemist where altercode='$user_altercode' ")->row();
+			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();
 			$user_session	= $users->id;
 			$acm_altercode 	= $users->altercode;
 			$acm_name 		= $users->name;
 			$acm_email 		= $users->email;
 			$acm_mobile 	= $users->mobile;
-			$users = $this->db->query("select * from tbl_users where customer_code='$salesman_id' ")->row();
+
+			$users = $this->db->query("select * from tbl_users where customer_code='$SalesmanId' ")->row();
 			$salesman_name 		= $users->firstname." ".$users->lastname;
 			$salesman_mobile	= $users->cust_mobile;
 			$salesman_altercode	= $users->customer_code;
@@ -206,7 +207,7 @@ class Import_order extends CI_Controller {
 			$file_name 		= $acm_altercode;
 		}
 		/***********************************************/
-		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status=0")->result();
+		$result = $this->db->query("select * from drd_import_file where order_id='$OrderId' and status=0")->result();
 		$data["result"]	= $result;
 		if(empty($result))
 		{

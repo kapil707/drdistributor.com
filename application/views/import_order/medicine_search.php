@@ -6,7 +6,7 @@ function goBack() {
 </script>
 <div class="container main_container">
 	<div class="row">
-		<div class="col-sm-12 col-12">
+		<div class="col-sm-12 col-12 main_page_data">
 			<?php
 			$i = 0;
 			foreach($result as $row)
@@ -168,7 +168,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/medicine_search12345.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/medicine_search123456.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

@@ -136,10 +136,10 @@ class Import_order extends CI_Controller {
 		$ChemistId = $this->ChemistId;
 
 		$data["OrderId"] = $OrderId = base64_decode($OrderId);
-		$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
+		/*$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
 		if(empty($result)){
 			redirect(base_url()."io");
-		}
+		}*/
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
@@ -541,10 +541,10 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 
-	public function medicine_search_api($OrderId){
+	public function medicine_search_api(){
 
 		$jsonArray = array();
-		//$OrderId = $_POST["OrderId"];
+		$OrderId = $_POST["OrderId"];
 
 		$result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
 		foreach($result as $row)

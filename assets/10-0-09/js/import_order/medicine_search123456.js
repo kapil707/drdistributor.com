@@ -60,7 +60,34 @@ $(document).ready(function(){
 			clear_search_function();
 		}
 	};
+	MainPageFuncationCall();
 });
+
+function MainPageFuncationCall() {
+
+	$.ajax({
+		type: "POST",
+		dataType: "json",
+		data: { get_record: get_record },
+		url: get_base_url() + "my_order/my_order_api",
+		cache : true,
+		timeout: 60000,
+		error: function() {
+		},
+		success: function(data) {
+			$.each(data.items, function(i, item) {
+				if (item) {
+					let item_id = item.id;
+					let item_name = item.item_name;
+
+					$(".main_page_data").append(`
+                        <div class="main_box_div_data">${item_name}</div>
+					`);
+				}
+			});
+		}
+	});
+}
 
 function import_order_medicine_details(myid){
 	$.ajax({

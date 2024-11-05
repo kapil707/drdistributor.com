@@ -57,16 +57,14 @@ function btn_upload_import_file(){
 	form_data.append('headername',headername);
 	form_data.append('itemname',itemname);
 	form_data.append('itemqty',itemqty);
-	form_data.append('itemmrp',itemmrp);
-    //alert(form_data);                             
+	form_data.append('itemmrp',itemmrp);           
     $.ajax({
 		url: get_base_url() + "import_order/upload_import_file/",
-		/*dataType: 'text',*/
 		cache : true,
 		contentType: false,
 		processData: false,
 		data: form_data,
-		timeout: 40000,
+		timeout: 30000,
 		type: 'post',
 		error: function(){
 		   	swal("Please compare the columns in the Excel file with those you have entered in the website.");

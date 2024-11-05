@@ -362,6 +362,58 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
+	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id) {
+
+		$this->db->select("item_name");
+		$this->db->where('i_code',$ItemCode);
+		$row = $this->db->get("tbl_medicine")->row();
+		$item_name = $row->item_name;
+		/******************************************************* */
+
+		$this->db->select("item_name");
+		$this->db->where('id',$Id);
+		$row1 = $this->db->get("drd_import_file")->row();
+		$your_item_name = $row1->item_name;
+		
+		/******************************************************* */
+
+		$where = array('your_item_name'=>$your_item_name);
+		$this->delete_query("drd_import_orders_suggest",$where);
+		/******************************************************* */
+		
+		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+		/******************************************************* */
+
+		$date = date('Y-m-d');
+		$time = time();
+		$datetime = date("d-M-y H:i",$time);
+
+		$dt = array(
+			'your_item_name'=>$your_item_name,
+			'item_name'=>$item_name,
+			'i_code'=>$ItemCode,
+			'user_altercode'=>$ChemistId,
+			'date'=>$date,
+			'time'=>$time,
+			'datetime'=>$datetime,
+		);
+		$this->insert_query("drd_import_orders_suggest",$dt);
+		$status = 1;
+		return $status;
+	}
+
+	function insert_query($tbl,$dt)
+	{
+		if($this->db->insert($tbl,$dt))
+		{
+			return $this->db->insert_id();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	function delete_query($tbl,$where)
 	{
 		if($this->db->delete($tbl,$where))

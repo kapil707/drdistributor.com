@@ -804,23 +804,16 @@ class Import_order extends CI_Controller {
 	/*21-01-2020*/
 	public function import_order_medicine_change_api(){
 
-		$item_code		= ($_POST["item_code"]);	
-		$myid			= ($_POST["myid"]);
+		$ItemCode	= ($_POST["item_code"]);	
+		$Id			= ($_POST["myid"]);
+
+		$UserType 	= $this->UserType;
+		$ChemistId 	= $this->ChemistId;
+		$SalesmanId = $this->SalesmanId; 
+
 		$status = 0;
-		if(!empty($item_code) && !empty($myid)){
-			$row = $this->db->query("select item_name from tbl_medicine where i_code='$item_code'")->row();
-			$item_name = $row->item_name;
-			$row1 = $this->db->query("select item_name from drd_import_file where id='$myid'")->row();
-			$your_item_name = $row1->item_name;
-			$this->db->query("delete from drd_temp_rec where excel_number='$myid'");
-			
-			$this->db->query("delete from drd_import_orders_suggest where your_item_name='$your_item_name'");
-			$user_altercode	= $_COOKIE["user_altercode"];
-			$date = date('Y-m-d');
-			$time = time();
-			$datetime = date("d-M-y H:i",$time);
-			
-			$status = $this->db->query("insert into drd_import_orders_suggest set your_item_name='$your_item_name',item_name='$item_name',i_code='$item_code',user_altercode='$user_altercode',date='$date',time='$time',datetime='$datetime'");
+		if(!empty($ItemCode) && !empty($Id)){
+			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id);
 		}
 
 		$jsonArray = array();
@@ -832,7 +825,7 @@ class Import_order extends CI_Controller {
 
 		$response = array(
 			'success' => "1",
-			'message' => 'Data delete successfully',
+			'message' => 'Data change successfully',
 			'items' => $items,
 		);
 

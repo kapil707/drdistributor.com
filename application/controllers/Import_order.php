@@ -783,7 +783,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId = $this->SalesmanId; 
 
 		$status = 0;
-		if(!empty($myid)){
+		if(!empty($Id)){
 			$status = $this->ImportOrderModel->import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode);
 		}
 

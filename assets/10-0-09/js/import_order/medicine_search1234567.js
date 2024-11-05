@@ -79,9 +79,45 @@ function MainPageFuncationCall() {
 				if (item) {
 					let item_id = item.id;
 					let item_name = item.item_name;
+					let item_quantity = item.quantity;
+					let item_mrp = item.mrp;
 
 					$(".main_page_data").append(`
-                        <div class="main_box_div_data">${item_name}</div>
+                        <div class="main_box_div_data import_order_main_div_${item_id} p-1">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="import_order_box_left_div web-col-padding-0">
+									(${item_id}) <?= $ChemistId;?> :
+								</div>
+								<div class="import_order_box_right_div web-col-padding-0">
+									<div class="row">
+										<div class="col-sm-9">	
+											<span class="import_order_title_1 all_item_name">
+												${item_name}
+											</span> | 
+											
+											<span class="all_item_order_quantity">Quantity : </span>
+
+											<input type="text" class="import_order_hidden_item_code_${item_id}" />
+
+											<input type="hidden" name="" value="${item_name}" class="import_order_hidden_item_name_${item_id}" />
+
+											<input type="number" name="item_qty[]" value="${item_qty}" class="import_order_quantity_textbox_${item_id} import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('${item_id}')" title="Order quantity" min="1" max="1000" maxlength="4" />
+
+											<span>				
+												<a href="javascript:void(0)" onclick="import_order_medicine_delete('${item_id}')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+											</span>
+										</div>
+										<div class="col-sm-3 text-right">
+											<span class="all_item_mrp">
+												MRP. : 
+												<i class="fa fa-inr" aria-hidden="true"></i>
+												${item_mrp}/-
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
 					`);
 				}
 			});

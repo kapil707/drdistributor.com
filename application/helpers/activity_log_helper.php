@@ -50,7 +50,7 @@ if (!function_exists('log_activity')) {
     }
 }
 if (!function_exists('log_search_activity')) {
-    function log_search_activity($chemist_id, $salesman_id, $search_term="", $product_viewed="") {
+    function log_search_activity($chemist_id, $salesman_id, $search_term="", $item_code="") {
         // Get a reference to the CodeIgniter super object
         $CI =& get_instance();
         
@@ -61,7 +61,7 @@ if (!function_exists('log_search_activity')) {
             'chemist_id' => $chemist_id,
             'salesman_id' => $salesman_id,
             'search_term' => $search_term,
-            'product_viewed' => $product_viewed,
+            'item_code' => $item_code,
             'date' => date('Y-m-d'),
             'time' => date('H:i:s'),
             'timestamp' => time(),

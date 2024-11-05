@@ -541,10 +541,10 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 
-	public function medicine_search_api(){
+	public function medicine_search_api($OrderId){
 
 		$jsonArray = array();
-		$OrderId = $_POST["OrderId"];
+		//$OrderId = $_POST["OrderId"];
 
 		$result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
 		foreach($result as $row)

@@ -102,7 +102,7 @@ function MainPageFuncationCall() {
 
 											<input type="hidden" name="" value="${item_name}" class="import_order_hidden_item_name_${item_id}" />
 
-											<input type="number" name="item_qty[]" value="${item_qty}" class="import_order_quantity_textbox_${item_id} import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('${item_id}')" title="Order quantity" min="1" max="1000" maxlength="4" />
+											<input type="number" name="item_qty[]" value="${item_quantity}" class="import_order_quantity_textbox_${item_id} import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('${item_id}')" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 											<span>				
 												<a href="javascript:void(0)" onclick="import_order_medicine_delete('${item_id}')" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>

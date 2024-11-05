@@ -169,7 +169,7 @@ OrderId = "<?php echo $OrderId ?>";
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/medicine_search12345678.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/medicine_search123456789.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

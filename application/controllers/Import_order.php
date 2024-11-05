@@ -597,7 +597,7 @@ class Import_order extends CI_Controller {
 		$where = "status=1 and `misc_settings` NOT LIKE '%gift%' and category!='g'";
 		$this->db->where($where);
 		
-		if($user_nrx=="yes"){
+		if($ChemistNrx=="yes"){
 		}else{
 			$where="misc_settings!='#NRX'";
 			$this->db->where($where);

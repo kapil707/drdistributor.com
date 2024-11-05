@@ -136,7 +136,7 @@ class Import_order extends CI_Controller {
 		$ChemistId = $this->ChemistId;
 
 		$data["OrderId"] = $OrderId = base64_decode($OrderId);
-		$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file;
+		$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
 		if(empty($result)){
 			redirect(base_url()."io");
 		}

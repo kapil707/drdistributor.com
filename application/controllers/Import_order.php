@@ -115,7 +115,7 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function medicine_search($order_id=''){
+	public function medicine_search($OrderId=''){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Import order";
@@ -136,25 +136,24 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["chemist_id"] = $chemist_id =$this->ChemistId;
+		$ChemistId =$this->ChemistId;
 
-		$data["order_id"]	= $order_id = base64_decode($order_id);
+		$data["OrderId"]	= $OrderId = base64_decode($OrderId);
 		$data["myname"] 	= $this->ChemistId;
-		$where = array('order_id'=>$order_id,'status'=>'0');
+		$where = array('order_id'=>$OrderId,'status'=>'0');
 		$result = $this->Scheme_Model->select_all_result("drd_import_file",$where,"id","asc");
 		$data["result"] 	= $result;
 		if(empty($result))
 		{
 			redirect(base_url()."import_order");
 		}
-		$data["import_order_page"] = "yes";
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function medicine_deleted_items($order_id=''){
+	public function medicine_deleted_items($OrderId=''){
 	
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Deleted items";
@@ -552,18 +551,10 @@ class Import_order extends CI_Controller {
 
 		$excel_number	= $_POST["myid"];
 		
-		$user_type 		= $_COOKIE['user_type'];
-		$user_altercode = $_COOKIE['user_altercode'];
-		$user_password	= $_COOKIE['user_password'];
-		$user_nrx		= $_COOKIE['user_nrx'];
-		
-		$chemist_id 	= $salesman_id = "";
-		if($user_type=="sales")
-		{
-			$chemist_id 	= $_COOKIE['chemist_id'];
-			$salesman_id 	= $user_altercode;
-			$user_altercode = $chemist_id;
-		}
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId		= $this->SalesmanId;
+		$ChemistNrx		= $this->ChemistNrx;
 
 		/******************************************/
 		
@@ -652,7 +643,7 @@ class Import_order extends CI_Controller {
 			/******************************************/
 			if($row->batchqty!=0  && is_numeric($order_quantity)){
 				$item_code = $row->i_code;
-				$this->medicine_add_to_cart_api($item_code,$order_quantity,$excel_number,$order_id,$user_type,$user_altercode,$salesman_id);				
+				$this->medicine_add_to_cart_api($item_code,$order_quantity,$excel_number,$order_id,$UserType,$ChemistId,$SalesmanId);				
 			}
 			/******************************************/
 		}

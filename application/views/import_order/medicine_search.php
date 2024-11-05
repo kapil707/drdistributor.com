@@ -160,7 +160,7 @@ function goBack() {
 			<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" onclick="add_new_medicine()" style="width:30%"> + Add Medicine</button>
 		</div>
 		<div class="col-sm-6 col-6 text-right">
-			<a href="<?= base_url(); ?>import_order/medicine_deleted_items/<?php echo base64_encode($order_id); ?>">
+			<a href="<?= base_url(); ?>io/mdi/<?php echo base64_encode($OrderId); ?>">
 				<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:20%">Next</button>
 			</a>
 		</div>
@@ -176,7 +176,7 @@ function goBack() {
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/import_order/medicine_search.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/medicine_search.js"></script>
 <script>
 $(document).ready(function(){
 	<?php foreach($result as $row) { ?>

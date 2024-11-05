@@ -5,7 +5,7 @@ class Errors extends CI_Controller {
     public function __construct() {
         parent::__construct();
         // Load the AppConfig library
-        $this->load->model('appconfig');
+        $this->load->library('AppConfig');
     }
 
     public function custom_404() {

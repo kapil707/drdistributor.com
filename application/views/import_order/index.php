@@ -8,7 +8,7 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12 main_box_div">
 			<div class="form-group mt-2">
-				<label for="file" class="label_css">Upload excel file</label>
+				<label class="label_css">Upload excel file</label>
 				<div class="row">
 					<div class="col-sm-8 col-11">
 						<input id="import_order_file" type="file" name="import_order_file" class="input_type_text2 login_textbox" onchange="select_import_order_file()" />
@@ -27,19 +27,19 @@ function goBack() {
 			</div>
 			
 			<div class="form-group">
-				<label for="file" class="label_css">Header column number</label>
+				<label class="label_css">Header column number</label>
 				<input type="text" name="headername"  class="input_type_text2 login_textbox headername" placeholder="Header column number" value="<?= $headername ?>" />
 			</div>	
 			<div class="form-group">
-				<label for="file" class="label_css">Item column name</label>
+				<label class="label_css">Item column name</label>
 				<input type="text" name="itemname" class="input_type_text2 login_textbox itemname" placeholder="Item column name" value="<?= $itemname ?>" />
 			</div>	
 			<div class="form-group">
-				<label for="file" class="label_css">Item column mrp</label>
+				<label class="label_css">Item column mrp</label>
 				<input type="text" name="itemmrp" class="input_type_text2 login_textbox itemmrp" placeholder="Item column mrp" value="<?= $itemmrp ?>" />
 			</div>
 			<div class="form-group">
-				<label for="file" class="label_css">Item column quantity</label>
+				<label class="label_css">Item column quantity</label>
 				<input type="text" name="itemqty" class="input_type_text2 login_textbox itemqty" placeholder="Item column quantity" value="<?= $itemqty ?>" />
 			</div>
 			<div class="form-group text-center">

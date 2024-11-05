@@ -288,11 +288,11 @@ function import_oreder_medicine_delete_suggested(myid) {
 	}).then(function(result) {
 		if (result) {
 			$.ajax({
-				url: get_base_url() + "import_order/import_oreder_medicine_delete_suggested_api",
+				url: get_base_url() + "import_order/import_order_medicine_delete_suggested_api",
 				type:"POST",
-				/*dataType: 'html',*/
 				data: {myid:myid},
 				cache : true,
+				timeout: 60000,
 				error: function(){
 					swal("Suggested medicine not deleted");
 				},
@@ -312,8 +312,7 @@ function import_oreder_medicine_delete_suggested(myid) {
 							}
 						} 
 					});
-				},
-				timeout: 60000
+				}
 			});
 		} else {
 			swal("Suggested medicine not deleted");

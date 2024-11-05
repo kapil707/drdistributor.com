@@ -331,8 +331,7 @@ class Import_order extends CI_Controller {
 	}
 	
 	public function import_order_downloadall($order_id='')
-	{	
-		
+	{
 		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status='0'")->result();
 		
 		$delimiter = ",";
@@ -842,28 +841,15 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function import_oreder_medicine_delete_suggested_api()
+	public function import_order_medicine_delete_suggested_api()
 	{
-		$user_type 		= $_COOKIE['user_type'];
-		$user_altercode	= $_REQUEST["user_altercode"];
-		$myid 			= ($_REQUEST["myid"]);
-		$status 		= 0;
-		$row = $this->db->query("select item_name from drd_import_file where id='$myid'")->row();
-		if(!empty($row->item_name))
-		{
-			$row1 = $this->db->query("select i_code from drd_import_orders_suggest where your_item_name='$row->item_name'")->row();
-			$response = $this->db->query("delete from drd_import_orders_suggest where your_item_name='$row->item_name'");
-			$salesman_id = "";
-			if($user_type=="sales")
-			{
-				$salesman_id 	= $_COOKIE['user_altercode'];
-			}else{
-				$user_altercode	= $_COOKIE["user_altercode"];
-			}
-			$item_code = $row1->i_code;
-			$this->db->query("delete from drd_temp_rec where i_code='$item_code' and user_type='$user_type' and selesman_id='$salesman_id' and chemist_id='$user_altercode' and status=0");
-			$status = 1;
-		}
+		$Id 		= ($_REQUEST["myid"]);
+
+		$UserType 	= $this->UserType;
+		$ChemistId 	= $this->ChemistId;
+		$SalesmanId = $this->SalesmanId;
+
+		$status = $this->ImportOrderModel->import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id);
 
 		$jsonArray = array();
 		$dt = array(
@@ -887,7 +873,8 @@ class Import_order extends CI_Controller {
 	{
 		$id = ($_REQUEST["id"]);
 		if(!empty($id)){
-			$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+			$where = array('id'=>$id);
+			$this->ImportOrderModel->delete_query("drd_import_orders_suggest",$where);
 		}
 		
 		$response = array(

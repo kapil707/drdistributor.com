@@ -4,6 +4,8 @@ class ImportOrderModel extends CI_Model
 { 
     public function __construct(){
 		parent::__construct();
+
+		$this->load->model("model-drdistributor/my_cart/MyCartModel");
 	}
     public function import_order_dropdownbox($keyword,$item_mrp,$u_type="site")
 	{
@@ -332,5 +334,43 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		return $this->db->get("drd_import_file")->result();
+	}
+
+	public function import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id) {
+	
+		$status = 0;
+		$this->db->select("item_name");
+		$this->db->where('id',$Id);
+		$row = $this->db->get("drd_import_file")->row();
+		if(!empty($row->item_name))
+		{
+			$your_item_name = $row->item_name;
+			$this->db->select("i_code");
+			$this->db->where('your_item_name',$your_item_name);
+			$row1 = $this->db->get("drd_import_orders_suggest")->row();
+			$ItemCode = $row1->i_code;
+			/******************************************************* */
+
+			$where = array('your_item_name'=>$your_item_name);
+			$this->delete_query("drd_import_orders_suggest",$where);
+			/******************************************************* */
+
+			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+
+			$status = 1;
+		}
+		return $status;
+	}
+
+	function delete_query($tbl,$where)
+	{
+		if($this->db->delete($tbl,$where))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

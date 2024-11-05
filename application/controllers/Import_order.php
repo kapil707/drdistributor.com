@@ -133,15 +133,11 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$ChemistId =$this->ChemistId;
+		$ChemistId = $this->ChemistId;
 
-		$data["OrderId"]	= $OrderId = base64_decode($OrderId);
-		$data["myname"] 	= $this->ChemistId;
-		$where = array('order_id'=>$OrderId,'status'=>'0');
-		$result = $this->Scheme_Model->select_all_result("drd_import_file",$where,"id","asc");
-		$data["result"] 	= $result;
-		if(empty($result))
-		{
+		$data["OrderId"] = $OrderId = base64_decode($OrderId);
+		$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file;
+		if(empty($result)){
 			redirect(base_url()."io");
 		}
 

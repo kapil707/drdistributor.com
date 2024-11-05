@@ -58,7 +58,7 @@ function goBack() {
 						<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo.png" class="img-fluid" style="margin-top: 5px;" alt width="100px;">
 					</div>
 					<div class="text-center website_name_css" style="margin-top:15px;">
-						<?= $this->Scheme_Model->get_website_data("title2") ;?>
+						<?= $this->appconfig->getFooterTitle(); ?>
 					</div>
 					<div class="text-center website_version_css" style="margin-top:5px;">
 						Website version <?= $this->appconfig->getWebsiteVersion(); ?>

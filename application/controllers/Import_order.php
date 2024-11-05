@@ -540,6 +540,41 @@ class Import_order extends CI_Controller {
 		}
 		return $string;
 	}
+
+	public function medicine_search_api(){
+
+		$jsonArray = array();
+		$OrderId = $_POST["OrderId"];
+
+		$result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
+		foreach($result as $row)
+		{
+			$dt = array(
+				'id' => $row->id,
+				'item_name'=>$row->item_name,
+				'quantity'=>$row->quantity,
+				'mrp'=>$row->mrp,
+				'order_id'=>$row->order_id,
+				'status'=>$row->status,
+				'p_status'=>$row->p_status,
+				'user_type'=>$row->user_type,
+				'user_altercode'=>$row->user_altercode,
+				'salesman_id'=>$row->salesman_id,
+				'date'=>$row->date,
+			);
+			$jsonArray[] = $dt;
+		}
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items'=> $jsonArray
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
 	
 	public function import_order_medicine_details_api() {	
 

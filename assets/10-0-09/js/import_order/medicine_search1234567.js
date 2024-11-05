@@ -68,8 +68,8 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data: { get_record: get_record },
-		url: get_base_url() + "my_order/my_order_api",
+		data: { OrderId: OrderId },
+		url: get_base_url() + "import_order/medicine_search_api",
 		cache : true,
 		timeout: 60000,
 		error: function() {

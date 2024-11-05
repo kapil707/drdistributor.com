@@ -1,17 +1,7 @@
-<?php if(!empty($chemist_id)){ ?>
-<style>
-.top_bar_title{
-	margin-top: -5px;
-}
-</style>
-<script>
-$(".top_bar_title1").show();
-</script>
-<?php } ?>
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>import_order";
+	window.location.href = "<?= base_url();?>io";
 }
 </script>
 <div class="container main_container">
@@ -33,7 +23,7 @@ function goBack() {
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="import_order_box_left_div web-col-padding-0">
-									(<?= $i ?>) <?= $myname;?> :
+									(<?= $i ?>) <?= $ChemistId;?> :
 								</div>
 								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">

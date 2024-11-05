@@ -41,7 +41,7 @@ $(".top_bar_title").html("Delivering to");
 		<div class="col-sm-4 text-center">
 			<div class="main_page_loading1">
 				<h2>
-					<img src="<?php echo base_url(); ?>img_v51/loading.gif" width="100px">
+					<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/loading.gif" width="100px">
 				</h2>
 				<h2>Please wait....</h2>
 			</div>

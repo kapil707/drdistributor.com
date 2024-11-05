@@ -25,21 +25,21 @@ function goBack() {
 					<label>Enter mobile</label>
 				</div>
 				<div class="col-sm-12">
-					<img src="<?= base_url() ?>/img_v51/phone1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
+					<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/phone1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter mobile" required="" name="mobile1" id="mobile1" title="Enter mobile" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12 mt-2">
 					<label>Enter email</label>
 				</div>
 				<div class="col-sm-12">
-					<img src="<?= base_url() ?>/img_v51/email1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
+					<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/email1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter email" required="" name="email1" id="email1" title="Enter email" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12 mt-2">
 					<label>Enter address</label>
 				</div>
 				<div class="col-sm-12">
-					<img src="<?= base_url() ?>/img_v51/map1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
+					<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/map1.png" width="25px" style="float: left; margin-top: 7px;position: absolute;margin-left: 10px;" alt>
 					<input type="text" value="" class="input_type_text login_textbox" placeholder="Enter address" required="" name="address1" id="address1" title="Enter address" style="padding-left:40px;float: left;">
 				</div>
 				<div class="col-sm-12 mt-2 text-center">

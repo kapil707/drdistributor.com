@@ -42,7 +42,7 @@
 				<label class="label_css">Enter mobile number</label>
 				<div class="form-row">
 					<div class="form-group col">
-						<img src="<?= base_url() ?>img_v51/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
+						<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/phone1.png" width="25px" style="float: left; margin-top: 10px;position: absolute;margin-left: 10px;" alt>
 						<input type="text" value="" class="input_type_text login_textbox" placeholder="Mobile number(e.g. 95123XXXXX)" required="" name="phone_number1" id="phone_number1" style="float: left;" title="Mobile number(e.g. 95123XXXXX)" maxlength="10">
 					</div>
 				</div>

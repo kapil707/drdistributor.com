@@ -77,7 +77,7 @@ function goBack() {
 
 <div style="width:100%;display:none;padding-top: 150px;" class="place_order_div">
 	<h1 class="text-center">
-		<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="Loading...." title="Loading....">
+		<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/loading.gif" width="100px" alt="Loading...." title="Loading....">
 	</h1>
 	<h1 class="text-center">Loading....</h1>
 	<h1 class="text-center">Please wait, Your order is under process.</h1>

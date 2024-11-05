@@ -10,14 +10,14 @@ var bLazy = new Blazy();
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
-				<img src="<?= base_url() ?>img_v51/drphone.png" class="img-fluid" style="margin-top: 5px;" alt>
+				<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/drphone.png" class="img-fluid" style="margin-top: 5px;" alt>
 			</div>
 			<div class="col-sm-10 text-center download_app_div">
 				Download the App for Free
 				<div style="width:250px;margin:auto;margin-top:50px;">
 					<div class="google_play">
 						<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en_IN" target="_blank">
-						<img src="<?= base_url() ?>img_v51/playstrore.png" alt="Google Play" style="width:35px;"> Google Play
+						<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/playstrore.png" alt="Google Play" style="width:35px;"> Google Play
 						</a>
 					</div>
 				</div>
@@ -46,10 +46,10 @@ var bLazy = new Blazy();
 				<ul class="follow-footer-ul">
 					<li class="footer_li_title"></li><ul>
 					<li class="footer_li_title text-capitalize">Follow Us</li>
-					<li class=""><img src="<?= base_url() ?>img_v51/insta.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v51/fb.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v51/youtube.svg"></li>
-					<li class=""><img src="<?= base_url() ?>img_v51/twitter.svg"></li>
+					<li class=""><img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/insta.svg"></li>
+					<li class=""><img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/fb.svg"></li>
+					<li class=""><img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/youtube.svg"></li>
+					<li class=""><img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/twitter.svg"></li>
 				<ul>
 				<ul class="bottom-footer-ul">
 					<li><i class="fa fa-envelope" aria-hidden="true"></i>

@@ -175,7 +175,7 @@ if (isset($_COOKIE["theme_type"])) {
 							<div class="d-none d-xxxl-block wow pulse animated" data-wow-delay="300ms" data-wow-iteration="infinite" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 300ms; animation-iteration-count: infinite; animation-name: pulse;">
 								<div class="google_play" style="width: 134px;float: right;">
 									<a href="https://play.google.com/store/apps/details?id=com.drdistributor.dr&hl=en" target="_black" title="Download App">
-										<img src="https://www.drdistributors.co.in/drd-live/img_v51/playstrore.png" alt="Google Play" style="width:20px;">
+										<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/playstrore.png" alt="Google Play" style="width:20px;">
 										Google Play
 									</a>
 								</div>
@@ -241,7 +241,7 @@ if (isset($_COOKIE["theme_type"])) {
 	</div>
 </div>
 <!-- ******************************************************** -->
-<img src="<?= base_url(); ?>img_v51/logo.png" style="display:none" alt="<?= $title;?>">
+<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo.png" style="display:none" alt="<?= $title;?>">
 <div class="left_menu_bar">
 	<div class="left_menu_bar_div1">
 		<div class="row">
@@ -307,35 +307,35 @@ if (isset($_COOKIE["theme_type"])) {
 			<h2 class="text-left">Server Report</h2>
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/pendingorder_report" title="Pending Order" target="_black">
-					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/privacy_policy.png" width="20" alt="Pending Order" title="Pending Order">
 					Pending Order
 				</a>
 			</li>
 
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/drd_today_invoice" title="All Invoice" target="_black">
-					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/privacy_policy.png" width="20" alt="All Invoice" title="All Invoice">
 					All Invoice
 				</a>
 			</li>
 			
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Pickedby Invoice" target="_black">
-					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/privacy_policy.png" width="20" alt="Pickedby Invoice" title="Pickedby Invoice">
 					Pickedby Invoice
 				</a>
 			</li>
 			
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/child_invoice/pickedby" title="Deliverby Invoice" target="_black">
-					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/privacy_policy.png" width="20" alt="Deliverby Invoice" title="Deliverby Invoice">
 					Deliverby Invoice
 				</a>
 			</li>
 			
 			<li>
 				<a href="http://192.168.0.100:7272/drd_local_server/delivery_report" title="Delivery Report" target="_black">
-					<img class="img-circle" src="<?= base_url() ?>img_v51/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/privacy_policy.png" width="20" alt="Delivery Report" title="Delivery Report">
 					Delivery Report
 				</a>
 			</li>
@@ -398,7 +398,7 @@ if (isset($_COOKIE["theme_type"])) {
 ******************************************************** -->
 <span class="main_page_loading text-center">
 	<h2>
-		<img src="<?php echo base_url(); ?>img_v51/loading.gif" width="100px">
+		<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/loading.gif" width="100px">
 	</h2>
 	<h2>Please wait....</h2>
 </span>
@@ -408,7 +408,7 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6">
 			<h2>
-				<img src="<?php echo base_url(); ?>img_v51/something_went_wrong.png" width="100%">
+				<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/something_went_wrong.png" width="100%">
 			</h2>
 		</div>
 		<div class="col-sm-3"></div>
@@ -420,7 +420,7 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6">
 			<h2>
-				<img src="<?php echo base_url(); ?>img_v51/no_record_found.png" width="100%">
+				<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/no_record_found.png" width="100%">
 			</h2>
 		</div>
 		<div class="col-sm-3"></div>
@@ -433,7 +433,7 @@ if (isset($_COOKIE["theme_type"])) {
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<h2>
-				<img src="<?php echo base_url(); ?>img_v51/cart_empty.png" width="100%">
+				<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/cart_empty.png" width="100%">
 			</h2>
 			<a href="<?=base_url();?>home/search_medicine" class="btn main_theme_button add_more_btn" style="margin-top:10px;"> 
 				+ Add new medicine

@@ -69,9 +69,9 @@ function goBack() {
 							<div class="col-sm-12 import_order_main_<?= $myid ?>" style="display:none">
 								<div class="import_order_box_left_div web-col-padding-0">
 
-									<img src="<?=base_url(); ?>img_v51/featured_img.png" class="import_order_item_featured_img import_order_item_featured_<?= $myid ?>" style="display:none">
+									<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/featured_img.png" class="import_order_item_featured_img import_order_item_featured_<?= $myid ?>" style="display:none">
 
-									<img src="<?=base_url(); ?>img_v51/out_of_stock_img.png" class="import_order_item_out_of_stock_img import_order_item_out_of_stock_<?= $myid ?>" style="display:none">
+									<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/out_of_stock_img.png" class="import_order_item_out_of_stock_img import_order_item_out_of_stock_<?= $myid ?>" style="display:none">
 
 									<img src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="60px;" class="all_item_image import_order_item_image_<?= $myid ?>" alt="">
 

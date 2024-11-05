@@ -22,12 +22,12 @@ function goBack() {
 					</div>
 				</div>
 				<div class="col-sm-12 mt-2">
-					<img class="img-circle" src="<?= base_url() ?>/img_v51/logo.png" width="40%" alt="Change Image" title="Update Image" style="margin-left:30%" id="user_profile">
+					<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo.png" width="40%" alt="Change Image" title="Update Image" style="margin-left:30%" id="user_profile">
 				</div>
 				<div class="col-sm-12 mt-2 mb-2">
 					<div class="main_box_div_data p-4">
 						<a href="javascript:getfile_fun()" title="Select image from gallery" class="main_theme_a">
-							<img class="img-circle" src="<?= base_url() ?>/img_v51/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
+							<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/photo1.png" width="30" alt="Select image from gallery" title="Select image from gallery">
 							<span style="margin-left:20px;">Select image from gallery</span>
 						</a>
 					</div>

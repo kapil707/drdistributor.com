@@ -40,7 +40,7 @@ class AccountModel extends CI_Model
 	{
 		$logout   	= 0;
 		$user_nrx 	= "no";
-		$user_image = base_url()."img_v51/logo.png";
+		$user_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo.png";
 
 		$query = $this->db->query("select tbl_chemist.id,tbl_chemist.narcolicence,tbl_chemist_other.image,tbl_chemist_other.status,tbl_chemist_other.block,tbl_chemist_other.image,tbl_chemist_other.delete_request,tbl_chemist_other.delete_request_date from tbl_chemist left join tbl_chemist_other on tbl_chemist.code = tbl_chemist_other.code where tbl_chemist.altercode='$user_altercode' and tbl_chemist.code=tbl_chemist_other.code limit 1")->row();
 		if(!empty($query->id)){

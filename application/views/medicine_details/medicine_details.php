@@ -26,9 +26,9 @@ function goBack() {
 							<div class="col-sm-5 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-9">
-										<img src="<?= base_url(); ?>/img_v51/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
+										<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
 
-										<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" alt="" class="medicine_details_out_of_stock_img" loading="lazy">
+										<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/out_of_stock_img.png" alt="" class="medicine_details_out_of_stock_img" loading="lazy">
 
 										<div class="big1">
 											<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">

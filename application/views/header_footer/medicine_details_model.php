@@ -12,7 +12,7 @@
 				<div class="medicine_details_item_date_time">Loading....</div>
 				<div class="medicine_details_api_loading text-center" style="display:none">
 					<div>
-						<img src="<?= base_url(); ?>/img_v51/loading.gif" width="100px" alt="loading">
+						<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/loading.gif" width="100px" alt="loading">
 					</div>
 					<div>Loading....</div>
 				</div>
@@ -20,9 +20,9 @@
 					<div class="col-sm-5 col-12">
 						<div class="row">
 							<div class="col-sm-12 col-9">
-								<img src="<?= base_url(); ?>/img_v51/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
+								<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/featured_img.png" alt="" class="medicine_details_featured_img" loading="lazy">
 
-								<img src="<?= base_url(); ?>/img_v51/out_of_stock_img.png" alt="" class="medicine_details_out_of_stock_img" loading="lazy">
+								<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/out_of_stock_img.png" alt="" class="medicine_details_out_of_stock_img" loading="lazy">
 
 								<div class="big1">
 									<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">

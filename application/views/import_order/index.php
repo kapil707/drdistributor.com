@@ -48,4 +48,4 @@ function goBack() {
 		</div>
 	</div>  
 </div>
-<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/import_order/index1.js"></script>
+<script src="<?= base_url(); ?>assets/js-<?php echo $this->appconfig->getWebJs(); ?>/import_order/index12.js"></script>

@@ -362,7 +362,7 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
-	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id) {
+	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemCode,$Id,$hidden_item_code) {
 
 		$this->db->select("item_name");
 		$this->db->where('i_code',$ItemCode);
@@ -381,7 +381,7 @@ class ImportOrderModel extends CI_Model
 		$this->delete_query("drd_import_orders_suggest",$where);
 		/******************************************************* */
 		
-		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$hidden_item_code);
 		/******************************************************* */
 
 		$date = date('Y-m-d');

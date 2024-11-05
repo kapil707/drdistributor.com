@@ -236,6 +236,7 @@ function import_order_medicine_change(myid) {
 	$('.medicine_search_textbox').focus();
 
 	hidden_seleted_div_id = myid;
+	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
 	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
@@ -243,13 +244,14 @@ function import_order_medicine_change(myid) {
 
 function import_order_medicine_change_api(item_code){	
 
+	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
 	myid = hidden_seleted_div_id;
 	if(myid!=""){
 		$.ajax({
 			url: get_base_url() + "import_order/import_order_medicine_change_api",
 			type:"POST",
 			/*dataType: 'html',*/
-			data: {item_code:item_code,myid:myid},
+			data: {item_code:item_code,myid:myid,hidden_item_code:hidden_item_code},
 			cache : true,
 			error: function(){
 				swal("Medicine not changed");

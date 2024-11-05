@@ -66,7 +66,7 @@ function btn_upload_import_file(){
 		contentType: false,
 		processData: false,
 		data: form_data,
-		timeout: 40000,                         
+		timeout: 40000,
 		type: 'post',
 		error: function(){
 		   	swal("Please compare the columns in the Excel file with those you have entered in the website.");

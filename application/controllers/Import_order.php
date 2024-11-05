@@ -145,12 +145,13 @@ class Import_order extends CI_Controller {
 		$data["result"] 	= $result;
 		if(empty($result))
 		{
-			redirect(base_url()."import_order");
+			redirect(base_url()."io");
 		}
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/medicine_search', $data);
 		$this->load->view('header_footer/footer', $data);
+		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 	
 	public function medicine_deleted_items($OrderId=''){

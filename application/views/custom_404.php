@@ -36,15 +36,12 @@
 </style>
 </head>
 <body>
-    <?php
-    $CI =& get_instance();
-    ?>
     <div class="container">
-        <image src="<?php echo base_url(); ?>/assets/<?php echo $CI->appconfig->getWebJs(); ?>/images/logo4.png" width="200px;">
+        <image src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/images/logo4.png" width="200px;">
         <h1>404 - Page Not Found</h1>
         <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-        <p>Please <a href="/">click here</a> to go back to the home page.</p>
-        <p><?php echo $CI->appconfig->getSiteTitle2(); ?></p>
+        <p>Please <a href="<?php echo base_url(); ?>">click here</a> to go back to the home page.</p>
+        <p><?php echo $this->appconfig->getSiteTitle2(); ?></p>
     </div>
 </body>
 </html>

@@ -135,7 +135,7 @@ function goBack() {
 												</a>
 											</span>
 											<span class="import_order_item_suggested_<?= $myid ?>" style="display:none"> | 
-												<a href="javascript:import_oreder_medicine_delete_suggested('<?= $myid ?>')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+												<a href="javascript:import_order_medicine_delete_suggested('<?= $myid ?>')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 											</span>
 										</div>
 									</div>

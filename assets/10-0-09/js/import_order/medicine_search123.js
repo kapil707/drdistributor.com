@@ -282,7 +282,7 @@ function import_order_medicine_change_api(item_code){
 	}
 }
 /************************************* */
-function import_oreder_medicine_delete_suggested(myid) {
+function import_order_medicine_delete_suggested(myid) {
 	swal({
 		title: "Are you sure to delete suggested medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/

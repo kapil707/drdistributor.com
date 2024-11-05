@@ -46,7 +46,7 @@ if (!function_exists('log_activity')) {
         );
 
         // Insert log into the database
-        //$CI->ActivityModel->insert_log($log_data);
+        $CI->ActivityModel->insert_log($log_data);
     }
 }
 if (!function_exists('log_search_activity')) {
@@ -68,6 +68,6 @@ if (!function_exists('log_search_activity')) {
         );
         
         // Insert log into the database
-        //$CI->MedicineSearchModel->insert_log($log_data);
+        $CI->MedicineSearchModel->insert_log($log_data);
     }
 }

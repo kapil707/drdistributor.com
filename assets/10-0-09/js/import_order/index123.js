@@ -51,7 +51,7 @@ function btn_upload_import_file(){
 	}	
 	$(".main_page_loading").show();
 	$("#btn_upload_import_file").hide();
-	var file_data = $('#sortpicture').prop('files')[0];
+	var file_data = $('#import_order_file').prop('files')[0];
 	var form_data = new FormData();                  
     form_data.append('file',file_data);
 	form_data.append('headername',headername);

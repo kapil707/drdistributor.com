@@ -336,7 +336,7 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_file")->result();
 	}
 
-	public function import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$Id) {
+	public function import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id) {
 		
 		$this->db->select("*");
 		$this->db->where('id',$Id);

@@ -550,7 +550,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId		= $this->SalesmanId;
 		$ChemistNrx		= $this->ChemistNrx;
 
-		$return_value = $this->ImportOrderModel->import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$Id);
+		$return_value = $this->ImportOrderModel->import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id);
 		$row = $return_value["row"];
 		$item_suggest_altercode = $return_value["item_suggest_altercode"];
 		/******************************************/		

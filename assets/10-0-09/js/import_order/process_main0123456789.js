@@ -9,7 +9,6 @@ function MainPageFuncationCall() {
 		data: { order_id: order_id },
 		url: get_base_url() + "import_order/process_main_api",
 		cache : true,
-		timeout: 60000,
 		error: function() {
 		},
 		success: function(data) {
@@ -173,6 +172,8 @@ function process_find_medicine(item_id){
 			$.each(data.items, function(i,item){
 				if (item)
 				{
+					MainPageFuncationCall();
+
 					$(".main_page_loading").hide();
 					$(".loading_with_id_"+item_id).hide();
 

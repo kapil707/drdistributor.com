@@ -337,9 +337,12 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('order_id',$OrderId);
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
+		$this->db->limit(1);
 		$result = $this->db->get("drd_import_file")->result();
 		foreach($result as $row)
 		{
+			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
+
 			$dt = array(
 				'i'=>$i++,
 				'id' => $row->id,

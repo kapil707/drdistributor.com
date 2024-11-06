@@ -26,7 +26,7 @@ function MainPageFuncationCall() {
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="import_order_box_left_div web-col-padding-0">
-									(${ItemId}) <?= $ChemistId;?> :
+									(${ItemId}) ${ChemistId} :
 								</div>
 								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">

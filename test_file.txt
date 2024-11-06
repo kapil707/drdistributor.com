@@ -24,6 +24,12 @@ git commit -m "add"
 git branch -M website-v-10
 git push -u origin website-v-10
 
+git add "-A"
+git commit -m "add"
+
+git branch -M backup-24-11-06
+git push -u origin backup-24-11-06
+
 
 /*******************/
 login - 

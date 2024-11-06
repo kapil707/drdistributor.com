@@ -15,7 +15,7 @@
 	}
 }
 </style>
-<?php if(!empty($chemist_id)){ ?>
+<?php if(!empty($ChemistId) && $UserType=="sales"){ ?>
 <style>
 .top_bar_title {
 	margin-top: -5px;
@@ -28,7 +28,7 @@ $(".top_bar_title1").show();
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>search_medicine";
+	window.location.href = "<?= base_url();?>ms";
 }
 </script>
 <div class="container-fluid main_container" style="display:none;">

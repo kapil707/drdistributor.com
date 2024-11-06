@@ -148,7 +148,7 @@ function MainPageFuncationCall() {
 						</div>
 					`);
 
-					setTimeout(process_find_medicine(item_id),500);
+					//setTimeout(process_find_medicine(item_id),500);
 				}
 			});
 		}

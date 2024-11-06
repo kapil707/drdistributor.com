@@ -171,7 +171,7 @@ class Import_order_api extends CI_Controller {
 		$order_id = $_POST["order_id"];
 		$order_id = base64_decode($order_id);
 		$jsonArray = $this->ImportOrderModel->order_check($order_id);
-		if (empty($jsonArray)) {
+		if (!empty($jsonArray)) {
 			$items = "yes";
 		}else{
 			$items = "no";

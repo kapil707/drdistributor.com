@@ -111,6 +111,6 @@ order_type = "all";// change value taki cart pur load na ho
 <script>
 $(document).ready(function(){	
 	setTimeout('cart_page_load();',100);
-	setTimeout('get_medicine_favourite();',200);
+	setTimeout('medicine_favourite_api();',200);
 });
 </script>

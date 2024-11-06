@@ -170,9 +170,6 @@ function view_cart_btn() {
 }
 
 function medicine_search_api() {
-
-	alert(import_order_medicine_change_value)
-
 	new_i = 0;
 
 	$(".my_cart_api_div_mobile").hide();

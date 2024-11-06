@@ -328,6 +328,21 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_orders_suggest")->result();
 	}
 
+	public function order_check($OrderId) {
+		$this->db->select("id");
+		$this->db->where('order_id',$OrderId);
+		$this->db->where('status',0);
+		$this->db->order_by('id','asc');
+		$this->db->limit(1);
+		$row = $this->db->get("drd_import_file")->row();
+		if(!empty($row)){
+			$jsonArray = "yes";
+		}else{
+			$jsonArray = "";
+		}
+		return $jsonArray;
+	}
+
 	public function process_main($OrderId) {
 		
 		$jsonArray = array();

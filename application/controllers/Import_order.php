@@ -138,7 +138,7 @@ class Import_order extends CI_Controller {
 		$data["order_id"] = $order_id;
 
 		$order_id = base64_decode($order_id);
-		$jsonArray = $this->ImportOrderModel->process_main($order_id);
+		$jsonArray = $this->ImportOrderModel->order_check($order_id);
 		if (empty($jsonArray)) {
 			redirect(base_url() . "io");
 		}

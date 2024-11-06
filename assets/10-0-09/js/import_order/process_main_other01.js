@@ -16,6 +16,7 @@ function import_order_medicine_change(item_id) {
 
 function import_order_medicine_change_api(selected_item_code){	
 
+	alert(selected_item_code)
 	item_id = hidden_item_id;
 	hidden_item_code = $(".import_order_hidden_item_code_"+item_id).val();
 	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
@@ -23,7 +24,6 @@ function import_order_medicine_change_api(selected_item_code){
 		$.ajax({
 			url: get_base_url() + "import_order/import_order_medicine_change_api",
 			type:"POST",
-			/*dataType: 'html',*/
 			data: {item_id:item_id,item_code:hidden_item_code,selected_item_code:selected_item_code},
 			cache : true,
 			error: function(){

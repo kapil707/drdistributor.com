@@ -169,4 +169,4 @@ order_id = "<?php echo $order_id ?>";
 get_page_name = "import_page";// change value taki cart pur load na ho 
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main12345.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main123456.js"></script>

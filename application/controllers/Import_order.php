@@ -714,10 +714,10 @@ class Import_order extends CI_Controller {
 		echo json_encode($response);
 	}
 	
-	public function import_order_row_quantity_change_api_api() {
+	public function import_order_row_quantity_change_api() {
 
 		$ItemId 		= $_POST["item_id"];
-		$ItemQuantity	= $_POST["Quantity"];
+		$ItemQuantity	= $_POST["quantity"];
 
 		$UserType 	= $this->UserType;
 		$ChemistId 	= $this->ChemistId;

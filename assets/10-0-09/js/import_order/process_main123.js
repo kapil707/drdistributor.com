@@ -20,6 +20,7 @@ function MainPageFuncationCall() {
 					let item_name = item.item_name;
 					let item_quantity = item.quantity;
 					let item_mrp = item.mrp;
+					let ChemistId = data.ChemistId;
 
 					$(".main_page_data").append(`
                         <div class="main_box_div_data import_order_main_div_${ItemId} p-1">

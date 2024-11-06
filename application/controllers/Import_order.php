@@ -547,7 +547,8 @@ class Import_order extends CI_Controller {
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',
-            'items'=> $jsonArray
+            'items'=> $jsonArray,
+			'ChemistId'=>$this->ChemistId
         );
 
         // Send JSON response

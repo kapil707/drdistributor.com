@@ -38,7 +38,7 @@ function import_order_medicine_change_api(selected_item_code){
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
-							import_order_medicine_change = 0;
+							import_order_medicine_change_value = 0;
 							process_find_medicine()
 						}
 						else{

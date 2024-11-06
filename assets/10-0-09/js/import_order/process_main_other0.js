@@ -7,7 +7,7 @@ function import_order_medicine_change(item_id) {
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
-	import_order_medicine_change = 1;
+	import_order_medicine_change_value = 1;
 	hidden_item_id = item_id;
 	hidden_item_name = $(".import_order_hidden_item_name_"+item_id).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);

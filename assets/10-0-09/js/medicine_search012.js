@@ -1,3 +1,4 @@
+var import_order_medicine_change_value = 0; // yha import page ke iya ha iss ko yaha set kiya h or iss ko remove nahi karna
 function cart_page_load(){
 
 	$(".main_page_loading").show();
@@ -170,7 +171,7 @@ function view_cart_btn() {
 
 function medicine_search_api() {
 
-	alert(import_order_medicine_change)
+	alert(import_order_medicine_change_value)
 
 	new_i = 0;
 
@@ -288,11 +289,11 @@ function medicine_search_api() {
 							rete_div =  '<span class="all_item_ptr" title="PTR : '+item_ptr+'">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </span> | <span class="all_item_mrp" title="MRP : '+item_mrp+'">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </span> | <span class="all_item_price" title="*Approximate ~ '+item_price+'">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </span>';
 
 							/******************************** */
-							if(import_order_medicine_change==0){							
+							if(import_order_medicine_change_value==0){							
 								var onlcick_event = 'onclick=medicine_details_funcation("'+item_code+'"),clear_search_function()';
 							}
 							
-							if(import_order_medicine_change==1){							
+							if(import_order_medicine_change_value==1){							
 								var onlcick_event = 'onclick=medicine_details_funcation("'+item_code+'"),clear_search_function()';
 							}
 

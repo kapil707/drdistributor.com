@@ -105,7 +105,6 @@ function goBack() {
 <script>
 get_page_name = "medicine_search";// change value taki cart pur load na ho 
 order_type = "all";// change value taki cart pur load na ho 
-import_order_medicine_change = 0; // yha import page ke iya ha iss ko yaha set kiya h or iss ko remove nahi karna
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search.js"></script>
 <script>

@@ -780,7 +780,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId = $this->SalesmanId; 
 
 		$status = 0;
-		if(!empty($ItemCode) && !empty($Id)){
+		if(!empty($ItemCode) && !empty($ItemId)){
 			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode,$SelectedItemCode);
 		}
 

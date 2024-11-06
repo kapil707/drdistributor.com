@@ -338,8 +338,8 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
-		$result = $this->db->get("drd_import_file")->result();
-		foreach($result as $row)
+		$row = $this->db->get("drd_import_file")->row();
+		if(!empty($row))
 		{
 			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
 
@@ -358,6 +358,8 @@ class ImportOrderModel extends CI_Model
 				'date'=>$row->date,
 			);
 			$jsonArray[] = $dt;
+		}else{
+			$jsonArray = "";
 		}
 		return $jsonArray;
 	}
@@ -373,7 +375,7 @@ class ImportOrderModel extends CI_Model
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
 		$row = $this->db->get("drd_import_file")->row();
-		if($row)
+		if(!empty($row))
 		{
 			$this->db->query("update drd_import_file set status='2' where id='$row->id'");
 		}

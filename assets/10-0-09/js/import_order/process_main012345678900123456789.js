@@ -137,7 +137,7 @@ function MainPageFuncationCall() {
                     `);
 				}
             });
-			if(data.items!="[]"){
+			if(data.items!=""){
 				MainPageFuncationCall();
 			}else{
 				process_find_medicine();

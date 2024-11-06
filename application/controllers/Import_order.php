@@ -562,7 +562,6 @@ class Import_order extends CI_Controller {
 		$OrderId = base64_decode($OrderId);
 
 		$row = $this->ImportOrderModel->process_main2($OrderId);
-		process_main2($OrderId);
 		$ItemId	= $row->id;
 		
 		$UserType 		= $this->UserType;

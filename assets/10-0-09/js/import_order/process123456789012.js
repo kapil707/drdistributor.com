@@ -106,7 +106,7 @@ function import_order_medicine_details(myid){
 					item_price 		= item.item_price;
 					item_featured 	= item.item_featured;
 
-					$(".import_order_main_"+item_id).html(`
+					$(".import_order_main_"+myid).html(`
 						hello g
 					`);
 

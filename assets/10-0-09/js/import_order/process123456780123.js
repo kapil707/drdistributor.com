@@ -16,17 +16,17 @@ function MainPageFuncationCall() {
 		success: function(data) {
 			$.each(data.items, function(i, item) {
 				if (item) {
-					let item_id = item.id;
+					let ItemId = item.id;
 					let item_name = item.item_name;
 					let item_quantity = item.quantity;
 					let item_mrp = item.mrp;
 
 					$(".main_page_data").append(`
-                        <div class="main_box_div_data import_order_main_div_${item_id} p-1">
+                        <div class="main_box_div_data import_order_main_div_${ItemId} p-1">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="import_order_box_left_div web-col-padding-0">
-									(${item_id}) <?= $ChemistId;?> :
+									(${ItemId}) <?= $ChemistId;?> :
 								</div>
 								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">
@@ -37,14 +37,14 @@ function MainPageFuncationCall() {
 											
 											<span class="all_item_order_quantity">Quantity : </span>
 
-											<input type="text" class="import_order_hidden_item_code_${item_id}" />
+											<input type="text" class="import_order_hidden_item_code_${ItemId}" />
 
-											<input type="hidden" name="" value="${item_name}" class="import_order_hidden_item_name_${item_id}" />
+											<input type="hidden" name="" value="${item_name}" class="import_order_hidden_item_name_${ItemId}" />
 
-											<input type="number" name="item_qty[]" value="${item_quantity}" class="import_order_quantity_textbox_${item_id} import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change('${item_id})" title="Order quantity" min="1" max="1000" maxlength="4" />
+											<input type="number" name="item_qty[]" value="${item_quantity}" class="import_order_quantity_textbox_${ItemId} import_order_item_order_quantity_textbox" style="width:100px;" placeholder="Eg 1,2" onchange="import_oreder_medicine_quantity_change(${ItemId})" title="Order quantity" min="1" max="1000" maxlength="4" />
 
 											<span>				
-												<a href="javascript:void(0)" onclick="import_order_medicine_delete('${item_id})" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
+												<a href="javascript:void(0)" onclick="import_order_row_delete(${ItemId})" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
 										</div>
 										<div class="col-sm-3 text-right">
@@ -57,39 +57,39 @@ function MainPageFuncationCall() {
 									</div>
 								</div>
 
-								<div class="col-sm-12 import_order_main_${item_id}">
+								<div class="col-sm-12 import_order_main_${ItemId}">
 								</div>
 									<div class="import_order_box_left_div web-col-padding-0">
 
-										<img src="${get_base_url()}assets/${getWebJs()}/images/featured_img.png" class="import_order_item_featured_img import_order_item_featured_${item_id}" style="display:none">
+										<img src="${get_base_url()}assets/${getWebJs()}/images/featured_img.png" class="import_order_item_featured_img import_order_item_featured_${ItemId}" style="display:none">
 
-										<img src="${get_base_url()}assets/${getWebJs()}/images/out_of_stock_img.png" class="import_order_item_out_of_stock_img import_order_item_out_of_stock_${item_id}" style="display:none">
+										<img src="${get_base_url()}assets/${getWebJs()}/images/out_of_stock_img.png" class="import_order_item_out_of_stock_img import_order_item_out_of_stock_${ItemId}" style="display:none">
 
-										<img src="${get_base_url()}assets/${getWebJs()}/images/logo4.png" width="60px;" class="all_item_image import_order_item_image_${item_id}" alt="">
+										<img src="${get_base_url()}assets/${getWebJs()}/images/logo4.png" width="60px;" class="all_item_image import_order_item_image_${ItemId}" alt="">
 
 									</div>
 
 									<div class="import_order_box_right_div web-col-padding-0">
 										<div class="row">
 											<div class="col-sm-8">
-												<span class="all_item_name import_order_item_name_${item_id}"></span>
+												<span class="all_item_name import_order_item_name_${ItemId}"></span>
 
 												<span class="all_item_packing">
-													(<span class="import_order_item_packing_${item_id}"></span> Packing) 
+													(<span class="import_order_item_packing_${ItemId}"></span> Packing) 
 												</span> - 
 
 												<span class="all_item_expiry"> 
-													Expiry : <span class="import_order_item_expiry_${item_id}"></span>
+													Expiry : <span class="import_order_item_expiry_${ItemId}"></span>
 												</span>
 											</div>
 											<div class="col-sm-4 text-right">
 												<span class="all_item_ptr">
 													PTR : <i class="fa fa-inr" aria-hidden="true"></i> 
-													<span class="import_order_item_ptr_${item_id}">0.00</span>/-
+													<span class="import_order_item_ptr_${ItemId}">0.00</span>/-
 												</span> | 
 
 												<span class="all_item_mrp">
-													MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="import_order_item_mrp_${item_id}">0.00</span>/- 
+													MRP. : <i class="fa fa-inr" aria-hidden="true"></i> <span class="import_order_item_mrp_${ItemId}">0.00</span>/- 
 												</span>
 											</div>
 
@@ -99,25 +99,25 @@ function MainPageFuncationCall() {
 
 											<div class="col-sm-7">
 												<span class="all_item_company">
-													By : <span class="import_order_item_company_${item_id}"></span>
+													By : <span class="import_order_item_company_${ItemId}"></span>
 												</span> |  
 
 												<span class="all_item_batch_no"> Batch no : 
-													<span class="import_order_item_batch_no_${item_id}"></span>
+													<span class="import_order_item_batch_no_${ItemId}"></span>
 												</span>
 
-												<span class="all_item_scheme import_order_item_scheme_div_${item_id}"> | 
-													<span class="import_order_item_scheme_${item_id}"></span>
+												<span class="all_item_scheme import_order_item_scheme_div_${ItemId}"> | 
+													<span class="import_order_item_scheme_${ItemId}"></span>
 												</span>
 											</div>
 											<div class="col-sm-5 text-right">
 												<span class="all_item_stock">
-													Stock : <span class="import_order_item_stock_${item_id}"></span>
+													Stock : <span class="import_order_item_stock_${ItemId}"></span>
 												</span> | 
 
 												<span class="all_item_price">
 													*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> 
-													<span class="import_order_item_price_${item_id}">0.00</span>/-
+													<span class="import_order_item_price_${ItemId}">0.00</span>/-
 												</span>
 											</div>
 
@@ -126,16 +126,16 @@ function MainPageFuncationCall() {
 											</div>
 									
 											<div class="col-sm-12">
-												<span class="cart_description1 import_order_item_message_${item_id}"> 
+												<span class="cart_description1 import_order_item_message_${ItemId}"> 
 												</span>
 												<span>
-													<a href="javascript:import_order_medicine_change('${item_id})" class="import_order_edit_btn" title="Change medicine">
+													<a href="javascript:import_order_medicine_change(${ItemId})" class="import_order_edit_btn" title="Change medicine">
 														<i class="fa fa-pencil" aria-hidden="true"></i>
 														Change medicine
 													</a>
 												</span>
-												<span class="import_order_item_suggested_${item_id}" style="display:none"> | 
-													<a href="javascript:import_order_medicine_delete_suggested('${item_id})" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+												<span class="import_order_item_suggested_${ItemId}" style="display:none"> | 
+													<a href="javascript:import_order_medicine_delete_suggested(${ItemId})" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 												</span>
 											</div>
 										</div>
@@ -145,17 +145,17 @@ function MainPageFuncationCall() {
 						</div>
 					`);
 
-					setTimeout(process_find_medicine(item_id),500);
+					setTimeout(process_find_medicine(ItemId),500);
 				}
 			});
 		}
 	});
 }
 
-function process_find_medicine(myid){
+function process_find_medicine(ItemId){
 	$.ajax({
 		type       : "POST",
-		data       : {myid:myid} ,
+		data       : {ItemId:ItemId} ,
 		url        : get_base_url() + "import_order/process_find_medicine_api",
 		cache : true,
 		timeout: 60000,
@@ -165,8 +165,7 @@ function process_find_medicine(myid){
 		success    : function(data){
 			$.each(data.items, function(i,item){
 				if (item)
-				{					
-					excel_number = item.excel_number;
+				{
 					item_message 	= item.item_message;
 					item_background = item.item_background;
 					item_suggest_altercode = item.item_suggest_altercode;
@@ -186,20 +185,20 @@ function process_find_medicine(myid){
 					item_price = item.item_price;
 					item_featured = item.item_featured;
 
-					$('.import_order_quantity_textbox_'+excel_number).focus();
+					$('.import_order_quantity_textbox_'+ItemId).focus();
 
-					$('.import_order_main_div_'+excel_number).css("background-color",item_background);
-					$('.import_order_main_'+excel_number).show();
+					$('.import_order_main_div_'+ItemId).css("background-color",item_background);
+					$('.import_order_main_'+ItemId).show();
 
-					$('.import_order_item_message_'+excel_number).html(item_message);
+					$('.import_order_item_message_'+ItemId).html(item_message);
 					
-					$('.import_order_hidden_item_code_'+excel_number).val(item_code)
-					$('.import_order_item_name_'+excel_number).html(item_name)
-					$('.import_order_item_image_'+excel_number).attr("src",item_image);
-					$('.import_order_item_packing_'+excel_number).html(item_packing);
-					$('.import_order_item_batch_no_'+excel_number).html(item_batch_no);
-					$('.import_order_item_expiry_'+excel_number).html('<b>'+item_expiry+'</b>');
-					$('.import_order_item_scheme_'+excel_number).html('Scheme : '+item_scheme);
+					$('.import_order_hidden_item_code_'+ItemId).val(item_code)
+					$('.import_order_item_name_'+ItemId).html(item_name)
+					$('.import_order_item_image_'+ItemId).attr("src",item_image);
+					$('.import_order_item_packing_'+ItemId).html(item_packing);
+					$('.import_order_item_batch_no_'+ItemId).html(item_batch_no);
+					$('.import_order_item_expiry_'+ItemId).html('<b>'+item_expiry+'</b>');
+					$('.import_order_item_scheme_'+ItemId).html('Scheme : '+item_scheme);
 
 					item_quantity_div = item_quantity;
 					if(item_stock!="")
@@ -207,36 +206,36 @@ function process_find_medicine(myid){
 						item_quantity_div = item_stock;
 					}
 
-					$('.import_order_item_stock_'+excel_number).html(item_quantity_div);
-					$('.import_order_item_company_'+excel_number).html(item_company);
+					$('.import_order_item_stock_'+ItemId).html(item_quantity_div);
+					$('.import_order_item_company_'+ItemId).html(item_company);
 
-					$('.import_order_item_ptr_'+excel_number).html(item_ptr);
-					$('.import_order_item_mrp_'+excel_number).html(item_mrp);
-					$('.import_order_item_price_'+excel_number).html(item_price);
+					$('.import_order_item_ptr_'+ItemId).html(item_ptr);
+					$('.import_order_item_mrp_'+ItemId).html(item_mrp);
+					$('.import_order_item_price_'+ItemId).html(item_price);
 
-					$('.import_order_item_scheme_div_'+excel_number).hide()
+					$('.import_order_item_scheme_div_'+ItemId).hide()
 					if(item_scheme!="0+0"){
-						$('.import_order_item_scheme_div_'+excel_number).show()
+						$('.import_order_item_scheme_div_'+ItemId).show()
 					}
 
-					$('.import_order_item_featured_'+excel_number).hide();
+					$('.import_order_item_featured_'+ItemId).hide();
 					if(item_quantity=="0"){
-						$('.import_order_item_out_of_stock_'+excel_number).show();
+						$('.import_order_item_out_of_stock_'+ItemId).show();
 					}
 
-					$('.import_order_item_featured_'+excel_number).hide();
+					$('.import_order_item_featured_'+ItemId).hide();
 					if(item_featured=="1"){
-						$('.import_order_item_featured_'+excel_number).show();
+						$('.import_order_item_featured_'+ItemId).show();
 					}
 
-					$('.import_order_item_featured_'+excel_number).hide();
+					$('.import_order_item_featured_'+ItemId).hide();
 					if(item_featured=="1"){
-						$('.import_order_item_featured_'+excel_number).show();
+						$('.import_order_item_featured_'+ItemId).show();
 					}
 					
-					$('.import_order_item_suggested_'+excel_number).hide();
+					$('.import_order_item_suggested_'+ItemId).hide();
 					if(item_suggest_altercode!=""){
-						$('.import_order_item_suggested_'+excel_number).show();
+						$('.import_order_item_suggested_'+ItemId).show();
 					}				
 				}
 			});
@@ -244,14 +243,60 @@ function process_find_medicine(myid){
 	});
 }
 
-function import_order_medicine_quantity_change(myid) {
 
-	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
-	quantity = $(".import_order_quantity_textbox_"+myid).val();
+function import_order_row_delete(ItemId) {
+
+	hidden_item_code = $(".import_order_hidden_item_code_"+ItemId).val();
+	swal({
+		title: "Are you sure to delete medicine?",
+		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
+		icon: "warning",
+		buttons: ["No", "Yes"],
+		dangerMode: true,
+	}).then(function(result) {
+		if (result) {
+			$.ajax({
+				type       : "POST",
+				data       : {ItemId:ItemId,item_code:hidden_item_code,},
+				url        : get_base_url() + "import_order/import_order_row_delete_api",
+				cache : true,
+				timeout: 60000,
+				error: function(){
+					swal("Medicine not deleted");
+				},
+				success    : function(data){
+					$.each(data.items, function(i,item){	
+						if (item)
+						{
+							if(item.status=="1")
+							{
+								$(".import_order_main_div_"+ItemId).hide();
+								$(".import_order_main_div_"+ItemId).html('');
+								swal("Medicine deleted successfully", {
+									icon: "success",
+								});
+							}
+							else{
+								swal("Medicine not deleted");
+							}
+						} 
+					});
+				}
+			});
+		} else {
+			swal("Medicine not deleted");
+		}
+	});
+}
+
+function import_order_row_quantity_change(ItemId) {
+
+	hidden_item_code = $(".import_order_hidden_item_code_"+ItemId).val();
+	quantity = $(".import_order_quantity_textbox_"+ItemId).val();
 	$.ajax({
 		type       : "POST",
-		data       :  {myid:myid,item_code:hidden_item_code,quantity:quantity,},
-		url        : get_base_url() +  "import_order/import_order_medicine_quantity_change_api",
+		data       :  {ItemId:ItemId,item_code:hidden_item_code,quantity:quantity,},
+		url        : get_base_url() +  "import_order/import_order_row_quantity_change_api",
 		cache : true,
 		error: function(){
 			swal("Quantity not updated");
@@ -263,7 +308,7 @@ function import_order_medicine_quantity_change(myid) {
 					if(item.status=="1")
 					{
 						swal("Quantity updated successfully");
-						//import_order_medicine_details(myid)
+						//import_order_medicine_details(ItemId)
 					}
 					else{
 						swal("Quantity not updated");
@@ -274,52 +319,8 @@ function import_order_medicine_quantity_change(myid) {
 	});
 }
 
-function import_order_medicine_delete(myid) {
-
-	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
-	swal({
-		title: "Are you sure to delete medicine?",
-		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
-		icon: "warning",
-		buttons: ["No", "Yes"],
-		dangerMode: true,
-	}).then(function(result) {
-		if (result) {
-			$.ajax({
-				type       : "POST",
-				data       : {myid:myid,item_code:hidden_item_code,},
-				url        : get_base_url() + "import_order/import_order_medicine_delete_api",
-				cache : true,
-				error: function(){
-					swal("Medicine not deleted");
-				},
-				success    : function(data){
-					$.each(data.items, function(i,item){	
-						if (item)
-						{
-							if(item.status=="1")
-							{
-								$(".import_order_main_div_"+myid).hide();
-								$(".import_order_main_div_"+myid).html('');
-								swal("Medicine deleted successfully", {
-									icon: "success",
-								});
-							}
-							else{
-								swal("Medicine not deleted");
-							}
-						} 
-					});
-				},
-				timeout: 60000
-			});
-		} else {
-			swal("Medicine not deleted");
-		}
-	});
-}
 /************************************* */
-function import_order_medicine_change(myid) {
+function import_order_medicine_change(ItemId) {
 
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
@@ -328,8 +329,8 @@ function import_order_medicine_change(myid) {
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
-	hidden_myid = myid;
-	hidden_item_name = $(".import_order_hidden_item_name_"+myid).val();
+	hidden_ItemId = ItemId;
+	hidden_item_name = $(".import_order_hidden_item_name_"+ItemId).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
 }
@@ -337,15 +338,15 @@ function import_order_medicine_change(myid) {
 function import_order_medicine_change_api(selected_item_code){	
 
 	
-	myid = hidden_myid;
-	hidden_item_code = $(".import_order_hidden_item_code_"+myid).val();
+	ItemId = hidden_ItemId;
+	hidden_item_code = $(".import_order_hidden_item_code_"+ItemId).val();
 	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
-	if(myid!=""){
+	if(ItemId!=""){
 		$.ajax({
 			url: get_base_url() + "import_order/import_order_medicine_change_api",
 			type:"POST",
 			/*dataType: 'html',*/
-			data: {myid:myid,item_code:hidden_item_code,selected_item_code:selected_item_code},
+			data: {ItemId:ItemId,item_code:hidden_item_code,selected_item_code:selected_item_code},
 			cache : true,
 			error: function(){
 				swal("Medicine not changed");
@@ -359,8 +360,8 @@ function import_order_medicine_change_api(selected_item_code){
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
-							hidden_myid = "";
-							import_order_medicine_details(myid)
+							hidden_ItemId = "";
+							import_order_medicine_details(ItemId)
 						}
 						else{
 							swal("Medicine not changed");
@@ -376,7 +377,7 @@ function import_order_medicine_change_api(selected_item_code){
 	}
 }
 /************************************* */
-function import_order_medicine_delete_suggested(myid) {
+function import_order_medicine_delete_suggested(ItemId) {
 	swal({
 		title: "Are you sure to delete suggested medicine?",
 		/*text: "Once deleted, you will not be able to recover this imaginary file!",*/
@@ -388,7 +389,7 @@ function import_order_medicine_delete_suggested(myid) {
 			$.ajax({
 				url: get_base_url() + "import_order/import_order_medicine_delete_suggested_api",
 				type:"POST",
-				data: {myid:myid},
+				data: {ItemId:ItemId},
 				cache : true,
 				timeout: 60000,
 				error: function(){
@@ -403,7 +404,7 @@ function import_order_medicine_delete_suggested(myid) {
 								swal("Suggested Medicine deleted successfully", {
 									icon: "success",
 								});
-								import_order_medicine_details(myid)
+								import_order_medicine_details(ItemId)
 							}
 							else{
 								swal("Suggested medicine not deleted");

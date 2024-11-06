@@ -421,12 +421,7 @@ class ImportOrderModel extends CI_Model
 		return $return;
 	}
 
-	public function import_order_medicine_quantity_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$ItemQuantity) {
-
-		return $this->db->query("update drd_import_file set quantity='$Quantity' where id='$Id'");
-	}
-
-	public function import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
+	public function import_order_row_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
 		
 		$this->db->query("update drd_import_file set status=0 where id='$Id'");
 		/******************************************************* */
@@ -436,6 +431,11 @@ class ImportOrderModel extends CI_Model
 
 		$status = 1;
 		return $status;
+	}
+
+	public function import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode,$ItemQuantity) {
+
+		return $this->db->query("update drd_import_file set quantity='$ItemQuantity' where id='$ItemId'");
 	}
 
 	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$SelectedItemCode) {

@@ -680,30 +680,43 @@ class Import_order extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
 	}
-	
-	public function expiry_check($expiry)
-	{
-		$dt = date("y.m.d");
-		$time = strtotime($dt);
-		$y = date("ym", strtotime("+6 month", $time));
-		$expiry1 = substr($expiry,0,2);
-		$expiry2 = substr($expiry,3,5);
-		$x = $expiry2.$expiry1;
-		if($y<=$x)
-		{
-			$r = 0;
+
+	public function import_order_row_delete_api() {
+
+		$Id			= ($_POST["myid"]);
+		$ItemCode 	= ($_POST["item_code"]);
+
+		$UserType 	= $this->UserType;
+		$ChemistId 	= $this->ChemistId;
+		$SalesmanId = $this->SalesmanId; 
+
+		$status = 0;
+		if(!empty($Id)){
+			$status = $this->ImportOrderModel->import_order_row_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode);
 		}
-		else
-		{
-			$r = 1;
-		}
-		return $r;
+
+		$jsonArray = array();
+		$dt = array(
+			'status'=>$status,
+		);
+		$jsonArray[] = $dt;
+		$items = $jsonArray;
+
+		$response = array(
+			'success' => "1",
+			'message' => 'Data delete successfully',
+			'items' => $items,
+		);
+
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 	
-	public function import_order_medicine_quantity_change_api() {
+	public function import_order_row_quantity_change_api_api() {
 
-		$Id 			= $_POST["myid"];
-		$ItemQuantity	= $_POST["quantity"];
+		$ItemId 		= $_POST["ItemId"];
+		$ItemQuantity	= $_POST["Quantity"];
 
 		$UserType 	= $this->UserType;
 		$ChemistId 	= $this->ChemistId;
@@ -715,7 +728,7 @@ class Import_order extends CI_Controller {
 				$ItemQuantity = 1000;
 			}
 
-			$status = $this->ImportOrderModel->import_order_medicine_quantity_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$ItemQuantity);
+			$status = $this->ImportOrderModel->import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode,$ItemQuantity);
 		}
 
 		$jsonArray = array();
@@ -735,37 +748,24 @@ class Import_order extends CI_Controller {
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-	
-	public function import_order_medicine_delete_api() {
 
-		$Id			= ($_POST["myid"]);
-		$ItemCode 	= ($_POST["item_code"]);
-
-		$UserType 	= $this->UserType;
-		$ChemistId 	= $this->ChemistId;
-		$SalesmanId = $this->SalesmanId; 
-
-		$status = 0;
-		if(!empty($Id)){
-			$status = $this->ImportOrderModel->import_order_medicine_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode);
+	public function expiry_check($expiry)
+	{
+		$dt = date("y.m.d");
+		$time = strtotime($dt);
+		$y = date("ym", strtotime("+6 month", $time));
+		$expiry1 = substr($expiry,0,2);
+		$expiry2 = substr($expiry,3,5);
+		$x = $expiry2.$expiry1;
+		if($y<=$x)
+		{
+			$r = 0;
 		}
-
-		$jsonArray = array();
-		$dt = array(
-			'status'=>$status,
-		);
-		$jsonArray[] = $dt;
-		$items = $jsonArray;
-
-		$response = array(
-			'success' => "1",
-			'message' => 'Data delete successfully',
-			'items' => $items,
-		);
-
-		// Send JSON response
-		header('Content-Type: application/json');
-		echo json_encode($response);
+		else
+		{
+			$r = 1;
+		}
+		return $r;
 	}
 	
 	public function import_order_medicine_change_api() {

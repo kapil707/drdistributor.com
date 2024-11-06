@@ -112,7 +112,7 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function process_main($OrderId=''){
+	public function process_main($order_id=''){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Import order";
@@ -135,7 +135,7 @@ class Import_order extends CI_Controller {
 		/********************************************************** */
 		$ChemistId = $this->ChemistId;
 
-		$data["OrderId"] = $OrderId;
+		$data["order_id"] = $order_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/process_main', $data);
@@ -143,7 +143,7 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 	
-	public function medicine_deleted_items($OrderId=''){
+	public function medicine_deleted_items($order_id=''){
 	
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Deleted items";
@@ -166,7 +166,7 @@ class Import_order extends CI_Controller {
 		/********************************************************** */
 		$ChemistId = $this->ChemistId;
 
-		$data["OrderId"]= $OrderId = base64_decode($OrderId);
+		$data["order_id"]= $order_id = base64_decode($order_id);
 		if($this->UserType=="chemist")
 		{
 			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();
@@ -197,7 +197,7 @@ class Import_order extends CI_Controller {
 			$file_name 		= $acm_altercode;
 		}
 		/***********************************************/
-		$result = $this->db->query("select * from drd_import_file where order_id='$OrderId' and status=0")->result();
+		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status=0")->result();
 		$data["result"]	= $result;
 		if(empty($result))
 		{
@@ -539,10 +539,10 @@ class Import_order extends CI_Controller {
 
 	public function process_main_api(){
 
-		$OrderId = $_POST["OrderId"];
-		$OrderId = base64_decode($OrderId);
+		$order_id = $_POST["order_id"];
+		$order_id = base64_decode($order_id);
 
-		$jsonArray = $this->ImportOrderModel->process_main($OrderId);
+		$jsonArray = $this->ImportOrderModel->process_main($order_id);
 
 		$response = array(
             'success' => "1",
@@ -558,7 +558,7 @@ class Import_order extends CI_Controller {
 	
 	public function process_find_medicine_api() {	
 
-		$ItemId			= $_POST["ItemId"];
+		$ItemId			= $_POST["item_id"];
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
@@ -684,7 +684,7 @@ class Import_order extends CI_Controller {
 
 	public function import_order_row_delete_api() {
 
-		$ItemId		= ($_POST["ItemId"]);
+		$ItemId		= ($_POST["item_id"]);
 		$ItemCode 	= ($_POST["item_code"]);
 
 		$UserType 	= $this->UserType;
@@ -692,7 +692,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId = $this->SalesmanId; 
 
 		$status = 0;
-		if(!empty($Id)){
+		if(!empty($ItemId)){
 			$status = $this->ImportOrderModel->import_order_row_delete($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode);
 		}
 
@@ -716,7 +716,7 @@ class Import_order extends CI_Controller {
 	
 	public function import_order_row_quantity_change_api_api() {
 
-		$ItemId 		= $_POST["ItemId"];
+		$ItemId 		= $_POST["item_id"];
 		$ItemQuantity	= $_POST["Quantity"];
 
 		$UserType 	= $this->UserType;

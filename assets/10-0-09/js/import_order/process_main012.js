@@ -51,6 +51,8 @@ function MainPageFuncationCall() {
 											<span>				
 												<a href="javascript:void(0)" onclick="import_order_row_delete(${item_id})" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
+
+											<span class="loading_with_id_${item_id}">Loading....</span>
 										</div>
 										<div class="col-sm-3 text-right">
 											<span class="all_item_mrp">
@@ -176,6 +178,7 @@ function process_find_medicine(item_id){
 				if (item)
 				{
 					$(".main_page_loading").hide();
+					$(".loading_with_id_"+item_id).hide();
 
 					item_message 	= item.item_message;
 					item_background = item.item_background;

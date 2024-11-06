@@ -8,7 +8,7 @@
 	}
 }
 </style>
-<?php if(!empty($chemist_id)){ ?>
+<?php if(!empty($ChemistId)){ ?>
 <style>
 .top_bar_title {
 	margin-top: -5px;

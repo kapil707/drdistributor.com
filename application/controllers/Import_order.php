@@ -771,7 +771,7 @@ class Import_order extends CI_Controller {
 	
 	public function import_order_medicine_change_api() {
 
-		$Id					= ($_POST["myid"]);
+		$ItemId				= ($_POST["item_id"]);
 		$ItemCode 			= ($_POST["item_code"]);
 		$SelectedItemCode	= ($_POST["selected_item_code"]);
 
@@ -781,7 +781,7 @@ class Import_order extends CI_Controller {
 
 		$status = 0;
 		if(!empty($ItemCode) && !empty($Id)){
-			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$SelectedItemCode);
+			$status = $this->ImportOrderModel->import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode,$SelectedItemCode);
 		}
 
 		$jsonArray = array();

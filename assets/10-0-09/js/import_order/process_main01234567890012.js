@@ -146,7 +146,7 @@ function MainPageFuncationCall() {
 						</div>
 					`);
 					MainPageFuncationCall();
-					//setTimeout(process_find_medicine(item_id),100);
+					setTimeout(process_find_medicine(item_id),100);
 				}
 			});
 		}

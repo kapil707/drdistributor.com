@@ -161,8 +161,7 @@ function MainPageFuncationCall() {
 
 function process_find_medicine(item_id){
 
-	$(".top_bar_title2").html("Loading....");
-	$(".main_page_loading").show();
+	$(".loading_with_id_"+item_id).show();
 
 	$.ajax({
 		type       : "POST",

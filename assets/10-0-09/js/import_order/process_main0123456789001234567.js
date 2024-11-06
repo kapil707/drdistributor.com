@@ -135,12 +135,13 @@ function MainPageFuncationCall() {
                             </div>
                         </div>
                     `);
-
-                    MainPageFuncationCall();
-                }else{
-					process_find_medicine();
 				}
             });
+			if(data.items){
+				MainPageFuncationCall();
+			}else{
+				process_find_medicine();
+			}
         }
     });
 }

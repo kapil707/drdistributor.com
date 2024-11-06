@@ -110,7 +110,7 @@ function import_order_medicine_details(myid){
 						hello g
 					`);
 
-					$('.import_order_quantity_textbox_'+excel_number).focus();
+					/*$('.import_order_quantity_textbox_'+excel_number).focus();
 
 					$('.import_order_main_div_'+excel_number).css("background-color",item_background);
 					$('.import_order_main_'+excel_number).show();
@@ -161,7 +161,7 @@ function import_order_medicine_details(myid){
 					$('.import_order_item_suggested_'+excel_number).hide();
 					if(item_suggest_altercode!=""){
 						$('.import_order_item_suggested_'+excel_number).show();
-					}				
+					}	*/			
 				}
 			});
 		}

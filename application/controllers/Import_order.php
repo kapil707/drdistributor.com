@@ -557,14 +557,14 @@ class Import_order extends CI_Controller {
 	
 	public function process_find_medicine_api() {	
 
-		$Id	= $_POST["myid"];
+		$ItemId			= $_POST["ItemId"];
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId		= $this->SalesmanId;
 		$ChemistNrx		= $this->ChemistNrx;
 
-		$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id);
+		$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId);
 		$row = $return_value["row"];
 		$type_ = $return_value["type_"];
 		$suggest = $return_value["suggest"];

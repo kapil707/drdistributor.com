@@ -357,10 +357,10 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
-	public function process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id) {
+	public function process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId) {
 		
 		$this->db->select("*");
-		$this->db->where('id',$Id);
+		$this->db->where('id',$ItemId);
 		$row = $this->db->get("drd_import_file")->row();
 
 		$order_id			= $row->order_id;

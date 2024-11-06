@@ -328,7 +328,7 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_orders_suggest")->result();
 	}
 
-	public function get_import_order_import_file($OrderId) {
+	public function process_main($OrderId) {
 		
 		$jsonArray = array();
 
@@ -357,7 +357,7 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
-	public function import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id) {
+	public function process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id) {
 		
 		$this->db->select("*");
 		$this->db->where('id',$Id);

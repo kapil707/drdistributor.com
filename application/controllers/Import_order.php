@@ -112,7 +112,7 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function process($OrderId=''){
+	public function process_main($OrderId=''){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Import order";
@@ -135,14 +135,10 @@ class Import_order extends CI_Controller {
 		/********************************************************** */
 		$ChemistId = $this->ChemistId;
 
-		$data["OrderId"] = $OrderId = base64_decode($OrderId);
-		/*$data["result"] = $result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
-		if(empty($result)){
-			redirect(base_url()."io");
-		}*/
+		$data["OrderId"] = $OrderId;
 
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('import_order/process', $data);
+		$this->load->view('import_order/process_main', $data);
 		$this->load->view('header_footer/footer', $data);
 		$this->load->view('header_footer/medicine_details_model', $data);
 	}
@@ -541,11 +537,12 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 
-	public function process_api(){
+	public function process_main_api(){
 
 		$OrderId = $_POST["OrderId"];
+		$OrderId = base64_decode($OrderId);
 
-		$jsonArray = $this->ImportOrderModel->get_import_order_import_file($OrderId);
+		$jsonArray = $this->ImportOrderModel->process_main($OrderId);
 
 		$response = array(
             'success' => "1",
@@ -558,7 +555,7 @@ class Import_order extends CI_Controller {
         echo json_encode($response);
 	}
 	
-	public function import_order_medicine_details_api() {	
+	public function process_find_medicine_api() {	
 
 		$Id	= $_POST["myid"];
 		
@@ -567,7 +564,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId		= $this->SalesmanId;
 		$ChemistNrx		= $this->ChemistNrx;
 
-		$return_value = $this->ImportOrderModel->import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id);
+		$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id);
 		$row = $return_value["row"];
 		$type_ = $return_value["type_"];
 		$suggest = $return_value["suggest"];

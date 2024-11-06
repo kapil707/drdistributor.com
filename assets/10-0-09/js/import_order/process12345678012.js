@@ -8,7 +8,7 @@ function MainPageFuncationCall() {
 		type: "POST",
 		dataType: "json",
 		data: { OrderId: OrderId },
-		url: get_base_url() + "import_order/process_api",
+		url: get_base_url() + "import_order/process_main_api",
 		cache : true,
 		timeout: 60000,
 		error: function() {
@@ -145,18 +145,18 @@ function MainPageFuncationCall() {
 						</div>
 					`);
 
-					setTimeout(import_order_medicine_details(item_id),500);
+					setTimeout(process_find_medicine(item_id),500);
 				}
 			});
 		}
 	});
 }
 
-function import_order_medicine_details(myid){
+function process_find_medicine(myid){
 	$.ajax({
 		type       : "POST",
 		data       : {myid:myid} ,
-		url        : get_base_url() + "import_order/import_order_medicine_details_api",
+		url        : get_base_url() + "import_order/process_find_medicine_api",
 		cache : true,
 		timeout: 60000,
 		error: function(){

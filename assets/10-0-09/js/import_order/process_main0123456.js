@@ -158,6 +158,7 @@ function MainPageFuncationCall() {
 function process_find_medicine(item_id){
 
 	$(".loading_with_id_"+item_id).show();
+	$('.import_order_main_'+item_id).hide();
 
 	$.ajax({
 		type       : "POST",
@@ -194,10 +195,10 @@ function process_find_medicine(item_id){
 					item_price = item.item_price;
 					item_featured = item.item_featured;
 
+					$('.import_order_main_'+item_id).show();
 					$('.import_order_quantity_textbox_'+item_id).focus();
 
 					$('.import_order_main_div_'+item_id).css("background-color",item_background);
-					$('.import_order_main_'+item_id).show();
 
 					$('.import_order_item_message_'+item_id).html(item_message);
 					

@@ -119,6 +119,8 @@ function MainPageFuncationCall() {
 								</div>
 							</div>
 					`);
+
+					setTimeout(import_order_medicine_details(item_id),500);
 				}
 			});
 		}

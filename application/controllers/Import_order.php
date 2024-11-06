@@ -804,13 +804,13 @@ class Import_order extends CI_Controller {
 	
 	public function import_order_medicine_delete_suggested_api() {
 
-		$Id 		= ($_REQUEST["myid"]);
+		$ItemId 	= ($_REQUEST["item_id"]);
 
 		$UserType 	= $this->UserType;
 		$ChemistId 	= $this->ChemistId;
 		$SalesmanId = $this->SalesmanId;
 
-		$status = $this->ImportOrderModel->import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id);
+		$status = $this->ImportOrderModel->import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$ItemId);
 
 		$jsonArray = array();
 		$dt = array(

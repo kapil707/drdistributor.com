@@ -482,11 +482,11 @@ class ImportOrderModel extends CI_Model
 		return $status;
 	}
 
-	public function import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$Id) {
+	public function import_order_medicine_delete_suggested($UserType,$ChemistId,$SalesmanId,$ItemId) {
 	
 		$status = 0;
 		$this->db->select("item_name");
-		$this->db->where('id',$Id);
+		$this->db->where('id',$ItemId);
 		$row = $this->db->get("drd_import_file")->row();
 		if(!empty($row->item_name))
 		{

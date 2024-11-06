@@ -146,6 +146,8 @@ function MainPageFuncationCall() {
                             </div>
                         </div>
                     `);
+
+					$('.import_order_quantity_textbox_'+item_id).focus();
 				}
             });
 			if(data.items!=""){
@@ -158,6 +160,9 @@ function MainPageFuncationCall() {
 }
 
 function process_find_medicine(){
+
+	$(".background_blur").show();
+    $(".main_page_loading").show();
 
 	$.ajax({
 		type       : "POST",

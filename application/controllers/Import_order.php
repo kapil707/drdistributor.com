@@ -611,7 +611,7 @@ class Import_order extends CI_Controller {
 				$mobilenumber 	= "";
 				$modalnumber 	= "PC - Import Order";
 				$device_id    	= "";				
-				$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$order_quantity,$mobilenumber,$modalnumber,$device_id,$Id);
+				$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$order_quantity,$mobilenumber,$modalnumber,$device_id,$ItemId);
 			}
 			/******************************************/
 		}

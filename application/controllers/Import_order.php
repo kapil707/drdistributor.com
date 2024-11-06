@@ -112,7 +112,7 @@ class Import_order extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 	
-	public function medicine_search($OrderId=''){
+	public function process($OrderId=''){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Import order";
@@ -455,7 +455,7 @@ class Import_order extends CI_Controller {
 				unlink($excelFile);
 			}
 			$order_id  = base64_encode($order_id);
-			$url = base_url()."io/ms/$order_id";
+			$url = base_url()."io/p/$order_id";
 		}
 		else{
 			$url = base_url()."io";
@@ -541,30 +541,12 @@ class Import_order extends CI_Controller {
 		return $string;
 	}
 
-	public function medicine_search_api(){
+	public function process_api(){
 
-		$jsonArray = array();
 		$OrderId = $_POST["OrderId"];
 
-		$result = $this->ImportOrderModel->get_import_order_import_file($OrderId);
-		foreach($result as $row)
-		{
-			$dt = array(
-				'id' => $row->id,
-				'item_name'=>$row->item_name,
-				'quantity'=>$row->quantity,
-				'mrp'=>$row->mrp,
-				'order_id'=>$row->order_id,
-				'status'=>$row->status,
-				'p_status'=>$row->p_status,
-				'user_type'=>$row->user_type,
-				'user_altercode'=>$row->user_altercode,
-				'salesman_id'=>$row->salesman_id,
-				'date'=>$row->date,
-			);
-			$jsonArray[] = $dt;
-		}
-
+		$jsonArray = $this->ImportOrderModel->get_import_order_import_file($OrderId);
+		
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',

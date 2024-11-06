@@ -328,12 +328,33 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_orders_suggest")->result();
 	}
 
-	public function get_import_order_import_file($OrderId) {		
+	public function get_import_order_import_file($OrderId) {
+		
+		$jsonArray = array();
+
 		$this->db->select("*");
 		$this->db->where('order_id',$OrderId);
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
-		return $this->db->get("drd_import_file")->result();
+		$result = $this->db->get("drd_import_file")->result();
+		foreach($result as $row)
+		{
+			$dt = array(
+				'id' => $row->id,
+				'item_name'=>$row->item_name,
+				'quantity'=>$row->quantity,
+				'mrp'=>$row->mrp,
+				'order_id'=>$row->order_id,
+				'status'=>$row->status,
+				'p_status'=>$row->p_status,
+				'user_type'=>$row->user_type,
+				'user_altercode'=>$row->user_altercode,
+				'salesman_id'=>$row->salesman_id,
+				'date'=>$row->date,
+			);
+			$jsonArray[] = $dt;
+		}
+		return $jsonArray;
 	}
 
 	public function import_order_medicine_details($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$Id) {

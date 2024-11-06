@@ -8,7 +8,7 @@
 	}
 }
 </style>
-<?php if(!empty($ChemistId)){ ?>
+<?php if(!empty($ChemistId) && $UserType=="sales"){ ?>
 <style>
 .top_bar_title {
 	margin-top: -5px;

@@ -188,6 +188,16 @@ class AccountModel extends CI_Model
 			$SalesmanId	= $UserId;
 		}
 
+		//cookies set from hear
+		setcookie("UserId", $UserId, time() + (86400 * 30), "/");
+		setcookie("UserType", $UserType, time() + (86400 * 30), "/");
+		setcookie("UserFullName", $UserFullName, time() + (86400 * 30), "/");
+		setcookie("UserPassword", $UserPassword, time() + (86400 * 30), "/");
+		setcookie("UserImage", $UserImage, time() + (86400 * 30), "/");
+		setcookie("ChemistNrx", $ChemistNrx, time() + (86400 * 30), "/");
+		setcookie("ChemistId", $ChemistId, time() + (86400 * 30), "/");
+		setcookie("SalesmanId", $SalesmanId, time() + (86400 * 30), "/");
+
 		$session_arr = array(
 			'UserId'=>$UserId,
 			'UserType'=>$UserType,

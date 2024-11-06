@@ -16,6 +16,7 @@ function MainPageFuncationCall() {
 		success: function(data) {
 			$.each(data.items, function(i, item) {
 				if (item) {
+					let _i = item.i;
 					let ItemId = item.id;
 					let item_name = item.item_name;
 					let item_quantity = item.quantity;
@@ -27,7 +28,7 @@ function MainPageFuncationCall() {
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="import_order_box_left_div web-col-padding-0">
-									(${ItemId}) ${ChemistId} :
+									(${_i}) ${ChemistId} :
 								</div>
 								<div class="import_order_box_right_div web-col-padding-0">
 									<div class="row">

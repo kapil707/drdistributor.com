@@ -332,6 +332,7 @@ class ImportOrderModel extends CI_Model
 		
 		$jsonArray = array();
 
+		$i = 1;
 		$this->db->select("*");
 		$this->db->where('order_id',$OrderId);
 		$this->db->where('status',0);
@@ -340,6 +341,7 @@ class ImportOrderModel extends CI_Model
 		foreach($result as $row)
 		{
 			$dt = array(
+				'i'=>$i++,
 				'id' => $row->id,
 				'item_name'=>$row->item_name,
 				'quantity'=>$row->quantity,

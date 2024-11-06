@@ -48,7 +48,7 @@ function MainPageFuncationCall() {
 												<a href="javascript:void(0)" onclick="import_order_row_delete(${item_id})" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
 
-											<span class="loading_with_id_${item_id}">Loading....</span>
+											<span class="loading_with_id_${item_id}" style="display:none">Loading....</span>
 										</div>
 										<div class="col-sm-3 text-right">
 											<span class="all_item_mrp">
@@ -60,7 +60,7 @@ function MainPageFuncationCall() {
 									</div>
 								</div>
 
-								<div class="col-sm-12 import_order_main_${item_id}">
+								<div class="col-sm-12 import_order_main_${item_id}" style="display:none">
 								</div>
 									<div class="import_order_box_left_div web-col-padding-0">
 

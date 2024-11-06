@@ -161,8 +161,7 @@ function process_find_medicine(){
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-					$(".loading_with_id_"+item_id).hide();
-
+					item_id 		= item.item_id;
 					item_message 	= item.item_message;
 					item_background = item.item_background;
 					item_suggest_altercode = item.item_suggest_altercode;
@@ -182,6 +181,8 @@ function process_find_medicine(){
 					item_price = item.item_price;
 					item_featured = item.item_featured;
 
+					
+					$(".loading_with_id_"+item_id).hide();
 					$('.import_order_main_'+item_id).show();
 					$('.import_order_quantity_textbox_'+item_id).focus();
 

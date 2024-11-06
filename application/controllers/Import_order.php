@@ -651,7 +651,7 @@ class Import_order extends CI_Controller {
 		}
 
 		$dt = array(
-			'ItemId' => $ItemId,
+			'item_id' => $ItemId,
 			'item_message'=>$item_message,
 			'item_background'=>$item_background,
 			'item_suggest_altercode'=>$item_suggest_altercode,			

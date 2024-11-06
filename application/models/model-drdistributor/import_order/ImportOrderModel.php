@@ -452,7 +452,7 @@ class ImportOrderModel extends CI_Model
 		/******************************************************* */
 
 		$this->db->select("item_name");
-		$this->db->where('id',$Id);
+		$this->db->where('id',$ItemId);
 		$row1 = $this->db->get("drd_import_file")->row();
 		$your_item_name = $row1->item_name;		
 		/******************************************************* */

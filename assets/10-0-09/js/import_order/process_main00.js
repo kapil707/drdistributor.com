@@ -7,6 +7,7 @@ function import_order_page_load(){
 	$('.medicine_search_textbox').focus();
 }
 
+let _i = 0; // Initialize _i
 function MainPageFuncationCall() {
 
     $(".background_blur").show();
@@ -22,7 +23,7 @@ function MainPageFuncationCall() {
         success: function(data) {
             $.each(data.items, function(i, item) {
                 if (item) {
-                    let _i = item.i;
+					_i++;
                     let item_id = item.id;
                     let item_name = item.item_name;
                     let item_quantity = item.quantity;

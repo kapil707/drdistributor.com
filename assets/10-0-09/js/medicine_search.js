@@ -74,8 +74,7 @@ $(document).ready(function(){
 			return false;
     	}
     });
-	setTimeout('cart_page_load();',100);
-	
+		
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
 		if (evt.keyCode == 27) {

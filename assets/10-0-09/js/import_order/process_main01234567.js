@@ -61,7 +61,6 @@ function MainPageFuncationCall() {
 								</div>
 
 								<div class="col-sm-12 import_order_main_${item_id}" style="display:none">
-								</div>
 									<div class="import_order_box_left_div web-col-padding-0">
 
 										<img src="${get_base_url()}assets/${getWebJs()}/images/featured_img.png" class="import_order_item_featured_img import_order_item_featured_${item_id}" style="display:none">

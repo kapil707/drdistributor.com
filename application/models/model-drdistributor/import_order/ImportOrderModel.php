@@ -362,6 +362,24 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
+	public function process_main2($OrderId) {
+		
+		$jsonArray = array();
+
+		$i = 1;
+		$this->db->select("id");
+		$this->db->where('order_id',$OrderId);
+		$this->db->where('status',1);
+		$this->db->order_by('id','asc');
+		$this->db->limit(1);
+		$row = $this->db->get("drd_import_file")->result();
+		if($row)
+		{
+			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
+		}
+		return $row;
+	}
+
 	public function process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId) {
 		
 		$this->db->select("*");

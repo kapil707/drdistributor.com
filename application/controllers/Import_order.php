@@ -539,10 +539,10 @@ class Import_order extends CI_Controller {
 
 	public function process_main_api(){
 
-		$order_id = $_POST["order_id"];
-		$order_id = base64_decode($order_id);
+		$OrderId = $_POST["order_id"];
+		$OrderId = base64_decode($OrderId);
 
-		$jsonArray = $this->ImportOrderModel->process_main($order_id);
+		$jsonArray = $this->ImportOrderModel->process_main($OrderId);
 
 		$response = array(
             'success' => "1",
@@ -558,7 +558,12 @@ class Import_order extends CI_Controller {
 	
 	public function process_find_medicine_api() {	
 
-		$ItemId			= $_POST["item_id"];
+		$OrderId = $_POST["order_id"];
+		$OrderId = base64_decode($OrderId);
+
+		$row = $this->ImportOrderModel->process_main2($OrderId);
+		process_main2($OrderId);
+		$ItemId	= $row->id;
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;

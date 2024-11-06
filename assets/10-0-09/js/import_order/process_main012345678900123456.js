@@ -46,7 +46,7 @@ function MainPageFuncationCall() {
                                                         <i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete
                                                     </a>
                                                 </span>
-                                                <span class="loading_with_id_${item_id}" style="display:none"></span>
+                                                <span class="loading_with_id_${item_id}">Loading....</span>
                                             </div>
                                             <div class="col-sm-3 text-right">
                                                 <span class="all_item_mrp">
@@ -137,33 +137,29 @@ function MainPageFuncationCall() {
                     `);
 
                     MainPageFuncationCall();
-                }
+                }else{
+					process_find_medicine();
+				}
             });
         }
     });
 }
 
-function process_find_medicine(item_id){
-
-	$(".loading_with_id_"+item_id).html("Loading....");
-	$(".loading_with_id_"+item_id).show();
-	$('.import_order_main_'+item_id).hide();
+function process_find_medicine(){
 
 	$.ajax({
 		type       : "POST",
-		data       : {item_id:item_id} ,
+		data       : {order_id:order_id} ,
 		url        : get_base_url() + "import_order/process_find_medicine_api",
 		cache : true,
 		timeout: 60000,
 		error: function(){
-			$(".loading_with_id_"+item_id).html("Server not Responding, Please try Again");
+			//$(".loading_with_id_"+item_id).html("Server not Responding, Please try Again");
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-
-					$(".main_page_loading").hide();
 					$(".loading_with_id_"+item_id).hide();
 
 					item_message 	= item.item_message;
@@ -236,7 +232,9 @@ function process_find_medicine(item_id){
 					$('.import_order_item_suggested_'+item_id).hide();
 					if(item_suggest_altercode!=""){
 						$('.import_order_item_suggested_'+item_id).show();
-					}				
+					}
+					
+					process_find_medicine();
 				}
 			});
 		}

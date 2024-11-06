@@ -235,10 +235,13 @@ function process_find_medicine(){
 					if(item_suggest_altercode!=""){
 						$('.import_order_item_suggested_'+item_id).show();
 					}
-					
-					process_find_medicine();
 				}
 			});
+			if(data.items!=""){
+				process_find_medicine();
+			}else{
+				$(".next_button_show").show();
+			}
 		}
 	});
 }

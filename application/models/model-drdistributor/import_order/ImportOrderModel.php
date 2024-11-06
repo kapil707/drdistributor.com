@@ -421,9 +421,9 @@ class ImportOrderModel extends CI_Model
 		return $return;
 	}
 
-	public function import_order_row_delete($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode) {
+	public function import_order_row_delete($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode) {
 		
-		$this->db->query("update drd_import_file set status=0 where id='$Id'");
+		$this->db->query("update drd_import_file set status=0 where id='$ItemId'");
 		/******************************************************* */
 		
 		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);

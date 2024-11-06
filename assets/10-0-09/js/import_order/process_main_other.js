@@ -7,6 +7,7 @@ function import_order_medicine_change(item_id) {
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
+	import_order_medicine_change = 1;
 	hidden_item_id = item_id;
 	hidden_item_name = $(".import_order_hidden_item_name_"+item_id).val();
 	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
@@ -14,7 +15,6 @@ function import_order_medicine_change(item_id) {
 }
 
 function import_order_medicine_change_api(selected_item_code){	
-
 
 	item_id = hidden_item_id;
 	hidden_item_code = $(".import_order_hidden_item_code_"+item_id).val();
@@ -39,6 +39,7 @@ function import_order_medicine_change_api(selected_item_code){
 								icon: "success",
 							});
 							hidden_item_id = "";
+							import_order_medicine_change = 0;
 							process_find_medicine(item_id)
 						}
 						else{

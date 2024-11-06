@@ -1,65 +1,4 @@
 $(document).ready(function(){
-	$(".medicine_search_textbox").keyup(function(e){
-		if(e.keyCode == 8)
-		{
-			var keyword = $(".medicine_search_textbox").val();
-			if(keyword!="")
-			{
-				if(keyword.length<3)
-				{
-					$('.medicine_search_textbox').focus();
-					$(".search_result_div").html("");
-					$(".search_result_div_mobile").html("");
-				}
-			}
-			else{
-				clear_search_function();
-			}
-		}
-	})  
-	$(".medicine_search_textbox").keypress(function() { 
-		var keyword = $(".medicine_search_textbox").val();
-		//$('.headertitle').html(keyword)
-		if(keyword!="")
-		{
-			if(keyword.length<3)
-			{
-				$('.medicine_search_textbox').focus();
-				$(".search_result_div").html("");
-				$(".search_result_div_mobile").html("");
-			}
-			if(keyword.length>2)
-			{
-				//medicine_search_api();
-				setTimeout('medicine_search_api();',500);
-			}
-		}
-		else{
-			clear_search_function();
-		}
-	});
-	$(".medicine_search_textbox").change(function() { 
-	});
-	$(".medicine_search_textbox").on("search", function() { 
-	});
-	
-    $(".medicine_search_textbox").keydown(function(event) {
-    	if(event.key=="ArrowDown")
-    	{
-			page_up_down_arrow("1");
-    		$('.hover_1').attr("tabindex",-1).focus();
-			return false;
-    	}
-    });
-	setTimeout('import_order_page_load();',100);
-	setTimeout('get_my_cart_total_api();',5000);
-	
-	document.onkeydown = function(evt) {
-		evt = evt || window.event;
-		if (evt.keyCode == 27) {
-			clear_search_function();
-		}
-	};
 	MainPageFuncationCall();
 });
 
@@ -147,25 +86,29 @@ function import_order_medicine_details(myid){
 			$.each(data.items, function(i,item){
 				if (item)
 				{					
-					excel_number = item.excel_number;
+					item_id 		= item.excel_number;
 					item_message 	= item.item_message;
 					item_background = item.item_background;
 					item_suggest_altercode = item.item_suggest_altercode;
 
-					item_code = item.item_code;
-					item_name = item.item_name;
-					item_image = item.item_image;
-					item_packing = item.item_packing;
-					item_batch_no = item.item_batch_no;
-					item_expiry = item.item_expiry;
-					item_scheme = item.item_scheme;
-					item_quantity = item.item_quantity;
-					item_stock = item.item_stock;
-					item_company = item.item_company;
-					item_ptr = item.item_ptr;
-					item_mrp = item.item_mrp;
-					item_price = item.item_price;
-					item_featured = item.item_featured;
+					item_code 		= item.item_code;
+					item_name 		= item.item_name;
+					item_image 		= item.item_image;
+					item_packing 	= item.item_packing;
+					item_batch_no 	= item.item_batch_no;
+					item_expiry 	= item.item_expiry;
+					item_scheme 	= item.item_scheme;
+					item_quantity 	= item.item_quantity;
+					item_stock 		= item.item_stock;
+					item_company 	= item.item_company;
+					item_ptr 		= item.item_ptr;
+					item_mrp 		= item.item_mrp;
+					item_price 		= item.item_price;
+					item_featured 	= item.item_featured;
+
+					$(".import_order_main_"+item_id).html(`
+						hello g
+					`);
 
 					$('.import_order_quantity_textbox_'+excel_number).focus();
 

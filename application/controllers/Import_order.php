@@ -26,10 +26,6 @@ class Import_order extends CI_Controller {
 		CreateUserLog();
 		/************************************* */
 
-		// Load model
-		$this->load->model("model-drdistributor/import_order/ImportOrderModel");
-		$this->load->model("model-drdistributor/my_cart/MyCartModel");
-
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
 		$this->UserType    	= $this->session->userdata('UserType');
@@ -40,8 +36,6 @@ class Import_order extends CI_Controller {
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		/********************************************************** */
-
-		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
 	public function index()
@@ -133,15 +127,7 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$ChemistId = $this->ChemistId;
-
 		$data["order_id"] = $order_id;
-
-		$order_id = base64_decode($order_id);
-		$jsonArray = $this->ImportOrderModel->order_check($order_id);
-		if (empty($jsonArray)) {
-			redirect(base_url() . "io");
-		}
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/process_main', $data);

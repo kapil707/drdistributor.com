@@ -6,7 +6,27 @@ function import_order_page_load(){
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 }
+function CheckOrderApi() {
 
+	$(".background_blur").show();
+    $(".main_page_loading").show();
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: { order_id: order_id },
+        url: get_base_url() + "import_order_api/order_check_api",
+        cache: true,
+        error: function() {},
+        success: function(data) {
+			if(data.items=="yes"){
+				MainPageFuncationCall();
+			}else{
+				window.location.href = get_base_url()+"io";
+			}
+		}
+	});
+}
 let _i = 0; // Initialize _i
 function MainPageFuncationCall() {
 

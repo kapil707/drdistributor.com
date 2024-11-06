@@ -43,8 +43,7 @@ class Import_order_api extends CI_Controller {
 
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
-	
-	/*******************api start*********************/	
+
 	public function upload_import_file_api(){
 		
 		error_reporting(0);
@@ -166,6 +165,23 @@ class Import_order_api extends CI_Controller {
         // Send JSON response
         header('Content-Type: application/json');
         echo json_encode($response);
+	}
+
+	public function order_check_api(){
+		$order_id = $_POST["order_id"];
+		$order_id = base64_decode($order_id);
+		$jsonArray = $this->ImportOrderModel->order_check($order_id);
+		if (empty($jsonArray)) {
+			$items = "yes";
+		}else{
+			$items = "no";
+		}
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
 	}
 	
 	function clean($string) {

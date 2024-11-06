@@ -142,7 +142,7 @@ class Import_order extends CI_Controller {
 		}*/
 
 		$this->load->view('header_footer/header', $data);
-		$this->load->view('import_order/medicine_search', $data);
+		$this->load->view('import_order/process', $data);
 		$this->load->view('header_footer/footer', $data);
 		$this->load->view('header_footer/medicine_details_model', $data);
 	}
@@ -546,7 +546,7 @@ class Import_order extends CI_Controller {
 		$OrderId = $_POST["OrderId"];
 
 		$jsonArray = $this->ImportOrderModel->get_import_order_import_file($OrderId);
-		
+
 		$response = array(
             'success' => "1",
             'message' => 'Data load successfully',

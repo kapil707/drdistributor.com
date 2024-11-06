@@ -194,13 +194,13 @@ function MainPageFuncationCall() {
 											<span class="cart_description1 import_order_item_message_${item_id}'"> 
 											</span>
 											<span>
-												<a href="javascript:import_order_medicine_change('${item_id}'')" class="import_order_edit_btn" title="Change medicine">
+												<a href="javascript:import_order_medicine_change('${item_id}')" class="import_order_edit_btn" title="Change medicine">
 													<i class="fa fa-pencil" aria-hidden="true"></i>
 													Change medicine
 												</a>
 											</span>
 											<span class="import_order_item_suggested_${item_id}'" style="display:none"> | 
-												<a href="javascript:import_order_medicine_delete_suggested('${item_id}'')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
+												<a href="javascript:import_order_medicine_delete_suggested('${item_id}')" title="Delete suggested" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest</a>
 											</span>
 										</div>
 									</div>

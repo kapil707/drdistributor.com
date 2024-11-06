@@ -310,7 +310,7 @@ function import_order_row_quantity_change(item_id) {
 					if(item.status=="1")
 					{
 						swal("Quantity updated successfully");
-						import_order_medicine_details(item_id);
+						process_find_medicine(item_id);
 					}
 					else{
 						swal("Quantity not updated");
@@ -363,7 +363,7 @@ function import_order_medicine_change_api(selected_item_code){
 								icon: "success",
 							});
 							hidden_item_id = "";
-							import_order_medicine_details(item_id)
+							process_find_medicine(item_id)
 						}
 						else{
 							swal("Medicine not changed");
@@ -406,7 +406,7 @@ function import_order_medicine_delete_suggested(item_id) {
 								swal("Suggested Medicine deleted successfully", {
 									icon: "success",
 								});
-								import_order_medicine_details(item_id)
+								process_find_medicine(item_id)
 							}
 							else{
 								swal("Suggested medicine not deleted");

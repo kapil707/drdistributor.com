@@ -976,6 +976,7 @@ table{
 	color:#c45353;
 }
 .import_order_item_order_quantity_textbox{
+	height: 25px;
     padding: 5px;
     border: 0px;
     border-radius: 10px;

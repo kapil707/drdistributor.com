@@ -38,7 +38,7 @@ function MainPageFuncationCall() {
 											
 											<span class="all_item_order_quantity">Quantity : </span>
 
-											<input type="text" class="import_order_hidden_item_code_${item_id}" />
+											<input type="hidden" class="import_order_hidden_item_code_${item_id}" />
 
 											<input type="hidden" name="" value="${item_name}" class="import_order_hidden_item_name_${item_id}" />
 
@@ -48,7 +48,7 @@ function MainPageFuncationCall() {
 												<a href="javascript:void(0)" onclick="import_order_row_delete(${item_id})" title="Delete" class="import_order_delete_btn"><i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i> Delete</a>
 											</span>
 
-											<span class="loading_with_id_${item_id}" style="display:none">Loading....</span>
+											<span class="loading_with_id_${item_id}" style="display:none"></span>
 										</div>
 										<div class="col-sm-3 text-right">
 											<span class="all_item_mrp">
@@ -156,6 +156,7 @@ function MainPageFuncationCall() {
 
 function process_find_medicine(item_id){
 
+	$(".loading_with_id_"+item_id).html("Loading....");
 	$(".loading_with_id_"+item_id).show();
 	$('.import_order_main_'+item_id).hide();
 
@@ -166,7 +167,7 @@ function process_find_medicine(item_id){
 		cache : true,
 		timeout: 60000,
 		error: function(){
-			$(".selected_msg_"+cssid).html("Server not Responding, Please try Again");
+			$(".loading_with_id_"+item_id).html("Server not Responding, Please try Again");
 		},
 		success    : function(data){
 			$.each(data.items, function(i,item){

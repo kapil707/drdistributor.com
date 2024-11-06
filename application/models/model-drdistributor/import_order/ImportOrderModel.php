@@ -328,9 +328,13 @@ class ImportOrderModel extends CI_Model
 		return $this->db->get("drd_import_orders_suggest")->result();
 	}
 
-	public function order_check($OrderId) {
+	public function order_check($order_id) {
+
+		// agar process ruk gaya yha user nay refresh kar diya to jo pending me ha oss ko rest karta ha is query say
+		$this->db->query("update drd_import_file set status='0' where order_id='$order_id' and status=1");
+
 		$this->db->select("id");
-		$this->db->where('order_id',$OrderId);
+		$this->db->where('order_id',$order_id);
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
@@ -343,13 +347,13 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
-	public function process_main($OrderId) {
+	public function process_main($order_id) {
 		
 		$jsonArray = array();
 
 		$i = 1;
 		$this->db->select("*");
-		$this->db->where('order_id',$OrderId);
+		$this->db->where('order_id',$order_id);
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
@@ -379,13 +383,13 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
-	public function process_main2($OrderId) {
+	public function process_main2($order_id) {
 		
 		$jsonArray = array();
 
 		$i = 1;
 		$this->db->select("id");
-		$this->db->where('order_id',$OrderId);
+		$this->db->where('order_id',$order_id);
 		$this->db->where('status',1);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);

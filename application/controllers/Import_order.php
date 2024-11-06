@@ -143,7 +143,6 @@ class Import_order extends CI_Controller {
 			redirect(base_url() . "io");
 		}
 
-
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('import_order/process_main', $data);
 		$this->load->view('header_footer/footer', $data);

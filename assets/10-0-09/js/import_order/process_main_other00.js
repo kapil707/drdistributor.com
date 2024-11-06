@@ -38,9 +38,8 @@ function import_order_medicine_change_api(selected_item_code){
 							swal("Medicine changed successfully", {
 								icon: "success",
 							});
-							hidden_item_id = "";
 							import_order_medicine_change = 0;
-							process_find_medicine(item_id)
+							process_find_medicine()
 						}
 						else{
 							swal("Medicine not changed");
@@ -82,7 +81,7 @@ function import_order_medicine_delete_suggested(item_id) {
 								swal("Suggested Medicine deleted successfully", {
 									icon: "success",
 								});
-								process_find_medicine(item_id)
+								process_find_medicine()
 							}
 							else{
 								swal("Suggested medicine not deleted");

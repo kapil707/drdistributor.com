@@ -502,6 +502,8 @@ class ImportOrderModel extends CI_Model
 		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
 		/******************************************************* */
 
+		$this->db->query("update drd_import_file set status='0' where id='$ItemId'");
+
 		$date = date('Y-m-d');
 		$time = time();
 		$datetime = date("d-M-y H:i",$time);
@@ -540,6 +542,9 @@ class ImportOrderModel extends CI_Model
 			/******************************************************* */
 
 			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
+			/******************************************************* */
+
+			$this->db->query("update drd_import_file set status='0' where id='$ItemId'");
 
 			$status = 1;
 		}

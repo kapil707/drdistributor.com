@@ -29,7 +29,7 @@ get_page_name = "import_page";// change value taki cart pur load na ho
 order_type = "notall";// change value taki cart pur load na ho 
 </script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main00.js"></script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main_other.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main_other00.js"></script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search.js"></script>
 <script>
 $(document).ready(function(){

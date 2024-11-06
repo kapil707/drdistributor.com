@@ -174,7 +174,7 @@ function page_up_down_arrow(new_i)
 		}
 	});
 }
-/*
+
 function medicine_search_api() {
 	new_i = 0;
 
@@ -315,4 +315,4 @@ function medicine_search_api() {
 			$(".search_result_div_mobile").html("");
 		}
 	}
-}*/
+}

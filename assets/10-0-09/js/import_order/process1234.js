@@ -123,7 +123,7 @@ function MainPageFuncationCall() {
 								<div class="all_item_hr"></div>
 							</div>
 
-							<div class="col-sm-12 import_order_main_${item_id}'" style="display:none">
+							<div class="col-sm-12 import_order_main_${item_id}'">
 								<div class="import_order_box_left_div web-col-padding-0">
 
 									<img src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/featured_img.png" class="import_order_item_featured_img import_order_item_featured_${item_id}'" style="display:none">

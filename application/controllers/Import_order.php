@@ -724,7 +724,7 @@ class Import_order extends CI_Controller {
 		$SalesmanId = $this->SalesmanId;
 		
 		$status = 0;
-		if(!empty($Id) && !empty($ItemQuantity)){
+		if(!empty($ItemId) && !empty($ItemQuantity)){
 			if($ItemQuantity>=1000){
 				$ItemQuantity = 1000;
 			}

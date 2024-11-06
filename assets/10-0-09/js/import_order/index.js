@@ -59,7 +59,7 @@ function btn_upload_import_file(){
 	form_data.append('itemqty',itemqty);
 	form_data.append('itemmrp',itemmrp);           
     $.ajax({
-		url: get_base_url() + "import_order/upload_import_file/",
+		url: get_base_url() + "import_order_api/upload_import_file_api",
 		cache : true,
 		contentType: false,
 		processData: false,

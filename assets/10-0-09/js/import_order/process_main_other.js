@@ -21,10 +21,11 @@ function import_order_medicine_change_api(selected_item_code){
 	//hidden_item_code yha value wo ha jo davai ko kisi or ke sth set kar rhay ha to kam ati ha 
 	if(item_id!=""){
 		$.ajax({
-			url: get_base_url() + "import_order/import_order_medicine_change_api",
+			url: get_base_url() + "import_order_api/import_order_medicine_change_api",
 			type:"POST",
 			data: {item_id:item_id,item_code:hidden_item_code,selected_item_code:selected_item_code},
 			cache : true,
+			timeout: 60000,
 			error: function(){
 				swal("Medicine not changed");
 			},
@@ -46,8 +47,7 @@ function import_order_medicine_change_api(selected_item_code){
 						}
 					} 
 				});
-			},
-			timeout: 60000
+			}
 		});
 	}
 	else{
@@ -65,7 +65,7 @@ function import_order_medicine_delete_suggested(item_id) {
 	}).then(function(result) {
 		if (result) {
 			$.ajax({
-				url: get_base_url() + "import_order/import_order_medicine_delete_suggested_api",
+				url: get_base_url() + "import_order_api/import_order_medicine_delete_suggested_api",
 				type:"POST",
 				data: {item_id:item_id},
 				cache : true,
@@ -123,16 +123,4 @@ function clear_search_function() {
 	$(".my_cart_api_div_mobile").hide();
 
 	/**************************************** */
-}
-
-/************************************* */
-function import_order_page_load(){
-	my_cart_api("notall"); // yha excel order ko chhod kar baki sabhi order show karay ga
-
-	$(".top_bar_search_div").hide();
-	$(".top_bar_search_textbox_div").show();
-
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
 }

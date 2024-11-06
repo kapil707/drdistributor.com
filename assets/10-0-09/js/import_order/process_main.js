@@ -1,3 +1,12 @@
+function import_order_page_load(){
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+
+	$('.medicine_search_textbox').val("");
+	$('.medicine_search_textbox').show();
+	$('.medicine_search_textbox').focus();
+}
+
 function MainPageFuncationCall() {
 
     $(".background_blur").show();
@@ -7,7 +16,7 @@ function MainPageFuncationCall() {
         type: "POST",
         dataType: "json",
         data: { order_id: order_id },
-        url: get_base_url() + "import_order/process_main_api",
+        url: get_base_url() + "import_order_api/process_main_api",
         cache: true,
         error: function() {},
         success: function(data) {
@@ -152,7 +161,7 @@ function process_find_medicine(){
 	$.ajax({
 		type       : "POST",
 		data       : {order_id:order_id} ,
-		url        : get_base_url() + "import_order/process_find_medicine_api",
+		url        : get_base_url() + "import_order_api/process_find_medicine_api",
 		cache : true,
 		timeout: 60000,
 		error: function(){
@@ -264,7 +273,7 @@ function import_order_row_delete(item_id) {
 			$.ajax({
 				type       : "POST",
 				data       : {item_id:item_id,item_code:hidden_item_code,},
-				url        : get_base_url() + "import_order/import_order_row_delete_api",
+				url        : get_base_url() + "import_order_api/import_order_row_delete_api",
 				cache : true,
 				timeout: 60000,
 				error: function(){
@@ -302,7 +311,7 @@ function import_order_row_quantity_change(item_id) {
 	$.ajax({
 		type       : "POST",
 		data       :  {item_id:item_id,item_code:hidden_item_code,quantity:quantity,},
-		url        : get_base_url() +  "import_order/import_order_row_quantity_change_api",
+		url        : get_base_url() +  "import_order_api/import_order_row_quantity_change_api",
 		cache : true,
 		error: function(){
 			swal("Quantity not updated");

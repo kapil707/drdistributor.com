@@ -1,5 +1,6 @@
 function MainPageFuncationCall() {
-    $(".top_bar_title2").html("Loading....");
+
+    $(".background_blur").show();
     $(".main_page_loading").show();
 
     $.ajax({
@@ -241,6 +242,8 @@ function process_find_medicine(){
 				process_find_medicine();
 			}else{
 				$(".next_button_show").show();
+				$(".background_blur").hide();
+				$(".main_page_loading").hide();
 			}
 		}
 	});

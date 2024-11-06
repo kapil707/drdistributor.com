@@ -4,6 +4,9 @@ $(document).ready(function(){
 
 function MainPageFuncationCall() {
 
+	$(".top_bar_title2").html("Loading....");
+	$(".main_page_loading").show();
+
 	$.ajax({
 		type: "POST",
 		dataType: "json",
@@ -155,6 +158,10 @@ function MainPageFuncationCall() {
 }
 
 function process_find_medicine(item_id){
+
+	$(".top_bar_title2").html("Loading....");
+	$(".main_page_loading").show();
+
 	$.ajax({
 		type       : "POST",
 		data       : {item_id:item_id} ,
@@ -168,6 +175,8 @@ function process_find_medicine(item_id){
 			$.each(data.items, function(i,item){
 				if (item)
 				{
+					$(".main_page_loading").hide();
+
 					item_message 	= item.item_message;
 					item_background = item.item_background;
 					item_suggest_altercode = item.item_suggest_altercode;

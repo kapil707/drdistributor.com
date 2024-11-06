@@ -436,8 +436,11 @@ class ImportOrderModel extends CI_Model
 	}
 
 	public function import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemQuantity) {
-
-		return $this->db->query("update drd_import_file set quantity='$ItemQuantity' where id='$ItemId'");
+		
+		$this->db->query("update drd_import_file set quantity='$ItemQuantity' where id='$ItemId'");
+		
+		$status = 1;
+		return $status;
 	}
 
 	public function import_order_medicine_change($UserType,$ChemistId,$SalesmanId,$Id,$ItemCode,$SelectedItemCode) {

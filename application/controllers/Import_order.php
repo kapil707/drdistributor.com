@@ -557,7 +557,7 @@ class Import_order extends CI_Controller {
 	
 	public function process_find_medicine_api() {	
 
-		$ItemId			= $_POST["item_id"];
+		$ItemId			= $_POST["ItemId"];
 		
 		$UserType 		= $this->UserType;
 		$ChemistId 		= $this->ChemistId;
@@ -646,7 +646,7 @@ class Import_order extends CI_Controller {
 		}
 
 		$dt = array(
-			'item_id' => $ItemId,
+			'ItemId' => $ItemId,
 			'item_message'=>$item_message,
 			'item_background'=>$item_background,
 			'item_suggest_altercode'=>$item_suggest_altercode,			
@@ -683,7 +683,7 @@ class Import_order extends CI_Controller {
 
 	public function import_order_row_delete_api() {
 
-		$ItemId		= ($_POST["item_id"]);
+		$ItemId		= ($_POST["ItemId"]);
 		$ItemCode 	= ($_POST["item_code"]);
 
 		$UserType 	= $this->UserType;

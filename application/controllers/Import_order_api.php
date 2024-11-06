@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Import_order extends CI_Controller {
+class Import_order_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";

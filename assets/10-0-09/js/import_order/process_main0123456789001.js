@@ -145,7 +145,8 @@ function MainPageFuncationCall() {
 							</div>
 						</div>
 					`);
-					setTimeout(process_find_medicine(item_id),100);
+					MainPageFuncationCall();
+					//setTimeout(process_find_medicine(item_id),100);
 				}
 			});
 		}
@@ -171,7 +172,6 @@ function process_find_medicine(item_id){
 			$.each(data.items, function(i,item){
 				if (item)
 				{
-					MainPageFuncationCall();
 
 					$(".main_page_loading").hide();
 					$(".loading_with_id_"+item_id).hide();

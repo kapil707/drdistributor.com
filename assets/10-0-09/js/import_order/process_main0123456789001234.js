@@ -144,50 +144,104 @@ function MainPageFuncationCall() {
     });
 }
 
-function process_find_medicine(item_id) {
-    $(".loading_with_id_" + item_id).html("Loading....").show();
-    $('.import_order_main_' + item_id).hide();
+function process_find_medicine(item_id){
 
-    $.ajax({
-        type: "POST",
-        data: { item_id: item_id },
-        url: get_base_url() + "import_order/process_find_medicine_api",
-        cache: true,
-        timeout: 60000,
-        error: function() {
-            $(".loading_with_id_" + item_id).html("Server not Responding, Please try Again");
-        },
-        success: function(data) {
-            $.each(data.items, function(i, item) {
-                if (item) {
-                    $(".main_page_loading").hide();
-                    $(".loading_with_id_" + item_id).hide();
+	$(".loading_with_id_"+item_id).html("Loading....");
+	$(".loading_with_id_"+item_id).show();
+	$('.import_order_main_'+item_id).hide();
 
-                    $(".import_order_main_div_" + item_id).css("background-color", item.item_background);
+	$.ajax({
+		type       : "POST",
+		data       : {item_id:item_id} ,
+		url        : get_base_url() + "import_order/process_find_medicine_api",
+		cache : true,
+		timeout: 60000,
+		error: function(){
+			$(".loading_with_id_"+item_id).html("Server not Responding, Please try Again");
+		},
+		success    : function(data){
+			$.each(data.items, function(i,item){
+				if (item)
+				{
 
-                    $('.import_order_item_message_' + item_id).html(item.item_message);
-                    $('.import_order_hidden_item_code_' + item_id).val(item.item_code);
-                    $('.import_order_item_name_' + item_id).html(item.item_name);
-                    $('.import_order_item_image_' + item_id).attr("src", item.item_image);
-                    $('.import_order_item_packing_' + item_id).html(item.item_packing);
-                    $('.import_order_item_batch_no_' + item_id).html(item.item_batch_no);
-                    $('.import_order_item_expiry_' + item_id).html('<b>' + item.item_expiry + '</b>');
-                    $('.import_order_item_scheme_' + item_id).html('Scheme : ' + item.item_scheme);
-                    
-                    $('.import_order_item_stock_' + item_id).html(item.item_stock || item.item_quantity);
-                    $('.import_order_item_company_' + item_id).html(item.item_company);
-                    $('.import_order_item_ptr_' + item_id).html(item.item_ptr);
-                    $('.import_order_item_mrp_' + item_id).html(item.item_mrp);
-                    $('.import_order_item_price_' + item_id).html(item.item_price);
+					$(".main_page_loading").hide();
+					$(".loading_with_id_"+item_id).hide();
 
-                    $('.import_order_item_scheme_div_' + item_id).toggle(item.item_scheme !== "0+0");
-                    $('.import_order_item_out_of_stock_' + item_id).toggle(item.item_quantity === "0");
-                    $('.import_order_item_featured_' + item_id).toggle(item.item_featured === "1");
-                    $('.import_order_item_suggested_' + item_id).toggle(item.item_suggest_altercode !== "");
-                }
-            });
-        }
-    });
+					item_message 	= item.item_message;
+					item_background = item.item_background;
+					item_suggest_altercode = item.item_suggest_altercode;
+
+					item_code = item.item_code;
+					item_name = item.item_name;
+					item_image = item.item_image;
+					item_packing = item.item_packing;
+					item_batch_no = item.item_batch_no;
+					item_expiry = item.item_expiry;
+					item_scheme = item.item_scheme;
+					item_quantity = item.item_quantity;
+					item_stock = item.item_stock;
+					item_company = item.item_company;
+					item_ptr = item.item_ptr;
+					item_mrp = item.item_mrp;
+					item_price = item.item_price;
+					item_featured = item.item_featured;
+
+					$('.import_order_main_'+item_id).show();
+					$('.import_order_quantity_textbox_'+item_id).focus();
+
+					$('.import_order_main_div_'+item_id).css("background-color",item_background);
+
+					$('.import_order_item_message_'+item_id).html(item_message);
+					
+					$('.import_order_hidden_item_code_'+item_id).val(item_code)
+					$('.import_order_item_name_'+item_id).html(item_name)
+					$('.import_order_item_image_'+item_id).attr("src",item_image);
+					$('.import_order_item_packing_'+item_id).html(item_packing);
+					$('.import_order_item_batch_no_'+item_id).html(item_batch_no);
+					$('.import_order_item_expiry_'+item_id).html('<b>'+item_expiry+'</b>');
+					$('.import_order_item_scheme_'+item_id).html('Scheme : '+item_scheme);
+
+					item_quantity_div = item_quantity;
+					if(item_stock!="")
+					{
+						item_quantity_div = item_stock;
+					}
+
+					$('.import_order_item_stock_'+item_id).html(item_quantity_div);
+					$('.import_order_item_company_'+item_id).html(item_company);
+
+					$('.import_order_item_ptr_'+item_id).html(item_ptr);
+					$('.import_order_item_mrp_'+item_id).html(item_mrp);
+					$('.import_order_item_price_'+item_id).html(item_price);
+
+					$('.import_order_item_scheme_div_'+item_id).hide()
+					if(item_scheme!="0+0"){
+						$('.import_order_item_scheme_div_'+item_id).show()
+					}
+
+					$('.import_order_item_featured_'+item_id).hide();
+					if(item_quantity=="0"){
+						$('.import_order_item_out_of_stock_'+item_id).show();
+					}
+
+					$('.import_order_item_featured_'+item_id).hide();
+					if(item_featured=="1"){
+						$('.import_order_item_featured_'+item_id).show();
+					}
+
+					$('.import_order_item_featured_'+item_id).hide();
+					if(item_featured=="1"){
+						$('.import_order_item_featured_'+item_id).show();
+					}
+					
+					$('.import_order_item_suggested_'+item_id).hide();
+					if(item_suggest_altercode!=""){
+						$('.import_order_item_suggested_'+item_id).show();
+					}				
+				}
+			});
+		}
+	});
 }
 
 

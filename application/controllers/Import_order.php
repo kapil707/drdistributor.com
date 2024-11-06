@@ -729,7 +729,7 @@ class Import_order extends CI_Controller {
 				$ItemQuantity = 1000;
 			}
 
-			$status = $this->ImportOrderModel->import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode,$ItemQuantity);
+			$status = $this->ImportOrderModel->import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemQuantity);
 		}
 
 		$jsonArray = array();

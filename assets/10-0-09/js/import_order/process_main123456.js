@@ -310,7 +310,7 @@ function import_order_row_quantity_change(item_id) {
 					if(item.status=="1")
 					{
 						swal("Quantity updated successfully");
-						//import_order_medicine_details(item_id)
+						import_order_medicine_details(item_id)
 					}
 					else{
 						swal("Quantity not updated");

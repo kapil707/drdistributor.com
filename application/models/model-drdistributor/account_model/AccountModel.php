@@ -207,7 +207,7 @@ class AccountModel extends CI_Model
 			'ChemistNrx'=>$ChemistNrx,
 			'ChemistId'=>$ChemistId,
 			'SalesmanId'=>$SalesmanId);
-		$this->session->set_userdata($session_arr);
+		//$this->session->set_userdata($session_arr);
 	}
 
 	public function get_create_new_api($user_name,$phone_number)

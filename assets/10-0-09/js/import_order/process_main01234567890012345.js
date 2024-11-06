@@ -136,8 +136,7 @@ function MainPageFuncationCall() {
                         </div>
                     `);
 
-                    // Call process_find_medicine after each item is loaded
-                    process_find_medicine(item_id);
+                    MainPageFuncationCall();
                 }
             });
         }

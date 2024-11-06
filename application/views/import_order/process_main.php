@@ -172,3 +172,17 @@ order_type = "notall";// change value taki cart pur load na ho
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main012.js"></script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main_other012.js"></script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search012345.js"></script>
+<script>
+$(document).ready(function(){
+	MainPageFuncationCall();
+	import_order_page_load();
+});
+function import_order_page_load(){
+	$(".top_bar_search_div").hide();
+	$(".top_bar_search_textbox_div").show();
+
+	$('.medicine_search_textbox').val("");
+	$('.medicine_search_textbox').show();
+	$('.medicine_search_textbox').focus();
+}
+</script>

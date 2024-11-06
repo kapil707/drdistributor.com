@@ -562,118 +562,122 @@ class Import_order extends CI_Controller {
 		$OrderId = base64_decode($OrderId);
 
 		$row = $this->ImportOrderModel->process_main2($OrderId);
-		$ItemId	= $row->id;
-		
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId		= $this->SalesmanId;
-		$ChemistNrx		= $this->ChemistNrx;
-
-		$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId);
-		$row = $return_value["row"];
-		$type_ = $return_value["type_"];
-		$suggest = $return_value["suggest"];
-		$order_quantity = $return_value["order_quantity"];
-		$item_suggest_altercode = $return_value["item_suggest_altercode"];
-		/******************************************/		
-		$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
-		$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
-		$item_image = base_url()."uploads/default_img.webp";
-		if(!empty($row)) {
-
-			$item_code			=	$row->i_code;
-			$item_name			=	ucwords(strtolower($row->item_name));
-			$item_packing		=	$row->packing;
-			$item_scheme		=	$row->salescm1."+".$row->salescm2;
-			$item_company		=  	ucwords(strtolower($row->company_name));
-			$item_quantity		=	$row->batchqty;
-			$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
-			$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
-			$item_price			=	sprintf('%0.2f',round($row->final_price,2));
-			$item_margin 		=   round($row->margin);
-			$item_featured 		= 	$row->featured;
-
-			$misc_settings =	$row->misc_settings;
-			$item_stock = "";
-			if($misc_settings=="#NRX" && $item_quantity>=10){
-				$item_stock = "Available";
-			}
+		if(!empty($row)){
+			$ItemId	= $row->id;
 			
+			$UserType 		= $this->UserType;
+			$ChemistId 		= $this->ChemistId;
+			$SalesmanId		= $this->SalesmanId;
+			$ChemistNrx		= $this->ChemistNrx;
+
+			$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId);
+			$row = $return_value["row"];
+			$type_ = $return_value["type_"];
+			$suggest = $return_value["suggest"];
+			$order_quantity = $return_value["order_quantity"];
+			$item_suggest_altercode = $return_value["item_suggest_altercode"];
+			/******************************************/		
+			$item_code = $item_image = $item_name = $item_packing = $item_stock = $item_scheme = $item_company = $item_batch_no = $item_expiry = $item_message = $item_background = "";
+			$item_quantity = $item_mrp = $item_ptr = $item_price = $item_margin = $item_featured = 0;
 			$item_image = base_url()."uploads/default_img.webp";
-			if(!empty($row->image1))
-			{
-				$item_image = $this->MedicineImageUrl.$row->image1;
+			if(!empty($row)) {
+
+				$item_code			=	$row->i_code;
+				$item_name			=	ucwords(strtolower($row->item_name));
+				$item_packing		=	$row->packing;
+				$item_scheme		=	$row->salescm1."+".$row->salescm2;
+				$item_company		=  	ucwords(strtolower($row->company_name));
+				$item_quantity		=	$row->batchqty;
+				$item_mrp			=	sprintf('%0.2f',round($row->mrp,2));
+				$item_ptr			=	sprintf('%0.2f',round($row->sale_rate,2));
+				$item_price			=	sprintf('%0.2f',round($row->final_price,2));
+				$item_margin 		=   round($row->margin);
+				$item_featured 		= 	$row->featured;
+
+				$misc_settings =	$row->misc_settings;
+				$item_stock = "";
+				if($misc_settings=="#NRX" && $item_quantity>=10){
+					$item_stock = "Available";
+				}
+				
+				$item_image = base_url()."uploads/default_img.webp";
+				if(!empty($row->image1))
+				{
+					$item_image = $this->MedicineImageUrl.$row->image1;
+				}
+
+				$item_batch_no = $row->batch_no;
+				$item_expiry =	$row->expiry;
+				
+				/******************************************/
+				if($row->batchqty!=0  && is_numeric($order_quantity)){
+					$item_code 		= $row->i_code;
+					$order_type 	= "excelFile";
+					$mobilenumber 	= "";
+					$modalnumber 	= "PC - Import Order";
+					$device_id    	= "";				
+					$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$order_quantity,$mobilenumber,$modalnumber,$device_id,$ItemId);
+				}
+				/******************************************/
 			}
 
-			$item_batch_no = $row->batch_no;
-			$item_expiry =	$row->expiry;
+			if($type_==1){
+				$item_message = "Find medicine (By DRD server) |";
+				$item_background = "#13ffb33b";
+			}
+
+			if($type_==0){
+				$item_message = "Find medicine but difference name or mrp. (By DRD server) | ";
+				$item_background = "#1713ff2e";
+			}
 			
-			/******************************************/
-			if($row->batchqty!=0  && is_numeric($order_quantity)){
-				$item_code 		= $row->i_code;
-				$order_type 	= "excelFile";
-				$mobilenumber 	= "";
-				$modalnumber 	= "PC - Import Order";
-				$device_id    	= "";				
-				$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$order_quantity,$mobilenumber,$modalnumber,$device_id,$ItemId);
-			}
-			/******************************************/
-		}
-
-		if($type_==1){
-			$item_message = "Find medicine (By DRD server) |";
-			$item_background = "#13ffb33b";
-		}
-
-		if($type_==0){
-			$item_message = "Find medicine but difference name or mrp. (By DRD server) | ";
-			$item_background = "#1713ff2e";
-		}
-		
-		if(empty($item_name)){
-			$item_message = "<span style=color:red>(Not found any medicine)</span> | ";
-			$item_background = "#ffe494";
-		}		
-		
-		if($item_quantity==0){
-			$item_message.= "<span style=color:red>Out of stock</span> | ";
-			$item_background = "#ffe494";
-		}
-		
-		if($suggest==1){
-			$item_message = "Related results found (Suggest set by $item_suggest_altercode) | ";
-			$item_background = "#97dcd6";
+			if(empty($item_name)){
+				$item_message = "<span style=color:red>(Not found any medicine)</span> | ";
+				$item_background = "#ffe494";
+			}		
 			
 			if($item_quantity==0){
-				$item_message.= " <span style=color:red>Out of stock</span> | ";
+				$item_message.= "<span style=color:red>Out of stock</span> | ";
 				$item_background = "#ffe494";
 			}
-		}
-
-		$dt = array(
-			'item_id' => $ItemId,
-			'item_message'=>$item_message,
-			'item_background'=>$item_background,
-			'item_suggest_altercode'=>$item_suggest_altercode,			
-
-			'item_code' => $item_code,
-			'item_image' => $item_image,
-			'item_name' => $item_name,
-			'item_packing' => $item_packing,
-			'item_scheme' => $item_scheme,
-			'item_company' => $item_company,
-			'item_quantity' => $item_quantity,
-			'item_stock' => $item_stock,
-			'item_ptr' => $item_ptr,
-			'item_mrp' => $item_mrp,
-			'item_price' => $item_price,
-			'item_margin' => $item_margin,
-			'item_featured' => $item_featured,
 			
-			'item_batch_no' => $item_batch_no,
-			'item_expiry' => $item_expiry,
-		);
-		$jsonArray[] = $dt;
+			if($suggest==1){
+				$item_message = "Related results found (Suggest set by $item_suggest_altercode) | ";
+				$item_background = "#97dcd6";
+				
+				if($item_quantity==0){
+					$item_message.= " <span style=color:red>Out of stock</span> | ";
+					$item_background = "#ffe494";
+				}
+			}
+
+			$dt = array(
+				'item_id' => $ItemId,
+				'item_message'=>$item_message,
+				'item_background'=>$item_background,
+				'item_suggest_altercode'=>$item_suggest_altercode,			
+
+				'item_code' => $item_code,
+				'item_image' => $item_image,
+				'item_name' => $item_name,
+				'item_packing' => $item_packing,
+				'item_scheme' => $item_scheme,
+				'item_company' => $item_company,
+				'item_quantity' => $item_quantity,
+				'item_stock' => $item_stock,
+				'item_ptr' => $item_ptr,
+				'item_mrp' => $item_mrp,
+				'item_price' => $item_price,
+				'item_margin' => $item_margin,
+				'item_featured' => $item_featured,
+				
+				'item_batch_no' => $item_batch_no,
+				'item_expiry' => $item_expiry,
+			);
+			$jsonArray[] = $dt;
+		}else{
+			$jsonArray = "";
+		}
 
 		$response = array(
             'success' => "1",

@@ -188,6 +188,7 @@ class AccountModel extends CI_Model
 			$SalesmanId	= $UserId;
 		}
 
+		/****************************************************** *
 		//cookies set from hear
 		setcookie("UserId", $UserId, time() + (86400 * 30), "/");
 		setcookie("UserType", $UserType, time() + (86400 * 30), "/");
@@ -197,7 +198,9 @@ class AccountModel extends CI_Model
 		setcookie("ChemistNrx", $ChemistNrx, time() + (86400 * 30), "/");
 		setcookie("ChemistId", $ChemistId, time() + (86400 * 30), "/");
 		setcookie("SalesmanId", $SalesmanId, time() + (86400 * 30), "/");
+		/****************************************************** */
 
+		//set session from hear
 		$session_arr = array(
 			'UserId'=>$UserId,
 			'UserType'=>$UserType,
@@ -207,7 +210,7 @@ class AccountModel extends CI_Model
 			'ChemistNrx'=>$ChemistNrx,
 			'ChemistId'=>$ChemistId,
 			'SalesmanId'=>$SalesmanId);
-		//$this->session->set_userdata($session_arr);
+		$this->session->set_userdata($session_arr);
 	}
 
 	public function get_create_new_api($user_name,$phone_number)

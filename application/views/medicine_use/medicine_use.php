@@ -45,7 +45,7 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 col-12">	
+				<div class="col-sm-12 col-12 main_page_data" style="display:none">
 					<div class="main_box_div p-2">
 						<div class="row medicine_details_api_data" style="display:none">
 							<div class="col-sm-5 col-12">
@@ -190,7 +190,13 @@ function goBack() {
 item_code = '<?= $item_code; ?>';
 get_page_name = "medicine_details";
 $(document).ready(function(){
-	medicine_details_funcation('<?= $item_code; ?>');
+	$(".top_bar_title").html("Loading....");
+	$(".main_page_loading").show();
+	$(".main_page_no_record_found").hide();
+	$(".main_page_something_went_wrong").hide();
+
+	medicine_details_get('<?= $item_code; ?>');
+	medicine_details_api('<?= $item_code; ?>');
 });
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_use.js"></script>

@@ -20,7 +20,7 @@ function goBack() {
 	<div class="row">
 		<div class="col-sm-12 col-12">
 			<div class="row">
-				<div class="col-sm-12 col-12 main_page_data" style="display:none">	
+				<div class="col-sm-12 col-12 main_page_data" style="display:none">
 					<div class="main_box_div p-2">
 						<div class="row medicine_details_api_data" style="display:none">
 							<div class="col-sm-4 col-12">

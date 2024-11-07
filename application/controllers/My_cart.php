@@ -138,8 +138,8 @@ class My_cart extends CI_Controller {
 		$status = $status_message = "";
 		if(!empty($UserType) && !empty($ChemistId)){
 
-			$excel_number = "";
-			$result = $this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$ItemId = "";
+			$result = $this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$item_code,$item_order_quantity,$order_type,$ItemId,$mobilenumber,$modalnumber,$device_id);
 			
 			$status = $result["status"];
 			$status_message = $result["status_message"];

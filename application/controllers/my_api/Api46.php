@@ -774,8 +774,8 @@ class Api46 extends CI_Controller {
 		$device_id 				= $_POST["device_id"];
 
 		if(!empty($user_type) && !empty($user_altercode)){
-			$excel_number = "";		
-			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$order_type,$item_code,$item_order_quantity,$mobilenumber,$modalnumber,$device_id,$excel_number);
+			$ItemId = "";		
+			$result = $this->MyCartModel->medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$item_code,$item_order_quantity,$order_type,$ItemId,$mobilenumber,$modalnumber,$device_id);
 			$status = $result["status"];
 			$status_message = $result["status_message"];
 			/*****************************************************/

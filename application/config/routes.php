@@ -151,7 +151,7 @@ $route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
 
 // import order pages
 $route['io']= 'import_order/index';
-$route['io/ums']= 'import_order/medicine_suggest';
+$route['io/usm']= 'import_order/medicine_suggest';
 $route['io/p/(:any)']= 'import_order/process_main/$1';
 $route['io/mdi/(:any)']= 'import_order/medicine_deleted_items/$1';
 

@@ -294,7 +294,7 @@ if (isset($_COOKIE["theme_type"])) {
 				</a>
 			</li>
 			<li class="mobile_off">
-				<a href="<?= base_url(); ?>io/ums" title="Update suggest medicine">
+				<a href="<?= base_url(); ?>io/usm" title="Update suggest medicine">
 					<i class="fa fa-thumbs-up" aria-hidden="true"></i> 
 					Update suggest medicine
 				</a>

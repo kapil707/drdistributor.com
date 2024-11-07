@@ -18,7 +18,7 @@ function goBack() {
 					</div>
 					
 					<div class="col-sm-3 col-12 text-right">
-						<a href="<?= base_url() ?>io/ums" title="Update suggest medicine" style="font-size: 15px; color:gray">
+						<a href="<?= base_url() ?>io/usm" title="Update suggest medicine" style="font-size: 15px; color:gray">
 							<i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
 							Update suggest medicine
 						</a>

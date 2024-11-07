@@ -360,6 +360,7 @@ class ImportOrderModel extends CI_Model
 		$row = $this->db->get("drd_import_file")->row();
 		if(!empty($row))
 		{
+			// rest karta ha taki item fir say process kar saky
 			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
 
 			$dt = array(
@@ -499,6 +500,7 @@ class ImportOrderModel extends CI_Model
 		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
 		/******************************************************* */
 
+		// rest karta ha taki item fir say process kar saky
 		$this->db->query("update drd_import_file set status='1' where id='$ItemId'");
 
 		$date = date('Y-m-d');
@@ -530,17 +532,19 @@ class ImportOrderModel extends CI_Model
 			$your_item_name = $row->item_name;
 			$this->db->select("i_code");
 			$this->db->where('your_item_name',$your_item_name);
+			$this->db->where('user_altercode',$ChemistId);
 			$row1 = $this->db->get("drd_import_orders_suggest")->row();
 			$ItemCode = $row1->i_code;
 			/******************************************************* */
 
-			$where = array('your_item_name'=>$your_item_name);
+			$where = array('your_item_name'=>$your_item_name,'user_altercode',$ChemistId);
 			$this->delete_query("drd_import_orders_suggest",$where);
 			/******************************************************* */
 
 			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
 			/******************************************************* */
 
+			// rest karta ha taki item fir say process kar saky
 			$this->db->query("update drd_import_file set status='1' where id='$ItemId'");
 
 			$status = 1;

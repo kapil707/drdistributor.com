@@ -463,7 +463,7 @@ function get_UserType(){
 }
 var default_img = "<?= base_url(); ?>uploads/default_img.webp";
 var get_page_name = "";
-var siteTitle = "<?php echo $this->appconfig->siteTitle(); ?>";
+var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 </script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/easyzoom/easyzoom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>

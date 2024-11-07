@@ -706,7 +706,7 @@ function delete_all_medicine()
 function my_cart_api() {
 
 	if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
-		setTimeout('my_cart_api();',60000);
+		setTimeout('my_cart_api();',120000);
 	}
 
 	$.ajax({

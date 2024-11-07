@@ -48,7 +48,8 @@ function btn_upload_import_file(){
 		$(".itemmrp").focus();
 		swal("Enter Item Row Mrp")
 		return;
-	}	
+	}
+	$(".background_blur").show();
 	$(".main_page_loading").show();
 	$("#btn_upload_import_file").hide();
 	var file_data = $('#import_order_file').prop('files')[0];

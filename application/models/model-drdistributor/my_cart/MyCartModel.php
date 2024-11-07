@@ -127,7 +127,7 @@ class MyCartModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where($where);
 		if($order_type=="import_order"){
-			$this->db->where('order_type'!='import_order');
+			$this->db->where('order_type!=','import_order');
 		}
 		$this->db->order_by("
 			CASE 

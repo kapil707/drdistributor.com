@@ -7,43 +7,15 @@ function goBack() {
 <div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
-			<table class="table table-striped table-bordered" aria-describedby id="page_table">
-				<thead>
-					<tr>
-						<th style="width:50px;" scope>
-							S.No.
-						</th>
-						<th scope>
-							Item Name
-						</th>
-						<th scope>
-							Suggest Item
-						</th>
-						<th scope>
-							Action
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php
-				/*$lastcount=1;
-				foreach($result as $row)
-				{
-					?>
-					<tr class="selected_suggest_<?= $row->id ?>">
-						<td><?= $lastcount++?></td>
-						<td class="all_item_name"><?= ucwords(strtolower($row->your_item_name))?></td>
-						<td class="all_item_name"><?= ucwords(strtolower($row->item_name))?></td>
-						<td class="">
-							<a href="javascript:delete_suggest_by_id('<?= $row->id ?>')" title="Delete Suggest Medicine" class="all_item_delete_btn"><i class="fa fa-trash" aria-hidden="true" style="margin-left:10px; font-size:20px"></i> Delete suggest medicine</a>
-						</td>
-					</tr>
-					<?php
-				}*/
-				?>
-				</tbody>
-			</table>
-		</div>	
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered table-hover" id="page_table">
+					<thead>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>     
 </div>
 <script>
@@ -68,7 +40,10 @@ function MainPageFuncationCall() {
 		},
 		order: [[0, 'asc']],
 		columns: [
-			{ data: 'sr_no', title: 'Id' },
+			{ data: 'id', title: 'Id' },
+			{ data: 'your_item_name', title: 'Item Name' },
+			{ data: 'item_name', title: 'Suggest Item' },
+			{ data: 'id', title: 'Id' },
 			/*{
 				data: null,
 				title: 'Action',

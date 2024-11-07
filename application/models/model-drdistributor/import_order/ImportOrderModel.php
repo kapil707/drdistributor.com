@@ -334,7 +334,6 @@ class ImportOrderModel extends CI_Model
 				'item_code'=>$row->i_code,
 				'item_name'=>$row->item_name,
 				'your_item_name'=>$row->your_item_name,
-				'order_id'=>$row->order_id,
 			);
 			$jsonArray[] = $dt;
 		}

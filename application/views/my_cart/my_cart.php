@@ -147,4 +147,10 @@ function goBack() {
 <script>
 get_page_name = "my_cart";// change value taki cart pur load na ho
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_cart12345.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_cart123456.js"></script>
+<script>
+$(document).ready(function(){	
+	setTimeout('cart_page_load();',100);
+	setTimeout('my_cart_api();',200);
+});
+</script>

@@ -1,8 +1,7 @@
-$(document).ready(function(){
+function cart_page_load(){
 	$(".cart_page_div_for_fix_height").css("height",$(window).height() - 215)
 	$(".main_page_loading").show();
-	my_cart_api();
-});
+}
 
 function slice_type_change(mtid)
 {
@@ -45,6 +44,7 @@ function place_order_complete()
 		data       : {remarks:remarks},
 		url        : get_base_url() +"my_cart/place_order_api",
 		cache : true,
+		timeout: 60000,
 		error: function(){
 			window.location.href = get_base_url() + "my_cart";
 			//count_temp_rec();
@@ -59,13 +59,9 @@ function place_order_complete()
 					{
 						$(".place_order_div").html("<h1 class='text-center'>"+status_message+"</h1><h1 class='text-center'><input type='submit' value='Go home' class='btn main_theme_button' name='Go home' onclick='gohome()' style='width:50%;margin-top:100px;'></h1>");
 				    }
-					/******************************** *
-					get_my_cart_total_api();
-					/******************************** */
 				}
 			});
-		},
-		timeout: 60000
+		}
 	});
 }
 function gohome()

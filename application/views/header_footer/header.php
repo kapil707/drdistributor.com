@@ -469,4 +469,4 @@ var get_page_name = "";
 <script>
     new WOW().init();
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page12.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page123.js"></script>

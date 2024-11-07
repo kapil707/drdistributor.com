@@ -1,3 +1,4 @@
+var order_type = '';
 function showActualImage(img) {
 	img.style.display = 'block'; // Show the actual image
 	img.previousElementSibling.style.display = 'none'; // Hide the default image
@@ -711,9 +712,8 @@ function delete_all_medicine()
 		}
 	});
 }
-function my_cart_api(order_type="") {
+function my_cart_api() {
 
-	id = "";
 	$.ajax({
 		url: get_base_url() +"my_cart/my_cart_api",
 		type	:"POST",

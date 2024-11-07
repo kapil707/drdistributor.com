@@ -1,7 +1,7 @@
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>account";
+	window.location.href = "<?= base_url();?>a";
 }
 </script>
 <div class="container main_container">

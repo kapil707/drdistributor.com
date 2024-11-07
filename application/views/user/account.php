@@ -28,7 +28,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2">
 					<div class="main_box_div_data p-4">
-						<a href="<?= base_url(); ?>update_account" title="Update account" class="main_theme_a">
+						<a href="<?= base_url(); ?>au" title="Update account" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/edit_icon.png" width="30" alt="Update Image" title="Update account">
 							<span style="margin-left:20px;">Update account</span>
 						</a>
@@ -36,7 +36,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2">
 					<div class="main_box_div_data p-4">
-						<a href="<?= base_url(); ?>update_image" title="Update image" class="main_theme_a">
+						<a href="<?= base_url(); ?>iu" title="Update image" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/photo1.png" width="30" alt="Update Image" title="Update Image">
 							<span style="margin-left:20px;">Update image</span>
 						</a>
@@ -44,7 +44,7 @@ function goBack() {
 				</div>
 				<div class="col-sm-12 mt-2 mb-2">
 					<div class="main_box_div_data p-4">
-						<a href="<?= base_url();?>update_password" title="Update password" class="main_theme_a">
+						<a href="<?= base_url();?>pu" title="Update password" class="main_theme_a">
 							<img class="img-circle" src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/images/b_lock.png" width="30" alt="Update Password" title="Update Password">
 							<span style="margin-left:20px;">Update password</span>
 						</a>

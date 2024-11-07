@@ -25,8 +25,8 @@ function goBack() {
 <input type="hidden" class="_row_id">
 <script>
 order_id = "<?php echo $order_id ?>";
-get_page_name = "import_page";// change value taki cart pur load na ho 
-order_type = "notall";// change value taki cart pur load na ho 
+get_page_name = "import_order";// change value taki cart pur load na ho 
+order_type = "import_order";// change value taki cart pur load na ho 
 </script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main1.js"></script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/import_order/process_main_other.js"></script>

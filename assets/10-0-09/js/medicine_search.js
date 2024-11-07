@@ -12,7 +12,7 @@ function cart_page_load(){
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
 
-	my_cart_api("all");
+	my_cart_api();
 }
 
 function clear_search_function() {

@@ -511,11 +511,11 @@ function medicine_add_to_cart_api()
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();
 
-				if(get_page_name=="import_oreder"){
+				/*if(get_page_name=="import_order"){
 					order_type = "notall";
 				}else{
 					order_type = "all";
-				}
+				}*/
 
 				if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
 					
@@ -711,7 +711,7 @@ function delete_all_medicine()
 		}
 	});
 }
-function my_cart_api(order_type) {
+function my_cart_api(order_type="") {
 
 	id = "";
 	$.ajax({

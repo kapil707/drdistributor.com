@@ -276,6 +276,9 @@ function process_find_medicine(){
 			if(data.items!=""){
 				process_find_medicine();
 			}else{
+				// yha cart load karta ha page par
+				my_cart_api("import_order");
+				/********************************* */
 				$(".next_button_show").show();
 				$(".background_blur").hide();
 				$(".main_page_loading").hide();

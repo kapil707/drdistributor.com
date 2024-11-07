@@ -126,10 +126,13 @@ class MyCartModel extends CI_Model
 		$where = array('chemist_id' => $user_altercode,'salesman_id' => $selesman_id,'user_type' => $user_type,	'status' => '0');
 		$this->db->select("*");
 		$this->db->where($where);
+		if($order_type=="import_order"){
+			$this->db->where('order_type'!='import_order');
+		}
 		$this->db->order_by("
 			CASE 
 				WHEN order_type = 'pc_mobile' THEN 1 
-				WHEN order_type = 'excelFile' THEN 2 
+				WHEN order_type = 'import_order' THEN 2 
 				ELSE 3 
 			END
 		", null, false);
@@ -141,7 +144,7 @@ class MyCartModel extends CI_Model
 		", 'DESC', false);
 		$this->db->order_by("
 			CASE 
-				WHEN order_type = 'excelFile' THEN short_order 
+				WHEN order_type = 'import_order' THEN short_order 
 				ELSE NULL 
 			END
 		", 'ASC', false);

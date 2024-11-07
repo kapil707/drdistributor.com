@@ -52,8 +52,8 @@ $(document).ready(function(){
 });
 </script>
 <script>
+var table;
 function MainPageFuncationCall() {
-	
 	table = $('#page_table').DataTable({
 		ajax: {
 			url: get_base_url() + "import_order_api/medicine_suggest_api",

@@ -184,6 +184,23 @@ class Import_order_api extends CI_Controller {
 		echo json_encode($response);
 	}
 
+	public function delete_suggest_by_id_api()
+	{
+		$id = ($_REQUEST["id"]);
+		if(!empty($id)){
+			$this->ImportOrderModel->delete_suggest_by_id_api($id);
+		}
+		
+		$response = array(
+            'success' => "1",
+            'message' => 'Data delete successfully'
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	public function order_check_api(){
 		$order_id = $_POST["order_id"];
 		$order_id = base64_decode($order_id);

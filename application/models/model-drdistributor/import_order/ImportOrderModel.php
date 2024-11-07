@@ -346,6 +346,10 @@ class ImportOrderModel extends CI_Model
 		return $jsonArray;
 	}
 
+	public function delete_suggest_by_id_api($id){
+		$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+	}
+
 	public function order_check($order_id) {
 
 		// agar process ruk gaya yha user nay refresh kar diya to jo pending me ha oss ko rest karta ha is query say

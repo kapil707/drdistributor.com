@@ -270,25 +270,25 @@ if (isset($_COOKIE["theme_type"])) {
 		<h2 class="text-left">Account</h2>
 		<ul>
 			<li>
-				<a href="<?= base_url() ?>account" title="Account">
+				<a href="<?= base_url() ?>a" title="Account">
 					<i class="fa fa-user" aria-hidden="true"></i> 
 					Account
 				</a>
 			</li>
 			<li>
-				<a href="<?= base_url() ?>update_account" title="Update account">
+				<a href="<?= base_url() ?>au" title="Update account">
 					<i class="fa fa-pencil-square" aria-hidden="true"></i>
 					Update account
 				</a>
 			</li>
 			<li>
-				<a href="<?= base_url() ?>update_image" title="Update image">
+				<a href="<?= base_url() ?>iu" title="Update image">
 					<i class="fa fa-camera" aria-hidden="true"></i> 
 					Update image
 				</a>
 			</li>
 			<li>
-				<a href="<?= base_url() ?>update_password" title="Update password">
+				<a href="<?= base_url() ?>pu" title="Update password">
 				<i class="fa fa-key" aria-hidden="true"></i>
 					Update password
 				</a>

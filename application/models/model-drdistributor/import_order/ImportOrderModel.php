@@ -337,6 +337,7 @@ class ImportOrderModel extends CI_Model
 				'order_id'=>$row->order_id,
 			);
 			$jsonArray[] = $dt;
+		}
 		if(!empty($jsonArray)){
 		}else{
 			$jsonArray = "";

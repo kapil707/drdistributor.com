@@ -179,6 +179,9 @@ class Import_order_api extends CI_Controller {
             'message' => 'Data load successfully',
             'items' => $items,
         );
+		// Send JSON response
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 
 	public function order_check_api(){

@@ -7,7 +7,7 @@ function goBack() {
 <div class="container main_container">
 	<div class="row">
 		<div class="col-sm-12 col-12">
-			<table class="table table-striped table-bordered" aria-describedby>
+			<table class="table table-striped table-bordered" aria-describedby id="page_table">
 				<thead>
 					<tr>
 						<th style="width:50px;" scope>
@@ -53,15 +53,43 @@ $(document).ready(function(){
 </script>
 <script>
 function MainPageFuncationCall() {
-	$.ajax({
-        type: "POST",
-        dataType: "json",
-        url: get_base_url() + "import_order_api/medicine_suggest_api",
-        cache: true,
-        error: function() {},
-        success: function(data) {
-			
-		}
+	
+	table = $('#page_table').DataTable({
+		ajax: {
+			url: get_base_url() + "import_order_api/medicine_suggest_api",
+			type: 'POST',
+			dataSrc: 'items'
+		},
+		order: [[0, 'asc']],
+		columns: [
+			{ data: 'sr_no', title: 'Id' },
+			/*{
+				data: null,
+				title: 'Action',
+				orderable: false,
+				render: function (data, type, row) {
+					return `<a href="javascript:void(0)" onclick="delete_rec('${row.id}')" class="btn-white btn btn-xs">Delete</a>`;
+				}
+			}*/
+		],
+		pageLength: 25,
+		responsive: true,
+		dom: '<"html5buttons"B>lTfgitp',
+		buttons: [
+			{extend: 'copy'},
+			{extend: 'csv'},
+			{extend: 'excel', title: 'ExampleFile'},
+			{extend: 'pdf', title: 'ExampleFile'},
+			{extend: 'print',
+				customize: function (win){
+					$(win.document.body).addClass('white-bg');
+					$(win.document.body).css('font-size', '10px');
+					$(win.document.body).find('table')
+							.addClass('compact')
+							.css('font-size', 'inherit');
+				}
+			}
+		]
 	});
 }
 function delete_suggest_by_id(_id)
@@ -80,3 +108,4 @@ function delete_suggest_by_id(_id)
 	}
 }
 </script>
+<script src="https://cdn.datatables.net/scroller/2.2.0/js/dataTables.scroller.min.js"></script>

@@ -156,7 +156,7 @@ function goBack() {
 <script>
 get_page_name = "medicine_details";
 $(document).ready(function(){
-	medicine_details_get('<?= $item_code; ?>');
-	medicine_details_api('<?= $item_code; ?>');
+	//medicine_details_get('<?= $item_code; ?>');
+	//medicine_details_api('<?= $item_code; ?>');
 });
 </script>

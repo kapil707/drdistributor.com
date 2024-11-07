@@ -282,8 +282,9 @@ function medicine_details_api(item_code)
 				{
 					if(get_page_name=="medicine_details"){
 						$(".top_bar_title").html(item.item_name);
-						document.title = item.item_name;
+						document.title = siteTitle+" || "+item.item_name;
 						$(".main_page_data").show();
+						$(".top_bar_title2").html(`Found result`);
 					}
 
 					item_date_time	= item.item_date_time;

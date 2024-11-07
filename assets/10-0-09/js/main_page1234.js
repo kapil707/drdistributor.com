@@ -1,4 +1,4 @@
-var order_type = '';
+var order_type = "";
 function showActualImage(img) {
 	img.style.display = 'block'; // Show the actual image
 	img.previousElementSibling.style.display = 'none'; // Hide the default image
@@ -558,7 +558,7 @@ function medicine_add_to_cart_api()
 				
 				$.ajax({
 					type       : "POST",
-					data       : {item_code:item_code,item_order_quantity:item_order_quantity,order_type:order_type},
+					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
 					url        : get_base_url() + "my_cart/medicine_add_to_cart_api",
 					cache	   : true,
 					error: function(){

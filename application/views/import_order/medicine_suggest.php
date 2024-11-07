@@ -43,13 +43,12 @@ function MainPageFuncationCall() {
 			{ data: 'id', title: 'Id' },
 			{ data: 'your_item_name', title: 'Item Name' },
 			{ data: 'item_name', title: 'Suggest Item' },
-			{ data: 'id', title: 'Id' },
-			/*{
+			{
 				data: null,
 				title: 'Action',
 				orderable: false,
 				render: function (data, type, row) {
-					return `<a href="javascript:void(0)" onclick="delete_rec('${row.id}')" class="btn-white btn btn-xs">Delete</a>`;
+					return `<a href="javascript:void(0)" onclick="delete_suggest_by_id('${row.id}')" class="btn-white btn btn-xs">Delete</a>`;
 				}
 			}*/
 		],

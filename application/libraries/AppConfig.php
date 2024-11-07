@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AppConfig {
     // Define application-wide settings
-    public $siteTitle = "D R Distributors Pvt Ltd";
-    public $siteTitle2 = "D R Distributors Pvt Ltd";
-    public $FooterTitle = "D R Distributors Pvt Ltd";
+    public $siteTitle = "D.R. Distributors Pvt Ltd";
+    public $siteTitle2 = "D.R. Distributors Pvt Ltd";
+    public $FooterTitle = "D.R. Distributors Pvt Ltd";
     public $WebsiteVersion = "10.0.10";
     public $WebJs = "10-0-10";
     public $Weburl = "https://www.drdistributor.com/";

@@ -1,6 +1,3 @@
-$(document).ready(function(){
-	MainPageFuncationCall()
-});
 var query_work = 0;
 var no_record_found = 0;
 function MainPageFuncationCall()

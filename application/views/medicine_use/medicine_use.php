@@ -197,6 +197,7 @@ $(document).ready(function(){
 
 	medicine_details_get('<?= $item_code; ?>');
 	medicine_details_api('<?= $item_code; ?>');
+	MainPageFuncationCall();
 });
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_use.js"></script>

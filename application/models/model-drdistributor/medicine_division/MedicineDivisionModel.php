@@ -10,10 +10,10 @@ class MedicineDivisionModel extends CI_Model
 	}
 
 	public function get_division_category_name_id($CategoryName){
-		$this->db->select("id");
-		$this->db->where('name',$CategoryName);
-		$row = $this->db->get("tbl_division_category")->row();
-		return $row->id;
+		$this->db->select("compcode");
+		$this->db->where('company_full_name',$CategoryName);
+		$row = $this->db->get("tbl_division_wise")->row();
+		return $row->compcode;
 	}
 	
 	public function get_division_category_name($category_id){

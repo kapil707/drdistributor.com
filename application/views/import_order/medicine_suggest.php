@@ -40,7 +40,7 @@ function MainPageFuncationCall() {
 		},
 		order: [[0, 'asc']],
 		columns: [
-			{ data: 'id', title: 'Id' },
+			{ data: 'sr_no', title: 'Sr No.' },
 			{ data: 'your_item_name', title: 'Item Name' },
 			{ data: 'item_name', title: 'Suggest Item' },
 			{

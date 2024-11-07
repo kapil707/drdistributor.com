@@ -324,12 +324,14 @@ class ImportOrderModel extends CI_Model
 	public function get_import_order_suggest($ChemistId) {	
 		$jsonArray = array();
 
+		$sr_no = 1;
 		$this->db->select("*");
 		$this->db->where('user_altercode',$ChemistId);
 		$this->db->order_by('your_item_name','asc');
 		$result = $this->db->get("drd_import_orders_suggest")->result();
 		foreach($result as $row) {
 			$dt = array(
+				'sr_no' => $sr_no++,
 				'id' => $row->id,
 				'item_code'=>$row->i_code,
 				'item_name'=>$row->item_name,

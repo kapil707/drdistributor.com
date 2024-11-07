@@ -94,7 +94,7 @@ table{
     position: fixed;
     top: 300px;
     z-index: 100;
-    margin-left: 45%;
+    margin-left: 41%;
     box-shadow: 0px 0px 5px 0px var(--main-theme-box-shadow-color);
     border-radius: 10px;
 	background-image: linear-gradient(var(--main-theme-top-menu-bar-bg-color), var(--main-theme-top-menu-bar-bg1-color));

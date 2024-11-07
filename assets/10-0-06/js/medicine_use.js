@@ -1,22 +1,19 @@
 $(document).ready(function(){
-	call_page()
+	MainPageFuncationCall()
 });
-function load_more()
-{
-	call_page()
-}
 var query_work = 0;
 var no_record_found = 0;
-function call_page()
+function MainPageFuncationCall()
 {
 	if(query_work=="0")
 	{
 		query_work = 1;
 		$.ajax({
 			type       : "POST",
-			data       :  {item_code:item_code} ,
+			data       :  {item_code:item_code},
 			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use",
 			cache : true,
+			timeout: 60000,
 			error: function(){
 				$(".load_page_loading").html("");
 				$(".load_page").html(something_went_wrong_function());
@@ -42,14 +39,9 @@ function call_page()
 						if(video!=""){
 							$(".load_page_videos").append('<div class="col-sm-6 col-6 p-0 m-0 text-center"><div class="medicine_use_div1">'+video+'</div></div>');
 						}
-						//$(".headertitle").html(item.item_header_title);
-						query_work = 0;
-						no_record_found = 1;
-						$(".load_more").show();
 					}
 				});
-			},
-			timeout: 10000
+			}
 		});
 	}
 }

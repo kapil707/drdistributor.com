@@ -187,6 +187,7 @@ function goBack() {
 	</div>
 </div>
 <script>
+item_code = '<?= $item_code; ?>';
 get_page_name = "medicine_details";
 $(document).ready(function(){
 	$(".top_bar_title").html("Loading....");

@@ -53,7 +53,7 @@ class Main extends CI_Controller {
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
-			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			$data["UserFullName"]   = "Guest";
 			$data["DeliveringTo"] 	= "Guest";
 			$data["ChemistId"] 		= "";
@@ -90,7 +90,7 @@ class Main extends CI_Controller {
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
-			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			$data["UserFullName"]   = "Guest";
 			$data["DeliveringTo"] 	= "Guest";
 			$data["ChemistId"] 		= "";
@@ -126,7 +126,7 @@ class Main extends CI_Controller {
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
-			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			$data["UserFullName"]   = "Guest";
 			$data["DeliveringTo"] 	= "Guest";
 			$data["ChemistId"] 		= "";
@@ -190,7 +190,7 @@ class Main extends CI_Controller {
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
-			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			$data["UserFullName"]   = "Guest";
 			$data["DeliveringTo"] 	= "Guest";
 			$data["ChemistId"] 		= "";
@@ -239,7 +239,7 @@ class Main extends CI_Controller {
 			}else{
 				$data["UserId"] 		= "Guest";
 				$data["UserType"]     	= "";
-				$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+				$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 				$data["UserFullName"]   = "Guest";
 				$data["DeliveringTo"] 	= "Guest";
 				$data["ChemistId"] 		= "";
@@ -283,7 +283,7 @@ class Main extends CI_Controller {
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
-			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+			$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			$data["UserFullName"]   = "Guest";
 			$data["DeliveringTo"] 	= "Guest";
 			$data["ChemistId"] 		= "";
@@ -332,7 +332,7 @@ class Main extends CI_Controller {
 			}else{
 				$data["UserId"] 		= "Guest";
 				$data["UserType"]     	= "";
-				$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo2.png";
+				$data["UserImage"] 		= base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 				$data["UserFullName"]   = "Guest";
 				$data["DeliveringTo"] 	= "Guest";
 				$data["ChemistId"] 		= "";

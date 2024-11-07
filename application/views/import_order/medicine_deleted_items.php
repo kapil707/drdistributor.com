@@ -1,13 +1,3 @@
-<?php if(!empty($chemist_id)){ ?>
-<style>
-.top_bar_title{
-	margin-top: -5px;
-}
-</style>
-<script>
-$(".top_bar_title1").show();
-</script>
-<?php } ?>
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {

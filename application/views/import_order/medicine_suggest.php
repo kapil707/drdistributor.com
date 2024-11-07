@@ -1,17 +1,7 @@
-<?php if(!empty($chemist_id)){ ?>
-<style>
-.top_bar_title{
-	margin-top: -5px;
-}
-</style>
-<script>
-$(".top_bar_title1").show();
-</script>
-<?php } ?>
 <script>
 $(".top_bar_title").html("<?= $MainPageTitle ?>");
 function goBack() {
-	window.location.href = "<?= base_url();?>import_order";
+	window.location.href = "<?= base_url();?>io";
 }
 </script>
 <div class="container main_container">
@@ -57,12 +47,29 @@ function goBack() {
 	</div>     
 </div>
 <script>
+$(document).ready(function(){
+	MainPageFuncationCall();
+});
+</script>
+<script>
+function MainPageFuncationCall() {
+	$.ajax({
+        type: "POST",
+        dataType: "json",
+        url: get_base_url() + "import_order_api/medicine_suggest_api",
+        cache: true,
+        error: function() {},
+        success: function(data) {
+			
+		}
+	});
+}
 function delete_suggest_by_id(_id)
 {
 	if (confirm('Are you sure Delete Suggest?')) {
 		$('.selected_suggest_'+_id).hide();
 		$.ajax({
-			url: "<?php echo base_url(); ?>import_order/delete_suggest_by_id",
+			url: "<?php echo base_url(); ?>import_order_api/delete_suggest_by_id",
 			type:"POST",
 			dataType: 'json',
 			data: {id:_id},

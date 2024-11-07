@@ -82,7 +82,7 @@ function delete_suggest_by_id(_id)
 			dataType: 'json',
 			data: {id:_id},
 			success: function(data){
-				
+				table.ajax.reload();
 			}
 		});
 	}

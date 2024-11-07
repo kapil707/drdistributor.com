@@ -26,7 +26,7 @@ function goBack() {
 				</thead>
 				<tbody>
 				<?php
-				$lastcount=1;
+				/*$lastcount=1;
 				foreach($result as $row)
 				{
 					?>
@@ -39,7 +39,7 @@ function goBack() {
 						</td>
 					</tr>
 					<?php
-				}
+				}*/
 				?>
 				</tbody>
 			</table>

@@ -363,18 +363,11 @@ class ImportOrderModel extends CI_Model
 			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
 
 			$dt = array(
-				'i'=>$i++,
 				'id' => $row->id,
 				'item_name'=>$row->item_name,
 				'quantity'=>$row->quantity,
 				'mrp'=>$row->mrp,
 				'order_id'=>$row->order_id,
-				'status'=>$row->status,
-				'p_status'=>$row->p_status,
-				'user_type'=>$row->user_type,
-				'user_altercode'=>$row->user_altercode,
-				'salesman_id'=>$row->salesman_id,
-				'date'=>$row->date,
 			);
 			$jsonArray[] = $dt;
 		}else{

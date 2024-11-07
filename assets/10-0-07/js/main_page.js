@@ -705,11 +705,16 @@ function delete_all_medicine()
 }
 function my_cart_api() {
 
+	if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
+		setTimeout('my_cart_api();',5000);
+	}
+
 	$.ajax({
 		url: get_base_url() +"my_cart/my_cart_api",
 		type	:"POST",
 		dataType: "json",
 		cache: true,
+		timeout: 60000,
 		data: {order_type:order_type},
 		error: function(){
 			$(".main_page_loading").hide();
@@ -800,7 +805,6 @@ function my_cart_api() {
 					$(".my_cart_api_div_import_order").append(my_cart_data);
 				}
 			});
-		},
-		timeout: 60000
+		}
 	});
 }

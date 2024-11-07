@@ -231,7 +231,7 @@ function get_single_medicine_info(item_code)
 function medicine_details_funcation(item_code)
 {	
 	var getUserId = get_UserId();
-	if((getUserId=="" || getUserId==null) && get_page_name!="medicine_details")
+	if((getUserId=="" || getUserId==null))
 	{
 		window.location.href = get_base_url() + "home";
 	} else {		

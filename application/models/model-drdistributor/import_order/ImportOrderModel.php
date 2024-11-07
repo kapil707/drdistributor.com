@@ -537,7 +537,7 @@ class ImportOrderModel extends CI_Model
 			$ItemCode = $row1->i_code;
 			/******************************************************* */
 
-			$where = array('your_item_name'=>$your_item_name,'user_altercode',$ChemistId);
+			$where = array('your_item_name'=>$your_item_name,'user_altercode'=>$ChemistId);
 			$this->delete_query("drd_import_orders_suggest",$where);
 			/******************************************************* */
 

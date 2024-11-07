@@ -44,6 +44,7 @@ class User extends CI_Controller {
 		//error_reporting(0);
 		redirect(base_url());
 	}
+
 	public function account(){
 
 		/********************MainPageTitle***************************** */
@@ -69,6 +70,7 @@ class User extends CI_Controller {
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('user/account', $data);
 	}
+	
 	public function update_account(){
 
 		/********************MainPageTitle***************************** */

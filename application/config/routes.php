@@ -158,5 +158,11 @@ $route['io/mdi/(:any)']= 'import_order/medicine_deleted_items/$1';
 $route['select_chemist'] = 'Chemist_select/index';
 $route['home/select_chemist'] = 'Chemist_select/index';
 
+//user
+$route['a'] = 'User/account';
+$route['au'] = 'User/update_account';
+$route['iu'] = 'User/update_image';
+$route['pu'] = 'User/update_password';
+
 $route['404_override'] = 'errors/custom_404';
 $route['translate_uri_dashes'] = FALSE;

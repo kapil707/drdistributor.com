@@ -106,11 +106,12 @@ function goBack() {
 get_page_name = "medicine_search";// change value taki cart pur load na ho 
 order_type = "all";// change value taki cart pur load na ho 
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search1.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search12.js"></script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_favourite.js"></script>
 <script>
 $(document).ready(function(){	
-	setTimeout('cart_page_load();',100);
+	setTimeout('search_page_load();',100);
 	setTimeout('medicine_favourite_api();',200);
+	setTimeout('my_cart_api();',300);
 });
 </script>

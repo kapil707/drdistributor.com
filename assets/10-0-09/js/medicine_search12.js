@@ -1,9 +1,8 @@
 var import_order_medicine_change_value = 0; // yha import page ke iya ha iss ko yaha set kiya h or iss ko remove nahi karna
-function cart_page_load(){
+function search_page_load(){
 
 	$(".main_page_loading").show();
-
-	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215)
+	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
 
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
@@ -11,8 +10,6 @@ function cart_page_load(){
 	$('.medicine_search_textbox').val("");
 	$('.medicine_search_textbox').show();
 	$('.medicine_search_textbox').focus();
-
-	my_cart_api();
 }
 
 function clear_search_function() {

@@ -20,7 +20,9 @@ if (isset($_COOKIE["theme_type"])) {
 	
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/bootstrap.min.css">
 
-	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/jquery.min.js"></script>
+	<!-- <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/jquery.min.js"></script> -->
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
 	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/bootstrap.min.js"></script>
 	

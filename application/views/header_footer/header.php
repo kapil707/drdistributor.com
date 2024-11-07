@@ -454,9 +454,9 @@ function get_base_url(){
 function getWebJs(){
 	return "<?= $this->appconfig->getWebJs(); ?>";
 }
-function get_UserId(){
-	<?php if(!empty($UserId)){ ?>
-		return "<?= $UserId ?>";
+function get_UserType(){
+	<?php if(!empty($UserType)){ ?>
+		return "<?= $UserType ?>";
 	<?php } else {?>
 		return "";
 	<?php } ?>

@@ -354,9 +354,13 @@ class Import_order_api extends CI_Controller {
 				$item_background = "#ffe494";
 			}
 			
+			$item_suggest_delete = 0;
 			if($suggest==1){
 				$item_message = "Related results found (Suggest set by $item_suggest_altercode) | ";
 				$item_background = "#97dcd6";
+				if($item_suggest_altercode==$ChemistId){
+					$item_suggest_delete = 1;
+				}
 				
 				if($item_quantity==0){
 					$item_message.= " <span style=color:red>Out of stock</span> | ";
@@ -368,7 +372,7 @@ class Import_order_api extends CI_Controller {
 				'item_id' => $ItemId,
 				'item_message'=>$item_message,
 				'item_background'=>$item_background,
-				'item_suggest_altercode'=>$item_suggest_altercode,			
+				'item_suggest_delete'=>$item_suggest_delete,
 
 				'item_code' => $item_code,
 				'item_image' => $item_image,

@@ -152,7 +152,7 @@ function MainPageFuncationCall() {
                                                             <i class="fa fa-pencil" aria-hidden="true"></i> Change medicine
                                                         </a>
                                                     </span>
-                                                    <span class="import_order_item_suggested_${item_id}" style="display:none"> | 
+                                                    <span class="import_order_item_suggest_delete_${item_id}" style="display:none"> | 
                                                         <a href="javascript:import_order_medicine_delete_suggested(${item_id})" 
                                                             title="Delete suggested" class="import_order_delete_btn">
                                                             <i class="fa fa-trash-o" aria-hidden="true" style="margin-right:5px;"></i>Delete suggest
@@ -200,7 +200,7 @@ function process_find_medicine(){
 					item_id 		= item.item_id;
 					item_message 	= item.item_message;
 					item_background = item.item_background;
-					item_suggest_altercode = item.item_suggest_altercode;
+					item_suggest_delete = item.item_suggest_delete;
 
 					item_code = item.item_code;
 					item_name = item.item_name;
@@ -267,9 +267,9 @@ function process_find_medicine(){
 						$('.import_order_item_featured_'+item_id).show();
 					}
 					
-					$('.import_order_item_suggested_'+item_id).hide();
-					if(item_suggest_altercode!=""){
-						$('.import_order_item_suggested_'+item_id).show();
+					$('.import_order_item_suggest_delete_'+item_id).hide();
+					if(item_suggest_delete=="1"){
+						$('.import_order_item_suggest_delete_'+item_id).show();
 					}
 				}
 			});

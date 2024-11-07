@@ -99,8 +99,6 @@ class Import_order extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$data["result"] = $this->ImportOrderModel->get_import_order_suggest($this->ChemistId);
-
 		$this->load->view('header_footer/header',$data);
 		$this->load->view('import_order/medicine_suggest', $data);
 		$this->load->view('header_footer/footer', $data);

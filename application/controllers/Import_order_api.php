@@ -167,6 +167,20 @@ class Import_order_api extends CI_Controller {
         echo json_encode($response);
 	}
 
+	public function medicine_suggest_api(){
+		$ChemistId	= $this->ChemistId;
+
+		$jsonArray = $this->ImportOrderModel->get_import_order_suggest($this->ChemistId);
+
+		$items = $jsonArray;
+
+		$response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items,
+        );
+	}
+
 	public function order_check_api(){
 		$order_id = $_POST["order_id"];
 		$order_id = base64_decode($order_id);

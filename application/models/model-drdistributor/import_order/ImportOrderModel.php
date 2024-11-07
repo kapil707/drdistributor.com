@@ -321,11 +321,27 @@ class ImportOrderModel extends CI_Model
 		return $ret;
 	}
 
-	public function get_import_order_suggest($ChemistId) {		
+	public function get_import_order_suggest($ChemistId) {	
+		$jsonArray = array();
+
 		$this->db->select("*");
 		$this->db->where('user_altercode',$ChemistId);
 		$this->db->order_by('your_item_name','asc');
-		return $this->db->get("drd_import_orders_suggest")->result();
+		$result = $this->db->get("drd_import_orders_suggest")->result();
+		foreach($result as $row) {
+			$dt = array(
+				'id' => $row->id,
+				'item_code'=>$row->i_code,
+				'item_name'=>$row->item_name,
+				'your_item_name'=>$row->your_item_name,
+				'order_id'=>$row->order_id,
+			);
+			$jsonArray[] = $dt;
+		if(!empty($jsonArray)){
+		}else{
+			$jsonArray = "";
+		}
+		return $jsonArray;
 	}
 
 	public function order_check($order_id) {

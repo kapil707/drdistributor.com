@@ -17,7 +17,7 @@ class Category extends CI_Controller {
         $this->load->library('AppConfig');
 		
 		/************login check************** */	
-		LoginCheck();
+		//LoginCheck();
 		/************************************* */
 
 		/************log file***************** */

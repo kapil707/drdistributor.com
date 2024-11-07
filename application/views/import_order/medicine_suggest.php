@@ -75,7 +75,6 @@ function MainPageFuncationCall() {
 function delete_suggest_by_id(_id)
 {
 	if (confirm('Are you sure Delete Suggest?')) {
-		$('.selected_suggest_'+_id).hide();
 		$.ajax({
 			url: "<?php echo base_url(); ?>import_order_api/delete_suggest_by_id_api",
 			type:"POST",
@@ -83,6 +82,9 @@ function delete_suggest_by_id(_id)
 			data: {id:_id},
 			success: function(data){
 				table.ajax.reload();
+				swal("Medicine deleted successfully", {
+					icon: "success"
+				});
 			}
 		});
 	}

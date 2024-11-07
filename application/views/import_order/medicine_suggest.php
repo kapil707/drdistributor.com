@@ -50,7 +50,7 @@ function MainPageFuncationCall() {
 				render: function (data, type, row) {
 					return `<a href="javascript:void(0)" onclick="delete_suggest_by_id('${row.id}')" class="btn-white btn btn-xs">Delete</a>`;
 				}
-			}*/
+			}
 		],
 		pageLength: 25,
 		responsive: true,

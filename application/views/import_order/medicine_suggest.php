@@ -51,6 +51,8 @@ $(document).ready(function(){
 	MainPageFuncationCall();
 });
 </script>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 <script>
 var table;
 function MainPageFuncationCall() {
@@ -108,6 +110,4 @@ function delete_suggest_by_id(_id)
 	}
 }
 </script>
-<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/scroller/2.2.0/js/dataTables.scroller.min.js"></script>

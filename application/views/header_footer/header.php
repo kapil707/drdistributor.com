@@ -481,8 +481,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <?php } ?>
 
 <!-- ******************broadcast_message***************************** -->
-<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
-<div class="modal modaloff" id="myModal_broadcast">
+<div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">

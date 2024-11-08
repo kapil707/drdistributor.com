@@ -22,7 +22,7 @@ const messaging = getMessaging(app);
 
 // Register the service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./assets/firebase/sw123456789012345.js").then(registration => {
+    navigator.serviceWorker.register("./assets/firebase/sw1234567890123456.js").then(registration => {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
@@ -49,7 +49,9 @@ if ('serviceWorker' in navigator) {
             $('#myModal_broadcast').modal('show');
             $('.broadcast_title').text(event.data.title);
 			$('.broadcast_message').text(event.data.message);
-           $('.broadcast_image').text(event.data.image);
+            if(event.data.image!=""){
+                $('.broadcast_image').text("<img src='"+event.data.image+"' width='100%'>");
+            }
         }
     });
 }

@@ -28,7 +28,7 @@ function get_broadcast_message(){
         dataType: 'json',
         success: function(response) {
             if (response.success === "1") {
-				$('.myModal_broadcast').click();
+				$('#myModal_broadcast').modal('show');
                 response.items.forEach(item => {
 					$('.broadcast_title').text(item.item_title);
 					$('.broadcast_message').text(item.item_message);

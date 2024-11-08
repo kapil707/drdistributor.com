@@ -7,6 +7,6 @@ class Test extends CI_Controller {
 	}
 	
 	public function index(){
-		$this->load->view('test/index', $data);	
+		$this->load->view('test/index');	
 	}
 }

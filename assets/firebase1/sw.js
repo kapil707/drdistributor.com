@@ -4,6 +4,9 @@ self.addEventListener("push", (event) => {
 
     const notif = event.data.json().notification;
 
+    console.log(notif.title);
+    $('.myModal_broadcast').click();
+
     event.waitUntil(self.registration.showNotification(notif.title , {
         body: notif.body,
         icon: notif.image,

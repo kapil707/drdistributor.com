@@ -6,11 +6,11 @@ class MyBroadcastModel extends CI_Model
 		parent::__construct();
 	}
 
-	public function get_my_broadcast_api($user_type="",$user_altercode="",$salesman_id="") {
+	public function get_my_broadcast_api($UserType,$ChemistId,$SalesmanId) {
 				
 		$jsonArray = array();
 		
-		$this->db->where('chemist_id',$user_altercode);
+		$this->db->where('chemist_id',$ChemistId);
 		$this->db->where('status',0);
 		$this->db->order_by('id','desc');
 		$this->db->limit(1);

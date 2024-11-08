@@ -22,8 +22,8 @@ $(document).ready(function() {
 
 function get_broadcast_message(){
 	$.ajax({
-        type: "GET",
-        url: get_base_url() + "My_broadcast/my_broadcast_api",
+        type: "POST",
+        url: get_base_url() + "My_broadcast_api/my_broadcast_api",
         cache: false,
         dataType: 'json',
         success: function(response) {

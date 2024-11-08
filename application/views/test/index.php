@@ -2,6 +2,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,28 +20,42 @@
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
-// Initialize Firebase Cloud Messaging
-const messaging = firebase.messaging();
+  // Initialize Firebase Cloud Messaging
+  const messaging = getMessaging(app);
 
-// User se notification permission request karein
-messaging.requestPermission()
-.then(() => {
-	console.log("Notification permission granted.");
-	return messaging.getToken();
-})
-.then((token) => {
-	console.log("Token received: ", token);
-	// Yahan par aap token ko apne server par bhej sakte hain
-})
-.catch((err) => {
-	console.log("Unable to get permission to notify.", err);
-});
+  // Request permission for notifications
+  Notification.requestPermission()
+    .then((permission) => {
+      if (permission === "granted") {
+        console.log("Notification permission granted.");
 
-// Notification receive karne ka event
-messaging.onMessage((payload) => {
-	console.log("Message received. ", payload);
-	// Notification UI yahan manage karein
-});
+        // Get FCM token
+        getToken(messaging, { vapidKey: "YOUR_PUBLIC_VAPID_KEY" })
+          .then((currentToken) => {
+            if (currentToken) {
+              console.log("Token received: ", currentToken);
+              // Send this token to your server and save it to send notifications later
+            } else {
+              console.log("No registration token available. Request permission to generate one.");
+            }
+          })
+          .catch((err) => {
+            console.log("An error occurred while retrieving token. ", err);
+          });
+      } else {
+        console.log("Notification permission denied.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error requesting notification permission", error);
+    });
+
+  // Handle incoming messages
+  onMessage(messaging, (payload) => {
+    console.log("Message received. ", payload);
+    // Show notification or update UI here
+  });
 </script>

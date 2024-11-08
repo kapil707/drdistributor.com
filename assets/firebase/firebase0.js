@@ -22,14 +22,23 @@ const messaging = getMessaging(app);
 
 // Register the service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./assets/firebase/sw.js").then(registration => {
+    navigator.serviceWorker.register("./assets/firebase/sw0.js").then(registration => {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
             if (currentToken) {
-                console.log("Token is: "+currentToken);
-                // Send the token to your server and update the UI if necessary
-                // ...
+                //console.log("Token is: "+currentToken);
+               
+                $.ajax({
+                    type       : "POST",
+                    data       : {firebase_token:currentToken},
+                    url        : get_base_url() +"use_device_api/insert_user_device_api",
+                    cache : true,
+                    success : function(data){
+                        console.log("done");
+                    },
+                });
+                
             } else {
                 // Show permission request UI
                 console.log('No registration token available. Request permission to generate one.');

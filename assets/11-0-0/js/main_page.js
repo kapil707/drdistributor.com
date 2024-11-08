@@ -61,7 +61,7 @@ function theme_set()
 	theme_set_css = $(".theme_set_css").val()
 	$.ajax({
 		type       : "POST",
-		data       :  { theme_set_css:theme_set_css} ,
+		data       :  { theme_set_css:theme_set_css},
 		url        : get_base_url() + "home/theme_set_api",
 		cache : true,
 		success : function(data){

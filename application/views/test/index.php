@@ -7,9 +7,9 @@
 <body>
   <h1>Firebase Cloud Messaging</h1>
   <script type="module">
-    // Firebase SDKs ko import karna
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js";
+    // Import scripts
+importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js');
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,43 +25,24 @@
     appId: "1:504935735685:web:ff5af385947c4cecf5e4ec",
     measurementId: "G-Z75WL6TX4Q"
   };
-// Firebase initialize karna
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-// Messaging initialize karna
-const messaging = getMessaging(app);
+// Initialize Firebase Messaging
+const messaging = firebase.messaging();
 
-// Notification permission mangna
-Notification.requestPermission()
-  .then((permission) => {
-	if (permission === "granted") {
-	  console.log("Notification permission granted.");
-	  
-	  // Token ko get karna
-	  getToken(messaging, { vapidKey: "YOUR_PUBLIC_VAPID_KEY" })
-		.then((currentToken) => {
-		  if (currentToken) {
-			console.log("Token received: ", currentToken);
-			// Aap yahan is token ko apne server par send kar sakte hain aur save kar sakte hain
-		  } else {
-			console.log("No registration token available. Request permission to generate one.");
-		  }
-		})
-		.catch((err) => {
-		  console.log("An error occurred while retrieving token. ", err);
-		});
-	} else {
-	  console.log("Notification permission denied.");
-	}
-  })
-  .catch((error) => {
-	console.error("Error requesting notification permission", error);
-  });
+// Background message handler
+messaging.onBackgroundMessage((payload) => {
+  console.log("Received background message ", payload);
 
-// Notification receive hone par kya karna hai
-onMessage(messaging, (payload) => {
-  console.log("Message received. ", payload);
-  // Aap yahan notification ko UI par display kar sakte hain
+  // Customize notification
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: "/firebase-logo.png" // Customize this with your icon
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
 });
 </script>
 </body>

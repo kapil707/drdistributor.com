@@ -24,7 +24,9 @@ if (isset($_COOKIE["theme_type"])) {
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
-	<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/bootstrap.min.js"></script>
+	<!-- <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/bootstrap.min.js"></script> -->
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/css/font-awesome.min.css"> 
 	
@@ -475,7 +477,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase1234567.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase12345678.js" type="module"></script>
 <?php } ?>
 
 <!-- Modal Structure -->

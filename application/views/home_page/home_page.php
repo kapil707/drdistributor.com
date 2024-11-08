@@ -107,7 +107,7 @@ $(".top_bar_title").html("Delivering to");
 	</div>
 </div>
 
-<script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">

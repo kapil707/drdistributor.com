@@ -475,7 +475,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
     new WOW().init();
 </script>
 
-<?php if(!empty($UserType) && empty($FirebaseToken)){ ?>
+<?php if(!empty($UserType)){ ?>
 <script src="<?= base_url(); ?>assets/firebase/firebase0.js" type="module"></script>
 <?php } ?>
 

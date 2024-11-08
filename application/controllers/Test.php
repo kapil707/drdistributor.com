@@ -6,7 +6,7 @@ class Test extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function index(){
+	public function index23(){
 		$this->load->view('test/index23');	
 	}
 	public function test2(){

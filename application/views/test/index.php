@@ -5,15 +5,10 @@
   <title>FCM Push Notifications</title>
 </head>
 <body>
-  	<h1>Firebase Cloud Messaging</h1>
-	<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js"></script>
-  <script type="module">
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  <h1>Firebase Cloud Messaging</h1>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script>
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyBNjq5AvHOoF2FqzU8FJOwNxS_BHYbUoGk",
     authDomain: "drd-noti-fire-base.firebaseapp.com",
@@ -36,27 +31,7 @@
             })
             .then(function (token) {
                 console.log("Token : "+token);
-          	//start code to save token into database
-           	 /*jQuery.ajax({
-               url:"https://www.shinerweb.com/index.php/notification_sw/save_token",
-               type:"POST",
-               dataType: 'json',
-               data: {token:token},
-               success:function(response){
-                 if(response.status == true)
-                 {
-                   console.log(response.msg);
-                 }
-                 else
-                 {
-                   console.log(response.msg);
-                 }
-                },
-                error: function (xhr, status) {
-                $(".loader-div").hide(); // hide loader 
-                console.log('ajax error = ' + xhr.statusText);
-                }
-             });*/
+
              //end code to save token into database
                 //document.getElementById("token").innerHTML=token;
             })
@@ -95,5 +70,3 @@
     })
     IntitalizeFireBaseMessaging();
 </script>
-</body>
-</html>

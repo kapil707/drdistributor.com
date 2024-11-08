@@ -12,4 +12,7 @@ class Test extends CI_Controller {
 	public function test2(){
 		$this->load->view('test/index');	
 	}
+	public function test3(){
+		$this->load->view('test/index');	
+	}
 }

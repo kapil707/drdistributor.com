@@ -477,5 +477,3 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <?php if(!empty($UserType)){ ?>
 <script src="<?= base_url(); ?>assets/firebase/firebase123.js" type="module"></script>
 <?php } ?>
-<script>
-<script>

@@ -12,6 +12,7 @@ class My_broadcast_api extends CI_Controller {
 	var $SalesmanId 	= "";
 	
 	public function __construct(){
+		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');

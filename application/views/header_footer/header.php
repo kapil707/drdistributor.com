@@ -474,7 +474,6 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <script>
     new WOW().init();
 </script>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
 <script src="<?= base_url(); ?>assets/firebase/firebase12345678901234567.js" type="module"></script>
@@ -498,3 +497,5 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 		</div>
 	</div>
 </div>
+
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

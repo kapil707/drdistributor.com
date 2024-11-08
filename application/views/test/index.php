@@ -29,7 +29,7 @@
       const app = initializeApp(firebaseConfig);
       const messaging = getMessaging(app);
 
-      navigator.serviceWorker.register("<?php echo base_url(); ?>firebase_message/sw.js").then(registration => {
+      navigator.serviceWorker.register().then(registration => {
           getToken(messaging, {
               serviceWorkerRegistration: registration,
               vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM' }).then((currentToken) => {
@@ -46,6 +46,25 @@
               console.log('An error occurred while retrieving token. ', err);
               // ...
           });
+      });
+      self.addEventListener("push", (event) => {
+
+      const notif = event.data.json().notification;
+
+      event.waitUntil(self.registration.showNotification(notif.title , {
+          body: notif.body,
+          icon: notif.image,
+          data: {
+              url: notif.click_action
+          }
+      }));
+
+      });
+
+      self.addEventListener("notificationclick", (event) => {
+
+      event.waitUntil(clients.openWindow(event.notification.data.url));
+
       });
   </script>
 </body>

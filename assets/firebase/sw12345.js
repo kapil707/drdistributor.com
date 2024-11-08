@@ -6,7 +6,7 @@ self.addEventListener("push", (event) => {
 
     console.log(notif.title);
 
-     // Send message to main thread
+    // Send message to main thread
     self.clients.matchAll({ type: "window" }).then(clients => {
         clients.forEach(client => client.postMessage({ action: "broadcast", title: notif.title }));
     });

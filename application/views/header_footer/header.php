@@ -473,3 +473,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
     new WOW().init();
 </script>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
+
+<?php if(!empty($UserType)){ ?>
+<script src="<?= base_url(); ?>assets/firebase_main/firebase_main.js"></script>
+<?php } ?>

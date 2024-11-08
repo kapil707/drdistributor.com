@@ -30,12 +30,12 @@ class UserDeviceModel extends CI_Model
 		}
 	}
 
-	public function insert_user_device($chemist_id,$salesman_id,$user_type,$firebase_token,$type) {
+	public function insert_user_device($user_type,$chemist_id,$salesman_id,$firebase_token,$type) {
 
 		$dt = array(
+			'user_type'=>$user_type,
 			'chemist_id'=>$chemist_id,
 			'salesman_id'=>$salesman_id,
-			'user_type'=>$user_type,
 			'firebase_token'=>$firebase_token,
 			'type'=>$type,
 			'date' => date('Y-m-d'),

@@ -19,6 +19,28 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase Cloud Messaging
+const messaging = firebase.messaging();
+
+// User se notification permission request karein
+messaging.requestPermission()
+.then(() => {
+	console.log("Notification permission granted.");
+	return messaging.getToken();
+})
+.then((token) => {
+	console.log("Token received: ", token);
+	// Yahan par aap token ko apne server par bhej sakte hain
+})
+.catch((err) => {
+	console.log("Unable to get permission to notify.", err);
+});
+
+// Notification receive karne ka event
+messaging.onMessage((payload) => {
+	console.log("Message received. ", payload);
+	// Notification UI yahan manage karein
+});
 </script>

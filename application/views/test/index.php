@@ -1,8 +1,12 @@
-<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-<script>
-
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBNjq5AvHOoF2FqzU8FJOwNxS_BHYbUoGk",
     authDomain: "drd-noti-fire-base.firebaseapp.com",
@@ -14,74 +18,7 @@
     measurementId: "G-Z75WL6TX4Q"
   };
 
-  firebase.initializeApp(firebaseConfig);
-    const messaging=firebase.messaging();
-
-    function IntitalizeFireBaseMessaging() {
-        messaging
-            .requestPermission()
-            .then(function () {
-                console.log("Notification Permission");
-                return messaging.getToken();
-            })
-            .then(function (token) {
-                console.log("Token : "+token);
-          	//start code to save token into database
-           	 jQuery.ajax({
-               url:"https://www.shinerweb.com/index.php/notification_sw/save_token",
-               type:"POST",
-               dataType: 'json',
-               data: {token:token},
-               success:function(response){
-                 if(response.status == true)
-                 {
-                   console.log(response.msg);
-                 }
-                 else
-                 {
-                   console.log(response.msg);
-                 }
-                },
-                error: function (xhr, status) {
-                $(".loader-div").hide(); // hide loader 
-                console.log('ajax error = ' + xhr.statusText);
-                }
-             });
-             //end code to save token into database
-                //document.getElementById("token").innerHTML=token;
-            })
-            .catch(function (reason) {
-                console.log(reason);
-            });
-    }
-
-    messaging.onMessage(function (payload) {
-        console.log(payload);
-        const notificationOption={
-            body:payload.notification.body,
-            icon:payload.notification.icon
-        };
-
-        if(Notification.permission==="granted"){
-            var notification=new Notification(payload.notification.title,notificationOption);
-
-            notification.onclick=function (ev) {
-                ev.preventDefault();
-                window.open(payload.notification.click_action,'_blank');
-                notification.close();
-            }
-        }
-
-    });
-    messaging.onTokenRefresh(function () {
-        messaging.getToken()
-            .then(function (newtoken) {
-                console.log("New Token : "+ newtoken);
-            })
-            .catch(function (reason) {
-                console.log(reason);
-				//alert(reason);
-            })
-    })
-    IntitalizeFireBaseMessaging();
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>

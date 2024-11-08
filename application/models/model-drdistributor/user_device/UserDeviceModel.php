@@ -37,7 +37,6 @@ class UserDeviceModel extends CI_Model
 			'salesman_id'=>$salesman_id,
 			'user_type'=>$user_type,
 			'firebase_token'=>$firebase_token,
-			'insert_type'=>$insert_type,
 			'type'=>$type,
 			'date' => date('Y-m-d'),
             'time' => date('H:i:s'),

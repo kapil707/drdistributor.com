@@ -21,8 +21,11 @@ self.addEventListener("push", (event) => {
 
 });
 
+// Notification par click par URL open karna
 self.addEventListener("notificationclick", (event) => {
-
-    event.waitUntil(clients.openWindow(event.notification.data.url));
-
+    event.notification.close();
+    const url = event.notification.data.url;
+    event.waitUntil(
+        clients.openWindow(url)
+    );
 });

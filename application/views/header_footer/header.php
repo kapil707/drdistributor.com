@@ -477,7 +477,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase12345678901234.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase123456789012345.js" type="module"></script>
 <?php } ?>
 
 <!-- ******************broadcast_message***************************** -->
@@ -492,7 +492,8 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 				</button>
 			</div>
 			<div class="modal-body">
-				<pre><p class="broadcast_message"></p></pre>
+				<p class="broadcast_message"></p>
+				<p class="broadcast_image"></p>
 			</div>
 		</div>
 	</div>

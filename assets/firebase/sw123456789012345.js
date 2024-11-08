@@ -9,7 +9,7 @@ self.addEventListener("push", (event) => {
             if (clients && clients.length > 0) {
                 clients.forEach(client => {
                     //console.log("Sending message to client to open modal");
-                    client.postMessage({ action: "myModal_broadcast", title: notif.title,message: notif.body });
+                    client.postMessage({ action: "myModal_broadcast", title: notif.title,message: notif.body,image: notif.image });
                 });
             } else {
                 // Agar koi client available nahi hai toh notification show karna

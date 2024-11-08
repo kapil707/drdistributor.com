@@ -47,7 +47,7 @@ class Use_device_api extends CI_Controller {
 
 		if(!empty($UserType) && !empty($ChemistId) && !empty($firebase_token)) {
 
-			$result = $this->MyBroadcastModel->UserDeviceModel($UserType,$ChemistId,$SalesmanId,$firebase_token,$type);
+			$result = $this->UserDeviceModel->insert_user_device($UserType,$ChemistId,$SalesmanId,$firebase_token,$type);
 		}
 
 		$response = array(

@@ -44,12 +44,14 @@ class Use_device_api extends CI_Controller {
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
 
-		$firebase_token = $_POST["firebase_token"];
+		$FirebaseToken  = $_POST["firebase_token"];
 		$type = "Web";
 
-		if(!empty($UserType) && !empty($ChemistId) && !empty($firebase_token)) {
+		if(!empty($UserType) && !empty($ChemistId) && !empty($FirebaseToken)) {
 
-			$result = $this->UserDeviceModel->insert_user_device($UserType,$ChemistId,$SalesmanId,$firebase_token,$type);
+			$this->session->set_userdata('FirebaseToken',$FirebaseToken);
+			
+			$result = $this->UserDeviceModel->insert_user_device($UserType,$ChemistId,$SalesmanId,$FirebaseToken,$type);
 		}
 
 		$response = array(

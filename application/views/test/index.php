@@ -29,7 +29,7 @@
       const app = initializeApp(firebaseConfig);
       const messaging = getMessaging(app);
 
-      navigator.serviceWorker.register("<?php echo base_url(); ?>firbase_message/sw.js").then(registration => {
+      navigator.serviceWorker.register("<?php echo base_url(); ?>firebase_message/sw.js").then(registration => {
           getToken(messaging, {
               serviceWorkerRegistration: registration,
               vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM' }).then((currentToken) => {

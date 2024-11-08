@@ -477,26 +477,24 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase1234567890.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase12345678901.js" type="module"></script>
 <?php } ?>
 
-<!-- Modal Structure -->
-<div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Notification</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Yahan notification ka content aaye ga.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+<!-- ******************broadcast_message***************************** -->
+<a href="#" data-toggle="modal" data-target="#myModal_broadcast" style="text-decoration: none;" class="myModal_broadcast"></a>
+<div class="modal modaloff" id="myModal_broadcast">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title broadcast_title">
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
+				</button>
+			</div>
+			<div class="modal-body">
+				<pre><p class="broadcast_message"></p></pre>
+			</div>
+		</div>
+	</div>
 </div>
-

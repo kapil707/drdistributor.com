@@ -42,9 +42,9 @@ class MyBroadcastModel extends CI_Model
 
 		$broadcast_status = "1";//$this->Scheme_Model->get_website_data("broadcast_status");
 		if($broadcast_status=="1"){
-			$item_title = $this->Scheme_Model->get_website_data("broadcast_title");
-			$item_message = $this->Scheme_Model->get_website_data("broadcast_message");
-			$item_date_time = 	date("d-M-y @ h:i A", time());
+			$item_title 	= $this->Scheme_Model->get_website_data("broadcast_title");
+			$item_message 	= $this->Scheme_Model->get_website_data("broadcast_message");
+			$item_date_time = date("d-M-y @ h:i A", time());
 
 			$item_id = 0;
 			$item_image = "";

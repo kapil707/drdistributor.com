@@ -10,6 +10,7 @@ class Main extends CI_Controller {
 	var $ChemistNrx 	= "";
 	var $ChemistId 		= "";
 	var $SalesmanId 	= "";
+	var $FirebaseToken  = "";
 
 	public function __construct(){
 		parent::__construct();
@@ -26,6 +27,7 @@ class Main extends CI_Controller {
 		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
+		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
 		/********************************************************** */
 	}
 	

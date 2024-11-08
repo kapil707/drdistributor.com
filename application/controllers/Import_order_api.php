@@ -10,6 +10,7 @@ class Import_order_api extends CI_Controller {
 	var $ChemistNrx 	= "";
 	var $ChemistId 		= "";
 	var $SalesmanId 	= "";
+	var $FirebaseToken  = "";
 	
 	var $MedicineImageUrl = "";
 	public function __construct(){
@@ -39,6 +40,7 @@ class Import_order_api extends CI_Controller {
 		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
+		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
 		/********************************************************** */
 
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();

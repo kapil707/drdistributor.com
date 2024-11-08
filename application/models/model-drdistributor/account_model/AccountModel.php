@@ -187,6 +187,7 @@ class AccountModel extends CI_Model
 			$ChemistId 	= "";
 			$SalesmanId	= $UserId;
 		}
+		$FirebaseToken = "";
 
 		/****************************************************** *
 		//cookies set from hear
@@ -198,6 +199,7 @@ class AccountModel extends CI_Model
 		setcookie("ChemistNrx", $ChemistNrx, time() + (86400 * 30), "/");
 		setcookie("ChemistId", $ChemistId, time() + (86400 * 30), "/");
 		setcookie("SalesmanId", $SalesmanId, time() + (86400 * 30), "/");
+		setcookie("FirebaseToken", $FirebaseToken, time() + (86400 * 30), "/");
 		/****************************************************** */
 
 		//set session from hear
@@ -209,7 +211,8 @@ class AccountModel extends CI_Model
 			'UserImage'=>$UserImage,
 			'ChemistNrx'=>$ChemistNrx,
 			'ChemistId'=>$ChemistId,
-			'SalesmanId'=>$SalesmanId);
+			'SalesmanId'=>$SalesmanId,
+			'FirebaseToken'=>$FirebaseToken);
 		$this->session->set_userdata($session_arr);
 	}
 

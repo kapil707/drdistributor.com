@@ -10,6 +10,7 @@ class Medicine_use extends CI_Controller {
 	var $ChemistNrx 	= "";
 	var $ChemistId 		= "";
 	var $SalesmanId 	= "";
+	var $FirebaseToken  = "";
 
 	public function __construct(){
 		parent::__construct();
@@ -37,6 +38,7 @@ class Medicine_use extends CI_Controller {
 		$this->ChemistNrx	= $this->session->userdata('ChemistNrx');
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
+		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
 		/********************************************************** */
 	}
 	public function index($item_code="") {
@@ -51,6 +53,7 @@ class Medicine_use extends CI_Controller {
 		$data["UserFullName"]= $this->UserFullName;
 		$data["UserImage"] 	 = $this->UserImage;
 		$data["ChemistId"]	 = $this->ChemistId;
+		$data["FirebaseToken"]= $this->FirebaseToken;
 
 		/******************DeliveringToData************************* */
 		$data["DeliveringTo"]= $data["ChemistId"];

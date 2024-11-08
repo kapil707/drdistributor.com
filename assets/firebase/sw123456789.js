@@ -14,6 +14,8 @@ self.addEventListener("push", (event) => {
         });
     });
 
+    console.log("test");
+
     event.waitUntil(self.registration.showNotification(notif.title , {
         body: notif.body,
         icon: notif.image,

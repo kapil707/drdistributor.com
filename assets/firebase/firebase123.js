@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
-navigator.serviceWorker.register("./assets/firebase/sw12.js").then(registration => {
+navigator.serviceWorker.register("./assets/firebase/sw123.js").then(registration => {
     getToken(messaging, {
         serviceWorkerRegistration: registration,
         vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
@@ -37,4 +37,10 @@ navigator.serviceWorker.register("./assets/firebase/sw12.js").then(registration 
         console.log('An error occurred while retrieving token. ', err);
         // ...
     });
+});
+
+navigator.serviceWorker.addEventListener("message", (event) => {
+    if (event.data.action === "broadcast") {
+        $('.myModal_broadcast').click();
+    }
 });

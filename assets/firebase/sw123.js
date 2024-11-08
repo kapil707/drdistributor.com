@@ -5,7 +5,11 @@ self.addEventListener("push", (event) => {
     const notif = event.data.json().notification;
 
     console.log(notif.title);
-    $('.myModal_broadcast').click();
+
+     // Send message to main thread
+    self.clients.matchAll({ type: "window" }).then(clients => {
+        clients.forEach(client => client.postMessage({ action: "broadcast", title: notif.title }));
+    });
 
     event.waitUntil(self.registration.showNotification(notif.title , {
         body: notif.body,

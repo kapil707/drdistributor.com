@@ -22,7 +22,7 @@ const messaging = getMessaging(app);
 
 // Register the service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./assets/firebase/sw1234567890123.js").then(registration => {
+    navigator.serviceWorker.register("./assets/firebase/sw12345678901234.js").then(registration => {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
@@ -44,7 +44,7 @@ if ('serviceWorker' in navigator) {
     // Service worker message ko receive karna aur modal ko open karna
     navigator.serviceWorker.addEventListener("message", (event) => {
         console.log("Message received from service worker:", event.data);
-        if (event.data.action === "openModal") {
+        if (event.data.action === "myModal_broadcast") {
             console.log("Opening modal...");
             $('#myModal_broadcast').modal('show');
             $('.broadcast_title').text(event.data.title);

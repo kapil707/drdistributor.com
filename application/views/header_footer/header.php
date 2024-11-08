@@ -475,5 +475,26 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase123456.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase1234567.js" type="module"></script>
 <?php } ?>
+
+<!-- Modal Structure -->
+<div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Notification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Yahan notification ka content aaye ga.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

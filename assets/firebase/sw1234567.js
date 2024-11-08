@@ -6,9 +6,9 @@ self.addEventListener("push", (event) => {
 
     console.log(notif.title);
 
-    // Send message to main thread
+    // Main thread ko message send karna
     self.clients.matchAll({ type: "window" }).then(clients => {
-        clients.forEach(client => client.postMessage({ action: "broadcast", title: notif.title }));
+        clients.forEach(client => client.postMessage({ action: "openModal", title: notif.title }));
     });
 
     event.waitUntil(self.registration.showNotification(notif.title , {

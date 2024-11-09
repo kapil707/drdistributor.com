@@ -209,14 +209,16 @@ function get_my_cart_total_api(){
 	});
 }
 
-function get_single_medicine_info(item_code)
-{
+function get_single_medicine_info(item_code) {
+
 	var getUserType = get_UserType();
 	if(getUserType=="" || getUserType==null)
 	{
 		window.location.href = get_base_url();
-	} else 
-	{
+	} else {
+
+		$(".medicine_details_item_date_time").html("Loading....")
+		
 		$('.medicine_details_item_order_quantity_textbox').val('');
 		$('.myModal_medicine_details').click();
 		$(".medicine_details_api_loading").show();
@@ -228,13 +230,16 @@ function get_single_medicine_info(item_code)
 	}
 }
 
-function medicine_details_funcation(item_code)
-{	
+function medicine_details_funcation(item_code) {
+
 	var getUserType = get_UserType();
 	if((getUserType=="" || getUserType==null))
 	{
 		window.location.href = get_base_url() + "home";
-	} else {		
+	} else {
+
+		$(".medicine_details_item_date_time").html("Loading....")
+
 		medicine_details_api_data(item_code);
 		medicine_details_api(item_code);
 
@@ -244,8 +249,8 @@ function medicine_details_funcation(item_code)
 	}
 }
 
-function medicine_details_api(item_code)
-{
+function medicine_details_api(item_code) {
+	
 	/***************************************************************** */
 	//$('.order_quantity_div').hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
@@ -290,6 +295,7 @@ function medicine_details_api(item_code)
 					item_code		= item.item_code;
 					item_name		= item.item_name;
 					item_packing	= item.item_packing;
+					item_batch_no	= item.item_batch_no;
 					item_expiry		= item.item_expiry;
 					item_company	= item.item_company;
 					item_quantity	= item.item_quantity;
@@ -297,12 +303,13 @@ function medicine_details_api(item_code)
 					item_ptr		= item.item_ptr;
 					item_mrp		= item.item_mrp;
 					item_price		= item.item_price;
+					item_gst		= item.item_gst;
 					item_scheme		= item.item_scheme;
 					item_margin		= item.item_margin;
 					item_featured	= item.item_featured;
 					item_description1= item.item_description1;
 
-					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"'></div>");
+					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' item_description2='"+item_description2+"'></div>");
 
 					setTimeout(medicine_details_api_data(item_code),100);
 
@@ -310,25 +317,10 @@ function medicine_details_api(item_code)
 					$(".medicine_details_item_date_time").html("as on " + item_date_time)
 
 					/*
-					item_batch_no	= item.item_batch_no;
-					$(".medicine_details_item_batch_no").html("Batch no : "+item_batch_no)
-
-					item_gst	= item.item_gst;
-					$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
-
-					$(".medicine_details_item_description2").show()
-					item_description2	= item.item_description2;
-					$(".medicine_details_item_description2").html(item_description2)
-					if(item_description2=="")
-					{
-						$(".medicine_details_item_description2").hide()
-					}
 					/************************************************** */
 					item_order_quantity	= item.item_order_quantity;	
-					/************************************************** */				
-
-					
-					
+					/************************************************** 
+					 * 
 					/*************************************************************** */
 					item_image	= item.item_image;
 					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
@@ -372,8 +364,13 @@ function medicine_details_api_data(item_code)
 	item_order_quantity = $(".medicine_details_all_data_"+item_code).attr("item_order_quantity")
 	
 	item_date_time = item_description2 = "";
-	$(".medicine_details_item_date_time").html("Loading....")
 	$(".medicine_details_item_description2").html("")
+	$(".medicine_details_item_description2").show()
+	item_description2	= item.item_description2;
+	$(".medicine_details_item_description2").html(item_description2)
+	if(item_description2=="") {
+		$(".medicine_details_item_description2").hide()
+	}
 	
 	/****************************************************** */
 	$(".medicine_details_api_data").show();

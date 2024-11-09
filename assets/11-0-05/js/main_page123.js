@@ -334,10 +334,6 @@ function medicine_details_api(item_code) {
 						$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 						$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 					}
-
-					$(".medicine_details_api_data").show();
-					$(".medicine_details_api_loading").hide();
-
 					// Delay additional data processing
 					setTimeout(() => medicine_details_api_data(item.item_code), 100);
 					setTimeout(function() {
@@ -351,90 +347,92 @@ function medicine_details_api(item_code) {
 	});
 }
 
-function medicine_details_api_data(item_code)
-{	
-	item_image = $(".medicine_details_all_data_"+item_code).attr("item_image")
-	item_name = $(".medicine_details_all_data_"+item_code).attr("item_name")
-	item_packing = $(".medicine_details_all_data_"+item_code).attr("item_packing")
-	item_batch_no = $(".medicine_details_all_data_"+item_code).attr("item_batch_no")
-	item_expiry = $(".medicine_details_all_data_"+item_code).attr("item_expiry")
-	item_company = $(".medicine_details_all_data_"+item_code).attr("item_company")
-	item_quantity = $(".medicine_details_all_data_"+item_code).attr("item_quantity")
-	item_stock = $(".medicine_details_all_data_"+item_code).attr("item_stock")
-	item_ptr = $(".medicine_details_all_data_"+item_code).attr("item_ptr")
-	item_mrp = $(".medicine_details_all_data_"+item_code).attr("item_mrp")
-	item_price = $(".medicine_details_all_data_"+item_code).attr("item_price")
-	item_gst = $(".medicine_details_all_data_"+item_code).attr("item_gst")
-	item_scheme = $(".medicine_details_all_data_"+item_code).attr("item_scheme")
-	item_margin = $(".medicine_details_all_data_"+item_code).attr("item_margin")
-	item_featured = $(".medicine_details_all_data_"+item_code).attr("item_featured")
-	item_description1 = $(".medicine_details_all_data_"+item_code).attr("item_description1")
-	item_description2 = $(".medicine_details_all_data_"+item_code).attr("item_description2")
-	
-	/****************************************************** */
-	$(".medicine_details_featured_img").hide()
-	$(".medicine_details_out_of_stock_img").hide()	
+function medicine_details_api_data(item_code) {
+	$(".medicine_details_api_data").show();
+	$(".medicine_details_api_loading").hide();
 
-	$(".medicine_details_image").attr("src",item_image)
-	$(".medicine_details_image_small").attr("src",item_image)
+	// Cache the main item container for efficiency
+	let itemData = $(".medicine_details_all_data_" + item_code);
+	if (itemData.length === 0) return; // Exit if item data is not found
 
-	$(".medicine_details_item_name").html(item_name)
-	$(".medicine_details_item_packing").html("Packing : "+item_packing)
-	$(".medicine_details_item_batch_no").html("Batch no : "+item_batch_no)
+	// Get item attributes
+	let item_image = itemData.attr("item_image");
+	let item_name = itemData.attr("item_name");
+	let item_packing = itemData.attr("item_packing");
+	let item_batch_no = itemData.attr("item_batch_no");
+	let item_expiry = itemData.attr("item_expiry");
+	let item_company = itemData.attr("item_company");
+	let item_quantity = itemData.attr("item_quantity");
+	let item_stock = itemData.attr("item_stock");
+	let item_ptr = itemData.attr("item_ptr");
+	let item_mrp = itemData.attr("item_mrp");
+	let item_price = itemData.attr("item_price");
+	let item_gst = itemData.attr("item_gst");
+	let item_scheme = itemData.attr("item_scheme");
+	let item_margin = itemData.attr("item_margin");
+	let item_featured = itemData.attr("item_featured");
+	let item_description1 = itemData.attr("item_description1");
+	let item_description2 = itemData.attr("item_description2");
 
-	$(".medicine_details_item_margin").html(item_margin+'% Margin*')
-	$(".medicine_details_item_expiry").html("Expiry : "+item_expiry)
-	$(".medicine_details_item_company").html("By "+item_company)
-	$(".medicine_details_item_scheme").html("Scheme : " +item_scheme)
+	// Hide or show featured and out-of-stock images as appropriate
+	$(".medicine_details_featured_img, .medicine_details_out_of_stock_img").hide();
 
-	/**************************************** */
-	$(".medicine_details_item_stock").html("Stock : " +item_quantity)
-	if(item_stock!=0){
-		$(".medicine_details_item_stock").html("Stock : "+item_stock);
-	}
-	/**************************************** */	
-	$(".medicine_details_item_description1").hide()
-	if(item_description1!=""){
-		$(".medicine_details_item_description1").show()
-		$(".medicine_details_item_description1").html(item_description1)
-	}
-	
-	$(".medicine_details_item_description2").html("");
-	$(".medicine_details_item_description2").show();
-	$(".medicine_details_item_description2").html(item_description2)
-	if(item_description2=="") {
-		$(".medicine_details_item_description2").hide()
+	// Update main image and small image
+	$(".medicine_details_image, .medicine_details_image_small").attr("src", item_image);
+
+	// Update item details in the UI
+	$(".medicine_details_item_name").html(item_name);
+	$(".medicine_details_item_packing").html("Packing : " + item_packing);
+	$(".medicine_details_item_batch_no").html("Batch no : " + item_batch_no);
+	$(".medicine_details_item_margin").html(item_margin + '% Margin*');
+	$(".medicine_details_item_expiry").html("Expiry : " + item_expiry);
+	$(".medicine_details_item_company").html("By " + item_company);
+	$(".medicine_details_item_scheme").html("Scheme : " + item_scheme);
+
+	// Stock information
+	$(".medicine_details_item_stock").html("Stock : " + (item_stock != 0 ? item_stock : item_quantity));
+
+	// Show/hide description 1 based on content
+	if (item_description1) {
+		$(".medicine_details_item_description1").show().html(item_description1);
+	} else {
+		$(".medicine_details_item_description1").hide();
 	}
 
-	/******************************************************************* */
-	$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_ptr + "/-")
-	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_mrp + "/-")
-	$(".medicine_details_item_gst").html("GST : "+item_gst +"%")
-	$(".medicine_details_item_price").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
-	$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-")
-	/******************************************************************* */
-
-	$(".medicine_details_item_scheme_line").show()
-	$(".medicine_details_item_scheme").show()
-	if(item_scheme=="0+0"){
-		$(".medicine_details_out_of_stock_img").hide()
-		$(".medicine_details_item_scheme_line").hide()
-		$(".medicine_details_item_scheme").hide()
+	// Show/hide description 2 based on content
+	if (item_description2) {
+		$(".medicine_details_item_description2").show().html(item_description2);
+	} else {
+		$(".medicine_details_item_description2").hide();
 	}
 
-	if(item_featured=="1" && item_quantity!="0"){
-		$(".medicine_details_featured_img").show()
+	// Update PTR, MRP, GST, and price fields
+	$(".medicine_details_item_ptr").html('PTR : <i class="fa fa-inr" aria-hidden="true"></i> ' + item_ptr + "/-");
+	$(".medicine_details_item_mrp").html('MRP : <i class="fa fa-inr" aria-hidden="true"></i> ' + item_mrp + "/-");
+	$(".medicine_details_item_gst").html("GST : " + item_gst + "%");
+	$(".medicine_details_item_price, .medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' + item_price + "/-");
+
+	// Scheme display logic
+	$(".medicine_details_item_scheme_line, .medicine_details_item_scheme").toggle(item_scheme !== "0+0");
+
+	// Featured item check
+	if (item_featured === "1" && item_quantity !== "0") {
+		$(".medicine_details_featured_img").show();
 	}
 
-	/******************************************************************* */
-	$(".medicine_details_item_add_to_cart_btn").hide()
-	$(".medicine_details_item_add_to_cart_btn_disable").show()
-	$(".order_quantity_div").show()
-	if(parseInt(item_quantity)==0){
-		$(".order_quantity_div").hide()		
-		$(".medicine_details_out_of_stock_img").show()
-		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
+	// Stock and cart button logic
+	let itemQty = parseInt(item_quantity, 10);
+	if (itemQty === 0) {
+		$(".order_quantity_div").hide();
+		$(".medicine_details_out_of_stock_img").show();
+		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>");
+	} else {
+		$(".order_quantity_div").show();
+		$(".medicine_details_item_add_to_cart_btn_disable").show();
 	}
+
+	// Hide the add-to-cart button initially
+	$(".medicine_details_item_add_to_cart_btn").hide();
 }
 
 function change_item_order_quantity(){

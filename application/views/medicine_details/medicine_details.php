@@ -132,11 +132,11 @@ function goBack() {
 												<input type="hidden" class="medicine_details_item_code">
 											</div>
 
-											<div class="col-sm-3 col-3">
+											<div class="col-sm-2 col-2">
 												<button type="submit" class="btn btn-danger main_theme_button_delete" onclick="delete_medicine('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove cart</button>
 											</div>
 
-											<div class="col-sm-6 col-6">
+											<div class="col-sm-7 col-7">
 												<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>
 
 												<button type="submit" class="btn btn-primary main_theme_button_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>

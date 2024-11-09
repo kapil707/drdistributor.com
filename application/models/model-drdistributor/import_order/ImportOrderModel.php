@@ -489,7 +489,7 @@ class ImportOrderModel extends CI_Model
 		$return["type_"] = $type_;
 		$return["suggest"] = $suggest;
 		$return["order_quantity"] = $order_quantity;
-		$return["item_suggest_altercode"] = $item_suggest_altercode." $suggest_i_code";
+		$return["item_suggest_altercode"] = $item_suggest_altercode;
 		return $return;
 	}
 

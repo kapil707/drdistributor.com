@@ -396,7 +396,7 @@ if (isset($_COOKIE["theme_type"])) {
 <div class="only_for_noti"></div>
 <!-- ******************************************************** -->
 <input type="hidden" class="medicine_details_item_code">
-<div type="hidden" class="medicine_details_all_data"></div>
+<!-- <div type="hidden" class="medicine_details_all_data"></div> -->
 <!-- ******************************************************** 
 
 ******************************************************** -->
@@ -449,7 +449,6 @@ if (isset($_COOKIE["theme_type"])) {
 
 <!-- ******************************************************** -->
 <div class="background_blur" onclick="clear_search_function()" style="display:none"></div>
-
 <!-- ******************************************************** -->
 <script>
 function get_base_url(){
@@ -498,4 +497,5 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 	</div>
 </div>
 
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page12345.js"></script>
+<div type="hidden" class="medicine_details_div"></div>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page123456.js"></script>

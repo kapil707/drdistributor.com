@@ -216,9 +216,6 @@ function get_single_medicine_info(item_code) {
 	{
 		window.location.href = get_base_url();
 	} else {
-
-		$(".medicine_details_item_date_time").html("Loading....")
-		$('.medicine_details_item_order_quantity_textbox').val("");
 		
 		$('.myModal_medicine_details').click();
 		$(".medicine_details_api_loading").show();
@@ -238,9 +235,6 @@ function medicine_details_funcation(item_code) {
 		window.location.href = get_base_url() + "home";
 	} else {
 
-		$(".medicine_details_item_date_time").html("Loading....")
-		$('.medicine_details_item_order_quantity_textbox').val("");
-
 		medicine_details_api_data(item_code);
 		medicine_details_api(item_code);
 
@@ -252,8 +246,9 @@ function medicine_details_funcation(item_code) {
 
 function medicine_details_api(item_code) {
 	
-	// Reset the cart buttons
-	$('.medicine_details_item_order_quantity_textbox').val('');
+	// Reset the cart buttons	
+	$(".medicine_details_item_date_time").html("Loading....")
+	$('.medicine_details_item_order_quantity_textbox').val("");
 	$(".medicine_details_item_delete").hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");

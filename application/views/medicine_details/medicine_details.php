@@ -133,7 +133,7 @@ function goBack() {
 											</div>
 
 											<div class="col-sm-2 col-2">
-												<button type="submit" class="btn btn-danger main_theme_button_delete" onclick="delete_medicine('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove cart</button>
+												<button type="submit" class="btn btn-danger main_theme_button_delete" onclick="delete_medicine('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
 											</div>
 
 											<div class="col-sm-7 col-7">

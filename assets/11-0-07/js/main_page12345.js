@@ -495,7 +495,7 @@ function medicine_add_to_cart_api()
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();
 
-				if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
+				if(get_page_name=="medicine_search" || get_page_name=="my_cart") {
 
 					let itemData = $(".medicine_details_all_data_" + item_code);
 					// Get item attributes
@@ -580,6 +580,7 @@ function medicine_add_to_cart_api()
 									if(get_page_name=="medicine_details"){
 										swal("Medicine added successfully");
 										$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
+										$(".medicine_details_item_delete").show();
 									}
 								}
 							}

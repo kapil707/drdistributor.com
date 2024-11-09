@@ -195,7 +195,6 @@ $(document).ready(function(){
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();
 
-	medicine_details_get('<?= $item_code; ?>');
 	medicine_details_api('<?= $item_code; ?>');
 	MainPageFuncationCall();
 });

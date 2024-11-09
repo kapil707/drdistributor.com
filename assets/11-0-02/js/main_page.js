@@ -344,6 +344,8 @@ function medicine_details_api(item_code) {
 					}
 
 					$(".medicine_details_item_order_quantity_textbox").focus();
+					$(".medicine_details_api_data").show();
+					$(".medicine_details_api_loading").hide();
 				}
 			});	
 		}
@@ -371,9 +373,6 @@ function medicine_details_api_data(item_code)
 	item_description2 = $(".medicine_details_all_data_"+item_code).attr("item_description2")
 	
 	/****************************************************** */
-	$(".medicine_details_api_data").show();
-	$(".medicine_details_api_loading").hide();
-
 	$(".medicine_details_featured_img").hide()
 	$(".medicine_details_out_of_stock_img").hide()	
 

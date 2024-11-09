@@ -105,8 +105,8 @@ function goBack() {
 <script>
 get_page_name = "medicine_search";// change value taki cart pur load na ho
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_favourite1.js"></script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search234567890123456.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_favourite.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_search.js"></script>
 <script>
 $(document).ready(function(){	
 	setTimeout('search_page_load();',100);

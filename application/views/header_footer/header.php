@@ -464,6 +464,13 @@ function get_UserType(){
 		return "";
 	<?php } ?>
 }
+function get_FirebaseToken() {
+	<?php if(!empty($FirebaseToken)){ ?>
+		return "<?= $FirebaseToken ?>";
+	<?php } else {?>
+		return "";
+	<?php } ?>
+}
 var default_img = "<?= base_url(); ?>uploads/default_img.webp";
 var get_page_name = "";
 var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
@@ -475,7 +482,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 </script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase0.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase.js" type="module"></script>
 <?php } ?>
 
 <!-- ******************broadcast_message***************************** -->
@@ -498,4 +505,4 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 </div>
 
 <div type="hidden" class="medicine_details_div"></div>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page123456789001.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

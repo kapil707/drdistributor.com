@@ -451,7 +451,7 @@ class ImportOrderModel extends CI_Model
 		if(!empty($row1->id)) {
 			$suggest = 1;
 			$order_item_name		= $row1->item_name;
-			echo $suggest_i_code 		= $row1->i_code;
+			$suggest_i_code 		= $row1->i_code;
 			$item_suggest_altercode = $row1->user_altercode;
 		}
 
@@ -489,7 +489,7 @@ class ImportOrderModel extends CI_Model
 		$return["type_"] = $type_;
 		$return["suggest"] = $suggest;
 		$return["order_quantity"] = $order_quantity;
-		$return["item_suggest_altercode"] = $item_suggest_altercode;
+		$return["item_suggest_altercode"] = $item_suggest_altercode." $suggest_i_code";
 		return $return;
 	}
 

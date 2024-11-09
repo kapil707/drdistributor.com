@@ -37,7 +37,7 @@ function clear_search_function() {
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){
 		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
-        if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
+        if (![37, 38, 39, 40, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, and Tab
             var keyword = $(".medicine_search_textbox").val();
 			if(keyword!="")
 			{
@@ -263,12 +263,9 @@ function medicine_search_api() {
 							rete_div =  '<span class="all_item_ptr" title="PTR : '+item_ptr+'">PTR : <i class="fa fa-inr" aria-hidden="true"></i> '+item_ptr+'/- </span> | <span class="all_item_mrp" title="MRP : '+item_mrp+'">MRP : <i class="fa fa-inr" aria-hidden="true"></i> '+item_mrp+'/- </span> | <span class="all_item_price" title="*Approximate ~ '+item_price+'">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/- </span>';
 
 							/******************************** */
-							if(import_order_medicine_change_value==0){							
-								var onlcick_event = 'onclick=medicine_details_funcation("'+item_code+'"),clear_search_function()';
-							}
-							
-							if(import_order_medicine_change_value==1){							
-								var onlcick_event = 'onclick=import_order_medicine_change_api("'+item_code+'"),clear_search_function()';
+							var onlcick_event = 'onclick=medicine_details_funcation("'+item_code+'"),clear_search_function()';							
+							if(import_order_medicine_change_value==1) {							
+								onlcick_event = 'onclick=import_order_medicine_change_api("'+item_code+'"),clear_search_function()';
 							}
 
 							htmlContent += '<li class="main_box_div_data" '+onlcick_event+'><div class="medicine_search_box_left_div">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></div><div class="medicine_search_box_right_div"><div class="all_item_name">'+item_name+'<span class="all_item_packing mobile_off"> ('+item_packing+' Packing)</span></div><div class="all_item_packing mobile_show">'+item_packing+' Packing</div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span>| <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div>'+item_quantity_div+'</div><div class="mobile_off">'+rete_div+'</div></div><div class="medicine_search_full_width mobile_show" style="margin-left:5px;">'+rete_div+'</div><div class="medicine_search_full_width all_item_description1">'+item_description1+'</div><div class="medicine_search_full_width medicine_cart_item_similar_items"><a href="'+get_base_url()+'medicine_category/medicine_similar/'+item_code+'">'+similar_items+'</a></div>'+div_all_data+'</li>';

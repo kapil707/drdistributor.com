@@ -9,9 +9,10 @@ class AppConfig {
     public $WebsiteVersion = "11.0.01";
     public $WebJs = "11-0-01";
     public $Weburl = "https://www.drdistributor.com/";
+    public $ApiUrl = "https://www.drdistributors.co.in/drd-live/";
+    public $ApiUrl2 = "https://www.drdweb.co.in/";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
     public $MedicineImageUrl = "https://www.drdweb.co.in/";
-    public $ApiUrl2 = "https://www.drdweb.co.in/";
     public $SiteEmail = "vipul@drdindia.com";
     public $SiteMobile = "+919899133989";
     public $SiteWhatsApp = "+919899133989";
@@ -37,6 +38,14 @@ class AppConfig {
         return $this->Weburl;
     }
 
+    public function getApiUrl() {
+        return $this->ApiUrl;
+    }
+
+    public function getApiUrl2() {
+        return $this->ApiUrl2;
+    }
+
     public function getWebJs() {
         return $this->WebJs;
     }
@@ -47,10 +56,6 @@ class AppConfig {
 
     public function getMedicineImageUrl() {
         return $this->MedicineImageUrl;
-    }
-
-    public function getApiUrl2() {
-        return $this->ApiUrl2;
     }
 
     public function getSiteEmail() {

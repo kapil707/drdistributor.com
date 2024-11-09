@@ -344,7 +344,7 @@ function medicine_details_api(item_code) {
 						$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 					}
 
-					$(".medicine_details_item_order_quantity_textbox").focus();
+					setTimeout($(".medicine_details_item_order_quantity_textbox").focus(),150);
 					$(".medicine_details_api_data").show();
 					$(".medicine_details_api_loading").hide();
 				}

@@ -432,6 +432,7 @@ function medicine_details_api_data(item_code) {
 	} else {
 		$(".order_quantity_div").show();
 		$(".medicine_details_item_add_to_cart_btn_disable").show();
+		$(".medicine_details_item_delete").show();
 	}
 
 	// Hide the add-to-cart button initially
@@ -463,6 +464,7 @@ function change_item_order_quantity(){
 
 				$(".medicine_details_item_add_to_cart_btn").show();
 				$(".medicine_details_item_add_to_cart_btn_disable").hide();
+				$(".medicine_details_item_delete").hide();
 				
 			}else{
 				$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity_max+' only');
@@ -548,6 +550,7 @@ function medicine_add_to_cart_api()
 				if(get_page_name=="medicine_details"){
 					$('.medicine_details_item_add_to_cart_btn').hide();
 					$('.medicine_details_item_add_to_cart_btn_disable').show();
+					$('.medicine_details_item_delete').show();
 
 					$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 					$('.medicine_details_item_add_to_cart_btn_disable').html("Loading....");

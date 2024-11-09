@@ -124,11 +124,6 @@
 										<input type="hidden" class="medicine_details_item_price">
 										<input type="hidden" class="medicine_details_item_code">
 										<input type="hidden" class="medicine_details_item_quantity_max">
-
-										<button type="submit" class="btn btn-primary main_theme_button medicine_details_delete_medicine"  onclick="medicine_add_to_cart_api()" title="Delete Medicine">
-											<i class="fa fa-trash-o all_item_delete_btn" aria-hidden="true"></i>
-										</button>
-
 									</div>
 
 									<div class="col-sm-8 col-8">

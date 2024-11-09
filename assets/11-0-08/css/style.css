@@ -211,7 +211,6 @@ table{
 	border-color: var(--main-theme-button-bg-color);
 	color: var(--main-theme-button-text-color);
     border-radius: 10px;
-	width:100%;
 	padding: 7px;
 }
 .main_theme_button_delete:hover,.main_theme_button_delete:focus,.main_theme_button_delete:active{

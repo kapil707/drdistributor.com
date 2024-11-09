@@ -22,7 +22,7 @@ function goBack() {
 			<div class="row">
 				<div class="col-sm-12 col-12 main_page_data" style="display:none">
 					<div class="main_box_div p-2">
-						<div class="row medicine_details_api_data">
+						<div class="row medicine_details_api_data" style="display:none">
 							<div class="col-sm-4 col-12">
 								<div class="row">
 									<div class="col-sm-12 col-9">
@@ -161,7 +161,7 @@ $(document).ready(function(){
 	$(".main_page_loading").show();
 	$(".main_page_no_record_found").hide();
 	$(".main_page_something_went_wrong").hide();
-
+	
 	medicine_details_api('<?= $item_code; ?>');
 });
 </script>

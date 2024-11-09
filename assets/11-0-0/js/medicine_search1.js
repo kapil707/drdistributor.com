@@ -1,4 +1,5 @@
 var import_order_medicine_change_value = 0; // yha import page ke iya ha iss ko yaha set kiya h or iss ko remove nahi karna
+let currentFocus = -1; // Tracks the currently focused item
 function search_page_load(){
 
 	$(".main_page_loading").show();
@@ -35,43 +36,50 @@ function clear_search_function() {
 
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){
-		if(e.keyCode == 8){}
-		var keyword = $(".medicine_search_textbox").val();
-		if(keyword!="")
-		{
-			if(keyword.length<3)
+		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
+        if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
+            var keyword = $(".medicine_search_textbox").val();
+			if(keyword!="")
 			{
-				$('.medicine_search_textbox').focus();
-				$(".search_result_div").html("");
-				$(".search_result_div_mobile").html("");
+				if(keyword.length<3)
+				{
+					$('.medicine_search_textbox').focus();
+					$(".search_result_div").html("");
+					$(".search_result_div_mobile").html("");
+				}
+				if(keyword.length>2)
+				{
+					//medicine_search_api();
+					setTimeout('medicine_search_api();',500);
+				}
+				//console.log("keyup"+keyword.length);
+			}else{
+				clear_search_function();
 			}
-			if(keyword.length>2)
-			{
-				//medicine_search_api();
-				setTimeout('medicine_search_api();',500);
-			}
-			//console.log("keyup"+keyword.length);
-		}
-		else{
-			clear_search_function();
-		}		
-	})  
-	$(".medicine_search_textbox").keypress(function() { 
+        }
 	});
-	$(".medicine_search_textbox").change(function() { 
-	});
-	$(".medicine_search_textbox").on("search", function() { 
-	});
-	
-    $(".medicine_search_textbox").keydown(function(event) {
-    	if(event.key=="ArrowDown")
-    	{
-			page_up_down_arrow("1");
-    		$('.hover_1').attr("tabindex",-1).focus();
-			return false;
-    	}
+
+    $(".medicine_search_textbox").keydown(function(e) {
+    	let listItems = $(".search_result_div");
+
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+            currentFocus++;
+            if (currentFocus >= listItems.length) currentFocus = 0; // Loop back to top
+            addActive(listItems);
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            currentFocus--;
+            if (currentFocus < 0) currentFocus = listItems.length - 1; // Loop back to bottom
+            addActive(listItems);
+        } else if (e.key === "Enter") {
+            e.preventDefault();
+            if (currentFocus > -1) {
+                listItems[currentFocus].click(); // Trigger click on the selected item
+            }
+        }
     });
-	
+
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
 		if (evt.keyCode == 27) {
@@ -79,6 +87,13 @@ $(document).ready(function(){
 		}
 	};
 });
+
+function addActive(listItems) {
+    listItems.removeClass("active");
+    if (currentFocus >= 0 && currentFocus < listItems.length) {
+        listItems.eq(currentFocus).addClass("active");
+    }
+}
 
 function page_up_down_arrow(new_i)
 {

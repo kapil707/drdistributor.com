@@ -442,6 +442,19 @@ class ImportOrderModel extends CI_Model
 			$suggest_i_code 		= $row1->i_code;
 			$item_suggest_altercode = $row1->user_altercode;
 		}
+		/************************************************** */
+		$this->db->select("*");
+		$this->db->where('user_altercode',$ChemistId);
+		$this->db->where('your_item_name',$order_item_name);
+		$this->db->order_by('id','desc');
+		$row1 = $this->db->get("drd_import_orders_suggest")->row();
+		if(!empty($row1->id)) {
+			$suggest = 1;
+			$order_item_name		= $row1->item_name;
+			$suggest_i_code 		= $row1->i_code;
+			$item_suggest_altercode = $row1->user_altercode;
+		}
+
 		$type_ = 1;
 		if(!empty($suggest_i_code)) {
 			$type_ = "1";

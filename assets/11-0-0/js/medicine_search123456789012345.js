@@ -92,6 +92,7 @@ function addActive(listItems) {
     listItems.removeClass("search_result_div_active");
     if (currentFocus >= 0 && currentFocus < listItems.length) {
         listItems.eq(currentFocus).addClass("search_result_div_active");
+		$('.search_result_div_active').attr("tabindex",-1).focus();
     }
 }
 

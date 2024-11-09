@@ -293,6 +293,7 @@ function medicine_details_api(item_code) {
 					}
 
 					item_code		= item.item_code;
+					item_image		= item.item_image;
 					item_name		= item.item_name;
 					item_packing	= item.item_packing;
 					item_batch_no	= item.item_batch_no;

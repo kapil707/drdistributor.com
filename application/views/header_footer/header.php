@@ -498,4 +498,4 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 	</div>
 </div>
 
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page1.js"></script>

@@ -337,6 +337,8 @@ function medicine_details_api(item_code)
 					$(".modal_item_image_change3").attr("src",item_image3)
 					item_image4	= item.item_image4;
 					$(".modal_item_image_change4").attr("src",item_image4)
+
+					$(".medicine_details_item_order_quantity_textbox").focus();
 				}
 			});	
 		},

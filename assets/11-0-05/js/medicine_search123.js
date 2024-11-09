@@ -34,52 +34,55 @@ function clear_search_function() {
 	$(".my_cart_api_div_mobile").show();
 }
 
-$(document).ready(function() {	
-	let searchTimeout; // Variable to store the timeout ID
-	let currentFocus = -1;
-
-	$(".medicine_search_textbox").keyup(function(e) {
+$(document).ready(function(){	
+	$(".medicine_search_textbox").keyup(function(e){
 		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
-		if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
-			var keyword = $(".medicine_search_textbox").val();
-
-			if (keyword != "") {
-				if (keyword.length < 3) {
+        if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
+            var keyword = $(".medicine_search_textbox").val();
+			if(keyword!="")
+			{
+				if(keyword.length<3)
+				{
 					$('.medicine_search_textbox').focus();
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
-				} else if (keyword.length > 2) {
-					setTimeout(medicine_search_api, 500); // Set a new timeout
 				}
-			} else {
+				if(keyword.length>2)
+				{
+					//medicine_search_api();
+					setTimeout('medicine_search_api();',500);
+				}
+				//console.log("keyup"+keyword.length);
+			}else{
 				clear_search_function();
 			}
-		}
+        }
 	});
 
-	$(".medicine_search_textbox").keydown(function(e) {
-		let listItems = $(".search_result_div ul li");
-
-		if (e.key === "ArrowDown") {
-			e.preventDefault();
-			currentFocus++;
-			if (currentFocus >= listItems.length) currentFocus = 0; // Loop back to top
-			addActive(listItems);
-		} else if (e.key === "ArrowUp") {
-			e.preventDefault();
-			currentFocus--;
-			if (currentFocus < 0) currentFocus = listItems.length - 1; // Loop back to bottom
-			addActive(listItems);
-		} else if (e.key === "Enter") {
-			if (currentFocus > -1) {
-				listItems[currentFocus].click(); // Trigger click on the selected item
-			}
-		}
-	});
+    $(".medicine_search_textbox").keydown(function(e) {
+    	let listItems = $(".search_result_div ul li");
+		console.log(currentFocus + " " + listItems.length)
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+            currentFocus++;
+            if (currentFocus >= listItems.length) currentFocus = 0; // Loop back to top
+            addActive(listItems);
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            currentFocus--;
+            if (currentFocus < 0) currentFocus = listItems.length - 1; // Loop back to bottom
+            addActive(listItems);
+        } else if (e.key === "Enter") {
+            //e.preventDefault();
+            if (currentFocus > -1) {
+                listItems[currentFocus].click(); // Trigger click on the selected item
+            }
+        }
+    });
 
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
-		if (evt.keyCode == 27) { // Escape key
+		if (evt.keyCode == 27) {
 			clear_search_function();
 		}
 	};
@@ -242,6 +245,7 @@ function medicine_search_api() {
 							item_featured 		= item.item_featured;
 							item_description1 	= item.item_description;
 							similar_items 		= item.similar_items;
+
 
 							item_batch_no		= "xxxxxx";
 							item_gst 			= "0";

@@ -1230,6 +1230,10 @@ table{
     border-bottom: 1px solid var(--main-theme-border-color);
 }
 
+.search_result_div ul li:hover {
+	background: var(--main-theme-box-bg-color-hover);
+}
+
 .search_cart_footer_div {
     bottom: 10px;
     position: fixed;

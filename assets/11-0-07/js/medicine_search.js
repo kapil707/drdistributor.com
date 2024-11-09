@@ -41,14 +41,12 @@ $(document).ready(function(){
             var keyword = $(".medicine_search_textbox").val();
 			if(keyword!="")
 			{
-				if(keyword.length<3)
-				{
+				if(keyword.length<3) {
 					$('.medicine_search_textbox').focus();
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
 				}
-				if(keyword.length>2)
-				{
+				if(keyword.length>2) {
 					//medicine_search_api();
 					setTimeout('medicine_search_api();',500);
 				}
@@ -56,7 +54,9 @@ $(document).ready(function(){
 			}else{
 				clear_search_function();
 			}
-        }
+        } else if (e.keyCode === 27) { // Handle Escape key specifically
+			clear_search_function();
+		}
 	});
 
     $(".medicine_search_textbox").keydown(function(e) {

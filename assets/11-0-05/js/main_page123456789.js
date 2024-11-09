@@ -495,13 +495,27 @@ function medicine_add_to_cart_api()
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();
 
-				/*if(get_page_name=="import_order"){
-					order_type = "notall";
-				}else{
-					order_type = "all";
-				}*/
-
 				if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
+
+					let itemData = $(".medicine_details_all_data_" + item_code);
+					// Get item attributes
+					let item_image = itemData.attr("item_image");
+					let item_name = itemData.attr("item_name");
+					let item_packing = itemData.attr("item_packing");
+					let item_batch_no = itemData.attr("item_batch_no");
+					let item_expiry = itemData.attr("item_expiry");
+					let item_company = itemData.attr("item_company");
+					let item_quantity = itemData.attr("item_quantity");
+					let item_stock = itemData.attr("item_stock");
+					let item_ptr = itemData.attr("item_ptr");
+					let item_mrp = itemData.attr("item_mrp");
+					let item_price = itemData.attr("item_price");
+					let item_gst = itemData.attr("item_gst");
+					let item_scheme = itemData.attr("item_scheme");
+					let item_margin = itemData.attr("item_margin");
+					let item_featured = itemData.attr("item_featured");
+					let item_description1 = itemData.attr("item_description1");
+					let item_description2 = itemData.attr("item_description2");
 					
 					div_all_data = "<span class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='' item_stock='' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' similar_items='' item_order_quantity='"+item_order_quantity+"'></span>";
 
@@ -524,7 +538,7 @@ function medicine_add_to_cart_api()
 
 					rate_div = '<div><span class="all_item_price" title="*Approximate ~">*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> '+item_price+'/-</span> | <span class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> '+item_quantity_price+'/-</span></div><div><span class="all_item_model_number">'+item_modalnumber+'</span> | <span class="all_item_date_time">'+item_datetime+'</span><span style="float:right;"><a href="javascript:delete_medicine('+item_code+')" tabindex="-10" title="Delete '+item_name+'"><i class="fa fa-trash-o all_item_delete_btn" aria-hidden="true" style="margin-right:5px;"></i></a>&nbsp;<a href="javascript:medicine_details_funcation('+item_code+')" tabindex="-10" title="Edit '+item_name+'" class="edit_item_focues'+item_code+'"><i class="fa fa-pencil all_item_edit_btn" aria-hidden="true"></i></a>&nbsp;&nbsp;</div>';
 					
-					var my_cart_data = '<span id="my_cart_main_id_'+item_code+'"><div class="main_box_div_data"><div class="my_cart_box_left_div"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></a></div><div class="my_cart_box_right_div"><div class="all_item_name" title="'+item_name+'" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span> | <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'" >Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show pl-2">'+rate_div+'</span></div>'+div_all_data+"</span>";
+					var my_cart_data = '<span id="my_cart_main_id_'+item_code+'"><div class="main_box_div_data"><div class="my_cart_box_left_div"><a href="javascript:void(0)" onClick="medicine_details_funcation('+item_code+')">'+item_other_image_div+'<img class="all_item_image" src="'+default_img+'" alt="'+item_name+'"><img class="all_item_image_load" src="'+item_image+'" alt="'+item_name+'" onload="showActualImage(this)" onerror="setDefaultImage(this);"></a></div><div class="my_cart_box_right_div"><div class="all_item_name" title="'+item_name+'" onclick="medicine_details_funcation('+item_code+')" style="cursor: pointer;">'+item_name+' <span class="all_item_packing">('+item_packing+' Packing)</span></div><div class=""><span class="all_item_margin">'+item_margin+'% Margin* </span> | <span class="all_item_expiry">Expiry : '+item_expiry+'</span></div><div class="all_item_company">By '+item_company+'</div><div class="text-left all_item_order_quantity" title="'+item_name+' Quantity: '+item_order_quantity+'">Order quantity : '+item_order_quantity+item_scheme_div+'</div><span class="mobile_off">'+rate_div+'</span></div><span class="mobile_show pl-2">'+rate_div+'</span></div>'+div_all_data+"</span>";
 
 					$(".my_cart_api_div").prepend(my_cart_data);
 					$(".my_cart_api_div_mobile").prepend(my_cart_data);

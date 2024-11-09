@@ -37,7 +37,7 @@ function clear_search_function() {
 $(document).ready(function(){	
 	$(".medicine_search_textbox").keyup(function(e){
 		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
-        if (![37, 38, 39, 40, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, and Tab
+        if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
             var keyword = $(".medicine_search_textbox").val();
 			if(keyword!="")
 			{
@@ -93,44 +93,6 @@ function addActive(listItems) {
     if (currentFocus >= 0 && currentFocus < listItems.length) {
         listItems.eq(currentFocus).addClass("search_result_div_active");
     }
-}
-
-function page_up_down_arrow(new_i)
-{
-	$('.hover_'+new_i).keypress(function (e) {
-		 if (e.which == 13) {
-			item_code = $(".medicine_details_funcation_"+new_i).attr("item_code");
-			medicine_details_funcation(item_code);
-			clear_search_function();
-		 } 						 
-	 });
-	$('.hover_'+new_i).keydown(function(event) {
-		if(event.key=="ArrowDown")
-		{
-			new_i = parseInt(new_i) + 1;
-			page_up_down_arrow(new_i);
-			$('.hover_'+new_i).attr("tabindex",-1).focus();
-			return false;
-		}
-		if(event.key=="ArrowUp")
-		{
-			if(parseInt(new_i)==1)
-			{
-				var searchInput = $('.medicine_search_textbox');
-				var strLength = searchInput.val().length * 2;
-
-				searchInput.focus();
-				searchInput[0].setSelectionRange(strLength, strLength);
-			}
-			else
-			{
-				new_i = parseInt(new_i) - 1;
-				page_up_down_arrow(new_i);
-				$('.hover_'+new_i).attr("tabindex",-1).focus();
-			}
-			return false;
-		}
-	});
 }
 
 function menu_search_function() {

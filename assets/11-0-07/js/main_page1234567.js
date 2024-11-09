@@ -621,7 +621,7 @@ function delete_medicine(item_code) {
 			$("#my_cart_main_id_"+item_code).html('');
 
 			if(get_page_name=="medicine_details"){
-				page_load_medicine_details();
+				$(".medicine_details_item_delete").hide();
 			}
 			
 			$.ajax({                          
@@ -639,6 +639,9 @@ function delete_medicine(item_code) {
 						{
 							if(item.status=="1")
 							{
+								if(get_page_name=="medicine_details"){
+									page_load_medicine_details();
+								}
 								/***************************** */
 								get_my_cart_total_api();
 								/***************************** */

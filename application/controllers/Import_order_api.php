@@ -320,6 +320,7 @@ class Import_order_api extends CI_Controller {
 			$ChemistNrx		= $this->ChemistNrx;
 
 			$return_value = $this->ImportOrderModel->process_find_medicine_api($UserType,$ChemistId,$SalesmanId,$ChemistNrx,$ItemId);
+			
 			$row = $return_value["row"];
 			$type_ = $return_value["type_"];
 			$suggest = $return_value["suggest"];

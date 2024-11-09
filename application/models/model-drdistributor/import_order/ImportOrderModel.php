@@ -443,10 +443,9 @@ class ImportOrderModel extends CI_Model
 			$item_suggest_altercode = $row1->user_altercode;
 		}
 		$type_ = 1;
-		if(!empty($suggest_i_code))
-		{
+		if(!empty($suggest_i_code)) {
 			$type_ = "1";
-			$i_code = $suggest_i_code;
+			echo $i_code = $suggest_i_code;
 			$where = array('i_code'=>$i_code);
 		}
 		else{			

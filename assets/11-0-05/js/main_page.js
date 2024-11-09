@@ -250,108 +250,103 @@ function medicine_details_funcation(item_code) {
 }
 
 function medicine_details_api(item_code) {
-
-	/***************************************************************** */
-	//$('.order_quantity_div').hide();
+	// Reset the cart buttons
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
 
-	item_date_time = item_batch_no = item_gst = item_description2 = "";
-
+	// Initialize variables
+	let item_date_time = "";
+	
 	$.ajax({
 		url: get_base_url() + "medicine_details/medicine_details_api",
-		type:"POST",
+		type: "POST",
 		dataType: 'json',
-		data: {item_code:item_code},
-		cache : true,
+		data: { item_code: item_code },
+		cache: true,
 		timeout: 60000,
-		error: function(){
-			if(get_page_name=="medicine_details"){
+		error: function() {
+			if (get_page_name == "medicine_details") {
 				$(".top_bar_title").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_loading").hide();
 				$(".main_page_something_went_wrong").show();
 			}
 		},
-		success: function(data){
-			if(get_page_name=="medicine_details"){
+		success: function(data) {
+			if (get_page_name == "medicine_details") {
 				$(".main_page_loading").hide();
-				if(data.items=="") {
+				if (!data.items || data.items.length === 0) {
 					$(".top_bar_title").html("No record found");
 					$(".main_container").hide();
 					$(".main_page_no_record_found").show();
+					return;
 				}
 			}
-			$.each(data.items, function(i,item){	
-				if (item)
-				{
-					if(get_page_name=="medicine_details"){
+
+			$.each(data.items, function(i, item) {	
+				if (item) {
+					if (get_page_name == "medicine_details") {
 						$(".top_bar_title").html(item.item_name);
-						document.title = siteTitle+" || "+item.item_name;
+						document.title = `${siteTitle} || ${item.item_name}`;
 						$(".main_page_data").show();
 						$(".top_bar_title2").html('Found result');
 					}
 
-					item_code		= item.item_code;
-					item_image		= item.item_image;
-					item_name		= item.item_name;
-					item_packing	= item.item_packing;
-					item_batch_no	= item.item_batch_no;
-					item_expiry		= item.item_expiry;
-					item_company	= item.item_company;
-					item_quantity	= item.item_quantity;
-					item_stock		= item.item_stock;
-					item_ptr		= item.item_ptr;
-					item_mrp		= item.item_mrp;
-					item_price		= item.item_price;
-					item_gst		= item.item_gst;
-					item_scheme		= item.item_scheme;
-					item_margin		= item.item_margin;
-					item_featured	= item.item_featured;
-					item_description1= item.item_description1;
-					item_description2= item.item_description2;
-					item_order_quantity= item.item_order_quantity;	
+					// Populate item details
+					const detailsHTML = `
+						<div class='medicine_details_all_data_${item.item_code}' 
+							item_image='${item.item_image}' item_name='${item.item_name}' 
+							item_packing='${item.item_packing}' item_batch_no='${item.item_batch_no}' 
+							item_expiry='${item.item_expiry}' item_company='${item.item_company}' 
+							item_quantity='${item.item_quantity}' item_stock='${item.item_stock}' 
+							item_ptr='${item.item_ptr}' item_mrp='${item.item_mrp}' 
+							item_price='${item.item_price}' item_gst='${item.item_gst}' 
+							item_scheme='${item.item_scheme}' item_margin='${item.item_margin}' 
+							item_featured='${item.item_featured}' item_description1='${item.item_description1}' 
+							item_description2='${item.item_description2}'>
+						</div>`;
 
-					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' item_description2='"+item_description2+"'></div>");
-	
-					/***********************important ************************/
-					$('.medicine_details_item_code').val(item_code);
-					/********************************************************/
+					$(".medicine_details_div").html(detailsHTML);
 
-					setTimeout(medicine_details_api_data(item_code),100);
+					// Set item code and display date/time
+					$('.medicine_details_item_code').val(item.item_code);
+					$(".medicine_details_item_date_time").html("as on " + item.item_date_time);
 
-					item_date_time	= item.item_date_time;
-					$(".medicine_details_item_date_time").html("as on " + item_date_time)
-					
-					/*************************************************************** */
-					item_image	= item.item_image;
-					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
+					// Display main image with zoom effect
+					$('.big1').html(`
+						<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+							<a href="${item.item_image}">
+								<img src="${item.item_image}" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/>
+							</a>
+						</div>
+					`);
 					$('.easyzoom').easyZoom();
-					/*************************************************************** */
 
-					item_image	= item.item_image;
-					$(".modal_item_image_change1").attr("src",item_image)
-					item_image2	= item.item_image2;
-					$(".modal_item_image_change2").attr("src",item_image2)
-					item_image3	= item.item_image3;
-					$(".modal_item_image_change3").attr("src",item_image3)
-					item_image4	= item.item_image4;
-					$(".modal_item_image_change4").attr("src",item_image4)
-					/****************************************************************/
-					if(item_order_quantity!=""){
-						$(".medicine_details_item_order_quantity_textbox").val(item_order_quantity);
+					// Set modal images if available
+					$(".modal_item_image_change1").attr("src", item.item_image || "");
+					$(".modal_item_image_change2").attr("src", item.item_image2 || "");
+					$(".modal_item_image_change3").attr("src", item.item_image3 || "");
+					$(".modal_item_image_change4").attr("src", item.item_image4 || "");
+
+					// Set cart button text if order quantity is available
+					if (item.item_order_quantity) {
+						$(".medicine_details_item_order_quantity_textbox").val(item.item_order_quantity);
 						$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 						$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 					}
 
-					setTimeout($(".medicine_details_item_order_quantity_textbox").focus(),150);
+					$(".medicine_details_item_order_quantity_textbox").focus();
 					$(".medicine_details_api_data").show();
 					$(".medicine_details_api_loading").hide();
+
+					// Delay additional data processing
+					setTimeout(() => medicine_details_api_data(item.item_code), 100);
 				}
 			});	
 		}
 	});
 }
+
 
 function medicine_details_api_data(item_code)
 {	

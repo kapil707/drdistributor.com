@@ -481,28 +481,5 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
     new WOW().init();
 </script>
 
-<?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase.js" type="module"></script>
-<?php } ?>
-
-<!-- ******************broadcast_message***************************** -->
-<div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title broadcast_title">
-				</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
-				</button>
-			</div>
-			<div class="modal-body">
-				<p class="broadcast_message"></p>
-				<p class="broadcast_image"></p>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div type="hidden" class="medicine_details_div"></div>
 <script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>

@@ -96,3 +96,26 @@ $(".top_bar_title").html("Delivering to");
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/home_page.js"></script>
+
+<?php if(!empty($UserType)){ ?>
+<script src="<?= base_url(); ?>assets/firebase/firebase.js" type="module"></script>
+<?php } ?>
+
+<!-- ******************broadcast_message***************************** -->
+<div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title broadcast_title">
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="fa fa-times modal_cancel_btn" aria-hidden="true"></i>	
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="broadcast_message"></p>
+				<p class="broadcast_image"></p>
+			</div>
+		</div>
+	</div>
+</div>

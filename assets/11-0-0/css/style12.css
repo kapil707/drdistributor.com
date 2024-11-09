@@ -1229,8 +1229,10 @@ table{
     border-right: 1px solid var(--main-theme-border-color);
     border-bottom: 1px solid var(--main-theme-border-color);
 }
-
 .search_result_div ul li:hover {
+	background: var(--main-theme-box-bg-color-hover);
+}
+.search_result_div_active {
 	background: var(--main-theme-box-bg-color-hover);
 }
 

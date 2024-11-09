@@ -470,7 +470,7 @@ class ImportOrderModel extends CI_Model
 		}
 		$this->db->limit(1);
 		$this->db->order_by('item_name','asc');
-		$row2 = $this->db->get("tbl_medicine")->row();
+		$row2 = $this->db->get("tbl_medicinexxx")->row();
 
 		$return["row"] = $row2;
 		$return["type_"] = $type_;

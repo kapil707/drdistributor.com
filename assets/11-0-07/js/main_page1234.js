@@ -240,7 +240,6 @@ function medicine_details_funcation(item_code) {
 
 		$(".medicine_details_item_date_time").html("Loading....")
 		$('.medicine_details_item_order_quantity_textbox').val("");
-		$(".medicine_details_item_delete").hide();
 
 		medicine_details_api_data(item_code);
 		medicine_details_api(item_code);
@@ -252,12 +251,11 @@ function medicine_details_funcation(item_code) {
 }
 
 function medicine_details_api(item_code) {
+	
 	// Reset the cart buttons
+	$(".medicine_details_item_delete").hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
-
-	// Initialize variables
-	let item_date_time = "";
 	
 	$.ajax({
 		url: get_base_url() + "medicine_details/medicine_details_api",

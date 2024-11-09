@@ -347,6 +347,8 @@ function medicine_details_api(item_code) {
 }
 
 function medicine_details_api_data(item_code) {
+	
+	$(".add_to_cart_error_message").html('');
 	$(".medicine_details_api_data").show();
 	$(".medicine_details_api_loading").hide();
 

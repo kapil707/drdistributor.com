@@ -448,6 +448,7 @@ function medicine_details_api_data(item_code)
 		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 	}
 	$(".medicine_details_item_order_quantity_textbox").focus();
+	console.log("okok")
 }
 
 function change_item_order_quantity(){

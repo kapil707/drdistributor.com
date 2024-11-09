@@ -61,7 +61,7 @@ $(document).ready(function(){
 
     $(".medicine_search_textbox").keydown(function(e) {
     	let listItems = $(".search_result_div");
-
+		console.log(currentFocus + " " + listItems.length)
         if (e.key === "ArrowDown") {
             e.preventDefault();
             currentFocus++;

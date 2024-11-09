@@ -91,7 +91,21 @@ $(document).ready(function(){
 function addActive(listItems) {
     listItems.removeClass("search_result_div_active");
     if (currentFocus >= 0 && currentFocus < listItems.length) {
-        listItems.eq(currentFocus).addClass("search_result_div_active");
+        const activeItem = listItems.eq(currentFocus);
+        activeItem.addClass("search_result_div_active");
+
+        // Ensure the active item is visible in the container
+        const container = $(".search_result_div");
+        const itemTop = activeItem.position().top;
+        const itemBottom = itemTop + activeItem.outerHeight();
+        const containerScrollTop = container.scrollTop();
+        const containerHeight = container.innerHeight();
+
+        if (itemBottom > containerHeight) {
+            container.scrollTop(containerScrollTop + (itemBottom - containerHeight));
+        } else if (itemTop < 0) {
+            container.scrollTop(containerScrollTop + itemTop);
+        }
     }
 }
 

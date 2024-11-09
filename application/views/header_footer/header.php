@@ -46,7 +46,7 @@ if (isset($_COOKIE["theme_type"])) {
 		<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style-dark.css" rel="stylesheet" type="text/css"/>
 	<?php } ?>
 
-	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style12.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/css/style.css" rel="stylesheet" type="text/css" />
 
 	<link href="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/website/easyzoom/easyzoom.css" rel="stylesheet" type="text/css" />
 

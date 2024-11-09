@@ -542,9 +542,9 @@ class ImportOrderModel extends CI_Model
 		$datetime = date("d-M-y H:i",$time);
 
 		$dt = array(
+			'i_code'=>$SelectedItemCode,
 			'your_item_name'=>$your_item_name,
 			'item_name'=>$item_name,
-			'i_code'=>$ItemCode,
 			'user_altercode'=>$ChemistId,
 			'date'=>$date,
 			'time'=>$time,

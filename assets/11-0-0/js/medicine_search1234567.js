@@ -60,7 +60,7 @@ $(document).ready(function(){
 	});
 
     $(".medicine_search_textbox").keydown(function(e) {
-    	let listItems = $(".search_result_div ul li");
+    	let listItems = $(".search_result_div");
 		console.log(currentFocus + " " + listItems.length)
         if (e.key === "ArrowDown") {
             e.preventDefault();
@@ -210,7 +210,7 @@ function medicine_search_api() {
 						$(".search_result_div").html(no_record_found_function());
 						$(".search_result_div_mobile").html(no_record_found_function());
 					}
-					let htmlContent = '<ul>';
+					let htmlContent = '';
 					$.each(data.items, function(i,item){
 						if (item)
 						{
@@ -275,8 +275,7 @@ function medicine_search_api() {
 				
 							$(".top_bar_title2").html("Found result ("+new_i+")");
 							
-							
-							htmlContent += '<li>'+serach_data+'</li>';
+							htmlContent += serach_data;
 							
 							if(new_i=="50")	{
 								$(".search_result_div").append('<div style="color: green;font-weight: bold;margin: 10px" class="text-center"><a href="'+ get_base_url()+'home/search_view_all?keyword='+keyword+'">View All</a></div>');
@@ -284,7 +283,7 @@ function medicine_search_api() {
 							}
 						}
 					});
-					htmlContent += '</ul>';
+					//htmlContent += '</ul>';
 					$(".search_result_div").html(htmlContent);
 					$(".search_result_div_mobile").html(htmlContent);
 					currentFocus = -1; // Reset focus

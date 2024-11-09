@@ -241,7 +241,7 @@ function medicine_details_funcation(item_code) {
 		$(".medicine_details_item_date_time").html("Loading....")
 
 		medicine_details_api_data(item_code);
-		//medicine_details_api(item_code);
+		medicine_details_api(item_code);
 
 		$('.search_textbox').val("");
 		$(".search_medicine_result").html("");

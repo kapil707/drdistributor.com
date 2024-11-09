@@ -73,7 +73,7 @@ $(document).ready(function(){
             if (currentFocus < 0) currentFocus = listItems.length - 1; // Loop back to bottom
             addActive(listItems);
         } else if (e.key === "Enter") {
-            e.preventDefault();
+            //e.preventDefault();
             if (currentFocus > -1) {
                 listItems[currentFocus].click(); // Trigger click on the selected item
             }
@@ -93,6 +93,44 @@ function addActive(listItems) {
     if (currentFocus >= 0 && currentFocus < listItems.length) {
         listItems.eq(currentFocus).addClass("search_result_div_active");
     }
+}
+
+function page_up_down_arrow(new_i)
+{
+	$('.hover_'+new_i).keypress(function (e) {
+		 if (e.which == 13) {
+			item_code = $(".medicine_details_funcation_"+new_i).attr("item_code");
+			medicine_details_funcation(item_code);
+			clear_search_function();
+		 } 						 
+	 });
+	$('.hover_'+new_i).keydown(function(event) {
+		if(event.key=="ArrowDown")
+		{
+			new_i = parseInt(new_i) + 1;
+			page_up_down_arrow(new_i);
+			$('.hover_'+new_i).attr("tabindex",-1).focus();
+			return false;
+		}
+		if(event.key=="ArrowUp")
+		{
+			if(parseInt(new_i)==1)
+			{
+				var searchInput = $('.medicine_search_textbox');
+				var strLength = searchInput.val().length * 2;
+
+				searchInput.focus();
+				searchInput[0].setSelectionRange(strLength, strLength);
+			}
+			else
+			{
+				new_i = parseInt(new_i) - 1;
+				page_up_down_arrow(new_i);
+				$('.hover_'+new_i).attr("tabindex",-1).focus();
+			}
+			return false;
+		}
+	});
 }
 
 function menu_search_function() {

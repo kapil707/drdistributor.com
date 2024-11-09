@@ -49,7 +49,7 @@ function medicine_favourite_api() {
                     // Main box div for displaying favorite medicine details
                     const medicineHtml = `
                         <div class="main_box_div_data">
-                            <a href="javascript:void(0)" onclick="medicine_details_funcation(${item_code})" style="text-decoration: none;">
+                            <a href="javascript:void(0)" onclick="get_single_medicine_info(${item_code})" style="text-decoration: none;">
                                 <div class="favourite_medicines_box_left_div">
                                     <img class="all_item_image" src="${default_img}" alt="${item_name}">
                                     <img class="all_item_image_load" src="${item_image}" alt="${item_name}" onload="showActualImage(this)" onerror="setDefaultImage(this);">

@@ -438,14 +438,14 @@ class ImportOrderModel extends CI_Model
 		$row1 = $this->db->get("drd_import_orders_suggest")->row();
 		if(!empty($row1->id)) {
 			$suggest = 1;
-			$order_item_name		= $row1->item_name;
-			$suggest_i_code 		= $row1->i_code;
-			$item_suggest_altercode = $row1->user_altercode;
+			echo $order_item_name		= $row1->item_name;
+			echo $suggest_i_code 		= $row1->i_code;
+			echo $item_suggest_altercode = $row1->user_altercode;
 		}
 		$type_ = 1;
 		if(!empty($suggest_i_code)) {
 			$type_ = "1";
-			echo $i_code = $suggest_i_code;
+			$i_code = $suggest_i_code;
 			$where = array('i_code'=>$i_code);
 		}
 		else{			

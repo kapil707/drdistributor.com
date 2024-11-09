@@ -137,7 +137,7 @@ function goBack() {
 
 												<button type="submit" class="btn btn-primary main_theme_button_disable medicine_details_item_add_to_cart_btn_disable" onclick="" title="Add to cart">Add to cart</button>
 
-												<button type="submit" class="medicine_details_item_delete" onclick="medicine_details_funcation('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+												<button type="submit" class="btn btn-danger medicine_details_item_delete" onclick="delete_medicine('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 											</div>
 
 											<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>

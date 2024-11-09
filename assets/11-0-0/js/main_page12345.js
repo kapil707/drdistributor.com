@@ -260,6 +260,7 @@ function medicine_details_api(item_code)
 		dataType: 'json',
 		data: {item_code:item_code},
 		cache : true,
+		timeout: 60000,
 		error: function(){
 			if(get_page_name=="medicine_details"){
 				$(".top_bar_title").html("No record found");
@@ -340,8 +341,7 @@ function medicine_details_api(item_code)
 					$(".medicine_details_item_order_quantity_textbox").focus();
 				}
 			});	
-		},
-		timeout: 60000
+		}
 	});
 }
 
@@ -376,7 +376,6 @@ function medicine_details_api_data(item_code)
 {
 	$(".medicine_details_api_data").show();
 	$(".medicine_details_api_loading").hide();
-	$(".medicine_details_item_order_quantity_textbox").focus();
 
 	/***********************important ************************/
 	$('.medicine_details_item_code').val(item_code);

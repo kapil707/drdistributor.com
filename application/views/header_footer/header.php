@@ -395,7 +395,6 @@ if (isset($_COOKIE["theme_type"])) {
 <div class="select_medicine_in_modal_script_css"></div>
 <div class="only_for_noti"></div>
 <!-- ******************************************************** -->
-<input type="hidden" class="medicine_details_item_code">
 <!-- <div type="hidden" class="medicine_details_all_data"></div> -->
 <!-- ******************************************************** 
 
@@ -481,5 +480,7 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
     new WOW().init();
 </script>
 
+<!-- ******************************************************** -->
 <div type="hidden" class="medicine_details_div"></div>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page1234.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page12345.js"></script>
+<!-- ******************************************************** -->

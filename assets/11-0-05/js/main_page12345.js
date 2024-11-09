@@ -310,6 +310,7 @@ function medicine_details_api(item_code) {
 
 					// Set item code and display date/time
 					$('.medicine_details_item_code').val(item.item_code);
+					$('.medicine_details_item_quantity_max').val(item.item_quantity);
 					$(".medicine_details_item_date_time").html("as on " + item.item_date_time);
 
 					// Display main image with zoom effect
@@ -339,8 +340,6 @@ function medicine_details_api(item_code) {
 					setTimeout(function() {
 						$(".medicine_details_item_order_quantity_textbox").focus();
 					}, 200);
-
-					$(".medicine_details_item_order_quantity_hidden").val(item.item_quantity);
 				}
 			});	
 		}
@@ -441,7 +440,8 @@ function change_item_order_quantity(){
 	$(".medicine_details_item_add_to_cart_btn").hide();
 	$(".medicine_details_item_add_to_cart_btn_disable").show();
 
-	item_order_quantity	 = $(".medicine_details_item_order_quantity_textbox").val();	
+	item_quantity_max	= $(".medicine_details_item_quantity_max").val();
+	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){
 		$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");
 	}else{
@@ -449,7 +449,7 @@ function change_item_order_quantity(){
 		if(item_order_quantity==0){
 			$(".add_to_cart_error_message").html('Minimum order quantity one and more than one');
 		}else{
-			if(item_order_quantity<=parseInt(item_quantity)){
+			if(item_order_quantity<=parseInt(item_quantity_max)){
 				item_price_calculate = parseFloat(item_price) * item_order_quantity;
 
 				item_price_calculate = item_price_calculate.toFixed(2);
@@ -460,7 +460,7 @@ function change_item_order_quantity(){
 				$(".medicine_details_item_add_to_cart_btn_disable").hide();
 				
 			}else{
-				$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity+' only');
+				$(".add_to_cart_error_message").html('Enter maximum quantity '+item_quantity_max+' only');
 			}
 		}	
 	}
@@ -468,7 +468,7 @@ function change_item_order_quantity(){
 
 function medicine_add_to_cart_api()
 {	
-	item_quantity_add	= $(".medicine_details_item_order_quantity_hidden").val();
+	item_quantity_max	= $(".medicine_details_item_quantity_max").val();
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();
 	item_code			= $(".medicine_details_item_code").val();
 
@@ -482,10 +482,10 @@ function medicine_add_to_cart_api()
 	else
 	{
 		item_order_quantity = parseInt(item_order_quantity);
-		item_quantity_add	= parseInt(item_quantity_add);
+		item_quantity_max	= parseInt(item_quantity_max);
 		if(item_order_quantity!=0)
 		{
-			if(item_order_quantity<=item_quantity_add)
+			if(item_order_quantity<=item_quantity_max)
 			{
 				$(".modaloff").click();				
 				$('.medicine_search_textbox').focus();

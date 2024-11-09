@@ -309,19 +309,15 @@ function medicine_details_api(item_code) {
 					item_featured	= item.item_featured;
 					item_description1= item.item_description1;
 					item_description2= item.item_description2;
+					item_order_quantity= item.item_order_quantity;	
 
-					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' item_description2='"+item_description2+"'></div>");
+					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' item_description2='"+item_description2+"' item_order_quantity='"+item_order_quantity+"'></div>");
 
 					setTimeout(medicine_details_api_data(item_code),100);
 
 					item_date_time	= item.item_date_time;
 					$(".medicine_details_item_date_time").html("as on " + item_date_time)
-
-					/*
-					/************************************************** */
-					item_order_quantity	= item.item_order_quantity;	
-					/************************************************** 
-					 * 
+					
 					/*************************************************************** */
 					item_image	= item.item_image;
 					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
@@ -365,13 +361,6 @@ function medicine_details_api_data(item_code)
 	item_description2 = $(".medicine_details_all_data_"+item_code).attr("item_description2")
 	item_order_quantity = $(".medicine_details_all_data_"+item_code).attr("item_order_quantity")
 	
-	$(".medicine_details_item_description2").html("");
-	$(".medicine_details_item_description2").show();
-	$(".medicine_details_item_description2").html(item_description2)
-	if(item_description2=="") {
-		$(".medicine_details_item_description2").hide()
-	}
-	
 	/****************************************************** */
 	$(".medicine_details_api_data").show();
 	$(".medicine_details_api_loading").hide();
@@ -400,12 +389,18 @@ function medicine_details_api_data(item_code)
 	if(item_stock!=0){
 		$(".medicine_details_item_stock").html("Stock : "+item_stock);
 	}
-	/**************************************** */
-	
+	/**************************************** */	
 	$(".medicine_details_item_description1").hide()
 	if(item_description1!=""){
 		$(".medicine_details_item_description1").show()
 		$(".medicine_details_item_description1").html(item_description1)
+	}
+	
+	$(".medicine_details_item_description2").html("");
+	$(".medicine_details_item_description2").show();
+	$(".medicine_details_item_description2").html(item_description2)
+	if(item_description2=="") {
+		$(".medicine_details_item_description2").hide()
 	}
 
 	/******************************************************************* */
@@ -445,6 +440,8 @@ function medicine_details_api_data(item_code)
 		$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 	}
+
+	$(".medicine_details_item_order_quantity_textbox").focus();
 }
 
 function change_item_order_quantity(){

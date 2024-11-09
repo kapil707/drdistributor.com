@@ -289,7 +289,7 @@ function medicine_details_api(item_code) {
 						$(".top_bar_title").html(item.item_name);
 						document.title = siteTitle+" || "+item.item_name;
 						$(".main_page_data").show();
-						$(".top_bar_title2").html(`Found result`);
+						$(".top_bar_title2").html('Found result');
 					}
 
 					item_code		= item.item_code;

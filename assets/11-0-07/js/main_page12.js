@@ -219,7 +219,6 @@ function get_single_medicine_info(item_code) {
 
 		$(".medicine_details_item_date_time").html("Loading....")
 		$('.medicine_details_item_order_quantity_textbox').val("");
-		$(".medicine_details_item_delete").hide();
 		
 		$('.myModal_medicine_details').click();
 		$(".medicine_details_api_loading").show();

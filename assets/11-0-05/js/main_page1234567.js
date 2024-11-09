@@ -218,8 +218,8 @@ function get_single_medicine_info(item_code) {
 	} else {
 
 		$(".medicine_details_item_date_time").html("Loading....")
+		$('.medicine_details_item_order_quantity_textbox').val("");
 		
-		$('.medicine_details_item_order_quantity_textbox').val('');
 		$('.myModal_medicine_details').click();
 		$(".medicine_details_api_loading").show();
 		$(".medicine_details_api_data").hide();
@@ -239,6 +239,7 @@ function medicine_details_funcation(item_code) {
 	} else {
 
 		$(".medicine_details_item_date_time").html("Loading....")
+		$('.medicine_details_item_order_quantity_textbox').val("");
 
 		medicine_details_api_data(item_code);
 		medicine_details_api(item_code);

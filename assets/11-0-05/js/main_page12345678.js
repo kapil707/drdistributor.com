@@ -312,6 +312,7 @@ function medicine_details_api(item_code) {
 					// Set item code and display date/time
 					$('.medicine_details_item_code').val(item.item_code);
 					$('.medicine_details_item_quantity_max').val(item.item_quantity);
+					$('.medicine_details_item_price').val(item.item_price);
 					$(".medicine_details_item_date_time").html("as on " + item.item_date_time);
 
 					// Display main image with zoom effect
@@ -443,6 +444,7 @@ function change_item_order_quantity(){
 	$(".medicine_details_item_add_to_cart_btn").hide();
 	$(".medicine_details_item_add_to_cart_btn_disable").show();
 
+	item_price			= $(".medicine_details_item_price").val();
 	item_quantity_max	= $(".medicine_details_item_quantity_max").val();
 	item_order_quantity	= $(".medicine_details_item_order_quantity_textbox").val();	
 	if(item_order_quantity==""){

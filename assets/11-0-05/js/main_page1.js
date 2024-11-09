@@ -335,18 +335,21 @@ function medicine_details_api(item_code) {
 						$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 					}
 
-					$(".medicine_details_item_order_quantity_textbox").focus();
 					$(".medicine_details_api_data").show();
 					$(".medicine_details_api_loading").hide();
 
 					// Delay additional data processing
 					setTimeout(() => medicine_details_api_data(item.item_code), 100);
+					setTimeout(function() {
+						$(".medicine_details_item_order_quantity_textbox").focus();
+					}, 200);
+
+					$(".medicine_details_item_order_quantity_hidden").val(item.item_quantity);
 				}
 			});	
 		}
 	});
 }
-
 
 function medicine_details_api_data(item_code)
 {	
@@ -432,7 +435,6 @@ function medicine_details_api_data(item_code)
 		$(".medicine_details_out_of_stock_img").show()
 		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>")
 	}
-	$(".medicine_details_item_order_quantity_hidden").val(item_quantity);
 }
 
 function change_item_order_quantity(){

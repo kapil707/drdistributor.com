@@ -451,7 +451,7 @@ class ImportOrderModel extends CI_Model
 		if(!empty($row1->id)) {
 			$suggest = 1;
 			$order_item_name		= $row1->item_name;
-			$suggest_i_code 		= $row1->i_code;
+			echo $suggest_i_code 		= $row1->i_code;
 			$item_suggest_altercode = $row1->user_altercode;
 		}
 

@@ -48,10 +48,8 @@ $(document).ready(function() {
 					$('.medicine_search_textbox').focus();
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
-					clearTimeout(searchTimeout); // Clear any previous timeout
 				} else if (keyword.length > 2) {
-					clearTimeout(searchTimeout); // Clear any previous timeout
-					searchTimeout = setTimeout(medicine_search_api, 500); // Set a new timeout
+					setTimeout(medicine_search_api, 500); // Set a new timeout
 				}
 			} else {
 				clear_search_function();

@@ -159,6 +159,9 @@ function goBack() {
 <script>
 get_page_name = "medicine_details";
 $(document).ready(function(){
+	page_load_medicine_details();
+});
+function page_load_medicine_details(){
 
 	$(".top_bar_title").html("Loading....");
 	$(".main_page_loading").show();
@@ -166,5 +169,5 @@ $(document).ready(function(){
 	$(".main_page_something_went_wrong").hide();
 	
 	medicine_details_api('<?= $item_code; ?>');
-});
+}
 </script>

@@ -619,6 +619,10 @@ function delete_medicine(item_code) {
 		if (result) 
 		{
 			$("#my_cart_main_id_"+item_code).html('');
+
+			if(get_page_name=="medicine_details"){
+				page_load_medicine_details();
+			}
 			
 			$.ajax({                          
 				url:  get_base_url() +"my_cart/medicine_delete_api",

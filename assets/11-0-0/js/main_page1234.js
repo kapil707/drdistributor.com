@@ -321,8 +321,7 @@ function medicine_details_api(item_code)
 					item_featured	= item.item_featured;
 					item_description1= item.item_description1;
 					
-					// firebase code
-					medicine_details_api_data(item_code)
+					//medicine_details_api_data(item_code)
 					/*************************************************************** */
 					item_image	= item.item_image;
 					$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
@@ -377,6 +376,7 @@ function medicine_details_api_data(item_code)
 {
 	$(".medicine_details_api_data").show();
 	$(".medicine_details_api_loading").hide();
+	$(".medicine_details_item_order_quantity_textbox").focus();
 
 	/***********************important ************************/
 	$('.medicine_details_item_code').val(item_code);
@@ -447,7 +447,6 @@ function medicine_details_api_data(item_code)
 		$('.medicine_details_item_add_to_cart_btn').html("Update cart");
 		$('.medicine_details_item_add_to_cart_btn_disable').html("Update cart");
 	}
-	$(".medicine_details_item_order_quantity_textbox").focus();
 }
 
 function change_item_order_quantity(){

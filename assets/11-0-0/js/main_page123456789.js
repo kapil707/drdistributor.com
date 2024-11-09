@@ -250,7 +250,7 @@ function medicine_details_funcation(item_code) {
 }
 
 function medicine_details_api(item_code) {
-	
+
 	/***************************************************************** */
 	//$('.order_quantity_div').hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
@@ -308,6 +308,7 @@ function medicine_details_api(item_code) {
 					item_margin		= item.item_margin;
 					item_featured	= item.item_featured;
 					item_description1= item.item_description1;
+					item_description2= item.item_description2;
 
 					$(".medicine_details_div").html("<div class='medicine_details_all_data_"+item_code+"' item_image='"+item_image+"' item_name='"+item_name+"' item_packing='"+item_packing+"' item_batch_no='"+item_batch_no+"' item_expiry='"+item_expiry+"' item_company='"+item_company+"' item_quantity='"+item_quantity+"' item_stock='"+item_stock+"' item_ptr='"+item_ptr+"' item_mrp='"+item_mrp+"' item_price='"+item_price+"' item_gst='"+item_gst+"' item_scheme='"+item_scheme+"' item_margin='"+item_margin+"' item_featured='"+item_featured+"' item_description1='"+item_description1+"' item_description2='"+item_description2+"'></div>");
 
@@ -361,12 +362,11 @@ function medicine_details_api_data(item_code)
 	item_margin = $(".medicine_details_all_data_"+item_code).attr("item_margin")
 	item_featured = $(".medicine_details_all_data_"+item_code).attr("item_featured")
 	item_description1 = $(".medicine_details_all_data_"+item_code).attr("item_description1")
+	item_description2 = $(".medicine_details_all_data_"+item_code).attr("item_description2")
 	item_order_quantity = $(".medicine_details_all_data_"+item_code).attr("item_order_quantity")
 	
-	item_date_time = item_description2 = "";
-	$(".medicine_details_item_description2").html("")
-	$(".medicine_details_item_description2").show()
-	item_description2	= item.item_description2;
+	$(".medicine_details_item_description2").html("");
+	$(".medicine_details_item_description2").show();
 	$(".medicine_details_item_description2").html(item_description2)
 	if(item_description2=="") {
 		$(".medicine_details_item_description2").hide()

@@ -438,9 +438,9 @@ class ImportOrderModel extends CI_Model
 		$row1 = $this->db->get("drd_import_orders_suggest")->row();
 		if(!empty($row1->id)) {
 			$suggest = 1;
-			echo $order_item_name		= $row1->item_name;
-			echo $suggest_i_code 		= $row1->i_code;
-			echo $item_suggest_altercode = $row1->user_altercode;
+			$order_item_name		= $row1->item_name;
+			$suggest_i_code 		= $row1->i_code;
+			$item_suggest_altercode = $row1->user_altercode;
 		}
 		$type_ = 1;
 		if(!empty($suggest_i_code)) {
@@ -470,7 +470,7 @@ class ImportOrderModel extends CI_Model
 		}
 		$this->db->limit(1);
 		$this->db->order_by('item_name','asc');
-		$row2 = $this->db->get("tbl_medicine")->row();
+		$row2 = $this->db->get("tbl_medicinexxx")->row();
 
 		$return["row"] = $row2;
 		$return["type_"] = $type_;

@@ -139,7 +139,7 @@ function goBack() {
 											</div>
 
 											<div class="col-sm-1 col-1">
-												<button type="submit" class="btn btn-primary main_theme_button_disable" onclick="" title="Add to cart"><i class="fa fa-trash-o all_item_delete_btn" aria-hidden="true" style="margin-right:5px;"></i></button>
+												<button type="submit" class="btn btn-primary main_theme_button_disable" onclick="" title="Add to cart"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 											</div>
 
 											<div class="col-sm-12 col-12 add_to_cart_error_message text-danger text-center medicine_details_hr"></div>

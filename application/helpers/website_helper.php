@@ -4,11 +4,11 @@ if ( ! function_exists('LoginCheck'))
 {
 	function LoginCheck($back_url=''){
 
-		$ci =& get_instance();
-		$ci->load->library('session');
+		$CI =& get_instance();
+		$CI->load->library('session');
 		$method = $CI->router->fetch_method();
 
-		if(empty($ci->session->userdata('UserId'))){
+		if(empty($CI->session->userdata('UserId'))){
 			if(!empty($back_url)){
 				redirect(base_url()."login?back_url=".$back_url);
 			}else{
@@ -16,7 +16,7 @@ if ( ! function_exists('LoginCheck'))
 			}
 		} else {
 			if($method!="select_chemist"){
-				if($ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
+				if($CI->session->userdata('UserType')=="sales" && empty($CI->session->userdata('ChemistId')))
 				{
 					redirect(base_url()."select_chemist");
 				}

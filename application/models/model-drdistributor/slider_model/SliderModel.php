@@ -11,7 +11,9 @@ class SliderModel extends CI_Model
 
 	function slider_to_url($funtype="",$compid="",$division=""){
 
-		$compid = $this->MedicineDivisionModel->get_division_category_id_name($compid);
+		$compid = $this->MedicineDivisionModel->get_division_category_id_name($compid);		
+		$compid = str_replace(" ","-",$compid);
+		$compid = strtolower($compid);
 		$url = "#";
 		if($funtype==2)
 		{

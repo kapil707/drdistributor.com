@@ -21,8 +21,7 @@ class MedicineDivisionModel extends CI_Model
 		$this->db->where('compcode',$compcode);
 		$row = $this->db->get("tbl_medicine")->row();
 		if(!empty($row)){
-			$name = str_replace(" ","-",$row->company_name);
-			return $name;
+			return $row->company_name;
 		}else{
 			return $compcode;
 		}

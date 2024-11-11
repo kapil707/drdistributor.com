@@ -132,6 +132,7 @@ function search_chemist()
 				data       : {keyword : keyword} ,
 				url        : get_base_url()+"chemist_select/chemist_search_api",
 				cache : true,
+				timeout: 60000,
 				error: function(){
 					$(".search_result_div").html(something_went_wrong_function());
 					$(".search_result_div_mobile").html(something_went_wrong_function());

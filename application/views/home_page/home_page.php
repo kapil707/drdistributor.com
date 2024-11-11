@@ -95,7 +95,7 @@ $(".top_bar_title").html("Delivering to");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/home_page1.js"></script>
+<script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/home_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
 <script src="<?= base_url(); ?>assets/firebase/firebase.js" type="module"></script>

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Medicine_details_api extends CI_Controller {
+class medicine_favourite_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";
@@ -27,7 +27,7 @@ class Medicine_details_api extends CI_Controller {
 		/************************************* */
 	
 		// Load model
-		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
+		$this->load->model("model-drdistributor/medicine_favourite/MedicineFavouriteModel");
 
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
@@ -42,30 +42,14 @@ class Medicine_details_api extends CI_Controller {
 		/********************************************************** */
 	}
 
-	public function medicine_details_api() {
+    public function medicine_favourite_api(){
 
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
+		$ChemistId = $this->ChemistId;
 
-		$item_code		= $_REQUEST["item_code"];
-		
 		$items = "";
-		/********************************************************** */
-		if(!empty($UserType) && !empty($ChemistId) && !empty($item_code)) {
-			$result = $this->MedicineDetailsModel->medicine_details_api($UserType,$ChemistId,$SalesmanId,$item_code);
-			$items = $result["items"];
-		} elseif(!empty($item_code)) {			
-			$result = $this->MedicineDetailsModel->medicine_details_api("","","",$item_code);
-			$items = $result["items"];
+		if(!empty($ChemistId)){
+	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($ChemistId);
 		}
-
-		/******************CreateSearcLog********************* */
-		$search_term = "";
-		$product_viewed = $item_code;
-		CreateSearcLog($search_term, $product_viewed); 
-		/***************************************************** */
-        
         $response = array(
             'success' => "1",
             'message' => 'Data load successfully',
@@ -75,5 +59,5 @@ class Medicine_details_api extends CI_Controller {
         // Send JSON response
         header('Content-Type: application/json');
         echo json_encode($response);
-	}
+    }
 }

@@ -1,6 +1,6 @@
 function medicine_favourite_api() {
     $.ajax({
-        url: get_base_url() + "medicine_details/medicine_favourite_api",
+        url: get_base_url() + "medicine_favourite_api/medicine_favourite_api",
         type: "POST",
         dataType: "json",
         cache: true,

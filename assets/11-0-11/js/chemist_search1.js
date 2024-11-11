@@ -54,7 +54,7 @@ $(document).ready(function(){
 		}
 	});
 
-    $(".medicine_search_textbox").keydown(function(e) {
+    $(".chemist_search_textbox").keydown(function(e) {
     	let listItems = $(".search_result_div ul li");
 		console.log(currentFocus + " " + listItems.length)
         if (e.key === "ArrowDown") {

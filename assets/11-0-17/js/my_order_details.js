@@ -14,8 +14,8 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data : {item_id:item_id,order_chemist_id:order_chemist_id},
-		url : get_base_url() + "my_order_api/my_order_details_main_api",
+		data: { item_id: item_id },
+		url: get_base_url() + "my_order_api/my_order_details_api",
 		cache : true,
 		timeout: 60000,
 		error: function() {
@@ -66,29 +66,8 @@ function MainPageFuncationCall() {
 							<span class="all_item_total">Total : <i class="fa fa-inr" aria-hidden="true"></i> ${item_quantity_price}/-</span>
 						</div>`;
 
-					let div_all_data = `
-						<div class='medicine_details_all_data_${item_code}' 
-							item_image='${item_image}' 
-							item_name='${item_name}' 
-							item_packing='${item_packing}' 
-							item_batch_no='xxxxxx' 
-							item_expiry='${item_expiry}' 
-							item_company='${item_company}' 
-							item_quantity='${item_quantity}' 
-							item_stock='' 
-							item_ptr='0.00' 
-							item_mrp='0.00' 
-							item_price='${item_price}' 
-							item_gst='0' 
-							item_scheme='${item_scheme}' 
-							item_margin='0' 
-							item_featured='0' 
-							item_description1='' 
-							similar_items=''>
-						</div>`;
-
 					$(".main_page_data").append(`
-						<div class="main_box_div_data" onclick="medicine_details_funcation(${item_code})" style="cursor: pointer;">
+						<div class="main_box_div_data" onclick="get_single_medicine_info(${item_code})" style="cursor: pointer;">
 							<div class="all_page_details_page_box_left_div">
 								<img class="all_item_image" src="${default_img}" alt="${item_name}">
 								<img class="all_item_image_load" src="${item_image}" alt="${item_name}" onload="showActualImage(this)" onerror="setDefaultImage(this);">
@@ -103,7 +82,6 @@ function MainPageFuncationCall() {
 								<span class="mobile_off">${rate_div}</span>
 							</div>
 							<span class="mobile_show" style="margin-left:5px;">${rate_div}</span>
-							${div_all_data}
 						</div>
 					`);
 

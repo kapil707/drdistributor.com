@@ -599,7 +599,10 @@ function modal_item_image_change(_id)
 	$('.big1').html('<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails"><a href="'+item_image+'"><img src="'+item_image+'" width="100%" style="float: right;margin-top:10px;" class="medicine_details_image" alt="zoom" loading="lazy" onerror="setDefaultImage(this);"/></a></div>');
 	$('.easyzoom').easyZoom();
 }
-
+function delete_medicine_function() {
+	item_code = $(".medicine_details_item_code").val();
+	delete_medicine(item_code);
+}
 function delete_medicine(item_code) {
 	swal({
 		title: "Are you sure to delete medicine?",

@@ -127,7 +127,7 @@
 									</div>
 
 									<div class="col-sm-1 col-1">
-										<button type="submit" class="btn btn-danger medicine_details_item_delete main_theme_button_delete" onclick="delete_medicine('<?= $item_code; ?>')" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+										<button type="submit" class="btn btn-danger medicine_details_item_delete main_theme_button_delete" onclick="delete_medicine_function()" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 									</div>
 
 									<div class="col-sm-7 col-7">

@@ -125,7 +125,7 @@ function get_top_menu_api(){
 		type       : "POST",
 		dataType   : "json",
 		data       : {myid:myid} ,
-		url        : get_base_url() + "home/get_top_menu_api",
+		url        : get_base_url() + "home_api/get_top_menu_api",
 		cache : true,
 		success : function(data){
 			if(data!="") {
@@ -156,7 +156,7 @@ function home_page_main_api(seq_id){
 			type       : "POST",
 			dataType   : "json",
 			data       :  {seq_id:seq_id} ,
-			url        : get_base_url() + "home/home_page_main_api",
+			url        : get_base_url() + "home_api/home_page_main_api",
 			cache : true,
 			error: function(){
 				$(".main_page_loading1").hide();

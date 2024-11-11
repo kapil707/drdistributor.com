@@ -250,6 +250,8 @@ function medicine_details_api(item_code) {
 	$(".medicine_details_item_delete").hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
+	$(".medicine_details_item_add_to_cart_btn").hide();
+	$(".medicine_details_item_add_to_cart_btn_disable").show();
 	
 	$.ajax({
 		url: get_base_url() + "medicine_details/medicine_details_api",

@@ -254,7 +254,7 @@ function medicine_details_api(item_code) {
 	$(".medicine_details_item_add_to_cart_btn_disable").show();
 	
 	$.ajax({
-		url: get_base_url() + "medicine_details/medicine_details_api",
+		url: get_base_url() + "medicine_details_api/medicine_details_api",
 		type: "POST",
 		dataType: 'json',
 		data: { item_code: item_code },

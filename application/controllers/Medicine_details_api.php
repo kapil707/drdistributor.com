@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Medicine_details extends CI_Controller {
+class Medicine_details_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";
@@ -42,33 +42,58 @@ class Medicine_details extends CI_Controller {
 		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
 		/********************************************************** */
 	}
+	
+	public function medicine_details_api() {
 
-	public function index($item_code="") {
-		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "Medicine Details";
-		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
-		/********************************************************** */
+		$UserType 		= $this->UserType;
+		$ChemistId 		= $this->ChemistId;
+		$SalesmanId 	= $this->SalesmanId;
 
-		/********************PageMainData************************** */
-		$data["UserId"] 	 = $this->UserId;
-		$data["UserType"]    = $this->UserType;
-		$data["UserFullName"]= $this->UserFullName;
-		$data["UserImage"] 	 = $this->UserImage;
-		$data["ChemistId"]	 = $this->ChemistId;
-		$data["FirebaseToken"]= $this->FirebaseToken;
-
-		/******************DeliveringToData************************* */
-		$data["DeliveringTo"]= $data["ChemistId"];
-		if($this->UserType=="sales")
-		{
-			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-		}
-		/********************************************************** */
-
-		$data['item_code'] = $item_code;
+		$item_code		= $_REQUEST["item_code"];
 		
-		$this->load->view('header_footer/header', $data);
-		$this->load->view('medicine_details/medicine_details', $data);
-		$this->load->view('header_footer/footer', $data);
+		$items = "";
+		/********************************************************** */
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_code)) {
+			$result = $this->MedicineDetailsModel->medicine_details_api($UserType,$ChemistId,$SalesmanId,$item_code);
+			$items = $result["items"];
+		} elseif(!empty($item_code)) {			
+			$result = $this->MedicineDetailsModel->medicine_details_api("","","",$item_code);
+			$items = $result["items"];
+		}
+
+		/******************CreateSearcLog********************* */
+		$search_term = "";
+		$product_viewed = $item_code;
+		CreateSearcLog($search_term, $product_viewed); 
+		/***************************************************** */
+        
+        $response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
 	}
+
+    public function medicine_favourite_api(){
+
+		$ChemistId = $this->ChemistId;
+
+		$items = "";
+		if(!empty($ChemistId)){
+	        $items = $this->MedicineFavouriteModel->get_medicine_favourite_api($ChemistId);
+		}
+        $response = array(
+            'success' => "1",
+            'message' => 'Data load successfully',
+            'items' => $items
+        );
+
+        // Send JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
 }

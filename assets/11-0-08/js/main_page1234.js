@@ -247,7 +247,6 @@ function medicine_details_api(item_code) {
 	// Reset the cart buttons	
 	$(".medicine_details_item_date_time").html("Loading....")
 	$('.medicine_details_item_order_quantity_textbox').val("");
-	$(".medicine_details_item_order_quantity_textbox").removeAttr("disabled"); 
 	$(".medicine_details_item_delete").hide();
 	$('.medicine_details_item_add_to_cart_btn').html("Add to cart");
 	$('.medicine_details_item_add_to_cart_btn_disable').html("Add to cart");
@@ -428,7 +427,6 @@ function medicine_details_api_data(item_code) {
 		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>");
 		$('.medicine_details_item_add_to_cart_btn').html("Out of stock");
 		$('.medicine_details_item_add_to_cart_btn_disable').html("Out of stock");
-		$(".medicine_details_item_order_quantity_textbox").attr("disabled", "disabled");
 	}
 }
 

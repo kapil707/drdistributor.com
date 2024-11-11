@@ -50,14 +50,14 @@ function MainPageFuncationCall(get_record) {
             },
             success: function(data) {
                 $(".main_page_loading").hide();
-                if (data.items === "" && no_record_found === 0) {
+                if (data.items == "" && no_record_found == 0) {
                     $(".top_bar_title2").html("No record found");
                     $(".main_container").hide();
                     $(".main_page_no_record_found").show();
                 }
 
                 // Check if there are no new items in the response
-                if (data.items.length === 0) {
+                if (data.items.length == 0) {
                     if (!no_more_records_displayed) { // Ensure we only display the message once
                         $(".main_page_data").append('<div class="main_box_div_data"><div class="no_more_records">No more records</div></div>');
                         no_more_records_displayed = true; // Set flag to true so it doesn't show multiple times

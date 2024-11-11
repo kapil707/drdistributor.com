@@ -20,7 +20,6 @@ if ( ! function_exists('LoginCheck'))
 				{
 					redirect(base_url()."select_chemist");
 				}
-			}else{
 				if($CI->session->userdata('UserType')=="chemist")
 				{
 					redirect(base_url()."home");

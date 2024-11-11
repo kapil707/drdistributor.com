@@ -102,6 +102,10 @@ class MedicineCategoryModel extends CI_Model
 			$title = ucwords(strtolower($row->company_name));
 		}
 
+		if(empty($jsonArray)){
+			$jsonArray = "";
+		}
+
 		$return["items"] = $jsonArray;
 		$return["title"] = $title;
 		$return["get_record"] = $get_record;

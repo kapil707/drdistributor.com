@@ -115,7 +115,7 @@ $(document).ready(function(){
 
 	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
 
-	$(".my_cart_api_div").html(loading_img_function());
-	$(".my_cart_api_div_mobile").html(loading_img_function());
+	$(".my_cart_api_div").html("<center>"+loading_img_function()+"</center>");
+	$(".my_cart_api_div_mobile").html("<center>"+loading_img_function()+"</center>");
 });
 </script>

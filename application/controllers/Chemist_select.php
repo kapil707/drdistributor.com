@@ -17,6 +17,10 @@ class chemist_select extends CI_Controller {
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 		$this->load->library('session');
+
+		/************login check************** */
+		LoginCheck("chemist_select");
+		/************************************* */
 		
 		$this->load->model("model-drdistributor/chemist_select/ChemistSelectModel");
 

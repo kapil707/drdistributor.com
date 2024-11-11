@@ -6,6 +6,7 @@ if ( ! function_exists('LoginCheck'))
 
 		$ci =& get_instance();
 		$ci->load->library('session');
+		$method = $CI->router->fetch_method();
 
 		if(empty($ci->session->userdata('UserId'))){
 			if(!empty($back_url)){
@@ -14,30 +15,26 @@ if ( ! function_exists('LoginCheck'))
 				redirect(base_url()."login");
 			}
 		} else {
-			if($ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
-			{
-				redirect(base_url()."select_chemist");
+			if($method!="select_chemist"){
+				if($ci->session->userdata('UserType')=="sales" && empty($ci->session->userdata('ChemistId')))
+				{
+					redirect(base_url()."select_chemist");
+				}
 			}
 		}
 	}
 }
-if ( ! function_exists('CreateUserLog'))
+if (!function_exists('CreateUserLog'))
 {
 	function CreateUserLog(){
 		$ci =& get_instance();
 		$ci->load->library('session');
-		if(!empty($ci->session->userdata('user_session'))){
-			$user_type 		= $ci->session->userdata('user_type');
-			$user_altercode = $ci->session->userdata('user_altercode');
-			$chemist_id 	= $salesman_id = "";
-			if($user_type=="sales" && !empty($ci->session->userdata('chemist_id')))
-			{
-				$chemist_id 	= $ci->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+		if(!empty($ci->session->userdata('UserType'))){
+			$UserType 		= $ci->session->userdata('UserType');
+			$ChemistId 		= $ci->session->userdata('ChemistId');
+			$SalesmanId 	= $ci->session->userdata('SalesmanId');			
 			//logs create from hear
-			log_activity($user_altercode,$salesman_id,$user_type,"web");
+			log_activity($ChemistId,$SalesmanId,$UserType,"web");
 		}
 	}
 }
@@ -46,18 +43,12 @@ if ( ! function_exists('CreateSearcLog'))
 	function CreateSearcLog($search_term='',$product_viewed=''){
 		$ci =& get_instance();
 		$ci->load->library('session');
-		if(!empty($ci->session->userdata('user_session'))){
-			$user_type 		= $ci->session->userdata('user_type');
-			$user_altercode = $ci->session->userdata('user_altercode');
-			$chemist_id 	= $salesman_id = "";
-			if($user_type=="sales" && !empty($ci->session->userdata('chemist_id')))
-			{
-				$chemist_id 	= $ci->session->userdata('chemist_id');
-				$salesman_id 	= $user_altercode;
-				$user_altercode = $chemist_id;
-			}
+		if(!empty($ci->session->userdata('UserType'))){
+			$UserType 		= $ci->session->userdata('UserType');
+			$ChemistId 		= $ci->session->userdata('ChemistId');
+			$SalesmanId 	= $ci->session->userdata('SalesmanId');	
 			//logs create from hear
-			log_search_activity($user_altercode, $salesman_id, $search_term, $product_viewed);
+			log_search_activity($ChemistId, $SalesmanId, $search_term, $product_viewed);
 		}
 	}
 }

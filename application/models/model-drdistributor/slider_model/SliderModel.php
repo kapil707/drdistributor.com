@@ -2,7 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class SliderModel extends CI_Model  
 { 	
+	public function __construct(){
+		parent::__construct();
+
+		// Load model
+		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+	}
+
 	function slider_to_url($funtype="",$compid="",$division=""){
+
+		$compid = $this->MedicineDivisionModel->get_division_category_id_name($compid);
 		$url = "#";
 		if($funtype==2)
 		{

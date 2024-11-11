@@ -6,8 +6,8 @@ if ( ! function_exists('LoginCheck'))
 
 		$CI =& get_instance();
 		$CI->load->library('session');
-		$controller = $CI->router->fetch_class();
-
+		echo $controller = $CI->router->fetch_class();
+die();
 		if(empty($CI->session->userdata('UserId'))){
 			if(!empty($back_url)){
 				redirect(base_url()."login?back_url=".$back_url);

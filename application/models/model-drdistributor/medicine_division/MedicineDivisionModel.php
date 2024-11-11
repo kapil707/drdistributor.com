@@ -13,7 +13,11 @@ class MedicineDivisionModel extends CI_Model
 		$this->db->select("compcode");
 		$this->db->where('company_name',$company_name);
 		$row = $this->db->get("tbl_medicine")->row();
-		return $row->compcode;
+		if(!empty($row)){
+			return $row->compcode;
+		}else{
+			return $company_name;
+		}
 	}
 
 	public function get_division_category_id_name($compcode){

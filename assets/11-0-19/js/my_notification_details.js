@@ -28,7 +28,7 @@ function MainPageFuncationCall() {
 			$(".main_page_loading").hide();
 
 			// Check if items are empty
-			if (data.items === "") {
+			if (data.items == "") {
 				$(".top_bar_title2").html("No record found");
 				$(".main_container").hide();
 				$(".main_page_no_record_found").show();
@@ -98,7 +98,7 @@ function MainPageFuncationCall() {
 }
 
 function callandroidfun(funtype, id, compname, image, division) {
-	compname = funtype === "2" ? atob(compname) : compname; // Decode if funtype is 2
+	compname = funtype == "2" ? atob(compname) : compname; // Decode if funtype is 2
 	switch (funtype) {
 		case "1":
 			android.fun_Get_single_medicine_info(id);

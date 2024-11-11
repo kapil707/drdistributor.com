@@ -25,7 +25,7 @@ var new_i = 0;
 var no_more_records_displayed = false;
 
 function MainPageFuncationCall(get_record) {
-    if (query_work === 0 && !no_more_records_displayed) { // Prevent further calls if "No more records" is displayed
+    if (query_work == 0 && !no_more_records_displayed) { // Prevent further calls if "No more records" is displayed
         query_work = 1;
 
         $(".top_bar_title2").html("Loading....");

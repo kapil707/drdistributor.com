@@ -25,7 +25,7 @@ var new_i = 0;
 var no_more_records_displayed = false;
 
 function MainPageFuncationCall(get_record) {
-    if (query_work === 0 && !no_more_records_displayed) {  // Prevent further calls if "No more records" is displayed
+    if (query_work == 0) {
         query_work = 1;
 
         $(".top_bar_title2").html("Loading....");
@@ -38,7 +38,7 @@ function MainPageFuncationCall(get_record) {
             type: "POST",
             dataType: "json",
             data: { get_record: get_record },
-            url: get_base_url() + "my_notification_api/my_notification_api",
+            url: get_base_url() + "my_invoice_api/my_invoice_api",
             cache : true,
             timeout: 60000,
             error: function() {
@@ -50,44 +50,55 @@ function MainPageFuncationCall(get_record) {
             },
             success: function(data) {
                 $(".main_page_loading").hide();
-                if (data.items === "" && no_record_found === 0) {
+                if (data.items == "" && no_record_found == 0) {
                     $(".top_bar_title2").html("No record found");
                     $(".main_container").hide();
                     $(".main_page_no_record_found").show();
                 }
 
                 // Check if there are no new items in the response
-                if (data.items.length === 0) {
+                if (data.items.length == 0) {
                     if (!no_more_records_displayed) { // Ensure we only display the message once
                         $(".main_page_data").append('<div class="main_box_div_data"><div class="no_more_records">No more records</div></div>');
                         no_more_records_displayed = true; // Set flag to true so it doesn't show multiple times
                     }
-                    query_work = 0; // Reset query_work to allow retries if more records come
                     return;
                 }
 
                 get_record = data.get_record;
                 $(".get_record").val(get_record);
+
                 $.each(data.items, function(i, item) {
                     if (item) {
                         let item_id = item.item_id;
                         let item_title = item.item_title;
-                        let item_message = item.item_message;
+                        let item_total = item.item_message;
                         let item_date_time = item.item_date_time;
-                        let item_image = item.item_image;
+                        let out_for_delivery = item.out_for_delivery ? ` | Out For Delivery Date Time : ${item.out_for_delivery}` : "";
+                        let delete_status_div = item.delete_status == 1 ? '<div class="all_item_date_time">Some items have been deleted / modified in this order</div>' : "";
 
                         $(".main_page_data").append(`
                             <div class="main_box_div_data">
-                                <a href="${get_base_url()}mnd/${item_id}">
-                                    <div class="all_page_box_left_div">
-                                        <img src="${item_image}" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image">
+                                <div class="all_page_box_left_div">
+                                    <a href="${get_base_url()}mid/${item_id}">
+                                        <img src="${item.item_image}" alt="" title="" onerror="setDefaultImage(this);" class="all_item_image">
+                                    </a>
+                                </div>
+                                <div class="all_page_box_right_div text-left">
+                                    <div>
+                                        <a href="${get_base_url()}mid/${item_id}">
+                                            <span class="all_item_name">${item_title}</span>
+                                        </a>
+                                        <span style="float: right;">
+                                            <a href="${item.download_url}" class="all_item_download">Download Excel</a>
+                                        </span>
                                     </div>
-                                    <div class="all_page_box_right_div text-left">
-                                        <div class="all_item_name">${item_title}</div>
-                                        <div class="all_item_message">${item_message}</div>
-                                        <div class="all_item_date_time">${item_date_time}</div>
-                                    </div>
-                                </a>
+                                    <a href="${get_base_url()}mid/${item_id}">
+                                        <div class="all_item_price">Total : <i class="fa fa-inr" aria-hidden="true"></i> ${item_total}/-</div>
+                                        <div class="all_item_date_time">Invoice Date : ${item_date_time}${out_for_delivery}</div>
+                                        ${delete_status_div}
+                                    </a>
+                                </div>
                             </div>
                         `);
 

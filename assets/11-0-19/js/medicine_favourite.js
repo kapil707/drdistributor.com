@@ -11,7 +11,7 @@ function medicine_favourite_api() {
         success: function(data) {
             $(".get_medicine_favourite_api_div").html(''); // Clear the container
             
-            if (!data.items || data.items.length === 0) {
+            if (!data.items || data.items.length == 0) {
                 // Display "no records found" if items array is empty
                 $(".get_medicine_favourite_api_div").html(no_record_found_function());
                 return;

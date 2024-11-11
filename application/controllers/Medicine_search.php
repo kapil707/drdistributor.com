@@ -26,9 +26,6 @@ class Medicine_search extends CI_Controller {
 		CreateUserLog();
 		/************************************* */
 
-		// Load model
-		$this->load->model("model-drdistributor/medicine_search/MedicineSearchModel");
-
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
 		$this->UserType    	= $this->session->userdata('UserType');
@@ -68,38 +65,5 @@ class Medicine_search extends CI_Controller {
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('medicine_search/medicine_search', $data);
 		$this->load->view('header_footer/medicine_details_model', $data);
-	}
-
-	/*******************api start*********************/
-	public function medicine_search_api()
-	{
-		$ChemistNrx  		= $this->ChemistNrx;
-
-		$keyword   			= $_REQUEST['keyword'];
-		$total_rec   		= $_REQUEST['total_rec'];
-		$checkbox_medicine 	= $_REQUEST['checkbox_medicine_val'];
-		$checkbox_company	= $_REQUEST['checkbox_company_val'];
-		$checkbox_out_of_stock= $_REQUEST['checkbox_out_of_stock_val'];
-
-		/******************CreateSearcLog********************* */
-		$search_term = $keyword;
-		$product_viewed = "";
-		CreateSearcLog($search_term, $product_viewed); 
-		/***************************************************** */
-
-		$items = "";
-		if(!empty($keyword)){
-			$items = $this->MedicineSearchModel->medicine_search_api($keyword,$ChemistNrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
-		}
-        
-        $response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }

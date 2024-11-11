@@ -42,7 +42,7 @@ function place_order_complete()
 		type       : "POST",
 		dataType   : "json",
 		data       : {remarks:remarks},
-		url        : get_base_url() +"my_cart/place_order_api",
+		url        : get_base_url() +"my_cart_api/place_order_api",
 		cache : true,
 		timeout: 60000,
 		error: function(){

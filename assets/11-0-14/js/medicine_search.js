@@ -166,7 +166,7 @@ function medicine_search_api() {
 				type       : "POST",
 				dataType   : "json",
 				data       :  {keyword:keyword,total_rec:total_rec,checkbox_medicine_val:checkbox_medicine_val,checkbox_company_val:checkbox_company_val,checkbox_out_of_stock_val:checkbox_out_of_stock_val} ,
-				url        : get_base_url() + "medicine_search/medicine_search_api",
+				url        : get_base_url() + "medicine_search_api/medicine_search_api",
 				cache : true,
 				timeout: 60000,
 				error: function(){

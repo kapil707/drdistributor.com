@@ -126,7 +126,7 @@ function get_my_cart_total_api(){
 	/******************************** */
 	$.ajax({
 		type : "POST",
-		url  : get_base_url() + "my_cart/my_cart_total_api",
+		url  : get_base_url() + "my_cart_api/my_cart_total_api",
 		cache : true,
 		error: function(){
 		},
@@ -548,7 +548,7 @@ function medicine_add_to_cart_api()
 				$.ajax({
 					type       : "POST",
 					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
-					url        : get_base_url() + "my_cart/medicine_add_to_cart_api",
+					url        : get_base_url() + "my_cart_api/medicine_add_to_cart_api",
 					cache : true,
 					timeout: 60000,
 					error: function(){
@@ -620,7 +620,7 @@ function delete_medicine(item_code) {
 			}
 			
 			$.ajax({                          
-				url:  get_base_url() +"my_cart/medicine_delete_api",
+				url:  get_base_url() +"my_cart_api/medicine_delete_api",
 				type:"POST",
 				dataType: 'json',
 				cache : true,
@@ -677,7 +677,7 @@ function delete_all_medicine()
 
 			id = "";
 			$.ajax({                          
-				url:  get_base_url() +"my_cart/medicine_delete_all_api",
+				url:  get_base_url() +"my_cart_api/medicine_delete_all_api",
 				type:"POST",
 				dataType: 'json',
 				data: {id:id},
@@ -719,7 +719,7 @@ function my_cart_api() {
 	}
 
 	$.ajax({
-		url: get_base_url() +"my_cart/my_cart_api",
+		url: get_base_url() +"my_cart_api/my_cart_api",
 		type	:"POST",
 		dataType: "json",
 		cache: true,

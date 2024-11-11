@@ -6,7 +6,7 @@ if ( ! function_exists('LoginCheck'))
 
 		$CI =& get_instance();
 		$CI->load->library('session');
-		echo $method = $CI->router->fetch_method();
+		$controller = $CI->router->fetch_class();
 
 		if(empty($CI->session->userdata('UserId'))){
 			if(!empty($back_url)){
@@ -15,12 +15,12 @@ if ( ! function_exists('LoginCheck'))
 				redirect(base_url()."login");
 			}
 		} else {
-			/*if($method!="select_chemist"){
+			if($controller!="select_chemist"){
 				if($CI->session->userdata('UserType')=="sales" && empty($CI->session->userdata('ChemistId')))
 				{
 					redirect(base_url()."select_chemist");
 				}
-			}*/
+			}
 		}
 	}
 }

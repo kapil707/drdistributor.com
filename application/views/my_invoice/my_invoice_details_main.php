@@ -30,8 +30,8 @@ function goBack() {
 	</div>
 </div>
 <script>
-var ItemId = "<?php echo $ItemId; ?>";
-var InvoiceChemistId = "<?php echo $InvoiceChemistId; ?>";
+var item_id = "<?php echo $item_id; ?>";
+var invoice_chemist_id = "<?php echo $invoice_chemist_id; ?>";
 </script>
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_invoice_details_main.js"></script>

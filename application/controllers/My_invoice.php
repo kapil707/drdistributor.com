@@ -18,12 +18,13 @@ class My_invoice extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
+		/************login check************** */
+		LoginCheck("my_invoice");
+		/************************************* */
+
 		/************log file***************** */
 		CreateUserLog();
 		/************************************* */
-	
-		// Load model
-		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
@@ -39,9 +40,6 @@ class My_invoice extends CI_Controller {
 	}
 
 	public function index(){
-		/************login check************** */
-		LoginCheck("my_invoice");
-		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My invoice";
@@ -69,7 +67,7 @@ class My_invoice extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function my_invoice_details($ItemId=""){
+	public function my_invoice_details($item_id=""){
 
 		/************login check************** */
 		LoginCheck("my_invoice");
@@ -96,104 +94,11 @@ class My_invoice extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$data["ItemId"] = $ItemId;
+		$data["item_id"] = $item_id;
 		
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details',$data);
 		$this->load->view('header_footer/footer', $data);
 		$this->load->view('header_footer/medicine_details_model', $data);
-	}
-
-	/*******************api start*********************/
-	public function my_invoice_api(){
-
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$get_record	 	= $_REQUEST["get_record"];
-		$items = "";
-		if(!empty($UserType) && !empty($ChemistId)) {
-
-			$result = $this->MyInvoiceModel->get_my_invoice_api($UserType,$ChemistId,$SalesmanId,$get_record);
-			$items  	= $result["items"];
-			$get_record  = $result["get_record"];
-		}
-
-		$response = array(
-			'success' => "1",
-			'message' => 'Data load successfully',
-			'items' => $items,
-			'get_record' => $get_record
-		);
-
-		// Send JSON response
-		header('Content-Type: application/json');
-		echo json_encode($response);
-	}
-
-	public function my_invoice_details_api(){
-		
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$ItemId		= $_REQUEST['ItemId'];
-		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
-
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
-			$items  		= $result["items"];
-			$items_edit  	= $result["items_edit"];
-			$items_delete  	= $result["items_delete"];
-			$download_url  	= $result["download_url"];
-			$title			= $result["title"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-			'items_edit' => $items_edit,
-			'items_delete' => $items_delete,
-			'download_url' => $download_url,
-			'title' => $title,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
-	public function my_invoice_details_main_api(){
-
-		$ItemId			= $_REQUEST['ItemId'];
-		$ChemistId 		= $_REQUEST['InvoiceChemistId'];
-		$UserType 		= "chemist";
-		$SalesmanId 	= "";
-		
-		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){			
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
-			$items  		= $result["items"];
-			$items_edit  	= $result["items_edit"];
-			$items_delete  	= $result["items_delete"];
-			$download_url  	= $result["download_url"];
-			$title			= $result["title"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-			'items_edit' => $items_edit,
-			'items_delete' => $items_delete,
-			'download_url' => $download_url,
-			'title' => $title,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }

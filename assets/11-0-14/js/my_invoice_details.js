@@ -15,7 +15,7 @@ function MainPageFuncationCall()
 		type       : "POST",
 		dataType   : "json",
 		data       : {ItemId:ItemId} ,
-		url        : get_base_url()+ "my_invoice/my_invoice_details_api",
+		url        : get_base_url()+ "my_invoice_api/my_invoice_details_api",
 		cache : true,
 		error: function(){
 			$(".top_bar_title2").html("No record found");

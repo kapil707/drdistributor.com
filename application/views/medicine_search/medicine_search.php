@@ -113,7 +113,9 @@ $(document).ready(function(){
 	setTimeout('medicine_favourite_api();',200);
 	setTimeout('my_cart_api();',300);
 
-	$(".main_page_loading").show();
 	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
+
+	$(".my_cart_api_div").html(loading_img_function());
+	$(".my_cart_api_div_mobile").html(loading_img_function());
 });
 </script>

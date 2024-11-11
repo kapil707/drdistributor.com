@@ -15,7 +15,7 @@ class SliderModel extends CI_Model
 		$url = "#";
 		if($funtype==2)
 		{
-			$url = base_url()."category/featured_brand/".$compid."/".$division;
+			$url = base_url()."c/fb/".$compid."/".$division;
 		}
 		return $url;
 	}

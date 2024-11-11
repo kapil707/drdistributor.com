@@ -217,13 +217,11 @@ function get_single_medicine_info(item_code) {
 		window.location.href = get_base_url();
 	} else {
 		
+		medicine_details_api(item_code);
+
 		$('.myModal_medicine_details').click();
 		$(".medicine_details_api_loading").show();
 		$(".medicine_details_api_data").hide();
-		$(".medicine_details_item_description1").hide();
-		$(".medicine_details_item_description2").hide();
-
-		medicine_details_api(item_code);
 	}
 }
 
@@ -422,16 +420,13 @@ function medicine_details_api_data(item_code) {
 	// Stock and cart button logic
 	let itemQty = parseInt(item_quantity, 10);
 	if (itemQty === 0) {
-		$(".order_quantity_div").hide();
+		//$(".order_quantity_div").hide();
 		$(".medicine_details_out_of_stock_img").show();
 		$(".medicine_details_item_stock").html("<font color=red>Out of stock</font>");
 	} else {
-		$(".order_quantity_div").show();
+		//$(".order_quantity_div").show();
 		$(".medicine_details_item_add_to_cart_btn_disable").show();
 	}
-
-	// Hide the add-to-cart button initially
-	$(".medicine_details_item_add_to_cart_btn").hide();
 }
 
 function change_item_order_quantity(){

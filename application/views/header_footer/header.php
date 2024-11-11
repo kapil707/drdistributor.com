@@ -188,7 +188,7 @@ if (isset($_COOKIE["theme_type"])) {
 					</div>
 					<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 col-12">
 
-						<a href="<?= base_url(); ?>search_medicine" title="Search medicine / company" class="top_bar_search_div">
+						<a href="<?= base_url(); ?>ms" title="Search medicine / company" class="top_bar_search_div">
 							<i class="fa fa-search top_bar_search_div_search_icon" aria-hidden="true"></i>
 							<div class="top_bar_search_div_search_text">Search medicine / company</div> 
 						</a>
@@ -482,5 +482,5 @@ var siteTitle = "<?php echo $this->appconfig->siteTitle; ?>";
 
 <!-- ******************************************************** -->
 <div type="hidden" class="medicine_details_div"></div>
-<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page.js"></script>
+<script src="<?= base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/main_page1.js"></script>
 <!-- ******************************************************** -->

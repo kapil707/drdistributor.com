@@ -122,15 +122,14 @@ function view_cart_btn() {
 }
 
 function medicine_search_api() {
-	new_i = 0;
-
-	$(".my_cart_api_div_mobile").hide();
 	
-	$(".top_bar_search_textbox_div_menu_icon").show();
+	new_i = 0;
+	$(".main_page_data_mobile").hide();
 	$(".top_bar_search_textbox_div_clear_icon").show();
-
+	
+	//menu
+	$(".top_bar_search_textbox_div_menu_icon").show();
 	var keyword = $(".medicine_search_textbox").val();
-	//$('.headertitle').html(keyword)
 	if(keyword!="")
 	{
 		if(keyword=="#")

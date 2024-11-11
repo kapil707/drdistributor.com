@@ -107,9 +107,7 @@ function addActive(listItems) {
 function search_chemist()
 {
 	new_i = 0;
-
 	$(".main_page_data_mobile").hide();
-
 	$(".top_bar_search_textbox_div_clear_icon").show();
 
 	var keyword = $(".chemist_search_textbox").val();

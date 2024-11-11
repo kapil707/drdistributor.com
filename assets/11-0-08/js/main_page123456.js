@@ -549,7 +549,8 @@ function medicine_add_to_cart_api()
 					type       : "POST",
 					data       : {item_code:item_code,item_order_quantity:item_order_quantity},
 					url        : get_base_url() + "my_cart/medicine_add_to_cart_api",
-					cache	   : true,
+					cache : true,
+					timeout: 60000,
 					error: function(){
 						swal("error add to cart")
 					},
@@ -577,8 +578,7 @@ function medicine_add_to_cart_api()
 								}
 							}
 						});
-					},
-					timeout: 60000
+					}
 				});
 			}
 			else

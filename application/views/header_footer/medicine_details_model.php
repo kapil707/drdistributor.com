@@ -126,9 +126,9 @@
 										<input type="hidden" class="medicine_details_item_quantity_max">
 									</div>
 
-									<div class="col-sm-1 col-1">
+									<!-- <div class="col-sm-1 col-1">
 										<button type="submit" class="btn btn-danger medicine_details_item_delete main_theme_button_delete" onclick="delete_medicine_function()" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-									</div>
+									</div> -->
 
 									<div class="col-sm-7 col-7">
 										<button type="submit" class="btn btn-primary main_theme_button medicine_details_item_add_to_cart_btn"  onclick="medicine_add_to_cart_api()" title="Add to cart">Add to cart</button>

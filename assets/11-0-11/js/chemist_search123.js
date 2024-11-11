@@ -128,7 +128,7 @@ function search_chemist()
 				type       : "POST",
 				dataType   : "json",
 				data       : {keyword : keyword} ,
-				url        : get_base_url()+"chemist_select/chemist_search_api",
+				url        : get_base_url()+"chemist_select_api/chemist_search_api",
 				cache : true,
 				timeout: 60000,
 				error: function(){
@@ -184,7 +184,7 @@ function search_chemist()
 }
 function chemist_session_add(chemist_id,user_nrx)
 {	
-	window.location.href = get_base_url()+"chemist_select/chemist_session_add/"+chemist_id+"/"+user_nrx
+	window.location.href = get_base_url()+"chemist_select_api/chemist_session_add/"+chemist_id+"/"+user_nrx
 }
 function page_up_down_arrow(new_i)
 {
@@ -221,7 +221,7 @@ function page_up_down_arrow(new_i)
 	});
 }
 $(document).ready(function(){
-	MainPageFuncationCall("kapil");
+	MainPageFuncationCall();
 });
 var no_record_found = 0;
 var new_i = 0;
@@ -238,16 +238,16 @@ function MainPageFuncationCall()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		url        : get_base_url()+"chemist_select/salesman_my_cart_api",
+		url        : get_base_url()+"chemist_select_api/salesman_my_cart_api",
 		cache : true,
+		timeout: 60000,
 		error: function(){
 			$(".top_bar_title2").html("No record found");
 			$(".main_container").hide();
 			$(".main_page_loading").hide();
 			$(".main_page_something_went_wrong").show();
 		},
-		success    : function(data){
-			
+		success    : function(data){			
 			$(".main_page_loading").hide();
 			if(data.items=="")
 			{
@@ -276,7 +276,6 @@ function MainPageFuncationCall()
 					$(".top_bar_title2").html("Found result ("+new_i+")");
 				}
 			});
-		},
-		timeout: 60000
+		}
 	});	
 }

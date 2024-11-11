@@ -196,9 +196,7 @@ if (isset($_COOKIE["theme_type"])) {
 						<div class="top_bar_search_textbox_div">
 							<i class="fa fa-search top_bar_search_textbox_div_search_icon" aria-hidden="true"></i>
 
-							<input type="text" class="medicine_search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1" style="display:none">
-
-							<input type="text" class="chemist_search_textbox input_type_text" placeholder="Search chemist"  tabindex="1" style="display:none">
+							<input type="text" class="page_search_textbox input_type_text" placeholder="Search medicine / company" tabindex="1" style="display:none">
 
 							<i class="fa fa-list-alt top_bar_search_textbox_div_menu_icon" aria-hidden="true" onclick="menu_search_function()"></i>
 

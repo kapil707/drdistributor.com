@@ -4,9 +4,9 @@ function chemist_search_load() {
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
 
-	$('.chemist_search_textbox').val("");
-	$('.chemist_search_textbox').show();
-	$('.chemist_search_textbox').focus();
+	$('.page_search_textbox').val("");
+	$('.page_search_textbox').show();
+	$('.page_search_textbox').focus();
 }
 function clear_search_function() {
 
@@ -18,8 +18,8 @@ function clear_search_function() {
 	$(".search_result_div_mobile").html("");
 	$(".search_result_div_mobile").hide();	
 
-	$(".chemist_search_textbox").val("");
-	$('.chemist_search_textbox').focus();
+	$(".page_search_textbox").val("");
+	$('.page_search_textbox').focus();
 
 	$(".top_bar_search_textbox_div_menu_icon").hide();
 	$(".top_bar_search_textbox_div_menu").hide();
@@ -30,14 +30,14 @@ function clear_search_function() {
 }
 
 $(document).ready(function(){	
-	$(".chemist_search_textbox").keyup(function(e){
+	$(".page_search_textbox").keyup(function(e){
 		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
         if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
-            var keyword = $(".chemist_search_textbox").val();
+            var keyword = $(".page_search_textbox").val();
 			if(keyword!="")
 			{
 				if(keyword.length<3) {
-					$('.chemist_search_textbox').focus();
+					$('.page_search_textbox').focus();
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
 				}
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		}
 	});
 
-    $(".chemist_search_textbox").keydown(function(e) {
+    $(".page_search_textbox").keydown(function(e) {
     	let listItems = $(".search_result_div ul li");
 		console.log(currentFocus + " " + listItems.length)
         if (e.key === "ArrowDown") {
@@ -110,7 +110,7 @@ function search_chemist()
 	$(".main_page_data_mobile").hide();
 	$(".top_bar_search_textbox_div_clear_icon").show();
 
-	var keyword = $(".chemist_search_textbox").val();
+	var keyword = $(".page_search_textbox").val();
 	if(keyword!="")
 	{
 		if(keyword.length>2)
@@ -205,7 +205,7 @@ function page_up_down_arrow(new_i)
 		{
 			if(parseInt(new_i)==1)
 			{
-				var searchInput = $('.chemist_search_textbox');
+				var searchInput = $('.page_search_textbox');
 				var strLength = searchInput.val().length * 2;
 				searchInput.focus();
 				searchInput[0].setSelectionRange(strLength, strLength);

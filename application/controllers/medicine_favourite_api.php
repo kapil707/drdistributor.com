@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class medicine_favourite_api extends CI_Controller {
+class Medicine_favourite_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";

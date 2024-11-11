@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class My_invoice extends CI_Controller {
+class My_invoice_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";

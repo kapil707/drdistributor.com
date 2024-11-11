@@ -20,3 +20,8 @@ function goBack() {
 	</div>     
 </div>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/chemist_search.js"></script>
+<script>
+$(document).ready(function(){	
+	setTimeout('chemist_search_load();',100);
+});
+</script>

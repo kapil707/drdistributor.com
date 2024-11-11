@@ -1,5 +1,5 @@
 let currentFocus = -1; // Tracks the currently focused item
-function page_load() {
+function chemist_search_load() {
 
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();

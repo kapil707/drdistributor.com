@@ -453,6 +453,9 @@ if (isset($_COOKIE["theme_type"])) {
 function get_base_url(){
 	return "<?= $this->appconfig->getApiUrl(); ?>";
 }
+function get_base_url2(){
+	return "<?= $this->appconfig->getApiUrl2(); ?>";
+}
 function getWebJs(){
 	return "<?= $this->appconfig->getWebJs(); ?>";
 }

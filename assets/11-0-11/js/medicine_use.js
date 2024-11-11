@@ -8,7 +8,7 @@ function MainPageFuncationCall()
 		$.ajax({
 			type       : "POST",
 			data       :  {item_code:item_code},
-			url        : "https://www.drdweb.co.in/medicine_use/get_medicine_use",
+			url        : get_base_url2() + "medicine_use/get_medicine_use",
 			cache : true,
 			timeout: 60000,
 			error: function(){

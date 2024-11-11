@@ -111,7 +111,7 @@ get_page_name = "medicine_search";// change value taki cart pur load na ho
 $(document).ready(function(){	
 	setTimeout('search_page_load();',100);
 	setTimeout('medicine_favourite_api();',200);
-	setTimeout('my_cart_api();',300);
+	//setTimeout('my_cart_api();',300);
 
 	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
 

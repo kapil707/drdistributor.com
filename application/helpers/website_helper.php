@@ -27,12 +27,12 @@ if ( ! function_exists('LoginCheck'))
 if (!function_exists('CreateUserLog'))
 {
 	function CreateUserLog(){
-		$ci =& get_instance();
-		$ci->load->library('session');
-		if(!empty($ci->session->userdata('UserType'))){
-			$UserType 		= $ci->session->userdata('UserType');
-			$ChemistId 		= $ci->session->userdata('ChemistId');
-			$SalesmanId 	= $ci->session->userdata('SalesmanId');			
+		$CI =& get_instance();
+		$CI->load->library('session');
+		if(!empty($CI->session->userdata('UserType'))){
+			$UserType 		= $CI->session->userdata('UserType');
+			$ChemistId 		= $CI->session->userdata('ChemistId');
+			$SalesmanId 	= $CI->session->userdata('SalesmanId');			
 			//logs create from hear
 			log_activity($ChemistId,$SalesmanId,$UserType,"web");
 		}
@@ -41,12 +41,12 @@ if (!function_exists('CreateUserLog'))
 if ( ! function_exists('CreateSearcLog'))
 {
 	function CreateSearcLog($search_term='',$product_viewed=''){
-		$ci =& get_instance();
-		$ci->load->library('session');
-		if(!empty($ci->session->userdata('UserType'))){
-			$UserType 		= $ci->session->userdata('UserType');
-			$ChemistId 		= $ci->session->userdata('ChemistId');
-			$SalesmanId 	= $ci->session->userdata('SalesmanId');	
+		$CI =& get_instance();
+		$CI->load->library('session');
+		if(!empty($CI->session->userdata('UserType'))){
+			$UserType 		= $CI->session->userdata('UserType');
+			$ChemistId 		= $CI->session->userdata('ChemistId');
+			$SalesmanId 	= $CI->session->userdata('SalesmanId');	
 			//logs create from hear
 			log_search_activity($ChemistId, $SalesmanId, $search_term, $product_viewed);
 		}
@@ -56,8 +56,8 @@ if ( ! function_exists('vp_seo'))
 {
 	function vp_seo(){
 
-		$ci =& get_instance();
-		$ci->load->database(); 
+		$CI =& get_instance();
+		$CI->load->database(); 
 
 		$currentURL = current_url(); //http://myhost/main
 
@@ -68,13 +68,13 @@ if ( ! function_exists('vp_seo'))
 		}else{
 			$fullURL = $currentURL;
 		}
-		$seo_author 		= $ci->Scheme_Model->get_website_data("seo_author");
-		$seo_description 	= $ci->Scheme_Model->get_website_data("seo_description");
-		$seo_keywords 		= $ci->Scheme_Model->get_website_data("seo_keywords");
-		$seo_google 		= $ci->Scheme_Model->get_website_data("seo_google");
+		$seo_author 		= $CI->Scheme_Model->get_website_data("seo_author");
+		$seo_description 	= $CI->Scheme_Model->get_website_data("seo_description");
+		$seo_keywords 		= $CI->Scheme_Model->get_website_data("seo_keywords");
+		$seo_google 		= $CI->Scheme_Model->get_website_data("seo_google");
 		//echo $fullURL;
 	
-		$row = $ci->db->query("select * from tbl_seo where url='$fullURL'")->row();
+		$row = $CI->db->query("select * from tbl_seo where url='$fullURL'")->row();
 		if(!empty($row->id)){
 			if(!empty($row->author)){
 				$seo_author = $row->author;

@@ -9,19 +9,19 @@ class MedicineDivisionModel extends CI_Model
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 
-	public function get_division_category_name_id($CategoryName){
+	public function get_division_category_name_id($company_name){
 		$this->db->select("compcode");
-		$this->db->where('company_full_name',$CategoryName);
-		$row = $this->db->get("tbl_division_wise")->row();
+		$this->db->where('company_name',$company_name);
+		$row = $this->db->get("tbl_medicine")->row();
 		return $row->compcode;
 	}
 
 	public function get_division_category_id_name($compcode){
-		$this->db->select("company_full_name");
+		$this->db->select("company_name");
 		$this->db->where('compcode',$compcode);
-		$row = $this->db->get("tbl_division_wise")->row();
+		$row = $this->db->get("tbl_medicine")->row();
 		if(!empty($row)){
-			$name = str_replace(" ","-",$row->company_full_name);
+			$name = str_replace(" ","-",$row->company_name);
 			return $name;
 		}else{
 			return $compcode;

@@ -50,7 +50,7 @@ function MainPageFuncationCall(get_record) {
             },
             success: function(data) {
                 $(".main_page_loading").hide();
-                if (data.items === "" && no_record_found === 0) {
+                if (data.items === "") {
                     $(".top_bar_title2").html("No record found");
                     $(".main_container").hide();
                     $(".main_page_no_record_found").show();

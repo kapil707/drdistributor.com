@@ -14,8 +14,8 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data: { ItemId: ItemId },
-		url: get_base_url() + "my_order/my_order_details_api",
+		data: { item_id: item_id },
+		url: get_base_url() + "my_order_api/my_order_details_api",
 		cache : true,
 		timeout: 60000,
 		error: function() {

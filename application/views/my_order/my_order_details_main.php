@@ -20,7 +20,7 @@ function goBack() {
 	</div>
 </div>
 <script>
-var ItemId 			= "<?php echo $ItemId; ?>";
-var OrderChemistId 	= "<?php echo $OrderChemistId; ?>";
+var item_id 		= "<?php echo $item_id; ?>";
+var order_chemist_id= "<?php echo $order_chemist_id; ?>";
 </script>
 <script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/my_order_details_main.js"></script>

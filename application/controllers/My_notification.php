@@ -25,9 +25,6 @@ class My_notification extends CI_Controller {
 		/************log file***************** */
 		CreateUserLog();
 		/************************************* */
-	
-		// Load model
-		$this->load->model("model-drdistributor/my_notification/MyNotificationModel");
 
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
@@ -70,7 +67,7 @@ class My_notification extends CI_Controller {
 		$this->load->view('header_footer/footer', $data);
 	}
 
-	public function my_notification_details($ItemId=""){
+	public function my_notification_details($item_id=""){
 		
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My notification details";
@@ -92,67 +89,10 @@ class My_notification extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$data["ItemId"] = $ItemId;
+		$data["item_id"] = $item_id;
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('my_notification/my_notification_details', $data);
 		$this->load->view('header_footer/footer', $data);
-	}
-
-	/*******************api start*********************/
-	public function my_notification_api(){
-
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$get_record	 	= $_REQUEST["get_record"];
-		$items = "";
-		if(!empty($UserType) && !empty($ChemistId)) {
-
-			$result = $this->MyNotificationModel->get_my_notification_api($UserType,$ChemistId,$SalesmanId,$get_record);
-
-			$items  	= $result["items"];
-			$get_record  = $result["get_record"];
-		}
-
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-            'get_record' => $get_record
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
-	public function my_notification_details_api(){
-
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$ItemId		= $_REQUEST['ItemId'];
-		$items = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
-			
-			$result = $this->MyNotificationModel->get_my_notification_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
-
-			$title  = $result["title"];
-			$items  = $result["items"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'title' => $title,
-			'items' => $items,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }

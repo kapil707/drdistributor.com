@@ -14,9 +14,10 @@ function MainPageFuncationCall() {
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		data: { ItemId: ItemId },
-		url: get_base_url() + "my_notification/my_notification_details_api",
+		data: { item_id: item_id },
+		url: get_base_url() + "my_notification_api/my_notification_details_api",
 		cache : true,
+		timeout: 60000,
 		error: function() {
 			$(".top_bar_title2").html("No record found");
 			$(".main_container").hide();
@@ -92,8 +93,7 @@ function MainPageFuncationCall() {
 					$(".top_bar_title2").html(item_date_time);
 				}
 			});
-		},
-		timeout: 60000
+		}
 	});
 }
 

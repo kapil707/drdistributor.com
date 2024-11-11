@@ -38,7 +38,7 @@ function MainPageFuncationCall(get_record) {
             type: "POST",
             dataType: "json",
             data: { get_record: get_record },
-            url: get_base_url() + "my_notification/my_notification_api",
+            url: get_base_url() + "my_notification_api/my_notification_api",
             cache : true,
             timeout: 60000,
             error: function() {

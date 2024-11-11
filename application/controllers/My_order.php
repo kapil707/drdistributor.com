@@ -18,12 +18,13 @@ class My_order extends CI_Controller {
         $this->load->library('AppConfig');
 		$this->load->library('session');
 
+		/************login check************** */
+		LoginCheck("my_order");
+		/************************************* */
+
 		/************log file***************** */
 		CreateUserLog();
 		/************************************* */
-	
-		// Load model
-		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
 		/********************session start***************************** */
 		$this->UserId		= $this->session->userdata('UserId');
@@ -39,10 +40,6 @@ class My_order extends CI_Controller {
 	}
 
 	public function index(){
-
-		/************login check************** */
-		LoginCheck("my_order");
-		/************************************* */
 
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "My Order";
@@ -101,91 +98,5 @@ class My_order extends CI_Controller {
 		$this->load->view('my_order/my_order_details', $data);
 		$this->load->view('header_footer/footer', $data);
 		$this->load->view('header_footer/medicine_details_model', $data);
-	}
-
-	/*******************api start*********************/
-	public function my_order_api(){
-
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$get_record	 	= $_REQUEST["get_record"];
-		$items = "";
-		if(!empty($UserType) && !empty($ChemistId)) {
-			$result = $this->MyOrderModel->get_my_order_api($UserType,$ChemistId,$SalesmanId,$get_record);
-			$items  	= $result["items"];
-			$get_record  = $result["get_record"];
-		}
-
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'items' => $items,
-            'get_record' => $get_record
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-	
-	public function my_order_details_api(){
-
-		$UserType 		= $this->UserType;
-		$ChemistId 		= $this->ChemistId;
-		$SalesmanId 	= $this->SalesmanId;
-
-		$item_id		= $_REQUEST['item_id'];
-		$items = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){
-
-			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
-
-			$title  = $result["title"];
-			$items  = $result["items"];
-			$download_url  = $result["download_url"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'title' => $title,
-			'items' => $items,
-			'download_url' => $download_url,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
-	}
-
-	public function my_order_details_main_api(){
-		
-		$ItemId			= $_REQUEST['ItemId'];
-		$OrderChemistId = $_REQUEST['OrderChemistId'];
-		$UserType 		= "chemist";
-		$SalesmanId 	= "";
-		
-		$items = $download_url = $title = "";
-		if(!empty($UserType) && !empty($OrderChemistId) && !empty($ItemId)){
-
-			$result = $this->MyOrderModel->get_my_order_details_api($UserType,$OrderChemistId,$SalesmanId,$ItemId);
-			$title  = $result["title"];
-			$items  = $result["items"];
-			$download_url  = $result["download_url"];
-		}	
-		
-		$response = array(
-            'success' => "1",
-            'message' => 'Data load successfully',
-            'title' => $title,
-			'items' => $items,
-			'download_url' => $download_url,
-        );
-
-        // Send JSON response
-        header('Content-Type: application/json');
-        echo json_encode($response);
 	}
 }

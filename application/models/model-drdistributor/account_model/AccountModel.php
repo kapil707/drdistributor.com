@@ -188,6 +188,7 @@ class AccountModel extends CI_Model
 			$SalesmanId	= $UserId;
 		}
 		$FirebaseToken = "";
+		$UserCart = "";
 
 		/****************************************************** *
 		//cookies set from hear
@@ -212,7 +213,8 @@ class AccountModel extends CI_Model
 			'ChemistNrx'=>$ChemistNrx,
 			'ChemistId'=>$ChemistId,
 			'SalesmanId'=>$SalesmanId,
-			'FirebaseToken'=>$FirebaseToken);
+			'FirebaseToken'=>$FirebaseToken,
+			'UserCart'=>$UserCart);
 		$this->session->set_userdata($session_arr);
 	}
 

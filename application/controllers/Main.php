@@ -52,6 +52,10 @@ class Main extends CI_Controller {
 				$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 			}
 			/********************************************************** */
+			if($this->UserType=="sales" && empty($this->ChemistId))
+			{
+				redirect(base_url()."select_chemist");
+			}
 		}else{
 			$data["UserId"] 		= "Guest";
 			$data["UserType"]     	= "";
@@ -329,11 +333,6 @@ class Main extends CI_Controller {
 				$data["DeliveringTo"]= $data["ChemistId"];
 				if($this->UserType=="sales") {
 					$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
-				}
-				/********************************************************** */
-				if($this->UserType=="sales" && empty($this->ChemistId))
-				{
-					redirect(base_url()."select_chemist");
 				}
 			}else{
 				$data["UserId"] 		= "Guest";

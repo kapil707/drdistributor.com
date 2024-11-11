@@ -2,9 +2,9 @@ function import_order_page_load(){
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
 
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
+	$('.page_search_textbox').val("");
+	$('.page_search_textbox').show();
+	$('.page_search_textbox').focus();
 }
 function CheckOrderApi() {
 

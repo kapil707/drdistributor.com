@@ -99,7 +99,7 @@ function import_order_medicine_delete_suggested(item_id) {
 /*************************************/
 function add_new_medicine() {
 	clear_search_function();
-	$('.medicine_search_textbox').focus();
+	$('.page_search_textbox').focus();
 }
 function clear_search_function() {
 

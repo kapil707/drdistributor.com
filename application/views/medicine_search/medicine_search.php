@@ -112,5 +112,8 @@ $(document).ready(function(){
 	setTimeout('search_page_load();',100);
 	setTimeout('medicine_favourite_api();',200);
 	setTimeout('my_cart_api();',300);
+
+	$(".main_page_loading").show();
+	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
 });
 </script>

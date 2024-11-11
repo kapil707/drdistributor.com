@@ -2,15 +2,12 @@ var import_order_medicine_change_value = 0; // yha import page ke iya ha iss ko 
 let currentFocus = -1; // Tracks the currently focused item
 function search_page_load(){
 
-	$(".main_page_loading").show();
-	$(".search_page_div_for_fix_height").css("height",$(window).height() - 215);
-
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
 
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
+	$('.page_search_textbox').val("");
+	$('.page_search_textbox').show();
+	$('.page_search_textbox').focus();
 }
 
 function clear_search_function() {
@@ -23,8 +20,8 @@ function clear_search_function() {
 	$(".search_result_div_mobile").html("");
 	$(".search_result_div_mobile").hide();	
 
-	$(".medicine_search_textbox").val("");
-	$('.medicine_search_textbox').focus();
+	$(".page_search_textbox").val("");
+	$('.page_search_textbox').focus();
 
 	$(".top_bar_search_textbox_div_menu_icon").hide();
 	$(".top_bar_search_textbox_div_menu").hide();
@@ -35,14 +32,14 @@ function clear_search_function() {
 }
 
 $(document).ready(function(){	
-	$(".medicine_search_textbox").keyup(function(e){
+	$(".page_search_textbox").keyup(function(e){
 		// Only call find_chemist if the key is not an arrow key, Enter, or Tab
         if (![37, 38, 39, 40, 13, 9].includes(e.keyCode)) { // Key codes for Left, Up, Right, Down, Enter, and Tab
-            var keyword = $(".medicine_search_textbox").val();
+            var keyword = $(".page_search_textbox").val();
 			if(keyword!="")
 			{
 				if(keyword.length<3) {
-					$('.medicine_search_textbox').focus();
+					$('.page_search_textbox').focus();
 					$(".search_result_div").html("");
 					$(".search_result_div_mobile").html("");
 				}
@@ -59,7 +56,7 @@ $(document).ready(function(){
 		}
 	});
 
-    $(".medicine_search_textbox").keydown(function(e) {
+    $(".page_search_textbox").keydown(function(e) {
     	let listItems = $(".search_result_div ul li");
 		console.log(currentFocus + " " + listItems.length)
         if (e.key === "ArrowDown") {
@@ -129,7 +126,7 @@ function medicine_search_api() {
 	
 	//menu
 	$(".top_bar_search_textbox_div_menu_icon").show();
-	var keyword = $(".medicine_search_textbox").val();
+	var keyword = $(".page_search_textbox").val();
 	if(keyword!="")
 	{
 		if(keyword=="#")

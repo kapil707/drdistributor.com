@@ -149,11 +149,9 @@ function search_chemist()
 						let htmlContent = '<ul>';
 						$.each(data.items, function(i,item){	
 							if (item){
+								new_i				= item.count;
 								user_nrx			= item.user_nrx;
 								chemist_altercode	= item.chemist_altercode;
-								new_i				= item.count;
-								
-								//new_i = parseInt(new_i) + 1;
 								
 								var onlcick_event = 'onclick=chemist_session_add("'+chemist_altercode+'","'+user_nrx+'")';
 

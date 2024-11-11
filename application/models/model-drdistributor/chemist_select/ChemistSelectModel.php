@@ -34,7 +34,7 @@ class ChemistSelectModel extends CI_Model
 				/*$user_cart 		 = $row->user_cart;
 				$user_cart_total = $row->user_cart_total;*/
 				$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
-				$chemist_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
+				$chemist_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 				if(!empty($row->image))
 				{
 					$chemist_image = $this->user_profile_url.$row->image;
@@ -58,17 +58,16 @@ class ChemistSelectModel extends CI_Model
 		return $return;
 	}
 
-	public function salesman_my_cart_api($user_type="",$user_altercode="")
+	public function salesman_my_cart_api($UserType="",$SalesmanId="")
 	{
 		$jsonArray = array();
 
 		$items = "";
-		$salesman_id 	= $user_altercode;
-		$query = $this->db->query("select distinct chemist_id from drd_temp_rec where selesman_id='$salesman_id' and user_type='$user_type' and status='0' order by chemist_id asc")->result();
+		$query = $this->db->query("select distinct chemist_id from drd_temp_rec where selesman_id='$SalesmanId' and user_type='$UserType' and status='0' order by chemist_id asc")->result();
 		foreach($query as $row)
 		{	
 			$chemist_id = $row->chemist_id;
-			$row1 = $this->db->query("select count(id) as user_cart,sum(quantity*sale_rate) as user_cart_total from drd_temp_rec where user_type='$user_type' and selesman_id='$salesman_id' and chemist_id='$chemist_id' and status=0")->row();
+			$row1 = $this->db->query("select count(id) as user_cart,sum(quantity*sale_rate) as user_cart_total from drd_temp_rec where user_type='$UserType' and selesman_id='$SalesmanId' and chemist_id='$chemist_id' and status=0")->row();
 			$user_cart = $user_cart_total = 0;
 			if($row1->user_cart!=0)
 			{
@@ -80,7 +79,7 @@ class ChemistSelectModel extends CI_Model
 			$row1 = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id'")->row();
 			$chemist_name  		= (ucwords(strtolower($row1->name)));		
 			$chemist_altercode 	= $row1->altercode;
-			$chemist_image = base_url().$this->appconfig->getWebJs()."/images/logo4.png";
+			$chemist_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
 			if(!empty($row1->image))
 			{
 				$chemist_image = $this->user_profile_url.$row1->image;

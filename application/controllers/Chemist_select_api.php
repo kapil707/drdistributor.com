@@ -70,11 +70,11 @@ class chemist_select_api extends CI_Controller {
 	public function salesman_my_cart_api(){
 		
 		$UserType 		= $this->UserType;
-		$UserId 		= $this->UserId;
+		$SalesmanId 	= $this->SalesmanId;
 
 		$items = "";
-		if(!empty($UserType) && !empty($UserId)) {
-			$result = $this->ChemistSelectModel->salesman_my_cart_api($UserType,$UserId);
+		if(!empty($UserType) && !empty($SalesmanId)) {
+			$result = $this->ChemistSelectModel->salesman_my_cart_api($UserType,$SalesmanId);
 			$items = $result["items"];
 		}
 		

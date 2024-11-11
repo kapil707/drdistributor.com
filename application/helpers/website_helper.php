@@ -20,10 +20,10 @@ if ( ! function_exists('LoginCheck'))
 				{
 					redirect(base_url()."select_chemist");
 				}
-				if($CI->session->userdata('UserType')=="chemist")
-				{
-					redirect(base_url()."home");
-				}
+			}
+			if($controller!="Chemist_select" && $CI->session->userdata('UserType')=="chemist")
+			{
+				redirect(base_url()."home");
 			}
 		}
 	}

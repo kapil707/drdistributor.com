@@ -485,7 +485,7 @@ function medicine_add_to_cart_api()
 			if(item_order_quantity<=item_quantity_max)
 			{
 				$(".modaloff").click();				
-				$('.medicine_search_textbox').focus();
+				$('.page_search_textbox').focus();
 
 				if(get_page_name=="medicine_search" || get_page_name=="my_cart") {
 

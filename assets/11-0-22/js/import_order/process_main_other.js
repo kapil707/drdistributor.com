@@ -3,14 +3,14 @@ function import_order_medicine_change(item_id) {
 	$(".top_bar_search_div").hide();
 	$(".top_bar_search_textbox_div").show();
 
-	$('.medicine_search_textbox').val("");
-	$('.medicine_search_textbox').show();
-	$('.medicine_search_textbox').focus();
+	$('.page_search_textbox').val("");
+	$('.page_search_textbox').show();
+	$('.page_search_textbox').focus();
 
 	import_order_medicine_change_value = 1;
 	hidden_item_id = item_id;
 	hidden_item_name = $(".import_order_hidden_item_name_"+item_id).val();
-	setTimeout($('.medicine_search_textbox').val(hidden_item_name),500);
+	setTimeout($('.page_search_textbox').val(hidden_item_name),500);
 	setTimeout(medicine_search_api(),700);
 }
 
@@ -111,8 +111,8 @@ function clear_search_function() {
 	$(".search_result_div_mobile").html("");
 	$(".search_result_div_mobile").hide();	
 
-	$(".medicine_search_textbox").val("");
-	$('.medicine_search_textbox').focus();
+	$(".page_search_textbox").val("");
+	$('.page_search_textbox').focus();
 
 	$(".top_bar_search_textbox_div_menu_icon").hide();
 	$(".top_bar_search_textbox_div_menu").hide();

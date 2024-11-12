@@ -198,7 +198,7 @@ class Import_order extends CI_Controller {
 		$data["result"]	= $result;
 		if(empty($result))
 		{
-			redirect(base_url()."my_cart");
+			redirect(base_url()."mc");
 		}
 		
 		$dt = $dt1 = $dt2 = "";

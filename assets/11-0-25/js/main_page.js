@@ -442,6 +442,12 @@ function change_item_order_quantity(){
 	if(item_order_quantity==""){
 		$(".medicine_details_item_total").html('*Approximate ~ : <i class="fa fa-inr" aria-hidden="true"></i> ' +item_price + "/-");
 	}else{
+
+		if(item_quantity_max==0){
+			$(".add_to_cart_error_message").html("Can't add this medicine because this medicine is <b>Out of stock</b>");
+			return false;
+		}
+
 		item_order_quantity  = parseInt(item_order_quantity);
 		if(item_order_quantity==0){
 			$(".add_to_cart_error_message").html('Minimum order quantity one and more than one');

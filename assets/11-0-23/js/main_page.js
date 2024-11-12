@@ -584,10 +584,12 @@ function medicine_add_to_cart_api()
 			else
 			{
 				swal("Enter a valid quantity");
+				$(".medicine_details_item_order_quantity_textbox").focus();
 			}
 		}
 		else{
 			swal("Enter quantity one or more than one");
+			$(".medicine_details_item_order_quantity_textbox").focus();
 		}
 	}
 }

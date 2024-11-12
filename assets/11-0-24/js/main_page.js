@@ -478,6 +478,12 @@ function medicine_add_to_cart_api()
 	}
 	else
 	{
+		if(item_quantity_max=="0"){
+			$(".medicine_details_item_order_quantity_textbox").focus();
+			$(".add_to_cart_error_message").html("Can't add this medicine because this medicine is <b>Out of stock</b>");
+			return false;
+		}
+
 		item_order_quantity = parseInt(item_order_quantity);
 		item_quantity_max	= parseInt(item_quantity_max);
 		if(item_order_quantity!=0)

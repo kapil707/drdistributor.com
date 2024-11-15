@@ -42,7 +42,7 @@ class My_cart extends CI_Controller {
 	public function index(){
 
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "My order";
+		$data["MainPageTitle"] = $MainPageTitle = "My cart";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 

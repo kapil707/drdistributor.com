@@ -68,10 +68,10 @@ function MainPageFuncationCall(get_record) {
                 get_record = data.get_record;
                 $(".get_record").val(get_record);
 
-                title = data.title;
+                /*title = data.title;
                 if (title != "") {
                     $(".top_bar_title").html(title);
-                }
+                }*/
 
                 $.each(data.items, function(i, item) {
                     if (item) {

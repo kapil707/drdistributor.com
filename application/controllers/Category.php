@@ -75,8 +75,6 @@ class Category extends CI_Controller {
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= "";
 
-		$data["company_full_name"] = "Dr";
-
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('medicine_category/medicine_category', $data);
 	}
@@ -111,8 +109,6 @@ class Category extends CI_Controller {
 		$data["item_page_type"] = $item_page_type;
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= $item_division;
-
-		$data["company_full_name"] = "Dr";
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('medicine_category/medicine_category', $data);
@@ -149,8 +145,6 @@ class Category extends CI_Controller {
 		$data["item_page_type"] = $item_page_type;
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= $item_division;
-
-		$data["company_full_name"] = "Dr";
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('medicine_category/medicine_category', $data);

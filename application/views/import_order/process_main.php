@@ -11,7 +11,7 @@ function goBack() {
 			<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" onclick="add_new_medicine()" style="width:30%"> + Add Medicine</button>
 		</div>
 		<div class="col-sm-6 col-6 text-right next_button_show" style="display:none">
-			<a href="<?= base_url(); ?>io/mdi/<?php echo base64_encode($order_id); ?>">
+			<a href="<?= base_url(); ?>io/mdi/<?php echo $order_id; ?>">
 				<button type="submit" class="btn btn-primary main_theme_button next_btn" name="submit" value="submit" style="width:20%">Next</button>
 			</a>
 		</div>

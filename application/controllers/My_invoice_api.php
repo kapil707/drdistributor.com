@@ -108,7 +108,7 @@ class My_invoice_api extends CI_Controller {
 		
 		$items = $items_edit = $items_delete = $download_url = $title = "";
 		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){			
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];

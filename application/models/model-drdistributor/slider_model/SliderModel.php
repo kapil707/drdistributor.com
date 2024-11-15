@@ -15,6 +15,10 @@ class SliderModel extends CI_Model
 		$compid = str_replace(" ","-",$compid);
 		$compid = strtolower($compid);
 		$url = "#";
+		if($funtype==1)
+		{
+			$url = base_url()."md/".$compid;
+		}
 		if($funtype==2)
 		{
 			$url = base_url()."c/fb/".$compid."/".$division;

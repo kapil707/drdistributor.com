@@ -26,9 +26,8 @@ if ('serviceWorker' in navigator) {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
-            if (currentToken  && get_FirebaseToken()=="") {
-                //console.log("Token is: "+currentToken);
-               
+            if ((currentToken  && get_FirebaseToken()=="") && get_FirebaseToken()!=currentToken) {
+                //console.log("Token is: "+currentToken);               
                 $.ajax({
                     type       : "POST",
                     data       : {firebase_token:currentToken},

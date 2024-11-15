@@ -334,6 +334,10 @@ function home_page_divisioncategory(CategoryId,items,title){
 			item_image 		= item.item_image;
 
 			CategoryName = item_company.replace(" ", "-");
+			CategoryName = CategoryName.replace(" ", "-");
+			CategoryName = CategoryName.replace(" ", "-");
+			CategoryName = CategoryName.replace(" ", "-");
+			CategoryName = CategoryName.replace(" ", "-");
 
 			mydata+= '<div class="item"><div class="all_divisioncategory text-center"><a href="'+get_base_url()+'c/fb/'+CategoryName+'/'+item_division+'"><img class="all_item_image" src="uploads/division_category_default_img.webp" alt=""><img class="all_item_image_load" src="'+item_image+'" alt="" onload="showActualImage(this)" style="display:none;"></a><a href="'+get_base_url()+'c/fb/'+CategoryName+'/'+item_division+'"><div class="home_page_item_company">'+item_company+'</div></a></div></div>';
 		}

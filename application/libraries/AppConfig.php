@@ -6,8 +6,8 @@ class AppConfig {
     public $siteTitle = "D.R. Distributors Pvt Ltd";
     public $siteTitle2 = "D.R. Distributors Pvt Ltd";
     public $FooterTitle = "D.R. Distributors Pvt Ltd";
-    public $WebsiteVersion = "12.0.02";
-    public $WebJs = "12-0-02";
+    public $WebsiteVersion = "12.0.03";
+    public $WebJs = "12-0-03";
     public $Weburl = "https://www.drdistributor.com/";
     public $ApiUrl = "https://www.drdistributor.com/";
     //public $ApiUrl = "https://www.drdistributors.co.in/drd-live/";

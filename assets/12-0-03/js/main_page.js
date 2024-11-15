@@ -726,7 +726,7 @@ function delete_all_medicine()
 		}
 	});
 }
-function my_cart_api() {
+function my_cart_api(order_type='') {
 
 	if(get_page_name=="medicine_search" || get_page_name=="my_cart"){
 		setTimeout('my_cart_api();',120000);

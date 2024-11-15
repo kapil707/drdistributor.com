@@ -14,7 +14,7 @@ function MainPageFuncationCall()
 	$.ajax({
 		type       : "POST",
 		dataType   : "json",
-		data       : {ItemId:ItemId} ,
+		data       : {item_id:item_id} ,
 		url        : get_base_url()+ "my_invoice_api/my_invoice_details_api",
 		cache : true,
 		error: function(){

@@ -214,17 +214,17 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 
-	public function order_download($OrderChemistId='',$OrderId=''){
+	public function order_download($order_chemist_id='',$order_id=''){
 		
 		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
-		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
-		if(!empty($ItemId)){
-			$this->MyOrderModel->OrderExcelFile($ItemId,"direct_download");
+		$item_id = $this->MyOrderModel->OrderCheck($order_chemist_id,$order_id);
+		if(!empty($item_id)){
+			$this->MyOrderModel->OrderExcelFile($item_id,"direct_download");
 		}else{
 			/********************MainPageTitle***************************** */
-			$data["MainPageTitle"] = $MainPageTitle = "$OrderId";
+			$data["MainPageTitle"] = $MainPageTitle = "Order";
 			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 			/********************************************************** */
 
@@ -252,9 +252,6 @@ class Main extends CI_Controller {
 			}
 			/**********************************************************/
 
-			$data["OrderChemistId"] 	= $OrderChemistId;
-			$data["ItemId"] 			= $ItemId;
-
 			$this->load->view('header_footer/header', $data);
 			$this->load->view('my_order/my_order_details_main', $data);	
 			$this->load->view('header_footer/footer', $data);
@@ -262,13 +259,13 @@ class Main extends CI_Controller {
 	}
 
 	/***************invoice part********************** */	
-	public function view_invoice($InvoiceChemistId='',$Gstvno=''){
+	public function view_invoice($invoice_chemist_id='',$gstvno=''){
 
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "$Gstvno";
+		$data["MainPageTitle"] = $MainPageTitle = "$gstvno";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -296,10 +293,10 @@ class Main extends CI_Controller {
 		}
 		/**********************************************************/
 
-		$ItemId = $this->MyInvoiceModel->InvoiceCheck($InvoiceChemistId,$Gstvno);
+		$item_id = $this->MyInvoiceModel->InvoiceCheck($invoice_chemist_id,$gstvno);
 
-		$data["InvoiceChemistId"] 	= $InvoiceChemistId;
-		$data["ItemId"] 			= $ItemId;
+		$data["invoice_chemist_id"] = $invoice_chemist_id;
+		$data["item_id"] 			= $item_id;
 
 		$this->load->view('header_footer/header', $data);
 		$this->load->view('my_invoice/my_invoice_details_main', $data);
@@ -307,17 +304,17 @@ class Main extends CI_Controller {
 		$this->load->view('header_footer/medicine_details_model', $data);
 	}
 	
-	public function invoice_download($InvoiceChemistId='',$Gstvno=''){
+	public function invoice_download($invoice_chemist_id='',$gstvno=''){
 		
 		// Load model
 		$this->load->model("model-drdistributor/my_invoice/MyInvoiceModel");
 
-		$ItemId = $this->MyInvoiceModel->InvoiceCheck($InvoiceChemistId,$Gstvno);
-		if(!empty($ItemId)){
-			$this->MyInvoiceModel->invoice_excel_file($Gstvno,"direct_download");
+		$item_id = $this->MyInvoiceModel->InvoiceCheck($invoice_chemist_id,$gstvno);
+		if(!empty($item_id)){
+			$this->MyInvoiceModel->invoice_excel_file($gstvno,"direct_download");
 		}else{			
 			/********************MainPageTitle***************************** */
-			$data["MainPageTitle"] = $MainPageTitle = "DRD";
+			$data["MainPageTitle"] = $MainPageTitle = "Invoice";
 			$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 			/********************************************************** */
 

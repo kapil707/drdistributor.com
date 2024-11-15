@@ -98,7 +98,7 @@ $(".top_bar_title").html("Delivering to");
 <script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/home_page.js"></script>
 
 <?php if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase.js" type="module"></script>
+<script src="<?= base_url(); ?>assets/firebase/firebase1.js" type="module"></script>
 <?php } ?>
 
 <!-- ******************broadcast_message***************************** -->

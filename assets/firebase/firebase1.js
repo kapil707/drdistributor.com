@@ -22,7 +22,7 @@ const messaging = getMessaging(app);
 
 // Register the service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./assets/firebase/sw.js").then(registration => {
+    navigator.serviceWorker.register("./assets/firebase/sw1.js").then(registration => {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
@@ -56,7 +56,9 @@ if ('serviceWorker' in navigator) {
             console.log("Opening modal...");
             $('#myModal_broadcast').modal('show');
             $('.broadcast_title').text(event.data.title);
-			$('.broadcast_message').text(event.data.message);
+            var replacedText = event.data.message;
+            replacedText = replacedText.replace(/\n/g, "<br>");
+			$('.broadcast_message').html(replacedText);
             if(event.data.image!=""){
                 $('.broadcast_image').html("<img src='"+event.data.image+"' width='100%'>");
             }

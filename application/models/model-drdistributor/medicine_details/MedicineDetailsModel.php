@@ -222,7 +222,7 @@ class MedicineDetailsModel extends CI_Model
 			$item_code			=	($row->compcode);
 			$item_company		=	ucwords(strtolower($row->company_full_name));
 			$item_division 		= 	"";
-			$item_image			=   $this->MedicineImageUrl."uploads/manage_division_wise/photo/resize/".$row->image;
+			$item_image			=   $this->MedicineImageUrl."uploads/manage_division/photo/resize/".$row->image;
 			if (empty($row->image)){
 				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
 			}

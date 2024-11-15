@@ -69,7 +69,7 @@ class NotificationModel extends CI_Model
 					//$image =   base_url()."uploads/manage_division_wise/photo/resize/".$row1->image;
 					
 					// jab tak old server on ha to iss code say img aya ge notication m
-					$image =   constant('main_site')."uploads/manage_division_wise/photo/resize/".$row1->image;
+					$image =   constant('main_site')."uploads/manage_division/photo/resize/".$row1->image;
 				}
 				else{
 					$image = constant('main_site')."uploads/manage_users/photo/photo_1562659909.png";

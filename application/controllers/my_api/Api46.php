@@ -144,7 +144,10 @@ class Api46 extends CI_Controller {
 				$logout = 0;
 			}
 			/********************************/ 
-			
+			$this->load->model("model-drdistributor/user_device/UserDeviceModel");
+			$this->UserDeviceModel->insert_user_device($user_type,$user_altercode,$salesman_id,$firebase_token,"android");
+
+			/********************************/ 
 			$where1= array('firebase_token'=>$firebase_token,'chemist_id'=>$user_altercode,'user_type'=>$user_type,);
 			$row = $this->Scheme_Model->select_row("tbl_android_device_id",$where1);
 			$ratingbar = 1;

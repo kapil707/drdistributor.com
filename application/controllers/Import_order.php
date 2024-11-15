@@ -194,7 +194,7 @@ class Import_order extends CI_Controller {
 			$file_name 		= $acm_altercode;
 		}
 		/***********************************************/
-		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status=0")->result();
+		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and (status=0 or status=1 or status=3")->result();
 		$data["result"]	= $result;
 		if(empty($result))
 		{

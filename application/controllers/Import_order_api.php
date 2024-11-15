@@ -362,7 +362,7 @@ class Import_order_api extends CI_Controller {
 				/******************************************/
 				if($row->batchqty!=0  && is_numeric($order_quantity)){
 					$item_code 		= $row->i_code;
-					$order_type 	= "excelFile";
+					$order_type 	= "import_order";
 					$mobilenumber 	= "";
 					$modalnumber 	= "PC - Import Order";
 					$device_id    	= "";				

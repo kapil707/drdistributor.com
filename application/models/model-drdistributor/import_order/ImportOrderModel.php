@@ -389,7 +389,7 @@ class ImportOrderModel extends CI_Model
 				'id' => $row->id,
 				'item_name'=>$row->item_name,
 				'quantity'=>$row->quantity,
-				'mrp'=>$row->mrp,
+				'mrp'=>round($row->mrp,2),
 				'order_id'=>$row->order_id,
 			);
 			$jsonArray[] = $dt;

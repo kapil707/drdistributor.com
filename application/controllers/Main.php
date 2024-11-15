@@ -169,13 +169,13 @@ class Main extends CI_Controller {
 	}
 	
 	/***************order part********************** */	
-	public function view_order($order_chemist_id='',$item_id=''){
+	public function view_order($order_chemist_id='',$order_id=''){
 
 		// Load model
 		$this->load->model("model-drdistributor/my_order/MyOrderModel");
 
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "$item_id";
+		$data["MainPageTitle"] = $MainPageTitle = "$order_id";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -203,7 +203,7 @@ class Main extends CI_Controller {
 		}
 		/**********************************************************/
 
-		$ItemId = $this->MyOrderModel->OrderCheck($OrderChemistId,$OrderId);
+		$item_id = $this->MyOrderModel->OrderCheck($order_chemist_id,$order_id);
 
 		$data["order_chemist_id"] 	= $order_chemist_id;
 		$data["item_id"] 			= $item_id;

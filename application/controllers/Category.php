@@ -45,8 +45,9 @@ class Category extends CI_Controller {
 
 	public function index($item_company=""){
 
+		$item_company = str_replace("-"," ",strtolower($item_company));
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = "DRD";
+		$data["MainPageTitle"] = $MainPageTitle = $item_company;
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -65,8 +66,6 @@ class Category extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-
-		$item_company = str_replace("-"," ",strtolower($item_company));
 		
 		$row = $this->db->query("select code from tbl_medicine_menu where menu='$item_company'")->row();
 		$item_code = $row->code;

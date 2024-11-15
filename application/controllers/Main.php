@@ -32,7 +32,7 @@ class Main extends CI_Controller {
 	}
 	
 	public function index(){
-
+		$this->session->set_userdata('FirebaseToken',"");
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = "Home";
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";

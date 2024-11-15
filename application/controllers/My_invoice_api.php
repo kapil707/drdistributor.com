@@ -72,11 +72,11 @@ class My_invoice_api extends CI_Controller {
 		$ChemistId 		= $this->ChemistId;
 		$SalesmanId 	= $this->SalesmanId;
 
-		$ItemId		= $_REQUEST['item_id'];
+		$item_id		= $_REQUEST['item_id'];
 		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){
 
-			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
+			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$item_id);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];
 			$items_delete  	= $result["items_delete"];
@@ -101,13 +101,13 @@ class My_invoice_api extends CI_Controller {
 
 	public function my_invoice_details_main_api(){
 
-		$ItemId			= $_REQUEST['item_id'];
+		$item_id		= $_REQUEST['item_id'];
 		$ChemistId 		= $_REQUEST['invoice_chemist_id'];
 		$UserType 		= "chemist";
 		$SalesmanId 	= "";
 		
 		$items = $items_edit = $items_delete = $download_url = $title = "";
-		if(!empty($UserType) && !empty($ChemistId) && !empty($ItemId)){			
+		if(!empty($UserType) && !empty($ChemistId) && !empty($item_id)){			
 			$result = $this->MyInvoiceModel->get_my_invoice_details_api($UserType,$ChemistId,$SalesmanId,$ItemId);
 			$items  		= $result["items"];
 			$items_edit  	= $result["items_edit"];

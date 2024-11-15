@@ -44,15 +44,15 @@ class UserDeviceModel extends CI_Model
 		);
 		
 		$this->db->select("id");
+		$this->db->where('user_type',$user_type);
 		$this->db->where('chemist_id',$chemist_id);
 		$this->db->where('salesman_id',$salesman_id);
-		$this->db->where('user_type',$user_type);
 		$this->db->where('firebase_token',$firebase_token);
 		$row = $this->db->get("tbl_user_device")->row();
 		if(empty($row)) {
 			$this->insert_query("tbl_user_device",$dt);
 		}else{
-			$where = array('chemist_id'=>$chemist_id,'salesman_id'=>$salesman_id,'user_type'=>$user_type);
+			$where = array('user_type'=>$user_type,'chemist_id'=>$chemist_id,'salesman_id'=>$salesman_id);
 			$this->update_query("tbl_user_device",$dt,$where);
 		}
 	}

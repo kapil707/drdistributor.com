@@ -123,7 +123,7 @@ class MyCartModel extends CI_Model
 		{
 			$selesman_id 	= "";
 		}
-		$where = array('chemist_id' => $user_altercode,'salesman_id' => $selesman_id,'user_type' => $user_type,	'status' => '0');
+		$where = array('chemist_id' => $user_altercode,'salesman_id'=>$selesman_id,'user_type'=>$user_type,'status' =>'0');
 		$this->db->select("*");
 		$this->db->where($where);
 		if($order_type=="import_order"){

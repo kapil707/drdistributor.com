@@ -30,7 +30,7 @@ class NotificationModel extends CI_Model
 			'firebase_status'=>$firebase_status,
 			'respose'=>$respose,);
 		
-		$this->Scheme_Model->insert_fun("tbl_android_notification",$dt);
+		$this->Scheme_Model->insert_fun("tbl_notification",$dt);
 	}
 
 	function send_android_notification()
@@ -44,7 +44,7 @@ class NotificationModel extends CI_Model
 		$where = array('firebase_status'=>'0','device_id'=>'default');
 		$this->db->where($where);
 		$this->db->order_by('id','desc');
-		$query = $this->db->get("tbl_android_notification")->result();
+		$query = $this->db->get("tbl_notification")->result();
 		foreach($query as $row)
 		{
 			$id 		= $row->id;
@@ -142,7 +142,7 @@ class NotificationModel extends CI_Model
 				//echo $respose;
 				curl_close($ch);
 			
-				$this->db->query("update tbl_android_notification set firebase_status='1',respose='$respose' where firebase_status='0' and id='$id'");
+				$this->db->query("update tbl_notification set firebase_status='1',respose='$respose' where firebase_status='0' and id='$id'");
 			}
 		}
 	}

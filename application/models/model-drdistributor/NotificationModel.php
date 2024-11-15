@@ -66,7 +66,7 @@ class NotificationModel extends CI_Model
 				
 				$row1  =  $this->db->query("select image from tbl_division_wise where compcode='$itemid'")->row();
 				if($row1->image!=""){
-					//$image =   base_url()."uploads/manage_division_wise/photo/resize/".$row1->image;
+					//$image =   base_url()."uploads/manage_division/photo/resize/".$row1->image;
 					
 					// jab tak old server on ha to iss code say img aya ge notication m
 					$image =   constant('main_site')."uploads/manage_division/photo/resize/".$row1->image;

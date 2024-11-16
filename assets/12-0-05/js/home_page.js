@@ -34,10 +34,6 @@ function get_broadcast_message(){
 					$('.broadcast_message').text(item.item_message);
                 });
             }
-			// Schedule the next check after 10 seconds
-			setTimeout(function() {
-				get_broadcast_message();
-			}, 90000);
         },
         error: function(xhr, status, error) {
             console.error('AJAX Error:', error);

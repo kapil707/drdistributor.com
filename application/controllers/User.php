@@ -40,6 +40,7 @@ class User extends CI_Controller {
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
+		$this->UserCart		= $this->session->userdata('UserCart');
 		/********************************************************** */
 	}
 	

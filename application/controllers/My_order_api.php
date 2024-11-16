@@ -11,6 +11,7 @@ class My_order_api extends CI_Controller {
 	var $ChemistId 		= "";
 	var $SalesmanId 	= "";
 	var $FirebaseToken  = "";
+	var $UserCart  		= "";
 	
 	public function __construct(){
 		parent::__construct();
@@ -35,6 +36,7 @@ class My_order_api extends CI_Controller {
 		$this->ChemistId	= $this->session->userdata('ChemistId');
 		$this->SalesmanId	= $this->session->userdata('SalesmanId');
 		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
+		$this->UserCart		= $this->session->userdata('UserCart');
 		/********************************************************** */
 	}
 

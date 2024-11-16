@@ -121,9 +121,6 @@ $(document).ready(function(){
 
 function get_my_cart_total_api(){
 
-	/******************************** */
-	setTimeout('get_my_cart_total_api();',120000);
-	/******************************** */
 	$.ajax({
 		type : "POST",
 		url  : get_base_url() + "my_cart_api/my_cart_total_api",

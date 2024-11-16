@@ -5,9 +5,9 @@ var query_work = 0;
 var next_id = "";
 
 $(document).ready(function() {
-	setTimeout(function() {
+	/*setTimeout(function() {
 		get_broadcast_message();
-	}, 3000);
+	}, 3000);*/
 	home_page_menu();
 	get_top_menu_api();
 	home_page_main_api("1,2,4,5");
@@ -36,12 +36,7 @@ function get_broadcast_message(){
             }
         },
         error: function(xhr, status, error) {
-            console.error('AJAX Error:', error);
-
-            // Retry after 10 seconds in case of an error
-            setTimeout(function() {
-				get_broadcast_message();
-			}, 10000);
+            
         }
     });
 }

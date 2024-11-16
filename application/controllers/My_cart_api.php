@@ -51,7 +51,7 @@ class my_cart_api extends CI_Controller {
 
 			$result = $this->MyCartModel->my_cart_total_api($UserType,$ChemistId,$UserPassword,$SalesmanId);
 			$items = $result["items"];
-			echo $items->items_total;
+			echo $result["items_total"];;
 		}
 		
 		$response = array(

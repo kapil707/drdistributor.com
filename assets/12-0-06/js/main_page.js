@@ -113,7 +113,7 @@ $(document).ready(function(){
 	if(getUserType=="" || getUserType==null)
 	{
 	}else{
-		/******************************** *
+		/******************************** */
 		get_my_cart_total_api();
 		/******************************** */
 	}

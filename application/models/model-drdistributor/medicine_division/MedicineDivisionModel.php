@@ -52,12 +52,20 @@ class MedicineDivisionModel extends CI_Model
 		
 		$image = "";
 		/******************************************************* */
-		$this->db->select("compcode,company_full_name,image");
-		$this->db->where('status',1);
-		$this->db->where('category_id',$category_id);
-		$this->db->order_by('id','RANDOM');
-		$this->db->limit('12');
-		$query = $this->db->get("tbl_division_wisexxx")->result();
+		// First get the count
+		$count = $this->db->where('status', 1)
+		->where('category_id', '1')
+		->count_all_results('tbl_division_wise');
+
+		// Get random offset
+		$offset = rand(0, max(0, $count - 12));
+
+		// Then get records
+		$query = $this->db->select('compcode, company_full_name, image')
+		->where('status', 1)
+		->where('category_id', '1')
+		->limit(12, $offset)
+		->get('tbl_division_wise');
 		foreach ($query as $row)
 		{
 			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);

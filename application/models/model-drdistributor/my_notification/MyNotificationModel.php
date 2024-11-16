@@ -19,7 +19,7 @@ class MyNotificationModel extends CI_Model
 		$this->db->where('device_id','default');
 		$this->db->order_by('id','desc');
 		$this->db->limit($limit,$get_record);
-		$query = $this->db->get("tbl_notificationxxx")->result();
+		$query = $this->db->get("tbl_notification")->result();
 		foreach($query as $row)
 		{
 			$get_record++;

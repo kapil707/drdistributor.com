@@ -129,7 +129,7 @@ class MedicineItemModel extends CI_Model
 		$date = date("Y-m-d", strtotime("-30 days", $time));
 		
 		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-		$this->db->from('tbl_medicinexxx as m');
+		$this->db->from('tbl_medicine as m');
 		/*********page where******************* */
 		$this->db->where('item_date>=',$date);
 		/************************************ */
@@ -170,7 +170,7 @@ class MedicineItemModel extends CI_Model
 		$jsonArray = array();
 
 		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-		$this->db->from('tbl_search_logs');
+		$this->db->from('tbl_search_logsxxx');
 		$this->db->join('tbl_medicine AS m', 'm.item_code = tbl_search_logs.item_code', 'left');
 		/*********page where******************* */
 		$this->db->where('tbl_search_logs.chemist_id', $ChemistId);

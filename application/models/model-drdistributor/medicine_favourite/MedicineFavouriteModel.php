@@ -11,7 +11,7 @@ class MedicineFavouriteModel extends CI_Model
 		$jsonArray = array();
 		
 		$this->db->select('i_code, image, item_name, quantity, COUNT(*) as ct');
-        $this->db->from('tbl_cartxxx');
+        $this->db->from('tbl_cart');
         $this->db->where('chemist_id', $ChemistId);
         $this->db->where('user_type', 'chemist');
 		$this->db->where('status', '1');

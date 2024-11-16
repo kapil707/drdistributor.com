@@ -65,7 +65,7 @@ class MedicineDivisionModel extends CI_Model
 		->where('status', 1)
 		->where('category_id', $category_id)
 		->limit(12, $offset)
-		->get('tbl_division_wise');
+		->get('tbl_division_wise')->result();
 		foreach ($query as $row)
 		{
 			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);

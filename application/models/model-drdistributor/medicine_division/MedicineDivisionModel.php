@@ -57,7 +57,7 @@ class MedicineDivisionModel extends CI_Model
 		$this->db->where('category_id',$category_id);
 		$this->db->order_by('id','RANDOM');
 		$this->db->limit('12');
-		$query = $this->db->get("tbl_division_wise")->result();
+		$query = $this->db->get("tbl_division_wisexxx")->result();
 		foreach ($query as $row)
 		{
 			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);

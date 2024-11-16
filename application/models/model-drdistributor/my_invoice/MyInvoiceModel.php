@@ -30,7 +30,7 @@ class MyInvoiceModel extends CI_Model
 		$item_image 	= ($item_image);
 		/**************************************************** */
 		$this->db->select("*");
-		$this->db->from('tbl_invoicexxx');
+		$this->db->from('tbl_invoice');
 		$this->db->where('chemist_id',$ChemistId);
 		$this->db->limit($limit,$get_record);
 		$this->db->order_by('id','desc');

@@ -123,32 +123,30 @@ class MyCartModel extends CI_Model
 		{
 			$selesman_id 	= "";
 		}
-		$where = array('chemist_id' => $user_altercode,'salesman_id'=>$selesman_id,'user_type'=>$user_type,'status' =>'0');
+		$where = array(
+			'chemist_id' => $user_altercode,
+			'salesman_id' => $selesman_id,
+			'user_type' => $user_type,
+			'status' => '0'
+		);
+		
 		$this->db->select("*");
 		$this->db->where($where);
-		if($order_type=="import_order"){
-			$this->db->where('order_type!=','import_order');
+		
+		if($order_type == "import_order") {
+			$this->db->where('order_type!=', 'import_order');
 		}
+		
+		// Simplified ordering using FIELD and single CASE
+		$this->db->order_by("FIELD(order_type, 'pc_mobile', 'import_order')", '', FALSE);
 		$this->db->order_by("
-			CASE 
-				WHEN order_type = 'pc_mobile' THEN 1 
-				WHEN order_type = 'import_order' THEN 2 
-				ELSE 3 
+			CASE order_type 
+				WHEN 'pc_mobile' THEN short_order 
+				WHEN 'import_order' THEN -short_order
 			END
-		", null, false);
-		$this->db->order_by("
-			CASE 
-				WHEN order_type = 'pc_mobile' THEN short_order 
-				ELSE NULL 
-			END
-		", 'DESC', false);
-		$this->db->order_by("
-			CASE 
-				WHEN order_type = 'import_order' THEN short_order 
-				ELSE NULL 
-			END
-		", 'ASC', false);
-		$query = $this->db->get("tbl_cartxxx")->result();
+		", 'DESC', FALSE);
+		
+		$query = $this->db->get("tbl_cart")->result();
         foreach($query as $row)
 		{
 			$item_id			= $row->id;

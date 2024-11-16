@@ -148,7 +148,7 @@ class MyCartModel extends CI_Model
 				ELSE NULL 
 			END
 		", 'ASC', false);
-		$query = $this->db->get("tbl_cart")->result();
+		$query = $this->db->get("tbl_cartxxx")->result();
         foreach($query as $row)
 		{
 			$item_id			= $row->id;

@@ -105,10 +105,10 @@ class MedicineDetailsModel extends CI_Model
 			/************************************************** */
 			$item_order_quantity = "";
 			if(!empty($user_type)) {
-				$where1 = array('chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
+				$where1 = array('chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'user_type'=>$user_type,'i_code'=>$item_code,'status'=>'0');
 				$this->db->select("quantity");
 				$this->db->where($where1);
-				$row1 = $this->db->get("drd_temp_rec")->row();
+				$row1 = $this->db->get("tbl_cart")->row();
 				if(!empty($row1->quantity)){
 					$item_order_quantity = $row1->quantity;
 				}

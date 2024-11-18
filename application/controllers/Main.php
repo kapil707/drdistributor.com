@@ -153,7 +153,7 @@ class Main extends CI_Controller {
 
 		$where = array('order_id'=>$order_id,'chemist_id'=>$chemist_id);
 		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
+		$query = $this->db->get("tbl_cart");
 		$row   = $query->row();
 		$query = $query->result();
 		if($row->id!="")

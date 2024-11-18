@@ -116,7 +116,7 @@ class MyOrderModel extends CI_Model
 
 		$where = array('order_id'=>$ItemId);
 		$this->db->where($where);
-		$query = $this->db->get("tbl_order");
+		$query = $this->db->get("tbl_cart");
 		$row   = $query->row();
 		$query = $query->result();
 

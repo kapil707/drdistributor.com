@@ -28,7 +28,7 @@ class MyOrderModel extends CI_Model
 		
 		$user_image = $this->UserModel->get_chemist_photo($ChemistId);
 
-		$query = $this->db->query("SELECT * FROM `tbl_cart_order` WHERE `chemist_id`= '$ChemistId' order by id desc limit $get_record,$limit")->result();
+		$query = $this->db->query("SELECT * FROM `tbl_cart_orderxxx` WHERE `chemist_id`= '$ChemistId' order by id desc limit $get_record,$limit")->result();
 		if($UserType=="sales")
 		{
 			$query = $this->db->query("SELECT * FROM `tbl_cart_order` WHERE `chemist_id`= '$ChemistId' and `salesman_id`= '$SalesmanId' order by id desc limit $get_record,$limit")->result();

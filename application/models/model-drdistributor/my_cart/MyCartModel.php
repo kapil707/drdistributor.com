@@ -275,42 +275,6 @@ class MyCartModel extends CI_Model
 			{
 				$image1 = $this->MedicineImageUrl.$row1->image1;
 			}
-			$dt = array(
-				'i_code'=>$item_code,
-				'item_code'=>$row1->item_code,
-				'quantity'=>$item_order_quantity,				
-				'item_name'=>$row1->item_name,
-				'packing'=>$row1->packing,
-				'expiry'=>$row1->expiry,
-				'margin'=>$row1->margin,
-				'featured'=>$row1->featured,
-				'company_full_name'=>$row1->company_full_name,
-				'sale_rate'=>$row1->final_price,
-				'scheme'=>$row1->salescm1."+".$row1->salescm2,
-				'image'=>$image1,
-				'chemist_id'=>$user_altercode,
-				'selesman_id'=>$salesman_id,
-				'user_type'=>$user_type,
-				'date'=>$date,
-				'time'=>$time,
-				'datetime'=>$datetime,
-				'temp_rec'=>$temp_rec,
-				'order_type'=>$order_type,
-				'mobilenumber'=>$mobilenumber,
-				'modalnumber'=>$modalnumber,
-				'device_id'=>$device_id,
-				'excel_number'=>$excel_number,
-				'status'=>0,
-				'json_id'=>0,
-				'excel_temp_id'=>0,
-				'filename'=>"",
-				'your_item_name'=>"",
-				'join_temp'=>"",
-				'order_id'=>"",);
-
-			$this->insert_fun("drd_temp_rec",$dt);
-			
-
 			$dt1 = array(
 				'order_id'=>"",
 				'i_code'=>$item_code,
@@ -342,9 +306,9 @@ class MyCartModel extends CI_Model
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 				$this->db->select("id");
 				$this->db->where($where);
-				$row1 = $this->db->get("tbl_cart")->row();		
+				$row1 = $this->db->get("tbl_cartxxx")->row();		
 				if(empty($row1)){
-					$this->insert_fun("tbl_cart",$dt1);
+					$this->insert_fun("tbl_cartxxx",$dt1);
 				}else{
 					//sirf qunatity update hoti ha
 					$dt2 = array(

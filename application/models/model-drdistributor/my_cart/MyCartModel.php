@@ -381,14 +381,6 @@ class MyCartModel extends CI_Model
 		return $return;
 	}
 
-	public function tbl_order_id()
-	{
-		$q = $this->db->query("select order_id from tbl_order_id where id='1'")->row();
-		$order_id = $q->order_id + 1;
-		$this->db->query("update tbl_order_id set order_id='$order_id' where id='1'");
-		return $order_id;
-	}
-
 	public function place_order_api($user_type='',$user_altercode='',$user_password='',$salesman_id='',$order_type='',$remarks='',$latitude='',$longitude='',$mobilenumber='',$modalnumber='',$device_id='')
 	{
 		$chemist_id = $user_altercode;

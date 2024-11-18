@@ -51,7 +51,7 @@ class MyOrderModel extends CI_Model
 			$item_message  = $item_total;
 			$item_image = $user_image;
 
-			$download_url = base_url()."od/".$ChemistId."/".$row->order_id;
+			$download_url = base_url()."od/".$ChemistId."/".$order_id;
 			
 			$dt = array(
 				'item_id' => $item_id,

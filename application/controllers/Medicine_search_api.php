@@ -59,7 +59,7 @@ class Medicine_search_api extends CI_Controller {
 
 		$items = "";
 		if(!empty($keyword)){
-			$items = $this->MedicineSearchModel->medicine_search_api($keyword,$ChemistNrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
+			$items = $this->MedicineSearchModel->medicine_search_api_new($keyword,$ChemistNrx,$total_rec,$checkbox_medicine,$checkbox_company,$checkbox_out_of_stock);
 		}
         
         $response = array(

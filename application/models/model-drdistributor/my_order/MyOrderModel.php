@@ -75,24 +75,11 @@ class MyOrderModel extends CI_Model
 		$jsonArray = array();
 		$title = $download_url = "";
 
-		$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
-		$this->db->where('o.chemist_id',$ChemistId);
-		$this->db->where('o.order_id',$ItemId);
-		$this->db->order_by('o.id','desc');
-		$this->db->from('tbl_order as o');
-		$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
-		$query = $this->db->get()->result();
-		if($UserType=="sales")
-		{
-			$this->db->select("o.*,m.packing,m.expiry,m.company_full_name,m.packing,m.salescm1,m.salescm2,m.image1");
-			$this->db->where('o.selesman_id',$SalesmanId);
-			$this->db->where('o.chemist_id',$ChemistId);
-			$this->db->where('o.order_id',$ItemId);
-			$this->db->order_by('o.id','desc');
-			$this->db->from('tbl_order as o');
-			$this->db->join('tbl_medicine as m', 'm.i_code = o.i_code', 'left');
-			$query = $this->db->get()->result();
-		}
+		$this->db->select("*");
+		$this->db->where('order_id',$ItemId);
+		$this->db->order_by('id','desc');
+		$this->db->from('tbl_cart');
+		$query = $this->db->get()->result();		
 		foreach($query as $row)
 		{
 			if(empty($row->gstvno))

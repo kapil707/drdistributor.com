@@ -11,19 +11,6 @@ class MyCartModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
-	public function get_temp_rec($user_type='',$user_altercode='',$salesman_id='')
-	{
-		if($user_type=="sales")
-		{
-			$return = $user_type."_".$salesman_id."_".$user_altercode;
-		}
-		else
-		{
-			$return = $user_type."_".$user_altercode;
-		}
-		return $return;
-	}
-	
 	public function get_total_price_of_order($user_type='',$user_altercode='',$user_password='',$salesman_id='',$device_type="website")
 	{		
 		$chemist_id = $user_altercode;
@@ -226,11 +213,6 @@ class MyCartModel extends CI_Model
 
 	public function medicine_add_to_cart_api($user_type,$user_altercode,$salesman_id,$item_code,$item_order_quantity,$order_type,$excel_number="0",$mobilenumber="",$modalnumber="",$device_id="")
 	{
-		/**************************************************************** */
-		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
-		$this->delete_fun("drd_temp_rec", $where);
-		/**************************************************************** */
-
 		$time = time();
 		$date = date("Y-m-d",$time);
 		$time1 = date("H:i",$time);
@@ -238,15 +220,6 @@ class MyCartModel extends CI_Model
 		$timestamp = time();
 
 		/**************************************************************** */
-		if($user_type=="sales")
-		{
-			$temp_rec = $user_type."_".$salesman_id."_".$user_altercode;			
-		}
-		else
-		{
-			$temp_rec = $user_type."_".$user_altercode;
-		}
-
 		$short_order = $this->get_short_order($user_type,$user_altercode,$salesman_id);
 
 		/**********1000 say jada ki value add he nahi hoya ge cart me */
@@ -254,17 +227,6 @@ class MyCartModel extends CI_Model
 			$item_order_quantity = 1000;
 		}
 		
-		/**************************************************************** *
-		 * off kar diya yha 2024-03-23 ko
-		if(empty($excel_number)){
-			$excel_number = 1;
-			$row = $this->db->query("select excel_number from drd_temp_rec where user_type='$user_type' and chemist_id='$user_altercode' and selesman_id='$salesman_id' and status=0 order by id desc")->row();
-			if(!empty($row->excel_number)){
-				$excel_number = $row->excel_number + 1;
-			}
-		}
-		
-
 		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);
 		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
@@ -333,13 +295,8 @@ class MyCartModel extends CI_Model
 	public function medicine_delete_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
 		/**************************************************************** */
-		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','i_code'=>$item_code);
-		$result = $this->delete_fun("drd_temp_rec", $where);
-		/**************************************************************** */
-
-		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0','i_code'=>$item_code);
-		$result = $this->delete_fun("tbl_cart", $where);
+		$result = $this->delete_query("tbl_cart", $where);
 		/**************************************************************** */
 		
 		if(empty($result)){
@@ -362,7 +319,7 @@ class MyCartModel extends CI_Model
 	{
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
-		$result = $this->delete_fun("tbl_cart", $where);
+		$result = $this->delete_query("tbl_cart", $where);
 		/**************************************************************** */
 		
 		if(empty($result)){
@@ -394,7 +351,6 @@ class MyCartModel extends CI_Model
 		}
 		
 		$get_total_price_of_order["status"] = 1;
-		$temp_rec = $this->get_temp_rec($user_type,$chemist_id,$salesman_id);
 		if($user_type=="chemist")
 		{
 			$get_total_price_of_order = $this->get_total_price_of_order($user_type,$chemist_id,$user_password,$salesman_id);
@@ -477,7 +433,7 @@ class MyCartModel extends CI_Model
 		}
 	}
 
-	function delete_fun($tbl,$where)
+	function delete_query($tbl,$where)
 	{
 		if($this->db->delete($tbl,$where))
 		{

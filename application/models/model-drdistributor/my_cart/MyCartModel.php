@@ -306,9 +306,9 @@ class MyCartModel extends CI_Model
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
 				$this->db->select("id");
 				$this->db->where($where);
-				$row1 = $this->db->get("tbl_cartxxx")->row();		
+				$row1 = $this->db->get("tbl_cart")->row();		
 				if(empty($row1)){
-					$this->insert_fun("tbl_cartxxx",$dt1);
+					$this->insert_query("tbl_cart",$dt1);
 				}else{
 					//sirf qunatity update hoti ha
 					$dt2 = array(
@@ -317,7 +317,7 @@ class MyCartModel extends CI_Model
 						'time'=>$time1,
 						'timestamp'=>$timestamp,
 						'order_type'=>$order_type,);
-					$this->update_fun("tbl_cart",$dt2,$where);
+					$this->update_query("tbl_cart",$dt2,$where);
 				}
 			$status = "1";
 			$status_message = "Medicine added successfully";
@@ -360,11 +360,6 @@ class MyCartModel extends CI_Model
 
 	public function medicine_delete_all_api($user_type="",$user_altercode="",$salesman_id="")
 	{
-		/**************************************************************** */
-		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0');
-		$result = $this->delete_fun("drd_temp_rec", $where);
-		/**************************************************************** */
-
 		/**************************************************************** */
 		$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
 		$result = $this->delete_fun("tbl_cart", $where);
@@ -425,15 +420,14 @@ class MyCartModel extends CI_Model
 			$download_time = date("YmdHi", strtotime('+2 minutes', time()));
 			/*------------------------------------------------*/
 
-
-			/********************************************************************************** */
+			/************************************************************************* */
 			$total = 0;
 			$row_total = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
 			if(!empty($row_total)){
 				$total = $row_total->items_price;
 				$items_total = $row_total->items_total;
 			}
-			$dt1 = array(
+			$dt = array(
 				'chemist_id'=>$chemist_id,
 				'salesman_id'=>$salesman_id,
 				'user_type'=>$user_type,
@@ -446,82 +440,14 @@ class MyCartModel extends CI_Model
 				'download_time'=>$download_time,
 				'items_total'=>$items_total,
 				'gstvno'=>0);
-			$query = $this->insert_fun("tbl_cart_order",$dt1);
-			$order_id = $query;
-			/********************************************************************************** */
-			
-			$this->db->distinct("i_code");
-			$this->db->select("i_code,quantity,item_name,sale_rate,item_code,image");
-			if($user_type=="sales")
+			$order_id = $this->insert_query("tbl_cart_order",$dt);
+			/************************************************************************ */
+			if(!empty($order_id))
 			{
-				$this->db->where('selesman_id',$salesman_id);
-			}
-			$this->db->where('user_type',$user_type);
-			$this->db->where('temp_rec',$temp_rec);
-			$this->db->where('chemist_id',$chemist_id);
-			$this->db->where('status','0');
-			$this->db->order_by('i_code','desc');	
-			$query = $this->db->get("drd_temp_rec")->result();
-						
-			$total = 0;
-			$join_temp = time()."_".$user_type."_".$chemist_id."_".$salesman_id;
-			$i_code = "";
-			$temp_rec_new = $order_id."_".$temp_rec;
-			foreach($query as $row)
-			{
-				$i_code		= 	$row->i_code;
-				$quantity 	= 	$row->quantity;
-				$item_name 	=  	$row->item_name;
-				$sale_rate 	=  	$row->sale_rate;
-				$item_code 	=  	$row->item_code; // its real id
-				$item_image	=  	$row->image;				
-				
-				$total = $total + ($sale_rate * $quantity);				
-				
-				if(!empty($item_name)){
-					$dt = array(
-						'order_id'=>$order_id,
-						'chemist_id'=>$chemist_id,
-						'selesman_id'=>$salesman_id,
-						'user_type'=>$user_type,
-						'order_type'=>$order_type,
-						'remarks'=>$remarks,
-						'i_code'=>$i_code,
-						'item_code'=>$item_code,
-						'item_name'=>$item_name,
-						'quantity'=>$quantity,
-						'sale_rate'=>$sale_rate,
-						'date'=>$date,
-						'time'=>$time,
-						'join_temp'=>$join_temp,
-						'temp_rec'=>$temp_rec_new,
-						'status'=>'1',
-						'gstvno'=>'',
-						'odt'=>'',
-						'ordno_new'=>'',
-						'latitude'=>$latitude,
-						'longitude'=>$longitude,
-						'mobilenumber'=>$mobilenumber,
-						'modalnumber'=>$modalnumber,
-						'device_id'=>$device_id,
-						'image'=>$item_image,
-						'download_time'=>$download_time,
-					);
-					$query = $this->insert_fun("tbl_order",$dt);
-				}
-			}
-			if(!empty($query))
-			{
-				/**************************************** */
-				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'selesman_id'=>$salesman_id,'status'=>'0','temp_rec'=>$temp_rec);
-				$dt = array('status'=>'1','order_id'=>$order_id);
-				$this->update_fun("drd_temp_rec",$dt,$where);
-				/**************************************** */
-
 				/**************************************** */
 				$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'status'=>'0');
 				$dt = array('status'=>'1','order_id'=>$order_id,);
-				$this->update_fun("tbl_cart",$dt,$where);
+				$this->update_query("tbl_cart",$dt,$where);
 				/**************************************** */
 				
 				$place_order_message = $this->Scheme_Model->get_website_data("place_order_message");
@@ -535,7 +461,7 @@ class MyCartModel extends CI_Model
 		}
 	}
 
-	function insert_fun($tbl,$dt)
+	function insert_query($tbl,$dt)
 	{
 		if($this->db->insert($tbl,$dt))
 		{
@@ -547,7 +473,7 @@ class MyCartModel extends CI_Model
 		}
 	}
 
-	function update_fun($tbl,$dt,$where)
+	function update_query($tbl,$dt,$where)
 	{
 		if($this->db->update($tbl,$dt,$where))
 		{

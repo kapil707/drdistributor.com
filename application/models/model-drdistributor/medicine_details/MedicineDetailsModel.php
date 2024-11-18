@@ -24,7 +24,7 @@ class MedicineDetailsModel extends CI_Model
 		$where = array('i_code'=>$item_code);
 		$db_medicine->where($where);
 		$db_medicine->limit(1);
-		$row = $db_medicine->get("tbl_medicinexxx")->row();
+		$row = $db_medicine->get("tbl_medicine")->row();
 		if(!empty($row->id))
 		{
 			$item_code			=	$row->i_code;

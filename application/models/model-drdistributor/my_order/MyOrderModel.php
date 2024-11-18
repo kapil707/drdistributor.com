@@ -36,15 +36,15 @@ class MyOrderModel extends CI_Model
 		foreach($query as $row)
 		{
 			$get_record++;
-			$order_id 	= $row->order_id;						
+			$order_id 	= $row->id;						
 			$item_total = round($row->total,2);
 			if(empty($row->gstvno))
 			{
-				$item_title = "Pending / Order no. ".$row->order_id;
+				$item_title = "Pending / Order no. ".$order_id;
 			}
 			else
 			{
-				$item_title = "Generated / Order no. ".$row->order_id ." / Gstvno no. ".$row->gstvno;
+				$item_title = "Generated / Order no. ".$order_id ." / Gstvno no. ".$row->gstvno;
 			}
 			$item_date_time	= date("d-M-y",strtotime($row->date))." @ ".date("h:i a",strtotime($row->time));		
 			$item_id = $order_id;

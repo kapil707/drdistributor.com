@@ -12,12 +12,12 @@ class MyOrderModel extends CI_Model
 	}
 
 	public function OrderCheck($ChemistId,$OrderId){
-		$this->db->select("order_id");
+		$this->db->select("id");
 		$this->db->where('chemist_id',$ChemistId);
-		$this->db->where('order_id',$OrderId);
-		$row = $this->db->get("tbl_order")->row();
+		$this->db->where('id',$OrderId);
+		$row = $this->db->get("tbl_cart")->row();
 		if(!empty($row)){
-			return $row->order_id;
+			return $row->id;
 		}else{
 			return "";
 		}
@@ -31,7 +31,7 @@ class MyOrderModel extends CI_Model
 		$query = $this->db->query("SELECT * FROM `tbl_cart_order` WHERE `chemist_id`= '$ChemistId' order by id desc limit $get_record,$limit")->result();
 		if($UserType=="sales")
 		{
-			$query = $this->db->query("SELECT DISTINCT(order_id) as order_id,sum(`sale_rate`*`quantity`) as total,gstvno,date,time FROM `tbl_order` WHERE `chemist_id`= '$ChemistId' and selesman_id='$SalesmanId' GROUP BY order_id,gstvno,date,time order by order_id desc limit $get_record,$limit")->result();
+			$query = $this->db->query("SELECT * FROM `tbl_cart_order` WHERE `chemist_id`= '$ChemistId' and `salesman_id`= '$SalesmanId' order by id desc limit $get_record,$limit")->result();
 		}
 		foreach($query as $row)
 		{

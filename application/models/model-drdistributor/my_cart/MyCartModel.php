@@ -32,7 +32,7 @@ class MyCartModel extends CI_Model
 		{
 			$salesman_id = "";
 		}
-		$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cart` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
+		$row = $this->db->query("SELECT count(id) as items_total,sum(sale_rate*quantity) as items_price FROM `tbl_cartxxxx` WHERE `chemist_id`='$chemist_id' and salesman_id='$salesman_id' and user_type='$user_type' and status=0")->row();
 		if(!empty($row)){
 			$items_total = $row->items_total;
 			$items_price = $row->items_price;

@@ -70,14 +70,14 @@ class Import_order_api extends CI_Controller {
 		$time = date("H:i",time());
 		
 		$where = array('user_altercode'=>$ChemistId);
-		$row = $this->Scheme_Model->select_row("drd_excel_file",$where);
+		$row = $this->Scheme_Model->select_row("import_order_excel_file",$where);
 		if(empty($row->id))
 		{
-			$this->db->query("insert into drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp',user_altercode='$ChemistId'");
+			$this->db->query("insert into import_order_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp',user_altercode='$ChemistId'");
 		}
 		else
 		{
-			$this->db->query("update drd_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp' where user_altercode='$ChemistId'");
+			$this->db->query("update import_order_excel_file set headername='$headername',itemname='$itemname',itemqty='$itemqty',itemmrp='$itemmrp' where user_altercode='$ChemistId'");
 		}
 		
 		$filename = time().$_FILES['file']['name'];

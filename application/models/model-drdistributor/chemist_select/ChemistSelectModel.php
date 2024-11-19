@@ -93,7 +93,7 @@ class ChemistSelectModel extends CI_Model
 		->where('tcart.status', '0')
 		->group_by('tcart.chemist_id, tc.name, tc.narcolicence, tco.image');
 
-		$query = $this->db->get();
+		$query = $this->db->get()->result();
 		foreach($query as $row)
 		{	
 			$chemist_id = $row->chemist_id;

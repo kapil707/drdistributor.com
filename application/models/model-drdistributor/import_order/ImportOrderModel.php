@@ -328,7 +328,7 @@ class ImportOrderModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where('user_altercode',$ChemistId);
 		$this->db->order_by('your_item_name','asc');
-		$result = $this->db->get("drd_import_orders_suggest")->result();
+		$result = $this->db->get("tbl_import_order_suggest")->result();
 		foreach($result as $row) {
 			$dt = array(
 				'sr_no' => $sr_no++,
@@ -347,7 +347,7 @@ class ImportOrderModel extends CI_Model
 	}
 
 	public function delete_suggest_by_id_api($id){
-		$this->db->query("delete from drd_import_orders_suggest where id='$id'");
+		$this->db->query("delete from tbl_import_order_suggest where id='$id'");
 	}
 
 	public function order_check($order_id) {
@@ -435,7 +435,7 @@ class ImportOrderModel extends CI_Model
 		$this->db->select("*");
 		$this->db->where('your_item_name',$order_item_name);
 		$this->db->order_by('id','desc');
-		$row1 = $this->db->get("drd_import_orders_suggest")->row();
+		$row1 = $this->db->get("tbl_import_order_suggest")->row();
 		if(!empty($row1->id)) {
 			$suggest = 1;
 			$order_item_name		= $row1->item_name;
@@ -447,7 +447,7 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('user_altercode',$ChemistId);
 		$this->db->where('your_item_name',$order_item_name);
 		$this->db->order_by('id','desc');
-		$row1 = $this->db->get("drd_import_orders_suggest")->row();
+		$row1 = $this->db->get("tbl_import_order_suggest")->row();
 		if(!empty($row1->id)) {
 			$suggest = 1;
 			$order_item_name		= $row1->item_name;
@@ -528,7 +528,7 @@ class ImportOrderModel extends CI_Model
 		/******************************************************* */
 
 		$where = array('your_item_name'=>$your_item_name,'user_altercode'=>$ChemistId);
-		$this->delete_query("drd_import_orders_suggest",$where);
+		$this->delete_query("tbl_import_order_suggest",$where);
 		/******************************************************* */
 		
 		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
@@ -550,7 +550,7 @@ class ImportOrderModel extends CI_Model
 			'time'=>$time,
 			'datetime'=>$datetime,
 		);
-		$this->insert_query("drd_import_orders_suggest",$dt);
+		$this->insert_query("tbl_import_order_suggest",$dt);
 		$status = 1;
 		return $status;
 	}
@@ -567,12 +567,12 @@ class ImportOrderModel extends CI_Model
 			$this->db->select("i_code");
 			$this->db->where('your_item_name',$your_item_name);
 			$this->db->where('user_altercode',$ChemistId);
-			$row1 = $this->db->get("drd_import_orders_suggest")->row();
+			$row1 = $this->db->get("tbl_import_order_suggest")->row();
 			$ItemCode = $row1->i_code;
 			/******************************************************* */
 
 			$where = array('your_item_name'=>$your_item_name,'user_altercode'=>$ChemistId);
-			$this->delete_query("drd_import_orders_suggest",$where);
+			$this->delete_query("tbl_import_order_suggest",$where);
 			/******************************************************* */
 
 			$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);

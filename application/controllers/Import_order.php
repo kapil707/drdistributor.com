@@ -67,7 +67,7 @@ class Import_order extends CI_Controller {
 		$ChemistId =$this->ChemistId;
 
 		$where = array('user_altercode'=>$ChemistId);
-		$row = $this->Scheme_Model->select_row("tbl_import_order_excel_file",$where);
+		$row = $this->Scheme_Model->select_row("tbl_import_order_excel_row",$where);
 		$data["headername"] = $data["itemname"] = $data["itemqty"] = $data["itemmrp"] 	= "";
 		if(!empty($row->headername))
 		{

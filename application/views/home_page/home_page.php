@@ -97,9 +97,9 @@ $(".top_bar_title").html("Delivering to");
 
 <script src="<?php echo base_url(); ?>assets/<?php echo $this->appconfig->getWebJs(); ?>/js/home_page.js"></script>
 
-<?php /*if(!empty($UserType)){ ?>
-<script src="<?= base_url(); ?>assets/firebase/firebase12.js" type="module"></script>
-<?php }*/ ?>
+<?php if(!empty($UserType)){ ?>
+<script src="<?= base_url(); ?>assets/firebase/firebase123.js" type="module"></script>
+<?php } ?>
 
 <!-- ******************broadcast_message***************************** -->
 <div id="myModal_broadcast" class="modal fade" tabindex="-1" role="dialog">

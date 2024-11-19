@@ -22,7 +22,7 @@ const messaging = getMessaging(app);
 
 // Register the service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("./assets/firebase/sw12.js").then(registration => {
+    navigator.serviceWorker.register("./assets/firebase/sw123.js").then(registration => {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {

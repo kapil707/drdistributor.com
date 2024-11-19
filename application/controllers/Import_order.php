@@ -64,7 +64,7 @@ class Import_order extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$ChemistId =$this->ChemistId;
+		$ChemistId = $this->ChemistId;
 
 		$where = array('user_altercode'=>$ChemistId);
 		$row = $this->Scheme_Model->select_row("tbl_import_order_excel_row",$where);

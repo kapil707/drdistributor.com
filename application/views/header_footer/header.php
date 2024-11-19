@@ -468,7 +468,7 @@ function get_FirebaseToken() {
 	<?php if(!empty($FirebaseToken)){ ?>
 		return "<?= $FirebaseToken ?>";
 	<?php } else {?>
-		return "xxx";
+		return "";
 	<?php } ?>
 }
 var default_img = "<?= base_url(); ?>uploads/default_img.webp";

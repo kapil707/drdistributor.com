@@ -37,6 +37,10 @@ class chemist_select extends CI_Controller {
 		$this->FirebaseToken= $this->session->userdata('FirebaseToken');
 		$this->UserCart		= $this->session->userdata('UserCart');
 		/********************************************************** */
+
+		if($this->UserType=="chemist"){
+			redirect('home');
+		}
 	}
     
     public function index(){

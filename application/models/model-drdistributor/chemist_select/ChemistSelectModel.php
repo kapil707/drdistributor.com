@@ -83,8 +83,8 @@ class ChemistSelectModel extends CI_Model
 			tc.narcolicence,
 			tco.image,
 			tcart.chemist_id,
-			COUNT(tcart.id) as total_count,
-			SUM(tcart.quantity * tcart.sale_rate) as total_amount
+			COUNT(tcart.id) as user_cart,
+			SUM(tcart.quantity * tcart.sale_rate) as user_cart_total
 		')
 		->from('tbl_cart tcart')
 		->join('tbl_chemist tc', 'tc.altercode = tcart.chemist_id', 'left')
@@ -97,8 +97,8 @@ class ChemistSelectModel extends CI_Model
 		foreach($query as $row)
 		{	
 			$chemist_id = $row->chemist_id;
-			$user_cart = $row->total_cart;
-			$user_cart_total = $row->total_amount;
+			$user_cart = $row->user_cart;
+			$user_cart_total = $row->user_cart_total;
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
 
 			$chemist_name  		= (ucwords(strtolower($row->name)));		

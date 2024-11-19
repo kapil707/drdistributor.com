@@ -259,21 +259,6 @@ class Import_order_api extends CI_Controller {
 		return preg_replace('/[^A-Za-z0-9\#]/', ' ', $string);
 	}
 	
-	public function get_temp_rec($chemist_id)
-	{
-		$user_altercode = $_COOKIE['user_altercode'];
-		$user_type 		= $_COOKIE['user_type'];
-		if($user_type=="sales")
-		{
-			$temp_rec = $user_type."_".$user_altercode."_".$chemist_id;
-		}
-		else
-		{
-			$temp_rec = $user_type."_".$user_altercode;
-		}
-		return $temp_rec;
-	}
-	
 	function highlightWords($string, $search){
 		$string = strtoupper($this->clean2($string));
 		$search = strtoupper($search);

@@ -15,7 +15,22 @@ class ChemistSelectModel extends CI_Model
 	{		
 		$jsonArray = array();
 
-		$result = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where (name like '".$keyword."%' or altercode='$keyword' or altercode like '%".$keyword."' or altercode like '".$keyword."%' or altercode like '%".$keyword."%') and slcd='CL' limit 50")->result();		
+		$this->db->select('
+			tc.name,
+			tc.altercode,
+			tco.image,
+			tc.narcolicence
+		')
+		->from('tbl_chemist tc')
+		->join('tbl_chemist_other tco', 'tc.code = tco.code', 'left')
+		->where('tc.slcd', 'CL')
+		->group_start()
+			->like('tc.name', $keyword, 'after')
+			->or_where('tc.altercode', $keyword)
+			->or_like('tc.altercode', $keyword, 'both')
+		->group_end()
+		->limit(50);
+		$result = $this->db->get()->result();
 		$count = $user_cart = $user_cart_total = 0;
 		foreach ($result as $row)
 		{
@@ -63,29 +78,38 @@ class ChemistSelectModel extends CI_Model
 		$jsonArray = array();
 
 		$items = "";
-		$query = $this->db->query("select distinct chemist_id from drd_temp_rec where selesman_id='$SalesmanId' and user_type='$UserType' and status='0' order by chemist_id asc")->result();
+		$this->db->select('
+			tc.name,
+			tc.narcolicence,
+			tco.image,
+			tcart.chemist_id,
+			COUNT(tcart.id) as total_count,
+			SUM(tcart.quantity * tcart.sale_rate) as total_amount
+		')
+		->from('tbl_cart tcart')
+		->join('tbl_chemist tc', 'tc.altercode = tcart.chemist_id', 'left')
+		->join('tbl_chemist_other tco', 'tc.code = tco.code', 'left')
+		->where('tcart.salesman_id', 'sm1')
+		->where('tcart.status', '0')
+		->group_by('tcart.chemist_id, tc.name, tc.narcolicence, tco.image');
+
+		$query = $this->db->get();
 		foreach($query as $row)
 		{	
 			$chemist_id = $row->chemist_id;
-			$row1 = $this->db->query("select count(id) as user_cart,sum(quantity*sale_rate) as user_cart_total from drd_temp_rec where user_type='$UserType' and selesman_id='$SalesmanId' and chemist_id='$chemist_id' and status=0")->row();
-			$user_cart = $user_cart_total = 0;
-			if($row1->user_cart!=0)
-			{
-				$user_cart = $row1->user_cart;
-				$user_cart_total = $row1->user_cart_total;
-			}
+			$user_cart = $row->total_cart;
+			$user_cart_total = $row->total_amount;
 			$user_cart_total = sprintf('%0.2f',round($user_cart_total,2));
-			
-			$row1 = $this->db->query("select tbl_chemist.name,tbl_chemist.altercode,tbl_chemist_other.image,tbl_chemist.narcolicence from tbl_chemist left JOIN tbl_chemist_other on tbl_chemist.code=tbl_chemist_other.code where tbl_chemist.altercode='$chemist_id'")->row();
-			$chemist_name  		= (ucwords(strtolower($row1->name)));		
-			$chemist_altercode 	= $row1->altercode;
+
+			$chemist_name  		= (ucwords(strtolower($row->name)));		
+			$chemist_altercode 	= $chemist_id;
 			$chemist_image = base_url()."assets/".$this->appconfig->getWebJs()."/images/logo4.png";
-			if(!empty($row1->image))
+			if(!empty($row->image))
 			{
-				$chemist_image = $this->user_profile_url.$row1->image;
+				$chemist_image = $this->user_profile_url.$row->image;
 			}
 
-			$narcolicence		= 	$row1->narcolicence;
+			$narcolicence		= 	$row->narcolicence;
 			$user_nrx = "no";
 			if($narcolicence=="."){
 				$user_nrx = "yes";

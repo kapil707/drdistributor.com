@@ -52,6 +52,7 @@ class Use_device_api extends CI_Controller {
 		if(!empty($UserType) && !empty($ChemistId) && !empty($FirebaseToken) && emtpy($this->FirebaseToken)) {
 
 			$this->session->set_userdata('FirebaseToken',$FirebaseToken);
+			echo "added";
 			
 			$result = $this->UserDeviceModel->insert_user_device($UserType,$ChemistId,$SalesmanId,$FirebaseToken,$type);
 		}

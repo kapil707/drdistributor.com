@@ -86,7 +86,7 @@ class Import_order_api extends CI_Controller {
 		if(move_uploaded_file($uploadedfile, $upload_path.$filename))
 		{
 			/*****************************/
-			$row = $this->db->query("select order_id from drd_import_file order by id desc limit 1")->row();
+			$row = $this->db->query("select order_id from tbl_import_order_excel_file order by id desc limit 1")->row();
 			$order_id = 1;
 			if(!empty($row->order_id))
 			{
@@ -140,7 +140,7 @@ class Import_order_api extends CI_Controller {
 								'date'=>$date,
 								'time'=>$time,
 							);
-							$this->Scheme_Model->insert_fun("drd_import_file",$dt);
+							$this->Scheme_Model->insert_fun("tbl_import_order_excel_file",$dt);
 						}
 					}
 				}

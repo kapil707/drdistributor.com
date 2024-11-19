@@ -196,7 +196,7 @@ class Import_order extends CI_Controller {
 			$file_name 		= $acm_altercode;
 		}
 		/***********************************************/
-		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and (status=0 or status=1 or status=3)")->result();
+		$result = $this->db->query("select * from tbl_import_order_excel_file where order_id='$order_id' and (status=0 or status=1 or status=3)")->result();
 		$data["result"]	= $result;
 		if(empty($result))
 		{
@@ -302,7 +302,7 @@ class Import_order extends CI_Controller {
 	public function downloadfile($order_id='')
 	{	
 		$order_id = base64_decode($order_id);
-		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status=0")->result();
+		$result = $this->db->query("select * from tbl_import_order_excel_file where order_id='$order_id' and status=0")->result();
 		
 		$delimiter = ",";
 		$filename = "download.csv";
@@ -327,7 +327,7 @@ class Import_order extends CI_Controller {
 	
 	public function import_order_downloadall($order_id='')
 	{
-		$result = $this->db->query("select * from drd_import_file where order_id='$order_id' and status='0'")->result();
+		$result = $this->db->query("select * from tbl_import_order_excel_file where order_id='$order_id' and status='0'")->result();
 		
 		$delimiter = ",";
 		$filename = "download.csv";

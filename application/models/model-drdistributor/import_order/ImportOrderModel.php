@@ -353,14 +353,14 @@ class ImportOrderModel extends CI_Model
 	public function order_check($order_id) {
 
 		// agar process ruk gaya yha user nay refresh kar diya to jo pending me ha oss ko rest karta ha is query say
-		$this->db->query("update drd_import_file set status='0' where order_id='$order_id' and status=1");
+		$this->db->query("update tbl_import_order_excel_file set status='0' where order_id='$order_id' and status=1");
 
 		$this->db->select("id");
 		$this->db->where('order_id',$order_id);
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
-		$row = $this->db->get("drd_import_file")->row();
+		$row = $this->db->get("tbl_import_order_excel_file")->row();
 		if(!empty($row)){
 			$jsonArray = "yes";
 		}else{
@@ -379,11 +379,11 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('status',0);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
-		$row = $this->db->get("drd_import_file")->row();
+		$row = $this->db->get("tbl_import_order_excel_file")->row();
 		if(!empty($row))
 		{
 			// rest karta ha taki item fir say process kar saky
-			$this->db->query("update drd_import_file set status='1' where id='$row->id'");
+			$this->db->query("update tbl_import_order_excel_file set status='1' where id='$row->id'");
 
 			$dt = array(
 				'id' => $row->id,
@@ -409,10 +409,10 @@ class ImportOrderModel extends CI_Model
 		$this->db->where('status',1);
 		$this->db->order_by('id','asc');
 		$this->db->limit(1);
-		$row = $this->db->get("drd_import_file")->row();
+		$row = $this->db->get("tbl_import_order_excel_file")->row();
 		if(!empty($row))
 		{
-			$this->db->query("update drd_import_file set status='2' where id='$row->id'");
+			$this->db->query("update tbl_import_order_excel_file set status='2' where id='$row->id'");
 		}
 		return $row;
 	}
@@ -421,7 +421,7 @@ class ImportOrderModel extends CI_Model
 		
 		$this->db->select("*");
 		$this->db->where('id',$ItemId);
-		$row = $this->db->get("drd_import_file")->row();
+		$row = $this->db->get("tbl_import_order_excel_file")->row();
 
 		$order_id			= $row->order_id;
 		$order_quantity		= $row->quantity;
@@ -495,7 +495,7 @@ class ImportOrderModel extends CI_Model
 
 	public function import_order_row_delete($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemCode) {
 		
-		$this->db->query("update drd_import_file set status=3 where id='$ItemId'");
+		$this->db->query("update tbl_import_order_excel_file set status=3 where id='$ItemId'");
 		/******************************************************* */
 		
 		$this->MyCartModel->medicine_delete_api($UserType,$ChemistId,$SalesmanId,$ItemCode);
@@ -507,7 +507,7 @@ class ImportOrderModel extends CI_Model
 
 	public function import_order_row_quantity_change($UserType,$ChemistId,$SalesmanId,$ItemId,$ItemQuantity) {
 		
-		$this->db->query("update drd_import_file set quantity='$ItemQuantity' where id='$ItemId'");
+		$this->db->query("update tbl_import_order_excel_file set quantity='$ItemQuantity' where id='$ItemId'");
 
 		$status = 1;
 		return $status;
@@ -523,7 +523,7 @@ class ImportOrderModel extends CI_Model
 
 		$this->db->select("item_name");
 		$this->db->where('id',$ItemId);
-		$row1 = $this->db->get("drd_import_file")->row();
+		$row1 = $this->db->get("tbl_import_order_excel_file")->row();
 		$your_item_name = $row1->item_name;		
 		/******************************************************* */
 
@@ -535,7 +535,7 @@ class ImportOrderModel extends CI_Model
 		/******************************************************* */
 
 		// rest karta ha taki item fir say process kar saky
-		$this->db->query("update drd_import_file set status='1' where id='$ItemId'");
+		$this->db->query("update tbl_import_order_excel_file set status='1' where id='$ItemId'");
 
 		$date = date('Y-m-d');
 		$time = time();
@@ -560,7 +560,7 @@ class ImportOrderModel extends CI_Model
 		$status = 0;
 		$this->db->select("item_name");
 		$this->db->where('id',$ItemId);
-		$row = $this->db->get("drd_import_file")->row();
+		$row = $this->db->get("tbl_import_order_excel_file")->row();
 		if(!empty($row->item_name))
 		{
 			$your_item_name = $row->item_name;
@@ -579,7 +579,7 @@ class ImportOrderModel extends CI_Model
 			/******************************************************* */
 
 			// rest karta ha taki item fir say process kar saky
-			$this->db->query("update drd_import_file set status='1' where id='$ItemId'");
+			$this->db->query("update tbl_import_order_excel_file set status='1' where id='$ItemId'");
 
 			$status = 1;
 		}

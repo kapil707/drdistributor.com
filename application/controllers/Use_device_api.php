@@ -49,7 +49,7 @@ class Use_device_api extends CI_Controller {
 		$FirebaseToken  = $_POST["firebase_token"];
 		$type = "Web";
 
-		if(!empty($UserType) && !empty($ChemistId) && !empty($FirebaseToken)) {
+		if(!empty($UserType) && !empty($ChemistId) && !empty($FirebaseToken) && emtpy($this->FirebaseToken)) {
 
 			$this->session->set_userdata('FirebaseToken',$FirebaseToken);
 			

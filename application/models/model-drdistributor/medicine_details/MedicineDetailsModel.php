@@ -14,7 +14,6 @@ class MedicineDetailsModel extends CI_Model
 	public function medicine_details_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
 	{
 		$jsonArray = array();
-		//$this->insert_top_search($user_type,$user_altercode,$salesman_id,$item_code);
 
 		$item_date_time = date('d-M h:i A');
 		
@@ -158,28 +157,6 @@ class MedicineDetailsModel extends CI_Model
 
 		$return["items"] = $jsonArray;
 		return $return;
-	}
-
-	public function insert_top_search($user_type,$user_altercode,$salesman_id,$item_code)
-	{
-		$where = array('user_altercode'=>$user_altercode,'salesman_id'=>$salesman_id,'user_type'=>$user_type,'item_code'=>$item_code);
-		$row = $this->Scheme_Model->select_row("tbl_top_search",$where);
-		if(empty($row))
-		{
-			$date = date('Y-m-d');
-			$time = date("H:i",time());
-			$datetime = time();
-			$dt = array(
-				'user_altercode'=>$user_altercode,
-				'salesman_id'=>$salesman_id,
-				'user_type'=>$user_type,
-				'item_code'=>$item_code,
-				'date'=>$date,
-				'time'=>$time,
-				'datetime'=>$datetime,
-			);
-			$this->Scheme_Model->insert_fun("tbl_top_search",$dt);
-		}
 	}
 
 	public function add_stock_low($user_type,$user_altercode,$salesman_id,$item_code)

@@ -33,10 +33,7 @@ class MedicineItemModel extends CI_Model
 	
 	public function medicine_item($SessionValue="no",$CategoryId,$UserType='',$ChemistId='',$SalesmanId='',$ChemistNrx='',$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
-		if($CategoryId=="1"){
-			return $this->get_medicine_new_this_month_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
-		}
-		if($CategoryId=="2" || $CategoryId=="3" || $CategoryId=="4" || $CategoryId=="6" || $CategoryId=="7"){
+		if($CategoryId=="1" || $CategoryId=="2" || $CategoryId=="3" || $CategoryId=="4" || $CategoryId=="6" || $CategoryId=="7"){
 			return $this->get_medicine_item($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type);
 		}
 		/************************************ */
@@ -61,6 +58,12 @@ class MedicineItemModel extends CI_Model
 		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
 		$this->db->from('tbl_medicine_compare');
 		$this->db->join('tbl_medicine AS m', 'm.i_code = tbl_medicine_compare.i_code', 'left');
+		if($CategoryId=="1"){
+			//new_medicine
+			/*********page where******************* */
+			$this->db->where('tbl_medicine_compare.compare_type','new_medicine');
+			/************************************ */
+		}
 		if($CategoryId=="2"){
 			//hot_selling
 			/*********page where******************* */

@@ -9,25 +9,25 @@ class SliderModel extends CI_Model
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 	}
 
-	function slider_to_url($funtype="",$compid="",$division=""){
+	function slider_to_url($fun_type="",$item_code="",$comp_division=""){
 
-		$compid = $this->MedicineDivisionModel->get_division_category_id_name($compid);		
-		$compid = str_replace(" ","-",$compid);
-		$compid = strtolower($compid);
+		$item_code = $this->MedicineDivisionModel->get_division_category_id_name($item_code);		
+		$item_code = str_replace(" ","-",$item_code);
+		$item_code = strtolower($item_code);
 		$url = "#";
 		if($funtype==1)
 		{
-			$url = base_url()."md/".$compid;
+			$url = base_url()."md/".$item_code;
 		}
 		if($funtype==2)
 		{
-			$url = base_url()."c/fb/".$compid."/".$division;
+			$url = base_url()."c/fb/".$item_code."/".$comp_division;
 		}
 		return $url;
 	}
-	function slider_to_android($funtype=""){
+	function slider_to_android($fun_type=""){
 		$return = "";
-		if($funtype==2)
+		if($fun_type==2)
 		{
 			$return = "featured_brand";
 		}
@@ -40,25 +40,25 @@ class SliderModel extends CI_Model
 		$where = array('status'=>1,'slider_type'=>$slider_type);
 		$this->db->where($where);
 		$this->db->order_by('RAND()');
-		$query = $this->db->get("tbl_slider")->result();
+		$query = $this->db->get("tbl_slider1")->result();
 		foreach ($query as $row)
 		{
 			$id			=	$row->id;
-			$funtype	=	$row->funtype;
-			$itemid	    =	$row->itemid;
-			$division	=	$row->division;
-			$compid		=	$row->compid;
+			$fun_type	=	$row->fun_type;
+			$item_code	=	$row->item_code;
+			$comp_code	=	$row->comp_code;
+			$comp_division =	$row->comp_division;
 			// yha code sahi ha 2024-11
-			if($funtype==1){
-				$compid	    = $itemid;
+			if($fun_type==1){
+				$compid	    = $item_code;
 			}
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
-			$web_action = $this->slider_to_url($funtype,$compid,$division);
-			$android_action = $this->slider_to_android($funtype);
+			$web_action = $this->slider_to_url($fun_type,$comp_code,$comp_division);
+			$android_action = $this->slider_to_android($fun_type);
 			
 			// yha be code sahi ha 2024-11
-			if($funtype==2){
-				$itemid	    = $compid;
+			if($fun_type==2){
+				$item_code	    = $comp_code;
 			}
 
 			$title = "";
@@ -66,9 +66,9 @@ class SliderModel extends CI_Model
 			$dt = array(
 				'item_id' => $id,
 				'item_title' => $title,
-				'item_type' => $funtype,
-				'item_code' => $itemid,
-				'item_division' => $division,
+				'item_type' => $fun_type,
+				'item_code' => $item_code,
+				'item_division' => $comp_division,
 				'item_image' => $image,
 				'item_web_action' => $web_action,
 				'item_page_type' => $android_action,

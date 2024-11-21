@@ -15,11 +15,11 @@ class SliderModel extends CI_Model
 		$item_code = str_replace(" ","-",$item_code);
 		$item_code = strtolower($item_code);
 		$url = "#";
-		if($funtype==1)
+		if($fun_type==1)
 		{
 			$url = base_url()."md/".$item_code;
 		}
-		if($funtype==2)
+		if($fun_type==2)
 		{
 			$url = base_url()."c/fb/".$item_code."/".$comp_division;
 		}

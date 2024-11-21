@@ -11,7 +11,7 @@ class MedicineCategoryModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
-	public function get_item_category_name($company_code){
+	public function get_company_name($company_code){
 		$this->db->select("company_name");
 		$this->db->where('company_code',$company_code);
 		$row = $this->db->get("tbl_company_division")->row();
@@ -58,7 +58,7 @@ class MedicineCategoryModel extends CI_Model
 		}
 
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($itemcat);
+		$return["title"] = $this->get_company_name($itemcat);
 		$return["get_record"] = $get_record;
 		return $return;
 	}

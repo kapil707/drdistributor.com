@@ -9,9 +9,9 @@ class MedicineItemModel extends CI_Model
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 
-	public function get_item_category_name_id($CategoryName){
+	public function get_item_category_title_id($title){
 		$this->db->select("id");
-		$this->db->where('title',$CategoryName);
+		$this->db->where('title',$title);
 		$row = $this->db->get("tbl_item_category_nnn")->row();
 		if(!empty($row)){
 			return $row->id;
@@ -20,9 +20,9 @@ class MedicineItemModel extends CI_Model
 		}
 	}
 
-	public function get_item_category_name($CategoryId){
+	public function get_item_category_title($id){
 		$this->db->select("title");
-		$this->db->where('id',$CategoryId);
+		$this->db->where('id',$id);
 		$row = $this->db->get("tbl_item_category_nnn")->row();
 		if(!empty($row)){
 			return $row->title;
@@ -121,7 +121,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($CategoryId);
+		$return["title"] = $this->get_item_category_title($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -164,7 +164,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($CategoryId);
+		$return["title"] = $this->get_item_category_title($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	}
@@ -206,7 +206,7 @@ class MedicineItemModel extends CI_Model
 		//$jsonString  = json_encode($jsonArray);
 		
 		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($CategoryId);
+		$return["title"] = $this->get_item_category_title($CategoryId);
 		$return["get_record"] = $get_record;
 		return $return;
 	} 

@@ -24,3 +24,4 @@ tbl_slider1 -> tbl_slider
 tbl_medicine_menu_nnn -> tbl_medicine_menu
 tbl_home_nnn -> tbl_home
 tbl_division_category_nnn -> tbl_division_category
+tbl_division_wise_nnn -> tbl_division_wise

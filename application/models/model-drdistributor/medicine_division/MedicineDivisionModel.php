@@ -11,11 +11,11 @@ class MedicineDivisionModel extends CI_Model
 
 	public function get_division_category_name_id($company_name){
 
-		$this->db->select("compcode");
+		$this->db->select("comp_code");
 		$this->db->where('company_full_name',$company_name);
-		$row = $this->db->get("tbl_division_wise")->row();
+		$row = $this->db->get("tbl_division_wise_nnn")->row();
 		if(!empty($row)){
-			return $row->compcode;
+			return $row->comp_code;
 		} else {
 			$this->db->select("compcode");
 			$this->db->where('company_full_name',$company_name);
@@ -55,17 +55,17 @@ class MedicineDivisionModel extends CI_Model
 		// First get the count
 		$count = $this->db->where('status', 1)
 		->where('category_id', $category_id)
-		->count_all_results('tbl_division_wise');
+		->count_all_results('tbl_division_wise_nnn');
 
 		// Get random offset
 		$offset = rand(0, max(0, $count - 12));
 
 		// Then get records
-		$query = $this->db->select('compcode, company_full_name, image')
+		$query = $this->db->select('comp_code, company_full_name, image')
 		->where('status', 1)
 		->where('category_id', $category_id)
 		->limit(12, $offset)
-		->get('tbl_division_wise')->result();
+		->get('tbl_division_wise_nnn')->result();
 		foreach ($query as $row)
 		{
 			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);

@@ -1,4 +1,4 @@
-UPDATE tbl_medicine_menu_nnn
+UPDATE  tbl_home_nnn
 SET time = TIME(FROM_UNIXTIME(timestamp));
 
 git add "-A"
@@ -22,3 +22,4 @@ terms_of_services
 /*******************/
 tbl_slider1 -> tbl_slider
 tbl_medicine_menu_nnn -> tbl_medicine_menu
+tbl_home_nnn -> tbl_home

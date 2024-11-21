@@ -358,8 +358,8 @@ class Api46 extends CI_Controller {
 			$seq_id  = $_POST["seq_id"];
 		
 			$title = $category_id = $page_type = $items = $next_id = "";
-			$tbl_home = $this->db->query("select * from tbl_home where status=1 and seq_id='$seq_id' ")->result();
-			foreach($tbl_home as $row){
+			$query = $this->db->query("select * from tbl_home_nnn where status=1 and seq_id='$seq_id' ")->result();
+			foreach($query as $row){
 				$category_id = $row->category_id;
 				
 				if($row->type=="slider"){

@@ -20,8 +20,8 @@ class TopMenuModel extends CI_Model
 		$query = $this->db->get("tbl_company_division")->result();
 		foreach ($query as $row)
 		{
-			$item_code		=	$row->comp_code;
-			$item_company	=	ucwords(strtolower($row->menu));
+			$item_code		=	$row->company_code;
+			$item_company	=	ucwords(strtolower($row->company_name));
 			$item_url		=	str_replace(" ","-",strtolower($item_company));
 			$item_image		=  	$this->MedicineImageUrl."uploads/manage_company_division/photo/resize/".$row->image;
 			if (empty($row->image)){

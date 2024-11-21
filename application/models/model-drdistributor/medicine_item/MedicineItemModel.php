@@ -125,48 +125,6 @@ class MedicineItemModel extends CI_Model
 		$return["get_record"] = $get_record;
 		return $return;
 	}
-	public function get_medicine_new_this_month_api($SessionValue,$CategoryId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
-	{		
-		$jsonArray = array();
-		$time  = time();
-		$date = date("Y-m-d", strtotime("-30 days", $time));
-		
-		$this->db->select("m.i_code, m.item_name, m.packing, m.salescm1, m.salescm2, m.company_name, m.batchqty, m.mrp, m.sale_rate, m.final_price, m.margin, CASE WHEN m.batchqty = 0 AND m.featured = 1 THEN 0 ELSE m.featured END as featured_new, m.image1, m.misc_settings", false);
-		$this->db->from('tbl_medicine as m');
-		/*********page where******************* */
-		$this->db->where('item_date>=',$date);
-		/************************************ */
-		$where = "m.status=1 and m.misc_settings NOT LIKE '%gift%' and m.category!='g'";
-		$this->db->where($where);
-		if($ChemistNrx=="yes"){
-		}else{
-			$where="m.misc_settings!='#NRX'";
-			$this->db->where($where);
-		}
-		/************************************ */
-		if($show_out_of_stock==0){
-			$this->db->where('m.batchqty !=', 0);
-		}
-		$this->db->limit($limit,$get_record);
-		if($order_by_type=="RAND"){
-			$this->db->order_by('m.id', "RAND()");
-		}else{
-			$this->db->order_by('featured_new', 'DESC');
-        	$this->db->order_by('m.batchqty', 'DESC');
-		}
-		$query = $this->db->get()->result();
-		foreach ($query as $row)
-		{
-			$get_record++;
-			$jsonArray[] = $this->MedicineDetailsModel->medicine_item_row_dt($row,$SessionValue);
-		}
-		//$jsonString  = json_encode($jsonArray);
-		
-		$return["items"] = $jsonArray;
-		$return["title"] = $this->get_item_category_name($CategoryId);
-		$return["get_record"] = $get_record;
-		return $return;
-	}
 
 	public function get_medicine_top_search_api($SessionValue,$CategoryId,$UserType,$ChemistId,$SalesmanId,$ChemistNrx,$show_out_of_stock,$get_record,$limit,$order_by_type)
 	{		

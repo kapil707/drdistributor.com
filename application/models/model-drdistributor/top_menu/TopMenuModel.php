@@ -14,10 +14,10 @@ class TopMenuModel extends CI_Model
 		$jsonArray = array();
 		
 		$items = "";
-		$where = array('status'=>1,);
+		$where = array('status'=>1,'company_type'=>'menu');
 		$this->db->order_by("short_order","asc");
 		$this->db->where($where);
-		$query = $this->db->get("tbl_medicine_menu_nnn")->result();
+		$query = $this->db->get("tbl_company_divisionxxx")->result();
 		foreach ($query as $row)
 		{
 			$item_code		=	$row->comp_code;

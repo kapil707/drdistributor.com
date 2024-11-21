@@ -50,7 +50,7 @@ class SliderModel extends CI_Model
 			$comp_division =	$row->comp_division;
 			// yha code sahi ha 2024-11
 			if($fun_type==1){
-				$compid	    = $item_code;
+				$comp_code	= $item_code;
 			}
 			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($fun_type,$comp_code,$comp_division);

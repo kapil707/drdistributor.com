@@ -35,3 +35,6 @@ git push -u origin backup-24-11-06
 login - 
 login - 
 terms_of_services
+
+/*******************/
+tbl_slider1 -> tbl_slider

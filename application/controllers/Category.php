@@ -69,8 +69,7 @@ class Category extends CI_Controller {
 		}
 		/********************************************************** */
 		
-		$row = $this->db->query("select code from tbl_medicine_menu_nnn where menu='$item_company'")->row();
-		$item_code = $row->code;
+		$item_code = $this->MedicineCategoryModel->get_company_name_id($item_company);
 		
 		$data["item_page_type"] = "medicine_category";
 		$data["item_code"] 		= $item_code;

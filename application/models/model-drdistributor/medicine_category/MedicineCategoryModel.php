@@ -11,6 +11,17 @@ class MedicineCategoryModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
+	public function get_company_name_id($company_name){
+		$this->db->select("company_code");
+		$this->db->where('company_name',$company_name);
+		$row = $this->db->get("tbl_company_division")->row();
+		if(!empty($row)){
+			return $row->company_code;
+		}else{
+			return "";
+		}
+	}
+
 	public function get_company_name($company_code){
 		$this->db->select("company_name");
 		$this->db->where('company_code',$company_code);

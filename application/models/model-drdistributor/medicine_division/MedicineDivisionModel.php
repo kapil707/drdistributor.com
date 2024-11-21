@@ -55,7 +55,7 @@ class MedicineDivisionModel extends CI_Model
 		// First get the count
 		$count = $this->db->where('status', 1)
 		->where('category_id', $category_id)
-		->count_all_results('tbl_company_divisionxxx');
+		->count_all_results('tbl_company_division');
 
 		// Get random offset
 		$offset = rand(0, max(0, $count - 12));
@@ -65,7 +65,7 @@ class MedicineDivisionModel extends CI_Model
 		->where('status', 1)
 		->where('category_id', $category_id)
 		->limit(12, $offset)
-		->get('tbl_company_division')->result();
+		->get('tbl_company_divisionzzz')->result();
 		foreach ($query as $row)
 		{
 			$jsonArray[] = $this->MedicineDetailsModel->medicine_division_row_dt($row);

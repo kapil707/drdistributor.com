@@ -17,13 +17,13 @@ class TopMenuModel extends CI_Model
 		$where = array('status'=>1,'company_type'=>'menu');
 		$this->db->order_by("short_order","asc");
 		$this->db->where($where);
-		$query = $this->db->get("tbl_company_divisionxxx")->result();
+		$query = $this->db->get("tbl_company_division")->result();
 		foreach ($query as $row)
 		{
 			$item_code		=	$row->comp_code;
 			$item_company	=	ucwords(strtolower($row->menu));
 			$item_url		=	str_replace(" ","-",strtolower($item_company));
-			$item_image		=  	$this->MedicineImageUrl."uploads/manage_medicine_menu/photo/resize/".$row->image;
+			$item_image		=  	$this->MedicineImageUrl."uploads/manage_company_division/photo/resize/".$row->image;
 			if (empty($row->image)){
 				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
 			}

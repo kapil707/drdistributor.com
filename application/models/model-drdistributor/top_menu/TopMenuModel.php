@@ -2,8 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class TopMenuModel extends CI_Model  
 {
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
+
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	
 	public function get_top_menu_api()
@@ -14,15 +17,15 @@ class TopMenuModel extends CI_Model
 		$where = array('status'=>1,);
 		$this->db->order_by("short_order","asc");
 		$this->db->where($where);
-		$query = $this->db->get("tbl_medicine_menu")->result();
+		$query = $this->db->get("tbl_medicine_menu_nnn")->result();
 		foreach ($query as $row)
 		{
-			$item_code		=	$row->code;
+			$item_code		=	$row->comp_code;
 			$item_company	=	ucwords(strtolower($row->menu));
 			$item_url		=	str_replace(" ","-",strtolower($item_company));
-			$item_image		=  	constant('img_url_site')."uploads/manage_medicine_menu/photo/resize/".$row->image;
+			$item_image		=  	$this->MedicineImageUrl."uploads/manage_medicine_menu/photo/resize/".$row->image;
 			if (empty($row->image)){
-				$item_image 	= constant('img_url_site')."uploads/default_img.jpg";
+				$item_image 	= $this->MedicineImageUrl."uploads/default_img.jpg";
 			}
 			
 			$dt = array(

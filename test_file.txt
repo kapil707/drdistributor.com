@@ -1,22 +1,5 @@
-INSERT INTO tbl_cart_order (id, user_type, order_type, chemist_id, date,time,timestamp, salesman_id, remarks, total) 
-SELECT order_id, user_type, order_type, chemist_id, date,time,UNIX_TIMESTAMP(CONCAT(date, ' ', time)) AS timestamp, selesman_id, remarks, SUM(sale_rate * quantity) AS total FROM tbl_order GROUP BY order_id, user_type, order_type, chemist_id, date,time,timestamp, selesman_id, remarks;
-
-SELECT id, COUNT(*) AS count
-FROM tbl_cart_order
-GROUP BY id
-HAVING COUNT(*) > 1;
-
-delete FROM `tbl_cart_order` WHERE `id`='628163' and chemist_id='V16';
-
-ALTER TABLE tbl_cart_order
-MODIFY COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
-
-
-$where = array('user_type'=>$user_type,'chemist_id'=>$user_altercode,'salesman_id'=>$salesman_id,'i_code'=>$item_code,'status'=>'0');
-$this->db->delete("tbl_cart", $where);
-
-ALTER TABLE tbl_cart ADD UNIQUE INDEX unique_order_items (order_id,chemist_id, salesman_id,user_type,i_code,status);
-
+UPDATE tbl_medicine_menu_nnn
+SET time = TIME(FROM_UNIXTIME(timestamp));
 
 git add "-A"
 git commit -m "add"
@@ -38,3 +21,4 @@ terms_of_services
 
 /*******************/
 tbl_slider1 -> tbl_slider
+tbl_medicine_menu_nnn -> tbl_medicine_menu

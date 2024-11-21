@@ -14,7 +14,7 @@ class MedicineCategoryModel extends CI_Model
 	public function get_item_category_name($code){
 		$this->db->select("menu");
 		$this->db->where('code',$code);
-		$row = $this->db->get("tbl_medicine_menu")->row();
+		$row = $this->db->get("tbl_medicine_menu_nnn")->row();
 		if(!empty($row)){
 			return $row->menu;
 		}else{

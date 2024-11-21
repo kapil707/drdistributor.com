@@ -55,13 +55,13 @@ class MedicineDivisionModel extends CI_Model
 		// First get the count
 		$count = $this->db->where('status', 1)
 		->where('category_id', $category_id)
-		->count_all_results('tbl_company_division');
+		->count_all_results('tbl_company_divisionxxx');
 
 		// Get random offset
 		$offset = rand(0, max(0, $count - 12));
 
 		// Then get records
-		$query = $this->db->select('company_code, company_name, image')
+		$query = $this->db->select('company_code,company_division, company_name, image')
 		->where('status', 1)
 		->where('category_id', $category_id)
 		->limit(12, $offset)

@@ -2,11 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class SliderModel extends CI_Model  
 { 	
+	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
 
 		// Load model
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
+		
+		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
 	function slider_to_url($fun_type="",$item_code="",$comp_division=""){
@@ -47,12 +50,12 @@ class SliderModel extends CI_Model
 			$fun_type	=	$row->fun_type;
 			$item_code	=	$row->item_code;
 			$comp_code	=	$row->comp_code;
-			$comp_division =	$row->comp_division;
+			$comp_division =$row->comp_division;
 			// yha code sahi ha 2024-11
 			if($fun_type==1){
 				$comp_code	= $item_code;
 			}
-			$image 		= 	constant('img_url_site')."uploads/manage_slider/photo/main/".$row->image;
+			$image 		= $this->MedicineImageUrl."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($fun_type,$comp_code,$comp_division);
 			$android_action = $this->slider_to_android($fun_type);
 			

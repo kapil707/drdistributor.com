@@ -11,8 +11,8 @@ class MedicineItemModel extends CI_Model
 
 	public function get_item_category_name_id($CategoryName){
 		$this->db->select("id");
-		$this->db->where('name',$CategoryName);
-		$row = $this->db->get("tbl_item_category")->row();
+		$this->db->where('title',$CategoryName);
+		$row = $this->db->get("tbl_item_category_nnn")->row();
 		if(!empty($row)){
 			return $row->id;
 		}else{
@@ -21,11 +21,11 @@ class MedicineItemModel extends CI_Model
 	}
 
 	public function get_item_category_name($CategoryId){
-		$this->db->select("name");
+		$this->db->select("title");
 		$this->db->where('id',$CategoryId);
-		$row = $this->db->get("tbl_item_category")->row();
+		$row = $this->db->get("tbl_item_category_nnn")->row();
 		if(!empty($row)){
-			return $row->name;
+			return $row->title;
 		}else{
 			return "";
 		}

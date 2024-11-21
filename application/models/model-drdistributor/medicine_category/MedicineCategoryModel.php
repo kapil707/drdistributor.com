@@ -11,12 +11,12 @@ class MedicineCategoryModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
-	public function get_item_category_name($code){
-		$this->db->select("menu");
-		$this->db->where('code',$code);
-		$row = $this->db->get("tbl_medicine_menu_nnn")->row();
+	public function get_item_category_name($company_code){
+		$this->db->select("company_name");
+		$this->db->where('company_code',$company_code);
+		$row = $this->db->get("tbl_company_division")->row();
 		if(!empty($row)){
-			return $row->menu;
+			return $row->company_name;
 		}else{
 			return "";
 		}

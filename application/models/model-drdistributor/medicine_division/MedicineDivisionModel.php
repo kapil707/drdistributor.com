@@ -23,7 +23,7 @@ class MedicineDivisionModel extends CI_Model
 			if(!empty($row)){
 				return $row->company_code;
 			}else{
-				return "";
+				return "xxx";
 			}
 		}
 	}

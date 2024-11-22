@@ -21,7 +21,7 @@ class SliderModel extends CI_Model
 		}
 		if($function_type==2)
 		{
-			$item_code = $this->MedicineDivisionModel->get_division_category_id_name($item_code);
+			$company_code = $this->MedicineDivisionModel->get_division_category_id_name($company_code);
 			$company_code = str_replace(" ","-",$company_code);
 			$url = base_url()."c/fb/".strtolower($company_code)."/".strtolower($company_division);
 		}

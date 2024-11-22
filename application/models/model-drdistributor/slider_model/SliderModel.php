@@ -67,7 +67,7 @@ class SliderModel extends CI_Model
 				'item_title' => $title,
 				'item_type' => $function_type,
 				'item_code' => $item_code,
-				'item_division' => $comp_division,
+				'item_division' => $company_division,
 				'item_image' => $image,
 				'item_web_action' => $web_action,
 				'item_page_type' => $android_action,

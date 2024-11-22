@@ -12,19 +12,18 @@ class SliderModel extends CI_Model
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 
-	function slider_to_url($fun_type="",$item_code="",$comp_division=""){
-
-		$item_code = $this->MedicineDivisionModel->get_division_category_id_name($item_code);		
-		$item_code = str_replace(" ","-",$item_code);
-		$item_code = strtolower($item_code);
+	function slider_to_url($function_type="",$item_code="",$company_code="",$company_division=""){
+		
 		$url = "#";
-		if($fun_type==1)
+		if($function_type==1)
 		{
 			$url = base_url()."md/".$item_code;
 		}
-		if($fun_type==2)
+		if($function_type==2)
 		{
-			$url = base_url()."c/fb/".$item_code."/".$comp_division;
+			$item_code = $this->MedicineDivisionModel->get_division_category_id_name($item_code);
+			$company_code = str_replace(" ","-",$company_code);
+			$url = base_url()."c/fb/".strtolower($company_code)."/".strtolower($comp_division);
 		}
 		return $url;
 	}
@@ -46,22 +45,19 @@ class SliderModel extends CI_Model
 		$query = $this->db->get("tbl_slider1")->result();
 		foreach ($query as $row)
 		{
-			$id			=	$row->id;
-			$fun_type	=	$row->fun_type;
-			$item_code	=	$row->item_code;
-			$comp_code	=	$row->comp_code;
-			$comp_division =$row->comp_division;
-			// yha code sahi ha 2024-11
-			if($fun_type==1){
-				$comp_code	= $item_code;
-			}
+			$id				=	$row->id;
+			$function_type	=	$row->function_type;
+			$item_code		=	$row->item_code;
+			$company_code	=	$row->company_code;
+			$company_division=	$row->company_division;
+
 			$image 		= $this->MedicineImageUrl."uploads/manage_slider/photo/main/".$row->image;
-			$web_action = $this->slider_to_url($fun_type,$comp_code,$comp_division);
+			$web_action = $this->slider_to_url($function_type,$item_code,$company_code,$company_division);
 			$android_action = $this->slider_to_android($fun_type);
 			
 			// yha be code sahi ha 2024-11
 			if($fun_type==2){
-				$item_code	    = $comp_code;
+				$item_code	    = $company_code;
 			}
 
 			$title = "";

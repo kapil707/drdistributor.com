@@ -64,6 +64,20 @@ class Category_api extends CI_Controller {
 		$get_record		= $_POST['get_record'];
 		if(!empty($item_page_type))
 		{
+			if($item_page_type=="company_or_division")
+			{
+				/*****************************/
+				$show_out_of_stock="1";
+				$limit="12";
+				$order_by_type="id";
+				/*****************************/
+
+				$result = $this->MedicineCategoryModel->get_company_or_division_api($SessionValue,$ChemistNrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$items  = $result["items"];
+				$title  = $result["title"];
+				$get_record  = $result["get_record"];
+			}
+			
 			if($item_page_type=="company_with_category")
 			{
 				/*****************************/
@@ -78,21 +92,7 @@ class Category_api extends CI_Controller {
 				$get_record  = $result["get_record"];
 			}
 
-			if($item_page_type=="company_or_division")
-			{
-				/*****************************/
-				$show_out_of_stock="1";
-				$limit="12";
-				$order_by_type="id";
-				/*****************************/
-
-				$result = $this->MedicineCategoryModel->get_company_or_division_api($SessionValue,$ChemistNrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
-				$items  = $result["items"];
-				$title  = $result["title"];
-				$get_record  = $result["get_record"];
-			}
-
-			if($item_page_type=="itemcategory")
+			if($item_page_type=="item_category")
 			{
 				/*****************************/
 				$show_out_of_stock="1";

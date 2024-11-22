@@ -45,7 +45,7 @@ class Category extends CI_Controller {
 		/********************************************************** */
 	}
 
-	public function index($CategoryName="",$item_division=""){
+	public function index($item_company="",$item_division=""){
 
 		$item_company = str_replace("-"," ",strtolower($item_company));
 		/********************MainPageTitle***************************** */

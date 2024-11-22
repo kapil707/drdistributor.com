@@ -85,7 +85,7 @@ class MyNotificationModel extends CI_Model
 			}
 			if($item_fun_type=="2")
 			{
-				$item_fun_name = "featured_brand";
+				$item_fun_name = "company_or_division";
 				$item_fun_id   = $compid;
 				$item_fun_id2  = $division;
 			}

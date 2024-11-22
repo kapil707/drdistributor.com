@@ -74,6 +74,9 @@ class Category extends CI_Controller {
 		if($item["type"]=="company_category"){
 			$data["item_page_type"] = "company_with_category";
 		}
+		if($item["type"]=="item_category"){
+			$data["item_page_type"] = "item_category";
+		}
 		$data["item_code"] 		= $item["company_code"];
 		$data["item_division"] 	= $item_division;
 
@@ -81,6 +84,7 @@ class Category extends CI_Controller {
 		$this->load->view('medicine_category/medicine_category', $data);
 	}
 	
+	//delete karna ha iss ko jab me time lagay
 	public function featured_brand($CategoryName="",$item_division=""){
 
 		$CategoryName = str_replace("-", " ", $CategoryName);
@@ -115,7 +119,8 @@ class Category extends CI_Controller {
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('medicine_category/medicine_category', $data);
 	}
-	
+
+	//delete karna ha iss ko jab me time lagay
 	public function itemcategory($CategoryName=""){
 
 		$CategoryName = str_replace("-", " ", $CategoryName);

@@ -19,6 +19,7 @@ class MedicineDivisionModel extends CI_Model
 			$return["company_code"] = $row->compcode;
 			$return["type"] = "company_code";
 		}else{
+			
 			$this->db->select("company_code,iscategory");
 			$this->db->where('company_name',$company_name);
 			$row = $this->db->get("tbl_company_division")->row();
@@ -27,6 +28,14 @@ class MedicineDivisionModel extends CI_Model
 				$return["type"] = "company_code";
 				if($row->iscategory==1){
 					$return["type"] = "company_category";
+				}
+			}else{				
+				$this->db->select("id");
+				$this->db->where('title',$company_name);
+				$row = $this->db->get("tbl_item_category_nnn")->row();
+				if(!empty($row)){
+					$return["company_code"] = $row->id;
+					$return["type"] = "item_category";
 				}
 			}
 		}

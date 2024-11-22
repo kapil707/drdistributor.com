@@ -28,7 +28,7 @@ class MedicineDivisionModel extends CI_Model
 		}
 	}
 
-	public function get_division_category_id_name($compcode){
+	public function get_medicine_company_name($compcode){
 		$this->db->select("company_name");
 		$this->db->where('compcode',$compcode);
 		$row = $this->db->get("tbl_medicine")->row();

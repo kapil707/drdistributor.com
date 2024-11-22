@@ -17,7 +17,7 @@ class MedicineDivisionModel extends CI_Model
 		$row = $this->db->get("tbl_medicine")->row();
 		if(!empty($row)){
 			$return["company_code"] = $row->compcode;
-			$return["type"] = "company_id";
+			$return["type"] = "company_code";
 		}else{
 			$this->db->select("company_code");
 			$this->db->where('company_name',$company_name);

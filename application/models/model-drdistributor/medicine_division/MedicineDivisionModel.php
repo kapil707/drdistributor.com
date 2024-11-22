@@ -23,7 +23,7 @@ class MedicineDivisionModel extends CI_Model
 			$this->db->where('company_name',$company_name);
 			$row = $this->db->get("tbl_company_division")->row();
 			if(!empty($row)){
-				$return["company_code"] = $row->compcode;
+				$return["company_code"] = $row->company_code;
 				$return["type"] = "company_category";
 			}
 		}

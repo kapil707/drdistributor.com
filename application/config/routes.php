@@ -142,6 +142,7 @@ $route['update_password']='user/update_password';
 
 $route['category/(:any)'] = 'Category/index/$1';
 $route['c/(:any)'] = 'Category/index/$1';
+$route['c/(:any)/(:any)'] = 'Category/index/$1/$2';
 $route['category_api/medicine_category_api'] = 'category_api/medicine_category_api';
 $route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
 $route['c/ic/(:any)']= 'Category/itemcategory/$1';

@@ -45,7 +45,7 @@ class Category extends CI_Controller {
 		/********************************************************** */
 	}
 
-	public function index($item_company=""){
+	public function index($CategoryName="",$item_division=""){
 
 		$item_company = str_replace("-"," ",strtolower($item_company));
 		/********************MainPageTitle***************************** */
@@ -73,7 +73,7 @@ class Category extends CI_Controller {
 		
 		$data["item_page_type"] = "medicine_category";
 		$data["item_code"] 		= $item_code;
-		$data["item_division"] 	= "";
+		$data["item_division"] 	= $item_division;
 
 		$this->load->view('header_footer/header', $data);		
 		$this->load->view('medicine_category/medicine_category', $data);

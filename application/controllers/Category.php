@@ -47,7 +47,7 @@ class Category extends CI_Controller {
 
 	public function index($item_company="",$item_division=""){
 
-		$item_company = str_replace("-"," ",strtolower($item_company));
+		$item_company = str_replace("-"," ",ucfirst($item_company));
 		/********************MainPageTitle***************************** */
 		$data["MainPageTitle"] = $MainPageTitle = $item_company;
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";

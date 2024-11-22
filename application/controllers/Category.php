@@ -71,7 +71,7 @@ class Category extends CI_Controller {
 		
 		$item_code = $this->MedicineDivisionModel->get_medicine_company_id($item_company);
 		
-		$data["item_page_type"] = "medicine_category";
+		$data["item_page_type"] = "company_or_division";
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= $item_division;
 
@@ -105,7 +105,7 @@ class Category extends CI_Controller {
 
 		$item_code = $this->MedicineDivisionModel->get_division_category_name_id($CategoryName);
 
-		$item_page_type="featured_brand";
+		$item_page_type="company_or_division";
 		$data["item_page_type"] = $item_page_type;
 		$data["item_code"] 		= $item_code;
 		$data["item_division"] 	= $item_division;

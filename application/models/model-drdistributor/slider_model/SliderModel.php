@@ -31,7 +31,7 @@ class SliderModel extends CI_Model
 		$return = "";
 		if($function_type==2)
 		{
-			$return = "featured_brand";
+			$return = "company_or_division";
 		}
 		return $return;
 	}

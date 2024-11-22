@@ -74,7 +74,7 @@ class MedicineCategoryModel extends CI_Model
 		return $return;
 	}
 
-	public function featured_brand_api($SessionValue="",$ChemistNrx="",$compcode="",$division="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
+	public function get_company_or_division_api($SessionValue="",$ChemistNrx="",$compcode="",$division="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
 		$jsonArray = array();
 		$title = "";

@@ -1117,9 +1117,9 @@ class Api01 extends CI_Controller {
 				$get_record  = $result["get_record"];
 			}
 
-			if($item_page_type=="featured_brand")
+			if($item_page_type=="company_or_division")
 			{
-				$result = $this->MedicineCategoryModel->featured_brand_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
+				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

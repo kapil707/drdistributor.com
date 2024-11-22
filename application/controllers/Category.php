@@ -69,9 +69,12 @@ class Category extends CI_Controller {
 		}
 		/********************************************************** */
 		
-		$item_code = $this->MedicineDivisionModel->get_medicine_company_id($item_company);		
+		$item = $this->MedicineDivisionModel->get_medicine_company_id($item_company);
 		$data["item_page_type"] = "company_or_division";
-		$data["item_code"] 		= $item_code;
+		if($item["type"]=="company_category"){
+			$data["item_page_type"] = "company_with_category";
+		}
+		$data["item_code"] 		= $item["company_code"];
 		$data["item_division"] 	= $item_division;
 
 		$this->load->view('header_footer/header', $data);		

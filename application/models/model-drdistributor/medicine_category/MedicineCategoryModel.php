@@ -33,7 +33,7 @@ class MedicineCategoryModel extends CI_Model
 		}
 	}
 	
-	public function medicine_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
+	public function get_company_with_category_api($SessionValue="",$ChemistNrx="",$itemcat="",$show_out_of_stock="0",$get_record="0",$limit="12",$order_by_type="RAND")
 	{
 		$jsonArray = array();
 		$title = "";

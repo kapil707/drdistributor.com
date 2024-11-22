@@ -64,7 +64,7 @@ class Category_api extends CI_Controller {
 		$get_record		= $_POST['get_record'];
 		if(!empty($item_page_type))
 		{
-			if($item_page_type=="medicine_category")
+			if($item_page_type=="company_with_category")
 			{
 				/*****************************/
 				$show_out_of_stock="1";
@@ -72,7 +72,7 @@ class Category_api extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineCategoryModel->medicine_category_api($SessionValue,$ChemistNrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineCategoryModel->get_company_with_category_api($SessionValue,$ChemistNrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

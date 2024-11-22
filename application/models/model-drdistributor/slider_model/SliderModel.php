@@ -27,9 +27,9 @@ class SliderModel extends CI_Model
 		}
 		return $url;
 	}
-	function slider_to_android($fun_type=""){
+	function slider_to_android($function_type=""){
 		$return = "";
-		if($fun_type==2)
+		if($function_type==2)
 		{
 			$return = "featured_brand";
 		}
@@ -53,10 +53,10 @@ class SliderModel extends CI_Model
 
 			$image 		= $this->MedicineImageUrl."uploads/manage_slider/photo/main/".$row->image;
 			$web_action = $this->slider_to_url($function_type,$item_code,$company_code,$company_division);
-			$android_action = $this->slider_to_android($fun_type);
+			$android_action = $this->slider_to_android($function_type);
 			
 			// yha be code sahi ha 2024-11
-			if($fun_type==2){
+			if($function_type==2){
 				$item_code	    = $company_code;
 			}
 

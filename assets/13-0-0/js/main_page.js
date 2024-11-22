@@ -84,7 +84,7 @@ function callandroidfun(funtype,id,compname,image,division) {
 	}
 	if(funtype=="2")
 	{
-		window.location.href = get_base_url() + 'c/fb/'+id+'/'+division;
+		window.location.href = get_base_url() + 'c/'+id+'/'+division;
 	}
 }
 

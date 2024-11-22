@@ -13,7 +13,7 @@ class SliderModel extends CI_Model
 	}
 
 	function slider_to_url($function_type="",$item_code="",$company_code="",$company_division=""){
-		
+
 		$url = "#";
 		if($function_type==1)
 		{
@@ -23,7 +23,7 @@ class SliderModel extends CI_Model
 		{
 			$item_code = $this->MedicineDivisionModel->get_division_category_id_name($item_code);
 			$company_code = str_replace(" ","-",$company_code);
-			$url = base_url()."c/fb/".strtolower($company_code)."/".strtolower($comp_division);
+			$url = base_url()."c/fb/".strtolower($company_code)."/".strtolower($company_division);
 		}
 		return $url;
 	}

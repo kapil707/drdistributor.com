@@ -84,7 +84,7 @@ class Medicine_category_api extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->CategoryModel->get_company_or_division_api($SessionValue,$ChemistNrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineCategoryModel->get_company_or_division_api($SessionValue,$ChemistNrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -98,7 +98,7 @@ class Medicine_category_api extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->CategoryModel->get_company_with_category_api($SessionValue,$ChemistNrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineCategoryModel->get_company_with_category_api($SessionValue,$ChemistNrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

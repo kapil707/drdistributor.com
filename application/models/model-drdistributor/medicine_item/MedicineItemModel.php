@@ -12,7 +12,7 @@ class MedicineItemModel extends CI_Model
 	public function get_item_category_title($id){
 		$this->db->select("title");
 		$this->db->where('id',$id);
-		$row = $this->db->get("tbl_item_category_nnn")->row();
+		$row = $this->db->get("tbl_item_category")->row();
 		if(!empty($row)){
 			return $row->title;
 		}else{

@@ -32,7 +32,7 @@ class MedicineDivisionModel extends CI_Model
 			}else{				
 				$this->db->select("id");
 				$this->db->where('title',$company_name);
-				$row = $this->db->get("tbl_item_category_nnn")->row();
+				$row = $this->db->get("tbl_item_category")->row();
 				if(!empty($row)){
 					$return["company_code"] = $row->id;
 					$return["type"] = "item_category";

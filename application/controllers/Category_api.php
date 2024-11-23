@@ -45,7 +45,7 @@ class Category_api extends CI_Controller {
 		/********************************************************** */
 	}
 	
-	public function medicine_category_api(){
+	public function category_api(){
 
 		/******************************************/
 		$UserType 		= $this->UserType;

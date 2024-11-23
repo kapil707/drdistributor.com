@@ -42,7 +42,7 @@ class SliderModel extends CI_Model
 		$where = array('status'=>1,'slider_type'=>$slider_type);
 		$this->db->where($where);
 		$this->db->order_by('RAND()');
-		$query = $this->db->get("tbl_slider1")->result();
+		$query = $this->db->get("tbl_slider")->result();
 		foreach ($query as $row)
 		{
 			$id				=	$row->id;

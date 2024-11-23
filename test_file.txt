@@ -20,7 +20,7 @@ login -
 terms_of_services
 
 /*******************/
-tbl_slider1 -> tbl_slider
+tbl_slider1 -> tbl_slider done
 tbl_medicine_menu_nnn -> tbl_medicine_menu - no need
 tbl_home_nnn -> tbl_home
 tbl_division_category_nnn -> tbl_division_category - no need

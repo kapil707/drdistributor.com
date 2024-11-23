@@ -5,7 +5,8 @@ class TopMenuModel extends CI_Model
 	var $MedicineImageUrl = "";
 	public function __construct(){
 		parent::__construct();
-
+		$this->load->library('AppConfig');
+		
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
 	}
 	

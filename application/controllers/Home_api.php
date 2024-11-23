@@ -80,7 +80,7 @@ class Home_api extends CI_Controller {
 		$seq_id = $_POST["seq_id"];
 		
 		$items = $title = $CategoryId = $page_type = $next_id = "";
-		$query = $this->db->query("select * from tbl_home_nnn where status=1 and seq_id in ($seq_id) ")->result();
+		$query = $this->db->query("select * from tbl_home where status=1 and seq_id in ($seq_id) ")->result();
 		foreach($query as $row){
 			$CategoryId = $row->category_id;
 			$type 		= $row->type;

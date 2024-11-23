@@ -1104,7 +1104,7 @@ class Api46 extends CI_Controller {
 
 	public function medicine_category_api(){
 
-		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
+		$this->load->model("model-drdistributor/medicine_category/CategoryModel");
 		
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];
@@ -1134,7 +1134,7 @@ class Api46 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->CategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -1148,7 +1148,7 @@ class Api46 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->CategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

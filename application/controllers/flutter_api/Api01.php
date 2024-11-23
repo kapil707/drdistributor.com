@@ -1087,7 +1087,7 @@ class Api01 extends CI_Controller {
 
 	public function medicine_category_api(){
 
-		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
+		$this->load->model("model-drdistributor/medicine_category/CategoryModel");
 		
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];
@@ -1111,7 +1111,7 @@ class Api01 extends CI_Controller {
 		{
 			if($item_page_type=="medicine_category")
 			{
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$get_record);
+				$result = $this->CategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
@@ -1119,7 +1119,7 @@ class Api01 extends CI_Controller {
 
 			if($item_page_type=="company_or_division")
 			{
-				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
+				$result = $this->CategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$get_record);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

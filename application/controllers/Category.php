@@ -42,10 +42,9 @@ class Category extends CI_Controller {
 
 	public function index($item_company="",$item_division=""){
 
-		$item_code 		= $item_company;
-		$item_company 	= str_replace("-"," ",ucfirst($item_company));
+		$item_company_title = str_replace("-"," ",ucfirst($item_company));
 		/********************MainPageTitle***************************** */
-		$data["MainPageTitle"] = $MainPageTitle = $item_company;
+		$data["MainPageTitle"] = $MainPageTitle = $item_company_title;
 		$data["siteTitle"] = $this->appconfig->siteTitle." || $MainPageTitle";
 		/********************************************************** */
 
@@ -64,8 +63,7 @@ class Category extends CI_Controller {
 			$data["DeliveringTo"] = $data["ChemistId"]." | <a href='".base_url()."select_chemist' class='all_chemist_edit_btn'> <i class='fa fa-pencil all_chemist_edit_btn' aria-hidden='true'></i> Edit chemist</a>";
 		}
 		/********************************************************** */
-		$data["item_page_type"] = "index";
-		$data["item_code"] 		= $item_code;
+		$data["item_company"] 	= $item_company;
 		$data["item_division"] 	= $item_division;
 
 		$this->load->view('header_footer/header', $data);		

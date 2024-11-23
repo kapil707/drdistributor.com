@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class MedicineCategoryModel extends CI_Model  
+class CategoryModel extends CI_Model  
 {
 	var $MedicineImageUrl = "";
 	public function __construct(){
@@ -9,17 +9,6 @@ class MedicineCategoryModel extends CI_Model
         $this->load->library('AppConfig');
 
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
-	}
-
-	public function get_company_name_id($company_name){
-		$this->db->select("company_code");
-		$this->db->where('company_name',$company_name);
-		$row = $this->db->get("tbl_company_division")->row();
-		if(!empty($row)){
-			return $row->company_code;
-		}else{
-			return "";
-		}
 	}
 
 	public function get_company_name($company_code){

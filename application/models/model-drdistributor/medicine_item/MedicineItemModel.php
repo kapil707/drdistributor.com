@@ -9,17 +9,6 @@ class MedicineItemModel extends CI_Model
 		$this->load->model("model-drdistributor/medicine_details/MedicineDetailsModel");
 	}
 
-	public function get_item_category_title_id($title){
-		$this->db->select("id");
-		$this->db->where('title',$title);
-		$row = $this->db->get("tbl_item_category_nnn")->row();
-		if(!empty($row)){
-			return $row->id;
-		}else{
-			return "";
-		}
-	}
-
 	public function get_item_category_title($id){
 		$this->db->select("title");
 		$this->db->where('id',$id);

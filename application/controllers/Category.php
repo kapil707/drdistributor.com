@@ -145,7 +145,7 @@ class Category extends CI_Controller {
 		}
 		/********************************************************** */
 
-		$item_code = $this->MedicineItemModel->get_item_category_title_id($CategoryName);
+		//$item_code = $this->MedicineItemModel->get_item_category_title_id($CategoryName);
 
 		$item_page_type="itemcategory";
 		$item_division = "";

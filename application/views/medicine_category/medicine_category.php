@@ -40,4 +40,4 @@ function goBack() {
 var item_company 	= '<?= $item_company; ?>';
 var item_division 	= '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/category.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_category.js"></script>

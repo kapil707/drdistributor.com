@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Category extends CI_Controller {
+class Medicine_category extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";
@@ -67,7 +67,7 @@ class Category extends CI_Controller {
 		$data["item_division"] 	= $item_division;
 
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('category/category', $data);
+		$this->load->view('medicine_category/medicine_category', $data);
 	}
 	
 	//delete karna ha iss ko jab me time lagay

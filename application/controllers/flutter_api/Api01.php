@@ -1087,7 +1087,7 @@ class Api01 extends CI_Controller {
 
 	public function medicine_category_api(){
 
-		$this->load->model("model-drdistributor/medicine_category/CategoryModel");
+		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
 		
 		$api_key		= $_POST['api_key'];
 		$user_type 		= $_POST["user_type"];

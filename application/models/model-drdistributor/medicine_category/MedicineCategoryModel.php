@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class CategoryModel extends CI_Model  
+class MedicineCategoryModel extends CI_Model  
 {
 	var $MedicineImageUrl = "";
 	public function __construct(){

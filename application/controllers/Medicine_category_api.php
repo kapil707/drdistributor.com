@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Category_api extends CI_Controller {
+class Medicine_category_api extends CI_Controller {
 
 	var $UserId 		= "";
 	var $UserType 		= "";
@@ -27,7 +27,7 @@ class Category_api extends CI_Controller {
 		/************************************* */
 
 		// Load model
-		$this->load->model("model-drdistributor/medicine_category/CategoryModel");
+		$this->load->model("model-drdistributor/medicine_category/MedicineCategoryModel");
 		$this->load->model("model-drdistributor/medicine_division/MedicineDivisionModel");
 		$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 
@@ -45,7 +45,7 @@ class Category_api extends CI_Controller {
 		/********************************************************** */
 	}
 	
-	public function category_api(){
+	public function get_medicine_category_api(){
 
 		/******************************************/
 		$UserType 		= $this->UserType;

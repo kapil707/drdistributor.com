@@ -64,7 +64,9 @@ class Category_api extends CI_Controller {
 		$get_record		= $_POST['get_record'];
 		if(!empty($item_page_type))
 		{
-			$item = $this->MedicineDivisionModel->get_medicine_company_id($item_company);
+			$item_code 	= str_replace("-"," ",ucfirst($item_code));
+
+			$item = $this->MedicineDivisionModel->get_medicine_company_id($item_code);
 			$item_code 		= $item["company_code"];
 			$item_page_type = "company_or_division";
 			if($item["type"]=="company_category"){

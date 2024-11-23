@@ -1126,6 +1126,20 @@ class Api46 extends CI_Controller {
 		$get_record		= $_POST['get_record'];
 		if($item_page_type!="")
 		{
+			if($item_page_type=="medicine_category")
+			{
+				/*****************************/
+				$show_out_of_stock="1";
+				$limit="12";
+				$order_by_type="id";
+				/*****************************/
+
+				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$items  = $result["items"];
+				$title  = $result["title"];
+				$get_record  = $result["get_record"];
+			}
+
 			if($item_page_type=="company_or_division")
 			{
 				/*****************************/
@@ -1134,27 +1148,13 @@ class Api46 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];
 			}
 
-			if($item_page_type=="company_with_category")
-			{
-				/*****************************/
-				$show_out_of_stock="1";
-				$limit="12";
-				$order_by_type="id";
-				/*****************************/
-
-				$result = $this->MedicineCategoryModel->get_company_with_category_api($session_yes_no,$user_nrx,$item_code,$item_division,$show_out_of_stock,$get_record,$limit,$order_by_type);
-				$items  = $result["items"];
-				$title  = $result["title"];
-				$get_record  = $result["get_record"];
-			}
-
-			if($item_page_type=="item_category"){
+			if($item_page_type=="itemcategory"){
 				$this->load->model("model-drdistributor/medicine_item/MedicineItemModel");
 				$category_id = $item_code;//yha sahi ha yaha par yha category_id ban jata ha
 

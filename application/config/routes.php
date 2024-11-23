@@ -140,16 +140,8 @@ $route['update_account']='user/update_account';
 $route['update_image']='user/update_image';
 $route['update_password']='user/update_password';
 
-$route['category/(:any)'] = 'Category/index/$1';
-$route['c/(:any)'] = 'Category/index/$1';
-$route['c/(:any)/(:any)'] = 'Category/index/$1/$2';
-$route['category_api/medicine_category_api'] = 'category_api/medicine_category_api';
-$route['category/itemcategory/(:any)']= 'Category/itemcategory/$1';
-$route['c/ic/(:any)']= 'Category/itemcategory/$1';
-$route['category/featured_brand/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
-$route['c/fb/(:any)']= 'Category/featured_brand/$1';
-$route['c/fb/(:any)/(:any)']= 'Category/featured_brand/$1/$2';
-
+$route['c/(:any)'] = 'medicine_category/index/$1';
+$route['c/(:any)/(:any)'] = 'medicine_category/index/$1/$2';
 // import order pages
 $route['io']= 'import_order/index';
 $route['io/usm']= 'import_order/medicine_suggest';

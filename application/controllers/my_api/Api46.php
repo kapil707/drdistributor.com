@@ -1134,7 +1134,7 @@ class Api46 extends CI_Controller {
 				$order_by_type="id";
 				/*****************************/
 
-				$result = $this->MedicineCategoryModel->medicine_category_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
+				$result = $this->MedicineCategoryModel->get_company_or_division_api($session_yes_no,$user_nrx,$item_code,$show_out_of_stock,$get_record,$limit,$order_by_type);
 				$items  = $result["items"];
 				$title  = $result["title"];
 				$get_record  = $result["get_record"];

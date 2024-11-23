@@ -37,7 +37,7 @@ function MainPageFuncationCall(get_record) {
         $.ajax({
             type: "POST",
             dataType: "json",
-            data: { item_page_type: item_page_type, item_code: item_code_pg, item_division: item_division, get_record: get_record },
+            data: { item_company: item_company, item_division: item_division, get_record: get_record },
             url: get_base_url() + "category_api/medicine_category_api",
             cache : true,
             timeout: 60000,

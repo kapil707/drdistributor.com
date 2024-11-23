@@ -67,7 +67,7 @@ class Category extends CI_Controller {
 		$data["item_division"] 	= $item_division;
 
 		$this->load->view('header_footer/header', $data);		
-		$this->load->view('medicine_category/medicine_category', $data);
+		$this->load->view('category/category', $data);
 	}
 	
 	//delete karna ha iss ko jab me time lagay

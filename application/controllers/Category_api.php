@@ -58,15 +58,14 @@ class Category_api extends CI_Controller {
 			$SessionValue = "yes";
 		}
 
-		$item_page_type	= $_POST["item_page_type"];
-		$item_code		= $_POST['item_code'];
+		$item_company	= $_POST['item_company'];
 		$item_division	= $_POST['item_division'];
 		$get_record		= $_POST['get_record'];
-		if(!empty($item_page_type))
+		if(!empty($item_company))
 		{
-			$item_code 	= str_replace("-"," ",ucfirst($item_code));
+			$item_company 	= str_replace("-"," ",ucfirst($item_company));
 
-			$item = $this->MedicineDivisionModel->get_medicine_company_id($item_code);
+			$item = $this->MedicineDivisionModel->get_medicine_company_id($item_company);
 			$item_code 		= $item["company_code"];
 			$item_page_type = "company_or_division";
 			if($item["type"]=="company_category"){

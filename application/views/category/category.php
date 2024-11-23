@@ -37,8 +37,7 @@ function goBack() {
 </div>
 <input type="hidden" class="get_record" value="0">
 <script>
-var item_page_type = '<?= $item_page_type; ?>';
-var item_code_pg = '<?= $item_code; ?>'; // yha sahi ha ku ki item_code already page me use ho raha ha 
-var item_division = '<?= $item_division; ?>';
+var item_company 	= '<?= $item_company; ?>';
+var item_division 	= '<?= $item_division; ?>';
 </script>
-<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/medicine_category.js"></script>
+<script src="<?php echo base_url(); ?>/assets/<?php echo $this->appconfig->getWebJs(); ?>/js/category.js"></script>

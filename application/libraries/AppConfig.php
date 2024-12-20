@@ -9,8 +9,8 @@ class AppConfig {
     public $WebsiteVersion = "13.0.02";
     public $WebJs = "13-0-02";
     public $Weburl = "https://www.drdistributor.com/";
-    public $ApiUrl = "https://www.drdistributor.com/";
-    //public $ApiUrl = "https://www.drdistributors.co.in/drd-live/";
+    //public $ApiUrl = "https://www.drdistributor.com/";
+    public $ApiUrl = "https://www.drdistributors.co.in/drd-live/";
     public $ApiUrl2 = "https://www.drdweb.co.in/";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
     public $MedicineImageUrl = "https://www.drdweb.co.in/";

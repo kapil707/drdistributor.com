@@ -495,7 +495,7 @@ class MedicineSearchModel extends CI_Model
 		$misc_settings 		= 	$row->misc_settings;
 
 		$item_stock = "";
-		if($misc_settings=="#NRX" && $item_quantity>=10){
+		if(strpos($misc_settings, '#NRX') !== false && $item_quantity>=10){
 			$item_stock = "Available";
 		}
 

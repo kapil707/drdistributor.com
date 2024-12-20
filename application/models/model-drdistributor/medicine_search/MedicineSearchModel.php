@@ -26,7 +26,7 @@ class MedicineSearchModel extends CI_Model
 		$keyword_array = explode (" ", $keyword); 
 		/********************************************************* */
 		$this->db->select('m.id, m.i_code, m.item_name, m.packing, m.expiry, m.company_full_name, m.batchqty, m.sale_rate, m.mrp, m.final_price, m.title2, m.image1, m.salescm1, m.salescm2, m.margin, m.featured, m.misc_settings, m.itemjoinid');
-		$this->db->from('tbl_medicinexxxx as m');
+		$this->db->from('tbl_medicine as m');
 		$this->db->where('status', 1);
 		$this->db->where('`misc_settings` NOT LIKE "%gift%"', NULL, FALSE);
 		$this->db->where('category !=', 'g');
@@ -38,7 +38,7 @@ class MedicineSearchModel extends CI_Model
 
 		//yha query nrx user ke liya
 		if ($user_nrx != "yes") {
-			$this->db->where('misc_settings !=', '#NRX');
+			$this->db->where('misc_settings NOT LIKE', '%NRX%');
 		}
 
 		$this->db->group_start();

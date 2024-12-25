@@ -62,7 +62,7 @@ function theme_set()
 	$.ajax({
 		type       : "POST",
 		data       :  { theme_set_css:theme_set_css},
-		url        : get_base_url() + "home/theme_set_api",
+		url        : get_base_url() + "home_api/theme_set_api",
 		cache : true,
 		success : function(data){
 			if(data!="")

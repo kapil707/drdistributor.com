@@ -26,7 +26,7 @@ if ('serviceWorker' in navigator) {
         getToken(messaging, {
             serviceWorkerRegistration: registration,
             vapidKey: 'BMK6vJfyFd7fqTP-reghCOTCu4DIFcDzWth46bDnvBH0teZujhO9aFsGwpvzhbSriPyu6c9GDgiZeJtVSKiGMAM'}).then((currentToken) => {
-            console.log("Token is: "+currentToken);  
+            //console.log("Token is: "+currentToken);  
             if ((currentToken  && get_FirebaseToken()=="") && get_FirebaseToken()!=currentToken) {             
                 $.ajax({
                     type       : "POST",
@@ -51,7 +51,7 @@ if ('serviceWorker' in navigator) {
 
     // Service worker message ko receive karna aur modal ko open karna
     navigator.serviceWorker.addEventListener("message", (event) => {
-        console.log("Message received from service worker:", event.data);
+        //console.log("Message received from service worker:", event.data);
         if (event.data.action === "myModal_broadcast") {
             console.log("Opening modal...");
             $('#myModal_broadcast').modal('show');

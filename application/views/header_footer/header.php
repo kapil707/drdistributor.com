@@ -302,8 +302,8 @@ if (isset($_COOKIE["theme_type"])) {
 				</a>
 			</li>
 			<?php
-			if(!empty($session_user_type)){
-			if($session_user_type=="sales")
+			if(!empty($UserType)){
+			if($UserType=="sales")
 			{
 				?>
 			<h2 class="text-left">Server Report</h2>

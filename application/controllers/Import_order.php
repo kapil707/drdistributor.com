@@ -165,7 +165,8 @@ class Import_order extends CI_Controller {
 		$ChemistId = $this->ChemistId;
 		$SalesmanId = $this->SalesmanId;
 
-		$data["order_id"]= $order_id = base64_decode($order_id);
+		$data["order_id"] = $order_id = base64_decode($order_id);
+		echo $order_id;die();
 		if($this->UserType=="chemist")
 		{
 			$users = $this->db->query("select * from tbl_chemist where altercode='$ChemistId' ")->row();

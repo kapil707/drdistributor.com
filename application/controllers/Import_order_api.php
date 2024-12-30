@@ -333,7 +333,7 @@ class Import_order_api extends CI_Controller {
 
 				$misc_settings =	$row->misc_settings;
 				$item_stock = "";
-				if($misc_settings=="#NRX" && $item_quantity>=10){
+				if(strpos($misc_settings, '#NRX') !== false && $item_quantity>=10){
 					$item_stock = "Available";
 				}
 				
@@ -354,6 +354,9 @@ class Import_order_api extends CI_Controller {
 					$modalnumber 	= "PC - Import Order";
 					$device_id    	= "";				
 					$this->MyCartModel->medicine_add_to_cart_api($UserType,$ChemistId,$SalesmanId,$item_code,$order_quantity,$order_type,$ItemId,$mobilenumber,$modalnumber,$device_id);
+				}else{
+					//jab davi mil jaya but stock empty hoya
+					$this->db->query("update tbl_import_order_excel_file set status='3' where id='$ItemId'");
 				}
 				/******************************************/
 			}

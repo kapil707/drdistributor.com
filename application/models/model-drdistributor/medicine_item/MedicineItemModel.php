@@ -60,9 +60,9 @@ class MedicineItemModel extends CI_Model
 			/************************************ */
 		}
 		if($CategoryId=="3"){
-			//netrate
+			//net_rate
 			/*********page where******************* */
-			$this->db->where('tbl_medicine_compare.compare_type','netrate');
+			$this->db->where('tbl_medicine_compare.compare_type','net_rate');
 			/************************************ */
 		}
 		if($CategoryId=="4"){

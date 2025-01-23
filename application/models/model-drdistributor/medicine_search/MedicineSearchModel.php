@@ -78,7 +78,7 @@ class MedicineSearchModel extends CI_Model
 		$this->db->group_end();
 
 		// Sorting logic
-		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
+		// $this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
 
 		$order_case = "CASE ";
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {

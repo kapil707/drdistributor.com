@@ -60,6 +60,10 @@ class AppConfig {
         return $this->MedicineImageUrl;
     }
 
+    public function getMedicineImageUrlNew() {
+        return $this->MedicineImageUrlNew;
+    }
+
     public function getSiteEmail() {
         return $this->SiteEmail;
     }

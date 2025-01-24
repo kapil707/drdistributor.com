@@ -317,15 +317,13 @@ function medicine_details_api(item_code) {
 					`);
 					$('.easyzoom').easyZoom();
 
-					alert(item.item_image2)
-
 					setTimeout(function() {
 						// Set modal images if available
 						$(".modal_item_image_change1").attr("src", item.item_image);
 						$(".modal_item_image_change2").attr("src", item.item_image2);
 						$(".modal_item_image_change3").attr("src", item.item_image3);
 						$(".modal_item_image_change4").attr("src", item.item_image4);
-					}, 200);
+					}, 100);
 					
 					// Set cart button text if order quantity is available
 					if (item.item_order_quantity) {

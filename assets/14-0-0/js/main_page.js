@@ -317,6 +317,8 @@ function medicine_details_api(item_code) {
 					`);
 					$('.easyzoom').easyZoom();
 
+					alert(item.item_image2)
+
 					// Set modal images if available
 					$(".modal_item_image_change1").attr("src", item.item_image || "");
 					$(".modal_item_image_change2").attr("src", item.item_image2 || "");

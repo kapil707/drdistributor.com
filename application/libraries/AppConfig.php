@@ -14,6 +14,7 @@ class AppConfig {
     public $ApiUrl2 = "https://www.drdweb.co.in/";
     public $UserProfileUrl = "https://www.drdweb.co.in/user_profile/";
     public $MedicineImageUrl = "https://www.drdweb.co.in/";
+    public $MedicineImageUrlNew = "https://www.drdweb.co.in/medicines_img/";
     public $SiteEmail = "vipul@drdindia.com";
     public $SiteMobile = "+919899133989";
     public $SiteWhatsApp = "+919899133989";

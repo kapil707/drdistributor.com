@@ -3,12 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicineDetailsModel extends CI_Model  
 {
 	var $MedicineImageUrl = "";
+	var $MedicineImageUrlNew = "";
 	public function __construct(){
 		parent::__construct();
 		// Load the AppConfig library
         $this->load->library('AppConfig');
 
 		$this->MedicineImageUrl = $this->appconfig->getMedicineImageUrl();
+		$this->MedicineImageUrlNew = $this->appconfig->getMedicineImageUrlNew();
 	}
 
 	public function medicine_details_api($user_type="",$user_altercode="",$salesman_id="",$item_code="")
@@ -60,15 +62,27 @@ class MedicineDetailsModel extends CI_Model
 			$img_url_site = $this->MedicineImageUrl;
 			if(!empty($row->image1)){
 				$item_image = $img_url_site.$row->image1;
+				if(!empty($row->image1)){
+					$item_image =  $this->MedicineImageUrlNew.$item_code."/image1.jpg";
+				}
 			}
 			if(!empty($row->image2)){
 				$item_image2 = $img_url_site.$row->image2;
+				if(!empty($row->image2)){
+					$item_image2 =  $this->MedicineImageUrlNew.$item_code."/image2.jpg";
+				}
 			}
 			if(!empty($row->image3)){
 				$item_image3 = $img_url_site.$row->image3;
+				if(!empty($row->image3)){
+					$item_image3 =  $this->MedicineImageUrlNew.$item_code."/image3.jpg";
+				}
 			}
 			if(!empty($row->image4)){
 				$item_image4 = $img_url_site.$row->image4;
+				if(!empty($row->image4)){
+					$item_image4 =  $this->MedicineImageUrlNew.$item_code."/image4.jpg";
+				}
 			}
 			/*******************************************************
 			$itemjoinid			=	$row->itemjoinid;

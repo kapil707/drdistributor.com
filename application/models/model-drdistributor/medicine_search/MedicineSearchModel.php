@@ -487,8 +487,8 @@ class MedicineSearchModel extends CI_Model
 		if(!empty($row->image1))
 		{
 			$item_image = $this->MedicineImageUrl.$row->image1;
-			if(f(!empty($row->image1)){
-				$item_image = "https://drdweb.co.in//medicines_img/".$item_code."/image1.jpg";
+			if(!empty($row->image1)){
+				$item_image = "https://www.drdweb.co.in/medicines_img/".$item_code."/image1.jpg";
 			}
 		}
 		//$item_image = str_replace(" ","%20",$item_image);

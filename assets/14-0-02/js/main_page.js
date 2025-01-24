@@ -319,12 +319,14 @@ function medicine_details_api(item_code) {
 
 					alert(item.item_image2)
 
-					// Set modal images if available
-					$(".modal_item_image_change1").attr("src", item.item_image || "");
-					$(".modal_item_image_change2").attr("src", item.item_image2 || "");
-					$(".modal_item_image_change3").attr("src", item.item_image3 || "");
-					$(".modal_item_image_change4").attr("src", item.item_image4 || "");
-
+					setTimeout(function() {
+						// Set modal images if available
+						$(".modal_item_image_change1").attr("src", item.item_image || "");
+						$(".modal_item_image_change2").attr("src", item.item_image2 || "");
+						$(".modal_item_image_change3").attr("src", item.item_image3 || "");
+						$(".modal_item_image_change4").attr("src", item.item_image4 || "");
+					}, 200);
+					
 					// Set cart button text if order quantity is available
 					if (item.item_order_quantity) {
 						$(".medicine_details_item_order_quantity_textbox").val(item.item_order_quantity);

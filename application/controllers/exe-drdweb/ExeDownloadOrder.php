@@ -6,7 +6,7 @@ class ExeDownloadOrder extends CI_Controller
 
 		parent::__construct();
 		// Load model
-		$this->load->model("model-drdweb/WhatsAppModel");
+		//$this->load->model("model-drdweb/WhatsAppModel");
 	}
 
 	public function download_order($order_id)
@@ -97,13 +97,13 @@ class ExeDownloadOrder extends CI_Controller
 			/***************only for group message***********************/
 			$group2_message = "Order No. $order_id download Line Items (Total:$total/Download:$download_total_line/Insert:$insert_total_line) - Easysol No. $gstvno inserted at : ".date("d-M-y H:i");
 			$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-			$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group2,$group2_message);
+			//$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group2,$group2_message);
 
 			/***********************************************************/ 
 			if($total!=$insert_total_line){
 				$group1_message = "Order No. $order_id download Line Items (Total:$total/Download:$download_total_line/Insert:$insert_total_line) - Easysol No. $gstvno inserted at : ".date("d-M-y H:i");
 				$whatsapp_group1 = $this->Scheme_Model->get_website_data("whatsapp_group1");
-				$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group1,$group1_message);
+				//$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group1,$group1_message);
 			}
 			/*************************************************************/
 		}
@@ -120,11 +120,11 @@ class ExeDownloadOrder extends CI_Controller
 
 			/******************************************************* */
 			$whatsapp_group1 = $this->Scheme_Model->get_website_data("whatsapp_group1");
-			$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group1,$group1_message);
+			//$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group1,$group1_message);
 			
 			/******************************************************* */
 			$whatsapp_group2 = $this->Scheme_Model->get_website_data("whatsapp_group2");
-			$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group2,$group2_message);
+			//$this->WhatsAppModel->insert_whatsapp_group($whatsapp_group2,$group2_message);
 		}
 	}
 }

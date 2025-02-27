@@ -488,7 +488,7 @@ class MedicineSearchModel extends CI_Model
 		{
 			$item_image = $this->MedicineImageUrl.$row->image1;
 			if(!empty($row->image1)){
-				$item_image =  $this->MedicineImageUrl."medicine_image/".$item_code."-image1.jpg";
+				$item_image = $this->MedicineImageUrl."medicine_image/".$row->image1;
 			}
 		}
 		//$item_image = str_replace(" ","%20",$item_image);

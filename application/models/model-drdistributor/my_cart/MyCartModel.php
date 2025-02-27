@@ -229,7 +229,7 @@ class MyCartModel extends CI_Model
 		
 		/**************************************************************** */
 		$where1 = array('i_code'=>$item_code);
-		$row1 = $this->Scheme_Model->select_row("tbl_medicine_test",$where1);
+		$row1 = $this->Scheme_Model->select_row("tbl_medicine",$where1);
 		if(!empty($row1->item_name))
 		{
 			$image1 = $this->MedicineImageUrl."uploads/default_img.jpg";

@@ -61,7 +61,7 @@ class MedicineDetailsModel extends CI_Model
 			if(!empty($row->image1)){
 				$item_image = $img_url_site.$row->image1;
 				if(!empty($row->image1)){
-					$item_image =  $this->MedicineImageUrl."medicine_image/".$item_code."-image1.jpg";
+					$item_image = $this->MedicineImageUrl."medicine_image/".$row->image1;
 				}
 			}
 			if(!empty($row->image2)){
@@ -291,7 +291,8 @@ class MedicineDetailsModel extends CI_Model
 			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
-				$item_image = $this->MedicineImageUrl.$row->image1;
+				//$item_image = $this->MedicineImageUrl.$row->image1;
+				$item_image = $this->MedicineImageUrl."medicine_image/".$row->image1;
 			}
 			
 			if($SessionValue=="no"){

@@ -77,8 +77,10 @@ class MedicineSearchModel extends CI_Model
 		}
 		$this->db->group_end();
 
-		// Sorting logic
+		// Sorting logic band kiya ha iss ko 2025-02-27 ko 
+		/***********************************************
 		$this->db->order_by("CASE WHEN m.batchqty = 0 THEN 1 ELSE 0 END", NULL, FALSE);
+		/*********************************************** */
 
 		$order_case = "CASE ";
 		if ($checkbox_medicine == 1 && $checkbox_company == 1) {

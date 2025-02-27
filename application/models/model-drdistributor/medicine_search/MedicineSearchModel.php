@@ -466,7 +466,7 @@ class MedicineSearchModel extends CI_Model
 	
 	public function medicine_search_row($row,$item_count)
 	{
-		$date_time = date('d-M h:i A');
+		$date_time 			= date('d-M h:i A');
 		
 		$item_code			=	$row->i_code;
 		$item_name			=	(ucwords(strtolower($row->item_name)));
@@ -488,7 +488,7 @@ class MedicineSearchModel extends CI_Model
 		{
 			$item_image = $this->MedicineImageUrl.$row->image1;
 			if(!empty($row->image1)){
-				$item_image =  $this->MedicineImageUrl."/".$item_code."-image1.jpg";
+				$item_image =  $this->MedicineImageUrl.$item_code."-image1.jpg";
 			}
 		}
 		//$item_image = str_replace(" ","%20",$item_image);

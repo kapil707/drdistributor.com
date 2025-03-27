@@ -1140,7 +1140,7 @@ class Api46 extends CI_Controller {
 				$get_record  = $result["get_record"];
 			}
 
-			if($item_page_type=="featured_brand")
+			if($item_page_type=="company_or_division")
 			{
 				/*****************************/
 				$show_out_of_stock="1";

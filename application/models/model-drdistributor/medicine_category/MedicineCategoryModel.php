@@ -136,7 +136,7 @@ class MedicineCategoryModel extends CI_Model
 			$item_image = base_url()."uploads/default_img.webp";
 			if(!empty($row->image1))
 			{
-				$item_image = $this->MedicineImageUrl.$row->image1;
+				$item_image = $this->MedicineImageUrl."medicine_image/".$row->image1;
 			}
 			
 			if($SessionValue=="no"){
